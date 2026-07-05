@@ -11,6 +11,7 @@
   --color-on-primary: #ffffff;
   --color-gold: #c9a227;
   --color-hairline: #e5e5e5;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
 }
 
 .dark {
@@ -33,7 +34,7 @@
   --color-on-primary: var(--color-on-primary);
   --color-gold: var(--color-gold);
   --color-hairline: var(--color-hairline);
-  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-sans: var(--font-sans);
 }
 
 body {
