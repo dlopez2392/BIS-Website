@@ -53,5 +53,23 @@
     "quoteRole": "Founder, BIS",
     "ctaTitle": "Let's find your first hour back.",
     "ctaBody": "A free, no-pitch assessment: we look at how your business runs today and show you the one automation that pays for itself first."
+  },
+  "services": {
+    "title": "What we do.",
+    "intro": "Bespoke Intelligent Solutions for the modern enterprise. We bridge the gap between legacy IT and the frontier of AI.",
+    "g1Title": "AI & Automation",
+    "g1Body": "AI that removes real hours from your week — not demos that gather dust. We build practical, production-ready systems that integrate with your existing workforce.",
+    "g1Proof": "Built AI case-intake summarization for a multi-office law firm — viability answers in minutes, not days.",
+    "g1Bullets": ["AI readiness assessments", "Workflow automation (Power Automate, Claude API)", "Custom bilingual AI assistants", "Document pipelines", "AI cost governance", "Staff training"],
+    "g2Title": "IT Consulting & Security",
+    "g2Body": "Twenty years of enterprise IT leadership. We don't just fix problems; we architect resilient environments that allow your firm to scale securely across borders.",
+    "g2Proof": "Led cloud-only modernization for a 150-user firm across three offices in two countries.",
+    "g2Bullets": ["Microsoft 365 / Cloud (Entra ID, Intune)", "Phishing-resistant MFA", "Endpoint protection (Defender)", "Network modernization", "MSP oversight", "Security incident triage", "MDM"],
+    "g3Title": "Website Design",
+    "g3Body": "Fast, modern sites you actually own. No proprietary lock-in. No black boxes. Just clean, performant code that drives conversion and represents your brand's intelligence.",
+    "g3Proof": "Every build ships with the keys: your hosting, your accounts, your ownership.",
+    "g3Bullets": ["Custom design / dev", "Bilingual content architecture (native)", "Local SEO for RGV", "Analytics dashboards (Power BI)", "Clean handoff"],
+    "ctaTitle": "Ready to deploy an intelligent solution?",
+    "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself."
   }
 }

@@ -53,5 +53,23 @@
     "quoteRole": "Fundador, BIS",
     "ctaTitle": "Encontremos tu primera hora recuperada.",
     "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy y te mostramos la primera automatización que se paga sola."
+  },
+  "services": {
+    "title": "Qué hacemos.",
+    "intro": "Soluciones Inteligentes a la medida para la empresa moderna. Cerramos la brecha entre el IT tradicional y la frontera de la IA.",
+    "g1Title": "IA y Automatización",
+    "g1Body": "IA que le quita horas reales a tu semana — no demos que juntan polvo. Construimos sistemas prácticos y listos para producción que se integran con tu equipo actual.",
+    "g1Proof": "Construimos resúmenes de admisión de casos con IA para un bufete con varias oficinas — respuestas de viabilidad en minutos, no en días.",
+    "g1Bullets": ["Evaluaciones de preparación para IA", "Automatización de flujos (Power Automate, Claude API)", "Asistentes de IA bilingües a la medida", "Procesamiento de documentos", "Gobernanza de costos de IA", "Capacitación del personal"],
+    "g2Title": "Consultoría IT y Seguridad",
+    "g2Body": "Veinte años de liderazgo en IT empresarial. No solo resolvemos problemas; diseñamos entornos resistentes que le permiten a tu firma escalar de forma segura a través de fronteras.",
+    "g2Proof": "Dirigimos la modernización totalmente en la nube de una firma de 150 usuarios en tres oficinas y dos países.",
+    "g2Bullets": ["Microsoft 365 / Nube (Entra ID, Intune)", "MFA resistente a phishing", "Protección de endpoints (Defender)", "Modernización de red", "Supervisión de MSP", "Respuesta a incidentes de seguridad", "MDM"],
+    "g3Title": "Diseño Web",
+    "g3Body": "Sitios rápidos y modernos que de verdad son tuyos. Sin ataduras propietarias. Sin cajas negras. Solo código limpio y de alto rendimiento que impulsa conversiones y representa la inteligencia de tu marca.",
+    "g3Proof": "Cada proyecto se entrega con las llaves: tu hosting, tus cuentas, tu propiedad.",
+    "g3Bullets": ["Diseño / desarrollo a la medida", "Arquitectura de contenido bilingüe (nativa)", "SEO local para el RGV", "Paneles de analítica (Power BI)", "Entrega limpia"],
+    "ctaTitle": "¿Listo para desplegar una solución inteligente?",
+    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola."
   }
 }
