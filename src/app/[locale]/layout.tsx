@@ -5,6 +5,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { hankenGrotesk } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -26,7 +28,11 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning className={hankenGrotesk.variable}>
       <body>
         <ThemeProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <Header />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

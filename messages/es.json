@@ -11,5 +11,22 @@
     "industries": "Industrias",
     "about": "Nosotros",
     "contact": "Contacto"
+  },
+  "footer": {
+    "tagline": "Tu Solución Inteligente",
+    "expertise": "Especialidades",
+    "company": "Empresa",
+    "location": "Ubicación",
+    "contactCol": "Contacto",
+    "aiStrategy": "Estrategia de IA",
+    "infrastructure": "Infraestructura",
+    "webDev": "Desarrollo Web",
+    "methodology": "Metodología",
+    "caseStudies": "Casos de Éxito",
+    "privacy": "Política de Privacidad",
+    "region": "Valle del Río Grande",
+    "city": "Harlingen, TX",
+    "email": "hello@bespokeintelligent.com",
+    "rights": "© 2026 bis. Todos los derechos reservados."
   }
 }
