@@ -1,0 +1,15 @@
+{
+  "common": {
+    "brand": "bis>",
+    "fullName": "Bespoke Intelligent Solutions",
+    "cta": "Reserva tu evaluación",
+    "learnMore": "Más información"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "industries": "Industrias",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  }
+}
