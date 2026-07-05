@@ -28,5 +28,30 @@
     "city": "Harlingen, TX",
     "email": "hello@bespokeintelligent.com",
     "rights": "© 2026 bis. All rights reserved."
+  },
+  "home": {
+    "heroTitle": "Let us Be your Intelligent Solution.",
+    "heroBody": "Across the Rio Grande Valley, we help businesses work smarter with AI, secure infrastructure, and human ingenuity — in English y en español.",
+    "heroCta": "See how we do it",
+    "announceKicker": "Now Open",
+    "announceTitle": "BIS is open in the Rio Grande Valley to help local businesses harness AI.",
+    "announceBody": "Enterprise-grade AI adoption, security modernization, and modern web design — right-sized for the businesses that keep the Valley running, through one point of contact.",
+    "capabilities": "What sets us apart",
+    "capOnePoint": "One point of contact",
+    "capBilingual": "Fully bilingual, EN/ES",
+    "capSecurity": "Enterprise-grade security",
+    "capShip": "AI that ships to production",
+    "servicesHeading": "Intelligent Services",
+    "svc1Title": "AI Strategy & Adoption",
+    "svc1Body": "We identify the workflows where AI can save you the most time, then build the custom tools to automate them.",
+    "svc2Title": "Secure Infrastructure",
+    "svc2Body": "Enterprise-grade security and cloud systems designed for the scale of high-growth Valley enterprises.",
+    "svc3Title": "Modern Digital Presence",
+    "svc3Body": "High-performance web applications that convert and communicate in both of our region's languages.",
+    "quote": "Big-firm technology has never been out of reach for Valley businesses — it's just never been built for them. Bespoke means we start with your workflow, your customers, your two languages.",
+    "quoteName": "Dan Lopez",
+    "quoteRole": "Founder, BIS",
+    "ctaTitle": "Let's find your first hour back.",
+    "ctaBody": "A free, no-pitch assessment: we look at how your business runs today and show you the one automation that pays for itself first."
   }
 }

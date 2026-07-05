@@ -28,5 +28,30 @@
     "city": "Harlingen, TX",
     "email": "hello@bespokeintelligent.com",
     "rights": "© 2026 bis. Todos los derechos reservados."
+  },
+  "home": {
+    "heroTitle": "Deja que seamos tu Solución Inteligente.",
+    "heroBody": "En todo el Valle del Río Grande, ayudamos a los negocios a trabajar de forma más inteligente con IA, infraestructura segura e ingenio humano — in English y en español.",
+    "heroCta": "Descubre cómo lo hacemos",
+    "announceKicker": "Ya Abiertos",
+    "announceTitle": "BIS ya está en el Valle del Río Grande para ayudar a los negocios locales a aprovechar la IA.",
+    "announceBody": "Adopción de IA de nivel empresarial, modernización de seguridad y diseño web moderno — a la medida de los negocios que hacen funcionar el Valle, a través de un solo punto de contacto.",
+    "capabilities": "Lo que nos distingue",
+    "capOnePoint": "Un solo punto de contacto",
+    "capBilingual": "Totalmente bilingüe, EN/ES",
+    "capSecurity": "Seguridad de nivel empresarial",
+    "capShip": "IA que llega a producción",
+    "servicesHeading": "Servicios Inteligentes",
+    "svc1Title": "Estrategia y Adopción de IA",
+    "svc1Body": "Identificamos los flujos de trabajo donde la IA puede ahorrarte más tiempo, y construimos las herramientas a la medida para automatizarlos.",
+    "svc2Title": "Infraestructura Segura",
+    "svc2Body": "Sistemas de seguridad y nube de nivel empresarial, diseñados para la escala de las empresas del Valle en pleno crecimiento.",
+    "svc3Title": "Presencia Digital Moderna",
+    "svc3Body": "Aplicaciones web de alto rendimiento que convierten y comunican en los dos idiomas de nuestra región.",
+    "quote": "La tecnología de las grandes firmas nunca ha estado fuera del alcance de los negocios del Valle — simplemente nunca se construyó para ellos. Bespoke significa que empezamos con tu flujo de trabajo, tus clientes, tus dos idiomas.",
+    "quoteName": "Dan Lopez",
+    "quoteRole": "Fundador, BIS",
+    "ctaTitle": "Encontremos tu primera hora recuperada.",
+    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy y te mostramos la primera automatización que se paga sola."
   }
 }
