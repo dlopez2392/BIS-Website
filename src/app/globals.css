@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-surface: #f9f9f9;
+  --color-surface-alt: #ffffff;
+  --color-ink: #1b1b1b;
+  --color-ink-muted: #444655;
+  --color-primary: #2745e0;
+  --color-on-primary: #ffffff;
+  --color-gold: #c9a227;
+  --color-hairline: #e5e5e5;
+}
+
+.dark {
+  --color-surface: #141414;
+  --color-surface-alt: #1e1e1e;
+  --color-ink: #f1f1f1;
+  --color-ink-muted: #b8bac6;
+  --color-primary: #4864ff;
+  --color-on-primary: #000f5d;
+  --color-gold: #d8b647;
+  --color-hairline: #2c2c2c;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-gold: var(--color-gold);
+  --color-hairline: var(--color-hairline);
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
