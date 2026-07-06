@@ -10,7 +10,9 @@
     "services": "Servicios",
     "industries": "Industrias",
     "about": "Nosotros",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "footer": {
     "tagline": "Tu Solución Inteligente",
