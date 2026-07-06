@@ -16,7 +16,7 @@ export function LocaleSwitcher() {
           <Link
             href={pathname}
             locale={loc}
-            className={cn('uppercase', loc === active ? 'text-primary' : 'text-ink-muted hover:text-ink')}
+            className={cn(loc === active ? 'text-primary' : 'text-ink-muted hover:text-ink')}
           >
             {loc.toUpperCase()}
           </Link>

@@ -34,9 +34,6 @@
     "heroBody": "En todo el Valle del Río Grande, ayudamos a los negocios a trabajar de forma más inteligente con IA, infraestructura segura e ingenio humano — in English y en español.",
     "heroCta": "Descubre cómo lo hacemos",
     "announceKicker": "Ya Abiertos",
-    "announceTitle": "BIS ya está en el Valle del Río Grande para ayudar a los negocios locales a aprovechar la IA.",
-    "announceBody": "Adopción de IA de nivel empresarial, modernización de seguridad y diseño web moderno — a la medida de los negocios que hacen funcionar el Valle, a través de un solo punto de contacto.",
-    "capabilities": "Lo que nos distingue",
     "capOnePoint": "Un solo punto de contacto",
     "capBilingual": "Totalmente bilingüe, EN/ES",
     "capSecurity": "Seguridad de nivel empresarial",
@@ -153,7 +150,6 @@
     "success": "Gracias — recibimos tu solicitud. Nos pondremos en contacto pronto.",
     "errRequired": "Este campo es obligatorio",
     "errEmail": "Ingresa un correo válido",
-    "directChannel": "Canal Directo",
     "localOps": "Operaciones Locales",
     "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español."
   },

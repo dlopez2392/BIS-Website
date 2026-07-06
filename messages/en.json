@@ -34,9 +34,6 @@
     "heroBody": "Across the Rio Grande Valley, we help businesses work smarter with AI, secure infrastructure, and human ingenuity — in English y en español.",
     "heroCta": "See how we do it",
     "announceKicker": "Now Open",
-    "announceTitle": "BIS is open in the Rio Grande Valley to help local businesses harness AI.",
-    "announceBody": "Enterprise-grade AI adoption, security modernization, and modern web design — right-sized for the businesses that keep the Valley running, through one point of contact.",
-    "capabilities": "What sets us apart",
     "capOnePoint": "One point of contact",
     "capBilingual": "Fully bilingual, EN/ES",
     "capSecurity": "Enterprise-grade security",
@@ -153,7 +150,6 @@
     "success": "Thanks — we received your request. We'll be in touch shortly.",
     "errRequired": "This field is required",
     "errEmail": "Enter a valid email",
-    "directChannel": "Direct Channel",
     "localOps": "Local Operations",
     "localOpsValue": "Harlingen, Texas — serving the Rio Grande Valley. Se habla español."
   },
