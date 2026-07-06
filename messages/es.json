@@ -129,5 +129,32 @@
     "m4Body": "Empoderamos a tu equipo para que sea dueño de la solución: documentación, capacitación y una hoja de ruta sostenible para crecer.",
     "ctaTitle": "Construyamos tu solución inteligente.",
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta. Te mostraremos la primera automatización que se paga sola."
+  },
+  "contact": {
+    "title": "Encontremos tu primera hora recuperada.",
+    "intro": "Nuestra evaluación Bespoke es un diagnóstico de alta precisión que identifica las fugas operativas y las oportunidades de automatización inmediatas dentro de tu stack actual.",
+    "b1": "Recorrido por tus flujos de trabajo",
+    "b2": "Una automatización identificada",
+    "b3": "Diagnóstico de seguridad",
+    "b4": "Hoja de ruta de 90 días",
+    "fullName": "Nombre Completo",
+    "businessName": "Nombre del Negocio",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "industry": "Industria",
+    "industryLegal": "Legal y Profesional",
+    "industryHealth": "Salud",
+    "industryMfg": "Manufactura",
+    "industryLogistics": "Logística",
+    "industryOther": "Otra",
+    "language": "Idioma Preferido",
+    "message": "Mensaje (Opcional)",
+    "submit": "Reservar mi evaluación gratuita",
+    "success": "Gracias — recibimos tu solicitud. Nos pondremos en contacto pronto.",
+    "errRequired": "Este campo es obligatorio",
+    "errEmail": "Ingresa un correo válido",
+    "directChannel": "Canal Directo",
+    "localOps": "Operaciones Locales",
+    "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español."
   }
 }

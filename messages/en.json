@@ -129,5 +129,32 @@
     "m4Body": "We empower your team to own the solution: documentation, training, and a sustainable roadmap for growth.",
     "ctaTitle": "Let's build your intelligent solution.",
     "ctaBody": "Start with a free, no-pitch assessment. We'll show you the one automation that pays for itself first."
+  },
+  "contact": {
+    "title": "Let's find your first hour back.",
+    "intro": "Our Bespoke assessment is a high-precision diagnostic that pinpoints operational leakage and immediate automation opportunities within your existing stack.",
+    "b1": "Workflows walkthrough",
+    "b2": "One automation identified",
+    "b3": "Security snapshot",
+    "b4": "90-day roadmap",
+    "fullName": "Full Name",
+    "businessName": "Business Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "industry": "Industry",
+    "industryLegal": "Legal & Professional",
+    "industryHealth": "Healthcare",
+    "industryMfg": "Manufacturing",
+    "industryLogistics": "Logistics",
+    "industryOther": "Other",
+    "language": "Preferred Language",
+    "message": "Message (Optional)",
+    "submit": "Book my free assessment",
+    "success": "Thanks — we received your request. We'll be in touch shortly.",
+    "errRequired": "This field is required",
+    "errEmail": "Enter a valid email",
+    "directChannel": "Direct Channel",
+    "localOps": "Local Operations",
+    "localOpsValue": "Harlingen, Texas — serving the Rio Grande Valley. Se habla español."
   }
 }
