@@ -1,9 +1,12 @@
+import type React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Brain } from 'lucide-react';
 import { ServiceCard } from '../ServiceCard';
 
-vi.mock('@/i18n/navigation', () => ({ Link: ({ children, ...p }: any) => <a {...p}>{children}</a> }));
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, ...p }: { children?: React.ReactNode } & Record<string, unknown>) => <a {...p}>{children}</a>,
+}));
 
 describe('ServiceCard', () => {
   it('renders title, body and a learn-more link', () => {

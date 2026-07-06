@@ -19,7 +19,7 @@ export function ContactForm() {
     useForm<ContactFormInput, unknown, ContactFormValues>({ resolver: zodResolver(contactSchema), defaultValues: { language: 'en', industry: 'legal', message: '' } });
 
   // Phase 2 replaces this stub with a Server Action call.
-  const onSubmit = async (_values: ContactFormValues) => { setSent(true); };
+  const onSubmit = async () => { setSent(true); };
 
   if (sent) return <p role="status" className="rounded-md bg-surface-alt p-6 text-ink">{t('success')}</p>;
 
