@@ -71,5 +71,26 @@
     "g3Bullets": ["Custom design / dev", "Bilingual content architecture (native)", "Local SEO for RGV", "Analytics dashboards (Power BI)", "Clean handoff"],
     "ctaTitle": "Ready to deploy an intelligent solution?",
     "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself."
+  },
+  "industries": {
+    "title": "Built for the Valley.",
+    "intro": "High-performance AI engineering tailored specifically for the Rio Grande Valley's economic anchors. Modern systems designed to scale at the speed of the border.",
+    "legalLabel": "Legal",
+    "legalTitle": "Intake that never sleeps.",
+    "legalBody": "AI-driven legal intake screens potential clients 24/7, delivering formatted, prioritized case data before the first cup of coffee.",
+    "medLabel": "Medical & Dental",
+    "medTitle": "Less admin, more patients.",
+    "medBody": "Automate scheduling, reminders, and bilingual patient intake so your staff spends time on care, not paperwork.",
+    "logLabel": "Logistics & Freight",
+    "logTitle": "A head start on the corridor.",
+    "logBody": "Predictive systems and automated documentation keep freight moving across the border at the speed your customers expect.",
+    "tradesLabel": "Skilled Trades",
+    "tradesTitle": "Quote, schedule, get paid.",
+    "tradesBody": "Modern sites and automations that capture leads, book jobs, and follow up — in both languages your customers speak.",
+    "agLabel": "Agriculture",
+    "agTitle": "Data-driven from field to invoice.",
+    "agBody": "Connect operations, inventory, and reporting with practical AI built for the realities of Valley agriculture.",
+    "ctaTitle": "Don't see your industry?",
+    "ctaBody": "If your business runs on repeatable work, we can probably automate part of it. Let's find out for free."
   }
 }

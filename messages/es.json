@@ -71,5 +71,26 @@
     "g3Bullets": ["Diseño / desarrollo a la medida", "Arquitectura de contenido bilingüe (nativa)", "SEO local para el RGV", "Paneles de analítica (Power BI)", "Entrega limpia"],
     "ctaTitle": "¿Listo para desplegar una solución inteligente?",
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola."
+  },
+  "industries": {
+    "title": "Hecho para el Valle.",
+    "intro": "Ingeniería de IA de alto rendimiento hecha específicamente para los pilares económicos del Valle del Río Grande. Sistemas modernos diseñados para escalar a la velocidad de la frontera.",
+    "legalLabel": "Legal",
+    "legalTitle": "Admisión que nunca duerme.",
+    "legalBody": "La admisión legal con IA evalúa a posibles clientes las 24 horas, entregando datos de casos formateados y priorizados antes del primer café.",
+    "medLabel": "Médico y Dental",
+    "medTitle": "Menos administración, más pacientes.",
+    "medBody": "Automatiza agendas, recordatorios y la admisión bilingüe de pacientes para que tu equipo dedique el tiempo al cuidado, no al papeleo.",
+    "logLabel": "Logística y Transporte",
+    "logTitle": "Una ventaja en el corredor.",
+    "logBody": "Sistemas predictivos y documentación automatizada mantienen la carga en movimiento a través de la frontera a la velocidad que tus clientes esperan.",
+    "tradesLabel": "Oficios Especializados",
+    "tradesTitle": "Cotiza, agenda, cobra.",
+    "tradesBody": "Sitios modernos y automatizaciones que capturan clientes, agendan trabajos y dan seguimiento — en los dos idiomas que hablan tus clientes.",
+    "agLabel": "Agricultura",
+    "agTitle": "Con datos, del campo a la factura.",
+    "agBody": "Conecta operaciones, inventario y reportes con IA práctica hecha para la realidad de la agricultura del Valle.",
+    "ctaTitle": "¿No ves tu industria?",
+    "ctaBody": "Si tu negocio funciona con trabajo repetitivo, probablemente podamos automatizar una parte. Averigüémoslo gratis."
   }
 }
