@@ -156,5 +156,11 @@
     "directChannel": "Canal Directo",
     "localOps": "Operaciones Locales",
     "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español."
+  },
+  "meta": {
+    "title": "Bespoke Intelligent Solutions — IA, IT y Web para el Valle del Río Grande",
+    "description": "Adopción de IA de nivel empresarial, seguridad y diseño web moderno — a la medida de los negocios del Valle del Río Grande. Bilingüe, un solo punto de contacto.",
+    "notFound": "Página no encontrada",
+    "notFoundCta": "Volver al inicio"
   }
 }

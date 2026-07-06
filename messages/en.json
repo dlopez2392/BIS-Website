@@ -156,5 +156,11 @@
     "directChannel": "Direct Channel",
     "localOps": "Local Operations",
     "localOpsValue": "Harlingen, Texas — serving the Rio Grande Valley. Se habla español."
+  },
+  "meta": {
+    "title": "Bespoke Intelligent Solutions — AI, IT & Web for the Rio Grande Valley",
+    "description": "Enterprise-grade AI adoption, security, and modern web design — right-sized for Rio Grande Valley businesses. Bilingual, one point of contact.",
+    "notFound": "Page not found",
+    "notFoundCta": "Back home"
   }
 }
