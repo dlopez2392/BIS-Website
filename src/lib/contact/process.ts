@@ -18,10 +18,20 @@ export async function processContactSubmission(input: unknown, deps: ContactDeps
     deps.sendLeadNotification(lead),
   ]);
   const captured = dbResult.status === 'fulfilled' || notifyResult.status === 'fulfilled';
-  if (!captured) return { ok: false, error: 'failed' };
+  if (!captured) {
+    console.error('[contact] lead not captured — both persistence paths failed', {
+      dbError: dbResult.status === 'rejected' ? dbResult.reason : undefined,
+      notifyError: notifyResult.status === 'rejected' ? notifyResult.reason : undefined,
+    });
+    return { ok: false, error: 'failed' };
+  }
 
   // Best-effort thank-you — never affects the result.
-  try { await deps.sendThankYou(lead); } catch { /* logged upstream; ignore */ }
+  try {
+    await deps.sendThankYou(lead);
+  } catch (err) {
+    console.error('[contact] thank-you email failed (best-effort, lead already captured)', err);
+  }
 
   return { ok: true };
 }

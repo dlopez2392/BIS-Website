@@ -41,17 +41,23 @@ describe('processContactSubmission', () => {
   });
 
   it('fails only when both the DB insert and the notification email fail', async () => {
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const d = deps({
       insertLead: vi.fn().mockRejectedValue(new Error('db down')),
       sendLeadNotification: vi.fn().mockRejectedValue(new Error('mail down')),
     });
     const r = await processContactSubmission(valid, d);
     expect(r).toEqual({ ok: false, error: 'failed' });
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
   });
 
   it('a failing thank-you never affects a successful result', async () => {
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const d = deps({ sendThankYou: vi.fn().mockRejectedValue(new Error('mail down')) });
     const r = await processContactSubmission(valid, d);
     expect(r).toEqual({ ok: true });
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
   });
 });
