@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bespokeintelligent.com';
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bis-rgv.com';
 const PATHS = ['', '/services', '/industries', '/about', '/contact'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
