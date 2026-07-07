@@ -163,6 +163,7 @@
     "success": "Thanks — we received your request. We'll be in touch shortly.",
     "errRequired": "This field is required",
     "errEmail": "Enter a valid email",
+    "errorGeneric": "Something went wrong sending your request. Please email hello@bis-rgv.com and we'll take it from there.",
     "localOps": "Local Operations",
     "localOpsValue": "Harlingen, Texas — serving the Rio Grande Valley. Se habla español."
   },

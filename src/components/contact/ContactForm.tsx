@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import type { z } from 'zod';
 import { contactSchema, type ContactFormValues } from '@/lib/contact-schema';
+import { submitContact } from '@/app/[locale]/contact/actions';
 
 // `message` is optional-with-default, so the schema's input type (pre-parse)
 // differs from ContactFormValues (post-parse output). react-hook-form's field
@@ -15,11 +16,15 @@ type ContactFormInput = z.input<typeof contactSchema>;
 export function ContactForm() {
   const t = useTranslations('contact');
   const [sent, setSent] = useState(false);
+  const [errored, setErrored] = useState(false);
   const { register, handleSubmit, formState: { errors, isSubmitting } } =
     useForm<ContactFormInput, unknown, ContactFormValues>({ resolver: zodResolver(contactSchema), defaultValues: { language: 'en', industry: 'legal', message: '' } });
 
-  // Phase 2 replaces this stub with a Server Action call.
-  const onSubmit = async () => { setSent(true); };
+  const onSubmit = async (values: ContactFormValues) => {
+    setErrored(false);
+    const result = await submitContact(values);
+    if (result.ok) { setSent(true); } else { setErrored(true); }
+  };
 
   if (sent) return <p role="status" className="rounded-md bg-surface-alt p-6 text-ink">{t('success')}</p>;
 
@@ -67,6 +72,7 @@ export function ContactForm() {
         <label htmlFor="message" className="text-sm text-ink-muted">{t('message')}</label>
         <textarea id="message" className={field} rows={4} {...register('message')} />
       </div>
+      {errored && <p role="alert" className="text-sm text-red-600">{t('errorGeneric')}</p>}
       <button type="submit" disabled={isSubmitting} className="rounded-md bg-primary px-6 py-3 font-bold text-on-primary disabled:opacity-60">
         {t('submit')} &gt;
       </button>
