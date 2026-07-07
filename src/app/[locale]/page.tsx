@@ -5,6 +5,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { CTASection } from '@/components/ui/CTASection';
 import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { CapabilityBand } from '@/components/marketing/CapabilityBand';
+import { Announcement } from '@/components/marketing/Announcement';
+import { InsightCard } from '@/components/marketing/InsightCard';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -22,10 +24,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </Link>
       </section>
 
+      <Announcement kicker={t('announceKicker')} title={t('announceTitle')} body={t('announceBody')} />
+
       <CapabilityBand items={[t('capOnePoint'), t('capBilingual'), t('capSecurity'), t('capShip')]} />
 
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionHeading eyebrow={t('announceKicker')} title={t('servicesHeading')} />
+        <SectionHeading title={t('servicesHeading')} />
         <div className="grid gap-6 md:grid-cols-3">
           <ServiceCard icon={Brain} title={t('svc1Title')} body={t('svc1Body')} href="/services" learnMore={c('learnMore')} />
           <ServiceCard icon={ShieldCheck} title={t('svc2Title')} body={t('svc2Body')} href="/services" learnMore={c('learnMore')} />
@@ -37,6 +41,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <blockquote className="text-2xl font-medium text-ink">“{t('quote')}”</blockquote>
         <p className="mt-4 font-bold text-ink">{t('quoteName')}</p>
         <p className="text-sm text-ink-muted">{t('quoteRole')}</p>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <SectionHeading title={t('insightsHeading')} />
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+          <InsightCard category={t('post1Cat')} title={t('post1Title')} />
+          <InsightCard category={t('post2Cat')} title={t('post2Title')} />
+          <InsightCard category={t('post3Cat')} title={t('post3Title')} />
+          <InsightCard category={t('post4Cat')} title={t('post4Title')} />
+        </div>
       </section>
 
       <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
