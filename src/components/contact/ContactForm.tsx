@@ -1,10 +1,11 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import type { z } from 'zod';
 import { contactSchema, type ContactFormValues } from '@/lib/contact-schema';
+import { submitContact } from '@/app/[locale]/contact/actions';
 
 // `message` is optional-with-default, so the schema's input type (pre-parse)
 // differs from ContactFormValues (post-parse output). react-hook-form's field
@@ -15,17 +16,34 @@ type ContactFormInput = z.input<typeof contactSchema>;
 export function ContactForm() {
   const t = useTranslations('contact');
   const [sent, setSent] = useState(false);
+  const [errored, setErrored] = useState(false);
+  const honeypotRef = useRef<HTMLInputElement>(null);
   const { register, handleSubmit, formState: { errors, isSubmitting } } =
     useForm<ContactFormInput, unknown, ContactFormValues>({ resolver: zodResolver(contactSchema), defaultValues: { language: 'en', industry: 'legal', message: '' } });
 
-  // Phase 2 replaces this stub with a Server Action call.
-  const onSubmit = async () => { setSent(true); };
+  const onSubmit = async (values: ContactFormValues) => {
+    setErrored(false);
+    const result = await submitContact({ ...values, website: honeypotRef.current?.value ?? '' });
+    if (result.ok) { setSent(true); } else { setErrored(true); }
+  };
 
   if (sent) return <p role="status" className="rounded-md bg-surface-alt p-6 text-ink">{t('success')}</p>;
 
   const field = 'w-full rounded-md border border-hairline bg-surface px-3 py-2 text-ink';
   return (
+    // onSubmit only reads honeypotRef.current when the user actually submits,
+    // never during render — the compiler can't prove this statically.
+    // eslint-disable-next-line react-hooks/refs
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4" noValidate>
+      <input
+        ref={honeypotRef}
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div>
         <label htmlFor="fullName" className="text-sm text-ink-muted">{t('fullName')}</label>
         <input id="fullName" className={field} {...register('fullName')} />
@@ -67,6 +85,7 @@ export function ContactForm() {
         <label htmlFor="message" className="text-sm text-ink-muted">{t('message')}</label>
         <textarea id="message" className={field} rows={4} {...register('message')} />
       </div>
+      {errored && <p role="alert" className="text-sm text-red-600">{t('errorGeneric')}</p>}
       <button type="submit" disabled={isSubmitting} className="rounded-md bg-primary px-6 py-3 font-bold text-on-primary disabled:opacity-60">
         {t('submit')} &gt;
       </button>

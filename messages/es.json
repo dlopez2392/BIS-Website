@@ -28,7 +28,7 @@
     "privacy": "Política de Privacidad",
     "region": "Valle del Río Grande",
     "city": "Harlingen, TX",
-    "email": "hello@bespokeintelligent.com",
+    "email": "bespokeintelligentsolutions@gmail.com",
     "rights": "© 2026 bis. Todos los derechos reservados."
   },
   "home": {
@@ -163,6 +163,7 @@
     "success": "Gracias — recibimos tu solicitud. Nos pondremos en contacto pronto.",
     "errRequired": "Este campo es obligatorio",
     "errEmail": "Ingresa un correo válido",
+    "errorGeneric": "Algo salió mal al enviar tu solicitud. Escríbenos a bespokeintelligentsolutions@gmail.com y lo resolvemos.",
     "localOps": "Operaciones Locales",
     "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español."
   },
