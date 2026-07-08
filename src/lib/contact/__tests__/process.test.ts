@@ -60,4 +60,13 @@ describe('processContactSubmission', () => {
     expect(spy).toHaveBeenCalled();
     spy.mockRestore();
   });
+
+  it('honeypot tripped: silently drops the submission before any DB/email', async () => {
+    const d = deps();
+    const r = await processContactSubmission({ ...valid, website: 'http://spam.example' }, d);
+    expect(r).toEqual({ ok: true });
+    expect(d.insertLead).not.toHaveBeenCalled();
+    expect(d.sendLeadNotification).not.toHaveBeenCalled();
+    expect(d.sendThankYou).not.toHaveBeenCalled();
+  });
 });

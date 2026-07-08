@@ -9,6 +9,10 @@ export interface ContactDeps {
 }
 
 export async function processContactSubmission(input: unknown, deps: ContactDeps): Promise<ContactResult> {
+  if (input && typeof input === 'object' && 'website' in input && (input as { website?: unknown }).website) {
+    return { ok: true }; // honeypot tripped — silently drop, no DB/email
+  }
+
   const parsed = contactSchema.safeParse(input);
   if (!parsed.success) return { ok: false, error: 'invalid' };
   const lead = parsed.data;

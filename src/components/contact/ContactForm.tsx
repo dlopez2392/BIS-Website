@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
@@ -17,12 +17,13 @@ export function ContactForm() {
   const t = useTranslations('contact');
   const [sent, setSent] = useState(false);
   const [errored, setErrored] = useState(false);
+  const honeypotRef = useRef<HTMLInputElement>(null);
   const { register, handleSubmit, formState: { errors, isSubmitting } } =
     useForm<ContactFormInput, unknown, ContactFormValues>({ resolver: zodResolver(contactSchema), defaultValues: { language: 'en', industry: 'legal', message: '' } });
 
   const onSubmit = async (values: ContactFormValues) => {
     setErrored(false);
-    const result = await submitContact(values);
+    const result = await submitContact({ ...values, website: honeypotRef.current?.value ?? '' });
     if (result.ok) { setSent(true); } else { setErrored(true); }
   };
 
@@ -30,7 +31,19 @@ export function ContactForm() {
 
   const field = 'w-full rounded-md border border-hairline bg-surface px-3 py-2 text-ink';
   return (
+    // onSubmit only reads honeypotRef.current when the user actually submits,
+    // never during render — the compiler can't prove this statically.
+    // eslint-disable-next-line react-hooks/refs
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4" noValidate>
+      <input
+        ref={honeypotRef}
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div>
         <label htmlFor="fullName" className="text-sm text-ink-muted">{t('fullName')}</label>
         <input id="fullName" className={field} {...register('fullName')} />
