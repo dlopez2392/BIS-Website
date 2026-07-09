@@ -165,7 +165,10 @@
     "errEmail": "Ingresa un correo válido",
     "errorGeneric": "Algo salió mal al enviar tu solicitud. Escríbenos a bespokeintelligentsolutions@gmail.com y lo resolvemos.",
     "localOps": "Operaciones Locales",
-    "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español."
+    "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español.",
+    "bookHeading": "¿Prefieres hablar? Agenda una llamada.",
+    "bookSubtext": "Reserva un espacio gratuito de 20 minutos que te funcione — sin presión de venta, solo un vistazo a dónde la IA o la automatización pueden ayudar a tu negocio.",
+    "bookFallback": "Abrir la página de reservación"
   },
   "meta": {
     "title": "Bespoke Intelligent Solutions — IA, IT y Web para el Valle del Río Grande",

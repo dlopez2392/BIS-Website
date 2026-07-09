@@ -165,7 +165,10 @@
     "errEmail": "Enter a valid email",
     "errorGeneric": "Something went wrong sending your request. Please email bespokeintelligentsolutions@gmail.com and we'll take it from there.",
     "localOps": "Local Operations",
-    "localOpsValue": "Harlingen, Texas — serving the Rio Grande Valley. Se habla español."
+    "localOpsValue": "Harlingen, Texas — serving the Rio Grande Valley. Se habla español.",
+    "bookHeading": "Prefer to talk? Book a call.",
+    "bookSubtext": "Grab a free 20-minute assessment slot that works for you — no pitch, just a look at where AI or automation can help your business.",
+    "bookFallback": "Open the booking page"
   },
   "meta": {
     "title": "Bespoke Intelligent Solutions — AI, IT & Web for the Rio Grande Valley",

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ContactForm } from '@/components/contact/ContactForm';
+import { BookingEmbed } from '@/components/contact/BookingEmbed';
 import { pageMetadata } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -30,6 +31,13 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         </div>
         <ContactForm />
       </div>
+      <section className="mt-20 border-t border-hairline pt-16">
+        <h2 className="text-3xl font-extrabold tracking-tight text-ink">{t('bookHeading')}</h2>
+        <p className="mt-3 max-w-2xl text-ink-muted">{t('bookSubtext')}</p>
+        <div className="mt-8">
+          <BookingEmbed />
+        </div>
+      </section>
     </main>
   );
 }
