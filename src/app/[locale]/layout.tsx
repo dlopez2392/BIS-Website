@@ -19,7 +19,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'meta' });
-  return { title: t('title'), description: t('description') };
+  return {
+    metadataBase: new URL('https://bis-rgv.com'),
+    title: { default: t('title'), template: '%s · Bespoke Intelligent Solutions' },
+    description: t('description'),
+  };
 }
 
 export default async function LocaleLayout({

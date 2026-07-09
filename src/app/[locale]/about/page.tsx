@@ -1,7 +1,15 @@
+import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { CredentialCard } from '@/components/marketing/CredentialCard';
 import { MethodStep } from '@/components/marketing/MethodStep';
 import { CTASection } from '@/components/ui/CTASection';
+import { pageMetadata } from '@/lib/seo/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  return pageMetadata({ locale, path: '/about', title: t('aboutTitle'), description: t('aboutDescription') });
+}
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

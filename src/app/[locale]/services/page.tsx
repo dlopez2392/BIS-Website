@@ -1,6 +1,14 @@
+import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ServiceGroup } from '@/components/marketing/ServiceGroup';
 import { CTASection } from '@/components/ui/CTASection';
+import { pageMetadata } from '@/lib/seo/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  return pageMetadata({ locale, path: '/services', title: t('servicesTitle'), description: t('servicesDescription') });
+}
 
 export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

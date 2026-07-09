@@ -171,6 +171,16 @@
     "title": "Bespoke Intelligent Solutions — AI, IT & Web for the Rio Grande Valley",
     "description": "Enterprise-grade AI adoption, security, and modern web design — right-sized for Rio Grande Valley businesses. Bilingual, one point of contact.",
     "notFound": "Page not found",
-    "notFoundCta": "Back home"
+    "notFoundCta": "Back home",
+    "homeTitle": "AI, IT & Web for Rio Grande Valley Businesses",
+    "homeDescription": "Enterprise-grade AI, security, and modern web — right-sized for Rio Grande Valley businesses. Bilingual, one point of contact.",
+    "servicesTitle": "Services — AI, IT Security & Web Design",
+    "servicesDescription": "AI & automation, enterprise IT and security, and modern bilingual web design for RGV businesses.",
+    "industriesTitle": "Industries — Built for the Valley",
+    "industriesDescription": "AI and IT solutions tailored for Rio Grande Valley legal, medical, logistics, skilled-trades, and agriculture businesses.",
+    "aboutTitle": "About — Who We Are",
+    "aboutDescription": "Bespoke Intelligent Solutions brings enterprise-grade AI and IT consultancy to the Rio Grande Valley, founded by Dan Lopez.",
+    "contactTitle": "Free Assessment — Contact Us",
+    "contactDescription": "Book a free, no-pitch assessment. We find the one automation that pays for itself first. Bilingual, RGV-based."
   }
 }

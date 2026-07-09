@@ -6,6 +6,13 @@ const PATHS = ['', '/services', '/industries', '/about', '/contact'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routing.locales.flatMap((locale) =>
-    PATHS.map((p) => ({ url: `${BASE}/${locale}${p}`, changeFrequency: 'monthly' as const, priority: p === '' ? 1 : 0.8 }))
+    PATHS.map((p) => ({
+      url: `${BASE}/${locale}${p}`,
+      changeFrequency: 'monthly' as const,
+      priority: p === '' ? 1 : 0.8,
+      alternates: {
+        languages: Object.fromEntries(routing.locales.map((l) => [l, `${BASE}/${l}${p}`])),
+      },
+    }))
   );
 }

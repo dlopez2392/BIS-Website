@@ -1,6 +1,14 @@
+import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { IndustryCard } from '@/components/marketing/IndustryCard';
 import { CTASection } from '@/components/ui/CTASection';
+import { pageMetadata } from '@/lib/seo/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  return pageMetadata({ locale, path: '/industries', title: t('industriesTitle'), description: t('industriesDescription') });
+}
 
 export default async function IndustriesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
