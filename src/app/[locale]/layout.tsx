@@ -10,6 +10,7 @@ import { hankenGrotesk } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { StructuredData } from '@/components/seo/StructuredData';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -49,6 +50,7 @@ export default async function LocaleLayout({
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <StructuredData />
       </body>
     </html>
   );
