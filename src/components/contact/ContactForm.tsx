@@ -2,7 +2,8 @@
 import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { track } from '@vercel/analytics';
 import type { z } from 'zod';
 import { contactSchema, type ContactFormValues } from '@/lib/contact-schema';
 import { submitContact } from '@/app/[locale]/contact/actions';
@@ -15,6 +16,7 @@ type ContactFormInput = z.input<typeof contactSchema>;
 
 export function ContactForm() {
   const t = useTranslations('contact');
+  const locale = useLocale();
   const [sent, setSent] = useState(false);
   const [errored, setErrored] = useState(false);
   const honeypotRef = useRef<HTMLInputElement>(null);
@@ -24,7 +26,12 @@ export function ContactForm() {
   const onSubmit = async (values: ContactFormValues) => {
     setErrored(false);
     const result = await submitContact({ ...values, website: honeypotRef.current?.value ?? '' });
-    if (result.ok) { setSent(true); } else { setErrored(true); }
+    if (result.ok) {
+      track('lead_submitted', { locale, industry: values.industry });
+      setSent(true);
+    } else {
+      setErrored(true);
+    }
   };
 
   if (sent) return <p role="status" className="rounded-md bg-surface-alt p-6 text-ink">{t('success')}</p>;
