@@ -11,6 +11,7 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/components/seo/StructuredData';
+import { SITE_URL } from '@/lib/seo/business';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'meta' });
   return {
-    metadataBase: new URL('https://bis-rgv.com'),
+    metadataBase: new URL(SITE_URL),
     title: { default: t('title'), template: '%s · Bespoke Intelligent Solutions' },
     description: t('description'),
   };
