@@ -185,5 +185,13 @@
     "aboutDescription": "Bespoke Intelligent Solutions brings enterprise-grade AI and IT consultancy to the Rio Grande Valley, founded by Dan Lopez.",
     "contactTitle": "Free Assessment — Contact Us",
     "contactDescription": "Book a free, no-pitch assessment. We find the one automation that pays for itself first. Bilingual, RGV-based."
+  },
+  "chat": {
+    "open": "Chat with us",
+    "title": "BIS Assistant",
+    "greeting": "Hi! I'm the BIS assistant. Ask me about AI, IT, or web for your Valley business — I can also set you up with a free assessment.",
+    "placeholder": "Type your message…",
+    "send": "Send",
+    "close": "Close chat"
   }
 }

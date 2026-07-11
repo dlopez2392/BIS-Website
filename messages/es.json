@@ -185,5 +185,13 @@
     "aboutDescription": "Bespoke Intelligent Solutions lleva consultoría de IA e IT de nivel empresarial al Valle del Río Grande, fundada por Dan Lopez.",
     "contactTitle": "Evaluación Gratuita — Contáctanos",
     "contactDescription": "Reserva una evaluación gratuita y sin presión de venta. Encontramos la primera automatización que se paga sola. Bilingüe, en el RGV."
+  },
+  "chat": {
+    "open": "Chatea con nosotros",
+    "title": "Asistente de BIS",
+    "greeting": "¡Hola! Soy el asistente de BIS. Pregúntame sobre IA, IT o web para tu negocio en el Valle — también puedo agendarte una evaluación gratuita.",
+    "placeholder": "Escribe tu mensaje…",
+    "send": "Enviar",
+    "close": "Cerrar chat"
   }
 }
