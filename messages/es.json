@@ -10,6 +10,7 @@
     "services": "Servicios",
     "industries": "Industrias",
     "about": "Nosotros",
+    "insights": "Perspectivas",
     "contact": "Contacto",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú"
@@ -53,14 +54,6 @@
     "quoteName": "Dan Lopez",
     "quoteRole": "Fundador, BIS",
     "insightsHeading": "Lo que pensamos",
-    "post1Cat": "Perspectivas",
-    "post1Title": "La IA y la cadena de suministro del Valle: perspectivas 2026",
-    "post2Cat": "Seguridad",
-    "post2Title": "Por qué tu infraestructura local es tu mayor riesgo",
-    "post3Cat": "Cultura",
-    "post3Title": "El poder del diseño de producto bilingüe",
-    "post4Cat": "Caso de Éxito",
-    "post4Title": "Escalando la logística con IA predictiva",
     "ctaTitle": "Encontremos tu primera hora recuperada.",
     "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy y te mostramos la primera automatización que se paga sola."
   },
@@ -193,5 +186,14 @@
     "placeholder": "Escribe tu mensaje…",
     "send": "Enviar",
     "close": "Cerrar chat"
+  },
+  "insights": {
+    "heading": "Perspectivas",
+    "subheading": "Ideas sobre IA, IT y web para los negocios del Valle del Río Grande.",
+    "readArticle": "Leer artículo",
+    "minRead": "{minutes} min de lectura",
+    "backToInsights": "← Volver a Perspectivas",
+    "emptyState": "Aún no hay publicaciones — vuelve pronto.",
+    "categories": { "Insights": "Perspectivas", "Security": "Seguridad", "Culture": "Cultura", "AI": "IA" }
   }
 }

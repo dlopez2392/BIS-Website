@@ -10,6 +10,7 @@
     "services": "Services",
     "industries": "Industries",
     "about": "About",
+    "insights": "Insights",
     "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -53,14 +54,6 @@
     "quoteName": "Dan Lopez",
     "quoteRole": "Founder, BIS",
     "insightsHeading": "What we think",
-    "post1Cat": "Insights",
-    "post1Title": "AI and the Valley Supply Chain: A 2026 Outlook",
-    "post2Cat": "Security",
-    "post2Title": "Why Local Infrastructure is Your Biggest Risk",
-    "post3Cat": "Culture",
-    "post3Title": "The Power of Bilingual Product Design",
-    "post4Cat": "Case Study",
-    "post4Title": "Scaling Logistics with Predictive AI",
     "ctaTitle": "Let's find your first hour back.",
     "ctaBody": "A free, no-pitch assessment: we look at how your business runs today and show you the one automation that pays for itself first."
   },
@@ -193,5 +186,14 @@
     "placeholder": "Type your message…",
     "send": "Send",
     "close": "Close chat"
+  },
+  "insights": {
+    "heading": "Insights",
+    "subheading": "Ideas on AI, IT, and web for Rio Grande Valley businesses.",
+    "readArticle": "Read article",
+    "minRead": "{minutes} min read",
+    "backToInsights": "← Back to insights",
+    "emptyState": "No posts yet — check back soon.",
+    "categories": { "Insights": "Insights", "Security": "Security", "Culture": "Culture", "AI": "AI" }
   }
 }
