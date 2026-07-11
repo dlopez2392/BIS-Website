@@ -9,6 +9,7 @@ import { CapabilityBand } from '@/components/marketing/CapabilityBand';
 import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
 import { pageMetadata } from '@/lib/seo/metadata';
+import { listPosts, formatDate } from '@/lib/insights';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -21,6 +22,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
   const t = await getTranslations('home');
   const c = await getTranslations('common');
+  const it = await getTranslations({ locale, namespace: 'insights' });
+  const latest = (await listPosts(locale as 'en' | 'es')).slice(0, 3);
 
   return (
     <main>
@@ -53,12 +56,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <SectionHeading title={t('insightsHeading')} />
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
-          <InsightCard category={t('post1Cat')} title={t('post1Title')} />
-          <InsightCard category={t('post2Cat')} title={t('post2Title')} />
-          <InsightCard category={t('post3Cat')} title={t('post3Title')} />
-          <InsightCard category={t('post4Cat')} title={t('post4Title')} />
-        </div>
+        {latest.length > 0 && (
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {latest.map((p) => (
+              <InsightCard
+                key={p.slug}
+                href={`/insights/${p.slug}`}
+                category={it(`categories.${p.category}`)}
+                title={p.title}
+                date={formatDate(locale as 'en' | 'es', p.date)}
+                minReadLabel={it('minRead', { minutes: p.readingMinutes })}
+              />
+            ))}
+          </div>
+        )}
       </section>
 
       <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
