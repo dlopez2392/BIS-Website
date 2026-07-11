@@ -11,6 +11,7 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/components/seo/StructuredData';
+import { ChatWidget } from '@/components/chat/ChatWidget';
 import { SITE_URL } from '@/lib/seo/business';
 import '../globals.css';
 
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
             <Header />
             {children}
             <Footer />
+            <ChatWidget />
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />
