@@ -1,9 +1,12 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
+import createMDX from '@next/mdx';
 
 const withNextIntl = createNextIntlPlugin();
+const withMDX = createMDX();
 
 const nextConfig: NextConfig = {
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   async redirects() {
     return [
       // Canonicalize www -> apex (301) so bis-rgv.com is the single origin
@@ -18,4 +21,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+export default withMDX(withNextIntl(nextConfig));
