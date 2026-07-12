@@ -8,13 +8,13 @@ export function GET(request: Request) {
       <div
         style={{
           height: '100%', width: '100%', display: 'flex', flexDirection: 'column',
-          justifyContent: 'space-between', background: '#f9f9f9', padding: '80px',
+          justifyContent: 'space-between', background: '#faf9ff', padding: '80px',
           fontFamily: 'sans-serif',
         }}
       >
-        <div style={{ fontSize: 56, fontWeight: 800, color: '#1b1b1b' }}>bis&gt;</div>
-        <div style={{ fontSize: 64, fontWeight: 800, color: '#1b1b1b', lineHeight: 1.1 }}>{title}</div>
-        <div style={{ fontSize: 30, color: '#2745e0', fontWeight: 700 }}>
+        <div style={{ fontSize: 56, fontWeight: 800, color: '#171528' }}>bis&gt;</div>
+        <div style={{ fontSize: 64, fontWeight: 800, color: '#171528', lineHeight: 1.1 }}>{title}</div>
+        <div style={{ fontSize: 30, color: '#7c3aed', fontWeight: 700 }}>
           Bespoke Intelligent Solutions · Rio Grande Valley
         </div>
       </div>
