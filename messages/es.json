@@ -195,5 +195,8 @@
     "backToInsights": "← Volver a Perspectivas",
     "emptyState": "Aún no hay publicaciones — vuelve pronto.",
     "categories": { "Insights": "Perspectivas", "Security": "Seguridad", "Culture": "Cultura", "AI": "IA" }
+  },
+  "techMarquee": {
+    "label": "Plataformas y herramientas con las que trabajamos"
   }
 }
