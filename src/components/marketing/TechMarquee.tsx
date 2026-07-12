@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { techLogos, type TechLogo } from '@/lib/tech/logos';
 
 function TechLogoMark({ logo, duplicate = false }: { logo: TechLogo; duplicate?: boolean }) {
@@ -16,7 +17,17 @@ function TechLogoMark({ logo, duplicate = false }: { logo: TechLogo; duplicate?:
   );
 }
 
-export function TechMarqueeView({ label, logos }: { label: string; logos: TechLogo[] }) {
+export function TechMarqueeView({
+  label,
+  logos,
+  viewAllHref,
+  viewAllLabel,
+}: {
+  label: string;
+  logos: TechLogo[];
+  viewAllHref?: string;
+  viewAllLabel?: string;
+}) {
   return (
     <section aria-label={label} className="border-y border-hairline bg-surface-alt py-10">
       <p className="mb-6 text-center text-xs font-bold uppercase tracking-widest text-ink-muted">{label}</p>
@@ -30,11 +41,18 @@ export function TechMarqueeView({ label, logos }: { label: string; logos: TechLo
           ))}
         </div>
       </div>
+      {viewAllHref && viewAllLabel && (
+        <div className="mt-6 text-center">
+          <Link href={viewAllHref} className="text-sm font-semibold text-primary hover:underline">
+            {viewAllLabel} →
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
 
 export async function TechMarquee({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: 'techMarquee' });
-  return <TechMarqueeView label={t('label')} logos={techLogos} />;
+  return <TechMarqueeView label={t('label')} logos={techLogos} viewAllHref="/capabilities" viewAllLabel={t('viewAll')} />;
 }
