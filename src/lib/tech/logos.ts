@@ -6,9 +6,9 @@ export interface TechLogo {
 // Curated roster shown in the home-page "Platforms we work with" marquee.
 // Every entry MUST have a real SVG at public/logos/<file>.svg (rendered as a
 // monochrome CSS-masked silhouette). Ordered by category so the strip reads
-// full-stack as it scrolls. Owner-supply gaps (no clean open-source mark yet):
-// CrowdStrike, RingCentral, Proofpoint — drop <file>.svg in public/logos/ and
-// add an entry here to include them.
+// full-stack as it scrolls. To add a logo: drop a single-color /
+// transparent-background <file>.svg into public/logos/ (it masks to a clean
+// monochrome silhouette) and add an entry here.
 export const techLogos: TechLogo[] = [
   // Cloud / Infrastructure
   { name: 'Microsoft', file: 'microsoft' },
@@ -21,8 +21,10 @@ export const techLogos: TechLogo[] = [
   { name: 'Fortinet', file: 'fortinet' },
   { name: 'Ubiquiti', file: 'ubiquiti' },
   // Cybersecurity
+  { name: 'CrowdStrike', file: 'crowdstrike' },
   { name: 'Malwarebytes', file: 'malwarebytes' },
   { name: 'Bitdefender', file: 'bitdefender' },
+  { name: 'Proofpoint', file: 'proofpoint' },
   // Backup / Storage
   { name: 'Datto', file: 'datto' },
   { name: 'Veeam', file: 'veeam' },
@@ -30,6 +32,7 @@ export const techLogos: TechLogo[] = [
   // Remote / Comms
   { name: 'TeamViewer', file: 'teamviewer' },
   { name: 'Zoom', file: 'zoom' },
+  { name: 'RingCentral', file: 'ringcentral' },
   // Apps / CRM
   { name: 'Salesforce', file: 'salesforce' },
   { name: 'Adobe', file: 'adobe' },
