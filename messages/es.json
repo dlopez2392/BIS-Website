@@ -300,5 +300,38 @@
     "whyLocalBody": "La tecnología de nivel empresarial siempre se construyó para otro lugar. Nosotros construimos para aquí — para los dos idiomas del Valle, su ritmo fronterizo y los negocios que lo mantienen en marcha. Ser locales significa que entendemos a tus clientes y estamos a poca distancia cuando nos necesitas.",
     "ctaTitle": "Encontremos tu primera hora recuperada.",
     "ctaBody": "Reserva una evaluación gratuita y sin presión de venta — donde sea que estés en el Valle."
+  },
+  "resources": {
+    "libraryTitle": "Recursos Gratuitos",
+    "libraryMetaDescription": "Guías y listas de verificación gratuitas de Bespoke Intelligent Solutions para ayudar a los negocios del Valle del Río Grande a empezar con IA e IT seguro.",
+    "libraryIntro": "Guías prácticas y sin relleno para ayudarte a empezar. Descarga gratuita.",
+    "getLabel": "Obtener la guía",
+    "detailMetaSuffix": "— Descarga gratuita de Bespoke Intelligent Solutions",
+    "form": {
+      "nameLabel": "Nombre",
+      "emailLabel": "Correo de trabajo",
+      "consentLabel": "Envíame consejos ocasionales (sin spam, cancela cuando quieras).",
+      "submit": "Envíenme la lista",
+      "sending": "Enviando…",
+      "success": "¡Listo! Tu descarga debería empezar automáticamente — también te enviamos una copia por correo.",
+      "error": "Algo salió mal. Inténtalo de nuevo o escríbenos directamente.",
+      "downloadFallback": "¿No empezó la descarga? Haz clic aquí."
+    },
+    "items": {
+      "ai-readiness-checklist": {
+        "title": "Lista de Preparación para IA",
+        "blurb": "Una autoevaluación rápida para ver dónde la IA puede ahorrarle más tiempo a tu negocio — y el primer paso a seguir.",
+        "whatsInsideHeading": "Qué incluye",
+        "point1": "Más de 15 puntos de sí/no sobre tus flujos de trabajo, datos, herramientas, equipo y seguridad",
+        "point2": "Una forma simple de ver dónde estás y por dónde empezar",
+        "point3": "La automatización con más probabilidad de pagarse sola primero"
+      }
+    },
+    "home": {
+      "ctaKicker": "Descarga gratuita",
+      "ctaTitle": "¿Aún no listo para hablar? Empieza aquí.",
+      "ctaBody": "Toma la Lista de Preparación para IA y encuentra la primera automatización que se paga sola.",
+      "ctaButton": "Obtener la lista gratis"
+    }
   }
 }

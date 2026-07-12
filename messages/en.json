@@ -300,5 +300,38 @@
     "whyLocalBody": "Enterprise-grade technology has always been built for somewhere else. We build for here — for the Valley's two languages, its cross-border rhythm, and the businesses that keep it running. Being local means we understand your customers, and we're a short drive away when you need us.",
     "ctaTitle": "Let's find your first hour back.",
     "ctaBody": "Book a free, no-pitch assessment — wherever you are in the Valley."
+  },
+  "resources": {
+    "libraryTitle": "Free Resources",
+    "libraryMetaDescription": "Free guides and checklists from Bespoke Intelligent Solutions to help Rio Grande Valley businesses get started with AI and secure IT.",
+    "libraryIntro": "Practical, no-fluff guides to help you get started. Free to download.",
+    "getLabel": "Get the guide",
+    "detailMetaSuffix": "— Free download from Bespoke Intelligent Solutions",
+    "form": {
+      "nameLabel": "First name",
+      "emailLabel": "Work email",
+      "consentLabel": "Email me occasional tips (no spam, unsubscribe anytime).",
+      "submit": "Send me the checklist",
+      "sending": "Sending…",
+      "success": "Done! Your download should start automatically — we also emailed you a copy.",
+      "error": "Something went wrong. Please try again or email us directly.",
+      "downloadFallback": "Download didn't start? Click here."
+    },
+    "items": {
+      "ai-readiness-checklist": {
+        "title": "AI Readiness Checklist",
+        "blurb": "A quick self-assessment to see where AI can save your business the most time — and the first step to take.",
+        "whatsInsideHeading": "What's inside",
+        "point1": "15+ yes/no checkpoints across your workflows, data, tools, team, and security",
+        "point2": "A simple way to see where you stand and where to start",
+        "point3": "The one automation most likely to pay for itself first"
+      }
+    },
+    "home": {
+      "ctaKicker": "Free download",
+      "ctaTitle": "Not ready to talk yet? Start here.",
+      "ctaBody": "Grab the AI Readiness Checklist and find the first automation that pays for itself.",
+      "ctaButton": "Get the free checklist"
+    }
   }
 }
