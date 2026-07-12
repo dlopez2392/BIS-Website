@@ -1,9 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
-
-vi.mock('@/db', () => ({ db: { insert: vi.fn() } }));
-vi.mock('@/db/schema', () => ({ subscribers: { __table: 'subscribers' } }));
-
-import { toSubscriberRow } from '../repository';
+import { describe, it, expect } from 'vitest';
+import { toSubscriberRow } from '../to-subscriber-row';
 
 describe('toSubscriberRow', () => {
   it('maps values and nulls an empty name', () => {
