@@ -199,6 +199,32 @@
     "emptyState": "No posts yet — check back soon.",
     "categories": { "Insights": "Insights", "Security": "Security", "Culture": "Culture", "AI": "AI" }
   },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "metaDescription": "Answers about how Bespoke Intelligent Solutions helps Rio Grande Valley businesses with AI, IT security, and bilingual web design.",
+    "intro": "Straight answers about how we work, what we build, and how to get started.",
+    "categories": {
+      "general": "General",
+      "ai": "AI & Automation",
+      "security": "Security & IT",
+      "web": "Web & Digital",
+      "working": "Working with BIS"
+    },
+    "items": {
+      "whatIsBis": { "q": "What does Bespoke Intelligent Solutions do?", "a": "We're an IT and AI consultancy for Rio Grande Valley businesses. We help you adopt practical AI, modernize and secure your IT, and build fast bilingual websites — with one point of contact from strategy through delivery." },
+      "whoServe": { "q": "Who do you work with?", "a": "Small and mid-sized Valley businesses — including legal, medical and dental, logistics and freight, skilled trades, and agriculture. Everything we do is fully bilingual in English and Spanish." },
+      "bespoke": { "q": "What does \"bespoke\" mean for my business?", "a": "It means we start with your workflow, your customers, and your two languages — not a template. We recommend only what earns its keep, and we build it to fit how you actually operate." },
+      "aiPractical": { "q": "Is AI actually practical for a business my size?", "a": "Yes. We focus on removing real hours from your week — automating intake, scheduling, follow-ups, and document handling — not flashy demos. If a task is repeatable, there's usually a piece of it we can automate." },
+      "aiCost": { "q": "How much does AI cost, and what's the return?", "a": "It varies by scope, but we target automations that pay for themselves in saved time. The free assessment identifies the single automation with the fastest payback so you can start small and prove the value." },
+      "dataHandling": { "q": "How do you handle our data and confidentiality?", "a": "We treat your data as confidential, work under an NDA when you want one, use least-privilege access, and prefer tools that keep your data in your own accounts. You own your systems and your data — always." },
+      "compliance": { "q": "Do you work with regulated fields like legal and healthcare?", "a": "Yes. We're security-first and privacy-aware for fields like legal and medical/dental, and we design workflows with confidentiality and data protection in mind. We're not a substitute for your compliance counsel, but we build to support it." },
+      "ownWebsite": { "q": "Do we own our website and accounts?", "a": "Completely. Every build ships with the keys: your hosting, your domain, your accounts. No proprietary lock-in, no black boxes — clean code you can hand to anyone." },
+      "webWhat": { "q": "What kind of web work do you do?", "a": "Fast, modern, bilingual sites and web apps that convert — with native English/Spanish content, local SEO for the RGV, and analytics so you can see what's working." },
+      "howStart": { "q": "How do we get started?", "a": "Book a free, no-pitch assessment. We look at how your business runs today and show you the one improvement that pays for itself first. No obligation." },
+      "pricing": { "q": "How do you price your work?", "a": "Most engagements are scoped to a fixed proposal after the free assessment, so you know the cost before we start. We right-size to your business rather than selling a one-size package." },
+      "remote": { "q": "Do you work remotely or on-site?", "a": "Both. We're based in Harlingen and serve the entire Valley, so we can work on-site when it helps and remotely when that's faster — whatever gets you results." }
+    }
+  },
   "techMarquee": {
     "label": "Platforms we work with",
     "viewAll": "View our full technology stack"

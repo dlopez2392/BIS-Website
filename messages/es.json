@@ -199,6 +199,32 @@
     "emptyState": "Aún no hay publicaciones — vuelve pronto.",
     "categories": { "Insights": "Perspectivas", "Security": "Seguridad", "Culture": "Cultura", "AI": "IA" }
   },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "metaDescription": "Respuestas sobre cómo Bespoke Intelligent Solutions ayuda a los negocios del Valle del Río Grande con IA, seguridad de IT y diseño web bilingüe.",
+    "intro": "Respuestas claras sobre cómo trabajamos, qué construimos y cómo empezar.",
+    "categories": {
+      "general": "General",
+      "ai": "IA y Automatización",
+      "security": "Seguridad e IT",
+      "web": "Web y Digital",
+      "working": "Trabajar con BIS"
+    },
+    "items": {
+      "whatIsBis": { "q": "¿Qué hace Bespoke Intelligent Solutions?", "a": "Somos una consultoría de IT e IA para los negocios del Valle del Río Grande. Te ayudamos a adoptar IA práctica, modernizar y asegurar tu IT, y crear sitios web bilingües y rápidos — con un solo punto de contacto, de la estrategia a la entrega." },
+      "whoServe": { "q": "¿Con quién trabajan?", "a": "Con negocios pequeños y medianos del Valle — incluyendo legal, médico y dental, logística y transporte, oficios especializados y agricultura. Todo lo que hacemos es totalmente bilingüe en inglés y español." },
+      "bespoke": { "q": "¿Qué significa \"bespoke\" (a la medida) para mi negocio?", "a": "Significa que empezamos con tu flujo de trabajo, tus clientes y tus dos idiomas — no con una plantilla. Solo recomendamos lo que vale la pena y lo construimos para que encaje con tu forma real de operar." },
+      "aiPractical": { "q": "¿La IA es realmente práctica para un negocio de mi tamaño?", "a": "Sí. Nos enfocamos en quitarte horas reales de la semana — automatizando admisión, agendas, seguimientos y manejo de documentos — no en demos llamativas. Si una tarea es repetitiva, casi siempre hay una parte que podemos automatizar." },
+      "aiCost": { "q": "¿Cuánto cuesta la IA y cuál es el retorno?", "a": "Depende del alcance, pero buscamos automatizaciones que se paguen solas con el tiempo ahorrado. La evaluación gratuita identifica la automatización con el retorno más rápido para que empieces en pequeño y compruebes el valor." },
+      "dataHandling": { "q": "¿Cómo manejan nuestros datos y la confidencialidad?", "a": "Tratamos tus datos como confidenciales, trabajamos bajo un acuerdo de confidencialidad (NDA) cuando lo deseas, usamos acceso de privilegio mínimo y preferimos herramientas que mantienen tus datos en tus propias cuentas. Tú eres dueño de tus sistemas y tus datos — siempre." },
+      "compliance": { "q": "¿Trabajan con áreas reguladas como legal y salud?", "a": "Sí. Somos seguridad primero y conscientes de la privacidad para áreas como legal y médico/dental, y diseñamos los flujos pensando en la confidencialidad y la protección de datos. No sustituimos a tu asesor de cumplimiento, pero construimos para apoyarlo." },
+      "ownWebsite": { "q": "¿Somos dueños de nuestro sitio web y cuentas?", "a": "Por completo. Cada proyecto se entrega con las llaves: tu hosting, tu dominio, tus cuentas. Sin ataduras propietarias, sin cajas negras — código limpio que puedes entregar a cualquiera." },
+      "webWhat": { "q": "¿Qué tipo de trabajo web hacen?", "a": "Sitios y aplicaciones web rápidos, modernos y bilingües que convierten — con contenido nativo en inglés/español, SEO local para el RGV y analítica para que veas qué funciona." },
+      "howStart": { "q": "¿Cómo empezamos?", "a": "Reserva una evaluación gratuita y sin presión de venta. Analizamos cómo funciona tu negocio hoy y te mostramos la primera mejora que se paga sola. Sin compromiso." },
+      "pricing": { "q": "¿Cómo cobran su trabajo?", "a": "La mayoría de los proyectos se definen en una propuesta de precio fijo después de la evaluación gratuita, para que conozcas el costo antes de empezar. Ajustamos a la medida de tu negocio en lugar de vender un paquete único." },
+      "remote": { "q": "¿Trabajan de forma remota o presencial?", "a": "Ambas. Estamos en Harlingen y servimos a todo el Valle, así que trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — lo que te dé resultados." }
+    }
+  },
   "techMarquee": {
     "label": "Plataformas y herramientas con las que trabajamos",
     "viewAll": "Ver todas nuestras tecnologías"
