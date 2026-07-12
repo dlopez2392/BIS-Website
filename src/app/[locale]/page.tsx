@@ -8,6 +8,7 @@ import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { CapabilityBand } from '@/components/marketing/CapabilityBand';
 import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
+import { TechMarquee } from '@/components/marketing/TechMarquee';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
 
@@ -34,6 +35,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           {t('heroCta')} &gt;
         </Link>
       </section>
+
+      <TechMarquee locale={locale} />
 
       <Announcement kicker={t('announceKicker')} title={t('announceTitle')} body={t('announceBody')} />
 
