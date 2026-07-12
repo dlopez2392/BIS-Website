@@ -1,0 +1,60 @@
+
+> bis-website@0.1.0 build
+> next build
+
+[1m[38;2;173;127;168m▲ Next.js 16.2.10[39m[22m (Turbopack)
+- Environments: .env.local
+
+[33m[1m⚠[22m[39m The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 16.5s
+[37m[1m [22m[39m Running TypeScript ...
+[37m[1m [22m[39m Finished TypeScript in 18.6s ...
+[37m[1m [22m[39m Collecting page data using 11 workers ...
+[37m[1m [22m[39m Generating static pages using 11 workers (0/25) ...
+[37m[1m [22m[39m Generating static pages using 11 workers (6/25) 
+[37m[1m [22m[39m Generating static pages using 11 workers (12/25) 
+[37m[1m [22m[39m Generating static pages using 11 workers (18/25) 
+[32m[1m✓[22m[39m Generating static pages using 11 workers (25/25) in 2.1s
+[37m[1m [22m[39m Finalizing page optimization ...
+
+[4mRoute (app)[24m
+┌ ○ /_not-found
+├ ● /[locale]
+│ ├ /en
+│ └ /es
+├ ● /[locale]/about
+│ ├ /en/about
+│ └ /es/about
+├ ● /[locale]/capabilities
+│ ├ /en/capabilities
+│ └ /es/capabilities
+├ ● /[locale]/contact
+│ ├ /en/contact
+│ └ /es/contact
+├ ● /[locale]/industries
+│ ├ /en/industries
+│ └ /es/industries
+├ ● /[locale]/insights
+│ ├ /en/insights
+│ └ /es/insights
+├ ● /[locale]/insights/[slug]
+│ ├ /en/insights/bilingual-by-design
+│ ├ /en/insights/find-your-first-hour-back
+│ ├ /es/insights/bilingual-by-design
+│ └ /es/insights/find-your-first-hour-back
+├ ● /[locale]/services
+│ ├ /en/services
+│ └ /es/services
+├ ƒ /api/chat
+├ ƒ /og
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses [36mgenerateStaticParams[39m)
+ƒ  (Dynamic)  server-rendered on demand
+
