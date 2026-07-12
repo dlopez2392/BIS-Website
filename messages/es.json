@@ -288,5 +288,16 @@
       "helpdesk": "Gestión de Mesa de Ayuda",
       "sysadmin": "Administración de Sistemas"
     }
+  },
+  "serviceArea": {
+    "title": "Área de Servicio — El Valle del Río Grande",
+    "metaDescription": "Bespoke Intelligent Solutions sirve a negocios en todo el Valle del Río Grande — Harlingen, McAllen, Brownsville, Edinburg y más — con IA, seguridad de IT y diseño web bilingüe.",
+    "heading": "Servimos a todo el Valle del Río Grande",
+    "intro": "Estamos en Harlingen y trabajamos con negocios en todo el Valle — presencialmente cuando ayuda, de forma remota cuando es más rápido.",
+    "citiesHeading": "Ciudades que servimos",
+    "whyLocalHeading": "Por qué lo local importa",
+    "whyLocalBody": "La tecnología de nivel empresarial siempre se construyó para otro lugar. Nosotros construimos para aquí — para los dos idiomas del Valle, su ritmo fronterizo y los negocios que lo mantienen en marcha. Ser locales significa que entendemos a tus clientes y estamos a poca distancia cuando nos necesitas.",
+    "ctaTitle": "Encontremos tu primera hora recuperada.",
+    "ctaBody": "Reserva una evaluación gratuita y sin presión de venta — donde sea que estés en el Valle."
   }
 }

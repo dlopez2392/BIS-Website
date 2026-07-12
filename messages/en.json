@@ -288,5 +288,16 @@
       "helpdesk": "Help Desk Management",
       "sysadmin": "Systems Administration"
     }
+  },
+  "serviceArea": {
+    "title": "Service Area — The Rio Grande Valley",
+    "metaDescription": "Bespoke Intelligent Solutions serves businesses across the Rio Grande Valley — Harlingen, McAllen, Brownsville, Edinburg, and beyond — with AI, IT security, and bilingual web design.",
+    "heading": "Serving the whole Rio Grande Valley",
+    "intro": "We're based in Harlingen and work with businesses across the Valley — on-site when it helps, remote when that's faster.",
+    "citiesHeading": "Cities we serve",
+    "whyLocalHeading": "Why local matters",
+    "whyLocalBody": "Enterprise-grade technology has always been built for somewhere else. We build for here — for the Valley's two languages, its cross-border rhythm, and the businesses that keep it running. Being local means we understand your customers, and we're a short drive away when you need us.",
+    "ctaTitle": "Let's find your first hour back.",
+    "ctaBody": "Book a free, no-pitch assessment — wherever you are in the Valley."
   }
 }

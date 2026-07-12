@@ -5,7 +5,10 @@ export const business = {
   // PLACEHOLDER — replace with the real business number before launch.
   phone: '+1-956-000-0000',
   address: { locality: 'Harlingen', region: 'TX', country: 'US' },
-  areaServed: ['Rio Grande Valley', 'McAllen', 'Harlingen', 'Brownsville', 'Edinburg'],
+  areaServed: [
+    'Rio Grande Valley', 'Harlingen', 'McAllen', 'Brownsville', 'Edinburg', 'Weslaco',
+    'Mission', 'Pharr', 'San Benito', 'La Feria', 'Los Fresnos', 'San Juan', 'Alamo', 'Raymondville',
+  ],
   founder: 'Dan Lopez',
   languages: ['English', 'Spanish'],
   sameAs: [] as string[], // add LinkedIn URL when available
