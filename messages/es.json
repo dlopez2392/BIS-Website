@@ -198,15 +198,15 @@
   },
   "techMarquee": {
     "label": "Plataformas y herramientas con las que trabajamos",
-    "viewAll": "Ver nuestro stack tecnológico completo"
+    "viewAll": "Ver todas nuestras tecnologías"
   },
   "capabilities": {
     "title": "Capacidades",
     "intro": "Las plataformas, herramientas y disciplinas detrás de BIS — dos décadas de experiencia práctica en IT e IA, al servicio de los negocios del Valle del Río Grande.",
-    "metaDescription": "El stack completo de plataformas, herramientas y disciplinas con las que trabaja BIS — nube, seguridad, redes, respaldo, IA y más — para los negocios del Valle del Río Grande.",
+    "metaDescription": "El conjunto completo de plataformas, herramientas y disciplinas con las que trabaja BIS — nube, seguridad, redes, respaldo, IA y más — para los negocios del Valle del Río Grande.",
     "indexLabel": "Ir a",
     "expertiseHeading": "Áreas de Especialización",
-    "viewAll": "Ver nuestro stack tecnológico completo",
+    "viewAll": "Ver todas nuestras tecnologías",
     "ctaTitle": "¿Necesitas esta experiencia de tu lado?",
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta — alineamos las herramientas correctas con tus objetivos.",
     "groups": {
@@ -250,7 +250,7 @@
       "dataAnalytics": "Análisis de Datos",
       "aiIntegration": "Integración de IA",
       "automation": "Automatización de Procesos",
-      "powerbi": "Desarrollo de Dashboards en Power BI",
+      "powerbi": "Desarrollo de Paneles en Power BI",
       "itStrategy": "Estrategia de IT",
       "modernization": "Modernización de Infraestructura",
       "digitalTransformation": "Transformación Digital",
