@@ -1,4 +1,5 @@
 import { business } from '@/lib/seo/business';
+import { capabilityGroups } from '@/lib/tech/capabilities';
 
 export function StructuredData() {
   const data = {
@@ -18,6 +19,7 @@ export function StructuredData() {
     },
     areaServed: business.areaServed,
     availableLanguage: business.languages,
+    knowsAbout: capabilityGroups.flatMap((g) => g.items),
     founder: { '@type': 'Person', name: business.founder },
     ...(business.sameAs.length > 0 ? { sameAs: business.sameAs } : {}),
   };
