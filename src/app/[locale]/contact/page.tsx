@@ -22,7 +22,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <h1 className="text-4xl font-extrabold tracking-tight text-ink">{t('title')}</h1>
           <p className="mt-4 text-ink-muted">{t('intro')}</p>
           <ul className="mt-6 space-y-2">
-            {bullets.map((b) => <li key={b} className="flex items-center gap-2 text-ink"><span className="h-2 w-2 rounded-full bg-gold" />{b}</li>)}
+            {bullets.map((b) => <li key={b} className="flex items-center gap-2 text-ink"><span className="h-2 w-2 rounded-full bg-accent" />{b}</li>)}
           </ul>
           <div className="mt-8 text-sm text-ink-muted">
             <p className="font-bold uppercase">{t('localOps')}</p>

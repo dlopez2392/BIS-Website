@@ -3,26 +3,26 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --color-surface: #f9f9f9;
+  --color-surface: #faf9ff;
   --color-surface-alt: #ffffff;
-  --color-ink: #1b1b1b;
-  --color-ink-muted: #444655;
-  --color-primary: #2745e0;
+  --color-ink: #171528;
+  --color-ink-muted: #4a4763;
+  --color-primary: #7c3aed;
   --color-on-primary: #ffffff;
-  --color-gold: #c9a227;
-  --color-hairline: #e5e5e5;
+  --color-accent: #0891b2;
+  --color-hairline: #e7e3f5;
   --font-sans: var(--font-hanken), system-ui, sans-serif;
 }
 
 .dark {
-  --color-surface: #141414;
-  --color-surface-alt: #1e1e1e;
-  --color-ink: #f1f1f1;
-  --color-ink-muted: #b8bac6;
-  --color-primary: #4864ff;
-  --color-on-primary: #000f5d;
-  --color-gold: #d8b647;
-  --color-hairline: #2c2c2c;
+  --color-surface: #0b0a18;
+  --color-surface-alt: #14122a;
+  --color-ink: #f3f0ff;
+  --color-ink-muted: #b9b2d6;
+  --color-primary: #8b5cf6;
+  --color-on-primary: #ffffff;
+  --color-accent: #22d3ee;
+  --color-hairline: #262340;
 }
 
 @theme inline {
@@ -32,7 +32,7 @@
   --color-ink-muted: var(--color-ink-muted);
   --color-primary: var(--color-primary);
   --color-on-primary: var(--color-on-primary);
-  --color-gold: var(--color-gold);
+  --color-accent: var(--color-accent);
   --color-hairline: var(--color-hairline);
   --font-sans: var(--font-sans);
 }

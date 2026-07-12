@@ -26,27 +26,27 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   return (
     <main>
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-8">
-        <p className="text-xs font-bold uppercase tracking-widest text-gold">{t('kicker')}</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('kicker')}</p>
         <h1 className="mt-3 text-5xl font-extrabold tracking-tight text-ink">{t('title')}</h1>
         <p className="mt-4 max-w-2xl text-lg text-ink-muted">{t('intro')}</p>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-10">
-        <p className="text-xs font-bold uppercase tracking-widest text-gold">{t('founderKicker')}</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('founderKicker')}</p>
         <h2 className="mt-2 text-3xl font-extrabold text-ink">{t('founderName')}</h2>
         <blockquote className="mt-4 text-xl font-medium text-ink">“{t('founderQuote')}”</blockquote>
         <p className="mt-4 text-ink-muted">{t('founderBio')}</p>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-10">
-        <p className="mb-6 text-xs font-bold uppercase tracking-widest text-gold">{t('credKicker')}</p>
+        <p className="mb-6 text-xs font-bold uppercase tracking-widest text-accent">{t('credKicker')}</p>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
           {creds.map((cr) => <CredentialCard key={cr.title} {...cr} />)}
         </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-10">
-        <p className="mb-2 text-xs font-bold uppercase tracking-widest text-gold">{t('methodKicker')}</p>
+        <p className="mb-2 text-xs font-bold uppercase tracking-widest text-accent">{t('methodKicker')}</p>
         {steps.map((s) => <MethodStep key={s.index} {...s} />)}
       </section>
 

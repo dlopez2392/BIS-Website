@@ -32,7 +32,7 @@ export default async function InsightPostPage(
   return (
     <main className="mx-auto max-w-3xl px-6 py-20">
       <Link href="/insights" className="text-sm text-primary hover:underline">{t('backToInsights')}</Link>
-      <p className="mt-8 text-xs font-bold uppercase tracking-widest text-gold">{t(`categories.${meta.category}`)}</p>
+      <p className="mt-8 text-xs font-bold uppercase tracking-widest text-accent">{t(`categories.${meta.category}`)}</p>
       <h1 className="mt-3 text-4xl font-extrabold leading-tight text-ink">{meta.title}</h1>
       <p className="mt-3 text-sm text-ink-muted">
         {formatDate(loc, meta.date)} · {t('minRead', { minutes: meta.readingMinutes })}
