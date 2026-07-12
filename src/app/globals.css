@@ -75,3 +75,24 @@ body {
   .marquee__track { flex-wrap: wrap; justify-content: center; }
   .marquee__track > [aria-hidden="true"] { display: none; }
 }
+
+/* --- Animated hero --- */
+.hero-anim {
+  background: radial-gradient(ellipse 80% 60% at 75% 8%,
+    color-mix(in oklab, var(--color-primary) 22%, var(--color-surface)) 0%,
+    var(--color-surface) 55%);
+}
+.hero-vign {
+  background: radial-gradient(ellipse at 30% 50%, transparent 30%, var(--color-surface) 100%);
+  opacity: .85;
+}
+.hero-grad {
+  background: linear-gradient(100deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+@keyframes hero-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise { opacity: 0; animation: hero-rise .7s forwards; }
+  .hero-d1 { animation-delay: .10s; } .hero-d2 { animation-delay: .22s; }
+  .hero-d3 { animation-delay: .34s; } .hero-d4 { animation-delay: .46s; }
+}

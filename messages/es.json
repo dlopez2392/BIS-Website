@@ -33,7 +33,10 @@
     "rights": "© 2026 bis. Todos los derechos reservados."
   },
   "home": {
-    "heroTitle": "Deja que seamos tu Solución Inteligente.",
+    "heroTitle": "Deja que seamos tu",
+    "heroTitleAccent": "Solución Inteligente.",
+    "heroKicker": "Bespoke Intelligent Solutions · Hecho para el Valle",
+    "heroCta2": "Reserva una evaluación gratuita",
     "heroBody": "En todo el Valle del Río Grande, ayudamos a los negocios a trabajar de forma más inteligente con IA, infraestructura segura e ingenio humano — in English y en español.",
     "heroCta": "Descubre cómo lo hacemos",
     "announceKicker": "Ya Abiertos",

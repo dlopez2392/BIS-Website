@@ -33,7 +33,10 @@
     "rights": "© 2026 bis. All rights reserved."
   },
   "home": {
-    "heroTitle": "Let us Be your Intelligent Solution.",
+    "heroTitle": "Let us Be your",
+    "heroTitleAccent": "Intelligent Solution.",
+    "heroKicker": "Bespoke Intelligent Solutions · Built for the Valley",
+    "heroCta2": "Book a free assessment",
     "heroBody": "Across the Rio Grande Valley, we help businesses work smarter with AI, secure infrastructure, and human ingenuity — in English y en español.",
     "heroCta": "See how we do it",
     "announceKicker": "Now Open",
