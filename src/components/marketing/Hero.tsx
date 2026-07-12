@@ -24,10 +24,10 @@ export function Hero({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     const seed = () => {
-      const n = Math.min(70, Math.round((W * H) / 12000));
+      const n = Math.min(110, Math.round((W * H) / 7000));
       pts = Array.from({ length: n }, () => ({
         x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+        vx: (Math.random() - 0.5) * 0.45, vy: (Math.random() - 0.5) * 0.45,
       }));
     };
     const frame = () => {
@@ -38,13 +38,13 @@ export function Hero({
         if (dm < 110) { p.x += (dxm / dm) * 1.1; p.y += (dym / dm) * 1.1; }
         if (p.x < 0 || p.x > W) p.vx *= -1;
         if (p.y < 0 || p.y > H) p.vy *= -1;
-        ctx.beginPath(); ctx.arc(p.x, p.y, 1.7, 0, Math.PI * 2); ctx.fillStyle = '#a78bfa'; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, 2.3, 0, Math.PI * 2); ctx.fillStyle = '#a78bfa'; ctx.fill();
       }
       for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
         const a = pts[i], b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-        if (d < 130) {
+        if (d < 150) {
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(139,92,246,${(1 - d / 130) * 0.5})`; ctx.lineWidth = 0.8; ctx.stroke();
+          ctx.strokeStyle = `rgba(139,92,246,${(1 - d / 150) * 0.75})`; ctx.lineWidth = 1.3; ctx.stroke();
         }
       }
       if (!reduce && visible) raf = requestAnimationFrame(frame);
