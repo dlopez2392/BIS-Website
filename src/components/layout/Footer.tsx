@@ -21,6 +21,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm text-ink-muted">
             <li>{t('methodology')}</li><li><Link href="/capabilities">{t('capabilities')}</Link></li>
             <li><Link href="/faq">{t('faq')}</Link></li>
+            <li><Link href="/service-area">{t('serviceArea')}</Link></li>
             <li><Link href="/contact">{t('contactCol')}</Link></li>
             <li>{t('privacy')}</li>
           </ul>
