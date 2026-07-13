@@ -49,18 +49,18 @@ export function ResourceForm({ slug, downloadUrl }: { slug: string; downloadUrl:
     // onSubmit only reads honeypotRef.current when the user actually submits,
     // never during render — the compiler can't prove this statically.
     // eslint-disable-next-line react-hooks/refs
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <input type="text" tabIndex={-1} autoComplete="off" ref={honeypotRef} className="hidden" aria-hidden="true" />
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+      <input type="text" tabIndex={-1} autoComplete="off" ref={honeypotRef} className="absolute left-[-9999px] h-0 w-0 opacity-0" aria-hidden="true" />
       <input type="hidden" {...register('resource')} />
       <input type="hidden" {...register('locale')} />
       <div>
-        <label className="text-sm font-medium text-ink">{t('nameLabel')}</label>
-        <input className={field} {...register('name')} />
+        <label htmlFor="resource-name" className="text-sm font-medium text-ink">{t('nameLabel')}</label>
+        <input id="resource-name" className={field} {...register('name')} />
       </div>
       <div>
-        <label className="text-sm font-medium text-ink">{t('emailLabel')}</label>
-        <input type="email" className={field} {...register('email')} />
-        {errors.email && <p className="mt-1 text-sm text-red-500">{t('emailLabel')}</p>}
+        <label htmlFor="resource-email" className="text-sm font-medium text-ink">{t('emailLabel')}</label>
+        <input id="resource-email" type="email" className={field} {...register('email')} />
+        {errors.email && <p className="mt-1 text-sm text-red-500">{t('errEmail')}</p>}
       </div>
       <label className="flex items-start gap-2 text-sm text-ink-muted">
         <input type="checkbox" className="mt-1" {...register('newsletterConsent')} />

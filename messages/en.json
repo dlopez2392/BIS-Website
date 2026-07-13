@@ -316,7 +316,8 @@
       "sending": "Sending…",
       "success": "Done! Your download should start automatically — we also emailed you a copy.",
       "error": "Something went wrong. Please try again or email us directly.",
-      "downloadFallback": "Download didn't start? Click here."
+      "downloadFallback": "Download didn't start? Click here.",
+      "errEmail": "Enter a valid email."
     },
     "items": {
       "ai-readiness-checklist": {

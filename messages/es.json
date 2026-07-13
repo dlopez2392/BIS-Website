@@ -316,7 +316,8 @@
       "sending": "Enviando…",
       "success": "¡Listo! Tu descarga debería empezar automáticamente — también te enviamos una copia por correo.",
       "error": "Algo salió mal. Inténtalo de nuevo o escríbenos directamente.",
-      "downloadFallback": "¿No empezó la descarga? Haz clic aquí."
+      "downloadFallback": "¿No empezó la descarga? Haz clic aquí.",
+      "errEmail": "Ingresa un correo válido."
     },
     "items": {
       "ai-readiness-checklist": {
