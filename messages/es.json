@@ -335,5 +335,42 @@
       "ctaBody": "Toma la Lista de Preparación para IA y encuentra la primera automatización que se paga sola.",
       "ctaButton": "Obtener la lista gratis"
     }
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "metaDescription": "Cómo Bespoke Intelligent Solutions recopila, usa y protege tu información.",
+    "lastUpdated": "Última actualización: 12 de julio de 2026",
+    "intro": "Bespoke Intelligent Solutions (\"BIS\", \"nosotros\") respeta tu privacidad. Esta política explica qué recopilamos a través de este sitio web, cómo lo usamos y las opciones que tienes. La mantenemos en lenguaje claro a propósito.",
+    "collectHeading": "Qué recopilamos y por qué",
+    "collectIntro": "Solo recopilamos lo que necesitamos para responderte y operar este sitio:",
+    "collectItems": [
+      "Formulario de contacto: tu nombre, nombre del negocio, correo, teléfono, industria y mensaje — para poder responderte y preparar tu evaluación gratuita.",
+      "Descargas de recursos: tu nombre y correo — para enviarte el recurso y, si lo aceptas, consejos ocasionales. La casilla de consejos está desactivada por defecto.",
+      "Asistente de IA: los mensajes que envías a nuestro asistente de chat en el sitio, para que pueda responder tus preguntas.",
+      "Analítica de uso: métricas agregadas y respetuosas de la privacidad sobre el rendimiento de nuestras páginas. Esto no te identifica."
+    ],
+    "useHeading": "Cómo usamos tu información",
+    "useBody": "Usamos tu información para responder consultas, preparar y entregar evaluaciones y recursos, mejorar el sitio y — solo si lo aceptas — enviarte novedades ocasionales. No vendemos tu información y nunca la compartimos con fines publicitarios.",
+    "processorsHeading": "Quién procesa tus datos",
+    "processorsIntro": "Nos apoyamos en algunos proveedores de confianza para operar el sitio. Solo procesan tus datos para brindarnos su servicio:",
+    "processorsItems": [
+      "Resend — envía nuestros correos transaccionales (tu confirmación y nuestras notificaciones).",
+      "Neon / Vercel Postgres — almacena de forma segura los envíos de los formularios de contacto y de recursos.",
+      "Vercel (Analytics y Speed Insights) — aloja el sitio y ofrece analítica de rendimiento sin cookies.",
+      "Cal.com — impulsa el agendador de evaluaciones.",
+      "DeepSeek — provee el modelo de IA detrás de nuestro asistente de chat en el sitio."
+    ],
+    "cookiesHeading": "Cookies y rastreo",
+    "cookiesBody": "Usamos analítica respetuosa de la privacidad y sin cookies. No usamos cookies de publicidad ni de rastreo entre sitios, así que no hay banner de consentimiento de cookies que aceptar. Tu navegador aún puede usar cookies esenciales necesarias para que el sitio funcione.",
+    "retentionHeading": "Cuánto tiempo conservamos tus datos",
+    "retentionBody": "Conservamos los envíos de contacto y de recursos solo el tiempo necesario para atenderte y para nuestros registros, y los eliminamos cuando nos lo pides o cuando ya no se necesitan.",
+    "rightsHeading": "Tus derechos",
+    "rightsBody": "Puedes pedirnos una copia de la información que tenemos sobre ti, pedir que la corrijamos o que la eliminemos — en cualquier momento y sin dar motivo. Solo escríbenos a bespokeintelligentsolutions@gmail.com y nos encargamos.",
+    "childrenHeading": "Privacidad de menores",
+    "childrenBody": "Este sitio está dirigido a negocios y no a menores de 13 años. No recopilamos información de menores de forma intencional.",
+    "changesHeading": "Cambios a esta política",
+    "changesBody": "Podemos actualizar esta política a medida que cambian nuestros servicios. Cuando lo hagamos, actualizaremos la fecha en la parte superior de esta página.",
+    "contactHeading": "¿Preguntas?",
+    "contactBody": "Si tienes preguntas sobre esta política o tu información, escríbenos a bespokeintelligentsolutions@gmail.com."
   }
 }

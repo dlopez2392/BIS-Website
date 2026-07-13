@@ -335,5 +335,42 @@
       "ctaBody": "Grab the AI Readiness Checklist and find the first automation that pays for itself.",
       "ctaButton": "Get the free checklist"
     }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "metaDescription": "How Bespoke Intelligent Solutions collects, uses, and protects your information.",
+    "lastUpdated": "Last updated: July 12, 2026",
+    "intro": "Bespoke Intelligent Solutions (\"BIS\", \"we\", \"us\") respects your privacy. This policy explains what we collect through this website, how we use it, and the choices you have. We keep it plain-language on purpose.",
+    "collectHeading": "What we collect and why",
+    "collectIntro": "We only collect what we need to respond to you and run this site:",
+    "collectItems": [
+      "Contact form: your name, business name, email, phone, industry, and message — so we can reply and prepare your free assessment.",
+      "Resource downloads: your name and email — so we can send you the resource and, if you opt in, occasional tips. The tips checkbox is off by default.",
+      "AI assistant: the messages you send our on-site chat assistant, so it can answer your questions.",
+      "Usage analytics: privacy-friendly, aggregate metrics about how our pages perform. This does not identify you."
+    ],
+    "useHeading": "How we use your information",
+    "useBody": "We use your information to respond to inquiries, prepare and deliver assessments and resources, improve the site, and — only if you opt in — send occasional updates. We do not sell your information, and we never share it for advertising.",
+    "processorsHeading": "Who processes your data",
+    "processorsIntro": "We rely on a few trusted service providers to run the site. They only process your data to provide their service to us:",
+    "processorsItems": [
+      "Resend — sends our transactional emails (your confirmation and our notifications).",
+      "Neon / Vercel Postgres — securely stores contact and resource form submissions.",
+      "Vercel (Analytics & Speed Insights) — hosts the site and provides cookieless performance analytics.",
+      "Cal.com — powers the assessment-booking scheduler.",
+      "DeepSeek — provides the AI model behind our on-site chat assistant."
+    ],
+    "cookiesHeading": "Cookies and tracking",
+    "cookiesBody": "We use privacy-friendly, cookieless analytics. We do not use advertising or cross-site tracking cookies, so there is no cookie-consent banner to click through. Your browser may still use essential cookies needed for the site to function.",
+    "retentionHeading": "How long we keep your data",
+    "retentionBody": "We keep contact and resource submissions only as long as needed to serve you and for our records, and we delete them when you ask us to or when they are no longer needed.",
+    "rightsHeading": "Your rights",
+    "rightsBody": "You can ask us for a copy of the information we hold about you, ask us to correct it, or ask us to delete it — at any time, no reason needed. Just email bespokeintelligentsolutions@gmail.com and we will take care of it.",
+    "childrenHeading": "Children's privacy",
+    "childrenBody": "This site is intended for businesses and is not directed at children under 13. We do not knowingly collect information from children.",
+    "changesHeading": "Changes to this policy",
+    "changesBody": "We may update this policy as our services change. When we do, we will update the date at the top of this page.",
+    "contactHeading": "Questions?",
+    "contactBody": "If you have any questions about this policy or your information, email us at bespokeintelligentsolutions@gmail.com."
   }
 }
