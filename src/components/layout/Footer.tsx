@@ -19,7 +19,8 @@ export function Footer() {
         <div>
           <p className="text-xs font-bold uppercase text-ink-muted">{t('company')}</p>
           <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-            <li>{t('methodology')}</li><li><Link href="/capabilities">{t('capabilities')}</Link></li>
+            <li>{t('methodology')}</li><li><Link href="/how-we-work">{t('howWeWork')}</Link></li>
+            <li><Link href="/capabilities">{t('capabilities')}</Link></li>
             <li><Link href="/faq">{t('faq')}</Link></li>
             <li><Link href="/service-area">{t('serviceArea')}</Link></li>
             <li><Link href="/resources">{t('resources')}</Link></li>

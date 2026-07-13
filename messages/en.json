@@ -25,6 +25,7 @@
     "infrastructure": "Infrastructure",
     "webDev": "Web Development",
     "methodology": "Methodology",
+    "howWeWork": "How We Work",
     "capabilities": "Capabilities",
     "faq": "FAQ",
     "serviceArea": "Service Area",
@@ -380,5 +381,25 @@
     "changesBody": "We may update this policy as our services change. When we do, we will update the date at the top of this page.",
     "contactHeading": "Questions?",
     "contactBody": "If you have any questions about this policy or your information, email us at bespokeintelligentsolutions@gmail.com."
+  },
+  "howWeWork": {
+    "title": "How We Work",
+    "metaDescription": "How Bespoke Intelligent Solutions works with Rio Grande Valley businesses — a free assessment, a fixed proposal, a clean build, and full ownership at handoff.",
+    "intro": "No surprises. Here's exactly how working with us goes — from the first conversation to the day everything is in your hands.",
+    "stepsHeading": "The process",
+    "step1Title": "Free assessment",
+    "step1Body": "We start by learning how your business actually runs — your workflows, your tools, your two languages. No pitch, no obligation. You leave knowing the one improvement that would pay for itself first.",
+    "step2Title": "Fixed proposal",
+    "step2Body": "Before any work begins, you get a clear proposal: what we'll build, what it costs, and how long it'll take. You approve the scope and price up front, so there are no surprise invoices.",
+    "step3Title": "Build",
+    "step3Body": "We build it and keep you in the loop — checking in at the milestones that matter instead of going dark. You see progress, not a black box.",
+    "step4Title": "Handoff",
+    "step4Body": "When it's done, you get the keys: your accounts, your code, your data. No proprietary lock-in and nothing you can't hand to someone else. What we build is yours.",
+    "pricingHeading": "How pricing works",
+    "pricingBody": "We don't sell one-size packages. After the free assessment, most work is scoped to a fixed proposal — right-sized to your business — so you know the full cost before you commit. Start small, prove the value, then grow from there.",
+    "expectHeading": "What to expect",
+    "expectBody": "Most businesses see their first automation live within about two weeks. Bigger projects take longer, but you'll always have a clear timeline in your proposal. We work on-site when it helps and remotely when that's faster — across the whole Valley.",
+    "ctaTitle": "Ready to see your first hour back?",
+    "ctaBody": "Start with a free, no-pitch assessment. We'll show you where to begin."
   }
 }

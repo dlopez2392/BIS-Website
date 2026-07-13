@@ -25,6 +25,7 @@
     "infrastructure": "Infraestructura",
     "webDev": "Desarrollo Web",
     "methodology": "Metodología",
+    "howWeWork": "Cómo Trabajamos",
     "capabilities": "Capacidades",
     "faq": "Preguntas Frecuentes",
     "serviceArea": "Área de Servicio",
@@ -380,5 +381,25 @@
     "changesBody": "Podemos actualizar esta política a medida que cambian nuestros servicios. Cuando lo hagamos, actualizaremos la fecha en la parte superior de esta página.",
     "contactHeading": "¿Preguntas?",
     "contactBody": "Si tienes preguntas sobre esta política o tu información, escríbenos a bespokeintelligentsolutions@gmail.com."
+  },
+  "howWeWork": {
+    "title": "Cómo Trabajamos",
+    "metaDescription": "Cómo Bespoke Intelligent Solutions trabaja con los negocios del Valle del Río Grande — una evaluación gratuita, una propuesta de precio fijo, un desarrollo limpio y propiedad total en la entrega.",
+    "intro": "Sin sorpresas. Así es exactamente trabajar con nosotros — desde la primera conversación hasta el día en que todo queda en tus manos.",
+    "stepsHeading": "El proceso",
+    "step1Title": "Evaluación gratuita",
+    "step1Body": "Empezamos por entender cómo funciona de verdad tu negocio — tus flujos de trabajo, tus herramientas, tus dos idiomas. Sin presión de venta, sin compromiso. Te vas sabiendo cuál es la primera mejora que se pagaría sola.",
+    "step2Title": "Propuesta de precio fijo",
+    "step2Body": "Antes de empezar cualquier trabajo, recibes una propuesta clara: qué construiremos, cuánto cuesta y cuánto tardará. Apruebas el alcance y el precio por adelantado, así que no hay facturas sorpresa.",
+    "step3Title": "Desarrollo",
+    "step3Body": "Lo construimos y te mantenemos al tanto — comunicándonos en los momentos clave en lugar de desaparecer. Ves el progreso, no una caja negra.",
+    "step4Title": "Entrega",
+    "step4Body": "Cuando está listo, recibes las llaves: tus cuentas, tu código, tus datos. Sin ataduras propietarias y nada que no puedas entregar a otra persona. Lo que construimos es tuyo.",
+    "pricingHeading": "Cómo funciona el precio",
+    "pricingBody": "No vendemos paquetes de talla única. Después de la evaluación gratuita, la mayoría del trabajo se define en una propuesta de precio fijo — a la medida de tu negocio — para que conozcas el costo total antes de comprometerte. Empieza en pequeño, comprueba el valor y crece desde ahí.",
+    "expectHeading": "Qué esperar",
+    "expectBody": "La mayoría de los negocios ve su primera automatización funcionando en unas dos semanas. Los proyectos más grandes toman más tiempo, pero siempre tendrás un cronograma claro en tu propuesta. Trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — en todo el Valle.",
+    "ctaTitle": "¿Listo para recuperar tu primera hora?",
+    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta. Te mostraremos por dónde empezar."
   }
 }
