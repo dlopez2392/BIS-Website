@@ -9,6 +9,7 @@ import { CapabilityBand } from '@/components/marketing/CapabilityBand';
 import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
 import { TechMarquee } from '@/components/marketing/TechMarquee';
+import { ResourceCTA } from '@/components/marketing/ResourceCTA';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
 
@@ -24,6 +25,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations('home');
   const c = await getTranslations('common');
   const it = await getTranslations({ locale, namespace: 'insights' });
+  const r = await getTranslations({ locale, namespace: 'resources' });
   const latest = (await listPosts(locale as 'en' | 'es')).slice(0, 3);
 
   return (
@@ -57,6 +59,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <p className="mt-4 font-bold text-ink">{t('quoteName')}</p>
         <p className="text-sm text-ink-muted">{t('quoteRole')}</p>
       </section>
+
+      <ResourceCTA
+        kicker={r('home.ctaKicker')}
+        title={r('home.ctaTitle')}
+        body={r('home.ctaBody')}
+        button={r('home.ctaButton')}
+        href="/resources/ai-readiness-checklist"
+      />
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <SectionHeading title={t('insightsHeading')} />
