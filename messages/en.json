@@ -312,7 +312,7 @@
       "nameLabel": "First name",
       "emailLabel": "Work email",
       "consentLabel": "Email me occasional tips (no spam, unsubscribe anytime).",
-      "submit": "Send me the checklist",
+      "submit": "Send it to me",
       "sending": "Sending…",
       "success": "Done! Your download should start automatically — we also emailed you a copy.",
       "error": "Something went wrong. Please try again or email us directly.",
@@ -327,6 +327,14 @@
         "point1": "15+ yes/no checkpoints across your workflows, data, tools, team, and security",
         "point2": "A simple way to see where you stand and where to start",
         "point3": "The one automation most likely to pay for itself first"
+      },
+      "cybersecurity-guide": {
+        "title": "Small-Business Cybersecurity Guide",
+        "blurb": "A plain-language security checklist — the essential protections every Valley business should have in place, and where to start.",
+        "whatsInsideHeading": "What's inside",
+        "point1": "A quick checklist across accounts, email, devices, backups, and response",
+        "point2": "The basics that stop the most common attacks — no enterprise budget needed",
+        "point3": "The one fix that closes your biggest gap first"
       }
     },
     "home": {

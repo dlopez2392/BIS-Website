@@ -36,6 +36,32 @@ const docs = {
     ],
     cta: 'La mayoría de los negocios puede automatizar su primera tarea en menos de dos semanas. Reserva una evaluación gratuita y sin presión de venta en bis-rgv.com y te mostraremos la que se paga sola primero.',
   },
+  'cybersecurity-guide-en': {
+    title: 'Small-Business Cybersecurity Guide',
+    subtitle: 'A practical security checklist for Rio Grande Valley businesses.',
+    intro: 'Check the boxes that are already true. The unchecked ones are your biggest, cheapest security wins. You do not need an enterprise budget — you need the basics done consistently.',
+    sections: [
+      ['Accounts & access', ['Multi-factor authentication (MFA) is on for email and every critical app', 'Staff use unique passwords via a password manager, not sticky notes', 'Admin accounts are separate from everyday accounts', 'We remove access the same day someone leaves']],
+      ['Email & phishing', ['Staff know how to spot and report a phishing email', 'We verify money or gift-card requests by phone, never by email alone', 'Our domain has basic email protections (SPF, DKIM, DMARC)']],
+      ['Devices', ['Every computer and phone locks with a PIN or password and auto-locks', 'Devices install security updates automatically', 'Business devices run reputable endpoint protection']],
+      ['Data & backups', ['We back up critical data automatically', 'We have actually restored from a backup to confirm it works', 'Sensitive files are shared with links and permissions, not forwarded copies']],
+      ['If something goes wrong', ['We know who to call and what to do first if we suspect a breach', 'We have cyber-insurance or have priced it out', 'Someone owns security and reviews it a few times a year']],
+    ],
+    cta: 'Not sure where you stand? Book a free, no-pitch security assessment at bis-rgv.com and we will show you the one fix that closes your biggest gap first.',
+  },
+  'cybersecurity-guide-es': {
+    title: 'Guía de Ciberseguridad para Pequeños Negocios',
+    subtitle: 'Una lista práctica de seguridad para negocios del Valle del Río Grande.',
+    intro: 'Marca las casillas que ya son ciertas. Las que queden sin marcar son tus mejoras de seguridad más grandes y económicas. No necesitas un presupuesto de empresa grande — necesitas hacer lo básico de forma constante.',
+    sections: [
+      ['Cuentas y acceso', ['La autenticación de múltiples factores (MFA) está activada en el correo y en cada app crítica', 'El personal usa contraseñas únicas con un gestor de contraseñas, no notas pegadas', 'Las cuentas de administrador están separadas de las de uso diario', 'Quitamos el acceso el mismo día que alguien se va']],
+      ['Correo y phishing', ['El personal sabe identificar y reportar un correo de phishing', 'Verificamos por teléfono cualquier solicitud de dinero o tarjetas de regalo, nunca solo por correo', 'Nuestro dominio tiene protecciones básicas de correo (SPF, DKIM, DMARC)']],
+      ['Dispositivos', ['Cada computadora y teléfono se bloquea con PIN o contraseña y se bloquea solo', 'Los dispositivos instalan actualizaciones de seguridad automáticamente', 'Los dispositivos del negocio usan protección de endpoints confiable']],
+      ['Datos y respaldos', ['Respaldamos los datos críticos automáticamente', 'De verdad hemos restaurado desde un respaldo para confirmar que funciona', 'Los archivos sensibles se comparten con enlaces y permisos, no con copias reenviadas']],
+      ['Si algo sale mal', ['Sabemos a quién llamar y qué hacer primero si sospechamos una brecha', 'Tenemos ciberseguro o ya lo cotizamos', 'Alguien es responsable de la seguridad y la revisa varias veces al año']],
+    ],
+    cta: 'No sabes en qué punto estás? Reserva una evaluación de seguridad gratuita y sin presión de venta en bis-rgv.com y te mostraremos la solución que cierra tu brecha más grande primero.',
+  },
 };
 
 for (const [name, d] of Object.entries(docs)) {

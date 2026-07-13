@@ -312,7 +312,7 @@
       "nameLabel": "Nombre",
       "emailLabel": "Correo de trabajo",
       "consentLabel": "Envíame consejos ocasionales (sin spam, cancela cuando quieras).",
-      "submit": "Envíenme la lista",
+      "submit": "Envíamelo",
       "sending": "Enviando…",
       "success": "¡Listo! Tu descarga debería empezar automáticamente — también te enviamos una copia por correo.",
       "error": "Algo salió mal. Inténtalo de nuevo o escríbenos directamente.",
@@ -327,6 +327,14 @@
         "point1": "Más de 15 puntos de sí/no sobre tus flujos de trabajo, datos, herramientas, equipo y seguridad",
         "point2": "Una forma simple de ver dónde estás y por dónde empezar",
         "point3": "La automatización con más probabilidad de pagarse sola primero"
+      },
+      "cybersecurity-guide": {
+        "title": "Guía de Ciberseguridad para Pequeños Negocios",
+        "blurb": "Una lista de seguridad en lenguaje claro — las protecciones esenciales que todo negocio del Valle debería tener, y por dónde empezar.",
+        "whatsInsideHeading": "Qué incluye",
+        "point1": "Una lista rápida sobre cuentas, correo, dispositivos, respaldos y respuesta",
+        "point2": "Lo básico que detiene los ataques más comunes — sin presupuesto de empresa grande",
+        "point3": "La solución que cierra tu brecha más grande primero"
       }
     },
     "home": {
