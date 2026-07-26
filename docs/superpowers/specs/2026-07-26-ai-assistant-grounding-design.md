@@ -64,7 +64,7 @@ Section selection is **declarative** — a `PACK_SECTIONS` config mapping namesp
 
 Excluded on purpose: the `privacy` body (page linked, not inlined), `resources.form` and other UI chrome, and MDX post bodies.
 
-**Budget.** The selected slices plus product names measure ~18k chars ≈ ~4.5k tokens per locale, against a 25.4k-char `en.json`. At deepseek-chat rates that is roughly **$0.001 per chat** on a cache miss and less on a hit — negligible against the value of correct answers. A test pins the ceiling at **20k chars per locale**.
+**Budget.** The selected slices plus product names measure ~18k chars ≈ ~4.5k tokens for EN, against a 25.4k-char `en.json`. Spanish runs longer — `es.json` is 30.8KB vs `en.json`'s 27.9KB, about 11% — so the ES pack lands near ~20k chars. At deepseek-chat rates that is roughly **$0.001 per chat** on a cache miss and less on a hit — negligible against the value of correct answers. A test pins the ceiling at **24k chars per locale**, which leaves ES real headroom while still catching runaway growth.
 
 ### System prompt layout
 
@@ -104,8 +104,8 @@ ChatWidget ──{ messages, locale, path }──▶ POST /api/chat
 
 `path` is attacker-controlled and lands in the system prompt, so it is validated in an extracted pure module (keeping the route thin and the rules testable):
 
-- `locale` — must be in `routing.locales`; anything else falls back to `en`.
-- `path` — must match `^/(en|es)(/[a-z0-9\-/]*)?$` and be ≤ 200 chars; otherwise dropped entirely. Without this, a crafted POST injects arbitrary text into the prompt.
+- `locale` — must be in `routing.locales`; anything else falls back to `routing.defaultLocale` (`en`).
+- `path` — must be ≤ 200 chars and match a pattern **built from `routing.locales`** rather than hardcoded, equivalent to `^/(en|es)(/[a-z0-9\-/]*)?$` for the current locale set; otherwise dropped entirely. Adding a third locale must not require editing a regex literal. Without this validation, a crafted POST injects arbitrary text into the prompt.
 
 ### Widget change
 
@@ -116,13 +116,13 @@ ChatWidget ──{ messages, locale, path }──▶ POST /api/chat
 
 ### Failure handling
 
-`getSiteContext` is **strict** — a missing i18n key throws, which is what gives the tests teeth. At request time the route wraps it in try/catch: on any failure it logs once and falls back to today's ungrounded prompt, so chat degrades to current behavior rather than returning 500. Same posture as the never-lose-a-lead contact pipeline.
+`getSiteContext` is **strict** — a missing i18n key throws, which is what gives the tests teeth. At request time the route wraps it in try/catch: on failure it logs (once per lambda instance, guarded by a module-level flag so a broken pack can't flood the logs on every request) and falls back to today's ungrounded prompt, so chat degrades to current behavior rather than returning 500. Same posture as the never-lose-a-lead contact pipeline.
 
 `maxOutputTokens` goes 500 → 700 so a grounded answer plus a URL doesn't truncate mid-sentence. `MAX_MESSAGES` (20) and the in-process rate limiter are unchanged.
 
 ## Testing
 
-**Pure builder units** — each of the 12 FAQ ids, 19 group labels, ~125 product names, 14 service areas, 26 expertise labels, 2 resources with URLs, and every post is present; both locales build; each ≤ 20k chars; ES within 15% of EN (catches an untranslated namespace); no leakage of raw i18n keys, `undefined`, or `[object Object]`; a missing key throws.
+**Pure builder units** — each of the 12 FAQ ids, 19 group labels, ~125 product names, 14 service areas, 26 expertise labels, 2 resources with URLs, and every post is present (post fields come from `PostMeta`: `slug`, `title`, `description`, `category`, `date`, `readingMinutes`); both locales build; each ≤ 24k chars; ES within 25% of EN, a band wide enough for Spanish's natural ~11% expansion but tight enough to catch a section that silently dropped out; no leakage of raw i18n keys, `undefined`, or `[object Object]`; a missing key throws.
 
 **Validator units** — bad locale falls back to `en`; `path` rejects `../`, absolute URLs, over-length input, and anything off the pattern; valid paths pass through.
 
