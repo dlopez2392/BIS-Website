@@ -3,6 +3,8 @@ import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
 import { captureLeadSchema, processCapturedLead } from '@/lib/ai/capture-lead';
 import { rateLimit } from '@/lib/ai/rate-limit';
+import { resolveVisitorContext } from '@/lib/ai/visitor-context';
+import { getSiteContext } from '@/lib/ai/site-context';
 
 // Lazy-imported inside execute() so the route module stays import-safe at
 // build-time page-data collection: '@/db' calls neon() at module load and
@@ -19,21 +21,46 @@ export const maxDuration = 30;
 const MAX_MESSAGES = 20;
 const BOOKING_LINK = `https://cal.com/${process.env.NEXT_PUBLIC_CALCOM_LINK ?? 'dan-lopez-utygjo/free-assessment'}`;
 
+// Module-level so a broken pack logs once per instance instead of once per request.
+let packFailureLogged = false;
+function logPackFailure(err: unknown) {
+  if (packFailureLogged) return;
+  packFailureLogged = true;
+  console.error('[chat] site context unavailable, falling back to ungrounded prompt', err);
+}
+
 export async function POST(req: Request) {
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   if (!rateLimit(ip)) return new Response('Too many requests', { status: 429 });
 
-  const { messages }: { messages: UIMessage[] } = await req.json();
+  const payload = (await req.json()) as { messages?: UIMessage[]; locale?: unknown; path?: unknown };
+  const messages = payload?.messages;
   if (!Array.isArray(messages) || messages.length > MAX_MESSAGES) {
     return new Response('Bad request', { status: 400 });
   }
 
+  const visitor = resolveVisitorContext(payload);
+
+  // Grounding is best-effort: if the pack cannot be built the assistant falls
+  // back to the ungrounded prompt rather than failing the request.
+  let siteContext: string | undefined;
+  try {
+    siteContext = await getSiteContext(visitor.locale);
+  } catch (err) {
+    logPackFailure(err);
+  }
+
   const result = streamText({
     model: deepseek('deepseek-chat'),
-    system: buildSystemPrompt({ bookingLink: BOOKING_LINK }),
+    system: buildSystemPrompt({
+      bookingLink: BOOKING_LINK,
+      siteContext,
+      locale: visitor.locale,
+      path: visitor.path,
+    }),
     messages: await convertToModelMessages(messages),
     temperature: 0.4,
-    maxOutputTokens: 500,
+    maxOutputTokens: 700,
     tools: {
       capture_lead: tool({
         description: "Save a qualified lead's name, email, and need. Call once you have all three.",
