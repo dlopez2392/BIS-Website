@@ -17,6 +17,21 @@ import type { Locale } from '@/lib/ai/visitor-context';
  */
 export const PACK_MAX_CHARS = 24_000;
 
+/**
+ * Numbered-key families the pack consumes. These are the single source of
+ * truth for "how many": the builder below reads exactly these, and the guard
+ * test in __tests__/site-context.test.ts scans the real message files and
+ * fails loudly if a message file has gone past what's listed here (e.g. a
+ * `services.g4Title` added without also bumping `SERVICE_GROUP_IDS`). Bump
+ * these deliberately when content grows — that is the intended way to opt a
+ * new group/credential/method/step/point into the pack.
+ */
+export const SERVICE_GROUP_IDS = ['g1', 'g2', 'g3'] as const;
+export const CREDENTIAL_COUNT = 8;
+export const METHOD_COUNT = 4;
+export const PROCESS_STEP_COUNT = 4;
+export const RESOURCE_POINT_COUNT = 3;
+
 export interface SiteContextInput {
   locale: Locale;
   messages: Record<string, unknown>;
@@ -76,7 +91,7 @@ export function buildSiteContext({ locale, messages, posts }: SiteContextInput):
   );
 
   out.push(`\n## Services (detail: ${url('/services')})`);
-  for (const g of ['g1', 'g2', 'g3'] as const) {
+  for (const g of SERVICE_GROUP_IDS) {
     out.push(
       `- ${m(`services.${g}Title`)} — ${m(`services.${g}Body`)} ` +
         `Proof: ${m(`services.${g}Proof`)} Includes: ${list(`services.${g}Bullets`).join('; ')}`,
@@ -90,8 +105,8 @@ export function buildSiteContext({ locale, messages, posts }: SiteContextInput):
 
   out.push(`\n## Founder, credentials, method (detail: ${url('/about')})`);
   out.push(m('about.founderBio'));
-  for (let n = 1; n <= 8; n++) out.push(`- ${m(`about.cred${n}Title`)}: ${m(`about.cred${n}Body`)}`);
-  for (let n = 1; n <= 4; n++) out.push(`- Method — ${m(`about.m${n}Title`)}: ${m(`about.m${n}Body`)}`);
+  for (let n = 1; n <= CREDENTIAL_COUNT; n++) out.push(`- ${m(`about.cred${n}Title`)}: ${m(`about.cred${n}Body`)}`);
+  for (let n = 1; n <= METHOD_COUNT; n++) out.push(`- Method — ${m(`about.m${n}Title`)}: ${m(`about.m${n}Body`)}`);
 
   out.push(`\n## FAQ (full page: ${url('/faq')})`);
   for (const category of faqCategories) {
@@ -104,7 +119,7 @@ export function buildSiteContext({ locale, messages, posts }: SiteContextInput):
 
   out.push(`\n## How engagements work (full page: ${url('/how-we-work')})`);
   out.push(m('howWeWork.intro'));
-  for (let n = 1; n <= 4; n++) out.push(`${n}. ${m(`howWeWork.step${n}Title`)}: ${m(`howWeWork.step${n}Body`)}`);
+  for (let n = 1; n <= PROCESS_STEP_COUNT; n++) out.push(`${n}. ${m(`howWeWork.step${n}Title`)}: ${m(`howWeWork.step${n}Body`)}`);
   out.push(`${m('howWeWork.pricingHeading')}: ${m('howWeWork.pricingBody')}`);
   out.push(`${m('howWeWork.expectHeading')}: ${m('howWeWork.expectBody')}`);
 
@@ -124,7 +139,7 @@ export function buildSiteContext({ locale, messages, posts }: SiteContextInput):
   for (const r of resources) {
     out.push(
       `- ${m(`resources.items.${r.slug}.title`)} — ${m(`resources.items.${r.slug}.blurb`)} ` +
-        `Inside: ${[1, 2, 3].map((n) => m(`resources.items.${r.slug}.point${n}`)).join('; ')}. ` +
+        `Inside: ${Array.from({ length: RESOURCE_POINT_COUNT }, (_, i) => m(`resources.items.${r.slug}.point${i + 1}`)).join('; ')}. ` +
         `Get it at ${url(`/resources/${r.slug}`)}`,
     );
   }
@@ -147,25 +162,58 @@ export function buildSiteContext({ locale, messages, posts }: SiteContextInput):
   return out.join('\n');
 }
 
-const cache = new Map<Locale, string>();
+type CacheEntry = { ok: true; pack: string } | { ok: false; error: unknown };
+const cache = new Map<Locale, CacheEntry>();
+
+// listPosts() returns [] on a missing/unreadable content directory rather
+// than throwing, so an empty pack section can happen without the try/catch
+// below ever firing. Warn once per locale so a content/deploy regression
+// (the assistant confidently saying "no articles" while /insights shows two)
+// leaves a signal instead of failing silently.
+const emptyPostsWarned = new Set<Locale>();
+function warnEmptyPostsOnce(locale: Locale) {
+  if (emptyPostsWarned.has(locale)) return;
+  emptyPostsWarned.add(locale);
+  console.warn(`[site-context] no posts found for locale "${locale}"; pack will say "No articles published yet."`);
+}
 
 /**
  * Loads the pack for a locale, memoised per lambda instance. Called at request
  * time only — never at module scope — because route handlers are eagerly
  * evaluated during `next build` page-data collection.
+ *
+ * Caches failures too (as a sentinel, re-thrown on every subsequent call)
+ * so a broken pack costs one build per instance, not one per request — the
+ * route's own log-once fallback already suppresses repeat logging, but
+ * without this every request would still pay for a full rebuild-and-throw.
  */
 export async function getSiteContext(locale: Locale): Promise<string> {
   const cached = cache.get(locale);
-  if (cached) return cached;
+  if (cached) {
+    if (cached.ok) return cached.pack;
+    throw cached.error;
+  }
 
-  const [messagesModule, posts] = await Promise.all([
-    // Same variable-dynamic-import pattern as src/i18n/request.ts, which the
-    // bundler already resolves for messages/{locale}.json.
-    import(`../../../messages/${locale}.json`) as Promise<{ default: Record<string, unknown> }>,
-    listPosts(locale),
-  ]);
+  try {
+    const [messagesModule, posts] = await Promise.all([
+      // Same variable-dynamic-import pattern as src/i18n/request.ts, which the
+      // bundler already resolves for messages/{locale}.json.
+      import(`../../../messages/${locale}.json`) as Promise<{ default: Record<string, unknown> }>,
+      listPosts(locale),
+    ]);
+    if (posts.length === 0) warnEmptyPostsOnce(locale);
 
-  const pack = buildSiteContext({ locale, messages: messagesModule.default, posts });
-  cache.set(locale, pack);
-  return pack;
+    const pack = buildSiteContext({ locale, messages: messagesModule.default, posts });
+    cache.set(locale, { ok: true, pack });
+    return pack;
+  } catch (error) {
+    cache.set(locale, { ok: false, error });
+    throw error;
+  }
+}
+
+/** Test-only: clears the memoisation cache and the empty-posts warn-once guard. */
+export function __resetSiteContextCache(): void {
+  cache.clear();
+  emptyPostsWarned.clear();
 }

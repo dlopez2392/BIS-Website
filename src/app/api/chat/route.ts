@@ -43,7 +43,16 @@ export async function POST(req: Request) {
   }
 
   const messages = payload?.messages;
-  if (!Array.isArray(messages) || messages.length > MAX_MESSAGES) {
+  if (!Array.isArray(messages) || messages.length === 0 || messages.length > MAX_MESSAGES) {
+    return new Response('Bad request', { status: 400 });
+  }
+
+  // `ai@7.0.22`'s standardizePrompt defaults allowSystemInMessages to false,
+  // which already rejects a client-supplied role:'system' message — but that
+  // is an SDK default we don't control, not a guarantee. Reject it explicitly
+  // here for the same reason path validation is explicit: a crafted request
+  // must never get to inject prompt content the app didn't put there.
+  if (messages.some((message) => (message as { role?: unknown }).role === 'system')) {
     return new Response('Bad request', { status: 400 });
   }
 

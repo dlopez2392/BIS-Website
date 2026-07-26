@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { buildSystemPrompt } from '../system-prompt';
+import { business } from '@/lib/seo/business';
 
 const bookingLink = 'https://cal.com/dan-lopez-utygjo/free-assessment';
 
@@ -21,7 +22,7 @@ describe('buildSystemPrompt', () => {
     expect(p).not.toMatch(/only authority on BIS/i);
   });
 
-  it('defaults language to the supplied locale but defers to what the visitor writes', () => {
+  it('states the language rule: default to the visitor context locale, but follow what the visitor writes', () => {
     const p = buildSystemPrompt({ bookingLink });
     expect(p).toMatch(/visitor context line/i);
     expect(p).toMatch(/follow the visitor/i);
@@ -68,5 +69,14 @@ describe('buildSystemPrompt', () => {
     const p = buildSystemPrompt({ bookingLink, siteContext: 'PACK', locale: 'en' });
     expect(p).toContain('locale=en');
     expect(p).not.toMatch(/currently on/);
+  });
+
+  it('uses the passed locale for the LINKING example URL, defaulting to en when absent', () => {
+    const es = buildSystemPrompt({ bookingLink, siteContext: 'PACK', locale: 'es' });
+    expect(es).toContain(`${business.url}/es/faq`);
+    expect(es).not.toContain(`${business.url}/en/faq`);
+
+    const noLocale = buildSystemPrompt({ bookingLink, siteContext: 'PACK' });
+    expect(noLocale).toContain(`${business.url}/en/faq`);
   });
 });
