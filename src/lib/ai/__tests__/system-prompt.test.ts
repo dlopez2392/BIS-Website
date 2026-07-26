@@ -55,6 +55,13 @@ describe('buildSystemPrompt', () => {
     const b = buildSystemPrompt({ bookingLink, siteContext: 'PACK', locale: 'en', path: '/en/faq' });
     const prefix = (s: string) => s.slice(0, s.indexOf('VISITOR CONTEXT'));
     expect(prefix(a)).toBe(prefix(b));
+    // The prefix being stable is only half the cache property: the visitor
+    // line must also be the LAST thing in the prompt, or a stable prefix
+    // would still sit in front of variable content. Asserted here too so
+    // this test fails on its own if the line is ever spliced in earlier.
+    expect(prefix(a)).toContain('END SITE CONTENT');
+    expect(a.trimEnd().endsWith('/en')).toBe(true);
+    expect(b.trimEnd().endsWith('/en/faq')).toBe(true);
   });
 
   it('omits the path from visitor context when it was rejected', () => {
