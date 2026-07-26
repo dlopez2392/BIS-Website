@@ -6,9 +6,14 @@ import { listPosts, sortByDateDesc, type PostMeta } from '@/lib/insights';
 import type { Locale } from '@/lib/ai/visitor-context';
 
 /**
- * Per-locale ceiling for the pack. EN measures ~18k chars; Spanish runs ~11%
- * longer (es.json 30.8KB vs en.json 27.9KB), so the cap leaves ES headroom
- * while still failing the build if content growth runs away.
+ * Per-locale ceiling for the pack. Measured at introduction: EN 14,117 chars,
+ * ES 15,328 (Spanish runs longer). The cap leaves both real headroom while
+ * still failing a test if content growth runs away.
+ *
+ * Section headings and connectives in this file ("## Business", "Q:", "Read
+ * at") are deliberately English in both packs: they are delimiters the model
+ * parses, never text a visitor sees. Visitor-facing copy always comes from
+ * messages/{locale}.json.
  */
 export const PACK_MAX_CHARS = 24_000;
 

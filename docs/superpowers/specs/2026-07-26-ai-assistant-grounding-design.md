@@ -64,6 +64,8 @@ Section selection is **explicit**: the builder reads named keys per section rath
 
 Excluded on purpose: the `privacy` body (page linked, not inlined), `resources.form` and other UI chrome, and MDX post bodies.
 
+**Scaffolding is English in both packs by design.** Section headings, field labels (`Q:`, `A:`, `Proof:`, `Read at`), the empty-state line, and page-map descriptions are delimiters the model parses, never text a visitor sees; only the *content* between them is localised. Routing them through the message files would add ~30 plumbing keys to the EN/ES parity surface for no visitor benefit. Verified by test: the ES pack contains ES copy and none of the EN equivalents.
+
 **Budget.** The selected slices plus product names measure ~18k chars ≈ ~4.5k tokens for EN, against a 25.4k-char `en.json`. Spanish runs longer — `es.json` is 30.8KB vs `en.json`'s 27.9KB, about 11% — so the ES pack lands near ~20k chars. At deepseek-chat rates that is roughly **$0.001 per chat** on a cache miss and less on a hit — negligible against the value of correct answers. A test pins the ceiling at **24k chars per locale**, which leaves ES real headroom while still catching runaway growth.
 
 ### System prompt layout

@@ -17,7 +17,7 @@
 - Package manager is **npm**. Commands: `npm test` (Vitest), `npm run lint`, `npm run build`, `npm run e2e`.
 - **No jest-dom in this repo.** Assert on `container.innerHTML`, `screen.getBy*` truthiness, or plain DOM properties — never `toBeInTheDocument()` / `toBeEmptyDOMElement()`.
 - Vitest runs **jsdom** with `globals: true`, setup `./vitest.setup.ts`, and `server.deps.inline: [/next-intl/]` (Next 16 has no exports map, so Vitest SSR can't resolve bare `next/navigation` inside next-intl). Do not remove that inline rule.
-- `messages/en.json` and `messages/es.json` are the **only** source of user-facing copy. Never hardcode English or Spanish strings in the pack builder; read them by key.
+- `messages/en.json` and `messages/es.json` are the **only** source of **visitor-facing** copy. Never hardcode English or Spanish visitor-facing strings in the pack builder; read them by key. The pack's **structural scaffolding is exempt and is English in both locales by design** — section headings (`## Business`), field labels (`Q:`, `A:`, `Proof:`, `Read at`), the empty-state line, and the page-map descriptions are delimiters the model parses, never text a visitor sees. Translating them would add ~30 plumbing keys to the EN/ES parity surface and gain nothing. (Decided by danlo 2026-07-26 after the Task 2 review flagged the original constraint as too broad.)
 - Locale set comes from `routing.locales` (`['en','es']`, default `en`) in `src/i18n/routing.ts`. `localePrefix` is unset, so next-intl's default `'always'` applies: **both** `/en/...` and `/es/...` are prefixed. Never emit an unprefixed URL.
 - Pack ceiling: **24,000 chars per locale** (`PACK_MAX_CHARS`). EN/ES parity band: **25%**.
 - Site URL comes from `business.url` via `src/lib/seo/business.ts` (`SITE_URL`). Never hardcode `https://bis-rgv.com`.
@@ -1109,9 +1109,12 @@ Create `e2e/chat-context.spec.ts`:
 ```ts
 import { test, expect } from '@playwright/test';
 
-test.skip(process.env.NEXT_PUBLIC_AI_ENABLED !== 'true', 'assistant disabled');
-
 test('the widget posts locale and the locale-prefixed path', async ({ page }) => {
+  // In-test guard, matching e2e/chat.spec.ts. Do NOT hoist this to file scope:
+  // the (condition, description) form of test.skip is only valid inside a test
+  // or a describe block; at module scope Playwright throws.
+  test.skip(process.env.NEXT_PUBLIC_AI_ENABLED !== 'true', 'assistant disabled');
+
   let body: { locale?: string; path?: string; messages?: unknown[] } | undefined;
 
   await page.route('**/api/chat', async (route) => {
