@@ -1,22 +1,29 @@
 'use client';
 import { useState } from 'react';
 import { useChat } from '@ai-sdk/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { MessageCircle, X, Send } from 'lucide-react';
+import { usePathname } from '@/i18n/navigation';
+import { linkify } from './linkify';
 
 export function ChatWidget() {
   const t = useTranslations('chat');
+  const locale = useLocale();
+  // next-intl strips the locale prefix, so rebuild the form the API validates.
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const { messages, sendMessage, status } = useChat();
 
   if (process.env.NEXT_PUBLIC_AI_ENABLED !== 'true') return null;
 
+  const path = `/${locale}${pathname === '/' ? '' : pathname}`;
+
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = input.trim();
     if (!text || messages.length >= 18) return;
-    sendMessage({ text });
+    sendMessage({ text }, { body: { locale, path } });
     setInput('');
   };
 
@@ -33,20 +40,22 @@ export function ChatWidget() {
             {messages.map((m) => (
               <div key={m.id} className={m.role === 'user' ? 'text-right' : ''}>
                 <span className={m.role === 'user' ? 'inline-block rounded-lg bg-primary px-3 py-2 text-on-primary' : 'inline-block rounded-lg bg-surface px-3 py-2 text-ink'}>
-                  {m.parts.filter((p) => p.type === 'text').map((p, i) => <span key={i}>{(p as { text: string }).text}</span>)}
+                  {m.parts.filter((p) => p.type === 'text').map((p, i) => (
+                    <span key={i}>{linkify((p as { text: string }).text)}</span>
+                  ))}
                 </span>
               </div>
             ))}
           </div>
           <form onSubmit={submit} className="flex gap-2 border-t border-hairline p-3">
-            <input value={input} onChange={(e) => setInput(e.target.value)} placeholder={t('placeholder')}
+            <input data-testid="chat-input" value={input} onChange={(e) => setInput(e.target.value)} placeholder={t('placeholder')}
               className="flex-1 rounded-md border border-hairline bg-surface px-3 py-2 text-sm text-ink" />
             <button type="submit" aria-label={t('send')} disabled={status !== 'ready'}
               className="rounded-md bg-primary px-3 text-on-primary disabled:opacity-50"><Send size={16} /></button>
           </form>
         </div>
       ) : (
-        <button aria-label={t('open')} onClick={() => setOpen(true)}
+        <button data-testid="chat-launcher" aria-label={t('open')} onClick={() => setOpen(true)}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-on-primary shadow-lg">
           <MessageCircle size={24} />
         </button>
