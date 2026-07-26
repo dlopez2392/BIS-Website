@@ -14,7 +14,7 @@ The chat widget shipped 2026-07-11 and is live on bis-rgv.com, but its entire kn
 - 14 service areas (`serviceArea` namespace + `business.areaServed`)
 - 2 downloadable resources (`resources` namespace + `src/lib/resources.ts`)
 - the Insights posts (`src/content/insights/{en,es}/*.mdx` via `src/lib/insights`)
-- founder bio and 4 credential blocks (`about` namespace)
+- founder bio, 8 credential blocks and 4 method blocks (`about` namespace)
 
 Three symptoms follow from that gap, and this design targets all three:
 
@@ -46,14 +46,14 @@ One new module, `src/lib/ai/site-context.ts`, following the repo's established p
 
 ### Pack contents
 
-Section selection is **declarative** — a `PACK_SECTIONS` config mapping namespace → included keys (or `'all'`) — so growth is a deliberate edit rather than an accident of dumping whole files.
+Section selection is **explicit**: the builder reads named keys per section rather than dumping whole namespaces, so growth is a deliberate edit. (Planning replaced the originally sketched `PACK_SECTIONS` config map with straight per-section code — each section formats differently, as bullets, numbered steps, or Q/A pairs, so a generic config would have added indirection without removing any decisions.)
 
 | Source | Included |
 |---|---|
 | `src/lib/seo/business.ts` | name, founder, email, 14 `areaServed`, languages |
 | `services` | 3 service groups: titles, bodies, proof, bullets |
 | `industries` | 5 industries: labels, titles, bodies |
-| `about` | founder bio + 4 credential blocks |
+| `about` | founder bio + 8 credential blocks + 4 method blocks |
 | `faq` | all 12 Q&As, grouped under their 5 category labels |
 | `howWeWork` | intro, 4 steps, pricing model, what-to-expect |
 | `serviceArea` | heading/intro, 13 cities under the RGV umbrella, why-local |
