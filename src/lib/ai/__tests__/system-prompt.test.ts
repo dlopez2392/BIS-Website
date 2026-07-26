@@ -15,6 +15,16 @@ describe('buildSystemPrompt', () => {
     expect(p).toMatch(/do not (invent|make up)/i);
   });
 
+  it('forbids all markdown, not just headings, because the widget renders raw text', () => {
+    // Live probes on 2026-07-26 came back with **bold** and "- " bullets: the
+    // original rule only banned headings, so asterisks reached the visitor.
+    const p = buildSystemPrompt({ bookingLink });
+    expect(p).toMatch(/PLAIN TEXT ONLY/);
+    expect(p).toMatch(/asterisks/i);
+    expect(p).toMatch(/bullet/i);
+    expect(p).toMatch(/heading/i);
+  });
+
   it('works without a pack, for the ungrounded fallback path', () => {
     const p = buildSystemPrompt({ bookingLink });
     expect(p).not.toContain('--- SITE CONTENT');
