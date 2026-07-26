@@ -33,7 +33,15 @@ export async function POST(req: Request) {
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   if (!rateLimit(ip)) return new Response('Too many requests', { status: 429 });
 
-  const payload = (await req.json()) as { messages?: UIMessage[]; locale?: unknown; path?: unknown };
+  // A malformed body must be the route's own 400, not an unhandled throw that
+  // surfaces as a framework 500 — the body is attacker-controlled.
+  let payload: { messages?: UIMessage[]; locale?: unknown; path?: unknown };
+  try {
+    payload = (await req.json()) as typeof payload;
+  } catch {
+    return new Response('Bad request', { status: 400 });
+  }
+
   const messages = payload?.messages;
   if (!Array.isArray(messages) || messages.length > MAX_MESSAGES) {
     return new Response('Bad request', { status: 400 });
