@@ -13,7 +13,9 @@
     "insights": "Insights",
     "contact": "Contact",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "call": "Call us",
+    "callAria": "Call BIS at {phone}"
   },
   "footer": {
     "tagline": "Your Intelligent Solution",
@@ -166,6 +168,8 @@
     "errorGeneric": "Something went wrong sending your request. Please email bespokeintelligentsolutions@gmail.com and we'll take it from there.",
     "localOps": "Local Operations",
     "localOpsValue": "Harlingen, Texas — serving the Rio Grande Valley. Se habla español.",
+    "callHeading": "Want to talk now?",
+    "callBody": "Call us and we'll take it from there.",
     "bookHeading": "Prefer to talk? Book a call.",
     "bookSubtext": "Grab a free 20-minute assessment slot that works for you — no pitch, just a look at where AI or automation can help your business.",
     "bookFallback": "Open the booking page"

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { CallLink } from './CallLink';
 
 export function MobileNav() {
   const t = useTranslations('nav');
@@ -30,6 +31,13 @@ export function MobileNav() {
       {open && (
         <nav className="absolute inset-x-0 top-full border-b border-hairline bg-surface px-6 py-4">
           <ul className="flex flex-col gap-4">
+            <li className="border-b border-hairline pb-4">
+              <CallLink
+                withLabel
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 text-sm font-bold text-ink hover:text-primary"
+              />
+            </li>
             {items.map((it) => (
               <li key={it.href}>
                 <Link

@@ -2,8 +2,9 @@ export const business = {
   name: 'Bespoke Intelligent Solutions',
   url: 'https://bis-rgv.com',
   email: 'bespokeintelligentsolutions@gmail.com',
-  // PLACEHOLDER — replace with the real business number before launch.
-  phone: '+1-956-000-0000',
+  // The Sofia answering-service line (Telnyx -> OpenAI SIP). Rendered for
+  // humans and dialing via src/lib/phone.ts; consumed as-is by JSON-LD.
+  phone: '+1-956-705-5146',
   address: { locality: 'Harlingen', region: 'TX', country: 'US' },
   areaServed: [
     'Rio Grande Valley', 'Harlingen', 'McAllen', 'Brownsville', 'Edinburg', 'Weslaco',

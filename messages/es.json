@@ -13,7 +13,9 @@
     "insights": "Perspectivas",
     "contact": "Contacto",
     "openMenu": "Abrir menú",
-    "closeMenu": "Cerrar menú"
+    "closeMenu": "Cerrar menú",
+    "call": "Llámanos",
+    "callAria": "Llama a BIS al {phone}"
   },
   "footer": {
     "tagline": "Tu Solución Inteligente",
@@ -166,6 +168,8 @@
     "errorGeneric": "Algo salió mal al enviar tu solicitud. Escríbenos a bespokeintelligentsolutions@gmail.com y lo resolvemos.",
     "localOps": "Operaciones Locales",
     "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español.",
+    "callHeading": "¿Quieres hablar ahora?",
+    "callBody": "Llámanos y seguimos desde ahí.",
     "bookHeading": "¿Prefieres hablar? Agenda una llamada.",
     "bookSubtext": "Reserva un espacio gratuito de 20 minutos que te funcione — sin presión de venta, solo un vistazo a dónde la IA o la automatización pueden ayudar a tu negocio.",
     "bookFallback": "Abrir la página de reservación"

@@ -15,4 +15,13 @@ describe('StructuredData', () => {
     expect(data.availableLanguage).toEqual(['English', 'Spanish']);
     expect(data.founder.name).toBe('Dan Lopez');
   });
+
+  it('publishes the real phone number, never the launch placeholder', () => {
+    // The placeholder +1-956-000-0000 shipped in this JSON-LD for weeks. A bad
+    // number in structured data is worse than none, so pin it.
+    const { container } = render(<StructuredData />);
+    const data = JSON.parse(container.querySelector('script[type="application/ld+json"]')!.textContent!);
+    expect(data.telephone).toBe('+1-956-705-5146');
+    expect(data.telephone).not.toContain('000-0000');
+  });
 });

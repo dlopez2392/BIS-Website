@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { BookingEmbed } from '@/components/contact/BookingEmbed';
+import { CallLink } from '@/components/layout/CallLink';
 import { pageMetadata } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -24,6 +25,11 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <ul className="mt-6 space-y-2">
             {bullets.map((b) => <li key={b} className="flex items-center gap-2 text-ink"><span className="h-2 w-2 rounded-full bg-accent" />{b}</li>)}
           </ul>
+          <div className="mt-8 text-sm text-ink-muted">
+            <p className="font-bold uppercase">{t('callHeading')}</p>
+            <p>{t('callBody')}</p>
+            <CallLink className="mt-3 inline-flex items-center gap-2 text-xl font-extrabold text-ink hover:text-primary" />
+          </div>
           <div className="mt-8 text-sm text-ink-muted">
             <p className="font-bold uppercase">{t('localOps')}</p>
             <p>{t('localOpsValue')}</p>
