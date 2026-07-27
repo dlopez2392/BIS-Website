@@ -15,11 +15,20 @@ loadEnvConfig(process.cwd());
 // (process.env), so the specs always run rather than quietly no-op.
 process.env.NEXT_PUBLIC_AI_ENABLED = 'true';
 
+// e2e runs on its own port, NOT the default 3000. `reuseExistingServer` will
+// happily adopt whatever is already listening, and with several projects open
+// at once that is regularly a DIFFERENT app's dev server — which made every
+// spec in a run fail against the wrong site (BIS Platform on 2026-07-27, the
+// MTG app before that). A dedicated port makes that collision impossible.
+// Override with E2E_PORT if 3100 is ever taken too.
+const PORT = Number(process.env.E2E_PORT ?? 3100);
+const BASE_URL = `http://localhost:${PORT}`;
+
 export default defineConfig({
   testDir: './e2e',
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
+    command: `npm run dev -- -p ${PORT}`,
+    url: BASE_URL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     // Playwright defaults webServer.env to process.env when omitted, and
@@ -28,5 +37,5 @@ export default defineConfig({
     // implicit default or a gitignored file.
     env: { ...process.env, NEXT_PUBLIC_AI_ENABLED: 'true' } as Record<string, string>,
   },
-  use: { baseURL: 'http://localhost:3000' },
+  use: { baseURL: BASE_URL },
 });
