@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
+import { articleSchema, breadcrumbSchema } from '@/lib/seo/schema';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { getPost, allSlugs, formatDate } from '@/lib/insights';
 
 export function generateStaticParams() {
@@ -28,9 +30,30 @@ export default async function InsightPostPage(
   if (!post) notFound();
   const { Content, meta } = post;
   const t = await getTranslations({ locale, namespace: 'insights' });
+  const tNav = await getTranslations({ locale, namespace: 'nav' });
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-20">
+      <JsonLd
+        data={articleSchema({
+          locale,
+          slug,
+          title: meta.title,
+          description: meta.description,
+          date: meta.date,
+          category: t(`categories.${meta.category}`),
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema({
+          locale,
+          trail: [
+            { name: tNav('home'), path: '/' },
+            { name: t('heading'), path: '/insights' },
+            { name: meta.title, path: `/insights/${slug}` },
+          ],
+        })}
+      />
       <Link href="/insights" className="text-sm text-primary hover:underline">{t('backToInsights')}</Link>
       <p className="mt-8 text-xs font-bold uppercase tracking-widest text-accent">{t(`categories.${meta.category}`)}</p>
       <h1 className="mt-3 text-4xl font-extrabold leading-tight text-ink">{meta.title}</h1>

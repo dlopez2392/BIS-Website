@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo/metadata';
+import { breadcrumbSchema } from '@/lib/seo/schema';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { resources, getResource } from '@/lib/resources';
 import { ResourceForm } from '@/components/resources/ResourceForm';
 
@@ -26,10 +28,21 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
   const resource = getResource(slug);
   if (!resource) notFound();
   const t = await getTranslations({ locale, namespace: 'resources' });
+  const tNav = await getTranslations({ locale, namespace: 'nav' });
   const downloadUrl = resource.files[locale as 'en' | 'es'];
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-20">
+      <JsonLd
+        data={breadcrumbSchema({
+          locale,
+          trail: [
+            { name: tNav('home'), path: '/' },
+            { name: t('libraryTitle'), path: '/resources' },
+            { name: t(`items.${slug}.title`), path: `/resources/${slug}` },
+          ],
+        })}
+      />
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight text-ink">{t(`items.${slug}.title`)}</h1>

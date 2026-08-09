@@ -13,6 +13,8 @@ import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { ChatWidget } from '@/components/chat/ChatWidget';
 import { SITE_URL } from '@/lib/seo/business';
+import { SERVICE_GROUP_IDS } from '@/lib/ai/site-context';
+import { siteVerification } from '@/lib/seo/verification';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     metadataBase: new URL(SITE_URL),
     title: { default: t('title'), template: '%s · Bespoke Intelligent Solutions' },
     description: t('description'),
+    verification: siteVerification(),
   };
 }
 
@@ -40,6 +43,16 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
 
+  // Fed to the business schema so an ES page describes the company in Spanish.
+  // SERVICE_GROUP_IDS is the same constant the AI context pack reads, so adding
+  // a fourth service group updates both or neither.
+  const tMeta = await getTranslations({ locale, namespace: 'meta' });
+  const tServices = await getTranslations({ locale, namespace: 'services' });
+  const services = SERVICE_GROUP_IDS.map((id) => ({
+    name: tServices(`${id}Title`),
+    description: tServices(`${id}Body`),
+  }));
+
   return (
     <html lang={locale} suppressHydrationWarning className={hankenGrotesk.variable}>
       <body>
@@ -53,7 +66,7 @@ export default async function LocaleLayout({
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
-        <StructuredData />
+        <StructuredData locale={locale} description={tMeta('description')} services={services} />
       </body>
     </html>
   );

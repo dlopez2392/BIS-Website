@@ -1,32 +1,19 @@
-import { business } from '@/lib/seo/business';
-import { capabilityGroups } from '@/lib/tech/capabilities';
+import { businessSchema, type ServiceOffer } from '@/lib/seo/schema';
+import { JsonLd } from './JsonLd';
 
-export function StructuredData() {
-  const data = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: business.name,
-    url: business.url,
-    email: business.email,
-    telephone: business.phone,
-    description:
-      'Enterprise-grade AI adoption, IT security, and modern bilingual web design for Rio Grande Valley businesses.',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: business.address.locality,
-      addressRegion: business.address.region,
-      addressCountry: business.address.country,
-    },
-    areaServed: business.areaServed,
-    availableLanguage: business.languages,
-    knowsAbout: capabilityGroups.flatMap((g) => g.items),
-    founder: { '@type': 'Person', name: business.founder },
-    ...(business.sameAs.length > 0 ? { sameAs: business.sameAs } : {}),
-  };
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
+/**
+ * The business entity, emitted on every page. `description` and `services`
+ * arrive already translated: the schema on an ES page described the company in
+ * English until this took props.
+ */
+export function StructuredData({
+  locale,
+  description,
+  services,
+}: {
+  locale: string;
+  description: string;
+  services?: ServiceOffer[];
+}) {
+  return <JsonLd data={businessSchema({ locale, description, services })} />;
 }
