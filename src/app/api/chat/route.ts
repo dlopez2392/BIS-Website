@@ -2,7 +2,7 @@ import { streamText, tool, convertToModelMessages, type UIMessage } from 'ai';
 import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
 import { captureLeadSchema, processCapturedLead } from '@/lib/ai/capture-lead';
-import { rateLimit } from '@/lib/ai/rate-limit';
+import { getLimits } from '@/lib/limits';
 import { resolveVisitorContext } from '@/lib/ai/visitor-context';
 import { getSiteContext } from '@/lib/ai/site-context';
 
@@ -31,7 +31,8 @@ function logPackFailure(err: unknown) {
 
 export async function POST(req: Request) {
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-  if (!rateLimit(ip)) return new Response('Too many requests', { status: 429 });
+  const limits = await getLimits();
+  if (!(await limits.allowChat(ip))) return new Response('Too many requests', { status: 429 });
 
   // A malformed body must be the route's own 400, not an unhandled throw that
   // surfaces as a framework 500 — the body is attacker-controlled.
