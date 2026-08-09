@@ -25,6 +25,16 @@ describe('buildSystemPrompt', () => {
     expect(p).toMatch(/heading/i);
   });
 
+  it('tells the assistant to book, and never to claim a booking the tool did not confirm', () => {
+    const p = buildSystemPrompt({ bookingLink });
+    expect(p).toMatch(/BOOKING:/);
+    expect(p).toMatch(/check_availability/);
+    expect(p).toMatch(/book_assessment/);
+    expect(p).toMatch(/never say an appointment is booked/i);
+    // The fallback when Cal is unreachable is the old behaviour, not a dead end.
+    expect(p).toContain(bookingLink);
+  });
+
   it('works without a pack, for the ungrounded fallback path', () => {
     const p = buildSystemPrompt({ bookingLink });
     expect(p).not.toContain('--- SITE CONTENT');

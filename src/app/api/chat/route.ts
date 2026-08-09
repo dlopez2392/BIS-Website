@@ -2,7 +2,10 @@ import { streamText, tool, convertToModelMessages, type UIMessage } from 'ai';
 import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
 import { captureLeadSchema, processCapturedLead } from '@/lib/ai/capture-lead';
+import { z } from 'zod';
 import { getLimits } from '@/lib/limits';
+import { calConfigFromEnv, listSlots, book } from '@/lib/cal';
+import { bookAssessmentSchema, runBookAssessment, alreadyBookedInConversation } from '@/lib/ai/booking';
 import { resolveVisitorContext } from '@/lib/ai/visitor-context';
 import { getSiteContext } from '@/lib/ai/site-context';
 
@@ -84,6 +87,47 @@ export async function POST(req: Request) {
         description: "Save a qualified lead's name, email, and need. Call once you have all three.",
         inputSchema: captureLeadSchema,
         execute: async (args) => captureLead(args),
+      }),
+
+      check_availability: tool({
+        description:
+          'Free-assessment start times for one date (YYYY-MM-DD), in the visitor timezone. Call before offering any time.',
+        inputSchema: z.object({ date: z.string().min(1) }),
+        execute: async ({ date }) => {
+          try {
+            const slots = await listSlots(calConfigFromEnv(), { date, timeZone: visitor.timeZone });
+            // A handful is plenty to offer aloud; the full list is noise in context.
+            return { ok: true, timeZone: visitor.timeZone, slots: slots.slice(0, 6) };
+          } catch (err) {
+            console.error('[chat] check_availability failed', err);
+            return { ok: false, error: 'Availability is unavailable right now. Share the booking link instead.' };
+          }
+        },
+      }),
+
+      book_assessment: tool({
+        description:
+          'Book the free assessment at a start time returned by check_availability. Needs full name and email.',
+        inputSchema: bookAssessmentSchema,
+        execute: async (args) => {
+          // Lazily imported for the same reason as the lead helpers below: '@/db'
+          // calls neon() at module load and the route is evaluated at build time.
+          const [{ insertLead }, { sendLeadNotification }] = await Promise.all([
+            import('@/lib/contact/repository'),
+            import('@/lib/email/resend'),
+          ]);
+          return runBookAssessment(
+            args,
+            { ip, timeZone: visitor.timeZone, language: visitor.locale },
+            {
+              book: (input) => book(calConfigFromEnv(), input),
+              allowBooking: (forIp) => limits.allowBooking(forIp),
+              insertLead,
+              sendLeadNotification,
+            },
+            { alreadyBooked: alreadyBookedInConversation(messages) },
+          );
+        },
       }),
     },
   });
