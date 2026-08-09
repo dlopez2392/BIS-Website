@@ -113,7 +113,7 @@ describe('buildSiteContext', () => {
   });
 
   it('emits a page map whose every URL carries the locale prefix', () => {
-    for (const p of ['/services', '/industries', '/about', '/how-we-work', '/capabilities', '/faq', '/service-area', '/insights', '/resources', '/contact', '/privacy']) {
+    for (const p of ['/services', '/industries', '/about', '/how-we-work', '/work', '/capabilities', '/faq', '/service-area', '/insights', '/resources', '/contact', '/privacy']) {
       expect(enPack, `en ${p}`).toContain(`${business.url}/en${p}`);
       expect(esPack, `es ${p}`).toContain(`${business.url}/es${p}`);
     }

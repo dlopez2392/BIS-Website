@@ -28,6 +28,7 @@
     "webDev": "Web Development",
     "methodology": "Methodology",
     "howWeWork": "How We Work",
+    "work": "Our Work",
     "capabilities": "Capabilities",
     "faq": "FAQ",
     "serviceArea": "Service Area",
@@ -405,5 +406,36 @@
     "expectBody": "Most businesses see their first automation live within about two weeks. Bigger projects take longer, but you'll always have a clear timeline in your proposal. We work on-site when it helps and remotely when that's faster — across the whole Valley.",
     "ctaTitle": "Ready to see your first hour back?",
     "ctaBody": "Start with a free, no-pitch assessment. We'll show you where to begin."
+  },
+  "work": {
+    "title": "Our Work",
+    "metaDescription": "What Bespoke Intelligent Solutions has actually shipped — starting with Sofía, the bilingual AI receptionist that answers our own phone line. Call her and judge for yourself.",
+    "intro": "We would rather show you than tell you. Everything on this page is running in production right now, and we describe it only in terms you can check yourself. We start with our own front desk — because that one you can test this minute, without a meeting, a demo login, or our permission.",
+    "cases": {
+      "sofia": {
+        "label": "Bespoke Intelligent Solutions — our own front desk",
+        "title": "Sofía, our AI receptionist",
+        "summary": "Call our main line and Sofía answers. She is an AI — we would rather you read that here than wonder about it later. She handles the first conversation the way a good receptionist does: finds out what you need, answers what she can, and gets you on the calendar. This is not a demo sandbox. It is the same number printed at the top of this page.",
+        "factsHeading": "What she does",
+        "facts": [
+          "Answers our real, published business line — the number in our header and on our contact page, not a sandbox we reset between demos.",
+          "Speaks English and Spanish, and follows you if you switch languages in the middle of the call.",
+          "Books onto a real calendar. Ask for a free assessment and she checks live availability, places the appointment on the same Cal.com calendar our contact page uses, and you get the same confirmation email as any other booking.",
+          "Leaves a durable record. Every call ends with a written transcript, a summary, and a lead in the same database this website's contact form writes to — so nothing falls through between the call and the follow-up."
+        ],
+        "builtHeading": "How it is built",
+        "builtBody": "A phone number routed over SIP into a realtime speech model, with the calendar, the lead database, and our email notifications wired in as tools the model can actually call — not a recorded menu tree. The website you are reading and the receptionist who answers the phone write to the same leads table: one pipeline, two front doors.",
+        "stackHeading": "Built with",
+        "stack": ["OpenAI Realtime", "Telnyx", "Cal.com", "Neon Postgres", "Resend", "Next.js on Vercel"],
+        "tryHeading": "Try it yourself",
+        "tryBody": "Tap to call. Ask her what BIS does, switch to Spanish halfway through, or book a free assessment and watch it land in your inbox.",
+        "tryNote": "Calls are transcribed and summarized so we can follow up properly.",
+        "tryNoteLink": "How we handle your information"
+      }
+    },
+    "nextHeading": "What goes here next",
+    "nextBody": "This page grows as work goes live. Client projects appear here only with the client's permission, described in facts they and we can both stand behind — no invented numbers, no borrowed logos.",
+    "ctaTitle": "Want one of these answering your phone?",
+    "ctaBody": "Start with a free assessment. We'll tell you honestly whether this fits your business — and if it doesn't, we'll say so."
   }
 }

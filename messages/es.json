@@ -28,6 +28,7 @@
     "webDev": "Desarrollo Web",
     "methodology": "Metodología",
     "howWeWork": "Cómo Trabajamos",
+    "work": "Nuestro Trabajo",
     "capabilities": "Capacidades",
     "faq": "Preguntas Frecuentes",
     "serviceArea": "Área de Servicio",
@@ -405,5 +406,36 @@
     "expectBody": "La mayoría de los negocios ve su primera automatización funcionando en unas dos semanas. Los proyectos más grandes toman más tiempo, pero siempre tendrás un cronograma claro en tu propuesta. Trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — en todo el Valle.",
     "ctaTitle": "¿Listo para recuperar tu primera hora?",
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta. Te mostraremos por dónde empezar."
+  },
+  "work": {
+    "title": "Nuestro Trabajo",
+    "metaDescription": "Lo que Bespoke Intelligent Solutions ya tiene funcionando — empezando por Sofía, la recepcionista de IA bilingüe que contesta nuestra propia línea. Llámala y júzgalo tú mismo.",
+    "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo. Empezamos por nuestra propia recepción — porque esa la puedes probar en este momento, sin junta, sin demo y sin pedirnos permiso.",
+    "cases": {
+      "sofia": {
+        "label": "Bespoke Intelligent Solutions — nuestra propia recepción",
+        "title": "Sofía, nuestra recepcionista de IA",
+        "summary": "Llama a nuestra línea principal y contesta Sofía. Es una IA — preferimos que lo leas aquí a que te quedes con la duda después. Ella lleva la primera conversación como la llevaría una buena recepcionista: averigua qué necesitas, contesta lo que puede y te agenda. Esto no es una demostración de laboratorio. Es el mismo número que aparece arriba en esta página.",
+        "factsHeading": "Qué hace",
+        "facts": [
+          "Contesta nuestra línea real y publicada — el mismo número del encabezado y de la página de contacto, no un número de prueba que reiniciamos entre demostraciones.",
+          "Habla inglés y español, y te sigue si cambias de idioma a media llamada.",
+          "Agenda en un calendario real. Pídele una evaluación gratuita y revisa la disponibilidad en vivo, coloca la cita en el mismo calendario de Cal.com que usa nuestra página de contacto, y te llega el mismo correo de confirmación que en cualquier otra reserva.",
+          "Deja un registro que permanece. Cada llamada termina con una transcripción escrita, un resumen y un prospecto en la misma base de datos donde escribe el formulario de este sitio — para que nada se pierda entre la llamada y el seguimiento."
+        ],
+        "builtHeading": "Cómo está construido",
+        "builtBody": "Un número telefónico enrutado por SIP hacia un modelo de voz en tiempo real, con el calendario, la base de datos de prospectos y nuestras notificaciones por correo conectados como herramientas que el modelo sí puede usar — no es un menú grabado de opciones. El sitio que estás leyendo y la recepcionista que contesta el teléfono escriben en la misma tabla de prospectos: un solo flujo, dos puertas de entrada.",
+        "stackHeading": "Construido con",
+        "stack": ["OpenAI Realtime", "Telnyx", "Cal.com", "Neon Postgres", "Resend", "Next.js en Vercel"],
+        "tryHeading": "Pruébalo tú mismo",
+        "tryBody": "Toca para llamar. Pregúntale qué hace BIS, cámbiate al español a media llamada o reserva una evaluación gratuita y mira cómo te llega al correo.",
+        "tryNote": "Las llamadas se transcriben y se resumen para poder darte un buen seguimiento.",
+        "tryNoteLink": "Cómo manejamos tu información"
+      }
+    },
+    "nextHeading": "Qué sigue en esta página",
+    "nextBody": "Esta página crece conforme el trabajo entra en operación. Los proyectos de clientes aparecen aquí solo con su permiso y descritos con hechos que ellos y nosotros podemos sostener — sin números inventados ni logotipos prestados.",
+    "ctaTitle": "¿Quieres una así contestando tu teléfono?",
+    "ctaBody": "Empieza con una evaluación gratuita. Te diremos con honestidad si esto le sirve a tu negocio — y si no, también te lo decimos."
   }
 }
