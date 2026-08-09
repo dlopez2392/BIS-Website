@@ -65,7 +65,7 @@ describe('ChatWidget', () => {
     fireEvent.submit(screen.getByTestId('chat-input').closest('form') as HTMLFormElement);
     expect(sendMessage).toHaveBeenCalledWith(
       { text: 'hola' },
-      { body: { locale: 'es', path: '/es/capabilities' } },
+      { body: { locale: 'es', path: '/es/capabilities', timeZone: expect.any(String) } },
     );
   });
 
@@ -76,7 +76,10 @@ describe('ChatWidget', () => {
     fireEvent.click(screen.getByTestId('chat-launcher'));
     fireEvent.change(screen.getByTestId('chat-input'), { target: { value: 'hi' } });
     fireEvent.submit(screen.getByTestId('chat-input').closest('form') as HTMLFormElement);
-    expect(sendMessage).toHaveBeenCalledWith({ text: 'hi' }, { body: { locale: 'en', path: '/en' } });
+    expect(sendMessage).toHaveBeenCalledWith(
+      { text: 'hi' },
+      { body: { locale: 'en', path: '/en', timeZone: expect.any(String) } },
+    );
   });
 
   it('renders URLs in assistant replies as anchors', () => {

@@ -1,12 +1,31 @@
 import { describe, it, expect } from 'vitest';
-import { resolveVisitorContext, PATH_MAX_CHARS } from '../visitor-context';
+import { resolveVisitorContext, PATH_MAX_CHARS, TIMEZONE_MAX_CHARS, DEFAULT_TIME_ZONE } from '../visitor-context';
 
 describe('resolveVisitorContext', () => {
   it('accepts a supported locale and a locale-prefixed path', () => {
     expect(resolveVisitorContext({ locale: 'es', path: '/es/capabilities' })).toEqual({
       locale: 'es',
       path: '/es/capabilities',
+      timeZone: DEFAULT_TIME_ZONE,
     });
+  });
+
+  it('keeps a real IANA time zone, which decides what "tomorrow at 2" means', () => {
+    expect(resolveVisitorContext({ locale: 'en', timeZone: 'America/New_York' }).timeZone).toBe('America/New_York');
+    expect(resolveVisitorContext({ locale: 'en', timeZone: 'UTC' }).timeZone).toBe('UTC');
+  });
+
+  it('falls back to the business zone for anything Intl will not accept', () => {
+    // Validated by asking Intl rather than pattern-matching: a plausible but
+    // invented zone would otherwise reach Cal.com and fail in front of a visitor.
+    for (const bad of ['Mars/Olympus', 'not a zone', '', 'America/Chicago; DROP TABLE', 42, null, undefined]) {
+      expect(resolveVisitorContext({ locale: 'en', timeZone: bad }).timeZone, String(bad)).toBe(DEFAULT_TIME_ZONE);
+    }
+  });
+
+  it('rejects an over-long zone before handing it to Intl', () => {
+    const long = 'America/' + 'a'.repeat(TIMEZONE_MAX_CHARS);
+    expect(resolveVisitorContext({ locale: 'en', timeZone: long }).timeZone).toBe(DEFAULT_TIME_ZONE);
   });
 
   it('accepts a bare locale root path', () => {
