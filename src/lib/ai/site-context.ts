@@ -47,6 +47,7 @@ const PAGE_MAP: ReadonlyArray<readonly [string, string]> = [
   ['/industries', 'the five industries served'],
   ['/about', 'founder background and credentials'],
   ['/how-we-work', 'the four-step process and how pricing works'],
+  ['/work', 'what BIS has shipped, including the AI receptionist on our own phone line'],
   ['/capabilities', 'the full technology inventory and areas of expertise'],
   ['/faq', 'frequently asked questions'],
   ['/service-area', 'the Rio Grande Valley cities served'],
