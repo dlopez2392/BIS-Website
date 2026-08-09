@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { business } from '@/lib/seo/business';
+import { cityPages } from '@/lib/cities';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -33,10 +35,20 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ lo
 
       <section className="mt-10">
         <h2 className="text-xs font-bold uppercase tracking-widest text-ink-muted">{t('citiesHeading')}</h2>
+        {/* Cities with their own page become links; the rest stay as plain
+            chips rather than pointing at a page that does not exist. */}
         <div className="mt-4 flex flex-wrap gap-2">
-          {cities.map((city) => (
-            <span key={city} className="rounded-full border border-hairline bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink">{city}</span>
-          ))}
+          {cities.map((city) => {
+            const page = cityPages.find((c) => c.name === city);
+            const className = 'inline-block rounded-full border border-hairline bg-surface-alt px-4 py-1.5 text-sm font-medium';
+            return page ? (
+              <Link key={city} href={`/service-area/${page.id}`} className={`${className} text-ink hover:border-primary hover:text-primary`}>
+                {city}
+              </Link>
+            ) : (
+              <span key={city} className={`${className} text-ink`}>{city}</span>
+            );
+          })}
         </div>
       </section>
 

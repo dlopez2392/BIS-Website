@@ -441,5 +441,125 @@
     "nextBody": "This page grows as work goes live. Client projects appear here only with the client's permission, described in facts they and we can both stand behind — no invented numbers, no borrowed logos.",
     "ctaTitle": "Want one of these answering your phone?",
     "ctaBody": "Start with a free assessment. We'll tell you honestly whether this fits your business — and if it doesn't, we'll say so."
+  },
+  "cities": {
+    "shared": {
+      "eyebrow": "Service Area",
+      "sectorsHeading": "What we see in {city}",
+      "howHeading": "How we work here",
+      "provenHeading": "Test our work before you hire us",
+      "provenBody": "The AI receptionist that answers our own phone line is live and public. Call it, switch it to Spanish halfway through, book an appointment — then decide whether we know what we're doing.",
+      "provenLink": "See how it works",
+      "servicesLink": "Everything we do",
+      "otherCitiesHeading": "Other cities we serve",
+      "backToAll": "All 14 cities in our service area",
+      "ctaTitle": "Let's look at {city} together",
+      "ctaBody": "A free assessment is a conversation, not a pitch. We look at where your hours actually go and tell you what's worth automating — including when the honest answer is nothing yet."
+    },
+    "harlingen": {
+      "metaTitle": "IT, AI & Web for Harlingen Businesses",
+      "metaDescription": "Bespoke Intelligent Solutions is based in Harlingen. Practical AI, IT security and bilingual web design for clinics, distributors and professional firms across the city.",
+      "heading": "IT and AI for Harlingen businesses",
+      "intro": "Harlingen is home. Our office is here, our number is a Harlingen number, and when a client wants somebody in the room it's a short drive rather than a flight. That changes what we can honestly promise about showing up.",
+      "sectors": [
+        {
+          "title": "Clinics and medical offices",
+          "body": "Harlingen carries a serious share of the Valley's healthcare, and the pressure lands on the front desk: appointment calls, intake paperwork, reminders, and patients who would rather speak Spanish. Those are the first hours worth getting back, and they're usually handled by whoever happens to be closest to the phone."
+        },
+        {
+          "title": "Distribution and air freight",
+          "body": "Valley International moves enough cargo to rank among the busier freight airports in the country, with wide-body freighters on the ramp. The businesses around it run on documents, tracking and dispatch — repetitive, deadline-bound work where a mistake costs a shipment. That combination is where automation actually pays."
+        },
+        {
+          "title": "Small professional firms",
+          "body": "The offices where one person answers the phone, books the appointments, chases the invoices and updates the website. We're usually not replacing a system for them. We're replacing the fact that there isn't one."
+        }
+      ],
+      "howBody": "Being based here means we can start in person and stay reachable afterward. It also means we're accountable locally — this is where we live, and in a town this size a bad job follows you around."
+    },
+    "mcallen": {
+      "metaTitle": "IT, AI & Web for McAllen Businesses",
+      "metaDescription": "Practical AI, IT security and bilingual web design for McAllen retailers, medical practices and multi-location businesses. Serving McAllen from Harlingen.",
+      "heading": "IT and AI for McAllen businesses",
+      "intro": "McAllen is the retail center for South Texas and northern Mexico, and about one in eight workers in the metro is in retail trade. That mix — high volume, thin margins, and a lot of walk-in and phone traffic in two languages — decides which problems are worth solving here.",
+      "sectors": [
+        {
+          "title": "Retail and multi-location businesses",
+          "body": "When customers come from both sides of the river, your phone rings in two languages and your busiest hours are exactly the hours nobody can pick up. Something that answers in whichever language the caller uses, at the times you can't staff, isn't a novelty here — it's the baseline."
+        },
+        {
+          "title": "Medical practices",
+          "body": "The McAllen–Edinburg medical corridor is one of the largest employers in the region. Practices carry the same front-desk load as anywhere else, plus the expectation of bilingual service, plus rules about how patient information is handled. We design for that last part first rather than last."
+        },
+        {
+          "title": "Cross-border operations",
+          "body": "Businesses that quote, invoice or schedule across the border carry two sets of paperwork and two customer bases. Most of that work is structured and repetitive — the kind that survives on one person's memory and a spreadsheet until the week they take vacation."
+        }
+      ],
+      "howBody": "McAllen is about an hour from our office, so we work the way most clients there prefer: on site to understand the business and set things up, remote for the parts where driving would only slow it down."
+    },
+    "brownsville": {
+      "metaTitle": "IT, AI & Web for Brownsville Businesses",
+      "metaDescription": "Practical AI, IT security and bilingual web design for Brownsville customs brokers, freight forwarders and port-adjacent businesses. Serving Brownsville from Harlingen.",
+      "heading": "IT and AI for Brownsville businesses",
+      "intro": "Brownsville runs on cross-border trade. It has the only deep-water seaport sitting directly on the U.S.–Mexico border, and the businesses around it — brokers, forwarders, carriers, industrial suppliers — live and die on paperwork moving on time.",
+      "sectors": [
+        {
+          "title": "Customs brokers and freight forwarders",
+          "body": "Document-heavy, deadline-driven, and mostly the same work repeated with small variations: entries, quotes, status updates, the same five questions from every client every day. This is the clearest automation case in the Valley, because the work is high volume, structured, and expensive to get wrong."
+        },
+        {
+          "title": "Trucking and dispatch",
+          "body": "Dispatch is a phone job and the phone doesn't stop. Where's my load, when does it clear, what does it cost. Those answers usually already exist in a system somebody has to stop and go look at — which is a good sign the answering can happen without pulling a dispatcher off the radio."
+        },
+        {
+          "title": "Port-adjacent industrial and services",
+          "body": "The suppliers, yards and contractors around the port tend to have solid operations and thin IT. Often the right first project isn't artificial intelligence at all — it's making sure one ransomware email can't stop the loading dock."
+        }
+      ],
+      "howBody": "We serve Brownsville from Harlingen, close enough to be on site the same day when something matters. We work in English and Spanish because your customers, your drivers and your counterparts across the bridge do."
+    },
+    "edinburg": {
+      "metaTitle": "IT, AI & Web for Edinburg Businesses",
+      "metaDescription": "Practical AI, IT security and bilingual web design for Edinburg law firms, healthcare practices and professional services. Serving Edinburg from Harlingen.",
+      "heading": "IT and AI for Edinburg businesses",
+      "intro": "Edinburg is the seat of Hidalgo County and home to UTRGV's main campus, which gives it an unusual mix for the Valley: courts and county offices, a large healthcare base, and a steady population of professional firms built around both.",
+      "sectors": [
+        {
+          "title": "Law firms and title offices",
+          "body": "A county seat concentrates legal work, and legal work concentrates documents. Intake, conflict checks, deadlines, records requests, and clients who call to ask what's happening with their case. Legal is one of the five industries we build for, and confidentiality shapes the design instead of getting bolted on at the end."
+        },
+        {
+          "title": "Healthcare practices",
+          "body": "Healthcare employs a share of Edinburg well above what a city its size would normally carry. Same front-desk pressure as everywhere, same bilingual expectation, same rules about patient information — and the same phone that turns into the bottleneck."
+        },
+        {
+          "title": "Professional and back-office services",
+          "body": "Accounting, insurance, staffing — the offices that keep a county running. Work that arrives as forms and leaves as forms, where most of the labor is moving information between systems that were never introduced to each other."
+        }
+      ],
+      "howBody": "Edinburg is a straightforward drive from Harlingen. For firms handling confidential files we'd rather do the first session in person, look at the real workflow, and be specific about what leaves your building and what doesn't."
+    },
+    "weslaco": {
+      "metaTitle": "IT, AI & Web for Weslaco Businesses",
+      "metaDescription": "Practical AI, IT security and bilingual web design for Weslaco growers, packing sheds and family businesses. Serving Weslaco from Harlingen.",
+      "heading": "IT and AI for Weslaco businesses",
+      "intro": "Weslaco sits at the center of Valley agriculture — Texas A&M has run an agricultural research and extension center here since 1923, and produce still sets the calendar for a lot of the businesses in town.",
+      "sectors": [
+        {
+          "title": "Growers and packing sheds",
+          "body": "Agriculture is seasonal, and seasonal means the workload triples for a few weeks and the phone triples with it. Hiring for the peak is expensive; hiring after it starts is too late. Automating the repetitive part of the peak — orders, schedules, buyer questions, driver check-ins — usually costs less than either."
+        },
+        {
+          "title": "Agricultural services and equipment",
+          "body": "The dealers, suppliers and service outfits around growing operations run on quotes, parts availability and service calls. When your customers are standing in a field, the ones who answer fastest tend to get the work."
+        },
+        {
+          "title": "Family businesses",
+          "body": "A lot of Weslaco business is second and third generation, where the process lives in one person's head. Our first job is usually to write that down before automating anything — a process nobody can describe is a process nobody can hand over."
+        }
+      ],
+      "howBody": "We're across the mid-Valley regularly, and we plan around your season instead of ours. Nobody should be rolling out new software in the middle of harvest."
+    }
   }
 }

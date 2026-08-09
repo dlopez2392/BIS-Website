@@ -5,6 +5,7 @@ import sitemap, { sitemapPaths } from '@/app/sitemap';
 import { routing } from '@/i18n/routing';
 import { allSlugs } from '@/lib/insights';
 import { resources } from '@/lib/resources';
+import { cityPages } from '@/lib/cities';
 
 const APP_DIR = path.join(process.cwd(), 'src', 'app', '[locale]');
 
@@ -43,6 +44,10 @@ describe('sitemap', () => {
 
   it('lists every resource', () => {
     for (const r of resources) expect(paths).toContain(`/resources/${r.slug}`);
+  });
+
+  it('lists every city that has its own page', () => {
+    for (const c of cityPages) expect(paths).toContain(`/service-area/${c.id}`);
   });
 
   it('emits one absolute, locale-prefixed entry per path per locale', () => {
