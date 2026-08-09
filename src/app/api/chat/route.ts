@@ -1,4 +1,4 @@
-import { streamText, tool, convertToModelMessages, type UIMessage } from 'ai';
+import { streamText, tool, convertToModelMessages, stepCountIs, type UIMessage } from 'ai';
 import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
 import { captureLeadSchema, processCapturedLead } from '@/lib/ai/capture-lead';
@@ -82,6 +82,11 @@ export async function POST(req: Request) {
     messages: await convertToModelMessages(messages),
     temperature: 0.4,
     maxOutputTokens: 700,
+    // Without this the model stops the moment a tool returns, so a visitor sees
+    // "Let me check the available times" and nothing else — observed in prod on
+    // the first live probe. Four steps covers check_availability -> speak, or
+    // check -> book -> confirm, and bounds the cost of a runaway loop.
+    stopWhen: stepCountIs(4),
     tools: {
       capture_lead: tool({
         description: "Save a qualified lead's name, email, and need. Call once you have all three.",
