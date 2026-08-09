@@ -1,0 +1,63 @@
+name: CI
+
+# Why this exists: every check in this repo used to run only when a human
+# remembered to run it, and that failed silently more than once —
+# e2e/chat.spec.ts never actually ran for weeks (it read a NEXT_PUBLIC_* flag
+# the test process couldn't see and quietly took its "disabled" branch), and a
+# failing `next build` was once masked by piping it into grep. The guard tests
+# we rely on (the 24k context-pack ceiling, EN/ES parity, numbered-key drift,
+# "the phone number is not the placeholder") only protect anything if something
+# runs them on every push.
+
+on:
+  push:
+  workflow_dispatch:
+
+# A newer push to the same branch makes the older run pointless.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Matches the dev machine (24.x), so CI cannot disagree with local
+          # over a Node version difference.
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Cheapest signal first, so a type error does not wait behind a build.
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      # --no-file-parallelism on purpose. The two known flakes in this repo are
+      # both contention-driven (resend.test.ts under full-suite parallelism, and
+      # a route test with a 5s budget against ~25s of import work). CI runners
+      # have fewer cores than the dev machine, so parallelism here is more
+      # likely to flake, and a CI that cries wolf gets ignored. The suite runs
+      # in ~10s serially; determinism is worth the seconds.
+      - name: Unit tests
+        run: npm test -- --no-file-parallelism
+
+      # Catches the failure class `tsc` cannot: Next evaluates route handlers
+      # during page-data collection, which is why '@/db' has to be lazily
+      # imported inside the chat route's tool. Vercel only builds on pushes to
+      # main, so without this a branch can look green and break on merge.
+      - name: Production build
+        run: npm run build
+
+# Deliberately NOT here: Playwright. It needs a dev server and browser
+# downloads, and its cold-compile flakiness under load would train everyone to
+# ignore a red CI. Run it locally instead: npx playwright test --workers=1
+# (it binds port 3100, so it will not collide with another project's dev server).
