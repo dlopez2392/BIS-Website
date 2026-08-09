@@ -32,7 +32,16 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm ci
+      # `npm install`, not `npm ci`, and that is deliberate. npm records the
+      # optional-dependency subtree only for the platform the lockfile was
+      # generated on. This lock comes from a Windows machine, so it lacks the
+      # Linux @emnapi/runtime that @img/sharp-wasm32 and
+      # @tailwindcss/oxide-wasm32-wasi resolve to, and `npm ci` fails here with
+      # EUSAGE "Missing: @emnapi/runtime from lock file". Regenerating the lock
+      # on Linux only moves that failure onto the dev machine — verified both
+      # directions. `npm install` still resolves from the lockfile where it can,
+      # and it is how Vercel builds this project too.
+      - run: npm install --no-audit --no-fund
 
       # Cheapest signal first, so a type error does not wait behind a build.
       - name: Typecheck
