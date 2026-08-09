@@ -44,6 +44,16 @@ describe('resend sender', () => {
     expect(arg.subject).toContain('Reyes Law');
   });
 
+  it('falls back to the person when there is no business name', async () => {
+    // Every assistant-captured and chat-booked lead has businessName '', which
+    // left the subject ending in a dangling "— ".
+    const { sendLeadNotification } = await import('../resend');
+    await sendLeadNotification({ ...lead, businessName: '' });
+    const arg = send.mock.calls[0][0];
+    expect(arg.subject).toContain('Ana Reyes');
+    expect(arg.subject).not.toMatch(/—\s*$/);
+  });
+
   it('throws when Resend returns an error', async () => {
     send.mockResolvedValueOnce({ data: null, error: { message: 'boom' } });
     const { sendThankYou } = await import('../resend');

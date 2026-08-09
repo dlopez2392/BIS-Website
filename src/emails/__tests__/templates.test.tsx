@@ -16,6 +16,22 @@ describe('email templates', () => {
     expect(html).toContain('Gracias por contactar');
   });
 
+  it('omits blank rows instead of rendering a bare label', async () => {
+    // Assistant-captured and chat-booked leads carry businessName '' and often
+    // phone '', which used to render as "Name: XBusiness:Email: Y".
+    const html = await render(
+      <LeadNotification lead={{
+        fullName: 'Dan Lopez', businessName: '', email: 'dan@example.com',
+        phone: '', industry: 'other', language: 'en',
+        message: '[via AI assistant] booked from the website chat',
+      }} />,
+    );
+    expect(html).toContain('Dan Lopez');
+    expect(html).toContain('dan@example.com');
+    expect(html).not.toContain('Business:');
+    expect(html).not.toContain('Phone:');
+  });
+
   it('renders the internal notification with the lead details', async () => {
     const html = await render(
       <LeadNotification lead={{

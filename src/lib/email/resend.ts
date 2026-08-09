@@ -43,7 +43,9 @@ export async function sendLeadNotification(lead: ContactFormValues): Promise<voi
     from: process.env.CONTACT_FROM ?? 'onboarding@resend.dev',
     to: process.env.CONTACT_NOTIFY_TO ?? 'bespokeintelligentsolutions@gmail.com',
     replyTo: lead.email,
-    subject: `New assessment request — ${lead.businessName}`,
+    // Falls back to the person's name: assistant-captured and chat-booked leads
+    // carry no businessName, which left the subject ending in a dangling "— ".
+    subject: `New assessment request — ${lead.businessName.trim() || lead.fullName}`,
     react: LeadNotification({ lead }),
   });
   if (error) throw new Error(error.message);
