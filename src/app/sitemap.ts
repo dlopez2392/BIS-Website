@@ -3,6 +3,7 @@ import { routing } from '@/i18n/routing';
 import { SITE_URL } from '@/lib/seo/business';
 import { allSlugs } from '@/lib/insights';
 import { resources } from '@/lib/resources';
+import { cityPages } from '@/lib/cities';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
 
@@ -34,6 +35,7 @@ export function sitemapPaths(): string[] {
     ...STATIC_PATHS,
     ...allSlugs().map((slug) => `/insights/${slug}`),
     ...resources.map((r) => `/resources/${r.slug}`),
+    ...cityPages.map((c) => `/service-area/${c.id}`),
   ];
 }
 

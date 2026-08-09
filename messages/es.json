@@ -441,5 +441,125 @@
     "nextBody": "Esta página crece conforme el trabajo entra en operación. Los proyectos de clientes aparecen aquí solo con su permiso y descritos con hechos que ellos y nosotros podemos sostener — sin números inventados ni logotipos prestados.",
     "ctaTitle": "¿Quieres una así contestando tu teléfono?",
     "ctaBody": "Empieza con una evaluación gratuita. Te diremos con honestidad si esto le sirve a tu negocio — y si no, también te lo decimos."
+  },
+  "cities": {
+    "shared": {
+      "eyebrow": "Área de Servicio",
+      "sectorsHeading": "Lo que vemos en {city}",
+      "howHeading": "Cómo trabajamos aquí",
+      "provenHeading": "Prueba nuestro trabajo antes de contratarnos",
+      "provenBody": "La recepcionista de IA que contesta nuestra propia línea está funcionando y es pública. Llámala, cámbiate al español a media llamada, agenda una cita — y luego decides si sabemos lo que hacemos.",
+      "provenLink": "Mira cómo funciona",
+      "servicesLink": "Todo lo que hacemos",
+      "otherCitiesHeading": "Otras ciudades que atendemos",
+      "backToAll": "Las 14 ciudades de nuestra área de servicio",
+      "ctaTitle": "Veamos {city} juntos",
+      "ctaBody": "Una evaluación gratuita es una conversación, no una venta. Vemos a dónde se te van realmente las horas y te decimos qué vale la pena automatizar — incluso cuando la respuesta honesta es que todavía nada."
+    },
+    "harlingen": {
+      "metaTitle": "IT, IA y Web para negocios de Harlingen",
+      "metaDescription": "Bespoke Intelligent Solutions está en Harlingen. IA práctica, seguridad IT y diseño web bilingüe para clínicas, distribuidores y despachos profesionales de la ciudad.",
+      "heading": "IT e IA para negocios de Harlingen",
+      "intro": "Harlingen es nuestra casa. Aquí está nuestra oficina, nuestro número es un número de Harlingen, y cuando un cliente quiere a alguien presente es un trayecto corto, no un vuelo. Eso cambia lo que podemos prometer con honestidad sobre estar ahí.",
+      "sectors": [
+        {
+          "title": "Clínicas y consultorios médicos",
+          "body": "Harlingen concentra buena parte del sector salud del Valle, y la presión cae en la recepción: llamadas para citas, papeleo de ingreso, recordatorios y pacientes que prefieren hablar español. Esas son las primeras horas que vale la pena recuperar, y casi siempre las atiende quien esté más cerca del teléfono."
+        },
+        {
+          "title": "Distribución y carga aérea",
+          "body": "Valley International mueve suficiente carga para estar entre los aeropuertos de carga más activos del país, con aviones de fuselaje ancho en la plataforma. Los negocios a su alrededor viven de documentos, rastreo y despacho — trabajo repetitivo y con fecha límite, donde un error cuesta un embarque. Esa combinación es justo donde la automatización sí rinde."
+        },
+        {
+          "title": "Despachos y negocios pequeños",
+          "body": "Esas oficinas donde una sola persona contesta el teléfono, agenda las citas, persigue las facturas y actualiza el sitio web. Normalmente no les estamos reemplazando un sistema. Les estamos reemplazando el hecho de que no hay ninguno."
+        }
+      ],
+      "howBody": "Estar basados aquí nos permite empezar en persona y seguir localizables después. También significa que respondemos localmente — aquí vivimos, y en un pueblo de este tamaño un mal trabajo te persigue."
+    },
+    "mcallen": {
+      "metaTitle": "IT, IA y Web para negocios de McAllen",
+      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para comercios, consultorios médicos y negocios con varias sucursales en McAllen. Atendemos McAllen desde Harlingen.",
+      "heading": "IT e IA para negocios de McAllen",
+      "intro": "McAllen es el centro comercial del sur de Texas y del norte de México, y cerca de uno de cada ocho trabajadores del área está en el comercio minorista. Esa mezcla — mucho volumen, márgenes delgados y bastante tráfico de mostrador y de teléfono en dos idiomas — define qué problemas vale la pena resolver aquí.",
+      "sectors": [
+        {
+          "title": "Comercio y negocios con varias sucursales",
+          "body": "Cuando tus clientes vienen de los dos lados del río, el teléfono suena en dos idiomas y tus horas más ocupadas son justo las horas en las que nadie puede contestar. Algo que responda en el idioma en que te hablen, a las horas que no puedes cubrir con personal, aquí no es un lujo — es lo mínimo."
+        },
+        {
+          "title": "Consultorios médicos",
+          "body": "El corredor médico de McAllen–Edinburg es uno de los mayores empleadores de la región. Los consultorios cargan con la misma presión en recepción que en cualquier lado, más la expectativa de atención bilingüe, más las reglas sobre cómo se maneja la información del paciente. Eso último lo diseñamos desde el principio, no al final."
+        },
+        {
+          "title": "Operaciones transfronterizas",
+          "body": "Los negocios que cotizan, facturan o agendan cruzando la frontera cargan con dos juegos de papeleo y dos tipos de cliente. Casi todo ese trabajo es estructurado y repetitivo — del que sobrevive en la memoria de una sola persona y en una hoja de cálculo, hasta la semana en que esa persona sale de vacaciones."
+        }
+      ],
+      "howBody": "McAllen queda como a una hora de nuestra oficina, así que trabajamos como la mayoría de los clientes de allá prefiere: presencial para entender el negocio y dejar todo instalado, y remoto para lo que solo se retrasaría manejando."
+    },
+    "brownsville": {
+      "metaTitle": "IT, IA y Web para negocios de Brownsville",
+      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para agentes aduanales, transportistas y negocios cercanos al puerto en Brownsville. Atendemos Brownsville desde Harlingen.",
+      "heading": "IT e IA para negocios de Brownsville",
+      "intro": "Brownsville vive del comercio transfronterizo. Tiene el único puerto de aguas profundas ubicado directamente en la frontera entre Estados Unidos y México, y los negocios a su alrededor — agentes aduanales, transportistas, proveedores industriales — dependen de que el papeleo se mueva a tiempo.",
+      "sectors": [
+        {
+          "title": "Agentes aduanales y agentes de carga",
+          "body": "Mucho documento, mucha fecha límite, y casi siempre el mismo trabajo repetido con variaciones pequeñas: pedimentos, cotizaciones, actualizaciones de estatus, las mismas cinco preguntas de cada cliente todos los días. Es el caso de automatización más claro del Valle, porque el trabajo es de alto volumen, estructurado y caro cuando sale mal."
+        },
+        {
+          "title": "Transporte y despacho",
+          "body": "El despacho es un trabajo de teléfono, y el teléfono no para. Dónde va mi carga, cuándo libera, cuánto cuesta. Esas respuestas casi siempre ya existen en un sistema que alguien tiene que detenerse a revisar — buena señal de que se pueden dar sin bajar al despachador del radio."
+        },
+        {
+          "title": "Industria y servicios cerca del puerto",
+          "body": "Los proveedores, patios y contratistas alrededor del puerto suelen tener operaciones sólidas y muy poco IT. Muchas veces el primer proyecto correcto no es inteligencia artificial — es asegurarse de que un solo correo con ransomware no pueda parar el andén de carga."
+        }
+      ],
+      "howBody": "Atendemos Brownsville desde Harlingen, lo bastante cerca para estar ahí el mismo día cuando algo lo amerita. Trabajamos en inglés y en español porque así lo hacen tus clientes, tus operadores y tus contrapartes del otro lado del puente."
+    },
+    "edinburg": {
+      "metaTitle": "IT, IA y Web para negocios de Edinburg",
+      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para despachos de abogados, consultorios y servicios profesionales en Edinburg. Atendemos Edinburg desde Harlingen.",
+      "heading": "IT e IA para negocios de Edinburg",
+      "intro": "Edinburg es la cabecera del condado de Hidalgo y sede del campus principal de UTRGV, lo que le da una mezcla poco común en el Valle: juzgados y oficinas del condado, una base grande de servicios de salud, y una población constante de despachos profesionales construidos alrededor de ambos.",
+      "sectors": [
+        {
+          "title": "Despachos de abogados y oficinas de títulos",
+          "body": "Una cabecera de condado concentra el trabajo legal, y el trabajo legal concentra documentos. Ingreso de casos, revisión de conflictos, plazos, solicitudes de expedientes y clientes que llaman para preguntar cómo va su caso. Legal es una de las cinco industrias para las que construimos, y ahí la confidencialidad define el diseño en lugar de agregarse al final."
+        },
+        {
+          "title": "Consultorios y servicios de salud",
+          "body": "El sector salud emplea en Edinburg una proporción muy por encima de lo que normalmente cargaría una ciudad de su tamaño. La misma presión en recepción que en todos lados, la misma expectativa bilingüe, las mismas reglas sobre la información del paciente — y el mismo teléfono que se vuelve el cuello de botella."
+        },
+        {
+          "title": "Servicios profesionales y administrativos",
+          "body": "Contabilidad, seguros, reclutamiento — las oficinas que mantienen funcionando a un condado. Trabajo que llega en formularios y sale en formularios, donde la mayor parte del esfuerzo es pasar información entre sistemas que nunca se presentaron entre sí."
+        }
+      ],
+      "howBody": "Edinburg es un trayecto directo desde Harlingen. Para despachos que manejan expedientes confidenciales preferimos que la primera sesión sea en persona, ver el flujo de trabajo real y ser específicos sobre qué sale de tu oficina y qué no."
+    },
+    "weslaco": {
+      "metaTitle": "IT, IA y Web para negocios de Weslaco",
+      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para productores agrícolas, empacadoras y negocios familiares en Weslaco. Atendemos Weslaco desde Harlingen.",
+      "heading": "IT e IA para negocios de Weslaco",
+      "intro": "Weslaco está en el centro de la agricultura del Valle — Texas A&M opera aquí un centro de investigación y extensión agrícola desde 1923, y el producto agrícola sigue marcando el calendario de muchos negocios del pueblo.",
+      "sectors": [
+        {
+          "title": "Productores y empacadoras",
+          "body": "La agricultura es de temporada, y de temporada significa que la carga de trabajo se triplica unas semanas y el teléfono se triplica con ella. Contratar para el pico sale caro; contratar cuando el pico ya empezó sale tarde. Automatizar la parte repetitiva del pico — pedidos, calendarios, preguntas de compradores, entradas de operadores — suele costar menos que cualquiera de las dos."
+        },
+        {
+          "title": "Servicios y equipo agrícola",
+          "body": "Los distribuidores, proveedores y talleres alrededor de las operaciones agrícolas viven de cotizaciones, disponibilidad de refacciones y llamadas de servicio. Cuando tus clientes están parados en el campo, el que contesta más rápido se queda con el trabajo."
+        },
+        {
+          "title": "Negocios familiares",
+          "body": "Mucho del negocio en Weslaco es de segunda y tercera generación, donde el proceso vive en la cabeza de una sola persona. Nuestro primer trabajo suele ser escribir eso antes de automatizar nada — un proceso que nadie puede describir es un proceso que nadie puede entregar."
+        }
+      ],
+      "howBody": "Andamos por el Valle medio con regularidad, y planeamos alrededor de tu temporada, no de la nuestra. Nadie debería estar estrenando software a medio corte."
+    }
   }
 }
