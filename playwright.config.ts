@@ -30,7 +30,11 @@ export default defineConfig({
     command: `npm run dev -- -p ${PORT}`,
     url: BASE_URL,
     reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
+    // 120s was not enough for a cold Turbopack compile of 50+ routes on a
+    // machine that has just finished running the unit suite — it failed twice
+    // as "Timed out waiting from config.webServer", which reads like a broken
+    // test and is not one.
+    timeout: 240_000,
     // Playwright defaults webServer.env to process.env when omitted, and
     // process.env already carries the override set above — but the flag is
     // spelled out here too, explicitly, so it can never again depend on an

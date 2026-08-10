@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { CredentialCard } from '@/components/marketing/CredentialCard';
 import { MethodStep } from '@/components/marketing/MethodStep';
 import { CTASection } from '@/components/ui/CTASection';
+import { FounderPortrait } from '@/components/marketing/FounderPortrait';
 import { pageMetadata } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -31,11 +32,16 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         <p className="mt-4 max-w-2xl text-lg text-ink-muted">{t('intro')}</p>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 py-10">
-        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('founderKicker')}</p>
-        <h2 className="mt-2 text-3xl font-extrabold text-ink">{t('founderName')}</h2>
-        <blockquote className="mt-4 text-xl font-medium text-ink">“{t('founderQuote')}”</blockquote>
-        <p className="mt-4 text-ink-muted">{t('founderBio')}</p>
+      {/* The portrait column collapses to nothing until the photo exists, so
+          this reads as a normal text section in the meantime. */}
+      <section className="mx-auto flex max-w-4xl flex-col gap-8 px-6 py-10 md:flex-row md:items-start md:gap-12">
+        <div className="flex-1">
+          <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('founderKicker')}</p>
+          <h2 className="mt-2 text-3xl font-extrabold text-ink">{t('founderName')}</h2>
+          <blockquote className="mt-4 text-xl font-medium text-ink">“{t('founderQuote')}”</blockquote>
+          <p className="mt-4 text-ink-muted">{t('founderBio')}</p>
+        </div>
+        <FounderPortrait locale={locale} />
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-10">
