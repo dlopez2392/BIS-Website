@@ -442,6 +442,11 @@
     "ctaTitle": "Want one of these answering your phone?",
     "ctaBody": "Start with a free assessment. We'll tell you honestly whether this fits your business — and if it doesn't, we'll say so."
   },
+  "photos": {
+    "alt": {
+      "founder": "Dan Lopez, founder of Bespoke Intelligent Solutions, in Harlingen, Texas"
+    }
+  },
   "cities": {
     "shared": {
       "eyebrow": "Service Area",
