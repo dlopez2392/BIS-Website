@@ -42,7 +42,7 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ lo
             const page = cityPages.find((c) => c.name === city);
             const className = 'inline-block rounded-full border border-hairline bg-surface-alt px-4 py-1.5 text-sm font-medium';
             return page ? (
-              <Link key={city} href={`/service-area/${page.id}`} className={`${className} text-ink hover:border-primary hover:text-primary`}>
+              <Link key={city} href={`/service-area/${page.id}`} className={`${className} text-ink hover:border-primary hover:text-link`}>
                 {city}
               </Link>
             ) : (

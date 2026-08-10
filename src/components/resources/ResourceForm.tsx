@@ -40,7 +40,7 @@ export function ResourceForm({ slug, downloadUrl }: { slug: string; downloadUrl:
   if (sent) return (
     <div role="status" className="rounded-md bg-surface-alt p-6 text-ink">
       <p>{t('success')}</p>
-      <a href={downloadUrl} className="mt-2 inline-block text-primary underline">{t('downloadFallback')}</a>
+      <a href={downloadUrl} className="mt-2 inline-block text-link underline">{t('downloadFallback')}</a>
     </div>
   );
 

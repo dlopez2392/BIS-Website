@@ -47,6 +47,9 @@ export function businessSchema({
     description,
     inLanguage: locale,
     image: ogImageUrl(business.name),
+    // Served by the app/icon.svg metadata file. SVG is an accepted logo format
+    // and scales for every surface that asks for one.
+    logo: `${SITE_URL}/icon.svg`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: business.address.locality,

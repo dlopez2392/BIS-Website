@@ -69,7 +69,7 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
                 <CallLink className="mt-6 inline-flex items-center gap-3 rounded-lg bg-primary px-6 py-3 text-xl font-extrabold text-on-primary" />
                 <p className="mt-4 text-sm text-ink-muted">
                   {k('tryNote')}{' '}
-                  <Link href="/privacy" className="text-primary underline">
+                  <Link href="/privacy" className="text-link underline">
                     {k('tryNoteLink')}
                   </Link>
                 </p>

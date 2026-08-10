@@ -43,7 +43,7 @@ export function TechMarqueeView({
       </div>
       {viewAllHref && viewAllLabel && (
         <div className="mt-6 text-center">
-          <Link href={viewAllHref} className="text-sm font-semibold text-primary hover:underline">
+          <Link href={viewAllHref} className="text-sm font-semibold text-link hover:underline">
             {viewAllLabel} →
           </Link>
         </div>

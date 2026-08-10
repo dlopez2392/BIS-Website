@@ -11,7 +11,7 @@ export function ServiceGroup({
       <ul className="mt-6 grid gap-2 sm:grid-cols-2">
         {bullets.map((b) => (
           <li key={b} className="flex items-start gap-2 text-sm text-ink">
-            <Check size={16} className="mt-0.5 shrink-0 text-primary" /> {b}
+            <Check size={16} className="mt-0.5 shrink-0 text-link" /> {b}
           </li>
         ))}
       </ul>

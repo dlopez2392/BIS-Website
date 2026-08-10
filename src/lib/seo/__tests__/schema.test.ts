@@ -66,6 +66,12 @@ describe('businessSchema', () => {
     expect('hasOfferCatalog' in bare).toBe(false);
   });
 
+  it('points at a real logo asset, not the framework default', () => {
+    // app/favicon.ico was the untouched create-next-app icon for a month.
+    expect(en.logo).toBe(`${SITE_URL}/icon.svg`);
+    expect(en.logo).not.toContain('favicon.ico');
+  });
+
   it('omits sameAs while there are no profiles to point at', () => {
     // Guard against emitting `sameAs: []`, which asserts "no profiles exist".
     expect('sameAs' in en).toBe(business.sameAs.length > 0);

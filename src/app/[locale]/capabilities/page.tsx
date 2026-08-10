@@ -24,7 +24,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
 
       <nav aria-label={t('indexLabel')} className="mt-8 flex flex-wrap gap-x-4 gap-y-2 border-y border-hairline py-4 text-sm">
         {capabilityGroups.map((g) => (
-          <a key={g.id} href={`#${g.id}`} className="text-ink-muted hover:text-primary">{t(`groups.${g.id}`)}</a>
+          <a key={g.id} href={`#${g.id}`} className="text-ink-muted hover:text-link">{t(`groups.${g.id}`)}</a>
         ))}
       </nav>
 

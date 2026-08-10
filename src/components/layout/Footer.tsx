@@ -33,7 +33,7 @@ export function Footer() {
           <p className="text-xs font-bold uppercase text-ink-muted">{t('location')}</p>
           <ul className="mt-3 space-y-2 text-sm text-ink-muted">
             <li>{t('city')}</li><li>{t('region')}</li>
-            <li><a href={`mailto:${t('email')}`} className="text-primary">{t('email')}</a></li>
+            <li><a href={`mailto:${t('email')}`} className="text-link">{t('email')}</a></li>
           </ul>
         </div>
       </div>
