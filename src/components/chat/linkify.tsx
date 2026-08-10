@@ -19,7 +19,7 @@ export function linkify(text: string): ReactNode[] {
         href={part}
         target="_blank"
         rel="noopener noreferrer"
-        className="underline underline-offset-2 hover:text-primary"
+        className="underline underline-offset-2 hover:text-link"
       >
         {part}
       </a>

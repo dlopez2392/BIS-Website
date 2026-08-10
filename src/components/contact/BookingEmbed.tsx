@@ -28,7 +28,7 @@ export function BookingEmbed() {
       />
       <a
         href={`https://cal.com/${CAL_LINK}`}
-        className="mt-3 inline-block text-sm font-bold text-primary"
+        className="mt-3 inline-block text-sm font-bold text-link"
         target="_blank"
         rel="noopener noreferrer"
       >

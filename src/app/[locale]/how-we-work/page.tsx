@@ -26,7 +26,7 @@ export default async function HowWeWorkPage({ params }: { params: Promise<{ loca
         <ol className="mt-6 space-y-8">
           {steps.map((n) => (
             <li key={n} className="flex gap-5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-lg font-extrabold text-primary">{n}</span>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-lg font-extrabold text-link">{n}</span>
               <div>
                 <h3 className="text-xl font-bold text-ink">{t(`step${n}Title`)}</h3>
                 <p className="mt-1 text-ink-muted">{t(`step${n}Body`)}</p>

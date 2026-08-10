@@ -9,7 +9,15 @@
   --color-ink-muted: #4a4763;
   --color-primary: #7c3aed;
   --color-on-primary: #ffffff;
-  --color-accent: #0891b2;
+  /* Text links, split out from --color-primary because one token cannot serve
+     both roles: a button fill wants to be dark enough for white text, a link
+     wants to be light enough to read ON the background. Identical to primary
+     here; in dark mode they diverge. */
+  --color-link: #7c3aed;
+  /* cyan-700, not cyan-600: accent is used for small uppercase labels, and
+     #0891b2 measured 3.52:1 on this surface — below the 4.5:1 AA floor for
+     text that size. Pinned by src/lib/__tests__/contrast.test.ts. */
+  --color-accent: #0e7490;
   --color-hairline: #e7e3f5;
   --font-sans: var(--font-hanken), system-ui, sans-serif;
 }
@@ -21,6 +29,10 @@
   --color-ink-muted: #b9b2d6;
   --color-primary: #8b5cf6;
   --color-on-primary: #ffffff;
+  /* #8b5cf6 as link text measured 4.31:1 on surface-alt — below AA, and cards
+     are where most links live. Lightening primary itself would have dropped
+     white-on-button to 2.72:1, so the roles split instead. */
+  --color-link: #a78bfa;
   --color-accent: #22d3ee;
   --color-hairline: #262340;
 }
@@ -32,6 +44,7 @@
   --color-ink-muted: var(--color-ink-muted);
   --color-primary: var(--color-primary);
   --color-on-primary: var(--color-on-primary);
+  --color-link: var(--color-link);
   --color-accent: var(--color-accent);
   --color-hairline: var(--color-hairline);
   --font-sans: var(--font-sans);

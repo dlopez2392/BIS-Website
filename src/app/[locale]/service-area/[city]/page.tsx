@@ -80,7 +80,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
             </div>
           ))}
         </div>
-        <Link href="/services" className="mt-6 inline-block text-primary hover:underline">
+        <Link href="/services" className="mt-6 inline-block text-link hover:underline">
           {t('shared.servicesLink')} →
         </Link>
       </section>
@@ -95,7 +95,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
         <p className="mt-3 text-ink-muted">{t('shared.provenBody')}</p>
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <CallLink className="inline-flex items-center gap-3 rounded-lg bg-primary px-5 py-3 text-lg font-extrabold text-on-primary" />
-          <Link href="/work" className="text-primary hover:underline">{t('shared.provenLink')} →</Link>
+          <Link href="/work" className="text-link hover:underline">{t('shared.provenLink')} →</Link>
         </div>
       </section>
 
@@ -114,14 +114,14 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
             <li key={o.id}>
               <Link
                 href={`/service-area/${o.id}`}
-                className="inline-block rounded-full border border-hairline bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink hover:border-primary hover:text-primary"
+                className="inline-block rounded-full border border-hairline bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink hover:border-primary hover:text-link"
               >
                 {o.name}
               </Link>
             </li>
           ))}
         </ul>
-        <Link href="/service-area" className="mt-4 inline-block text-sm text-primary hover:underline">
+        <Link href="/service-area" className="mt-4 inline-block text-sm text-link hover:underline">
           {t('shared.backToAll')} →
         </Link>
       </nav>

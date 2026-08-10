@@ -36,7 +36,7 @@ export function MobileNav() {
               <CallLink
                 withLabel
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2 text-sm font-bold text-ink hover:text-primary"
+                className="flex items-center gap-2 text-sm font-bold text-ink hover:text-link"
               />
             </li>
             {items.map((it) => (

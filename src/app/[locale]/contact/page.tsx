@@ -28,7 +28,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <div className="mt-8 text-sm text-ink-muted">
             <p className="font-bold uppercase">{t('callHeading')}</p>
             <p>{t('callBody')}</p>
-            <CallLink className="mt-3 inline-flex items-center gap-2 text-xl font-extrabold text-ink hover:text-primary" />
+            <CallLink className="mt-3 inline-flex items-center gap-2 text-xl font-extrabold text-ink hover:text-link" />
           </div>
           <div className="mt-8 text-sm text-ink-muted">
             <p className="font-bold uppercase">{t('localOps')}</p>
