@@ -42,7 +42,7 @@
   },
   "home": {
     "heroTitle": "Let us be your",
-    "heroTitleAccent": "Intelligent Solution.",
+    "heroTitleAccent": "Bespoke Intelligent Solution.",
     "heroKicker": "Bespoke Intelligent Solutions · Built for the Valley",
     "heroCta2": "Book a free assessment",
     "heroBody": "Across the Rio Grande Valley, we help businesses work smarter with AI, secure infrastructure, and human ingenuity — in English y en español.",
@@ -83,7 +83,7 @@
     "g3Body": "Fast, modern sites you actually own. No proprietary lock-in. No black boxes. Just clean, performant code that drives conversion and represents your brand's intelligence.",
     "g3Proof": "Every build ships with the keys: your hosting, your accounts, your ownership.",
     "g3Bullets": ["Custom design / dev", "Bilingual content architecture (native)", "Local SEO for RGV", "Analytics dashboards (Power BI)", "Clean handoff"],
-    "ctaTitle": "Ready to deploy an intelligent solution?",
+    "ctaTitle": "Ready to deploy a bespoke intelligent solution?",
     "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself."
   },
   "industries": {
@@ -141,7 +141,7 @@
     "m3Body": "Execution is precision. We develop custom integrations and AI workflows tailored to your operational DNA.",
     "m4Title": "Hand off",
     "m4Body": "We empower your team to own the solution: documentation, training, and a sustainable roadmap for growth.",
-    "ctaTitle": "Let's build your intelligent solution.",
+    "ctaTitle": "Let's build your bespoke intelligent solution.",
     "ctaBody": "Start with a free, no-pitch assessment. We'll show you the one automation that pays for itself first."
   },
   "contact": {
