@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('serves English at /en', async ({ page }) => {
   await page.goto('/en');
-  await expect(page.getByRole('heading', { name: /Let us Be your Intelligent Solution/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Let us be your Bespoke Intelligent Solution/i })).toBeVisible();
 });
 
 test('serves Spanish at /es', async ({ page }) => {
