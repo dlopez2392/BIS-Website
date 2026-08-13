@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ChevronDown } from 'lucide-react';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { faqCategories } from '@/lib/faq';
@@ -37,9 +38,16 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: st
           <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t(`categories.${c.id}`)}</h2>
           <div className="mt-4 divide-y divide-hairline border-y border-hairline">
             {c.items.map((id) => (
-              <details key={id} className="group py-4">
-                <summary className="cursor-pointer list-none text-lg font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  {t(`items.${id}.q`)}
+              // The native marker is hidden, so the chevron IS the only signal a
+              // question opens. It rotates on open and is aria-hidden — <details>
+              // already announces expanded/collapsed to assistive tech.
+              <details key={id} className="group/faq py-4">
+                <summary className="group/q flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink marker:content-none hover:text-link focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-link motion-safe:transition [&::-webkit-details-marker]:hidden">
+                  <span>{t(`items.${id}.q`)}</span>
+                  <ChevronDown
+                    aria-hidden="true"
+                    className="size-5 shrink-0 text-ink-muted group-hover/q:text-link group-open/faq:rotate-180 motion-safe:transition motion-safe:duration-200"
+                  />
                 </summary>
                 <p className="mt-3 text-ink-muted">{t(`items.${id}.a`)}</p>
               </details>
