@@ -24,24 +24,15 @@ describe('resend sender', () => {
     process.env.CONTACT_REPLY_TO = 'bespokeintelligentsolutions@gmail.com';
   });
 
-  it('sends the thank-you to the prospect in their language with company reply-to', async () => {
-    const { sendThankYou } = await import('../resend');
-    await sendThankYou(lead);
-    const arg = send.mock.calls[0][0];
-    expect(arg.to).toBe('ana@reyeslaw.com');
-    expect(arg.from).toBe('BIS <hello@bis-rgv.com>');
-    expect(arg.replyTo).toBe('bespokeintelligentsolutions@gmail.com');
-    expect(arg.subject).toContain('Recibimos'); // ES subject
-    expect(arg.react).toBeTruthy();
-  });
-
   it('sends the notification to the company inbox with the prospect as reply-to', async () => {
     const { sendLeadNotification } = await import('../resend');
     await sendLeadNotification(lead);
     const arg = send.mock.calls[0][0];
     expect(arg.to).toBe('bespokeintelligentsolutions@gmail.com');
+    expect(arg.from).toBe('BIS <hello@bis-rgv.com>');
     expect(arg.replyTo).toBe('ana@reyeslaw.com');
     expect(arg.subject).toContain('Reyes Law');
+    expect(arg.react).toBeTruthy();
   });
 
   it('falls back to the person when there is no business name', async () => {
@@ -56,7 +47,7 @@ describe('resend sender', () => {
 
   it('throws when Resend returns an error', async () => {
     send.mockResolvedValueOnce({ data: null, error: { message: 'boom' } });
-    const { sendThankYou } = await import('../resend');
-    await expect(sendThankYou(lead)).rejects.toThrow('boom');
+    const { sendLeadNotification } = await import('../resend');
+    await expect(sendLeadNotification(lead)).rejects.toThrow('boom');
   });
 });

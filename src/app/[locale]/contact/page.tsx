@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { ContactForm } from '@/components/contact/ContactForm';
-import { BookingEmbed } from '@/components/contact/BookingEmbed';
+import { PlatformEmbed } from '@/components/platform/PlatformEmbed';
 import { CallLink } from '@/components/layout/CallLink';
 import { pageMetadata } from '@/lib/seo/metadata';
 
@@ -35,13 +34,16 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             <p>{t('localOpsValue')}</p>
           </div>
         </div>
-        <ContactForm />
+        <div>
+          <PlatformEmbed kind="form" />
+          <p className="mt-4 text-xs text-ink-muted">{t('poweredBy')}</p>
+        </div>
       </div>
       <section className="mt-20 border-t border-hairline pt-16">
         <h2 className="text-3xl font-extrabold tracking-tight text-ink">{t('bookHeading')}</h2>
         <p className="mt-3 max-w-2xl text-ink-muted">{t('bookSubtext')}</p>
         <div className="mt-8">
-          <BookingEmbed />
+          <PlatformEmbed kind="booking" />
         </div>
       </section>
     </main>

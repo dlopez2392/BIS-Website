@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { buildSystemPrompt } from '../system-prompt';
 import { business } from '@/lib/seo/business';
 
-const bookingLink = 'https://cal.com/dan-lopez-utygjo/free-assessment';
+const bookingLink = 'https://app.bis-rgv.com/b/7t36x3a3izen?locale=en';
 
 describe('buildSystemPrompt', () => {
   it('includes BIS facts, the booking link, and the bilingual/scope rules', () => {
@@ -25,20 +25,23 @@ describe('buildSystemPrompt', () => {
     expect(p).toMatch(/heading/i);
   });
 
-  it('tells the assistant to book, and never to claim a booking the tool did not confirm', () => {
+  it('hands booking to the platform scheduler and never claims a booking it cannot make', () => {
     const p = buildSystemPrompt({ bookingLink });
     expect(p).toMatch(/BOOKING:/);
-    expect(p).toMatch(/check_availability/);
-    expect(p).toMatch(/book_assessment/);
+    // The Cal.com tools are gone with Cal.com; a prompt that still names them
+    // would send the model calling tools that do not exist.
+    expect(p).not.toMatch(/check_availability|book_assessment/);
+    expect(p).toMatch(/cannot book it yourself/i);
     expect(p).toMatch(/never say an appointment is booked/i);
-    // The fallback when Cal is unreachable is the old behaviour, not a dead end.
     expect(p).toContain(bookingLink);
   });
 
   it('works without a pack, for the ungrounded fallback path', () => {
     const p = buildSystemPrompt({ bookingLink });
     expect(p).not.toContain('--- SITE CONTENT');
-    expect(p).not.toMatch(/locale=/);
+    // No visitor line at all — `locale=` alone would match the booking link's
+    // own query string now that the scheduler URL carries the language.
+    expect(p).not.toMatch(/VISITOR CONTEXT/);
     expect(p).not.toMatch(/only authority on BIS/i);
   });
 
