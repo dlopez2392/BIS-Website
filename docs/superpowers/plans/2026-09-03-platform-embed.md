@@ -53,8 +53,10 @@ Now unused and safe to delete from Vercel: `NEXT_PUBLIC_CALCOM_LINK`, `CAL_API_K
 
 - Platform: a public booking API so the chat assistant can book in-conversation
   again (it did through Cal.com; the platform only exposes server actions).
-- Platform: a submitter confirmation email on form submit (Resend thank-you was
-  dropped with the native form) and Spanish confirmation/reminder emails.
+- Platform (shipped alongside): every form now sends the submitter a receipt in
+  the page's language, and a Spanish booker gets a Spanish confirmation and
+  cancel page. Still English: the booking reminder (the row carries no booker
+  language yet).
 - Chat `capture_lead` still writes to Neon; the platform should own that too
   once it has a public contact-intake endpoint.
 - Sofía's line (`+1 956 705 5146`) sits on a different platform account from
