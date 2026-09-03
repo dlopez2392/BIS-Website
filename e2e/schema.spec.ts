@@ -11,7 +11,7 @@ test('the business entity is emitted sitewide under one @id', async ({ page }) =
   const business = (await schemas(page)).find((s) => s['@type'] === 'ProfessionalService');
   expect(business).toBeTruthy();
   expect(business['@id']).toBe('https://bis-rgv.com/#business');
-  expect(business.telephone).toBe('+1-956-705-5146');
+  expect(business.telephone).toBe('+1-956-506-1545');
   expect(business.hasOfferCatalog.itemListElement.length).toBeGreaterThan(0);
   expect(business.areaServed[0]['@type']).toBe('Place');
 });

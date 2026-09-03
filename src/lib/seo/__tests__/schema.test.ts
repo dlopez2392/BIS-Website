@@ -36,7 +36,7 @@ describe('businessSchema', () => {
   });
 
   it('publishes the real phone number, never the launch placeholder', () => {
-    expect(en.telephone).toBe('+1-956-705-5146');
+    expect(en.telephone).toBe('+1-956-506-1545');
     expect(en.telephone).not.toContain('000-0000');
     expect(en.contactPoint.telephone).toBe(business.phone);
   });

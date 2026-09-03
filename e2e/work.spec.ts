@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const TEL = 'tel:+19567055146';
+const TEL = 'tel:+19565061545';
 
 test('work page renders the Sofía case study (EN)', async ({ page }) => {
   await page.goto('/en/work');
@@ -22,7 +22,7 @@ test('the try-it CTA dials the real published number in both locales', async ({ 
     await page.goto(`/${locale}/work`);
     const cta = page.locator('main').locator(`a[href="${TEL}"]`);
     await expect(cta).toBeVisible();
-    await expect(cta).toContainText('(956) 705-5146');
+    await expect(cta).toContainText('(956) 506-1545');
   }
 });
 

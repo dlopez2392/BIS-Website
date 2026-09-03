@@ -4,7 +4,7 @@ export const business = {
   email: 'bespokeintelligentsolutions@gmail.com',
   // The Sofia answering-service line (Telnyx -> OpenAI SIP). Rendered for
   // humans and dialing via src/lib/phone.ts; consumed as-is by JSON-LD.
-  phone: '+1-956-705-5146',
+  phone: '+1-956-506-1545',
   address: { locality: 'Harlingen', region: 'TX', country: 'US' },
   areaServed: [
     'Rio Grande Valley', 'Harlingen', 'McAllen', 'Brownsville', 'Edinburg', 'Weslaco',

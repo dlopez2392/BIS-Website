@@ -4,33 +4,33 @@ import { business } from '@/lib/seo/business';
 
 describe('telHref', () => {
   it('builds a dialable tel: URI from the stored number', () => {
-    expect(telHref('+1-956-705-5146')).toBe('tel:+19567055146');
+    expect(telHref('+1-956-506-1545')).toBe('tel:+19565061545');
   });
 
   it('drops punctuation and spacing', () => {
-    expect(telHref('+1 (956) 705-5146')).toBe('tel:+19567055146');
+    expect(telHref('+1 (956) 506-1545')).toBe('tel:+19565061545');
   });
 
   it('is idempotent on an already-clean number', () => {
-    expect(telHref('+19567055146')).toBe('tel:+19567055146');
+    expect(telHref('+19565061545')).toBe('tel:+19565061545');
   });
 
   it('assumes US when no country code is present', () => {
-    expect(telHref('956-705-5146')).toBe('tel:+19567055146');
+    expect(telHref('956-506-1545')).toBe('tel:+19565061545');
   });
 });
 
 describe('formatUsPhone', () => {
   it('renders a US number in (AAA) BBB-CCCC form', () => {
-    expect(formatUsPhone('+1-956-705-5146')).toBe('(956) 705-5146');
+    expect(formatUsPhone('+1-956-506-1545')).toBe('(956) 506-1545');
   });
 
   it('accepts an unpunctuated number', () => {
-    expect(formatUsPhone('+19567055146')).toBe('(956) 705-5146');
+    expect(formatUsPhone('+19565061545')).toBe('(956) 506-1545');
   });
 
   it('accepts a bare 10-digit national number', () => {
-    expect(formatUsPhone('9567055146')).toBe('(956) 705-5146');
+    expect(formatUsPhone('9565061545')).toBe('(956) 506-1545');
   });
 
   it('returns the input unchanged when it is not a US number', () => {
@@ -43,7 +43,7 @@ describe('the configured business number', () => {
   // was published to Google for weeks before this change.
   it('is the real Sofia line, not the placeholder', () => {
     expect(business.phone).not.toContain('000-0000');
-    expect(telHref(business.phone)).toBe('tel:+19567055146');
-    expect(formatUsPhone(business.phone)).toBe('(956) 705-5146');
+    expect(telHref(business.phone)).toBe('tel:+19565061545');
+    expect(formatUsPhone(business.phone)).toBe('(956) 506-1545');
   });
 });
