@@ -56,7 +56,7 @@ test('city pages cross-link to each other and offer the phone test', async ({ pa
     'href',
     '/en/service-area/mcallen'
   );
-  await expect(page.locator('main').locator('a[href="tel:+19567055146"]')).toBeVisible();
+  await expect(page.locator('main').locator('a[href="tel:+19565061545"]')).toBeVisible();
 });
 
 test('an unknown city 404s instead of rendering an empty page', async ({ page }) => {

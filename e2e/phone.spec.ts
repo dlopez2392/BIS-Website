@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const TEL = 'tel:+19567055146';
+const TEL = 'tel:+19565061545';
 
 test('header exposes a tap-to-call link in both locales', async ({ page }) => {
   for (const locale of ['en', 'es']) {
@@ -9,7 +9,7 @@ test('header exposes a tap-to-call link in both locales', async ({ page }) => {
     // default viewport the desktop one is the visible one.
     const header = page.locator('header');
     await expect(header.locator(`a[href="${TEL}"]`).first()).toBeVisible();
-    await expect(header.getByText('(956) 705-5146').first()).toBeVisible();
+    await expect(header.getByText('(956) 506-1545').first()).toBeVisible();
   }
 });
 
@@ -30,6 +30,6 @@ test('contact page call block is localized', async ({ page }) => {
 test('the placeholder number is gone from structured data', async ({ page }) => {
   await page.goto('/en');
   const ld = await page.locator('script[type="application/ld+json"]').first().textContent();
-  expect(ld).toContain('+1-956-705-5146');
+  expect(ld).toContain('+1-956-506-1545');
   expect(ld).not.toContain('000-0000');
 });

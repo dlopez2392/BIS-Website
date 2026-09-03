@@ -59,6 +59,7 @@ Now unused and safe to delete from Vercel: `NEXT_PUBLIC_CALCOM_LINK`, `CAL_API_K
   language yet).
 - Chat `capture_lead` still writes to Neon; the platform should own that too
   once it has a public contact-intake endpoint.
-- Sofía's line (`+1 956 705 5146`) sits on a different platform account from
-  the site's booking calendar; the case-study copy no longer claims they share
-  a calendar.
+- The site's published line was `(956) 705-5146`, which the platform holds
+  under a different account from the booking calendar. It now publishes
+  `(956) 506-1545`, the BIS account's own line, so Sofía and the contact page
+  share one account. The old line stays on Test Client One.

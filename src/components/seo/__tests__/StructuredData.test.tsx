@@ -25,7 +25,7 @@ describe('StructuredData', () => {
     // The placeholder +1-956-000-0000 shipped in this JSON-LD for weeks. A bad
     // number in structured data is worse than none, so pin it.
     const { data } = renderSchema(<StructuredData locale="en" description="What we do." />);
-    expect(data.telephone).toBe('+1-956-705-5146');
+    expect(data.telephone).toBe('+1-956-506-1545');
     expect(data.telephone).not.toContain('000-0000');
   });
 
