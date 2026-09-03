@@ -46,8 +46,9 @@ scheduler, no conversion event) but does not break.
 
 All optional, defaults are the live BIS account: `NEXT_PUBLIC_BIS_PLATFORM_ORIGIN`,
 `NEXT_PUBLIC_BIS_FORM_ID_EN`, `NEXT_PUBLIC_BIS_FORM_ID_ES`, `NEXT_PUBLIC_BIS_BOOKING_ID`.
-Now unused and safe to delete from Vercel: `NEXT_PUBLIC_CALCOM_LINK`, `CAL_API_KEY`,
-`CAL_USERNAME`, `CAL_EVENT_SLUG`.
+Deleted from Vercel on 2026-09-03 now that nothing reads them:
+`NEXT_PUBLIC_CALCOM_LINK`, `CAL_API_KEY`, `CAL_USERNAME`, `CAL_EVENT_SLUG`.
+The Cal.com API key itself should also be revoked in the Cal.com dashboard.
 
 ## Follow-ups
 
