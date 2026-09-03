@@ -4,8 +4,9 @@
  * The previous limiter kept its counts in a module-level Map, so on Vercel each
  * lambda instance had its own notepad and a recycled instance started blank —
  * "10 per minute" was really "10 per minute per instance until it forgets".
- * That was tolerable when the chat only cost tokens. It is not tolerable now
- * that the assistant can put real events on a real calendar.
+ * Shared counters stay even though the chat no longer books appointments
+ * itself (the platform's scheduler owns that, with its own rate limit): a
+ * per-instance cap on model calls is still not a cap.
  *
  * Keys are prefixed `web:` because this Upstash store is shared with the Sofía
  * receptionist, whose keys are `session:*` and `calls:*`.
@@ -13,26 +14,15 @@
 
 export const CHAT_PER_MINUTE = 10;
 export const CHAT_WINDOW_SECONDS = 60;
-export const BOOKINGS_PER_IP_PER_DAY = 2;
-export const BOOKINGS_PER_DAY = 20;
-const DAY_SECONDS = 86_400;
 
 export interface Counter {
   /** Increments `key`, setting `ttlSeconds` on first write, and returns the new count. */
   incr(key: string, ttlSeconds: number): Promise<number>;
 }
 
-export interface BookingDecision {
-  ok: boolean;
-  reason?: 'ip-daily' | 'global-daily';
-}
-
 export interface Limits {
   allowChat(ip: string): Promise<boolean>;
-  allowBooking(ip: string): Promise<BookingDecision>;
 }
-
-const dayKey = (at: Date) => at.toISOString().slice(0, 10);
 
 let brokenCounterLogged = false;
 function logBrokenCounter(err: unknown) {
@@ -42,15 +32,13 @@ function logBrokenCounter(err: unknown) {
 }
 
 /**
- * Pure over its Counter, so the caps are testable without Redis.
+ * Pure over its Counter, so the cap is testable without Redis.
  *
- * Every path fails OPEN. A dead Redis silencing the assistant, or refusing a
- * real prospect's booking, is worse than an unmetered window — the same call
- * Sofía's daily call caps make, and the same never-lose-a-lead rule the contact
- * pipeline follows. The guards that do not depend on Redis (one booking per
- * conversation, a required email) are what make that safe.
+ * Fails OPEN. A dead Redis silencing the assistant is worse than an unmetered
+ * window — the same call Sofía's daily call caps make, and the same
+ * never-lose-a-lead rule the lead pipeline follows.
  */
-export function makeLimits(counter: Counter, now: () => Date = () => new Date()): Limits {
+export function makeLimits(counter: Counter): Limits {
   return {
     async allowChat(ip) {
       try {
@@ -59,24 +47,6 @@ export function makeLimits(counter: Counter, now: () => Date = () => new Date())
       } catch (err) {
         logBrokenCounter(err);
         return true;
-      }
-    },
-
-    async allowBooking(ip) {
-      const day = dayKey(now());
-      try {
-        // Per-IP first, so a visitor who has hit their own cap does not eat into
-        // the global budget on every retry.
-        const mine = await counter.incr(`web:rl:book:ip:${ip}:${day}`, DAY_SECONDS);
-        if (mine > BOOKINGS_PER_IP_PER_DAY) return { ok: false, reason: 'ip-daily' };
-
-        const all = await counter.incr(`web:rl:book:day:${day}`, DAY_SECONDS);
-        if (all > BOOKINGS_PER_DAY) return { ok: false, reason: 'global-daily' };
-
-        return { ok: true };
-      } catch (err) {
-        logBrokenCounter(err);
-        return { ok: true };
       }
     },
   };

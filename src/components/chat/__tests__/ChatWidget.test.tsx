@@ -65,7 +65,7 @@ describe('ChatWidget', () => {
     fireEvent.submit(screen.getByTestId('chat-input').closest('form') as HTMLFormElement);
     expect(sendMessage).toHaveBeenCalledWith(
       { text: 'hola' },
-      { body: { locale: 'es', path: '/es/capabilities', timeZone: expect.any(String) } },
+      { body: { locale: 'es', path: '/es/capabilities' } },
     );
   });
 
@@ -78,7 +78,7 @@ describe('ChatWidget', () => {
     fireEvent.submit(screen.getByTestId('chat-input').closest('form') as HTMLFormElement);
     expect(sendMessage).toHaveBeenCalledWith(
       { text: 'hi' },
-      { body: { locale: 'en', path: '/en', timeZone: expect.any(String) } },
+      { body: { locale: 'en', path: '/en' } },
     );
   });
 

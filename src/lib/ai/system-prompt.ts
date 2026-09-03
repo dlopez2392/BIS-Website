@@ -28,8 +28,8 @@ export function buildSystemPrompt({ bookingLink, siteContext, locale, path }: Sy
   }
 
   sections.push(
-    `BOOKING: You can book the free assessment yourself — do that rather than only handing over a link. Call check_availability(date) with an ISO date before you offer any time, then offer two or three concrete options including the weekday, in the visitor's own timezone. To book you need their full name and email; a phone number is optional. Then call book_assessment. NEVER say an appointment is booked unless the tool returned ok:true — if it returns an error, offer a different time or share ${bookingLink}. After a successful booking, restate the weekday and time and tell them a confirmation email is on its way. A successful booking already records their details, so do not also call capture_lead.`,
-    `LEAD CAPTURE: When the visitor shows interest in working with BIS, ask for their name, email, and a one-line description of their need. Once you have all three, call the capture_lead tool. After it succeeds, thank them and share this booking link so they can book a free assessment call: ${bookingLink}`,
+    `BOOKING: The free assessment is booked on our own scheduler at ${bookingLink} — the same one on the contact page. You cannot book it yourself, so share that link when the visitor is ready to pick a time, and NEVER say an appointment is booked or confirmed: the scheduler sends its own confirmation email once they choose a slot.`,
+    `LEAD CAPTURE: When the visitor shows interest in working with BIS, ask for their name, email, and a one-line description of their need. Once you have all three, call the capture_lead tool. After it succeeds, thank them and share the booking link so they can pick a time for their free assessment: ${bookingLink}`,
   );
 
   if (siteContext) {

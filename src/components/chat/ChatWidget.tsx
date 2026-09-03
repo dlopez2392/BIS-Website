@@ -23,10 +23,7 @@ export function ChatWidget() {
     e.preventDefault();
     const text = input.trim();
     if (!text || messages.length >= 18) return;
-    // The visitor's own zone, so offered appointment times mean what they read.
-    // Read at send time rather than render, so it is always current.
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    sendMessage({ text }, { body: { locale, path, timeZone } });
+    sendMessage({ text }, { body: { locale, path } });
     setInput('');
   };
 

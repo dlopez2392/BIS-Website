@@ -49,3 +49,6 @@ build.log
 
 # superpowers scratch (brainstorm mockups, sdd)
 .superpowers/
+
+# The example is documentation, not a secret.
+!.env.example

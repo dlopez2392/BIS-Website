@@ -2,12 +2,10 @@ import { streamText, tool, convertToModelMessages, stepCountIs, type UIMessage }
 import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
 import { captureLeadSchema, processCapturedLead } from '@/lib/ai/capture-lead';
-import { z } from 'zod';
 import { getLimits } from '@/lib/limits';
-import { calConfigFromEnv, listSlots, book } from '@/lib/cal';
-import { bookAssessmentSchema, runBookAssessment, alreadyBookedInConversation } from '@/lib/ai/booking';
 import { resolveVisitorContext } from '@/lib/ai/visitor-context';
 import { getSiteContext } from '@/lib/ai/site-context';
+import { publicPageUrl } from '@/lib/platform';
 
 // Lazy-imported inside execute() so the route module stays import-safe at
 // build-time page-data collection: '@/db' calls neon() at module load and
@@ -22,7 +20,6 @@ async function captureLead(args: Parameters<typeof processCapturedLead>[0]) {
 
 export const maxDuration = 30;
 const MAX_MESSAGES = 20;
-const BOOKING_LINK = `https://cal.com/${process.env.NEXT_PUBLIC_CALCOM_LINK ?? 'dan-lopez-utygjo/free-assessment'}`;
 
 // Module-level so a broken pack logs once per instance instead of once per request.
 let packFailureLogged = false;
@@ -74,7 +71,11 @@ export async function POST(req: Request) {
   const result = streamText({
     model: deepseek('deepseek-chat'),
     system: buildSystemPrompt({
-      bookingLink: BOOKING_LINK,
+      // The platform's hosted scheduler, the same one the contact page frames.
+      // The assistant used to book directly through Cal.com's API; the
+      // platform has no public booking API yet, so the assistant hands the
+      // visitor the page instead. Per-locale, like the rest of the prompt.
+      bookingLink: publicPageUrl('booking', visitor.locale),
       siteContext,
       locale: visitor.locale,
       path: visitor.path,
@@ -83,56 +84,15 @@ export async function POST(req: Request) {
     temperature: 0.4,
     maxOutputTokens: 700,
     // Without this the model stops the moment a tool returns, so a visitor sees
-    // "Let me check the available times" and nothing else — observed in prod on
-    // the first live probe. Four steps covers check_availability -> speak, or
-    // check -> book -> confirm, and bounds the cost of a runaway loop.
+    // "Saving your details" and nothing else — observed in prod on the first
+    // live probe. Four steps covers capture_lead -> speak with room to spare,
+    // and bounds the cost of a runaway loop.
     stopWhen: stepCountIs(4),
     tools: {
       capture_lead: tool({
         description: "Save a qualified lead's name, email, and need. Call once you have all three.",
         inputSchema: captureLeadSchema,
         execute: async (args) => captureLead(args),
-      }),
-
-      check_availability: tool({
-        description:
-          'Free-assessment start times for one date (YYYY-MM-DD), in the visitor timezone. Call before offering any time.',
-        inputSchema: z.object({ date: z.string().min(1) }),
-        execute: async ({ date }) => {
-          try {
-            const slots = await listSlots(calConfigFromEnv(), { date, timeZone: visitor.timeZone });
-            // A handful is plenty to offer aloud; the full list is noise in context.
-            return { ok: true, timeZone: visitor.timeZone, slots: slots.slice(0, 6) };
-          } catch (err) {
-            console.error('[chat] check_availability failed', err);
-            return { ok: false, error: 'Availability is unavailable right now. Share the booking link instead.' };
-          }
-        },
-      }),
-
-      book_assessment: tool({
-        description:
-          'Book the free assessment at a start time returned by check_availability. Needs full name and email.',
-        inputSchema: bookAssessmentSchema,
-        execute: async (args) => {
-          // Lazily imported for the same reason as the lead helpers below: '@/db'
-          // calls neon() at module load and the route is evaluated at build time.
-          const [{ insertLead }, { sendLeadNotification }] = await Promise.all([
-            import('@/lib/contact/repository'),
-            import('@/lib/email/resend'),
-          ]);
-          return runBookAssessment(
-            args,
-            { ip, timeZone: visitor.timeZone, language: visitor.locale },
-            {
-              book: (input) => book(calConfigFromEnv(), input),
-              allowBooking: (forIp) => limits.allowBooking(forIp),
-              insertLead,
-              sendLeadNotification,
-            },
-            { alreadyBooked: alreadyBookedInConversation(messages) },
-          );
-        },
       }),
     },
   });
