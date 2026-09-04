@@ -6,7 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { routing } from '@/i18n/routing';
-import { hankenGrotesk } from '@/lib/fonts';
+import { hankenGrotesk, instrumentSerif } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -54,7 +54,7 @@ export default async function LocaleLayout({
   }));
 
   return (
-    <html lang={locale} suppressHydrationWarning className={hankenGrotesk.variable}>
+    <html lang={locale} suppressHydrationWarning className={`${hankenGrotesk.variable} ${instrumentSerif.variable}`}>
       <body>
         <ThemeProvider>
           <NextIntlClientProvider>
