@@ -121,6 +121,16 @@ body {
   opacity: 0; transition: opacity 1.2s ease;
 }
 .hero-photo video.is-in { opacity: 1; }
+/* Brand tint. The footage is greyscale, so a `color` blend hands it the
+   site's own hue ramp (violet at the top-left, cyan at the bottom-right) while
+   keeping every highlight and shadow of the frame. It only rides on the video;
+   the gradient fallback already carries the colors itself. */
+.hero-tint {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(118deg, #7c3aed 0%, #6d4bd8 38%, #3a7fb0 68%, #22d3ee 100%);
+  mix-blend-mode: color; opacity: 0; transition: opacity 1.2s ease;
+}
+.hero-photo video.is-in ~ .hero-tint { opacity: 0.85; }
 /* The scrim is only what the stats row needs to stay legible over any frame. */
 .hero-photo::after {
   content: ""; position: absolute; inset: 0;

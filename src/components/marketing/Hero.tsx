@@ -112,6 +112,7 @@ export function Hero({
     <section ref={rootRef} className="hero" aria-labelledby="hero-title">
       <div className="hero-photo" aria-hidden="true">
         <video ref={videoRef} muted loop playsInline autoPlay preload="none" tabIndex={-1} />
+        <div className="hero-tint" />
       </div>
       <div className="hero-grain" aria-hidden="true" />
 
