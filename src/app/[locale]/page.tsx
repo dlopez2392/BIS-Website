@@ -37,6 +37,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         body={t('heroBody')}
         cta={t('heroCta')}
         cta2={t('heroCta2')}
+        stats={[t('capOnePoint'), t('capBilingual'), t('capShip')]}
       />
 
       <TechMarquee locale={locale} />

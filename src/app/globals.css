@@ -89,23 +89,193 @@ body {
   .marquee__track > [aria-hidden="true"] { display: none; }
 }
 
-/* --- Animated hero --- */
-.hero-anim {
-  background: radial-gradient(ellipse 80% 60% at 75% 8%,
-    color-mix(in oklab, var(--color-primary) 22%, var(--color-surface)) 0%,
-    var(--color-surface) 55%);
+/* --- Hero: full-viewport, video-backed, copy anchored to the bottom --- */
+/* A dark island in both themes: white type over a video needs a dark
+   backdrop whether or not the video has arrived, so the hero paints the
+   site's dark surface and violet/cyan glows itself rather than reading the
+   page theme. Everything below it is the page again. */
+.hero {
+  --header-h: 69px;
+  --hero-text: #ffffff;
+  --hero-muted: rgba(255, 255, 255, 0.74);
+  --hero-stat: rgba(255, 255, 255, 0.86);
+  --hero-border: rgba(255, 255, 255, 0.16);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: calc(100svh - var(--header-h));
+  background: #0b0a18;
+  color: var(--hero-text);
 }
-.hero-vign {
-  background: radial-gradient(ellipse at 30% 50%, transparent 30%, var(--color-surface) 100%);
-  opacity: .85;
+.hero-photo {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(900px 520px at 18% 6%, rgba(124, 58, 237, 0.45), transparent 62%),
+    radial-gradient(760px 480px at 88% 34%, rgba(14, 116, 144, 0.40), transparent 60%),
+    #0b0a18;
+}
+.hero-photo video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.hero-photo video.is-in { opacity: 1; }
+/* The scrim is only what the stats row needs to stay legible over any frame. */
+.hero-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(11, 10, 24, 0.18) 0%, rgba(11, 10, 24, 0) 28%, rgba(11, 10, 24, 0.22) 62%, rgba(11, 10, 24, 0.82) 100%);
+}
+.hero-grain {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0.08; mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+.hero-copy {
+  position: relative; z-index: 1;
+  align-self: end; justify-self: center;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  width: 100%; max-width: 860px;
+  padding: 8px 24px 85px;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 0 0 22px; padding: 9px 15px; border: 0; border-radius: 5px;
+  background: linear-gradient(90deg, #7c3aed 0%, #3b2477 52%, #14122a 100%);
+  color: #f2f2f2; font-size: 12.5px; font-weight: 400; letter-spacing: -0.01em;
+}
+.badge-star { flex: none; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.45)); animation: in-star 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
+.hero-h1 {
+  margin: 0; display: flex; flex-direction: column; align-items: center;
+  font-size: 48px; font-weight: 600; letter-spacing: -0.045em; line-height: 1.12; color: var(--hero-text);
+}
+.headline-line { display: block; overflow: hidden; padding: 0.06em 0.15em 0.14em; }
+.hero-h1 em {
+  font-family: var(--font-instrument), "Times New Roman", Times, serif;
+  font-style: italic; font-weight: 400; font-size: 1.08em; letter-spacing: -0.03em;
+  animation: in-em 1.2s ease 0.72s both;
 }
 .hero-grad {
-  background: linear-gradient(100deg, var(--color-primary), var(--color-accent));
+  background: linear-gradient(100deg, #a78bfa, #22d3ee);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-@keyframes hero-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-@media (prefers-reduced-motion: no-preference) {
-  .hero-rise { opacity: 0; animation: hero-rise .7s forwards; }
-  .hero-d1 { animation-delay: .10s; } .hero-d2 { animation-delay: .22s; }
-  .hero-d3 { animation-delay: .34s; } .hero-d4 { animation-delay: .46s; }
+.lede {
+  margin: 18px 0 0; max-width: 470px;
+  color: var(--hero-muted); font-size: 15.5px; font-weight: 400; line-height: 1.55; letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+
+/* Buttons: one liquid-glass language, in the brand's violet rather than chrome. */
+.btn {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 42px; padding: 0 18px; border-radius: 6px;
+  font-size: 13.5px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; cursor: pointer;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease, filter 0.35s ease;
+}
+.btn::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.45) 48%, transparent 76%);
+  transform: translateX(-130%); transition: transform 0.65s ease;
+}
+.btn:hover::after { transform: translateX(130%); }
+.btn-solid {
+  background: linear-gradient(180deg, #a78bfa 0%, #8b5cf6 48%, #7c3aed 100%);
+  color: #ffffff; border: 1px solid #a78bfa;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 24px -10px rgba(139, 92, 246, 0.7);
+}
+.btn-solid:hover {
+  background: linear-gradient(180deg, #c4b5fd 0%, #a78bfa 42%, #8b5cf6 100%);
+  border-color: #c4b5fd;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 26px rgba(167, 139, 250, 0.45), 0 8px 18px rgba(139, 92, 246, 0.3);
+}
+.btn-ghost {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(11, 10, 24, 0.5) 46%, rgba(34, 211, 238, 0.10));
+  color: #ffffff; border: 1px solid rgba(198, 198, 198, 0.55);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.btn-ghost:hover {
+  background: linear-gradient(135deg, rgba(210, 225, 255, 0.18), rgba(11, 10, 24, 0.35) 48%, rgba(34, 211, 238, 0.18));
+  border-color: rgba(220, 230, 255, 0.8);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 0 24px rgba(34, 211, 238, 0.28);
+}
+
+.hero-stats {
+  position: relative; z-index: 1; list-style: none; margin: 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  /* Inset a little more than the row's own rhythm needs: the chat launcher is
+     a fixed circle in the bottom-right corner and the last stat must clear it. */
+  padding: 0 104px max(36px, env(safe-area-inset-bottom));
+  color: var(--hero-stat); font-size: 13.5px; letter-spacing: -0.015em;
+}
+.stat { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; }
+.stat svg { width: 20px; height: 20px; flex: none; color: #22d3ee; }
+
+/* Entrance. Resting opacity is 1 so nothing is ever blank; `both` applies the
+   0% frame during the delay so the reveal still reads when animations run. */
+.appear {
+  opacity: 1;
+  animation-duration: var(--dur, 1.05s);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: var(--d, 0.08s);
+}
+.appear--scale { animation-name: in-scale; }
+.appear--soft { animation-name: in-soft; }
+.appear--mask { animation-name: in-mask; display: inline-block; }
+.appear--pop { animation-name: in-pop; }
+.appear--btn { animation-name: in-btn; }
+.appear--side { animation-name: in-side; }
+.appear--stat { animation-name: in-stat; }
+.appear.is-in { animation: none; opacity: 1; transform: none; clip-path: none; filter: none; }
+@keyframes in-scale { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }
+@keyframes in-soft { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes in-mask { from { opacity: 0; transform: translateY(40%); } to { opacity: 1; transform: translateY(0); } }
+@keyframes in-pop { 0% { opacity: 0; transform: scale(0.9); } 70% { opacity: 1; transform: scale(1.03); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes in-btn { from { opacity: 0; transform: translateY(18px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes in-side { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes in-stat { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes in-star { 0% { transform: scale(0.2) rotate(-50deg); } 65% { transform: scale(1.2) rotate(8deg); } 100% { transform: scale(1) rotate(0); } }
+@keyframes in-em { from { opacity: 0.35; filter: blur(4px); } to { opacity: 1; filter: blur(0); } }
+
+/* Responsive: the same rhythm, scaled. */
+@media (min-width: 1280px) { .hero-h1 { font-size: 54px; } .lede { font-size: 16px; } .hero-copy { max-width: 900px; } .hero-stats { padding-left: 112px; padding-right: 112px; } }
+@media (min-width: 1600px) {
+  .hero-h1 { font-size: 64px; } .lede { font-size: 18px; max-width: 540px; margin-top: 22px; }
+  .badge { font-size: 13.5px; margin-bottom: 26px; } .hero-actions { margin-top: 30px; gap: 12px; }
+  .btn { height: 48px; font-size: 15px; } .hero-copy { max-width: 980px; }
+  .hero-stats { font-size: 15px; padding: 0 128px max(44px, env(safe-area-inset-bottom)); } .stat svg { width: 22px; height: 22px; }
+}
+@media (min-width: 1920px) {
+  .hero-h1 { font-size: 76px; } .lede { font-size: 20px; max-width: 620px; } .badge { font-size: 14.5px; padding: 10px 15px; }
+  .btn { height: 52px; font-size: 16px; padding: 0 22px; } .hero-copy { max-width: 1120px; }
+  .hero-stats { font-size: 16px; padding: 0 152px max(52px, env(safe-area-inset-bottom)); }
+}
+@media (min-width: 2560px) { .hero-h1 { font-size: 88px; } .lede { font-size: 22px; max-width: 680px; } .hero-copy { max-width: 1280px; } .hero-stats { padding-left: 192px; padding-right: 192px; } }
+@media (min-width: 901px) and (max-width: 1279px) {
+  .hero-h1 { font-size: 42px; } .lede { font-size: 15px; max-width: 440px; margin-top: 14px; }
+  .badge { font-size: 12px; margin-bottom: 16px; } .hero-actions { margin-top: 20px; }
+  .btn { height: 40px; font-size: 13px; } .hero-copy { max-width: 760px; padding-bottom: 64px; }
+  .hero-stats { font-size: 12.5px; padding: 0 64px max(28px, env(safe-area-inset-bottom)); }
+}
+@media (min-width: 901px) and (max-height: 850px) { .hero-h1 { font-size: 40px; } .hero-copy { padding-bottom: 48px; } .badge { margin-bottom: 12px; } .lede { margin-top: 12px; } .hero-actions { margin-top: 16px; } .hero-stats { padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
+@media (min-width: 901px) and (max-height: 720px) { .hero-h1 { font-size: 34px; } .lede { font-size: 14px; } .hero-copy { padding-bottom: 32px; } .badge { margin-bottom: 8px; } .btn { height: 36px; } .hero-stats { padding-bottom: 18px; } }
+@media (max-width: 900px) {
+  .hero-copy { padding: 20px 20px 64px; max-width: 100%; }
+  .hero-h1 { font-size: 36px; } .lede { font-size: 16.5px; max-width: 100%; } .badge { font-size: 13.5px; }
+  .btn { height: 48px; font-size: 15px; }
+  /* Bottom clearance for the fixed chat launcher (56px + 20px inset). */
+  .hero-stats { flex-direction: column; align-items: center; gap: 16px; padding: 0 20px max(92px, calc(env(safe-area-inset-bottom) + 92px)); font-size: 15px; }
+  .stat { white-space: normal; }
+}
+@media (max-width: 560px) {
+  .hero-h1 { font-size: 34px; } .lede { font-size: 16px; }
+  .hero-actions { flex-direction: column; align-items: stretch; width: 100%; } .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero *, .hero *::before, .hero *::after { transition: none !important; animation: none !important; }
+  .appear, .hero-photo video, .hero-h1 em, .badge-star { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
 }
