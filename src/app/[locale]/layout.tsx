@@ -62,6 +62,24 @@ export default async function LocaleLayout({
             CAPTCHA, and nothing to consent to — it observes the request that
             posts, not the person reading the page. */}
         <BotIdClient protect={[...PROTECTED_ROUTES]} />
+        {/* Prerender the page a visitor is most likely to open next, once
+            they show intent by hovering or starting to tap. Chromium only —
+            Mozilla and WebKit have both declined the API — so it is a speed
+            improvement where it is supported and inert everywhere else.
+            "moderate" waits for that intent rather than prefetching the whole
+            nav on load, which would download pages nobody asked for on a
+            phone connection. */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [{
+                where: { and: [{ href_matches: '/*' }, { not: { href_matches: '/api/*' } }] },
+                eagerness: 'moderate',
+              }],
+            }),
+          }}
+        />
       </head>
       <body>
         <ThemeProvider>

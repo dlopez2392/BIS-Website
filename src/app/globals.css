@@ -289,3 +289,46 @@ body {
   .hero *, .hero *::before, .hero *::after { transition: none !important; animation: none !important; }
   .appear, .hero-photo video, .hero-h1 em, .badge-star { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
 }
+
+/* --- Moving between pages ---------------------------------------------
+   `@view-transition` covers a full document load: a typed address, a link
+   from a search result, a page opened in a new tab. Those are most of the
+   first impressions this site gets, and they are exactly the navigations that
+   flash white today.
+
+   Client-side navigation between links is NOT covered yet. Next's
+   `experimental.viewTransition` needs React's ViewTransition component, which
+   is not in stable React 19.2, and hand-rolling it around the router
+   crossfades frames the router has not finished painting. The rules below are
+   written so that turning the flag on is the only change needed when React
+   ships it; verified by a test that the flag is genuinely inert today rather
+   than assumed.
+
+   It is a crossfade and nothing more. A marketing site that slides its whole
+   layout on every click is a site people learn to click through quickly. The
+   point is to remove a flash, not to put on a show. */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* The header and footer are the same object on both pages, so each is named
+   and held still while the content between them changes. Without this they
+   crossfade along with everything else and appear to flicker on every
+   navigation. Two names, not one: a view-transition-name has to be unique
+   within a snapshot. */
+.vt-header { view-transition-name: site-header; }
+.vt-footer { view-transition-name: site-footer; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Not merely faster: a crossfade is a cross-fade however short it is, and
+     someone who has asked for less motion asked for none of this. */
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
