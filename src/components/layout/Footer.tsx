@@ -25,6 +25,7 @@ export function Footer() {
             <li><Link href="/faq">{t('faq')}</Link></li>
             <li><Link href="/service-area">{t('serviceArea')}</Link></li>
             <li><Link href="/resources">{t('resources')}</Link></li>
+            <li><Link href="/tools/security-check">{t('securityTool')}</Link></li>
             <li><Link href="/contact">{t('contactCol')}</Link></li>
             <li><Link href="/privacy">{t('privacy')}</Link></li>
           </ul>

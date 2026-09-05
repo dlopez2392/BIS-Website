@@ -22,6 +22,7 @@ export const STATIC_PATHS = [
   '/capabilities',
   '/service-area',
   '/faq',
+  '/tools/security-check',
   '/insights',
   '/resources',
   '/about',
@@ -39,9 +40,13 @@ export function sitemapPaths(): string[] {
   ];
 }
 
+const CONTENT_PREFIXES = ['/insights/', '/resources/', '/service-area/'];
+
 function priorityFor(path: string): number {
   if (path === '') return 1;
-  if (path.split('/').length > 2) return 0.6; // an individual post or resource
+  // A nested path is not automatically a minor one: /tools/security-check is a
+  // landing page BIS wants found, while /insights/<slug> is one article.
+  if (CONTENT_PREFIXES.some((prefix) => path.startsWith(prefix))) return 0.6;
   return 0.8;
 }
 
