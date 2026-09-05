@@ -29,6 +29,7 @@ export function Footer() {
             <li><Link href="/tools/first-hour-back">{t('hoursTool')}</Link></li>
             <li><Link href="/contact">{t('contactCol')}</Link></li>
             <li><Link href="/privacy">{t('privacy')}</Link></li>
+            <li><Link href="/accessibility">{t('accessibility')}</Link></li>
           </ul>
         </div>
         <div>

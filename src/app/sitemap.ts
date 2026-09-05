@@ -30,6 +30,7 @@ export const STATIC_PATHS = [
   '/about',
   '/contact',
   '/privacy',
+  '/accessibility',
 ];
 
 /** Static pages plus the content routes, derived from the same data the pages render from. */
