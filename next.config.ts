@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 import createMDX from '@next/mdx';
+import { withBotId } from 'botid/next/config';
 import { securityHeaders } from './src/lib/security/headers';
 
 const withNextIntl = createNextIntlPlugin();
@@ -27,4 +28,7 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withMDX(withNextIntl(nextConfig));
+// withBotId outermost: it adds the rewrites that serve BotID's challenge from
+// this origin rather than a third-party host, which is also what keeps the
+// Content-Security-Policy free of another script source.
+export default withBotId(withMDX(withNextIntl(nextConfig)));
