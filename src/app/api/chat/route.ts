@@ -1,4 +1,6 @@
 import { after } from 'next/server';
+import { checkBotId } from 'botid/server';
+import { verifyHuman } from '@/lib/security/verify-human';
 import { streamText, tool, convertToModelMessages, stepCountIs, type UIMessage } from 'ai';
 import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
@@ -36,6 +38,17 @@ function logPackFailure(err: unknown) {
 }
 
 export async function POST(req: Request) {
+  // Bot check before the rate limiter: a script that never reaches the model
+  // costs nothing, and a blocked script should not consume a real visitor's
+  // share of the per-IP window. Verified crawlers are let through on purpose —
+  // robots.txt invites answer engines, and the policy should not contradict
+  // itself one layer down.
+  const { allowed } = await verifyHuman({ check: checkBotId, report });
+  if (!allowed) {
+    after(() => report({ event: 'chat.bot_blocked', level: 'error', context: { path: req.headers.get('referer') ?? 'unknown' } }));
+    return new Response('Access denied', { status: 403 });
+  }
+
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   const limits = await getLimits();
   if (!(await limits.allowChat(ip))) return new Response('Too many requests', { status: 429 });

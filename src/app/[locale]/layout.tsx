@@ -12,6 +12,8 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { ChatWidget } from '@/components/chat/ChatWidget';
+import { BotIdClient } from 'botid/client';
+import { PROTECTED_ROUTES } from '@/lib/security/protected-routes';
 import { SITE_URL } from '@/lib/seo/business';
 import { SERVICE_GROUP_IDS } from '@/lib/ai/site-context';
 import { siteVerification } from '@/lib/seo/verification';
@@ -55,6 +57,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning className={`${hankenGrotesk.variable} ${instrumentSerif.variable}`}>
+      <head>
+        {/* Arms the two endpoints listed in PROTECTED_ROUTES. No cookie, no
+            CAPTCHA, and nothing to consent to — it observes the request that
+            posts, not the person reading the page. */}
+        <BotIdClient protect={[...PROTECTED_ROUTES]} />
+      </head>
       <body>
         <ThemeProvider>
           <NextIntlClientProvider>
