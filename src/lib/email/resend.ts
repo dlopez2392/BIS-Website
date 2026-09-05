@@ -41,3 +41,18 @@ export async function sendLeadNotification(lead: ContactFormValues): Promise<voi
   });
   if (error) throw new Error(error.message);
 }
+
+/**
+ * Operational alert to the same inbox that receives lead notifications.
+ *
+ * Plain text on purpose: this is read at 7 AM on a phone, and it exists to say
+ * what broke and what to do about it, not to look like marketing.
+ */
+export async function sendOperationalAlert(subject: string, body: string): Promise<void> {
+  await client().emails.send({
+    from: process.env.CONTACT_FROM ?? 'onboarding@resend.dev',
+    to: process.env.CONTACT_NOTIFY_TO ?? 'bespokeintelligentsolutions@gmail.com',
+    subject,
+    text: body,
+  });
+}

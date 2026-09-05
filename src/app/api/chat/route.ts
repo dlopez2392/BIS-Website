@@ -1,3 +1,4 @@
+import { after } from 'next/server';
 import { streamText, tool, convertToModelMessages, stepCountIs, type UIMessage } from 'ai';
 import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
@@ -6,16 +7,18 @@ import { getLimits } from '@/lib/limits';
 import { resolveVisitorContext } from '@/lib/ai/visitor-context';
 import { getSiteContext } from '@/lib/ai/site-context';
 import { publicPageUrl } from '@/lib/platform';
+import { report } from '@/lib/observability/reporter';
 
 // Lazy-imported inside execute() so the route module stays import-safe at
 // build-time page-data collection: '@/db' calls neon() at module load and
 // throws without DATABASE_URL. execute() only runs at request time.
 async function captureLead(args: Parameters<typeof processCapturedLead>[0]) {
-  const [{ insertLead }, { sendLeadNotification }] = await Promise.all([
+  const [{ insertLead }, { sendLeadNotification }, { report }] = await Promise.all([
     import('@/lib/contact/repository'),
     import('@/lib/email/resend'),
+    import('@/lib/observability/reporter'),
   ]);
-  return processCapturedLead(args, { insertLead, sendLeadNotification });
+  return processCapturedLead(args, { insertLead, sendLeadNotification, report });
 }
 
 export const maxDuration = 30;
@@ -26,7 +29,10 @@ let packFailureLogged = false;
 function logPackFailure(err: unknown) {
   if (packFailureLogged) return;
   packFailureLogged = true;
-  console.error('[chat] site context unavailable, falling back to ungrounded prompt', err);
+  // `after` rather than a floating promise: on Vercel the function can be
+  // frozen the moment the response finishes, which would drop the very report
+  // that explains why the response was degraded.
+  after(() => report({ event: 'chat.context_unavailable', level: 'error', error: err }));
 }
 
 export async function POST(req: Request) {
@@ -97,5 +103,16 @@ export async function POST(req: Request) {
     },
   });
 
-  return result.toUIMessageStreamResponse();
+  return result.toUIMessageStreamResponse({
+    // A model provider that times out or rejects the key used to surface as an
+    // unhandled framework 500 with nothing recorded. The visitor still sees a
+    // failure, but now it is a sentence in their own language and the failure
+    // is on the record.
+    onError: (error) => {
+      after(() => report({ event: 'chat.stream_failed', level: 'error', error, context: { locale: visitor.locale, path: visitor.path } }));
+      return visitor.locale === 'es'
+        ? 'Perdona, el asistente no está disponible en este momento. Escríbenos o llámanos y te atendemos.'
+        : 'Sorry — the assistant is unavailable right now. Send us a message or call and we will help.';
+    },
+  });
 }
