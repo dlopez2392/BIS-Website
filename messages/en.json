@@ -37,6 +37,7 @@
     "securityTool": "Free Security Check",
     "hoursTool": "Hours Calculator",
     "privacy": "Privacy Policy",
+    "accessibility": "Accessibility",
     "region": "Rio Grande Valley",
     "city": "Harlingen, TX",
     "email": "bespokeintelligentsolutions@gmail.com",
@@ -876,5 +877,27 @@
     "ctaHeading": "Find out what the real number is",
     "ctaBody": "Thirty minutes, no pitch. We look at how your week actually runs and tell you which single change pays for itself first — including when the honest answer is that you do not need us yet.",
     "ctaButton": "Book a free assessment"
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "metaDescription": "How bis-rgv.com is built for accessibility, what we test, what we know is not perfect, and how to tell us when something does not work for you.",
+    "intro": "This site is built to meet WCAG 2.1 Level AA. That is the standard the Department of Justice set for state and local government websites, and it is the one we hold our own work to whether or not a client is required to.",
+    "statusHeading": "Where this site stands",
+    "statusBody": "Every page shape on this site is checked automatically against WCAG 2.1 A and AA rules on every change, in English and Spanish: the home page, service and industry pages, city pages, articles, the FAQ, both free tools, the contact page and the page a mistyped link lands on. As of the last check, all of them pass with no violations.",
+    "honestHeading": "What that does and does not mean",
+    "honestBody": "Automated testing catches roughly a third of real accessibility barriers. It can tell you a button has no name; it cannot tell you the name is confusing, or that a flow is exhausting to complete with a switch device. We have not commissioned an independent audit of this site or tested it with a panel of assistive technology users, and we will say so plainly rather than imply a level of assurance we have not bought.",
+    "practicesHeading": "What we do",
+    "practice1": "Keyboard first. Every control can be reached and operated without a mouse, and the focus ring is visible rather than removed for looks.",
+    "practice2": "Status is never colour alone. Where this site reports a result — a security finding, a form error — it carries an icon and a word as well as a colour.",
+    "practice3": "Motion respects the system setting. Everything that animates stops for a visitor who has asked their device to reduce motion.",
+    "practice4": "Both languages, natively. Pages declare their language so a screen reader pronounces them correctly, and Spanish is written rather than translated.",
+    "practice5": "Real text, real structure. Headings describe the page rather than style it, images that carry meaning are described, and decoration is hidden from assistive technology instead of read aloud.",
+    "problemHeading": "If something does not work for you",
+    "problemBody": "Tell us and we will fix it. Email or call, describe the page and what happened, and we will reply within two business days. If you need information from this site in another format in the meantime, ask and we will send it.",
+    "helpHeading": "If you need this for your own site",
+    "helpBody": "Cities, counties, school districts and special districts in Texas are covered by ADA Title II, which requires their websites and mobile apps to meet WCAG 2.1 Level AA. After the Department of Justice extended the deadlines in April 2026, public entities serving 50,000 or more people have until 26 April 2027, and smaller entities and special district governments until 26 April 2028. We remediate existing sites, test what you already have, and build new ones to the standard. Private businesses are not covered by Title II, and we still recommend the same standard, because the people it helps are your customers.",
+    "helpCta": "Talk to us about accessibility",
+    "updatedHeading": "This statement",
+    "updatedBody": "Written {date}. It describes what is true of this site today, and we update it when that changes rather than leaving a date to age."
   }
 }

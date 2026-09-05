@@ -1,5 +1,17 @@
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+
+/**
+ * A page with no <title> fails WCAG 2.4.2 (Level A), and a person using a
+ * screen reader or scanning twenty open tabs is exactly who needs to know
+ * which page failed. Static rather than translated because Next renders a
+ * not-found without a request locale to read.
+ */
+export const metadata: Metadata = {
+  title: 'Page not found · Página no encontrada',
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   const t = useTranslations('meta');

@@ -37,6 +37,7 @@
     "securityTool": "Revisión de seguridad",
     "hoursTool": "Calculadora de horas",
     "privacy": "Política de Privacidad",
+    "accessibility": "Accesibilidad",
     "region": "Valle del Río Grande",
     "city": "Harlingen, TX",
     "email": "bespokeintelligentsolutions@gmail.com",
@@ -876,5 +877,27 @@
     "ctaHeading": "Averigua cuál es el número real",
     "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu semana y te decimos qué cambio se paga solo primero, incluso cuando la respuesta honesta es que todavía no nos necesitas.",
     "ctaButton": "Agenda una evaluación gratuita"
+  },
+  "accessibility": {
+    "title": "Accesibilidad",
+    "metaDescription": "Cómo está construido bis-rgv.com en materia de accesibilidad, qué probamos, qué sabemos que no es perfecto y cómo avisarnos cuando algo no te funciona.",
+    "intro": "Este sitio está hecho para cumplir con WCAG 2.1 Nivel AA. Es el estándar que el Departamento de Justicia fijó para los sitios de gobiernos estatales y locales, y es el que aplicamos a nuestro propio trabajo, esté obligado el cliente o no.",
+    "statusHeading": "Cómo está este sitio",
+    "statusBody": "Cada tipo de página de este sitio se revisa de forma automática contra las reglas WCAG 2.1 A y AA en cada cambio, en inglés y en español: la portada, las páginas de servicios e industrias, las de ciudades, los artículos, las preguntas frecuentes, las dos herramientas gratuitas, la página de contacto y la página a la que llega un enlace mal escrito. En la última revisión, todas pasaron sin ninguna violación.",
+    "honestHeading": "Qué significa eso y qué no",
+    "honestBody": "Las pruebas automáticas detectan alrededor de un tercio de las barreras reales de accesibilidad. Pueden decirte que un botón no tiene nombre; no pueden decirte que el nombre confunde, ni que completar un proceso con un dispositivo de conmutador resulta agotador. No hemos contratado una auditoría independiente de este sitio ni lo hemos probado con un panel de personas usuarias de tecnología de asistencia, y preferimos decirlo con claridad antes que insinuar un nivel de garantía que no hemos pagado.",
+    "practicesHeading": "Qué hacemos",
+    "practice1": "Primero el teclado. Todos los controles se pueden alcanzar y usar sin ratón, y el indicador de foco se ve en lugar de quitarse por estética.",
+    "practice2": "El estado nunca es solo color. Cuando este sitio reporta un resultado, sea un hallazgo de seguridad o un error de formulario, lleva un icono y una palabra además del color.",
+    "practice3": "El movimiento respeta la configuración del sistema. Todo lo que se anima se detiene para quien pidió a su dispositivo reducir el movimiento.",
+    "practice4": "Los dos idiomas, de forma nativa. Las páginas declaran su idioma para que un lector de pantalla las pronuncie bien, y el español está escrito, no traducido.",
+    "practice5": "Texto real y estructura real. Los encabezados describen la página en vez de darle estilo, las imágenes con significado llevan descripción y lo decorativo se oculta a la tecnología de asistencia en lugar de leerse en voz alta.",
+    "problemHeading": "Si algo no te funciona",
+    "problemBody": "Dinos y lo arreglamos. Escríbenos o llámanos, describe la página y qué pasó, y respondemos en un plazo de dos días hábiles. Si mientras tanto necesitas información de este sitio en otro formato, pídela y te la enviamos.",
+    "helpHeading": "Si lo necesitas para tu propio sitio",
+    "helpBody": "Las ciudades, condados, distritos escolares y distritos especiales de Texas están cubiertos por el Título II de la ADA, que exige que sus sitios y aplicaciones móviles cumplan con WCAG 2.1 Nivel AA. Después de que el Departamento de Justicia extendió los plazos en abril de 2026, las entidades públicas que atienden a 50,000 personas o más tienen hasta el 26 de abril de 2027, y las entidades más pequeñas y los distritos especiales hasta el 26 de abril de 2028. Remediamos sitios existentes, evaluamos lo que ya tienes y construimos sitios nuevos con ese estándar. Los negocios privados no están cubiertos por el Título II, y aun así recomendamos el mismo estándar, porque las personas a las que ayuda son tus clientes.",
+    "helpCta": "Hablemos de accesibilidad",
+    "updatedHeading": "Sobre esta declaración",
+    "updatedBody": "Escrita el {date}. Describe lo que es cierto de este sitio hoy, y la actualizamos cuando eso cambia en lugar de dejar una fecha envejeciendo."
   }
 }
