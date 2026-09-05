@@ -36,6 +36,7 @@ const CORE: Link[] = [
   { title: 'Guides', path: '/en/resources', note: 'Index of the downloadable guides, each available in English and Spanish.' },
   { title: 'Service area', path: '/en/service-area', note: 'The Rio Grande Valley cities BIS serves.' },
   { title: 'Free website and email security check', path: '/en/tools/security-check', note: 'A free tool: enter a domain and get a plain-language grade on its web and email security, from public records only.' },
+  { title: 'Find your first hour back', path: '/en/tools/first-hour-back', note: 'A free estimate of the hours a week a business could hand back, with every assumption behind the number shown.' },
   { title: 'Contact', path: '/en/contact', note: 'Book a free assessment, or send a message. Both go straight to the founder.' },
   { title: 'Privacy policy', path: '/en/privacy', note: 'What BIS collects and how long it is kept.' },
 ];
