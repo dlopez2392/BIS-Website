@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import type { ContactFormValues } from '@/lib/contact-schema';
+import type { ReportInput } from '@/lib/observability/report';
 
 export const captureLeadSchema = z.object({
   fullName: z.string().min(1),
@@ -12,6 +13,8 @@ export type CaptureLeadArgs = z.infer<typeof captureLeadSchema>;
 export interface CaptureDeps {
   insertLead: (v: ContactFormValues) => Promise<{ id: string }>;
   sendLeadNotification: (v: ContactFormValues) => Promise<void>;
+  /** Where failures go. See src/lib/observability/report.ts. */
+  report: (input: ReportInput) => Promise<void>;
 }
 
 export async function processCapturedLead(
@@ -30,13 +33,23 @@ export async function processCapturedLead(
   try {
     await deps.insertLead(lead);
   } catch (err) {
-    console.error('[assistant] capture_lead insert failed', err);
+    // A person typed their details into the assistant and the database refused
+    // them. That is a lost customer unless someone is told, so the alert
+    // carries everything needed to answer them by hand.
+    await deps.report({
+      event: 'lead.insert_failed',
+      level: 'critical',
+      error: err,
+      context: { source: 'assistant', email: lead.email },
+      recovery: { Name: lead.fullName, Email: lead.email, Language: lead.language, Need: args.need },
+    });
     return { ok: false, message: 'Sorry — something went wrong saving your details. Please email us instead.' };
   }
   try {
     await deps.sendLeadNotification(lead);
   } catch (err) {
-    console.error('[assistant] capture_lead notification failed (best-effort)', err);
+    // The lead is safe in the database; only the heads-up email failed.
+    await deps.report({ event: 'lead.notify_failed', level: 'error', error: err, context: { source: 'assistant' } });
   }
   return { ok: true, message: 'Saved. Our team will follow up shortly.' };
 }

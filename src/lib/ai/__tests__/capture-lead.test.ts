@@ -7,6 +7,7 @@ function deps(over: Partial<CaptureDeps> = {}): CaptureDeps {
   return {
     insertLead: vi.fn().mockResolvedValue({ id: 'lead-1' }),
     sendLeadNotification: vi.fn().mockResolvedValue(undefined),
+    report: vi.fn().mockResolvedValue(undefined),
     ...over,
   };
 }
@@ -29,15 +30,32 @@ describe('processCapturedLead', () => {
     expect(d.sendLeadNotification).toHaveBeenCalledOnce();
   });
 
-  it('still returns ok if the notification email fails (best-effort)', async () => {
+  it('reports nothing when the lead lands cleanly', async () => {
+    const d = deps();
+    await processCapturedLead(args, d);
+    expect(d.report).not.toHaveBeenCalled();
+  });
+
+  it('still returns ok if the notification email fails, and records it as recoverable', async () => {
     const d = deps({ sendLeadNotification: vi.fn().mockRejectedValue(new Error('mail down')) });
     const r = await processCapturedLead(args, d);
     expect(r.ok).toBe(true);
+    expect(d.report).toHaveBeenCalledWith(expect.objectContaining({ event: 'lead.notify_failed', level: 'error' }));
   });
 
   it('returns not-ok if the DB insert fails', async () => {
     const d = deps({ insertLead: vi.fn().mockRejectedValue(new Error('db down')) });
     const r = await processCapturedLead(args, d);
     expect(r.ok).toBe(false);
+  });
+
+  it('raises a critical alert carrying enough to answer the lead by hand', async () => {
+    const d = deps({ insertLead: vi.fn().mockRejectedValue(new Error('db down')) });
+    await processCapturedLead(args, d);
+    expect(d.report).toHaveBeenCalledWith(expect.objectContaining({
+      event: 'lead.insert_failed',
+      level: 'critical',
+      recovery: { Name: 'Ana Reyes', Email: 'ana@reyeslaw.com', Language: 'en', Need: 'AI intake for my law firm' },
+    }));
   });
 });
