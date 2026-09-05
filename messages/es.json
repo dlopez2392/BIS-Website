@@ -34,6 +34,7 @@
     "faq": "Preguntas Frecuentes",
     "serviceArea": "Área de Servicio",
     "resources": "Recursos Gratuitos",
+    "securityTool": "Revisión de seguridad",
     "privacy": "Política de Privacidad",
     "region": "Valle del Río Grande",
     "city": "Harlingen, TX",
@@ -552,6 +553,106 @@
         }
       ],
       "howBody": "Andamos por el Valle medio con regularidad, y planeamos alrededor de tu temporada, no de la nuestra. Nadie debería estar estrenando software a medio corte."
+    }
+  },
+  "securityCheck": {
+    "title": "Revisión gratuita de seguridad web y de correo",
+    "metaDescription": "Revisa el sitio de cualquier negocio del Valle del Río Grande en aproximadamente un minuto. Leemos los mismos registros públicos que ya ven un navegador y un servidor de correo, y te decimos en español claro qué está expuesto.",
+    "intro": "Escribe tu dirección web. En aproximadamente un minuto verás si alguien puede enviar correos haciéndose pasar por ti, si tu sitio está protegido en el navegador y qué conviene arreglar primero. Solo leemos registros públicos: no entramos a ninguna cuenta ni atacamos nada.",
+    "inputLabel": "Tu dirección web",
+    "placeholder": "tunegocio.com",
+    "submit": "Revisar mi sitio",
+    "checking": "Revisando…",
+    "again": "Revisar otra dirección",
+    "resultHeading": "Resultados de {domain}",
+    "scoreLabel": "Puntaje",
+    "fixFirstHeading": "Arregla esto primero",
+    "allClearHeading": "No encontramos nada urgente",
+    "allClearBody": "Todas las revisiones públicas salieron limpias. Una revisión completa mira lo que ningún análisis externo puede ver: quién tiene acceso de administrador, cómo se prueban los respaldos y qué pasa cuando alguien se va de la empresa.",
+    "detailHeading": "Todo lo que revisamos",
+    "ctaHeading": "¿Quieres ver el panorama completo?",
+    "ctaBody": "Esta revisión lee lo que se ve desde afuera. Casi todo lo que pone en riesgo a un negocio del Valle no se ve: contraseñas compartidas, falta de respaldos, una sola persona con todas las llaves. La evaluación es gratis y toma 30 minutos.",
+    "ctaButton": "Agenda una evaluación gratuita",
+    "disclaimer": "Esta revisión lee registros DNS públicos y los encabezados de respuesta que tu sitio ya envía a cada visitante. No inicia sesión, no escanea puertos ni prueba ninguna contraseña.",
+    "statusPass": "Bien",
+    "statusWarn": "Se puede mejorar",
+    "statusFail": "Necesita atención",
+    "statusUnknown": "No aplica",
+    "errors": {
+      "empty": "Escribe tu dirección web para empezar.",
+      "malformed": "Eso no parece una dirección web. Escríbela así: tunegocio.com.",
+      "notPublic": "Esa dirección no es un sitio público, así que no hay nada que podamos revisar desde aquí.",
+      "ipAddress": "Escribe un nombre de dominio en lugar de una dirección IP.",
+      "unreachable": "No pudimos abrir esa dirección. Revisa que esté bien escrita o inténtalo en un minuto.",
+      "rateLimited": "Son muchas revisiones en poco tiempo. Espera un minuto e inténtalo de nuevo.",
+      "failed": "Algo falló de nuestro lado. Inténtalo otra vez o llámanos al (956) 506-1545."
+    },
+    "checks": {
+      "https": {
+        "title": "Tu sitio abre de forma segura",
+        "pass": "Tu sitio responde por una conexión segura.",
+        "fail": "No pudimos abrir tu sitio de forma segura. Es posible que los visitantes vean una advertencia del navegador antes de llegar a ti."
+      },
+      "httpsRedirect": {
+        "title": "Las visitas inseguras se envían a la dirección segura",
+        "pass": "Quien escribe tu dirección sin “https” pasa automáticamente a la versión segura.",
+        "fail": "Quien escribe tu dirección sin “https” se queda en la versión insegura, donde lo que envíe puede leerse en el camino.",
+        "unknown": "No pudimos determinarlo. Conviene revisarlo a mano."
+      },
+      "hsts": {
+        "title": "Se indica al navegador usar siempre la dirección segura",
+        "pass": "Después de la primera visita, el navegador se niega a usar de nuevo la versión insegura.",
+        "warn": "Está configurado, pero vence tan pronto que la mayoría de los visitantes no se beneficia. Lo normal es un año o más.",
+        "fail": "No está configurado. Cada visita empieza en la dirección insegura antes de redirigirse, y ese es justo el momento que aprovecha un atacante en un Wi-Fi compartido."
+      },
+      "csp": {
+        "title": "Solo tu propio código puede ejecutarse en tus páginas",
+        "pass": "Tu sitio le indica al navegador qué código puede ejecutarse, que es lo que impide que un script inyectado lea tus formularios.",
+        "warn": "Existe una política, pero permite código de cualquier origen, así que detiene muy poco.",
+        "fail": "No hay política. Si algo de tu sitio llega a verse comprometido, el código inyectado se ejecuta sin nada que lo detenga."
+      },
+      "clickjacking": {
+        "title": "Tu sitio no puede incrustarse dentro de otro",
+        "pass": "Nadie puede cargar tu sitio dentro de su propia página para engañar a tus clientes.",
+        "fail": "Cualquiera puede cargar tu sitio dentro de su propia página. Así se arma una pantalla falsa de pago o de acceso encima de un negocio real."
+      },
+      "nosniff": {
+        "title": "Los archivos subidos no pueden ejecutarse como código",
+        "pass": "Se le indica al navegador que trate tus archivos exactamente como lo que son.",
+        "fail": "Falta. Un archivo que suba un cliente puede interpretarse como código y ejecutarse en el navegador de otro visitante."
+      },
+      "referrerPolicy": {
+        "title": "Las páginas de tus visitantes quedan privadas",
+        "pass": "Otros sitios no reciben información sobre qué página tuya visitó la persona.",
+        "warn": "No está configurado, así que cada sitio al que pase un visitante sabe exactamente de qué página salió, incluido lo que venga en la dirección."
+      },
+      "cookieFlags": {
+        "title": "Las cookies están protegidas",
+        "pass": "Tu portada no deja cookies, o las que deja no pueden leerse desde scripts ni viajar de forma insegura.",
+        "warn": "Al menos una cookie puede leerse desde scripts o viajar por una conexión insegura. Si es una cookie de sesión, es una cuenta que alguien más puede usar."
+      },
+      "serverDisclosure": {
+        "title": "No anuncias las versiones de tu software",
+        "pass": "Tu sitio no anuncia exactamente qué software y qué versión usa.",
+        "warn": "Tu sitio anuncia la versión exacta de su software, lo que le dice a un atacante qué vulnerabilidad conocida probar primero."
+      },
+      "spf": {
+        "title": "Solo tus servidores pueden enviar correo en tu nombre",
+        "pass": "Publicas quién puede enviar correo con tu dominio y pides que se rechace a todos los demás.",
+        "warn": "Publicas la lista, pero pides que a los impostores solo se les marque en lugar de rechazarlos.",
+        "fail": "Cualquier persona en el mundo puede enviar correos que parezcan venir de tu negocio. Esa es la forma más común en que un negocio pequeño pierde dinero por fraude."
+      },
+      "dmarc": {
+        "title": "El correo falsificado sí se rechaza",
+        "pass": "El correo que no pasa tus revisiones se envía a cuarentena o se rechaza en lugar de entregarse.",
+        "warn": "Tienes el registro, pero está en modo de observación, así que el correo falsificado sigue llegando a tus clientes.",
+        "fail": "No hay política, así que los servidores de correo no tienen instrucciones sobre qué hacer con el correo falsificado en tu nombre, y la mayoría lo entrega."
+      },
+      "mx": {
+        "title": "Tu dominio recibe correo",
+        "pass": "Tu dominio publica servidores de correo.",
+        "unknown": "Este dominio no recibe correo, así que las revisiones de correo de arriba importan menos, aunque un dominio que no envía correo también debería declararlo."
+      }
     }
   }
 }

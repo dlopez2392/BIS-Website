@@ -15,6 +15,14 @@
 export const CHAT_PER_MINUTE = 10;
 export const CHAT_WINDOW_SECONDS = 60;
 
+/**
+ * The security checker makes requests to somebody else's server, so its limit
+ * is about being a good neighbour as much as about protecting BIS: a visitor
+ * gets a handful of checks, not a scanning service.
+ */
+export const SCANS_PER_WINDOW = 5;
+export const SCAN_WINDOW_SECONDS = 600;
+
 export interface Counter {
   /** Increments `key`, setting `ttlSeconds` on first write, and returns the new count. */
   incr(key: string, ttlSeconds: number): Promise<number>;
@@ -22,6 +30,7 @@ export interface Counter {
 
 export interface Limits {
   allowChat(ip: string): Promise<boolean>;
+  allowScan(ip: string): Promise<boolean>;
 }
 
 let brokenCounterLogged = false;
@@ -44,6 +53,15 @@ export function makeLimits(counter: Counter): Limits {
       try {
         const used = await counter.incr(`web:rl:chat:${ip}`, CHAT_WINDOW_SECONDS);
         return used <= CHAT_PER_MINUTE;
+      } catch (err) {
+        logBrokenCounter(err);
+        return true;
+      }
+    },
+    async allowScan(ip) {
+      try {
+        const used = await counter.incr(`web:rl:scan:${ip}`, SCAN_WINDOW_SECONDS);
+        return used <= SCANS_PER_WINDOW;
       } catch (err) {
         logBrokenCounter(err);
         return true;

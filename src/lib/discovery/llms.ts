@@ -34,6 +34,7 @@ const CORE: Link[] = [
   { title: 'Insights', path: '/en/insights', note: 'Index of BIS articles on AI cost, data handling and choosing a vendor.' },
   { title: 'Guides', path: '/en/resources', note: 'Index of the downloadable guides, each available in English and Spanish.' },
   { title: 'Service area', path: '/en/service-area', note: 'The Rio Grande Valley cities BIS serves.' },
+  { title: 'Free website and email security check', path: '/en/tools/security-check', note: 'A free tool: enter a domain and get a plain-language grade on its web and email security, from public records only.' },
   { title: 'Contact', path: '/en/contact', note: 'Book a free assessment, or send a message. Both go straight to the founder.' },
   { title: 'Privacy policy', path: '/en/privacy', note: 'What BIS collects and how long it is kept.' },
 ];

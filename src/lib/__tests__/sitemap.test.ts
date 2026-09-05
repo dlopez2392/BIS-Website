@@ -9,12 +9,23 @@ import { cityPages } from '@/lib/cities';
 
 const APP_DIR = path.join(process.cwd(), 'src', 'app', '[locale]');
 
-/** Route directories that actually exist on disk, ignoring dynamic segments. */
-function staticRouteDirs(): string[] {
-  return fs
-    .readdirSync(APP_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory() && !d.name.startsWith('[') && !d.name.startsWith('_'))
-    .map((d) => d.name);
+/**
+ * Static page routes that actually exist on disk, ignoring dynamic segments.
+ *
+ * Walks nested directories rather than assuming every folder under [locale] is
+ * itself a page: /tools holds /tools/security-check and has no page of its
+ * own, and the old one-level version both demanded a sitemap entry for the
+ * empty folder and would have missed the real page inside it.
+ */
+function staticRouteDirs(dir = APP_DIR, prefix = ''): string[] {
+  const out: string[] = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isDirectory() || entry.name.startsWith('[') || entry.name.startsWith('_')) continue;
+    const route = `${prefix}${entry.name}`;
+    if (fs.existsSync(path.join(dir, entry.name, 'page.tsx'))) out.push(route);
+    out.push(...staticRouteDirs(path.join(dir, entry.name), `${route}/`));
+  }
+  return out;
 }
 
 describe('sitemap', () => {
@@ -32,8 +43,9 @@ describe('sitemap', () => {
 
   it('lists no path without a page behind it', () => {
     const known = new Set(staticRouteDirs().map((d) => `/${d}`));
+    const dynamic = new Set([...allSlugs().map((s) => `/insights/${s}`), ...resources.map((r) => `/resources/${r.slug}`), ...cityPages.map((c) => `/service-area/${c.id}`)]);
     for (const p of paths) {
-      if (p === '' || p.split('/').length > 2) continue; // home, or a content route
+      if (p === '' || dynamic.has(p)) continue; // home, or a content route
       expect(known.has(p), `${p} is in the sitemap but has no page directory`).toBe(true);
     }
   });

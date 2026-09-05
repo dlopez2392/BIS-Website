@@ -34,6 +34,7 @@
     "faq": "FAQ",
     "serviceArea": "Service Area",
     "resources": "Free Resources",
+    "securityTool": "Free Security Check",
     "privacy": "Privacy Policy",
     "region": "Rio Grande Valley",
     "city": "Harlingen, TX",
@@ -552,6 +553,106 @@
         }
       ],
       "howBody": "We're across the mid-Valley regularly, and we plan around your season instead of ours. Nobody should be rolling out new software in the middle of harvest."
+    }
+  },
+  "securityCheck": {
+    "title": "Free Website & Email Security Check",
+    "metaDescription": "Check any Rio Grande Valley business website in about a minute. We read the same public records a browser and a mail server already see, and tell you in plain English what is exposed.",
+    "intro": "Type your web address. In about a minute you will see whether someone can send email pretending to be you, whether your site is protected in the browser, and what to fix first. We only read public records — nothing is logged into, nothing is attacked.",
+    "inputLabel": "Your web address",
+    "placeholder": "yourbusiness.com",
+    "submit": "Check my site",
+    "checking": "Checking…",
+    "again": "Check another address",
+    "resultHeading": "Results for {domain}",
+    "scoreLabel": "Score",
+    "fixFirstHeading": "Fix these first",
+    "allClearHeading": "Nothing urgent found",
+    "allClearBody": "The public checks all came back clean. A full review looks at things no outside scan can see: who has admin access, how backups are tested, what happens when someone leaves.",
+    "detailHeading": "Everything we checked",
+    "ctaHeading": "Want the rest of the picture?",
+    "ctaBody": "This check reads what is visible from outside. Most of what puts a Valley business at risk is not: shared passwords, no backups, one person holding every key. The assessment is free and takes 30 minutes.",
+    "ctaButton": "Book a free assessment",
+    "disclaimer": "This check reads public DNS records and the response headers your website already sends to every visitor. It does not log in, scan ports, or test any password.",
+    "statusPass": "Good",
+    "statusWarn": "Could be better",
+    "statusFail": "Needs attention",
+    "statusUnknown": "Not applicable",
+    "errors": {
+      "empty": "Enter your web address to start.",
+      "malformed": "That does not look like a web address. Try it like yourbusiness.com.",
+      "notPublic": "That address is not a public website, so there is nothing we can check from out here.",
+      "ipAddress": "Enter a domain name rather than an IP address.",
+      "unreachable": "We could not reach that address. Check the spelling, or try again in a minute.",
+      "rateLimited": "That is a lot of checks in a short time. Give it a minute and try again.",
+      "failed": "Something went wrong on our end. Try again, or call us at (956) 506-1545."
+    },
+    "checks": {
+      "https": {
+        "title": "Your site loads securely",
+        "pass": "Your website answers over a secure connection.",
+        "fail": "We could not load your site securely. Visitors may see a browser warning before they ever reach you."
+      },
+      "httpsRedirect": {
+        "title": "Insecure visits are sent to the secure address",
+        "pass": "Someone typing your address without “https” is moved to the secure version automatically.",
+        "fail": "Someone typing your address without “https” stays on the insecure version, where anything they submit can be read in transit.",
+        "unknown": "We could not tell. This is worth checking by hand."
+      },
+      "hsts": {
+        "title": "Browsers are told to always use the secure address",
+        "pass": "Once someone visits, their browser refuses to use the insecure version again.",
+        "warn": "This is set, but it expires soon enough that most visitors will not benefit. A year or more is the norm.",
+        "fail": "Not set. Every visit starts over on the insecure address before being redirected, which is the moment an attacker on shared Wi-Fi looks for."
+      },
+      "csp": {
+        "title": "Only your own code can run on your pages",
+        "pass": "Your site tells browsers which code is allowed to run, which is what stops an injected script from reading your forms.",
+        "warn": "A policy exists but allows code from anywhere, so it stops very little.",
+        "fail": "No policy. If anything on your site is ever compromised, injected code runs with nothing standing in its way."
+      },
+      "clickjacking": {
+        "title": "Your site cannot be framed inside another",
+        "pass": "Nobody can load your site inside their own page and trick your customers into clicking something else.",
+        "fail": "Anyone can load your site inside their own page. That is how a fake payment or login screen gets built on top of a real business."
+      },
+      "nosniff": {
+        "title": "Uploads cannot be run as code",
+        "pass": "Browsers are told to treat your files as exactly what they are.",
+        "fail": "Missing. A file a customer uploads can be interpreted as code and run in another visitor's browser."
+      },
+      "referrerPolicy": {
+        "title": "Your visitors' pages stay private",
+        "pass": "Other sites are not told which of your pages a visitor came from.",
+        "warn": "Not set, so every site a visitor clicks through to learns the exact page they left, including anything in the address."
+      },
+      "cookieFlags": {
+        "title": "Cookies are protected",
+        "pass": "No cookies are set on your front page, or the ones that are cannot be read by scripts or sent insecurely.",
+        "warn": "At least one cookie can be read by scripts or sent over an insecure connection. If it is a login cookie, that is an account someone else can use."
+      },
+      "serverDisclosure": {
+        "title": "Your software versions are not advertised",
+        "pass": "Your site does not announce exactly which software and version it runs.",
+        "warn": "Your site announces its exact software version, which tells an attacker which known exploit to try first."
+      },
+      "spf": {
+        "title": "Only your mail servers can send as you",
+        "pass": "You publish a list of who may send email as your domain, and it tells receivers to reject everyone else.",
+        "warn": "You publish the list, but it asks receivers to merely flag impostors instead of rejecting them.",
+        "fail": "Anyone in the world can send email that looks like it came from your business. That is the single most common way a small business loses money to fraud."
+      },
+      "dmarc": {
+        "title": "Impostor email is actually rejected",
+        "pass": "Mail that fails your checks is quarantined or rejected rather than delivered.",
+        "warn": "You have the record, but it is set to watch only, so forged mail is still delivered to your customers.",
+        "fail": "No policy, so mail servers have no instruction about what to do with email forged in your name, and most will deliver it."
+      },
+      "mx": {
+        "title": "Your domain receives email",
+        "pass": "Mail servers are published for your domain.",
+        "unknown": "This domain does not receive email, so the email checks above matter less — though a domain that sends no mail should still say so."
+      }
     }
   }
 }
