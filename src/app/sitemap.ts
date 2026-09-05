@@ -23,6 +23,7 @@ export const STATIC_PATHS = [
   '/service-area',
   '/faq',
   '/tools/security-check',
+  '/tools/first-hour-back',
   '/insights',
   '/resources',
   '/about',

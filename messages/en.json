@@ -35,6 +35,7 @@
     "serviceArea": "Service Area",
     "resources": "Free Resources",
     "securityTool": "Free Security Check",
+    "hoursTool": "Hours Calculator",
     "privacy": "Privacy Policy",
     "region": "Rio Grande Valley",
     "city": "Harlingen, TX",
@@ -654,5 +655,37 @@
         "unknown": "This domain does not receive email, so the email checks above matter less — though a domain that sends no mail should still say so."
       }
     }
+  },
+  "firstHourBack": {
+    "title": "Find your first hour back",
+    "metaDescription": "A two-minute estimate of how many hours a week a Rio Grande Valley business could hand back with a bilingual assistant and a couple of automations. Assumptions shown, nothing hidden.",
+    "intro": "Four questions about a normal week. You will get an estimate of the hours you could hand back, with every assumption behind it written out. Nothing is sent anywhere, and no email is required.",
+    "callsLabel": "Calls you miss in a normal week",
+    "callsHelp": "Calls that ring out, go to voicemail, or come in while you are on a job.",
+    "adminLabel": "Hours a week on repeatable paperwork",
+    "adminHelp": "Scheduling, intake, follow-up, retyping the same details into different forms.",
+    "rateLabel": "What an hour of your time is worth",
+    "rateHelp": "Optional. Leave it blank and we will not guess.",
+    "spanishLabel": "Share of your customers who prefer Spanish",
+    "spanishHelp": "A rough percentage is fine.",
+    "emptyHeading": "Answer the first two questions",
+    "emptyBody": "The estimate appears here as soon as you tell us about a normal week.",
+    "resultHeading": "A normal week, with the routine work handled",
+    "hoursLine": "About {hours} hours a week handed back",
+    "hoursYear": "{hoursYear} hours a year, at {weeks} working weeks.",
+    "callsLine": "About {calls} more calls a week answered",
+    "callsBody": "Answered in the caller's language, with the details in your hands and, where it fits, the appointment already booked.",
+    "valueLine": "Worth about {value} a year",
+    "valueBody": "Your own hourly figure, multiplied by the hours above. It is an estimate, not a quote.",
+    "bilingualHeading": "Answer in Spanish first",
+    "bilingualBody": "At that share of your customers, a bilingual front door is not a nicety. It is the difference between a caller staying on the line and calling the next business.",
+    "assumptionsHeading": "What this assumes",
+    "assumption1": "{callRate}% of missed calls turn into a booked appointment or a captured lead. Not all of them: some callers want one specific person, and some hang up no matter who answers.",
+    "assumption2": "{adminRate}% of repeatable paperwork is removed in a first engagement. Deliberately about a third, not most — the first pass automates the one or two workflows with the clearest rules, and the rest still needs a person's judgement.",
+    "assumption3": "A working year is {weeks} weeks, not 52.",
+    "assumption4": "These are estimates for a conversation, not a quote. What your business would actually get back is what the free assessment is for.",
+    "ctaHeading": "Find out what the real number is",
+    "ctaBody": "Thirty minutes, no pitch. We look at how your week actually runs and tell you which single change pays for itself first — including when the honest answer is that you do not need us yet.",
+    "ctaButton": "Book a free assessment"
   }
 }

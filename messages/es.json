@@ -35,6 +35,7 @@
     "serviceArea": "Área de Servicio",
     "resources": "Recursos Gratuitos",
     "securityTool": "Revisión de seguridad",
+    "hoursTool": "Calculadora de horas",
     "privacy": "Política de Privacidad",
     "region": "Valle del Río Grande",
     "city": "Harlingen, TX",
@@ -654,5 +655,37 @@
         "unknown": "Este dominio no recibe correo, así que las revisiones de correo de arriba importan menos, aunque un dominio que no envía correo también debería declararlo."
       }
     }
+  },
+  "firstHourBack": {
+    "title": "Encuentra tu primera hora de vuelta",
+    "metaDescription": "Un estimado en dos minutos de cuántas horas a la semana podría recuperar un negocio del Valle del Río Grande con un asistente bilingüe y un par de automatizaciones. Con los supuestos a la vista.",
+    "intro": "Cuatro preguntas sobre una semana normal. Vas a recibir un estimado de las horas que podrías recuperar, con todos los supuestos escritos. No se envía nada a ningún lado y no pedimos correo.",
+    "callsLabel": "Llamadas que pierdes en una semana normal",
+    "callsHelp": "Llamadas que suenan sin respuesta, caen al buzón o entran mientras estás en un trabajo.",
+    "adminLabel": "Horas por semana en papeleo repetitivo",
+    "adminHelp": "Agendar, captura de datos, seguimiento, recapturar los mismos datos en formatos distintos.",
+    "rateLabel": "Cuánto vale una hora de tu tiempo",
+    "rateHelp": "Opcional. Si lo dejas en blanco, no lo adivinamos.",
+    "spanishLabel": "Porcentaje de tus clientes que prefiere español",
+    "spanishHelp": "Un porcentaje aproximado está bien.",
+    "emptyHeading": "Contesta las primeras dos preguntas",
+    "emptyBody": "El estimado aparece aquí en cuanto nos cuentes cómo es una semana normal.",
+    "resultHeading": "Una semana normal, con el trabajo de rutina resuelto",
+    "hoursLine": "Alrededor de {hours} horas a la semana de vuelta",
+    "hoursYear": "{hoursYear} horas al año, con {weeks} semanas laborales.",
+    "callsLine": "Alrededor de {calls} llamadas más contestadas por semana",
+    "callsBody": "Contestadas en el idioma de quien llama, con los datos en tus manos y, cuando aplica, la cita ya agendada.",
+    "valueLine": "Equivale a unos {value} al año",
+    "valueBody": "Tu propia cifra por hora, multiplicada por las horas de arriba. Es un estimado, no una cotización.",
+    "bilingualHeading": "Contesta primero en español",
+    "bilingualBody": "Con ese porcentaje de tus clientes, una puerta de entrada bilingüe no es un detalle. Es la diferencia entre que se queden en la línea o le marquen al siguiente negocio.",
+    "assumptionsHeading": "Qué supone este cálculo",
+    "assumption1": "{callRate}% de las llamadas perdidas se convierte en una cita agendada o en un prospecto capturado. No todas: hay quien busca a una persona en específico y hay quien cuelga sin importar quién conteste.",
+    "assumption2": "{adminRate}% del papeleo repetitivo se elimina en un primer proyecto. A propósito alrededor de un tercio y no la mayoría: la primera etapa automatiza uno o dos flujos con reglas claras, y el resto sigue necesitando el criterio de una persona.",
+    "assumption3": "Un año laboral son {weeks} semanas, no 52.",
+    "assumption4": "Son estimados para empezar una conversación, no una cotización. Lo que tu negocio recuperaría de verdad es justo para lo que sirve la evaluación gratuita.",
+    "ctaHeading": "Averigua cuál es el número real",
+    "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu semana y te decimos qué cambio se paga solo primero, incluso cuando la respuesta honesta es que todavía no nos necesitas.",
+    "ctaButton": "Agenda una evaluación gratuita"
   }
 }
