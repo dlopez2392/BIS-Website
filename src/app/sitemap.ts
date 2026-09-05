@@ -4,6 +4,7 @@ import { SITE_URL } from '@/lib/seo/business';
 import { allSlugs } from '@/lib/insights';
 import { resources } from '@/lib/resources';
 import { cityPages } from '@/lib/cities';
+import { industryPages } from '@/lib/industries';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
 
@@ -37,9 +38,12 @@ export function sitemapPaths(): string[] {
     ...allSlugs().map((slug) => `/insights/${slug}`),
     ...resources.map((r) => `/resources/${r.slug}`),
     ...cityPages.map((c) => `/service-area/${c.id}`),
+    ...industryPages.map((i) => `/industries/${i.id}`),
   ];
 }
 
+// An industry page is a landing page BIS wants found, so it is deliberately
+// NOT in this list: these prefixes mark one-of-many content items.
 const CONTENT_PREFIXES = ['/insights/', '/resources/', '/service-area/'];
 
 function priorityFor(path: string): number {

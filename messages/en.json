@@ -106,7 +106,196 @@
     "agTitle": "Data-driven from field to invoice.",
     "agBody": "Connect operations, inventory, and reporting with practical AI built for the realities of Valley agriculture.",
     "ctaTitle": "Don't see your industry?",
-    "ctaBody": "If your business runs on repeatable work, we can probably automate part of it. Let's find out for free."
+    "ctaBody": "If your business runs on repeatable work, we can probably automate part of it. Let's find out for free.",
+    "shared": {
+      "eyebrow": "Industries",
+      "workHeading": "What this looks like",
+      "sofiaHeading": "How Sofía handles your calls",
+      "sofiaLink": "Sofía answers our own line. Call it and try to break it.",
+      "faqHeading": "Questions we get",
+      "othersHeading": "Other industries we work in",
+      "citiesHeading": "Where we work",
+      "citiesBody": "We are based in Harlingen and serve the whole Valley. These pages cover the cities we are asked about most.",
+      "ctaTitle": "Start with a free assessment",
+      "ctaBody": "Thirty minutes, no pitch. We look at how your business runs today and show you the one improvement that pays for itself first."
+    },
+    "pages": {
+      "legal": {
+        "metaTitle": "IT and AI for law firms in the Rio Grande Valley",
+        "metaDescription": "Bilingual intake that answers after hours, document handling that stays confidential, and IT built for a Valley law practice. Free assessment, one point of contact.",
+        "heading": "Technology for Valley law firms",
+        "intro": "A missed call is a missed case. Most people looking for a lawyer call three and retain whoever answers first, and in the Valley that call is as likely to be in Spanish as in English. The work below is about answering every one of them, and keeping what a client tells you confidential once you do.",
+        "sofia": "Sofía answers your line in the caller's language, takes the details of what happened, tells them what you charge for a consultation, and puts a real appointment on your calendar. She never gives legal advice and never says whether you will take the case. What lands on your desk is a formatted intake sheet, not a voicemail you have to call back to understand.",
+        "workflows": [
+          {
+            "title": "Intake that answers after hours",
+            "body": "Calls at 8 PM and on Saturday get a real conversation instead of a machine. Details arrive in your inbox, structured the same way every time, before you open the office."
+          },
+          {
+            "title": "Conflict and confidentiality by design",
+            "body": "Client information stays in accounts you own, with access limited to the people who need it. We work under an NDA whenever you want one, and we can tell you exactly where every file lives."
+          },
+          {
+            "title": "Document work that stops being retyping",
+            "body": "Intake forms, engagement letters, and routine correspondence get filled from information you already collected, so the same client details are not typed four times."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Will an AI give my callers legal advice?",
+            "a": "No. The assistant is built to collect facts and schedule, and is instructed to refuse anything that reads like advice or a prediction about a case. If a caller pushes, it says a lawyer will answer that and books the appointment."
+          },
+          {
+            "q": "Is client information safe in an AI system?",
+            "a": "It is as safe as you set it up to be. We keep client data in accounts you own, restrict who and what can read it, and prefer tools that do not train on your content. We will put the specifics in writing before anything goes live."
+          },
+          {
+            "q": "Can it handle Spanish-speaking callers properly?",
+            "a": "Yes, and that is the point. It answers in the language the caller uses, in the register a person actually speaks, not a translation of an English script."
+          }
+        ]
+      },
+      "medical": {
+        "metaTitle": "IT and AI for medical and dental practices in the Rio Grande Valley",
+        "metaDescription": "Bilingual scheduling, reminders that cut no-shows, and secure IT for a Valley clinic or dental office. Free assessment, one point of contact.",
+        "heading": "Technology for Valley clinics and dental offices",
+        "intro": "Your front desk is answering the phone, checking someone in, and handling a refill request at the same time. Most of what interrupts them is routine and repeatable, which is exactly the kind of work that can be handled before it reaches a person.",
+        "sofia": "Sofía answers in English or Spanish, books and reschedules appointments against your real calendar, and tells callers what they need to bring. She is built to stay away from anything clinical: no symptoms discussed, no advice given, and anything that sounds urgent is handed to a person immediately with the caller still on the line.",
+        "workflows": [
+          {
+            "title": "Scheduling and reminders in both languages",
+            "body": "Appointments booked by phone at any hour, and reminders that reach patients the way they actually read messages. Fewer empty chairs, fewer callbacks."
+          },
+          {
+            "title": "Intake before the visit",
+            "body": "Forms filled in advance, in the patient's language, so a visit starts with care rather than a clipboard."
+          },
+          {
+            "title": "IT that a regulated practice can defend",
+            "body": "Access limited per person, devices managed and encrypted, backups that are tested rather than assumed, and a written record of how it all works."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Is this HIPAA compliant?",
+            "a": "Compliance is a property of your whole practice, not of one tool, so nobody can honestly sell you it in a box. What we do is design the workflow to keep protected health information in systems you control, with access limits and an agreement in place with any vendor that touches it, and document it so your compliance advisor can review it."
+          },
+          {
+            "q": "Will an AI talk to patients about symptoms?",
+            "a": "No. It schedules, confirms, and answers practical questions like hours and what to bring. Anything clinical or urgent goes to your staff right away, and the caller is told that is happening."
+          },
+          {
+            "q": "We already have a practice management system. Does this replace it?",
+            "a": "No. It works around what you have. The assessment starts by looking at what you already pay for, because the cheapest improvement is usually a feature you own and are not using."
+          }
+        ]
+      },
+      "logistics": {
+        "metaTitle": "IT and AI for logistics and freight companies in the Rio Grande Valley",
+        "metaDescription": "Dispatch that answers day and night, paperwork that fills itself, and IT built for cross-border freight. Free assessment, one point of contact.",
+        "heading": "Technology for Valley freight and logistics",
+        "intro": "Freight does not keep office hours, and the paperwork that moves with it is the same handful of fields typed over and over into different forms. Both are fixable without changing how you run loads.",
+        "sofia": "Sofía answers the office line in either language, takes load and rate enquiries with the details you actually need, and books call-backs on your dispatchers' calendars. Drivers and brokers get a person's answer at 2 AM instead of a voicemail, and your dispatchers stop losing an hour a day to calls that were never urgent.",
+        "workflows": [
+          {
+            "title": "A line that is answered at 2 AM",
+            "body": "Rate enquiries, check calls, and driver questions handled around the clock in English and Spanish, with anything genuinely urgent passed to a person."
+          },
+          {
+            "title": "Paperwork that fills itself",
+            "body": "The same load details typed once instead of into four documents, with the routine parts of rate confirmations and status updates generated rather than retyped."
+          },
+          {
+            "title": "Systems that survive a bad day",
+            "body": "Accounts, devices, and backups set up so that a lost laptop or a phishing email does not stop dispatch. Cross-border operations get the security review they rarely get."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Can it quote a rate?",
+            "a": "Only if you want it to and only inside rules you set. By default it collects the lane, the equipment, the dates, and the contact, then hands it to a person. Quoting is a business decision, not a technology one, and it should be yours."
+          },
+          {
+            "q": "Does this replace our TMS?",
+            "a": "No. It sits around whatever you already run and removes the typing and the phone traffic. We start by finding which repeated task costs you the most hours."
+          },
+          {
+            "q": "Our brokers call at all hours from both sides of the border. Does that matter?",
+            "a": "That is the case this is built for. The line is answered in whichever language the caller opens with, and the message reaches your dispatcher in the form they need it."
+          }
+        ]
+      },
+      "trades": {
+        "metaTitle": "IT and AI for contractors and skilled trades in the Rio Grande Valley",
+        "metaDescription": "Answer every call from the ladder, quote faster, and get paid sooner. Bilingual systems for Valley contractors. Free assessment, one point of contact.",
+        "heading": "Technology for Valley contractors and trades",
+        "intro": "You cannot answer the phone from a roof, and the person calling you will call the next number on the list. Almost everything that costs a trades business money is the gap between a call coming in and someone getting back to it.",
+        "sofia": "Sofía picks up while you are on the job, in English or Spanish, gets the address and what is wrong, tells the caller your service call fee, and puts them on your schedule. You come down the ladder to a booked job instead of a voicemail, and you never lose a customer because you were working.",
+        "workflows": [
+          {
+            "title": "Every call answered, even from the ladder",
+            "body": "A real conversation in either language while you are working, with the job details and the address in your hands by the time you check your phone."
+          },
+          {
+            "title": "Quotes and follow-up that actually go out",
+            "body": "Estimates that reuse what you already collected, and follow-ups that happen on their own instead of when you remember on Sunday night."
+          },
+          {
+            "title": "A website that turns a search into a booking",
+            "body": "Fast, bilingual, and built so someone who finds you on a phone can book or call in one tap. Your accounts and your domain stay in your name."
+          }
+        ],
+        "faq": [
+          {
+            "q": "I am a two-person shop. Is this overkill?",
+            "a": "It is aimed exactly at you. A large company has a receptionist; you have a phone in your pocket while you are working. The smaller the crew, the more a missed call costs."
+          },
+          {
+            "q": "Will customers know it is not me?",
+            "a": "It introduces itself as your assistant. It does not pretend to be a person, and in practice callers mind far less than being sent to voicemail. It hands off to you whenever someone asks for it."
+          },
+          {
+            "q": "What does it cost?",
+            "a": "It depends on the volume of calls and what you want it to handle, and we scope it after a free assessment so you get a fixed number before anything starts. We will also say when the honest answer is that you do not need it yet."
+          }
+        ]
+      },
+      "agriculture": {
+        "metaTitle": "IT and AI for agriculture businesses in the Rio Grande Valley",
+        "metaDescription": "Connect field records, inventory, and invoicing, and answer the line in both languages. Practical technology for Valley growers and packers. Free assessment.",
+        "heading": "Technology for Valley growers and packers",
+        "intro": "Most Valley operations run on records that live in three places: a notebook, a spreadsheet, and somebody's memory. Season by season that works until the one week it does not, usually at invoicing or an audit.",
+        "sofia": "Sofía answers the office line in English or Spanish, takes buyer and supplier enquiries with the details you need, and books call-backs. During harvest, when the office is empty because everyone is in the field, the line still gets answered.",
+        "workflows": [
+          {
+            "title": "Records that connect to invoicing",
+            "body": "What was picked, packed, and shipped tied to what gets billed, so the numbers reconcile without a week of chasing paper."
+          },
+          {
+            "title": "Reporting you can hand to a buyer",
+            "body": "The traceability and volume reporting buyers increasingly ask for, produced from records you already keep rather than assembled by hand each time."
+          },
+          {
+            "title": "Systems built for how the work happens",
+            "body": "Bilingual by default, usable on a phone in the field, and set up so a lost device or a failed drive does not take a season's records with it."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Our records are on paper and in spreadsheets. Is that a problem?",
+            "a": "It is the normal starting point. The first step is usually connecting what you already keep rather than replacing it, because a system nobody in the field will use is worse than the notebook."
+          },
+          {
+            "q": "Does the crew need to speak English to use it?",
+            "a": "No. Everything we build is bilingual from the start, not translated afterwards, because a tool people cannot read is a tool they will work around."
+          },
+          {
+            "q": "Harvest is not the time to change systems. When should we start?",
+            "a": "The off-season, and the assessment is the right thing to do during the busy one. We look at where the season actually hurt and have the change ready before the next one."
+          }
+        ]
+      }
+    }
   },
   "about": {
     "kicker": "Est. 2024 / Harlingen, TX",

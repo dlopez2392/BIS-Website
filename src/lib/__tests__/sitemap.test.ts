@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { allSlugs } from '@/lib/insights';
 import { resources } from '@/lib/resources';
 import { cityPages } from '@/lib/cities';
+import { industryPages } from '@/lib/industries';
 
 const APP_DIR = path.join(process.cwd(), 'src', 'app', '[locale]');
 
@@ -43,7 +44,12 @@ describe('sitemap', () => {
 
   it('lists no path without a page behind it', () => {
     const known = new Set(staticRouteDirs().map((d) => `/${d}`));
-    const dynamic = new Set([...allSlugs().map((s) => `/insights/${s}`), ...resources.map((r) => `/resources/${r.slug}`), ...cityPages.map((c) => `/service-area/${c.id}`)]);
+    const dynamic = new Set([
+      ...allSlugs().map((s) => `/insights/${s}`),
+      ...resources.map((r) => `/resources/${r.slug}`),
+      ...cityPages.map((c) => `/service-area/${c.id}`),
+      ...industryPages.map((i) => `/industries/${i.id}`),
+    ]);
     for (const p of paths) {
       if (p === '' || dynamic.has(p)) continue; // home, or a content route
       expect(known.has(p), `${p} is in the sitemap but has no page directory`).toBe(true);
