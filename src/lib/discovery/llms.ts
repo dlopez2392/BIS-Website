@@ -1,6 +1,7 @@
 import { business } from '@/lib/seo/business';
 import { listPosts } from '@/lib/insights';
 import { cityPages } from '@/lib/cities';
+import { industryPages } from '@/lib/industries';
 import { resources } from '@/lib/resources';
 import en from '../../../messages/en.json';
 
@@ -53,6 +54,11 @@ export async function llmsTxt({ siteUrl }: { siteUrl: string }): Promise<string>
     path: `/en/insights/${post.slug}`,
     note: `${post.category}, ${post.date}. ${post.description}`,
   }));
+  const industries: Link[] = industryPages.map((i) => ({
+    title: i.id.replace(/^./, (ch) => ch.toUpperCase()),
+    path: `/en/industries/${i.id}`,
+    note: 'How BIS works with businesses in this industry, with the questions they ask, answered.',
+  }));
   const cities: Link[] = cityPages.map((c) => ({
     title: c.name,
     path: `/en/service-area/${c.id}`,
@@ -74,6 +80,7 @@ export async function llmsTxt({ siteUrl }: { siteUrl: string }): Promise<string>
     `> Phone ${business.phone}. Every page of this site exists in English under /en and Spanish under /es.`,
     '',
     section('Start here', CORE, siteUrl),
+    section('Industries served', industries, siteUrl),
     section('Cities served', cities, siteUrl),
     section('Insights', insights, siteUrl),
     section('Guides', guides, siteUrl),

@@ -106,7 +106,196 @@
     "agTitle": "Con datos, del campo a la factura.",
     "agBody": "Conecta operaciones, inventario y reportes con IA práctica hecha para la realidad de la agricultura del Valle.",
     "ctaTitle": "¿No ves tu industria?",
-    "ctaBody": "Si tu negocio funciona con trabajo repetitivo, probablemente podamos automatizar una parte. Averigüémoslo gratis."
+    "ctaBody": "Si tu negocio funciona con trabajo repetitivo, probablemente podamos automatizar una parte. Averigüémoslo gratis.",
+    "shared": {
+      "eyebrow": "Industrias",
+      "workHeading": "Cómo se ve esto en la práctica",
+      "sofiaHeading": "Cómo atiende Sofía tus llamadas",
+      "sofiaLink": "Sofía contesta nuestra propia línea. Llámala e intenta romperla.",
+      "faqHeading": "Preguntas que nos hacen",
+      "othersHeading": "Otras industrias en las que trabajamos",
+      "citiesHeading": "Dónde trabajamos",
+      "citiesBody": "Estamos en Harlingen y atendemos todo el Valle. Estas páginas cubren las ciudades por las que más nos preguntan.",
+      "ctaTitle": "Empieza con una evaluación gratuita",
+      "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu negocio hoy y te mostramos la mejora que se paga sola primero."
+    },
+    "pages": {
+      "legal": {
+        "metaTitle": "TI e IA para despachos legales en el Valle del Río Grande",
+        "metaDescription": "Recepción bilingüe que contesta fuera de horario, manejo de documentos que respeta la confidencialidad y TI para un despacho del Valle. Evaluación gratuita, un solo contacto.",
+        "heading": "Tecnología para despachos legales del Valle",
+        "intro": "Una llamada perdida es un caso perdido. Casi todos los que buscan abogado llaman a tres y contratan al que contesta primero, y en el Valle esa llamada llega en español con la misma frecuencia que en inglés. Lo que sigue trata de contestar todas, y de cuidar lo que el cliente cuenta cuando lo haces.",
+        "sofia": "Sofía contesta tu línea en el idioma de quien llama, toma los datos de lo que pasó, explica cuánto cobras por la consulta y agenda una cita real en tu calendario. Nunca da asesoría legal ni dice si vas a tomar el caso. Lo que llega a tu escritorio es una hoja de admisión con formato, no un buzón de voz que tienes que devolver para entender.",
+        "workflows": [
+          {
+            "title": "Recepción que contesta fuera de horario",
+            "body": "Las llamadas de las 8 de la noche y del sábado reciben una conversación real en lugar de una grabadora. Los datos llegan a tu correo, con el mismo formato siempre, antes de que abras el despacho."
+          },
+          {
+            "title": "Confidencialidad desde el diseño",
+            "body": "La información del cliente se queda en cuentas que tú controlas, con acceso limitado a quien lo necesita. Trabajamos con acuerdo de confidencialidad cuando lo pidas y podemos decirte exactamente dónde vive cada archivo."
+          },
+          {
+            "title": "Documentos que dejan de ser recaptura",
+            "body": "Formatos de admisión, cartas de contratación y correspondencia de rutina se llenan con información que ya recabaste, para no capturar los mismos datos cuatro veces."
+          }
+        ],
+        "faq": [
+          {
+            "q": "¿La IA le va a dar asesoría legal a quien llama?",
+            "a": "No. El asistente está hecho para tomar datos y agendar, y tiene instrucciones de rechazar cualquier cosa que suene a asesoría o a pronóstico sobre un caso. Si insisten, responde que eso lo contesta un abogado y agenda la cita."
+          },
+          {
+            "q": "¿La información del cliente está segura en un sistema de IA?",
+            "a": "Está tan segura como la configures. Guardamos los datos en cuentas que tú controlas, limitamos quién y qué puede leerlos y preferimos herramientas que no entrenan con tu contenido. Te lo dejamos por escrito antes de poner nada en marcha."
+          },
+          {
+            "q": "¿Atiende bien a quien llama en español?",
+            "a": "Sí, y ese es justo el punto. Contesta en el idioma con el que abre la llamada y en la forma en que la gente habla de verdad, no como traducción de un guion en inglés."
+          }
+        ]
+      },
+      "medical": {
+        "metaTitle": "TI e IA para consultorios médicos y dentales en el Valle del Río Grande",
+        "metaDescription": "Agenda bilingüe, recordatorios que reducen las faltas y TI segura para una clínica o consultorio dental del Valle. Evaluación gratuita, un solo contacto.",
+        "heading": "Tecnología para clínicas y consultorios del Valle",
+        "intro": "Tu recepción contesta el teléfono, registra a un paciente y atiende una solicitud de receta al mismo tiempo. Casi todo lo que la interrumpe es rutinario y repetible, que es exactamente el trabajo que puede resolverse antes de llegar a una persona.",
+        "sofia": "Sofía contesta en inglés o español, agenda y reagenda citas contra tu calendario real y le dice a quien llama qué necesita traer. Está hecha para mantenerse lejos de lo clínico: no habla de síntomas, no da consejos y todo lo que suene urgente pasa de inmediato a una persona con quien llamó todavía en la línea.",
+        "workflows": [
+          {
+            "title": "Agenda y recordatorios en los dos idiomas",
+            "body": "Citas agendadas por teléfono a cualquier hora y recordatorios que llegan como el paciente realmente lee sus mensajes. Menos sillas vacías y menos llamadas de vuelta."
+          },
+          {
+            "title": "Admisión antes de la visita",
+            "body": "Formatos llenados con anticipación, en el idioma del paciente, para que la visita empiece con atención y no con una tabla y una pluma."
+          },
+          {
+            "title": "TI que un consultorio regulado puede defender",
+            "body": "Acceso limitado por persona, equipos administrados y cifrados, respaldos que se prueban en lugar de suponerse y un registro escrito de cómo funciona todo."
+          }
+        ],
+        "faq": [
+          {
+            "q": "¿Esto cumple con HIPAA?",
+            "a": "El cumplimiento es una propiedad de todo tu consultorio, no de una herramienta, así que nadie puede vendértelo honestamente en una caja. Lo que hacemos es diseñar el flujo para que la información de salud protegida se quede en sistemas que tú controlas, con límites de acceso y un acuerdo con cualquier proveedor que la toque, y documentarlo para que tu asesor de cumplimiento lo revise."
+          },
+          {
+            "q": "¿La IA va a hablar de síntomas con los pacientes?",
+            "a": "No. Agenda, confirma y responde cosas prácticas como horarios y qué traer. Todo lo clínico o urgente pasa a tu personal de inmediato, y a quien llama se le avisa que eso está pasando."
+          },
+          {
+            "q": "Ya tenemos sistema de gestión del consultorio. ¿Esto lo reemplaza?",
+            "a": "No. Trabaja alrededor de lo que ya tienes. La evaluación empieza por revisar lo que ya pagas, porque la mejora más barata casi siempre es una función que ya tienes y no estás usando."
+          }
+        ]
+      },
+      "logistics": {
+        "metaTitle": "TI e IA para logística y transporte de carga en el Valle del Río Grande",
+        "metaDescription": "Despacho que contesta de día y de noche, papeleo que se llena solo y TI para carga transfronteriza. Evaluación gratuita, un solo contacto.",
+        "heading": "Tecnología para transporte y logística del Valle",
+        "intro": "La carga no respeta horario de oficina, y el papeleo que la acompaña son los mismos datos capturados una y otra vez en formatos distintos. Las dos cosas se arreglan sin cambiar cómo mueves las cargas.",
+        "sofia": "Sofía contesta la línea de la oficina en cualquiera de los dos idiomas, toma solicitudes de carga y tarifa con los datos que de verdad necesitas y agenda devoluciones de llamada en el calendario de tus despachadores. Operadores y brokers reciben la respuesta de una persona a las 2 de la mañana en vez de un buzón, y tus despachadores dejan de perder una hora al día en llamadas que nunca fueron urgentes.",
+        "workflows": [
+          {
+            "title": "Una línea que sí contesta a las 2 de la mañana",
+            "body": "Solicitudes de tarifa, llamadas de seguimiento y dudas de operadores atendidas a toda hora en inglés y español, y lo verdaderamente urgente pasa a una persona."
+          },
+          {
+            "title": "Papeleo que se llena solo",
+            "body": "Los mismos datos de la carga capturados una vez y no en cuatro documentos, con las partes rutinarias de confirmaciones y actualizaciones generadas en lugar de recapturadas."
+          },
+          {
+            "title": "Sistemas que aguantan un mal día",
+            "body": "Cuentas, equipos y respaldos configurados para que una laptop perdida o un correo de phishing no detengan el despacho. La operación transfronteriza recibe la revisión de seguridad que casi nunca recibe."
+          }
+        ],
+        "faq": [
+          {
+            "q": "¿Puede cotizar una tarifa?",
+            "a": "Solo si tú quieres y solo dentro de reglas que tú definas. Por defecto toma el carril, el equipo, las fechas y el contacto, y se lo pasa a una persona. Cotizar es una decisión de negocio, no de tecnología, y debe seguir siendo tuya."
+          },
+          {
+            "q": "¿Esto reemplaza nuestro TMS?",
+            "a": "No. Se acomoda alrededor de lo que ya usas y quita la captura y el tráfico telefónico. Empezamos por encontrar qué tarea repetida te cuesta más horas."
+          },
+          {
+            "q": "Nuestros brokers llaman a toda hora de los dos lados de la frontera. ¿Eso importa?",
+            "a": "Ese es justo el caso para el que está hecho. La línea se contesta en el idioma con el que abre quien llama, y el mensaje llega a tu despachador en la forma en que lo necesita."
+          }
+        ]
+      },
+      "trades": {
+        "metaTitle": "TI e IA para contratistas y oficios especializados en el Valle del Río Grande",
+        "metaDescription": "Contesta cada llamada desde la escalera, cotiza más rápido y cobra antes. Sistemas bilingües para contratistas del Valle. Evaluación gratuita, un solo contacto.",
+        "heading": "Tecnología para contratistas y oficios del Valle",
+        "intro": "No puedes contestar el teléfono desde un techo, y quien te llama va a marcarle al siguiente de la lista. Casi todo lo que le cuesta dinero a un negocio de oficios es el hueco entre que entra una llamada y alguien la devuelve.",
+        "sofia": "Sofía contesta mientras estás en la obra, en inglés o español, pide la dirección y qué está fallando, dice cuánto cobras por ir y agenda al cliente. Bajas de la escalera con un trabajo agendado en vez de un buzón de voz, y nunca pierdes un cliente por estar trabajando.",
+        "workflows": [
+          {
+            "title": "Cada llamada contestada, hasta desde la escalera",
+            "body": "Una conversación real en cualquiera de los dos idiomas mientras trabajas, con los datos del trabajo y la dirección en tus manos para cuando revises el teléfono."
+          },
+          {
+            "title": "Cotizaciones y seguimiento que sí salen",
+            "body": "Presupuestos que reutilizan lo que ya recabaste y seguimientos que ocurren solos, no cuando te acuerdas el domingo en la noche."
+          },
+          {
+            "title": "Un sitio que convierte una búsqueda en una cita",
+            "body": "Rápido, bilingüe y hecho para que quien te encuentre desde el celular pueda agendar o llamar con un toque. Tus cuentas y tu dominio quedan a tu nombre."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Somos dos personas. ¿No es demasiado para nosotros?",
+            "a": "Está pensado justo para ustedes. Una empresa grande tiene recepcionista; tú tienes un teléfono en la bolsa mientras trabajas. Entre más chica la cuadrilla, más cuesta una llamada perdida."
+          },
+          {
+            "q": "¿Los clientes van a notar que no soy yo?",
+            "a": "Se presenta como tu asistente. No finge ser una persona y, en la práctica, a la gente le molesta mucho menos que mandarla al buzón. Te pasa la llamada en cuanto alguien lo pide."
+          },
+          {
+            "q": "¿Cuánto cuesta?",
+            "a": "Depende del volumen de llamadas y de qué quieras que atienda, y lo cotizamos después de una evaluación gratuita para que tengas un número fijo antes de empezar. También te vamos a decir cuándo la respuesta honesta es que todavía no lo necesitas."
+          }
+        ]
+      },
+      "agriculture": {
+        "metaTitle": "TI e IA para agricultura en el Valle del Río Grande",
+        "metaDescription": "Conecta registros de campo, inventario y facturación, y contesta la línea en los dos idiomas. Tecnología práctica para productores y empacadoras del Valle.",
+        "heading": "Tecnología para productores y empacadoras del Valle",
+        "intro": "Casi todas las operaciones del Valle funcionan con registros que viven en tres lugares: una libreta, una hoja de cálculo y la memoria de alguien. Temporada tras temporada eso funciona, hasta la única semana en que no, casi siempre al facturar o en una auditoría.",
+        "sofia": "Sofía contesta la línea de la oficina en inglés o español, toma solicitudes de compradores y proveedores con los datos que necesitas y agenda devoluciones de llamada. En cosecha, cuando la oficina está vacía porque todos están en el campo, la línea sigue contestando.",
+        "workflows": [
+          {
+            "title": "Registros conectados con la facturación",
+            "body": "Lo que se cortó, se empacó y se embarcó ligado a lo que se cobra, para que los números cuadren sin una semana persiguiendo papeles."
+          },
+          {
+            "title": "Reportes que le puedes entregar a un comprador",
+            "body": "La trazabilidad y el reporte de volumen que los compradores piden cada vez más, generados a partir de registros que ya llevas y no armados a mano cada vez."
+          },
+          {
+            "title": "Sistemas hechos para cómo se trabaja",
+            "body": "Bilingües por defecto, usables desde el celular en el campo y configurados para que un equipo perdido o un disco dañado no se lleve los registros de una temporada."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Nuestros registros están en papel y en hojas de cálculo. ¿Eso es un problema?",
+            "a": "Es el punto de partida normal. El primer paso casi siempre es conectar lo que ya llevas en lugar de reemplazarlo, porque un sistema que nadie en el campo va a usar es peor que la libreta."
+          },
+          {
+            "q": "¿La cuadrilla necesita hablar inglés para usarlo?",
+            "a": "No. Todo lo que construimos es bilingüe desde el inicio, no traducido después, porque una herramienta que la gente no puede leer es una herramienta que van a esquivar."
+          },
+          {
+            "q": "La cosecha no es momento de cambiar sistemas. ¿Cuándo empezamos?",
+            "a": "Fuera de temporada, y la evaluación es justo lo que conviene hacer durante la ocupada. Revisamos dónde dolió de verdad la temporada y dejamos el cambio listo antes de la siguiente."
+          }
+        ]
+      }
+    }
   },
   "about": {
     "kicker": "Est. 2024 / Harlingen, TX",

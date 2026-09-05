@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { IndustryCard } from '@/components/marketing/IndustryCard';
+import { industryPages } from '@/lib/industries';
 import { CTASection } from '@/components/ui/CTASection';
 import { pageMetadata } from '@/lib/seo/metadata';
 
@@ -15,13 +16,21 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
   setRequestLocale(locale);
   const t = await getTranslations('industries');
   const c = await getTranslations('common');
-  const cards = [
-    { label: t('legalLabel'), title: t('legalTitle'), body: t('legalBody') },
-    { label: t('medLabel'), title: t('medTitle'), body: t('medBody') },
-    { label: t('logLabel'), title: t('logTitle'), body: t('logBody') },
-    { label: t('tradesLabel'), title: t('tradesTitle'), body: t('tradesBody') },
-    { label: t('agLabel'), title: t('agTitle'), body: t('agBody') },
-  ];
+  // Card copy is keyed off the same list the detail pages are generated from,
+  // so a sixth industry cannot appear here without a page behind it.
+  const CARD_KEYS = {
+    legal: { title: 'legalTitle', body: 'legalBody' },
+    medical: { title: 'medTitle', body: 'medBody' },
+    logistics: { title: 'logTitle', body: 'logBody' },
+    trades: { title: 'tradesTitle', body: 'tradesBody' },
+    agriculture: { title: 'agTitle', body: 'agBody' },
+  } as const;
+  const cards = industryPages.map((i) => ({
+    label: t(i.labelKey),
+    title: t(CARD_KEYS[i.id].title),
+    body: t(CARD_KEYS[i.id].body),
+    href: `/industries/${i.id}`,
+  }));
   return (
     <main>
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-10">
