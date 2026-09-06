@@ -10,9 +10,12 @@ import { Link } from '@/i18n/navigation';
 // leaves the server for visitors who will see it: the effect below sets `src`
 // at runtime for wide viewports that have not asked for reduced motion or
 // data saving. Phones get the gradient.
+// The version in the filename is what makes a year-long immutable cache safe
+// (see the /hero rule in next.config.ts): replacing the footage means bumping
+// it to .2, which is a new URL rather than a stale one nobody can flush.
 const VIDEO_SOURCES = [
-  { src: '/hero/bis-hero.webm', type: 'video/webm; codecs="vp9"' },
-  { src: '/hero/bis-hero.mp4', type: 'video/mp4; codecs="avc1.640029"' },
+  { src: '/hero/bis-hero.1.webm', type: 'video/webm; codecs="vp9"' },
+  { src: '/hero/bis-hero.1.mp4', type: 'video/mp4; codecs="avc1.640029"' },
 ] as const;
 
 /** First source the browser says it can probably play; MP4 when it will not say. */

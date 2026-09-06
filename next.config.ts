@@ -12,7 +12,25 @@ const nextConfig: NextConfig = {
   // Every response carries the CSP and hardening headers; see
   // src/lib/security/headers.ts for what each allowance is for.
   async headers() {
-    return [{ source: '/:path*', headers: securityHeaders({ dev: process.env.NODE_ENV === 'development' }) }];
+    return [
+      { source: '/:path*', headers: securityHeaders({ dev: process.env.NODE_ENV === 'development' }) },
+      {
+        // Files under /public are served with `max-age=0, must-revalidate` by
+        // default, so every returning desktop visitor made a round trip to
+        // revalidate a 3 MB video while the JS beside it was cached for a
+        // year. These names carry a version, so the URL changes when the
+        // footage does and an immutable cache can never serve stale bytes.
+        source: '/hero/:file*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        // Vendor logos are not versioned, so they get a day of freshness and a
+        // week of serving-while-revalidating rather than an immutable cache
+        // that would outlive a logo change by a year.
+        source: '/logos/:file*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
+      },
+    ];
   },
   async redirects() {
     return [
