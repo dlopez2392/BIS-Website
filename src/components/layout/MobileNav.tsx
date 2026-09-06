@@ -4,6 +4,8 @@ import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { CallLink } from './CallLink';
+import { WhatsAppLink } from './WhatsAppLink';
+import { whatsappNumber } from '@/lib/whatsapp';
 
 export function MobileNav() {
   const t = useTranslations('nav');
@@ -32,8 +34,16 @@ export function MobileNav() {
       {open && (
         <nav className="absolute inset-x-0 top-full border-b border-hairline bg-surface px-6 py-4">
           <ul className="flex flex-col gap-4">
-            <li className="border-b border-hairline pb-4">
+            <li className="flex items-center gap-5 border-b border-hairline pb-4">
               <CallLink
+                withLabel
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 text-sm font-bold text-ink hover:text-link"
+              />
+              {/* NEXT_PUBLIC_* is inlined at build time, so a client component
+                  can read it directly; the link renders nothing when unset. */}
+              <WhatsAppLink
+                number={whatsappNumber()}
                 withLabel
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-2 text-sm font-bold text-ink hover:text-link"

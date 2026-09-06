@@ -958,5 +958,13 @@
     "exitBody": "You keep everything: accounts, domains, code, data, and the documentation to run it. Access we were granted is handed back or removed. There is no proprietary layer to unpick and no fee to get your own systems back, because the arrangement never depended on you being stuck.",
     "updatedHeading": "About this page",
     "updatedBody": "Written {date}. It describes how BIS works today. When that changes, this page changes with it."
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "aria": "Message us on WhatsApp",
+    "prefill": "Hi BIS — I'm on your website and would like to ask about",
+    "contactHeading": "Rather message than call?",
+    "contactBody": "Send us a WhatsApp. It reaches the same person, in English or Spanish, and you get an answer without sitting on a phone.",
+    "contactCta": "Message us on WhatsApp"
   }
 }
