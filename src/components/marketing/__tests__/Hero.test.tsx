@@ -53,8 +53,8 @@ describe('Hero', () => {
 
   it('serves VP9 WebM only to browsers that can probably decode it, H.264 MP4 otherwise', () => {
     const says = (answer: (type: string) => CanPlayTypeResult) => ({ canPlayType: answer });
-    expect(pickVideoSource(says((t) => (t.startsWith('video/webm') ? 'probably' : 'maybe')))).toBe('/hero/bis-hero.webm');
-    expect(pickVideoSource(says((t) => (t.startsWith('video/mp4') ? 'probably' : '')))).toBe('/hero/bis-hero.mp4');
-    expect(pickVideoSource(says(() => ''))).toBe('/hero/bis-hero.mp4');
+    expect(pickVideoSource(says((t) => (t.startsWith('video/webm') ? 'probably' : 'maybe')))).toBe('/hero/bis-hero.1.webm');
+    expect(pickVideoSource(says((t) => (t.startsWith('video/mp4') ? 'probably' : '')))).toBe('/hero/bis-hero.1.mp4');
+    expect(pickVideoSource(says(() => ''))).toBe('/hero/bis-hero.1.mp4');
   });
 });
