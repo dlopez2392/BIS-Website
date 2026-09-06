@@ -35,7 +35,7 @@ const CORE: Link[] = [
   { title: 'Insights', path: '/en/insights', note: 'Index of BIS articles on AI cost, data handling and choosing a vendor.' },
   { title: 'Guides', path: '/en/resources', note: 'Index of the downloadable guides, each available in English and Spanish.' },
   { title: 'Service area', path: '/en/service-area', note: 'The Rio Grande Valley cities BIS serves.' },
-  { title: 'Free website and email security check', path: '/en/tools/security-check', note: 'A free tool: enter a domain and get a plain-language grade on its web and email security, from public records only.' },
+  { title: 'Free website and email security check', path: '/en/tools/security-check', note: 'A free tool: enter a domain and get a plain-language grade on fifteen web and email security checks, from public records only, with the full report by email.' },
   { title: 'Find your first hour back', path: '/en/tools/first-hour-back', note: 'A free estimate of the hours a week a business could hand back, with every assumption behind the number shown.' },
   { title: 'Contact', path: '/en/contact', note: 'Book a free assessment, or send a message. Both go straight to the founder.' },
   { title: 'How we protect your data', path: '/en/trust', note: 'The security questions a client asks a technology vendor, answered in advance: access, data ownership, sub-processors, regulated work, and what BIS does not claim.' },

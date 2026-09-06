@@ -14,6 +14,9 @@ const clean: Evidence = {
   txt: ['v=spf1 -all'],
   dmarc: ['v=DMARC1; p=reject'],
   mx: ['mail.example.com'],
+  dkimSelectors: ['google'],
+  certDaysLeft: 90,
+  insecureSubresources: 0,
 };
 
 function deps(over: Partial<Parameters<typeof runScan>[1]> = {}) {

@@ -1,5 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { runChecks, score, headline, checkSpf, checkDmarc, checkCsp, checkHsts, checkCookieFlags, checkServerDisclosure, type Evidence } from '../checks';
+import {
+  runChecks, score, headline, checkSpf, checkDmarc, checkCsp, checkHsts, checkCookieFlags,
+  checkServerDisclosure, checkCertExpiry, checkMixedContent, checkDkim,
+  CERT_WARN_DAYS, type Evidence,
+} from '../checks';
 
 function evidence(over: Partial<Evidence> & { headers?: Record<string, string>; setCookie?: string[] } = {}): Evidence {
   const headers = new Headers(over.headers ?? {});
@@ -10,6 +14,9 @@ function evidence(over: Partial<Evidence> & { headers?: Record<string, string>; 
     txt: over.txt ?? [],
     dmarc: over.dmarc ?? [],
     mx: over.mx ?? ['mail.example.com'],
+    dkimSelectors: over.dkimSelectors ?? ['google'],
+    certDaysLeft: over.certDaysLeft ?? 90,
+    insecureSubresources: over.insecureSubresources ?? 0,
   };
 }
 
@@ -104,13 +111,26 @@ describe('score', () => {
   });
 
   it('does not mark down a domain for receiving no email', () => {
-    const noMail = { ...evidence({ txt: ['v=spf1 -all'], dmarc: ['v=DMARC1; p=reject'] }), mx: [] };
-    const withMail = evidence({ txt: ['v=spf1 -all'], dmarc: ['v=DMARC1; p=reject'] });
-    expect(score(runChecks(noMail)).points).toBe(score(runChecks(withMail)).points);
+    // The guarantee is that an inapplicable check costs nothing, not that two
+    // differently-configured domains land on the same number. A check that
+    // returns `unknown` leaves the denominator as well as the numerator, so a
+    // domain with nothing else wrong still scores full marks with no mail.
+    const headers = {
+      'strict-transport-security': 'max-age=63072000',
+      'content-security-policy': "default-src 'self'; frame-ancestors 'none'",
+      'x-content-type-options': 'nosniff',
+      'referrer-policy': 'no-referrer',
+    };
+    const clean = { txt: ['v=spf1 -all'], dmarc: ['v=DMARC1; p=reject'], headers };
+    const noMail = { ...evidence(clean), mx: [], dkimSelectors: [] };
+    expect(score(runChecks(noMail)).points).toBe(100);
+    expect(score(runChecks(evidence(clean))).points).toBe(100);
   });
 
   it('scores a site that cannot be reached at all as a failure, not an error', () => {
-    const unreachable: Evidence = { https: undefined, httpRedirectsToHttps: false, txt: [], dmarc: [], mx: [] };
+    const unreachable: Evidence = {
+      https: undefined, httpRedirectsToHttps: false, txt: [], dmarc: [], mx: [], dkimSelectors: [],
+    };
     expect(score(runChecks(unreachable)).grade).toBe('F');
   });
 });
@@ -138,5 +158,43 @@ describe('headline', () => {
       dmarc: ['v=DMARC1; p=reject'],
     });
     expect(headline(runChecks(perfect))).toEqual([]);
+  });
+});
+
+describe('certificate expiry', () => {
+  it('says nothing when the certificate could not be read', () => {
+    expect(checkCertExpiry({ ...evidence(), certDaysLeft: undefined }).status).toBe('unknown');
+  });
+
+  it('warns before a renewal is late rather than after the site goes down', () => {
+    expect(checkCertExpiry(evidence({ certDaysLeft: 90 })).status).toBe('pass');
+    expect(checkCertExpiry(evidence({ certDaysLeft: CERT_WARN_DAYS })).status).toBe('warn');
+    expect(checkCertExpiry(evidence({ certDaysLeft: 3 })).status).toBe('fail');
+    expect(checkCertExpiry(evidence({ certDaysLeft: -1 })).status).toBe('fail');
+  });
+});
+
+describe('mixed content', () => {
+  it('fails a secure page that loads anything over plain HTTP', () => {
+    expect(checkMixedContent(evidence({ insecureSubresources: 3 })).status).toBe('fail');
+    expect(checkMixedContent(evidence({ insecureSubresources: 0 })).status).toBe('pass');
+  });
+
+  it('stays quiet when the page was not read', () => {
+    expect(checkMixedContent({ ...evidence(), insecureSubresources: undefined }).status).toBe('unknown');
+  });
+});
+
+describe('DKIM', () => {
+  it('passes when a signing key was found under any known selector', () => {
+    expect(checkDkim(evidence({ dkimSelectors: ['selector1'] })).status).toBe('pass');
+  });
+
+  it('warns rather than fails when none was found, because selectors cannot be enumerated', () => {
+    expect(checkDkim(evidence({ dkimSelectors: [] })).status).toBe('warn');
+  });
+
+  it('does not judge a domain that receives no mail', () => {
+    expect(checkDkim({ ...evidence({ dkimSelectors: [] }), mx: [] }).status).toBe('unknown');
   });
 });

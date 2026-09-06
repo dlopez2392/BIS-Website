@@ -17,16 +17,34 @@ export type Status = 'pass' | 'warn' | 'fail' | 'unknown';
 export type CheckId =
   | 'https'
   | 'httpsRedirect'
+  | 'certExpiry'
   | 'hsts'
   | 'csp'
   | 'clickjacking'
   | 'nosniff'
   | 'referrerPolicy'
+  | 'mixedContent'
   | 'cookieFlags'
   | 'serverDisclosure'
   | 'spf'
+  | 'dkim'
   | 'dmarc'
   | 'mx';
+
+/*
+ * Two checks deliberately absent.
+ *
+ * CAA restricts which authorities may issue certificates for a domain. Almost
+ * no small business publishes one, so reporting its absence would put an
+ * amber row on nearly every scan for something that is rarely the reason
+ * anyone gets breached — and a checker that cries wolf is one people learn to
+ * ignore.
+ *
+ * DNSSEC cannot be established from Node's resolver, which does not expose DS
+ * records or validation state. Asking a third-party resolver over DoH would
+ * mean this tool's answer depended on someone else's infrastructure, so it is
+ * left out rather than guessed at.
+ */
 
 export interface Finding {
   id: CheckId;
@@ -40,26 +58,39 @@ export interface Evidence {
   https?: { status: number; headers: Headers };
   /** Whether http://<host>/ ends up on https. */
   httpRedirectsToHttps?: boolean;
+  /** Days until the TLS certificate expires; undefined when it could not be read. */
+  certDaysLeft?: number;
+  /** Insecure subresources found in the page's own markup. Undefined when the body was not read. */
+  insecureSubresources?: number;
   txt: string[];
   dmarc: string[];
   mx: string[];
+  /** Selectors that returned a DKIM key. Empty means none of the common ones did. */
+  dkimSelectors: string[];
 }
 
 /** `weight` is how much a failure costs the grade; email failures cost the most because they are exploited the most. */
 const WEIGHTS: Record<CheckId, number> = {
   https: 20,
   httpsRedirect: 8,
+  certExpiry: 10,
   hsts: 6,
   csp: 8,
   clickjacking: 6,
   nosniff: 4,
   referrerPolicy: 3,
+  mixedContent: 8,
   cookieFlags: 5,
   serverDisclosure: 2,
   spf: 14,
+  dkim: 8,
   dmarc: 14,
   mx: 2,
 };
+
+/** Renew-by-now territory: most issuers renew at 30 days, so 21 means something is stuck. */
+export const CERT_WARN_DAYS = 21;
+export const CERT_FAIL_DAYS = 7;
 
 function header(evidence: Evidence, name: string): string | undefined {
   return evidence.https?.headers.get(name) ?? undefined;
@@ -73,6 +104,26 @@ export function checkHttps(e: Evidence): Finding {
 export function checkHttpsRedirect(e: Evidence): Finding {
   if (e.httpRedirectsToHttps === undefined) return { id: 'httpsRedirect', status: 'unknown' };
   return { id: 'httpsRedirect', status: e.httpRedirectsToHttps ? 'pass' : 'fail' };
+}
+
+export function checkCertExpiry(e: Evidence): Finding {
+  // Nothing to say when the site could not be reached; `https` already said it.
+  if (e.certDaysLeft === undefined) return { id: 'certExpiry', status: 'unknown' };
+  if (e.certDaysLeft <= CERT_FAIL_DAYS) return { id: 'certExpiry', status: 'fail' };
+  if (e.certDaysLeft <= CERT_WARN_DAYS) return { id: 'certExpiry', status: 'warn' };
+  return { id: 'certExpiry', status: 'pass' };
+}
+
+export function checkMixedContent(e: Evidence): Finding {
+  if (e.insecureSubresources === undefined) return { id: 'mixedContent', status: 'unknown' };
+  return { id: 'mixedContent', status: e.insecureSubresources > 0 ? 'fail' : 'pass' };
+}
+
+export function checkDkim(e: Evidence): Finding {
+  // Only meaningful for a domain that receives mail; a domain with no MX is
+  // judged on SPF and DMARC alone.
+  if (e.mx.length === 0) return { id: 'dkim', status: 'unknown' };
+  return { id: 'dkim', status: e.dkimSelectors.length > 0 ? 'pass' : 'warn' };
 }
 
 export function checkHsts(e: Evidence): Finding {
@@ -169,8 +220,9 @@ export function checkMx(e: Evidence): Finding {
 }
 
 const CHECKS = [
-  checkHttps, checkHttpsRedirect, checkHsts, checkCsp, checkClickjacking, checkNosniff,
-  checkReferrerPolicy, checkCookieFlags, checkServerDisclosure, checkSpf, checkDmarc, checkMx,
+  checkHttps, checkHttpsRedirect, checkCertExpiry, checkHsts, checkCsp, checkClickjacking,
+  checkNosniff, checkReferrerPolicy, checkMixedContent, checkCookieFlags, checkServerDisclosure,
+  checkSpf, checkDkim, checkDmarc, checkMx,
 ];
 
 export function runChecks(evidence: Evidence): Finding[] {
