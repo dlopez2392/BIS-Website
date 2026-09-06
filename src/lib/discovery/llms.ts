@@ -38,6 +38,7 @@ const CORE: Link[] = [
   { title: 'Free website and email security check', path: '/en/tools/security-check', note: 'A free tool: enter a domain and get a plain-language grade on its web and email security, from public records only.' },
   { title: 'Find your first hour back', path: '/en/tools/first-hour-back', note: 'A free estimate of the hours a week a business could hand back, with every assumption behind the number shown.' },
   { title: 'Contact', path: '/en/contact', note: 'Book a free assessment, or send a message. Both go straight to the founder.' },
+  { title: 'How we protect your data', path: '/en/trust', note: 'The security questions a client asks a technology vendor, answered in advance: access, data ownership, sub-processors, regulated work, and what BIS does not claim.' },
   { title: 'Privacy policy', path: '/en/privacy', note: 'What BIS collects and how long it is kept.' },
   { title: 'Accessibility', path: '/en/accessibility', note: 'How this site is built and tested for WCAG 2.1 AA, what automated testing does not cover, and the ADA Title II deadlines for Texas public entities.' },
 ];
