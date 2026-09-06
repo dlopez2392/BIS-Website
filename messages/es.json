@@ -958,5 +958,13 @@
     "exitBody": "Te quedas con todo: cuentas, dominios, código, datos y la documentación para operarlo. El acceso que se nos dio se devuelve o se elimina. No hay una capa propietaria que desenredar ni una cuota para recuperar tus propios sistemas, porque el acuerdo nunca dependió de que estuvieras atrapado.",
     "updatedHeading": "Sobre esta página",
     "updatedBody": "Escrita el {date}. Describe cómo trabaja BIS hoy. Cuando eso cambie, esta página cambia con ello."
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "aria": "Escríbenos por WhatsApp",
+    "prefill": "Hola BIS — estoy en su sitio y quisiera preguntar sobre",
+    "contactHeading": "¿Prefieres escribir en lugar de llamar?",
+    "contactBody": "Mándanos un WhatsApp. Llega a la misma persona, en inglés o español, y te contestamos sin que tengas que esperar en el teléfono.",
+    "contactCta": "Escríbenos por WhatsApp"
   }
 }
