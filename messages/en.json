@@ -377,7 +377,19 @@
     "greeting": "Hi! I'm the BIS assistant. Ask me about AI, IT, or web for your Valley business — I can also set you up with a free assessment.",
     "placeholder": "Type your message…",
     "send": "Send",
-    "close": "Close chat"
+    "close": "Close chat",
+    "thinking": "Thinking…",
+    "suggestionsLabel": "Try asking",
+    "suggestion1": "What would you actually do for my business?",
+    "suggestion2": "How much does an AI assistant cost?",
+    "suggestion3": "Can you answer calls in Spanish?",
+    "errorHeading": "That did not go through",
+    "errorFallback": "Something went wrong. Try again, or call us at (956) 506-1545.",
+    "retry": "Try again",
+    "limitReached": "This chat has run long. Book a free assessment and talk to Dan directly.",
+    "limitCta": "Book a free assessment",
+    "messagesLabel": "Conversation",
+    "restored": "Picking up where you left off."
   },
   "insights": {
     "heading": "Insights",
