@@ -109,12 +109,31 @@ export function checkReferrerPolicy(e: Evidence): Finding {
   return { id: 'referrerPolicy', status: header(e, 'referrer-policy') ? 'pass' : 'warn' };
 }
 
+/**
+ * Names that suggest a cookie carries a session or a credential. Only those
+ * need HttpOnly; plenty of legitimate cookies are deliberately readable by
+ * scripts because the page's own code has to read them.
+ */
+const SESSION_COOKIE = /^(?:[a-z0-9_-]*(?:sess|sid|auth|token|jwt|login|remember|csrf)[a-z0-9_-]*)=/i;
+
 export function checkCookieFlags(e: Evidence): Finding {
   const cookies = e.https?.headers.getSetCookie?.() ?? [];
   // No cookies on the front page is a fine answer, not a missing one.
   if (cookies.length === 0) return { id: 'cookieFlags', status: 'pass' };
-  const weak = cookies.filter((c) => !/;\s*secure/i.test(c) || !/;\s*httponly/i.test(c));
-  return { id: 'cookieFlags', status: weak.length ? 'warn' : 'pass' };
+
+  // Missing Secure is always worth saying: it means the cookie can travel over
+  // plain HTTP where anyone on the same network can read or set it, whatever
+  // the cookie holds.
+  const insecure = cookies.filter((c) => !/;\s*secure/i.test(c));
+
+  // Missing HttpOnly only matters for a cookie that carries a session. Warning
+  // about a theme or language preference that the page's own script has to
+  // read is a false positive, and a checker that cries wolf about a correct
+  // configuration teaches people to ignore it. This site's own NEXT_LOCALE
+  // cookie is exactly that case.
+  const exposedSession = cookies.filter((c) => SESSION_COOKIE.test(c.trim()) && !/;\s*httponly/i.test(c));
+
+  return { id: 'cookieFlags', status: insecure.length || exposedSession.length ? 'warn' : 'pass' };
 }
 
 export function checkServerDisclosure(e: Evidence): Finding {

@@ -51,8 +51,27 @@ describe('header checks', () => {
 
   it('treats a site with no cookies as fine, not as missing something', () => {
     expect(checkCookieFlags(evidence()).status).toBe('pass');
-    expect(checkCookieFlags(evidence({ setCookie: ['id=1; Secure; HttpOnly; SameSite=Lax'] })).status).toBe('pass');
-    expect(checkCookieFlags(evidence({ setCookie: ['id=1'] })).status).toBe('warn');
+    expect(checkCookieFlags(evidence({ setCookie: ['sid=1; Secure; HttpOnly; SameSite=Lax'] })).status).toBe('pass');
+  });
+
+  it('always flags a cookie that can travel over plain HTTP', () => {
+    expect(checkCookieFlags(evidence({ setCookie: ['NEXT_LOCALE=en; Path=/; SameSite=Lax'] })).status).toBe('warn');
+    expect(checkCookieFlags(evidence({ setCookie: ['sid=1; HttpOnly'] })).status).toBe('warn');
+  });
+
+  it('does not cry wolf about a preference cookie the page has to read itself', () => {
+    // The false positive this fixes: bis-rgv.com sets NEXT_LOCALE with Secure
+    // and SameSite but deliberately without HttpOnly, because the language
+    // switcher is client-side. A checker that calls a correct configuration a
+    // problem teaches people to ignore it.
+    expect(checkCookieFlags(evidence({ setCookie: ['NEXT_LOCALE=en; Path=/; Secure; SameSite=Lax'] })).status).toBe('pass');
+    expect(checkCookieFlags(evidence({ setCookie: ['theme=dark; Secure', 'consent=1; Secure'] })).status).toBe('pass');
+  });
+
+  it('still flags a session cookie that scripts can read', () => {
+    for (const cookie of ['sessionid=abc; Secure', 'PHPSESSID=abc; Secure', 'auth_token=abc; Secure', 'jwt=abc; Secure', 'remember_me=1; Secure']) {
+      expect(checkCookieFlags(evidence({ setCookie: [cookie] })).status, cookie).toBe('warn');
+    }
   });
 
   it('flags a version number, not merely a product name', () => {
