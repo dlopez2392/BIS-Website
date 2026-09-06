@@ -1,9 +1,11 @@
 import { Resend } from 'resend';
 import { LeadNotification } from '@/emails/LeadNotification';
 import { ResourceEmail } from '@/emails/ResourceEmail';
-import { resourceSubject } from '@/emails/messages';
+import { ScanReport, type ReportFinding } from '@/emails/ScanReport';
+import { resourceSubject, scanReportStrings } from '@/emails/messages';
 import { getResource } from '@/lib/resources';
 import { SITE_URL } from '@/lib/seo/business';
+import { publicPageUrl } from '@/lib/platform';
 import type { ContactFormValues } from '@/lib/contact-schema';
 import type { SubscriberValues } from '@/lib/subscriber-schema';
 
@@ -25,6 +27,20 @@ export async function sendResourceEmail(v: SubscriberValues): Promise<void> {
     replyTo: process.env.CONTACT_REPLY_TO ?? 'bespokeintelligentsolutions@gmail.com',
     subject: resourceSubject(v.locale),
     react: ResourceEmail({ locale: v.locale, name: v.name, url }),
+  });
+  if (error) throw new Error(error.message);
+}
+
+export async function sendScanReport(input: {
+  to: string; name: string; locale: 'en' | 'es'; domain: string;
+  grade: string; points: number; headline: ReportFinding[]; findings: ReportFinding[];
+}): Promise<void> {
+  const { error } = await client().emails.send({
+    from: process.env.CONTACT_FROM ?? 'onboarding@resend.dev',
+    to: input.to,
+    replyTo: process.env.CONTACT_REPLY_TO ?? 'bespokeintelligentsolutions@gmail.com',
+    subject: scanReportStrings[input.locale].subject(input.domain, input.grade),
+    react: ScanReport({ ...input, bookingUrl: publicPageUrl('booking', input.locale) }),
   });
   if (error) throw new Error(error.message);
 }

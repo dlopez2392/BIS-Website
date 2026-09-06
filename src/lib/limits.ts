@@ -23,6 +23,15 @@ export const CHAT_WINDOW_SECONDS = 60;
 export const SCANS_PER_WINDOW = 5;
 export const SCAN_WINDOW_SECONDS = 600;
 
+/**
+ * Emailing a report is a stricter thing than running a scan: it sends mail
+ * from the BIS domain to an address a stranger typed. The scan limit protects
+ * other people's servers; this one protects the sending reputation that the
+ * SPF and DMARC records exist to defend.
+ */
+export const REPORTS_PER_WINDOW = 3;
+export const REPORT_WINDOW_SECONDS = 3600;
+
 export interface Counter {
   /** Increments `key`, setting `ttlSeconds` on first write, and returns the new count. */
   incr(key: string, ttlSeconds: number): Promise<number>;
@@ -31,6 +40,7 @@ export interface Counter {
 export interface Limits {
   allowChat(ip: string): Promise<boolean>;
   allowScan(ip: string): Promise<boolean>;
+  allowReport(ip: string): Promise<boolean>;
 }
 
 let brokenCounterLogged = false;
@@ -65,6 +75,21 @@ export function makeLimits(counter: Counter): Limits {
       } catch (err) {
         logBrokenCounter(err);
         return true;
+      }
+    },
+    /**
+     * Fails CLOSED, unlike the others. A dead counter silencing the assistant
+     * is worse than an unmetered window; a dead counter letting an unmetered
+     * number of emails leave the BIS domain is how a sending reputation is
+     * lost, and the visitor still has their result on screen either way.
+     */
+    async allowReport(ip) {
+      try {
+        const used = await counter.incr(`web:rl:report:${ip}`, REPORT_WINDOW_SECONDS);
+        return used <= REPORTS_PER_WINDOW;
+      } catch (err) {
+        logBrokenCounter(err);
+        return false;
       }
     },
   };
