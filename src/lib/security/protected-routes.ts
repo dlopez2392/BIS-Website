@@ -42,6 +42,13 @@ export type CheckLevel = 'basic' | 'deepAnalysis';
  * cover it.
  */
 const CHAT: CheckLevel = 'deepAnalysis';
+/**
+ * Deep Analysis too, and for a sharper version of chat's reason: a voice
+ * session bills OpenAI Realtime audio by the minute for as long as it lives,
+ * where a chat message bills once. This is the most expensive endpoint on the
+ * site for a script to reach.
+ */
+const SOFIA_TICKET: CheckLevel = 'deepAnalysis';
 const SECURITY_CHECK: CheckLevel = 'deepAnalysis';
 const RESOURCE_FORM: CheckLevel = 'basic';
 
@@ -59,6 +66,7 @@ export interface ProtectedRoute {
  */
 export const PROTECTED_ROUTES: readonly ProtectedRoute[] = [
   { path: '/api/chat', method: 'POST', advancedOptions: { checkLevel: CHAT } },
+  { path: '/api/sofia/ticket', method: 'POST', advancedOptions: { checkLevel: SOFIA_TICKET } },
   ...routing.locales.map((locale) => ({
     path: `/${locale}/tools/security-check`,
     method: 'POST' as const,
@@ -87,4 +95,5 @@ export function checkLevelFor(path: string): CheckLevel {
 
 /** Path constants, so a call site cannot typo its way out of protection. */
 export const CHAT_ROUTE = '/api/chat';
+export const SOFIA_TICKET_ROUTE = '/api/sofia/ticket';
 export const securityCheckPath = (locale: string) => `/${locale}/tools/security-check`;

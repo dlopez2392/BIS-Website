@@ -31,6 +31,7 @@ function platformOrigin(): string {
 /** Vercel Analytics and Speed Insights, which self-host in production and fall back to this host elsewhere. */
 const VERCEL_SCRIPTS = 'https://va.vercel-scripts.com';
 const VERCEL_VITALS = 'https://vitals.vercel-insights.com';
+const OPENAI_REALTIME = 'https://api.openai.com';
 
 export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): string {
   const directives: Record<string, string[]> = {
@@ -46,7 +47,15 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
     // The hero backdrop, served from /public/hero.
     'media-src': ["'self'"],
     // Chat and every server action are same-origin; the rest is analytics.
-    'connect-src': ["'self'", VERCEL_SCRIPTS, VERCEL_VITALS, ...(dev ? ['ws:'] : [])],
+    // OPENAI_REALTIME is the SDP exchange that opens the voice session: the
+    // browser POSTs its WebRTC offer straight to OpenAI carrying a
+    // one-session ephemeral key, so the audio never transits this site. The
+    // platform origin is where that key is minted. Media itself rides
+    // WebRTC's own transport, which CSP does not govern.
+    'connect-src': [
+      "'self'", VERCEL_SCRIPTS, VERCEL_VITALS, OPENAI_REALTIME, platformOrigin(),
+      ...(dev ? ['ws:'] : []),
+    ],
     // The contact page frames the BIS Platform's own form and scheduler.
     'frame-src': [platformOrigin()],
     'worker-src': ["'self'", 'blob:'],
@@ -69,13 +78,15 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
 /**
  * Features this site does not use are turned off at the browser level.
  *
- * `microphone` is denied today and must be opened to `(self)` by the change
- * that ships the in-browser "Talk to Sofía" voice demo — it is listed here
- * rather than omitted so that work has an obvious, reviewed place to land.
+ * `microphone=(self)` — opened, as the earlier note here anticipated, by the
+ * in-browser "Talk to Sofía" voice demo. `(self)` and not `*`: this site's own
+ * pages may ask, and the browser still asks the visitor before any audio is
+ * captured. No third party embedded in a page here can reach the microphone,
+ * and `camera` stays fully denied — the demo needs a voice, never a face.
  * `browsing-topics` opts the site out of ad-interest inference, which is the
  * posture a security consultancy should hold whether or not anyone checks.
  */
-const PERMISSIONS_POLICY = ['camera=()', 'microphone=()', 'geolocation=()', 'payment=()', 'usb=()', 'browsing-topics=()'].join(', ');
+const PERMISSIONS_POLICY = ['camera=()', 'microphone=(self)', 'geolocation=()', 'payment=()', 'usb=()', 'browsing-topics=()'].join(', ');
 
 export function securityHeaders({ dev = false }: { dev?: boolean } = {}): { key: string; value: string }[] {
   return [
