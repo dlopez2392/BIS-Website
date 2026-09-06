@@ -377,7 +377,19 @@
     "greeting": "¡Hola! Soy el asistente de BIS. Pregúntame sobre IA, IT o web para tu negocio en el Valle — también puedo agendarte una evaluación gratuita.",
     "placeholder": "Escribe tu mensaje…",
     "send": "Enviar",
-    "close": "Cerrar chat"
+    "close": "Cerrar chat",
+    "thinking": "Pensando…",
+    "suggestionsLabel": "Puedes preguntar",
+    "suggestion1": "¿Qué harían exactamente por mi negocio?",
+    "suggestion2": "¿Cuánto cuesta un asistente con IA?",
+    "suggestion3": "¿Pueden contestar llamadas en español?",
+    "errorHeading": "Eso no se envió",
+    "errorFallback": "Algo salió mal. Inténtalo de nuevo o llámanos al (956) 506-1545.",
+    "retry": "Intentar de nuevo",
+    "limitReached": "Esta conversación ya se alargó. Agenda una evaluación gratuita y habla directamente con Dan.",
+    "limitCta": "Agenda una evaluación gratuita",
+    "messagesLabel": "Conversación",
+    "restored": "Retomamos donde te quedaste."
   },
   "insights": {
     "heading": "Perspectivas",
