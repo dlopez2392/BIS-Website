@@ -1,6 +1,7 @@
 import { after } from 'next/server';
 import { checkBotId } from 'botid/server';
 import { verifyHuman } from '@/lib/security/verify-human';
+import { CHAT_ROUTE } from '@/lib/security/protected-routes';
 import { streamText, tool, convertToModelMessages, stepCountIs, type UIMessage } from 'ai';
 import { deepseek } from '@ai-sdk/deepseek';
 import { buildSystemPrompt } from '@/lib/ai/system-prompt';
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
   // share of the per-IP window. Verified crawlers are let through on purpose —
   // robots.txt invites answer engines, and the policy should not contradict
   // itself one layer down.
-  const { allowed } = await verifyHuman({ check: checkBotId, report });
+  const { allowed } = await verifyHuman({ check: checkBotId, report, path: CHAT_ROUTE });
   if (!allowed) {
     after(() => report({ event: 'chat.bot_blocked', level: 'error', context: { path: req.headers.get('referer') ?? 'unknown' } }));
     return new Response('Access denied', { status: 403 });

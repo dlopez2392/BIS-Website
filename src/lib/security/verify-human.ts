@@ -1,4 +1,5 @@
 import type { ReportInput } from '@/lib/observability/report';
+import { checkLevelFor, type CheckLevel } from './protected-routes';
 
 /**
  * The bot check, with the same failure rule the rate limiter already follows:
@@ -23,8 +24,15 @@ export interface Verification {
 }
 
 export interface VerifyDeps {
-  check: () => Promise<Verification>;
+  /** Given the level the client challenge was armed with, ask Vercel about this request. */
+  check: (options: { advancedOptions: { checkLevel: CheckLevel } }) => Promise<Verification>;
   report: (input: ReportInput) => Promise<void>;
+  /**
+   * The path whose client-side challenge covers this request. The level is
+   * looked up from the same table that arms the browser, because Vercel fails
+   * verification outright when the two sides disagree.
+   */
+  path: string;
 }
 
 export interface VerifyResult {
@@ -35,15 +43,21 @@ export interface VerifyResult {
 }
 
 export async function verifyHuman(deps: VerifyDeps): Promise<VerifyResult> {
+  // Resolved before the try on purpose. An unarmed path is a programming
+  // error, not an outage, and swallowing it here would turn "this endpoint is
+  // silently unprotected" into a line in a log that reads like a vendor
+  // problem. It throws, a test catches it, and it never reaches a visitor.
+  const advancedOptions = { checkLevel: checkLevelFor(deps.path) };
+
   let verdict: Verification;
   try {
-    verdict = await deps.check();
+    verdict = await deps.check({ advancedOptions });
   } catch (error) {
     await deps.report({
       event: 'botid.unavailable',
       level: 'error',
       error,
-      context: { effect: 'request allowed without verification' },
+      context: { path: deps.path, effect: 'request allowed without verification' },
     });
     return { allowed: true, degraded: true };
   }

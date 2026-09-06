@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { track } from '@vercel/analytics';
 import { ShieldCheck, ShieldAlert, ShieldX, Minus, Loader2 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
@@ -71,6 +71,7 @@ function FindingRow({ finding, compact = false }: { finding: Finding; compact?: 
 
 export function SecurityCheckForm() {
   const t = useTranslations('securityCheck');
+  const locale = useLocale();
   const [value, setValue] = useState('');
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<ScanResult | null>(null);
@@ -80,7 +81,7 @@ export function SecurityCheckForm() {
     setBusy(true);
     setResult(null);
     try {
-      const scan = await checkSite(value);
+      const scan = await checkSite(value, locale);
       setResult(scan);
       if (scan.ok) track('security_check', { grade: scan.grade });
     } catch {
