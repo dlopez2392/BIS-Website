@@ -32,6 +32,16 @@ export const SCAN_WINDOW_SECONDS = 600;
 export const REPORTS_PER_WINDOW = 3;
 export const REPORT_WINDOW_SECONDS = 3600;
 
+/**
+ * Opening a voice session with Sofía is the most expensive thing a stranger
+ * can do on this site: it bills OpenAI Realtime audio by the minute for as
+ * long as the session lives, where a chat message bills once for a handful of
+ * tokens. Three an hour is more than anyone curious needs and far less than
+ * anyone bored could spend.
+ */
+export const SOFIA_SESSIONS_PER_WINDOW = 3;
+export const SOFIA_WINDOW_SECONDS = 3600;
+
 export interface Counter {
   /** Increments `key`, setting `ttlSeconds` on first write, and returns the new count. */
   incr(key: string, ttlSeconds: number): Promise<number>;
@@ -41,6 +51,7 @@ export interface Limits {
   allowChat(ip: string): Promise<boolean>;
   allowScan(ip: string): Promise<boolean>;
   allowReport(ip: string): Promise<boolean>;
+  allowSofiaSession(ip: string): Promise<boolean>;
 }
 
 let brokenCounterLogged = false;
@@ -87,6 +98,21 @@ export function makeLimits(counter: Counter): Limits {
       try {
         const used = await counter.incr(`web:rl:report:${ip}`, REPORT_WINDOW_SECONDS);
         return used <= REPORTS_PER_WINDOW;
+      } catch (err) {
+        logBrokenCounter(err);
+        return false;
+      }
+    },
+    /**
+     * Fails CLOSED, for the same reason as `allowReport` and more so. The two
+     * fail-open limits protect against waste; an unmetered voice session is a
+     * bill that grows by the minute for as long as someone leaves it running.
+     * A visitor refused here still has the phone number and the chat.
+     */
+    async allowSofiaSession(ip) {
+      try {
+        const used = await counter.incr(`web:rl:sofia:${ip}`, SOFIA_WINDOW_SECONDS);
+        return used <= SOFIA_SESSIONS_PER_WINDOW;
       } catch (err) {
         logBrokenCounter(err);
         return false;
