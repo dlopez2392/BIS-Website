@@ -1,0 +1,38 @@
+export const metadata = {
+  title: 'What your website says about you before anyone reads it',
+  description: 'Before a customer reads a word, their browser has already had a conversation with your site. Here is what it learns, and what to do about the two answers that cost real money.',
+  category: 'Security',
+  date: '2026-09-06',
+  readingMinutes: 3,
+};
+
+Every visit to your website starts with an exchange nobody sees. The browser asks your server a few questions, the server answers, and by the time your homepage appears both sides have agreed on what is allowed to happen next. Mail servers have a similar conversation about your domain, and that one decides whether a message claiming to be from you gets delivered.
+
+Those answers are public. Anyone can read them, including whoever is deciding whether to imitate your business.
+
+## The one that costs money
+
+Most small businesses publish nothing that says which servers may send email as their domain. The practical effect: anyone in the world can send a message that appears to come from your address. Not a spoofed display name that looks wrong on inspection — the actual domain.
+
+That is how invoice fraud works. Someone emails your customer, as you, with new bank details. Your customer has no reason to doubt it, because nothing in the message is technically false.
+
+Two DNS records fix it. One lists who may send as you. The other tells receiving servers what to do about everyone else — and the important part is that it must say **reject** or **quarantine**, because the default most businesses land on says "watch and deliver anyway," which stops nothing.
+
+## The ones that cost you quietly
+
+The browser conversation is less dramatic and still worth an afternoon:
+
+- **Does an insecure address get sent to the secure one?** If not, anything a customer types on shared Wi-Fi can be read in transit.
+- **Can your site be loaded inside someone else's page?** If yes, that is how a fake payment screen gets built on top of a real business.
+- **Does your site announce its exact software version?** That tells an attacker which known exploit to try first, which is a strange thing to volunteer.
+- **Is your certificate about to expire?** Most owners find out when a customer sends a screenshot of a full-page browser warning.
+
+None of these is exotic. They are settings, they are free, and on most sites they are simply nobody's job.
+
+## Check yours
+
+We built a free tool that reads exactly these public records and tells you what it finds in plain language. It takes about a minute, it does not log in to anything, and it does not scan ports or test a password. You do not need to give us an email address to see the result.
+
+We run it against our own domain, which is the least a firm selling this should do.
+
+[Check your site](/en/tools/security-check) · [How we protect your data](/en/trust)

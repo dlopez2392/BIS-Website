@@ -1,0 +1,38 @@
+export const metadata = {
+  title: 'Lo que tu sitio dice de ti antes de que alguien lo lea',
+  description: 'Antes de que un cliente lea una palabra, su navegador ya tuvo una conversación con tu sitio. Esto es lo que aprende y qué hacer con las dos respuestas que cuestan dinero de verdad.',
+  category: 'Security',
+  date: '2026-09-06',
+  readingMinutes: 3,
+};
+
+Cada visita a tu sitio empieza con un intercambio que nadie ve. El navegador le hace unas preguntas a tu servidor, el servidor contesta y, para cuando aparece tu portada, ambos ya se pusieron de acuerdo sobre qué puede pasar después. Los servidores de correo tienen una conversación parecida sobre tu dominio, y esa decide si un mensaje que dice venir de ti se entrega.
+
+Esas respuestas son públicas. Cualquiera puede leerlas, incluida la persona que está decidiendo si vale la pena hacerse pasar por tu negocio.
+
+## La que cuesta dinero
+
+Casi ningún negocio pequeño publica algo que diga qué servidores pueden enviar correo con su dominio. El efecto práctico: cualquier persona en el mundo puede mandar un mensaje que parezca venir de tu dirección. No un nombre falsificado que se ve raro al revisarlo, sino el dominio real.
+
+Así funciona el fraude de facturas. Alguien le escribe a tu cliente, como si fueras tú, con datos bancarios nuevos. Tu cliente no tiene motivo para dudar, porque técnicamente nada del mensaje es falso.
+
+Dos registros DNS lo resuelven. Uno enumera quién puede enviar en tu nombre. El otro le dice a los servidores que reciben qué hacer con todos los demás, y lo importante es que diga **rechazar** o **cuarentena**, porque el valor por defecto en el que casi todos se quedan dice "obsérvalo y entrégalo de todos modos", que no detiene nada.
+
+## Las que te cuestan en silencio
+
+La conversación del navegador es menos dramática y aun así vale una tarde:
+
+- **¿Una dirección insegura se manda a la segura?** Si no, lo que un cliente escriba en un Wi-Fi compartido se puede leer en el camino.
+- **¿Tu sitio se puede cargar dentro de la página de alguien más?** Si sí, así se arma una pantalla falsa de pago encima de un negocio real.
+- **¿Tu sitio anuncia la versión exacta de su software?** Eso le dice a un atacante qué vulnerabilidad conocida probar primero, que es algo raro de ofrecer por voluntad propia.
+- **¿Tu certificado está por vencer?** Casi todos los dueños se enteran cuando un cliente les manda la captura de una advertencia de pantalla completa.
+
+Ninguna de estas cosas es exótica. Son configuraciones, son gratis y en la mayoría de los sitios simplemente no son tarea de nadie.
+
+## Revisa el tuyo
+
+Hicimos una herramienta gratuita que lee justo esos registros públicos y te dice en español claro qué encuentra. Toma como un minuto, no entra a ninguna cuenta y no escanea puertos ni prueba contraseñas. No necesitas darnos un correo para ver el resultado.
+
+La corremos contra nuestro propio dominio, que es lo mínimo que debería hacer una empresa que vende esto.
+
+[Revisa tu sitio](/es/tools/security-check) · [Cómo protegemos tus datos](/es/trust)
