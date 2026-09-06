@@ -28,6 +28,8 @@ const PAGES = [
   ['hours calculator (ES)', '/es/tools/first-hour-back'],
   ['privacy', '/en/privacy'],
   ['accessibility statement', '/en/accessibility'],
+  ['trust', '/en/trust'],
+  ['trust (ES)', '/es/trust'],
   // The page a mistyped link lands on is the one most likely to be met cold.
   ['not found', '/en/no-such-page'],
 ] as const;
