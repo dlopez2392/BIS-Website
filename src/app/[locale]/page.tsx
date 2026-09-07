@@ -10,6 +10,7 @@ import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
 import { TechMarquee } from '@/components/marketing/TechMarquee';
 import { ResourceCTA } from '@/components/marketing/ResourceCTA';
+import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
 
@@ -41,6 +42,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       />
 
       <TechMarquee locale={locale} />
+
+      {/* Second thing on the page, deliberately. The hero says we help
+          businesses work smarter with AI; this is the shortest possible route
+          from that claim to a visitor experiencing it, with no form, no
+          meeting and no login. It is the only thing on this site a stranger
+          can verify about us in ten seconds. */}
+      <section id="talk-to-sofia" className="mx-auto max-w-4xl px-6 py-16">
+        <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
+        <div className="mt-4">
+          <TalkToSofia title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
+        </div>
+      </section>
 
       <Announcement kicker={t('announceKicker')} title={t('announceTitle')} body={t('announceBody')} />
 
