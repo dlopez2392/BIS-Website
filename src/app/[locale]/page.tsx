@@ -43,18 +43,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <TechMarquee locale={locale} />
 
-      {/* Second thing on the page, deliberately. The hero says we help
-          businesses work smarter with AI; this is the shortest possible route
-          from that claim to a visitor experiencing it, with no form, no
-          meeting and no login. It is the only thing on this site a stranger
-          can verify about us in ten seconds. */}
-      <section id="talk-to-sofia" className="mx-auto max-w-4xl px-6 py-16">
-        <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
-        <div className="mt-4">
-          <TalkToSofia title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
-        </div>
-      </section>
-
       <Announcement kicker={t('announceKicker')} title={t('announceTitle')} body={t('announceBody')} />
 
       <CapabilityBand items={[t('capOnePoint'), t('capBilingual'), t('capSecurity'), t('capShip')]} />
@@ -65,6 +53,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <ServiceCard icon={Brain} title={t('svc1Title')} body={t('svc1Body')} href="/services" learnMore={c('learnMore')} />
           <ServiceCard icon={ShieldCheck} title={t('svc2Title')} body={t('svc2Body')} href="/services" learnMore={c('learnMore')} />
           <ServiceCard icon={Code2} title={t('svc3Title')} body={t('svc3Body')} href="/services" learnMore={c('learnMore')} />
+        </div>
+      </section>
+
+      {/* Directly after the services, not before them. A visitor who has just
+          read that we build AI that answers phones is the one for whom "here
+          is ours, talk to her" is an argument rather than a novelty; the same
+          panel above the services was a gadget meeting a stranger who did not
+          yet know what we sell. Still early enough that nobody has to hunt
+          for it. */}
+      <section id="talk-to-sofia" className="mx-auto max-w-4xl px-6 pb-4">
+        <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
+        <div className="mt-4">
+          <TalkToSofia title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
         </div>
       </section>
 
