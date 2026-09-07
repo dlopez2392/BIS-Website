@@ -40,6 +40,14 @@ export interface VerifyResult {
   allowed: boolean;
   /** True when the check could not run at all, so `allowed` is an assumption. */
   degraded: boolean;
+  /**
+   * What the check actually said, passed back so a caller can log WHY a real
+   * person was turned away. Added after the Sofía voice endpoint refused its
+   * first live human and the refusal was indistinguishable, from the outside,
+   * from a missing environment variable or a mismatched secret. Absent when
+   * the check could not run.
+   */
+  verdict?: Verification;
 }
 
 export async function verifyHuman(deps: VerifyDeps): Promise<VerifyResult> {
@@ -61,5 +69,9 @@ export async function verifyHuman(deps: VerifyDeps): Promise<VerifyResult> {
     });
     return { allowed: true, degraded: true };
   }
-  return { allowed: !(verdict.isBot && !verdict.isVerifiedBot), degraded: false };
+  return {
+    allowed: !(verdict.isBot && !verdict.isVerifiedBot),
+    degraded: false,
+    verdict,
+  };
 }
