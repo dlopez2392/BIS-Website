@@ -17,13 +17,16 @@ afterEach(() => {
 });
 
 describe('contentSecurityPolicy', () => {
-  it('frames the platform that hosts the contact form and scheduler, and nothing else', () => {
-    expect(directive(contentSecurityPolicy(), 'frame-src')).toEqual([PLATFORM_ORIGIN]);
+  // Still "and nothing else" — the list is exact, it has simply gained
+  // `'self'`, which BotID's own-origin challenge iframe needs. Anything a
+  // third party could be framed from would still fail these.
+  it('frames the platform that hosts the contact form and scheduler, and itself, and nothing else', () => {
+    expect(directive(contentSecurityPolicy(), 'frame-src')).toEqual(["'self'", PLATFORM_ORIGIN]);
   });
 
   it('follows the platform origin when a preview points at a test account', () => {
     process.env.NEXT_PUBLIC_BIS_PLATFORM_ORIGIN = 'https://staging.example.com/';
-    expect(directive(contentSecurityPolicy(), 'frame-src')).toEqual(['https://staging.example.com']);
+    expect(directive(contentSecurityPolicy(), 'frame-src')).toEqual(["'self'", 'https://staging.example.com']);
   });
 
   it('shuts the doors that do not need to be open', () => {
@@ -124,5 +127,27 @@ describe('connect-src and the voice session', () => {
 
   it('keeps default-src closed to self, so a new host must be named deliberately', () => {
     expect(csp()).toMatch(/default-src 'self'/);
+  });
+});
+
+describe('frame-src and the bot challenge', () => {
+  const csp = () => contentSecurityPolicy({ dev: false });
+  const frameSrc = () => /frame-src ([^;]*)/.exec(csp())![1];
+
+  it("allows this origin to frame itself — BotID's challenge is an own-origin iframe", () => {
+    expect(frameSrc()).toContain("'self'");
+  });
+
+  it('still allows the platform, which the contact page frames', () => {
+    expect(frameSrc()).toContain('https://app.bis-rgv.com');
+  });
+
+  it('does not open framing to anyone else', () => {
+    expect(frameSrc()).not.toContain('*');
+    expect(frameSrc()!.trim().split(/\s+/).sort()).toEqual(["'self'", 'https://app.bis-rgv.com']);
+  });
+
+  it('still forbids anyone framing THIS site — the other direction is unchanged', () => {
+    expect(csp()).toContain("frame-ancestors 'none'");
   });
 });
