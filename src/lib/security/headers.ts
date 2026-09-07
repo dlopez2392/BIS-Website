@@ -57,7 +57,17 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
       ...(dev ? ['ws:'] : []),
     ],
     // The contact page frames the BIS Platform's own form and scheduler.
-    'frame-src': [platformOrigin()],
+    //
+    // `'self'` is here for Vercel BotID, which runs its challenge in an iframe
+    // served from THIS origin. Omitting it did not fail loudly: the browser
+    // blocked the frame, the challenge was never solved, and every protected
+    // endpoint then classified real visitors as bots — chat, the security
+    // checker, the guide forms — with nothing but a 403 to go on. The console
+    // said "Framing '…' violates the following Content Security Policy
+    // directive: frame-src". Own-origin framing is also already what
+    // `frame-ancestors 'none'` governs from the other side: this site may
+    // frame itself, and nobody may frame this site.
+    'frame-src': ["'self'", platformOrigin()],
     'worker-src': ["'self'", 'blob:'],
     'manifest-src': ["'self'"],
     // Nothing on this site is a plugin, an <object>, or a framing target, and
