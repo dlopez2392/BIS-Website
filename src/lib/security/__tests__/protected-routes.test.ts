@@ -14,10 +14,18 @@ describe('PROTECTED_ROUTES', () => {
     }
   });
 
-  it('spends deep analysis only where a bot getting through costs more than the check', () => {
-    expect(checkLevelFor(CHAT_ROUTE)).toBe('deepAnalysis');
-    expect(checkLevelFor(securityCheckPath('en'))).toBe('deepAnalysis');
-    expect(checkLevelFor('/en/resources/ai-readiness-checklist')).toBe('basic');
+  // Asserts the ORDERING, not the current literals. The levels were dropped to
+  // basic on 2026-09-07 while Deep Analysis was refusing every real visitor
+  // (see the note in protected-routes.ts); pinning the literal here would have
+  // made an operational rollback look like a broken test. What must never
+  // invert is the relationship: the endpoints that cost real money per request
+  // are never checked LESS deeply than the one whose worst case is a junk
+  // subscriber row.
+  it('never checks the expensive endpoints less deeply than the cheap one', () => {
+    const depth = { basic: 0, deepAnalysis: 1 } as const;
+    const form = depth[checkLevelFor('/en/resources/ai-readiness-checklist')];
+    expect(depth[checkLevelFor(CHAT_ROUTE)]).toBeGreaterThanOrEqual(form);
+    expect(depth[checkLevelFor(securityCheckPath('en'))]).toBeGreaterThanOrEqual(form);
   });
 
   it('throws for a path that was never armed, rather than guessing a level', () => {
@@ -51,8 +59,9 @@ describe('the Sofía ticket route', () => {
     expect(PROTECTED_ROUTES.map((r) => r.path)).toContain(SOFIA_TICKET_ROUTE);
   });
 
-  it('is verified at the same depth the server will ask for', () => {
-    expect(checkLevelFor(SOFIA_TICKET_ROUTE)).toBe('deepAnalysis');
+  it('is verified at the depth its own table entry declares — client and server cannot drift', () => {
+    const entry = PROTECTED_ROUTES.find((r) => r.path === SOFIA_TICKET_ROUTE)!;
+    expect(checkLevelFor(SOFIA_TICKET_ROUTE)).toBe(entry.advancedOptions.checkLevel);
   });
 
   it('is checked at least as deeply as chat — it costs more per request', () => {

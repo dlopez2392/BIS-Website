@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { verifyHuman } from '../verify-human';
-import { CHAT_ROUTE } from '../protected-routes';
+import { CHAT_ROUTE, checkLevelFor } from '../protected-routes';
 
 const report = () => Promise.resolve();
 const path = CHAT_ROUTE;
@@ -41,7 +41,10 @@ describe('verifyHuman', () => {
       report,
       path: CHAT_ROUTE,
     });
-    expect(levels).toEqual(['deepAnalysis']);
+    // The table is the single source of truth for both sides, so this asserts
+    // agreement rather than a literal: a mismatch is what fails verification,
+    // and the level itself is an operational choice that may change.
+    expect(levels).toEqual([checkLevelFor(CHAT_ROUTE)]);
   });
 
   it('refuses to guess for a path nobody armed', async () => {

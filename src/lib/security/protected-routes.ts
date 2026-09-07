@@ -41,15 +41,29 @@ export type CheckLevel = 'basic' | 'deepAnalysis';
  * subscriber row and one email, and the honeypot and rate limit already
  * cover it.
  */
-const CHAT: CheckLevel = 'deepAnalysis';
+// TEMPORARILY 'basic', 2026-09-07. Deep Analysis was refusing every real
+// visitor on this site — chat, the security checker and the Sofía voice
+// ticket all returned 403 to humans — after three genuine bugs upstream of it
+// were found and fixed (the i18n middleware swallowing BotID's challenge
+// paths, frame-src blocking its own-origin iframe, and this site's CSP being
+// applied to the proxied challenge). With those fixed the challenge loads
+// cleanly and Deep Analysis still denies, which points at the project-level
+// toggle in Vercel's Firewall rules rather than at this code.
+//
+// Basic is free, needs no toggle, and still validates the challenge's
+// integrity, so naive scripts are still turned away. The per-IP rate limits
+// are unchanged and remain the real cost control. Restore 'deepAnalysis' here
+// once a real browser is observed passing it in the Firewall tab's BotID
+// traffic view — a broken check that refuses everyone protects nothing.
+const CHAT: CheckLevel = 'basic';
 /**
  * Deep Analysis too, and for a sharper version of chat's reason: a voice
  * session bills OpenAI Realtime audio by the minute for as long as it lives,
  * where a chat message bills once. This is the most expensive endpoint on the
  * site for a script to reach.
  */
-const SOFIA_TICKET: CheckLevel = 'deepAnalysis';
-const SECURITY_CHECK: CheckLevel = 'deepAnalysis';
+const SOFIA_TICKET: CheckLevel = 'basic'; // see the note on CHAT
+const SECURITY_CHECK: CheckLevel = 'basic'; // see the note on CHAT
 const RESOURCE_FORM: CheckLevel = 'basic';
 
 export interface ProtectedRoute {
