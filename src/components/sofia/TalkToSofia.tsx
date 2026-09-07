@@ -24,7 +24,7 @@ type Phase = 'idle' | 'connecting' | 'live' | 'ended';
  * tools here, which the panel says out loud rather than letting someone
  * believe they have been booked in.
  */
-export function TalkToSofia() {
+export function TalkToSofia({ title, blurb }: { title?: string; blurb?: string } = {}) {
   const t = useTranslations('sofia');
   const [phase, setPhase] = useState<Phase>('idle');
   const [failure, setFailure] = useState<SofiaFailure | null>(null);
@@ -180,8 +180,12 @@ export function TalkToSofia() {
     <div className="rounded-2xl border border-hairline bg-surface-alt p-6 sm:p-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h3 className="text-lg font-bold text-ink">{t('title')}</h3>
-          <p className="mt-1 max-w-prose text-sm text-ink-muted">{t('blurb')}</p>
+          {/* Overridable because the two places this appears are making
+              different arguments. On the trust page it is evidence for a claim
+              the surrounding text already made. On the homepage it IS the
+              claim, met by a stranger who has read one paragraph about us. */}
+          <h3 className="text-lg font-bold text-ink">{title ?? t('title')}</h3>
+          <p className="mt-1 max-w-prose text-sm text-ink-muted">{blurb ?? t('blurb')}</p>
         </div>
 
         {live ? (
