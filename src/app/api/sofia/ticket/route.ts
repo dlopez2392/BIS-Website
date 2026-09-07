@@ -1,7 +1,7 @@
 import { after } from 'next/server';
 import { checkBotId } from 'botid/server';
 import { verifyHuman } from '@/lib/security/verify-human';
-import { SOFIA_TICKET_ROUTE } from '@/lib/security/protected-routes';
+import { SOFIA_TICKET_ROUTE, checkLevelFor } from '@/lib/security/protected-routes';
 import { getLimits } from '@/lib/limits';
 import { signTicket } from '@/lib/sofia/ticket';
 import { report } from '@/lib/observability/reporter';
@@ -21,9 +21,22 @@ import { report } from '@/lib/observability/reporter';
  * exactly what basic verification is weakest against.
  */
 export async function POST(req: Request) {
-  const { allowed } = await verifyHuman({ check: checkBotId, report, path: SOFIA_TICKET_ROUTE });
+  const { allowed, verdict } = await verifyHuman({
+    check: checkBotId, report, path: SOFIA_TICKET_ROUTE,
+  });
   if (!allowed) {
-    after(() => report({ event: 'sofia.bot_blocked', level: 'error' }));
+    // The verdict is logged, not just the refusal. This endpoint turned away
+    // its first live human and, from the outside, that looked identical to a
+    // missing env var or a mismatched secret — an hour of guessing that these
+    // two fields would have ended in a minute.
+    after(() => report({
+      event: 'sofia.bot_blocked', level: 'error',
+      context: {
+        isBot: String(verdict?.isBot ?? 'unknown'),
+        isVerifiedBot: String(verdict?.isVerifiedBot ?? 'unknown'),
+        level: checkLevelFor(SOFIA_TICKET_ROUTE),
+      },
+    }));
     return Response.json({ error: 'denied' }, { status: 403 });
   }
 

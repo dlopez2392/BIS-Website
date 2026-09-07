@@ -70,7 +70,17 @@ export function TalkToSofia() {
     track('sofia_session_start');
 
     try {
-      const ticketRes = await fetch('/api/sofia/ticket', { method: 'POST' });
+      // A JSON body on a request that needs none. BotID's client challenge
+      // attaches itself to protected requests, and the one structural
+      // difference between this call and /api/chat — which is verified at the
+      // same level and works — was that this one had no body and no
+      // content-type at all. A bodyless POST is an unusual shape to hand an
+      // interceptor, and the first live attempt was classified as a bot.
+      const ticketRes = await fetch('/api/sofia/ticket', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
       const ticketBody = await ticketRes.json().catch(() => null);
       const ticket = readTicketResponse(ticketRes.status, ticketBody);
       if (!ticket.ok) {

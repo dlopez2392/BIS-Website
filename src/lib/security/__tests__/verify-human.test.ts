@@ -8,12 +8,12 @@ const path = CHAT_ROUTE;
 describe('verifyHuman', () => {
   it('allows a person', async () => {
     const r = await verifyHuman({ check: async () => ({ isBot: false, isVerifiedBot: false }), report, path });
-    expect(r).toEqual({ allowed: true, degraded: false });
+    expect(r).toMatchObject({ allowed: true, degraded: false });
   });
 
   it('blocks an unverified bot', async () => {
     const r = await verifyHuman({ check: async () => ({ isBot: true, isVerifiedBot: false }), report, path });
-    expect(r).toEqual({ allowed: false, degraded: false });
+    expect(r).toMatchObject({ allowed: false, degraded: false });
   });
 
   it('allows a verified crawler, because robots.txt already invited it', async () => {
@@ -53,5 +53,36 @@ describe('verifyHuman', () => {
       report,
       path: '/en/some-page-nobody-protected',
     })).rejects.toThrow(/not in PROTECTED_ROUTES/);
+  });
+});
+
+describe('the verdict is passed back for logging', () => {
+  const report = async () => {};
+
+  it('carries what the check said when it turned someone away', async () => {
+    const r = await verifyHuman({
+      check: async () => ({ isBot: true, isVerifiedBot: false }),
+      report, path: CHAT_ROUTE,
+    });
+    expect(r.allowed).toBe(false);
+    expect(r.verdict).toEqual({ isBot: true, isVerifiedBot: false });
+  });
+
+  it('carries it on the allow path too, so a verified crawler is legible in logs', async () => {
+    const r = await verifyHuman({
+      check: async () => ({ isBot: true, isVerifiedBot: true }),
+      report, path: CHAT_ROUTE,
+    });
+    expect(r.allowed).toBe(true);
+    expect(r.verdict).toEqual({ isBot: true, isVerifiedBot: true });
+  });
+
+  it('has no verdict when the check could not run — nothing to report', async () => {
+    const r = await verifyHuman({
+      check: async () => { throw new Error('no oidc'); },
+      report, path: CHAT_ROUTE,
+    });
+    expect(r).toEqual({ allowed: true, degraded: true });
+    expect(r.verdict).toBeUndefined();
   });
 });
