@@ -78,15 +78,36 @@
     "g1Title": "IA y Automatización",
     "g1Body": "IA que le quita horas reales a tu semana — no demos que juntan polvo. Construimos sistemas prácticos y listos para producción que se integran con tu equipo actual.",
     "g1Proof": "Construimos resúmenes de admisión de casos con IA para un bufete con varias oficinas — respuestas de viabilidad en minutos, no en días.",
-    "g1Bullets": ["Evaluaciones de preparación para IA", "Automatización de flujos (Power Automate, Claude API)", "Asistentes de IA bilingües a la medida", "Procesamiento de documentos", "Gobernanza de costos de IA", "Capacitación del personal"],
+    "g1Bullets": [
+      "Evaluaciones de preparación para IA",
+      "Automatización de flujos (Power Automate, Claude API)",
+      "Asistentes de IA bilingües a la medida",
+      "Procesamiento de documentos",
+      "Gobernanza de costos de IA",
+      "Capacitación del personal"
+    ],
     "g2Title": "Consultoría IT y Seguridad",
     "g2Body": "Veinte años de liderazgo en IT empresarial. No solo resolvemos problemas; diseñamos entornos resistentes que le permiten a tu firma escalar de forma segura a través de fronteras.",
     "g2Proof": "Dirigimos la modernización totalmente en la nube de una firma de 150 usuarios en tres oficinas y dos países.",
-    "g2Bullets": ["Microsoft 365 / Nube (Entra ID, Intune)", "MFA resistente a phishing", "Protección de endpoints (Defender)", "Modernización de red", "Supervisión de MSP", "Respuesta a incidentes de seguridad", "MDM"],
+    "g2Bullets": [
+      "Microsoft 365 / Nube (Entra ID, Intune)",
+      "MFA resistente a phishing",
+      "Protección de endpoints (Defender)",
+      "Modernización de red",
+      "Supervisión de MSP",
+      "Respuesta a incidentes de seguridad",
+      "MDM"
+    ],
     "g3Title": "Diseño Web",
     "g3Body": "Sitios rápidos y modernos que de verdad son tuyos. Sin ataduras propietarias. Sin cajas negras. Solo código limpio y de alto rendimiento que impulsa conversiones y representa la inteligencia de tu marca.",
     "g3Proof": "Cada proyecto se entrega con las llaves: tu hosting, tus cuentas, tu propiedad.",
-    "g3Bullets": ["Diseño / desarrollo a la medida", "Arquitectura de contenido bilingüe (nativa)", "SEO local para el RGV", "Paneles de analítica (Power BI)", "Entrega limpia"],
+    "g3Bullets": [
+      "Diseño / desarrollo a la medida",
+      "Arquitectura de contenido bilingüe (nativa)",
+      "SEO local para el RGV",
+      "Paneles de analítica (Power BI)",
+      "Entrega limpia"
+    ],
     "ctaTitle": "¿Listo para desplegar una solución inteligente a la medida?",
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola."
   },
@@ -399,7 +420,12 @@
     "minRead": "{minutes} min de lectura",
     "backToInsights": "← Volver a Perspectivas",
     "emptyState": "Aún no hay publicaciones — vuelve pronto.",
-    "categories": { "Insights": "Perspectivas", "Security": "Seguridad", "Culture": "Cultura", "AI": "IA" }
+    "categories": {
+      "Insights": "Perspectivas",
+      "Security": "Seguridad",
+      "Culture": "Cultura",
+      "AI": "IA"
+    }
   },
   "faq": {
     "title": "Preguntas Frecuentes",
@@ -413,18 +439,54 @@
       "working": "Trabajar con BIS"
     },
     "items": {
-      "whatIsBis": { "q": "¿Qué hace Bespoke Intelligent Solutions?", "a": "Somos una consultoría de IT e IA para los negocios del Valle del Río Grande. Te ayudamos a adoptar IA práctica, modernizar y asegurar tu IT, y crear sitios web bilingües y rápidos — con un solo punto de contacto, de la estrategia a la entrega." },
-      "whoServe": { "q": "¿Con quién trabajan?", "a": "Con negocios pequeños y medianos del Valle — incluyendo legal, médico y dental, logística y transporte, oficios especializados y agricultura. Todo lo que hacemos es totalmente bilingüe en inglés y español." },
-      "bespoke": { "q": "¿Qué significa “bespoke” (a la medida) para mi negocio?", "a": "Significa que empezamos con tu flujo de trabajo, tus clientes y tus dos idiomas — no con una plantilla. Solo recomendamos lo que vale la pena y lo construimos para que encaje con tu forma real de operar." },
-      "aiPractical": { "q": "¿La IA es realmente práctica para un negocio de mi tamaño?", "a": "Sí. Nos enfocamos en quitarte horas reales de la semana — automatizando admisión, agendas, seguimientos y manejo de documentos — no en demos llamativas. Si una tarea es repetitiva, casi siempre hay una parte que podemos automatizar." },
-      "aiCost": { "q": "¿Cuánto cuesta la IA y cuál es el retorno?", "a": "Depende del alcance, pero buscamos automatizaciones que se paguen solas con el tiempo ahorrado. La evaluación gratuita identifica la automatización con el retorno más rápido para que empieces en pequeño y compruebes el valor." },
-      "dataHandling": { "q": "¿Cómo manejan nuestros datos y la confidencialidad?", "a": "Tratamos tus datos como confidenciales, trabajamos bajo un acuerdo de confidencialidad (NDA) cuando lo deseas, usamos acceso de privilegio mínimo y preferimos herramientas que mantienen tus datos en tus propias cuentas. Tú eres dueño de tus sistemas y tus datos — siempre." },
-      "compliance": { "q": "¿Trabajan con áreas reguladas como legal y salud?", "a": "Sí. Somos seguridad primero y conscientes de la privacidad para áreas como legal y médico/dental, y diseñamos los flujos pensando en la confidencialidad y la protección de datos. No sustituimos a tu asesor de cumplimiento, pero construimos para apoyarlo." },
-      "ownWebsite": { "q": "¿Somos dueños de nuestro sitio web y cuentas?", "a": "Por completo. Cada proyecto se entrega con las llaves: tu hosting, tu dominio, tus cuentas. Sin ataduras propietarias, sin cajas negras — código limpio que puedes entregar a cualquiera." },
-      "webWhat": { "q": "¿Qué tipo de trabajo web hacen?", "a": "Sitios y aplicaciones web rápidos, modernos y bilingües que convierten — con contenido nativo en inglés/español, SEO local para el RGV y analítica para que veas qué funciona." },
-      "howStart": { "q": "¿Cómo empezamos?", "a": "Reserva una evaluación gratuita y sin presión de venta. Analizamos cómo funciona tu negocio hoy y te mostramos la primera mejora que se paga sola. Sin compromiso." },
-      "pricing": { "q": "¿Cómo cobran su trabajo?", "a": "La mayoría de los proyectos se definen en una propuesta de precio fijo después de la evaluación gratuita, para que conozcas el costo antes de empezar. Ajustamos a la medida de tu negocio en lugar de vender un paquete único." },
-      "remote": { "q": "¿Trabajan de forma remota o presencial?", "a": "Ambas. Estamos en Harlingen y servimos a todo el Valle, así que trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — lo que te dé resultados." }
+      "whatIsBis": {
+        "q": "¿Qué hace Bespoke Intelligent Solutions?",
+        "a": "Somos una consultoría de IT e IA para los negocios del Valle del Río Grande. Te ayudamos a adoptar IA práctica, modernizar y asegurar tu IT, y crear sitios web bilingües y rápidos — con un solo punto de contacto, de la estrategia a la entrega."
+      },
+      "whoServe": {
+        "q": "¿Con quién trabajan?",
+        "a": "Con negocios pequeños y medianos del Valle — incluyendo legal, médico y dental, logística y transporte, oficios especializados y agricultura. Todo lo que hacemos es totalmente bilingüe en inglés y español."
+      },
+      "bespoke": {
+        "q": "¿Qué significa “bespoke” (a la medida) para mi negocio?",
+        "a": "Significa que empezamos con tu flujo de trabajo, tus clientes y tus dos idiomas — no con una plantilla. Solo recomendamos lo que vale la pena y lo construimos para que encaje con tu forma real de operar."
+      },
+      "aiPractical": {
+        "q": "¿La IA es realmente práctica para un negocio de mi tamaño?",
+        "a": "Sí. Nos enfocamos en quitarte horas reales de la semana — automatizando admisión, agendas, seguimientos y manejo de documentos — no en demos llamativas. Si una tarea es repetitiva, casi siempre hay una parte que podemos automatizar."
+      },
+      "aiCost": {
+        "q": "¿Cuánto cuesta la IA y cuál es el retorno?",
+        "a": "Depende del alcance, pero buscamos automatizaciones que se paguen solas con el tiempo ahorrado. La evaluación gratuita identifica la automatización con el retorno más rápido para que empieces en pequeño y compruebes el valor."
+      },
+      "dataHandling": {
+        "q": "¿Cómo manejan nuestros datos y la confidencialidad?",
+        "a": "Tratamos tus datos como confidenciales, trabajamos bajo un acuerdo de confidencialidad (NDA) cuando lo deseas, usamos acceso de privilegio mínimo y preferimos herramientas que mantienen tus datos en tus propias cuentas. Tú eres dueño de tus sistemas y tus datos — siempre."
+      },
+      "compliance": {
+        "q": "¿Trabajan con áreas reguladas como legal y salud?",
+        "a": "Sí. Somos seguridad primero y conscientes de la privacidad para áreas como legal y médico/dental, y diseñamos los flujos pensando en la confidencialidad y la protección de datos. No sustituimos a tu asesor de cumplimiento, pero construimos para apoyarlo."
+      },
+      "ownWebsite": {
+        "q": "¿Somos dueños de nuestro sitio web y cuentas?",
+        "a": "Por completo. Cada proyecto se entrega con las llaves: tu hosting, tu dominio, tus cuentas. Sin ataduras propietarias, sin cajas negras — código limpio que puedes entregar a cualquiera."
+      },
+      "webWhat": {
+        "q": "¿Qué tipo de trabajo web hacen?",
+        "a": "Sitios y aplicaciones web rápidos, modernos y bilingües que convierten — con contenido nativo en inglés/español, SEO local para el RGV y analítica para que veas qué funciona."
+      },
+      "howStart": {
+        "q": "¿Cómo empezamos?",
+        "a": "Reserva una evaluación gratuita y sin presión de venta. Analizamos cómo funciona tu negocio hoy y te mostramos la primera mejora que se paga sola. Sin compromiso."
+      },
+      "pricing": {
+        "q": "¿Cómo cobran su trabajo?",
+        "a": "La mayoría de los proyectos se definen en una propuesta de precio fijo después de la evaluación gratuita, para que conozcas el costo antes de empezar. Ajustamos a la medida de tu negocio en lugar de vender un paquete único."
+      },
+      "remote": {
+        "q": "¿Trabajan de forma remota o presencial?",
+        "a": "Ambas. Estamos en Harlingen y servimos a todo el Valle, así que trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — lo que te dé resultados."
+      }
     }
   },
   "techMarquee": {
@@ -622,7 +684,14 @@
         "builtHeading": "Cómo está construido",
         "builtBody": "Un número telefónico enrutado por SIP hacia un modelo de voz en tiempo real, con el calendario, la base de datos de prospectos y nuestras notificaciones por correo conectados como herramientas que el modelo sí puede usar — no es un menú grabado de opciones. El sitio que estás leyendo y la recepcionista que contesta el teléfono escriben en la misma tabla de prospectos: un solo flujo, dos puertas de entrada.",
         "stackHeading": "Construido con",
-        "stack": ["OpenAI Realtime", "Telnyx", "Plataforma BIS", "Neon Postgres", "Resend", "Next.js en Vercel"],
+        "stack": [
+          "OpenAI Realtime",
+          "Telnyx",
+          "Plataforma BIS",
+          "Neon Postgres",
+          "Resend",
+          "Next.js en Vercel"
+        ],
         "tryHeading": "Pruébalo tú mismo",
         "tryBody": "Toca para llamar. Pregúntale qué hace BIS, cámbiate al español a media llamada o reserva una evaluación gratuita y mira cómo te llega al correo.",
         "tryNote": "Las llamadas se transcriben y se resumen para poder darte un buen seguimiento.",
@@ -760,134 +829,134 @@
     }
   },
   "securityCheck": {
-      "title": "Revisión gratuita de seguridad web y de correo",
-      "metaDescription": "Revisa el sitio de cualquier negocio del Valle del Río Grande en aproximadamente un minuto. Leemos los mismos registros públicos que ya ven un navegador y un servidor de correo, y te decimos en español claro qué está expuesto.",
-      "intro": "Escribe tu dirección web. En aproximadamente un minuto verás si alguien puede enviar correos haciéndose pasar por ti, si tu sitio está protegido en el navegador y qué conviene arreglar primero. Solo leemos registros públicos: no entramos a ninguna cuenta ni atacamos nada.",
-      "inputLabel": "Tu dirección web",
-      "placeholder": "tunegocio.com",
-      "submit": "Revisar mi sitio",
-      "checking": "Revisando…",
-      "again": "Revisar otra dirección",
-      "resultHeading": "Resultados de {domain}",
-      "scoreLabel": "Puntaje",
-      "fixFirstHeading": "Arregla esto primero",
-      "allClearHeading": "No encontramos nada urgente",
-      "allClearBody": "Todas las revisiones públicas salieron limpias. Una revisión completa mira lo que ningún análisis externo puede ver: quién tiene acceso de administrador, cómo se prueban los respaldos y qué pasa cuando alguien se va de la empresa.",
-      "detailHeading": "Todo lo que revisamos",
-      "ctaHeading": "¿Quieres ver el panorama completo?",
-      "ctaBody": "Esta revisión lee lo que se ve desde afuera. Casi todo lo que pone en riesgo a un negocio del Valle no se ve: contraseñas compartidas, falta de respaldos, una sola persona con todas las llaves. La evaluación es gratis y toma 30 minutos.",
-      "ctaButton": "Agenda una evaluación gratuita",
-      "disclaimer": "Esta revisión lee registros DNS públicos y los encabezados de respuesta que tu sitio ya envía a cada visitante. No inicia sesión, no escanea puertos ni prueba ninguna contraseña.",
-      "statusPass": "Bien",
-      "statusWarn": "Se puede mejorar",
-      "statusFail": "Necesita atención",
-      "statusUnknown": "No aplica",
-      "errors": {
-        "empty": "Escribe tu dirección web para empezar.",
-        "malformed": "Eso no parece una dirección web. Escríbela así: tunegocio.com.",
-        "notPublic": "Esa dirección no es un sitio público, así que no hay nada que podamos revisar desde aquí.",
-        "ipAddress": "Escribe un nombre de dominio en lugar de una dirección IP.",
-        "unreachable": "No pudimos abrir esa dirección. Revisa que esté bien escrita o inténtalo en un minuto.",
-        "rateLimited": "Son muchas revisiones en poco tiempo. Espera un minuto e inténtalo de nuevo.",
-        "failed": "Algo falló de nuestro lado. Inténtalo otra vez o llámanos al (956) 506-1545."
+    "title": "Revisión gratuita de seguridad web y de correo",
+    "metaDescription": "Revisa el sitio de cualquier negocio del Valle del Río Grande en aproximadamente un minuto. Leemos los mismos registros públicos que ya ven un navegador y un servidor de correo, y te decimos en español claro qué está expuesto.",
+    "intro": "Escribe tu dirección web. En aproximadamente un minuto verás si alguien puede enviar correos haciéndose pasar por ti, si tu sitio está protegido en el navegador y qué conviene arreglar primero. Solo leemos registros públicos: no entramos a ninguna cuenta ni atacamos nada.",
+    "inputLabel": "Tu dirección web",
+    "placeholder": "tunegocio.com",
+    "submit": "Revisar mi sitio",
+    "checking": "Revisando…",
+    "again": "Revisar otra dirección",
+    "resultHeading": "Resultados de {domain}",
+    "scoreLabel": "Puntaje",
+    "fixFirstHeading": "Arregla esto primero",
+    "allClearHeading": "No encontramos nada urgente",
+    "allClearBody": "Todas las revisiones públicas salieron limpias. Una revisión completa mira lo que ningún análisis externo puede ver: quién tiene acceso de administrador, cómo se prueban los respaldos y qué pasa cuando alguien se va de la empresa.",
+    "detailHeading": "Todo lo que revisamos",
+    "ctaHeading": "¿Quieres ver el panorama completo?",
+    "ctaBody": "Esta revisión lee lo que se ve desde afuera. Casi todo lo que pone en riesgo a un negocio del Valle no se ve: contraseñas compartidas, falta de respaldos, una sola persona con todas las llaves. La evaluación es gratis y toma 30 minutos.",
+    "ctaButton": "Agenda una evaluación gratuita",
+    "disclaimer": "Esta revisión lee registros DNS públicos y los encabezados de respuesta que tu sitio ya envía a cada visitante. No inicia sesión, no escanea puertos ni prueba ninguna contraseña.",
+    "statusPass": "Bien",
+    "statusWarn": "Se puede mejorar",
+    "statusFail": "Necesita atención",
+    "statusUnknown": "No aplica",
+    "errors": {
+      "empty": "Escribe tu dirección web para empezar.",
+      "malformed": "Eso no parece una dirección web. Escríbela así: tunegocio.com.",
+      "notPublic": "Esa dirección no es un sitio público, así que no hay nada que podamos revisar desde aquí.",
+      "ipAddress": "Escribe un nombre de dominio en lugar de una dirección IP.",
+      "unreachable": "No pudimos abrir esa dirección. Revisa que esté bien escrita o inténtalo en un minuto.",
+      "rateLimited": "Son muchas revisiones en poco tiempo. Espera un minuto e inténtalo de nuevo.",
+      "failed": "Algo falló de nuestro lado. Inténtalo otra vez o llámanos al (956) 506-1545."
+    },
+    "checks": {
+      "https": {
+        "title": "Tu sitio abre de forma segura",
+        "pass": "Tu sitio responde por una conexión segura.",
+        "fail": "No pudimos abrir tu sitio de forma segura. Es posible que los visitantes vean una advertencia del navegador antes de llegar a ti."
       },
-      "checks": {
-        "https": {
-          "title": "Tu sitio abre de forma segura",
-          "pass": "Tu sitio responde por una conexión segura.",
-          "fail": "No pudimos abrir tu sitio de forma segura. Es posible que los visitantes vean una advertencia del navegador antes de llegar a ti."
-        },
-        "httpsRedirect": {
-          "title": "Las visitas inseguras se envían a la dirección segura",
-          "pass": "Quien escribe tu dirección sin “https” pasa automáticamente a la versión segura.",
-          "fail": "Quien escribe tu dirección sin “https” se queda en la versión insegura, donde lo que envíe puede leerse en el camino.",
-          "unknown": "No pudimos determinarlo. Conviene revisarlo a mano."
-        },
-        "hsts": {
-          "title": "Se indica al navegador usar siempre la dirección segura",
-          "pass": "Después de la primera visita, el navegador se niega a usar de nuevo la versión insegura.",
-          "warn": "Está configurado, pero vence tan pronto que la mayoría de los visitantes no se beneficia. Lo normal es un año o más.",
-          "fail": "No está configurado. Cada visita empieza en la dirección insegura antes de redirigirse, y ese es justo el momento que aprovecha un atacante en un Wi-Fi compartido."
-        },
-        "csp": {
-          "title": "Solo tu propio código puede ejecutarse en tus páginas",
-          "pass": "Tu sitio le indica al navegador qué código puede ejecutarse, que es lo que impide que un script inyectado lea tus formularios.",
-          "warn": "Existe una política, pero permite código de cualquier origen, así que detiene muy poco.",
-          "fail": "No hay política. Si algo de tu sitio llega a verse comprometido, el código inyectado se ejecuta sin nada que lo detenga."
-        },
-        "clickjacking": {
-          "title": "Tu sitio no puede incrustarse dentro de otro",
-          "pass": "Nadie puede cargar tu sitio dentro de su propia página para engañar a tus clientes.",
-          "fail": "Cualquiera puede cargar tu sitio dentro de su propia página. Así se arma una pantalla falsa de pago o de acceso encima de un negocio real."
-        },
-        "nosniff": {
-          "title": "Los archivos subidos no pueden ejecutarse como código",
-          "pass": "Se le indica al navegador que trate tus archivos exactamente como lo que son.",
-          "fail": "Falta. Un archivo que suba un cliente puede interpretarse como código y ejecutarse en el navegador de otro visitante."
-        },
-        "referrerPolicy": {
-          "title": "Las páginas de tus visitantes quedan privadas",
-          "pass": "Otros sitios no reciben información sobre qué página tuya visitó la persona.",
-          "warn": "No está configurado, así que cada sitio al que pase un visitante sabe exactamente de qué página salió, incluido lo que venga en la dirección."
-        },
-        "cookieFlags": {
-          "title": "Las cookies están protegidas",
-          "pass": "Tu portada no deja cookies, o las que deja no pueden leerse desde scripts ni viajar de forma insegura.",
-          "warn": "Al menos una cookie puede leerse desde scripts o viajar por una conexión insegura. Si es una cookie de sesión, es una cuenta que alguien más puede usar."
-        },
-        "serverDisclosure": {
-          "title": "No anuncias las versiones de tu software",
-          "pass": "Tu sitio no anuncia exactamente qué software y qué versión usa.",
-          "warn": "Tu sitio anuncia la versión exacta de su software, lo que le dice a un atacante qué vulnerabilidad conocida probar primero."
-        },
-        "spf": {
-          "title": "Solo tus servidores pueden enviar correo en tu nombre",
-          "pass": "Publicas quién puede enviar correo con tu dominio y pides que se rechace a todos los demás.",
-          "warn": "Publicas la lista, pero pides que a los impostores solo se les marque en lugar de rechazarlos.",
-          "fail": "Cualquier persona en el mundo puede enviar correos que parezcan venir de tu negocio. Esa es la forma más común en que un negocio pequeño pierde dinero por fraude."
-        },
-        "dmarc": {
-          "title": "El correo falsificado sí se rechaza",
-          "pass": "El correo que no pasa tus revisiones se envía a cuarentena o se rechaza en lugar de entregarse.",
-          "warn": "Tienes el registro, pero está en modo de observación, así que el correo falsificado sigue llegando a tus clientes.",
-          "fail": "No hay política, así que los servidores de correo no tienen instrucciones sobre qué hacer con el correo falsificado en tu nombre, y la mayoría lo entrega."
-        },
-        "mx": {
-          "title": "Tu dominio recibe correo",
-          "pass": "Tu dominio publica servidores de correo.",
-          "unknown": "Este dominio no recibe correo, así que las revisiones de correo de arriba importan menos, aunque un dominio que no envía correo también debería declararlo."
-        },
-        "certExpiry": {
-          "title": "Tu certificado no está por vencer",
-          "pass": "Al certificado que comprueba que el sitio es tuyo le queda tiempo de sobra.",
-          "warn": "Vence pronto. La mayoría de los proveedores renueva solo como un mes antes, así que estar tan cerca casi siempre significa que la renovación está atorada.",
-          "fail": "Vence en días o ya venció. Cuando eso pasa, cada visitante ve una advertencia de pantalla completa diciendo que tu sitio no es seguro.",
-          "unknown": "No pudimos leer el certificado."
-        },
-        "mixedContent": {
-          "title": "Tus páginas seguras solo cargan archivos seguros",
-          "pass": "Todo lo que carga tu página viene por una conexión segura.",
-          "fail": "Tu página segura carga al menos un archivo por una conexión insegura. Los navegadores los bloquean o advierten, lo que puede romper parte de tu sitio sin avisar y anula el candado.",
-          "unknown": "No pudimos leer la página para revisarlo."
-        },
-        "dkim": {
-          "title": "Tu correo va firmado",
-          "pass": "Tu correo saliente lleva una firma que los servidores que lo reciben pueden verificar.",
-          "warn": "No encontramos una llave de firma en los selectores que usan los proveedores comunes. Si tu correo no va firmado, más de él cae en spam y tu política DMARC tiene menos con qué trabajar.",
-          "unknown": "Este dominio no recibe correo."
-        }
+      "httpsRedirect": {
+        "title": "Las visitas inseguras se envían a la dirección segura",
+        "pass": "Quien escribe tu dirección sin “https” pasa automáticamente a la versión segura.",
+        "fail": "Quien escribe tu dirección sin “https” se queda en la versión insegura, donde lo que envíe puede leerse en el camino.",
+        "unknown": "No pudimos determinarlo. Conviene revisarlo a mano."
       },
-      "reportHeading": "¿Quieres el reporte completo por correo?",
-      "reportBody": "Te enviamos todo lo de arriba, con qué significa cada hallazgo y qué hacer al respecto, en un solo correo que puedes reenviar a quien cuida tus sistemas.",
-      "nameLabel": "Tu nombre",
-      "emailLabel": "A dónde lo enviamos",
-      "reportSubmit": "Envíenme el reporte",
-      "reportSending": "Enviando…",
-      "reportSent": "Enviado. Revisa tu bandeja y también la carpeta de spam, que es justo donde suele caer un mensaje sobre seguridad de correo.",
-      "reportErrorInvalid": "Revisa el correo electrónico e inténtalo de nuevo.",
-      "reportErrorRateLimited": "Son varios reportes en poco tiempo. Inténtalo en una hora o llámanos al (956) 506-1545.",
-      "reportErrorFailed": "No pudimos enviarlo. Inténtalo de nuevo o llámanos al (956) 506-1545.",
-      "reportPrivacy": "Lo usamos para enviarte este reporte y para dar seguimiento una vez. Sin listas ni compartirlo con nadie."
+      "hsts": {
+        "title": "Se indica al navegador usar siempre la dirección segura",
+        "pass": "Después de la primera visita, el navegador se niega a usar de nuevo la versión insegura.",
+        "warn": "Está configurado, pero vence tan pronto que la mayoría de los visitantes no se beneficia. Lo normal es un año o más.",
+        "fail": "No está configurado. Cada visita empieza en la dirección insegura antes de redirigirse, y ese es justo el momento que aprovecha un atacante en un Wi-Fi compartido."
+      },
+      "csp": {
+        "title": "Solo tu propio código puede ejecutarse en tus páginas",
+        "pass": "Tu sitio le indica al navegador qué código puede ejecutarse, que es lo que impide que un script inyectado lea tus formularios.",
+        "warn": "Existe una política, pero permite código de cualquier origen, así que detiene muy poco.",
+        "fail": "No hay política. Si algo de tu sitio llega a verse comprometido, el código inyectado se ejecuta sin nada que lo detenga."
+      },
+      "clickjacking": {
+        "title": "Tu sitio no puede incrustarse dentro de otro",
+        "pass": "Nadie puede cargar tu sitio dentro de su propia página para engañar a tus clientes.",
+        "fail": "Cualquiera puede cargar tu sitio dentro de su propia página. Así se arma una pantalla falsa de pago o de acceso encima de un negocio real."
+      },
+      "nosniff": {
+        "title": "Los archivos subidos no pueden ejecutarse como código",
+        "pass": "Se le indica al navegador que trate tus archivos exactamente como lo que son.",
+        "fail": "Falta. Un archivo que suba un cliente puede interpretarse como código y ejecutarse en el navegador de otro visitante."
+      },
+      "referrerPolicy": {
+        "title": "Las páginas de tus visitantes quedan privadas",
+        "pass": "Otros sitios no reciben información sobre qué página tuya visitó la persona.",
+        "warn": "No está configurado, así que cada sitio al que pase un visitante sabe exactamente de qué página salió, incluido lo que venga en la dirección."
+      },
+      "cookieFlags": {
+        "title": "Las cookies están protegidas",
+        "pass": "Tu portada no deja cookies, o las que deja no pueden leerse desde scripts ni viajar de forma insegura.",
+        "warn": "Al menos una cookie puede leerse desde scripts o viajar por una conexión insegura. Si es una cookie de sesión, es una cuenta que alguien más puede usar."
+      },
+      "serverDisclosure": {
+        "title": "No anuncias las versiones de tu software",
+        "pass": "Tu sitio no anuncia exactamente qué software y qué versión usa.",
+        "warn": "Tu sitio anuncia la versión exacta de su software, lo que le dice a un atacante qué vulnerabilidad conocida probar primero."
+      },
+      "spf": {
+        "title": "Solo tus servidores pueden enviar correo en tu nombre",
+        "pass": "Publicas quién puede enviar correo con tu dominio y pides que se rechace a todos los demás.",
+        "warn": "Publicas la lista, pero pides que a los impostores solo se les marque en lugar de rechazarlos.",
+        "fail": "Cualquier persona en el mundo puede enviar correos que parezcan venir de tu negocio. Esa es la forma más común en que un negocio pequeño pierde dinero por fraude."
+      },
+      "dmarc": {
+        "title": "El correo falsificado sí se rechaza",
+        "pass": "El correo que no pasa tus revisiones se envía a cuarentena o se rechaza en lugar de entregarse.",
+        "warn": "Tienes el registro, pero está en modo de observación, así que el correo falsificado sigue llegando a tus clientes.",
+        "fail": "No hay política, así que los servidores de correo no tienen instrucciones sobre qué hacer con el correo falsificado en tu nombre, y la mayoría lo entrega."
+      },
+      "mx": {
+        "title": "Tu dominio recibe correo",
+        "pass": "Tu dominio publica servidores de correo.",
+        "unknown": "Este dominio no recibe correo, así que las revisiones de correo de arriba importan menos, aunque un dominio que no envía correo también debería declararlo."
+      },
+      "certExpiry": {
+        "title": "Tu certificado no está por vencer",
+        "pass": "Al certificado que comprueba que el sitio es tuyo le queda tiempo de sobra.",
+        "warn": "Vence pronto. La mayoría de los proveedores renueva solo como un mes antes, así que estar tan cerca casi siempre significa que la renovación está atorada.",
+        "fail": "Vence en días o ya venció. Cuando eso pasa, cada visitante ve una advertencia de pantalla completa diciendo que tu sitio no es seguro.",
+        "unknown": "No pudimos leer el certificado."
+      },
+      "mixedContent": {
+        "title": "Tus páginas seguras solo cargan archivos seguros",
+        "pass": "Todo lo que carga tu página viene por una conexión segura.",
+        "fail": "Tu página segura carga al menos un archivo por una conexión insegura. Los navegadores los bloquean o advierten, lo que puede romper parte de tu sitio sin avisar y anula el candado.",
+        "unknown": "No pudimos leer la página para revisarlo."
+      },
+      "dkim": {
+        "title": "Tu correo va firmado",
+        "pass": "Tu correo saliente lleva una firma que los servidores que lo reciben pueden verificar.",
+        "warn": "No encontramos una llave de firma en los selectores que usan los proveedores comunes. Si tu correo no va firmado, más de él cae en spam y tu política DMARC tiene menos con qué trabajar.",
+        "unknown": "Este dominio no recibe correo."
+      }
+    },
+    "reportHeading": "¿Quieres el reporte completo por correo?",
+    "reportBody": "Te enviamos todo lo de arriba, con qué significa cada hallazgo y qué hacer al respecto, en un solo correo que puedes reenviar a quien cuida tus sistemas.",
+    "nameLabel": "Tu nombre",
+    "emailLabel": "A dónde lo enviamos",
+    "reportSubmit": "Envíenme el reporte",
+    "reportSending": "Enviando…",
+    "reportSent": "Enviado. Revisa tu bandeja y también la carpeta de spam, que es justo donde suele caer un mensaje sobre seguridad de correo.",
+    "reportErrorInvalid": "Revisa el correo electrónico e inténtalo de nuevo.",
+    "reportErrorRateLimited": "Son varios reportes en poco tiempo. Inténtalo en una hora o llámanos al (956) 506-1545.",
+    "reportErrorFailed": "No pudimos enviarlo. Inténtalo de nuevo o llámanos al (956) 506-1545.",
+    "reportPrivacy": "Lo usamos para enviarte este reporte y para dar seguimiento una vez. Sin listas ni compartirlo con nadie."
   },
   "firstHourBack": {
     "title": "Encuentra tu primera hora de vuelta",
@@ -996,5 +1065,26 @@
     "contactHeading": "¿Prefieres escribir en lugar de llamar?",
     "contactBody": "Mándanos un WhatsApp. Llega a la misma persona, en inglés o español, y te contestamos sin que tengas que esperar en el teléfono.",
     "contactCta": "Escríbenos por WhatsApp"
+  },
+  "sofia": {
+    "title": "Habla con Sofía ahora mismo",
+    "blurb": "Sofía es la recepcionista con IA que contesta nuestro teléfono. Presiona el botón y salúdala — aquí responde igual que en la línea.",
+    "start": "Empezar a hablar",
+    "again": "Hablar otra vez",
+    "connecting": "Conectando…",
+    "end": "Terminar",
+    "limits": "Tu navegador te pedirá permiso para usar el micrófono. No se graba nada, y esta conversación no puede agendarte una cita — para eso usa el calendario de esta página o llama al número que aparece arriba. Las sesiones duran unos tres minutos.",
+    "transcript": "Subtítulos en vivo",
+    "listening": "Escuchando. Saluda cuando estés listo.",
+    "remaining": "Quedan {time} de esta conversación",
+    "liveAnnounce": "Estás conectado con Sofía. Habla cuando quieras.",
+    "speakerSofia": "Sofía",
+    "speakerYou": "Tú",
+    "errors": {
+      "unsupported": "Este navegador no puede hacer una llamada de voz. Chrome, Edge, Safari y Firefox sí pueden — o simplemente llama al número que aparece arriba.",
+      "mic_denied": "No pudimos usar tu micrófono. Permite el acceso al micrófono para este sitio en tu navegador e inténtalo de nuevo — o llama al número que aparece arriba.",
+      "rate_limited": "Ya usaste tus conversaciones por ahora. Inténtalo en una hora, o llama al número que aparece arriba y habla con Sofía por teléfono.",
+      "unavailable": "Sofía no puede contestar aquí en este momento. Por favor llama al número que aparece arriba — ella contesta esa línea."
+    }
   }
 }

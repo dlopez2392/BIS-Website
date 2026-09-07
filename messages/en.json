@@ -78,15 +78,36 @@
     "g1Title": "AI & Automation",
     "g1Body": "AI that removes real hours from your week — not demos that gather dust. We build practical, production-ready systems that integrate with your existing workforce.",
     "g1Proof": "Built AI case-intake summarization for a multi-office law firm — viability answers in minutes, not days.",
-    "g1Bullets": ["AI readiness assessments", "Workflow automation (Power Automate, Claude API)", "Custom bilingual AI assistants", "Document pipelines", "AI cost governance", "Staff training"],
+    "g1Bullets": [
+      "AI readiness assessments",
+      "Workflow automation (Power Automate, Claude API)",
+      "Custom bilingual AI assistants",
+      "Document pipelines",
+      "AI cost governance",
+      "Staff training"
+    ],
     "g2Title": "IT Consulting & Security",
     "g2Body": "Twenty years of enterprise IT leadership. We don't just fix problems; we architect resilient environments that allow your firm to scale securely across borders.",
     "g2Proof": "Led cloud-only modernization for a 150-user firm across three offices in two countries.",
-    "g2Bullets": ["Microsoft 365 / Cloud (Entra ID, Intune)", "Phishing-resistant MFA", "Endpoint protection (Defender)", "Network modernization", "MSP oversight", "Security incident triage", "MDM"],
+    "g2Bullets": [
+      "Microsoft 365 / Cloud (Entra ID, Intune)",
+      "Phishing-resistant MFA",
+      "Endpoint protection (Defender)",
+      "Network modernization",
+      "MSP oversight",
+      "Security incident triage",
+      "MDM"
+    ],
     "g3Title": "Website Design",
     "g3Body": "Fast, modern sites you actually own. No proprietary lock-in. No black boxes. Just clean, performant code that drives conversion and represents your brand's intelligence.",
     "g3Proof": "Every build ships with the keys: your hosting, your accounts, your ownership.",
-    "g3Bullets": ["Custom design / dev", "Bilingual content architecture (native)", "Local SEO for RGV", "Analytics dashboards (Power BI)", "Clean handoff"],
+    "g3Bullets": [
+      "Custom design / dev",
+      "Bilingual content architecture (native)",
+      "Local SEO for RGV",
+      "Analytics dashboards (Power BI)",
+      "Clean handoff"
+    ],
     "ctaTitle": "Ready to deploy a bespoke intelligent solution?",
     "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself."
   },
@@ -399,7 +420,12 @@
     "minRead": "{minutes} min read",
     "backToInsights": "← Back to insights",
     "emptyState": "No posts yet — check back soon.",
-    "categories": { "Insights": "Insights", "Security": "Security", "Culture": "Culture", "AI": "AI" }
+    "categories": {
+      "Insights": "Insights",
+      "Security": "Security",
+      "Culture": "Culture",
+      "AI": "AI"
+    }
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -413,18 +439,54 @@
       "working": "Working with BIS"
     },
     "items": {
-      "whatIsBis": { "q": "What does Bespoke Intelligent Solutions do?", "a": "We're an IT and AI consultancy for Rio Grande Valley businesses. We help you adopt practical AI, modernize and secure your IT, and build fast bilingual websites — with one point of contact from strategy through delivery." },
-      "whoServe": { "q": "Who do you work with?", "a": "Small and mid-sized Valley businesses — including legal, medical and dental, logistics and freight, skilled trades, and agriculture. Everything we do is fully bilingual in English and Spanish." },
-      "bespoke": { "q": "What does “bespoke” mean for my business?", "a": "It means we start with your workflow, your customers, and your two languages — not a template. We recommend only what earns its keep, and we build it to fit how you actually operate." },
-      "aiPractical": { "q": "Is AI actually practical for a business my size?", "a": "Yes. We focus on removing real hours from your week — automating intake, scheduling, follow-ups, and document handling — not flashy demos. If a task is repeatable, there's usually a piece of it we can automate." },
-      "aiCost": { "q": "How much does AI cost, and what's the return?", "a": "It varies by scope, but we target automations that pay for themselves in saved time. The free assessment identifies the single automation with the fastest payback so you can start small and prove the value." },
-      "dataHandling": { "q": "How do you handle our data and confidentiality?", "a": "We treat your data as confidential, work under an NDA when you want one, use least-privilege access, and prefer tools that keep your data in your own accounts. You own your systems and your data — always." },
-      "compliance": { "q": "Do you work with regulated fields like legal and healthcare?", "a": "Yes. We're security-first and privacy-aware for fields like legal and medical/dental, and we design workflows with confidentiality and data protection in mind. We're not a substitute for your compliance counsel, but we build to support it." },
-      "ownWebsite": { "q": "Do we own our website and accounts?", "a": "Completely. Every build ships with the keys: your hosting, your domain, your accounts. No proprietary lock-in, no black boxes — clean code you can hand to anyone." },
-      "webWhat": { "q": "What kind of web work do you do?", "a": "Fast, modern, bilingual sites and web apps that convert — with native English/Spanish content, local SEO for the RGV, and analytics so you can see what's working." },
-      "howStart": { "q": "How do we get started?", "a": "Book a free, no-pitch assessment. We look at how your business runs today and show you the one improvement that pays for itself first. No obligation." },
-      "pricing": { "q": "How do you price your work?", "a": "Most engagements are scoped to a fixed proposal after the free assessment, so you know the cost before we start. We right-size to your business rather than selling a one-size package." },
-      "remote": { "q": "Do you work remotely or on-site?", "a": "Both. We're based in Harlingen and serve the entire Valley, so we can work on-site when it helps and remotely when that's faster — whatever gets you results." }
+      "whatIsBis": {
+        "q": "What does Bespoke Intelligent Solutions do?",
+        "a": "We're an IT and AI consultancy for Rio Grande Valley businesses. We help you adopt practical AI, modernize and secure your IT, and build fast bilingual websites — with one point of contact from strategy through delivery."
+      },
+      "whoServe": {
+        "q": "Who do you work with?",
+        "a": "Small and mid-sized Valley businesses — including legal, medical and dental, logistics and freight, skilled trades, and agriculture. Everything we do is fully bilingual in English and Spanish."
+      },
+      "bespoke": {
+        "q": "What does “bespoke” mean for my business?",
+        "a": "It means we start with your workflow, your customers, and your two languages — not a template. We recommend only what earns its keep, and we build it to fit how you actually operate."
+      },
+      "aiPractical": {
+        "q": "Is AI actually practical for a business my size?",
+        "a": "Yes. We focus on removing real hours from your week — automating intake, scheduling, follow-ups, and document handling — not flashy demos. If a task is repeatable, there's usually a piece of it we can automate."
+      },
+      "aiCost": {
+        "q": "How much does AI cost, and what's the return?",
+        "a": "It varies by scope, but we target automations that pay for themselves in saved time. The free assessment identifies the single automation with the fastest payback so you can start small and prove the value."
+      },
+      "dataHandling": {
+        "q": "How do you handle our data and confidentiality?",
+        "a": "We treat your data as confidential, work under an NDA when you want one, use least-privilege access, and prefer tools that keep your data in your own accounts. You own your systems and your data — always."
+      },
+      "compliance": {
+        "q": "Do you work with regulated fields like legal and healthcare?",
+        "a": "Yes. We're security-first and privacy-aware for fields like legal and medical/dental, and we design workflows with confidentiality and data protection in mind. We're not a substitute for your compliance counsel, but we build to support it."
+      },
+      "ownWebsite": {
+        "q": "Do we own our website and accounts?",
+        "a": "Completely. Every build ships with the keys: your hosting, your domain, your accounts. No proprietary lock-in, no black boxes — clean code you can hand to anyone."
+      },
+      "webWhat": {
+        "q": "What kind of web work do you do?",
+        "a": "Fast, modern, bilingual sites and web apps that convert — with native English/Spanish content, local SEO for the RGV, and analytics so you can see what's working."
+      },
+      "howStart": {
+        "q": "How do we get started?",
+        "a": "Book a free, no-pitch assessment. We look at how your business runs today and show you the one improvement that pays for itself first. No obligation."
+      },
+      "pricing": {
+        "q": "How do you price your work?",
+        "a": "Most engagements are scoped to a fixed proposal after the free assessment, so you know the cost before we start. We right-size to your business rather than selling a one-size package."
+      },
+      "remote": {
+        "q": "Do you work remotely or on-site?",
+        "a": "Both. We're based in Harlingen and serve the entire Valley, so we can work on-site when it helps and remotely when that's faster — whatever gets you results."
+      }
     }
   },
   "techMarquee": {
@@ -622,7 +684,14 @@
         "builtHeading": "How it is built",
         "builtBody": "A phone number routed over SIP into a realtime speech model, with the calendar, the lead database, and our email notifications wired in as tools the model can actually call — not a recorded menu tree. The website you are reading and the receptionist who answers the phone write to the same leads table: one pipeline, two front doors.",
         "stackHeading": "Built with",
-        "stack": ["OpenAI Realtime", "Telnyx", "BIS Platform", "Neon Postgres", "Resend", "Next.js on Vercel"],
+        "stack": [
+          "OpenAI Realtime",
+          "Telnyx",
+          "BIS Platform",
+          "Neon Postgres",
+          "Resend",
+          "Next.js on Vercel"
+        ],
         "tryHeading": "Try it yourself",
         "tryBody": "Tap to call. Ask her what BIS does, switch to Spanish halfway through, or book a free assessment and watch it land in your inbox.",
         "tryNote": "Calls are transcribed and summarized so we can follow up properly.",
@@ -760,134 +829,134 @@
     }
   },
   "securityCheck": {
-      "title": "Free Website & Email Security Check",
-      "metaDescription": "Check any Rio Grande Valley business website in about a minute. We read the same public records a browser and a mail server already see, and tell you in plain English what is exposed.",
-      "intro": "Type your web address. In about a minute you will see whether someone can send email pretending to be you, whether your site is protected in the browser, and what to fix first. We only read public records — nothing is logged into, nothing is attacked.",
-      "inputLabel": "Your web address",
-      "placeholder": "yourbusiness.com",
-      "submit": "Check my site",
-      "checking": "Checking…",
-      "again": "Check another address",
-      "resultHeading": "Results for {domain}",
-      "scoreLabel": "Score",
-      "fixFirstHeading": "Fix these first",
-      "allClearHeading": "Nothing urgent found",
-      "allClearBody": "The public checks all came back clean. A full review looks at things no outside scan can see: who has admin access, how backups are tested, what happens when someone leaves.",
-      "detailHeading": "Everything we checked",
-      "ctaHeading": "Want the rest of the picture?",
-      "ctaBody": "This check reads what is visible from outside. Most of what puts a Valley business at risk is not: shared passwords, no backups, one person holding every key. The assessment is free and takes 30 minutes.",
-      "ctaButton": "Book a free assessment",
-      "disclaimer": "This check reads public DNS records and the response headers your website already sends to every visitor. It does not log in, scan ports, or test any password.",
-      "statusPass": "Good",
-      "statusWarn": "Could be better",
-      "statusFail": "Needs attention",
-      "statusUnknown": "Not applicable",
-      "errors": {
-        "empty": "Enter your web address to start.",
-        "malformed": "That does not look like a web address. Try it like yourbusiness.com.",
-        "notPublic": "That address is not a public website, so there is nothing we can check from out here.",
-        "ipAddress": "Enter a domain name rather than an IP address.",
-        "unreachable": "We could not reach that address. Check the spelling, or try again in a minute.",
-        "rateLimited": "That is a lot of checks in a short time. Give it a minute and try again.",
-        "failed": "Something went wrong on our end. Try again, or call us at (956) 506-1545."
+    "title": "Free Website & Email Security Check",
+    "metaDescription": "Check any Rio Grande Valley business website in about a minute. We read the same public records a browser and a mail server already see, and tell you in plain English what is exposed.",
+    "intro": "Type your web address. In about a minute you will see whether someone can send email pretending to be you, whether your site is protected in the browser, and what to fix first. We only read public records — nothing is logged into, nothing is attacked.",
+    "inputLabel": "Your web address",
+    "placeholder": "yourbusiness.com",
+    "submit": "Check my site",
+    "checking": "Checking…",
+    "again": "Check another address",
+    "resultHeading": "Results for {domain}",
+    "scoreLabel": "Score",
+    "fixFirstHeading": "Fix these first",
+    "allClearHeading": "Nothing urgent found",
+    "allClearBody": "The public checks all came back clean. A full review looks at things no outside scan can see: who has admin access, how backups are tested, what happens when someone leaves.",
+    "detailHeading": "Everything we checked",
+    "ctaHeading": "Want the rest of the picture?",
+    "ctaBody": "This check reads what is visible from outside. Most of what puts a Valley business at risk is not: shared passwords, no backups, one person holding every key. The assessment is free and takes 30 minutes.",
+    "ctaButton": "Book a free assessment",
+    "disclaimer": "This check reads public DNS records and the response headers your website already sends to every visitor. It does not log in, scan ports, or test any password.",
+    "statusPass": "Good",
+    "statusWarn": "Could be better",
+    "statusFail": "Needs attention",
+    "statusUnknown": "Not applicable",
+    "errors": {
+      "empty": "Enter your web address to start.",
+      "malformed": "That does not look like a web address. Try it like yourbusiness.com.",
+      "notPublic": "That address is not a public website, so there is nothing we can check from out here.",
+      "ipAddress": "Enter a domain name rather than an IP address.",
+      "unreachable": "We could not reach that address. Check the spelling, or try again in a minute.",
+      "rateLimited": "That is a lot of checks in a short time. Give it a minute and try again.",
+      "failed": "Something went wrong on our end. Try again, or call us at (956) 506-1545."
+    },
+    "checks": {
+      "https": {
+        "title": "Your site loads securely",
+        "pass": "Your website answers over a secure connection.",
+        "fail": "We could not load your site securely. Visitors may see a browser warning before they ever reach you."
       },
-      "checks": {
-        "https": {
-          "title": "Your site loads securely",
-          "pass": "Your website answers over a secure connection.",
-          "fail": "We could not load your site securely. Visitors may see a browser warning before they ever reach you."
-        },
-        "httpsRedirect": {
-          "title": "Insecure visits are sent to the secure address",
-          "pass": "Someone typing your address without “https” is moved to the secure version automatically.",
-          "fail": "Someone typing your address without “https” stays on the insecure version, where anything they submit can be read in transit.",
-          "unknown": "We could not tell. This is worth checking by hand."
-        },
-        "hsts": {
-          "title": "Browsers are told to always use the secure address",
-          "pass": "Once someone visits, their browser refuses to use the insecure version again.",
-          "warn": "This is set, but it expires soon enough that most visitors will not benefit. A year or more is the norm.",
-          "fail": "Not set. Every visit starts over on the insecure address before being redirected, which is the moment an attacker on shared Wi-Fi looks for."
-        },
-        "csp": {
-          "title": "Only your own code can run on your pages",
-          "pass": "Your site tells browsers which code is allowed to run, which is what stops an injected script from reading your forms.",
-          "warn": "A policy exists but allows code from anywhere, so it stops very little.",
-          "fail": "No policy. If anything on your site is ever compromised, injected code runs with nothing standing in its way."
-        },
-        "clickjacking": {
-          "title": "Your site cannot be framed inside another",
-          "pass": "Nobody can load your site inside their own page and trick your customers into clicking something else.",
-          "fail": "Anyone can load your site inside their own page. That is how a fake payment or login screen gets built on top of a real business."
-        },
-        "nosniff": {
-          "title": "Uploads cannot be run as code",
-          "pass": "Browsers are told to treat your files as exactly what they are.",
-          "fail": "Missing. A file a customer uploads can be interpreted as code and run in another visitor's browser."
-        },
-        "referrerPolicy": {
-          "title": "Your visitors' pages stay private",
-          "pass": "Other sites are not told which of your pages a visitor came from.",
-          "warn": "Not set, so every site a visitor clicks through to learns the exact page they left, including anything in the address."
-        },
-        "cookieFlags": {
-          "title": "Cookies are protected",
-          "pass": "No cookies are set on your front page, or the ones that are cannot be read by scripts or sent insecurely.",
-          "warn": "At least one cookie can be read by scripts or sent over an insecure connection. If it is a login cookie, that is an account someone else can use."
-        },
-        "serverDisclosure": {
-          "title": "Your software versions are not advertised",
-          "pass": "Your site does not announce exactly which software and version it runs.",
-          "warn": "Your site announces its exact software version, which tells an attacker which known exploit to try first."
-        },
-        "spf": {
-          "title": "Only your mail servers can send as you",
-          "pass": "You publish a list of who may send email as your domain, and it tells receivers to reject everyone else.",
-          "warn": "You publish the list, but it asks receivers to merely flag impostors instead of rejecting them.",
-          "fail": "Anyone in the world can send email that looks like it came from your business. That is the single most common way a small business loses money to fraud."
-        },
-        "dmarc": {
-          "title": "Impostor email is actually rejected",
-          "pass": "Mail that fails your checks is quarantined or rejected rather than delivered.",
-          "warn": "You have the record, but it is set to watch only, so forged mail is still delivered to your customers.",
-          "fail": "No policy, so mail servers have no instruction about what to do with email forged in your name, and most will deliver it."
-        },
-        "mx": {
-          "title": "Your domain receives email",
-          "pass": "Mail servers are published for your domain.",
-          "unknown": "This domain does not receive email, so the email checks above matter less — though a domain that sends no mail should still say so."
-        },
-        "certExpiry": {
-          "title": "Your certificate is not about to expire",
-          "pass": "The certificate that proves your site is really yours has plenty of time left.",
-          "warn": "It expires soon. Most providers renew automatically about a month out, so this close usually means a renewal is stuck.",
-          "fail": "It expires within days, or already has. When it does, every visitor sees a full-page browser warning telling them your site is unsafe.",
-          "unknown": "We could not read the certificate."
-        },
-        "mixedContent": {
-          "title": "Your secure pages load only secure files",
-          "pass": "Everything your page loads comes over a secure connection.",
-          "fail": "Your secure page loads at least one file over an insecure connection. Browsers block or warn on these, which can silently break part of your site and undoes the padlock.",
-          "unknown": "We could not read the page to check."
-        },
-        "dkim": {
-          "title": "Your email is signed",
-          "pass": "Your outgoing mail carries a signature that receiving servers can verify.",
-          "warn": "We could not find a signing key under the selectors common providers use. If your mail is unsigned, more of it lands in spam and your DMARC policy has less to work with.",
-          "unknown": "This domain does not receive email."
-        }
+      "httpsRedirect": {
+        "title": "Insecure visits are sent to the secure address",
+        "pass": "Someone typing your address without “https” is moved to the secure version automatically.",
+        "fail": "Someone typing your address without “https” stays on the insecure version, where anything they submit can be read in transit.",
+        "unknown": "We could not tell. This is worth checking by hand."
       },
-      "reportHeading": "Want the full report by email?",
-      "reportBody": "We will send everything above, with what each finding means and what to do about it, in one email you can forward to whoever looks after your systems.",
-      "nameLabel": "Your name",
-      "emailLabel": "Where to send it",
-      "reportSubmit": "Email me the report",
-      "reportSending": "Sending…",
-      "reportSent": "Sent. Check your inbox — and your spam folder, which is where a message about email security tends to land.",
-      "reportErrorInvalid": "Check the email address and try again.",
-      "reportErrorRateLimited": "That is a few reports in a short time. Try again in an hour, or call us at (956) 506-1545.",
-      "reportErrorFailed": "We could not send that. Try again, or call us at (956) 506-1545.",
-      "reportPrivacy": "We use it to send this report and to follow up once. No list, no sharing."
+      "hsts": {
+        "title": "Browsers are told to always use the secure address",
+        "pass": "Once someone visits, their browser refuses to use the insecure version again.",
+        "warn": "This is set, but it expires soon enough that most visitors will not benefit. A year or more is the norm.",
+        "fail": "Not set. Every visit starts over on the insecure address before being redirected, which is the moment an attacker on shared Wi-Fi looks for."
+      },
+      "csp": {
+        "title": "Only your own code can run on your pages",
+        "pass": "Your site tells browsers which code is allowed to run, which is what stops an injected script from reading your forms.",
+        "warn": "A policy exists but allows code from anywhere, so it stops very little.",
+        "fail": "No policy. If anything on your site is ever compromised, injected code runs with nothing standing in its way."
+      },
+      "clickjacking": {
+        "title": "Your site cannot be framed inside another",
+        "pass": "Nobody can load your site inside their own page and trick your customers into clicking something else.",
+        "fail": "Anyone can load your site inside their own page. That is how a fake payment or login screen gets built on top of a real business."
+      },
+      "nosniff": {
+        "title": "Uploads cannot be run as code",
+        "pass": "Browsers are told to treat your files as exactly what they are.",
+        "fail": "Missing. A file a customer uploads can be interpreted as code and run in another visitor's browser."
+      },
+      "referrerPolicy": {
+        "title": "Your visitors' pages stay private",
+        "pass": "Other sites are not told which of your pages a visitor came from.",
+        "warn": "Not set, so every site a visitor clicks through to learns the exact page they left, including anything in the address."
+      },
+      "cookieFlags": {
+        "title": "Cookies are protected",
+        "pass": "No cookies are set on your front page, or the ones that are cannot be read by scripts or sent insecurely.",
+        "warn": "At least one cookie can be read by scripts or sent over an insecure connection. If it is a login cookie, that is an account someone else can use."
+      },
+      "serverDisclosure": {
+        "title": "Your software versions are not advertised",
+        "pass": "Your site does not announce exactly which software and version it runs.",
+        "warn": "Your site announces its exact software version, which tells an attacker which known exploit to try first."
+      },
+      "spf": {
+        "title": "Only your mail servers can send as you",
+        "pass": "You publish a list of who may send email as your domain, and it tells receivers to reject everyone else.",
+        "warn": "You publish the list, but it asks receivers to merely flag impostors instead of rejecting them.",
+        "fail": "Anyone in the world can send email that looks like it came from your business. That is the single most common way a small business loses money to fraud."
+      },
+      "dmarc": {
+        "title": "Impostor email is actually rejected",
+        "pass": "Mail that fails your checks is quarantined or rejected rather than delivered.",
+        "warn": "You have the record, but it is set to watch only, so forged mail is still delivered to your customers.",
+        "fail": "No policy, so mail servers have no instruction about what to do with email forged in your name, and most will deliver it."
+      },
+      "mx": {
+        "title": "Your domain receives email",
+        "pass": "Mail servers are published for your domain.",
+        "unknown": "This domain does not receive email, so the email checks above matter less — though a domain that sends no mail should still say so."
+      },
+      "certExpiry": {
+        "title": "Your certificate is not about to expire",
+        "pass": "The certificate that proves your site is really yours has plenty of time left.",
+        "warn": "It expires soon. Most providers renew automatically about a month out, so this close usually means a renewal is stuck.",
+        "fail": "It expires within days, or already has. When it does, every visitor sees a full-page browser warning telling them your site is unsafe.",
+        "unknown": "We could not read the certificate."
+      },
+      "mixedContent": {
+        "title": "Your secure pages load only secure files",
+        "pass": "Everything your page loads comes over a secure connection.",
+        "fail": "Your secure page loads at least one file over an insecure connection. Browsers block or warn on these, which can silently break part of your site and undoes the padlock.",
+        "unknown": "We could not read the page to check."
+      },
+      "dkim": {
+        "title": "Your email is signed",
+        "pass": "Your outgoing mail carries a signature that receiving servers can verify.",
+        "warn": "We could not find a signing key under the selectors common providers use. If your mail is unsigned, more of it lands in spam and your DMARC policy has less to work with.",
+        "unknown": "This domain does not receive email."
+      }
+    },
+    "reportHeading": "Want the full report by email?",
+    "reportBody": "We will send everything above, with what each finding means and what to do about it, in one email you can forward to whoever looks after your systems.",
+    "nameLabel": "Your name",
+    "emailLabel": "Where to send it",
+    "reportSubmit": "Email me the report",
+    "reportSending": "Sending…",
+    "reportSent": "Sent. Check your inbox — and your spam folder, which is where a message about email security tends to land.",
+    "reportErrorInvalid": "Check the email address and try again.",
+    "reportErrorRateLimited": "That is a few reports in a short time. Try again in an hour, or call us at (956) 506-1545.",
+    "reportErrorFailed": "We could not send that. Try again, or call us at (956) 506-1545.",
+    "reportPrivacy": "We use it to send this report and to follow up once. No list, no sharing."
   },
   "firstHourBack": {
     "title": "Find your first hour back",
@@ -996,5 +1065,26 @@
     "contactHeading": "Rather message than call?",
     "contactBody": "Send us a WhatsApp. It reaches the same person, in English or Spanish, and you get an answer without sitting on a phone.",
     "contactCta": "Message us on WhatsApp"
+  },
+  "sofia": {
+    "title": "Talk to Sofía right now",
+    "blurb": "Sofía is the AI receptionist that answers our phone. Press the button and say hello — she will answer here the same way she answers the line.",
+    "start": "Start talking",
+    "again": "Talk again",
+    "connecting": "Connecting…",
+    "end": "End",
+    "limits": "Your browser will ask to use your microphone. Nothing is recorded, and this conversation cannot book you in — for that, use the scheduler on this page or call the number in the header. Sessions run about three minutes.",
+    "transcript": "Live captions",
+    "listening": "Listening. Say hello when you are ready.",
+    "remaining": "{time} left in this conversation",
+    "liveAnnounce": "You are connected to Sofía. Start speaking whenever you are ready.",
+    "speakerSofia": "Sofía",
+    "speakerYou": "You",
+    "errors": {
+      "unsupported": "This browser cannot make a voice call. Chrome, Edge, Safari and Firefox all can — or just call the number at the top of the page.",
+      "mic_denied": "We could not reach your microphone. Allow microphone access for this site in your browser, then try again — or call the number at the top of the page.",
+      "rate_limited": "You have used your conversations for now. Try again in an hour, or call the number at the top of the page and speak to Sofía on the phone.",
+      "unavailable": "Sofía cannot pick up here at the moment. Please call the number at the top of the page — she answers that line."
+    }
   }
 }

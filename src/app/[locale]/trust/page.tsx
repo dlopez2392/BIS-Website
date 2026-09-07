@@ -4,6 +4,7 @@ import { ShieldCheck } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { business } from '@/lib/seo/business';
+import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 
 /**
  * The date this page's claims were last checked against how BIS actually
@@ -67,7 +68,13 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
         <p>{t('vendorsOutro')}</p>
       </Section>
 
-      <Section heading={t('sofiaHeading')}><p>{t('sofiaBody')}</p></Section>
+      <Section heading={t('sofiaHeading')}>
+        <p>{t('sofiaBody')}</p>
+        {/* Directly under the claim it proves. This page tells a visitor that
+            an AI answers our real line; the button lets them check that
+            sentence in the same breath, without dialling or trusting us. */}
+        <div className="mt-6 not-prose"><TalkToSofia /></div>
+      </Section>
       <Section heading={t('regulatedHeading')}><p>{t('regulatedBody')}</p></Section>
 
       <Section heading={t('siteHeading')}>

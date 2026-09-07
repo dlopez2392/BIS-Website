@@ -69,9 +69,16 @@ describe('securityHeaders', () => {
     ]);
   });
 
-  it('denies the microphone until the voice demo opens it deliberately', () => {
+  it('grants the microphone to this site only, never to an embedded third party', () => {
     const policy = securityHeaders().find((h) => h.key === 'Permissions-Policy')!.value;
-    expect(policy).toContain('microphone=()');
+    expect(policy).toContain('microphone=(self)');
+    // The two ways this gets loosened by accident, both refused.
+    expect(policy).not.toContain('microphone=*');
+    expect(policy).not.toMatch(/microphone=\("?https/);
+  });
+
+  it('still denies the camera outright — the voice demo needs a voice, not a face', () => {
+    const policy = securityHeaders().find((h) => h.key === 'Permissions-Policy')!.value;
     expect(policy).toContain('camera=()');
     expect(policy).toContain('browsing-topics=()');
   });
@@ -95,5 +102,27 @@ describe('the copy of PLATFORM_ORIGIN this module keeps', () => {
     const shape = /process\.env\.NEXT_PUBLIC_BIS_PLATFORM_ORIGIN \?\? 'https:\/\/app\.bis-rgv\.com'/;
     expect(platform).toMatch(shape);
     expect(headers).toMatch(shape);
+  });
+});
+
+describe('connect-src and the voice session', () => {
+  const csp = () => contentSecurityPolicy({ dev: false });
+
+  it('lets the browser reach OpenAI to exchange the WebRTC offer', () => {
+    expect(csp()).toContain('https://api.openai.com');
+  });
+
+  it('lets the browser reach the platform, which mints the session key', () => {
+    expect(csp()).toMatch(/connect-src[^;]*https:\/\/app\.bis-rgv\.com/);
+  });
+
+  it('adds both to connect-src only, never to script-src', () => {
+    const scriptSrc = /script-src ([^;]*)/.exec(csp())![1];
+    expect(scriptSrc).not.toContain('api.openai.com');
+    expect(scriptSrc).not.toContain('app.bis-rgv.com');
+  });
+
+  it('keeps default-src closed to self, so a new host must be named deliberately', () => {
+    expect(csp()).toMatch(/default-src 'self'/);
   });
 });
