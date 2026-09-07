@@ -151,3 +151,24 @@ describe('frame-src and the bot challenge', () => {
     expect(csp()).toContain("frame-ancestors 'none'");
   });
 });
+
+describe('securityHeaders csp toggle', () => {
+  it('includes CSP by default — no path silently loses it by omission', () => {
+    expect(securityHeaders().map((h) => h.key)).toContain('Content-Security-Policy');
+  });
+
+  it('omits only CSP when asked, keeping every other protection', () => {
+    const keys = securityHeaders({ csp: false }).map((h) => h.key);
+    expect(keys).not.toContain('Content-Security-Policy');
+    for (const kept of [
+      'Strict-Transport-Security', 'X-Content-Type-Options',
+      'Referrer-Policy', 'X-Frame-Options', 'Permissions-Policy',
+    ]) {
+      expect(keys).toContain(kept);
+    }
+  });
+
+  it('drops exactly one header, not a category', () => {
+    expect(securityHeaders({ csp: false })).toHaveLength(securityHeaders().length - 1);
+  });
+});

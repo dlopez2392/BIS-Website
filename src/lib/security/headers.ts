@@ -98,9 +98,27 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
  */
 const PERMISSIONS_POLICY = ['camera=()', 'microphone=(self)', 'geolocation=()', 'payment=()', 'usb=()', 'browsing-topics=()'].join(', ');
 
-export function securityHeaders({ dev = false }: { dev?: boolean } = {}): { key: string; value: string }[] {
+/**
+ * `csp: false` returns everything EXCEPT Content-Security-Policy.
+ *
+ * Vercel BotID's challenge is proxied through this origin by rewrites that
+ * `withBotId()` injects, so those responses were being served with this
+ * site's CSP — and Kasada's anti-bot code cannot run under
+ * `script-src 'self' 'unsafe-inline'`. It failed silently: the challenge
+ * errored, was never solved, and every protected endpoint then refused real
+ * visitors with a 403.
+ *
+ * The alternative was to widen script-src site-wide to accommodate code this
+ * site does not own, which would be strictly worse. A response that belongs
+ * to BotID is not this site's to govern. Everything else here — HSTS,
+ * nosniff, referrer policy, frame options — still applies to every path,
+ * because none of it constrains what a document may execute.
+ */
+export function securityHeaders(
+  { dev = false, csp = true }: { dev?: boolean; csp?: boolean } = {},
+): { key: string; value: string }[] {
   return [
-    { key: 'Content-Security-Policy', value: contentSecurityPolicy({ dev }) },
+    ...(csp ? [{ key: 'Content-Security-Policy', value: contentSecurityPolicy({ dev }) }] : []),
     // Two years, subdomains included, and preload-eligible. app.bis-rgv.com is
     // HTTPS-only on Vercel too, so includeSubDomains costs nothing.
     { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },

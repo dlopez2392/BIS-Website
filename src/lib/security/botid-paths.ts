@@ -26,3 +26,14 @@ const BOTID_CHALLENGE = new RegExp(`^/${UUID}(?:/|$)`);
 export function isBotIdChallengePath(pathname: string): boolean {
   return BOTID_CHALLENGE.test(pathname);
 }
+
+/**
+ * The same shape as a Next.js `headers()` / rewrite `source` pattern: every
+ * path EXCEPT a BotID challenge. Used to scope this site's CSP off responses
+ * that belong to BotID rather than to this app.
+ *
+ * Kept beside the predicate deliberately. These two express one rule, and the
+ * bug they exist for was expensive precisely because the rule was implicit in
+ * three different places.
+ */
+export const NON_BOTID_PATH_SOURCE = `/((?!${UUID}(?:/|$)).*)`;

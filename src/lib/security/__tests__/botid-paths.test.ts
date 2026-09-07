@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isBotIdChallengePath } from '../botid-paths';
+import { isBotIdChallengePath, NON_BOTID_PATH_SOURCE } from '../botid-paths';
 
 /**
  * The regression these lock down: the i18n middleware locale-redirected
@@ -46,5 +46,27 @@ describe('isBotIdChallengePath', () => {
     expect(isBotIdChallengePath('/149e9513-01fa-4fb0-aad4')).toBe(false);
     expect(isBotIdChallengePath(`/${A}extra`)).toBe(false);
     expect(isBotIdChallengePath(`/zzzzzzzz-01fa-4fb0-aad4-566afd725d1b`)).toBe(false);
+  });
+});
+
+describe('NON_BOTID_PATH_SOURCE', () => {
+  // Next.js compiles `source` with path-to-regexp; this approximates the match
+  // closely enough to prove the lookahead selects the right paths.
+  const re = new RegExp(`^${NON_BOTID_PATH_SOURCE.replace(/^\//, '\\/')}$`);
+  const A = '149e9513-01fa-4fb0-aad4-566afd725d1b';
+
+  it.each(['/', '/en', '/en/trust', '/api/chat', '/robots.txt', '/services'])(
+    'still covers %s, so the CSP applies to real pages', (path) => {
+      expect(re.test(path)).toBe(true);
+    });
+
+  it.each([`/${A}`, `/${A}/x`])('excludes the challenge path %s', (path) => {
+    expect(re.test(path)).toBe(false);
+  });
+
+  it('agrees with the predicate on every case', () => {
+    for (const p of ['/', '/en/trust', `/${A}`, `/${A}/b`, '/api/chat', `/en/${A}`]) {
+      expect(re.test(p)).toBe(!isBotIdChallengePath(p));
+    }
   });
 });
