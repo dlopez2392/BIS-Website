@@ -7,6 +7,7 @@ import {
   readTicketResponse, readMicError, transcriptFromEvent, secondsRemaining,
   formatRemaining, browserSupported, type SofiaFailure, type TranscriptLine,
 } from '@/lib/sofia/session';
+import type { SofiaPlacementId } from '@/lib/sofia/placements';
 
 type Phase = 'idle' | 'connecting' | 'live' | 'ended';
 
@@ -24,7 +25,9 @@ type Phase = 'idle' | 'connecting' | 'live' | 'ended';
  * tools here, which the panel says out loud rather than letting someone
  * believe they have been booked in.
  */
-export function TalkToSofia({ title, blurb }: { title?: string; blurb?: string } = {}) {
+export function TalkToSofia(
+  { title, blurb, placement }: { title?: string; blurb?: string; placement?: SofiaPlacementId } = {},
+) {
   const t = useTranslations('sofia');
   const [phase, setPhase] = useState<Phase>('idle');
   const [failure, setFailure] = useState<SofiaFailure | null>(null);
@@ -67,7 +70,10 @@ export function TalkToSofia({ title, blurb }: { title?: string; blurb?: string }
     }
 
     setPhase('connecting');
-    track('sofia_session_start');
+    // Tagged with where the visitor met her: the whole point of putting the
+    // panel on eight pages is being able to tell which of them earns a
+    // conversation, and an untagged event cannot answer that.
+    track('sofia_session_start', placement ? { placement } : undefined);
 
     try {
       // A JSON body on a request that needs none. BotID's client challenge
@@ -171,7 +177,7 @@ export function TalkToSofia({ title, blurb }: { title?: string; blurb?: string }
       setFailure('unavailable');
       setPhase('ended');
     }
-  }, [stop]);
+  }, [stop, placement]);
 
   const live = phase === 'live';
   const connecting = phase === 'connecting';
@@ -191,7 +197,7 @@ export function TalkToSofia({ title, blurb }: { title?: string; blurb?: string }
         {live ? (
           <button
             type="button"
-            onClick={() => { track('sofia_session_end'); stop('visitor'); }}
+            onClick={() => { track('sofia_session_end', placement ? { placement } : undefined); stop('visitor'); }}
             className="inline-flex items-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             <PhoneOff aria-hidden className="size-4" />

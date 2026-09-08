@@ -6,6 +6,7 @@ import { pageMetadata } from '@/lib/seo/metadata';
 import { breadcrumbSchema, BUSINESS_ID } from '@/lib/seo/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { CTASection } from '@/components/ui/CTASection';
+import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { industryPages, getIndustry, type IndustryWorkflow, type IndustryQuestion } from '@/lib/industries';
 import { cityPages } from '@/lib/cities';
 
@@ -104,6 +105,17 @@ export default async function IndustryPage(
       <section className="mx-auto max-w-4xl px-6 pt-14">
         <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.sofiaHeading')}</h2>
         <p className="mt-4 rounded-md bg-surface-alt p-6 text-ink">{t(`pages.${industry}.sofia`)}</p>
+        {/* The paragraph above is the argument, written for this trade. This
+            is the same argument the visitor can test for themselves without
+            dialling — which is the only version of it they have no reason to
+            discount. */}
+        <div className="mt-6">
+          <TalkToSofia
+            placement="industry"
+            title={t('shared.sofiaTryTitle')}
+            blurb={t('shared.sofiaTryBlurb')}
+          />
+        </div>
         <p className="mt-3 text-sm">
           <Link href="/work" className="text-link underline">{t('shared.sofiaLink')}</Link>
         </p>

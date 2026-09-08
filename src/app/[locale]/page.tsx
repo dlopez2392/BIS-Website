@@ -65,7 +65,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section id="talk-to-sofia" className="mx-auto max-w-4xl px-6 pb-4">
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
         <div className="mt-4">
-          <TalkToSofia title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
+          <TalkToSofia placement="home" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
         </div>
       </section>
 

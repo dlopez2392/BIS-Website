@@ -112,7 +112,10 @@
       "Entrega limpia"
     ],
     "ctaTitle": "¿Listo para desplegar una solución inteligente a la medida?",
-    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola."
+    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola.",
+    "sofiaKicker": "Pruebas, no diapositivas",
+    "sofiaTitle": "El primero ya contesta nuestro teléfono",
+    "sofiaBlurb": "Todo lo anterior es más fácil de creer si puedes comprobar una parte. Sofía es la nuestra — presiona el botón y pregúntale qué hacemos."
   },
   "industries": {
     "title": "Hecho para el Valle.",
@@ -144,7 +147,9 @@
       "citiesHeading": "Dónde trabajamos",
       "citiesBody": "Estamos en Harlingen y atendemos todo el Valle. Estas páginas cubren las ciudades por las que más nos preguntan.",
       "ctaTitle": "Empieza con una evaluación gratuita",
-      "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu negocio hoy y te mostramos la mejora que se paga sola primero."
+      "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu negocio hoy y te mostramos la mejora que se paga sola primero.",
+      "sofiaTryTitle": "Escúchala hacerlo",
+      "sofiaTryBlurb": "La misma Sofía, en vivo en tu navegador. Hazle las preguntas que te hacen tus clientes y juzga las respuestas tú mismo."
     },
     "pages": {
       "legal": {
@@ -378,7 +383,10 @@
     "formTitle": "Formulario de contacto",
     "formFallback": "Abrir el formulario en una pestaña nueva",
     "bookTitle": "Agenda una evaluación gratuita",
-    "poweredBy": "Este formulario y el agendador funcionan en la Plataforma BIS — la misma plataforma para clientes que configuramos para los negocios con los que trabajamos."
+    "poweredBy": "Este formulario y el agendador funcionan en la Plataforma BIS — la misma plataforma para clientes que configuramos para los negocios con los que trabajamos.",
+    "sofiaHeading": "¿Prefieres hablar?",
+    "sofiaTitle": "Pregúntale a Sofía en vez de llenar algo",
+    "sofiaBlurb": "Te responde qué hacemos y cómo trabajamos. Desde aquí no puede agendarte — para eso está el calendario de abajo."
   },
   "meta": {
     "title": "Bespoke Intelligent Solutions — IA, IT y Web para el Valle del Río Grande",
@@ -698,7 +706,9 @@
         "tryHeading": "Pruébalo tú mismo",
         "tryBody": "Toca para llamar. Pregúntale qué hace BIS, cámbiate al español a media llamada o reserva una evaluación gratuita y mira cómo te llega al correo.",
         "tryNote": "Las llamadas se transcriben y se resumen para poder darte un buen seguimiento.",
-        "tryNoteLink": "Cómo manejamos tu información"
+        "tryNoteLink": "Cómo manejamos tu información",
+        "tryBrowserTitle": "O habla con ella aquí mismo",
+        "tryBrowserBlurb": "Sin llamar. Tu navegador te pedirá el micrófono, y ella responde igual que en la línea."
       }
     },
     "nextHeading": "Qué sigue en esta página",
@@ -1076,7 +1086,7 @@
     "again": "Hablar otra vez",
     "connecting": "Conectando…",
     "end": "Terminar",
-    "limits": "Tu navegador te pedirá permiso para usar el micrófono. No se graba nada, y esta conversación no puede agendarte una cita — para eso usa el calendario de esta página o llama al número que aparece arriba. Las sesiones duran unos tres minutos.",
+    "limits": "Tu navegador te pedirá permiso para usar el micrófono. No se graba nada, y esta conversación no puede agendarte una cita — para eso, agenda una evaluación gratuita o llama al número que aparece arriba. Las sesiones duran unos tres minutos.",
     "transcript": "Subtítulos en vivo",
     "listening": "Escuchando. Saluda cuando estés listo.",
     "remaining": "Quedan {time} de esta conversación",

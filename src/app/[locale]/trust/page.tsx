@@ -73,7 +73,7 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
         {/* Directly under the claim it proves. This page tells a visitor that
             an AI answers our real line; the button lets them check that
             sentence in the same breath, without dialling or trusting us. */}
-        <div className="mt-6 not-prose"><TalkToSofia /></div>
+        <div className="mt-6 not-prose"><TalkToSofia placement="trust" /></div>
       </Section>
       <Section heading={t('regulatedHeading')}><p>{t('regulatedBody')}</p></Section>
 

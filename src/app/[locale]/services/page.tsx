@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ServiceGroup } from '@/components/marketing/ServiceGroup';
 import { CTASection } from '@/components/ui/CTASection';
+import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -28,6 +29,18 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-12">
         {groups.map((g) => <ServiceGroup key={g.title} {...g} />)}
+      </section>
+      {/* The page has just made three claims. Exactly one of them a stranger
+          can check in thirty seconds, so it goes here: after the argument,
+          before the ask. Held to the prose column rather than the 6xl page
+          width — a full-bleed panel reads as a banner, not an invitation. */}
+      <section className="mx-auto max-w-6xl px-6 pb-12">
+        <div className="max-w-4xl">
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
+          <div className="mt-4">
+            <TalkToSofia placement="services" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
+          </div>
+        </div>
       </section>
       <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
     </main>
