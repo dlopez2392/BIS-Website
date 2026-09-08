@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { Wordmark } from './Wordmark';
 
 export function Footer() {
   const t = useTranslations('footer');
@@ -7,7 +8,7 @@ export function Footer() {
     <footer className="vt-footer border-t border-hairline bg-surface-alt">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 sm:grid-cols-2 md:grid-cols-4">
         <div>
-          <p className="font-extrabold text-ink">bis&gt;</p>
+          <Wordmark className="block font-extrabold text-ink" />
           <p className="mt-2 text-sm text-ink-muted">{t('tagline')}</p>
         </div>
         <div>

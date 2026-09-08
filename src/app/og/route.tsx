@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { WORDMARK } from '@/lib/brand';
 
 export function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -35,7 +36,7 @@ export function GET(request: Request) {
               }}
             />
           </div>
-          <div style={{ fontSize: 56, fontWeight: 800, color: '#171528' }}>bis&gt;</div>
+          <div style={{ fontSize: 56, fontWeight: 800, color: '#171528' }}>{WORDMARK}</div>
         </div>
         <div style={{ fontSize: 64, fontWeight: 800, color: '#171528', lineHeight: 1.1 }}>{title}</div>
         <div style={{ fontSize: 30, color: '#7c3aed', fontWeight: 700 }}>

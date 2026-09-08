@@ -1,5 +1,6 @@
 import { Html, Head, Body, Container, Text, Link, Hr } from '@react-email/components';
 import { scanReportStrings, type EmailLocale } from './messages';
+import { WORDMARK } from '@/lib/brand';
 
 export interface ReportFinding {
   /** Already localized by the server from the site's own catalogue. */
@@ -52,7 +53,7 @@ export function ScanReport({ locale, name, domain, grade, points, headline, find
       <Head />
       <Body style={{ fontFamily: 'Arial, sans-serif', background: '#faf9ff' }}>
         <Container style={{ padding: '24px', background: '#ffffff', maxWidth: '640px' }}>
-          <Text style={{ fontWeight: 'bold' }}>bis&gt;</Text>
+          <Text style={{ fontWeight: 'bold' }}>{WORDMARK}</Text>
           <Text>{t.greeting(name)}</Text>
           <Text>{t.intro(domain)}</Text>
           <Text style={{ fontSize: '18px', fontWeight: 'bold' }}>{t.scoreLine(grade, points)}</Text>
