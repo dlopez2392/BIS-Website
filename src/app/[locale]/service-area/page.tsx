@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
-import { business } from '@/lib/seo/business';
+import { business, serviceAreaCities } from '@/lib/seo/business';
 import { cityPages } from '@/lib/cities';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -16,7 +16,7 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ lo
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'serviceArea' });
   const c = await getTranslations('common');
-  const cities = business.areaServed.filter((a) => a !== 'Rio Grande Valley');
+  const cities = serviceAreaCities;
 
   const jsonLd = {
     '@context': 'https://schema.org',

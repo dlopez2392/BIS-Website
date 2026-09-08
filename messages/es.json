@@ -721,7 +721,7 @@
       "provenLink": "Mira cómo funciona",
       "servicesLink": "Todo lo que hacemos",
       "otherCitiesHeading": "Otras ciudades que atendemos",
-      "backToAll": "Las 14 ciudades de nuestra área de servicio",
+      "backToAll": "Las {count} ciudades de nuestra área de servicio",
       "ctaTitle": "Veamos {city} juntos",
       "ctaBody": "Una evaluación gratuita es una conversación, no una venta. Vemos a dónde se te van realmente las horas y te decimos qué vale la pena automatizar — incluso cuando la respuesta honesta es que todavía nada."
     },

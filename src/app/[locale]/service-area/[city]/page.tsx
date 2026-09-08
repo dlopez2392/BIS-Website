@@ -4,6 +4,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { breadcrumbSchema, BUSINESS_ID } from '@/lib/seo/schema';
+import { serviceAreaCities } from '@/lib/seo/business';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { CallLink } from '@/components/layout/CallLink';
 import { cityPages, getCity, type CitySector } from '@/lib/cities';
@@ -122,7 +123,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
           ))}
         </ul>
         <Link href="/service-area" className="mt-4 inline-block text-sm text-link hover:underline">
-          {t('shared.backToAll')} →
+          {t('shared.backToAll', { count: serviceAreaCities.length })} →
         </Link>
       </nav>
     </main>
