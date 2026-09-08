@@ -721,7 +721,7 @@
       "provenLink": "See how it works",
       "servicesLink": "Everything we do",
       "otherCitiesHeading": "Other cities we serve",
-      "backToAll": "All 14 cities in our service area",
+      "backToAll": "All {count} cities in our service area",
       "ctaTitle": "Let's look at {city} together",
       "ctaBody": "A free assessment is a conversation, not a pitch. We look at where your hours actually go and tell you what's worth automating — including when the honest answer is nothing yet."
     },

@@ -3,9 +3,9 @@
  *
  * Deliberately NOT every city in `business.areaServed`. A location page earns
  * its place by having something specific to say about the businesses there —
- * five real pages beat thirteen near-duplicates, which search engines discount
- * as doorway pages anyway. The umbrella /service-area page still names all
- * fourteen.
+ * five real pages beat fifteen near-duplicates, which search engines discount
+ * as doorway pages anyway. The umbrella /service-area page still
+ * lists every one.
  *
  * Copy lives in the `cities` i18n namespace (cities.<id>.*), city names are
  * language-neutral proper nouns and stay here.
