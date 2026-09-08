@@ -12,7 +12,12 @@ export const business = {
   ],
   founder: 'Dan Lopez',
   languages: ['English', 'Spanish'],
-  sameAs: [] as string[], // add LinkedIn URL when available
+  // Profiles that are provably the same entity as this site. The cid form is
+  // the stable address of a Google listing; the /maps/place/ URL Google hands
+  // you carries coordinates and a session token, so it changes on every share.
+  sameAs: [
+    'https://maps.google.com/?cid=8116874814655673600', // Google Business Profile (verified 2026-09)
+  ] as string[], // add LinkedIn URL when available
 } as const;
 
 export const SITE_URL = business.url;

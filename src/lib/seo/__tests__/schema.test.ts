@@ -72,9 +72,18 @@ describe('businessSchema', () => {
     expect(en.logo).not.toContain('favicon.ico');
   });
 
-  it('omits sameAs while there are no profiles to point at', () => {
+  it('claims the Google Business Profile as the same entity as this site', () => {
+    // Without this, the listing and the website are two unrelated businesses
+    // to a search engine. cid is the stable address of a listing; the
+    // /maps/place/ URL Google hands you changes on every share.
+    expect(en.sameAs).toContain('https://maps.google.com/?cid=8116874814655673600');
+  });
+
+  it('lists every profile once, as an absolute https url', () => {
     // Guard against emitting `sameAs: []`, which asserts "no profiles exist".
     expect('sameAs' in en).toBe(business.sameAs.length > 0);
+    expect(new Set(business.sameAs).size).toBe(business.sameAs.length);
+    for (const url of business.sameAs) expect(url).toMatch(/^https:\/\//);
   });
 });
 
