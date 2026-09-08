@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { CallLink } from '@/components/layout/CallLink';
+import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { workCases } from '@/lib/work';
 
@@ -73,6 +74,12 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
                     {k('tryNoteLink')}
                   </Link>
                 </p>
+                {/* The page argues she answers a real line; the number above
+                    proves it to anyone willing to dial. Most readers are not,
+                    so the same conversation is offered without one. */}
+                <div className="mt-8 border-t border-hairline pt-8">
+                  <TalkToSofia placement="work" title={k('tryBrowserTitle')} blurb={k('tryBrowserBlurb')} />
+                </div>
               </div>
             )}
           </article>

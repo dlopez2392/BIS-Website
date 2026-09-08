@@ -26,4 +26,9 @@ export const workCaseTextKeys = [
 export const workCaseListKeys = ['facts', 'stack'] as const;
 
 /** Text keys required only by cases whose `cta` is 'call'. */
-export const workCallCtaKeys = ['tryHeading', 'tryBody', 'tryNote', 'tryNoteLink'] as const;
+export const workCallCtaKeys = [
+  'tryHeading', 'tryBody', 'tryNote', 'tryNoteLink',
+  // The browser panel offered alongside the number, for readers who
+  // will not dial one.
+  'tryBrowserTitle', 'tryBrowserBlurb',
+] as const;

@@ -4,6 +4,7 @@ import { PlatformEmbed } from '@/components/platform/PlatformEmbed';
 import { CallLink } from '@/components/layout/CallLink';
 import { WhatsAppLink } from '@/components/layout/WhatsAppLink';
 import { whatsappNumber } from '@/lib/whatsapp';
+import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -57,6 +58,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <p className="mt-4 text-xs text-ink-muted">{t('poweredBy')}</p>
         </div>
       </div>
+      {/* Deliberately above the scheduler, because its copy sends anyone who
+          actually wants an appointment down to it. Reversed, the panel would
+          be offering an alternative to something already behind them. */}
+      <section className="mt-20 border-t border-hairline pt-16">
+        <h2 className="text-3xl font-extrabold tracking-tight text-ink">{t('sofiaHeading')}</h2>
+        <div className="mt-8 max-w-3xl">
+          <TalkToSofia placement="contact" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
+        </div>
+      </section>
       <section className="mt-20 border-t border-hairline pt-16">
         <h2 className="text-3xl font-extrabold tracking-tight text-ink">{t('bookHeading')}</h2>
         <p className="mt-3 max-w-2xl text-ink-muted">{t('bookSubtext')}</p>

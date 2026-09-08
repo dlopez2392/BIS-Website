@@ -112,7 +112,10 @@
       "Clean handoff"
     ],
     "ctaTitle": "Ready to deploy a bespoke intelligent solution?",
-    "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself."
+    "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself.",
+    "sofiaKicker": "Proof, not a slide",
+    "sofiaTitle": "The first one is already answering our phone",
+    "sofiaBlurb": "Everything above is easier to believe if you can check one piece of it. Sofía is ours — press the button and ask her what we do."
   },
   "industries": {
     "title": "Built for the Valley.",
@@ -144,7 +147,9 @@
       "citiesHeading": "Where we work",
       "citiesBody": "We are based in Harlingen and serve the whole Valley. These pages cover the cities we are asked about most.",
       "ctaTitle": "Start with a free assessment",
-      "ctaBody": "Thirty minutes, no pitch. We look at how your business runs today and show you the one improvement that pays for itself first."
+      "ctaBody": "Thirty minutes, no pitch. We look at how your business runs today and show you the one improvement that pays for itself first.",
+      "sofiaTryTitle": "Hear her do it",
+      "sofiaTryBlurb": "The same Sofía, live in your browser. Ask her the questions your customers ask and judge the answers yourself."
     },
     "pages": {
       "legal": {
@@ -378,7 +383,10 @@
     "formTitle": "Contact form",
     "formFallback": "Open the form in a new tab",
     "bookTitle": "Book a free assessment",
-    "poweredBy": "This form and scheduler run on the BIS Platform — the same client platform we set up for the businesses we work with."
+    "poweredBy": "This form and scheduler run on the BIS Platform — the same client platform we set up for the businesses we work with.",
+    "sofiaHeading": "Rather just talk?",
+    "sofiaTitle": "Ask Sofía instead of filling anything in",
+    "sofiaBlurb": "She will answer questions about what we do and how we work. She cannot book you in from here — the scheduler below does that."
   },
   "meta": {
     "title": "Bespoke Intelligent Solutions — AI, IT & Web for the Rio Grande Valley",
@@ -698,7 +706,9 @@
         "tryHeading": "Try it yourself",
         "tryBody": "Tap to call. Ask her what BIS does, switch to Spanish halfway through, or book a free assessment and watch it land in your inbox.",
         "tryNote": "Calls are transcribed and summarized so we can follow up properly.",
-        "tryNoteLink": "How we handle your information"
+        "tryNoteLink": "How we handle your information",
+        "tryBrowserTitle": "Or talk to her right here",
+        "tryBrowserBlurb": "No phone call. Your browser will ask for your microphone, and she answers the same way she answers the line."
       }
     },
     "nextHeading": "What goes here next",
@@ -1076,7 +1086,7 @@
     "again": "Talk again",
     "connecting": "Connecting…",
     "end": "End",
-    "limits": "Your browser will ask to use your microphone. Nothing is recorded, and this conversation cannot book you in — for that, use the scheduler on this page or call the number in the header. Sessions run about three minutes.",
+    "limits": "Your browser will ask to use your microphone. Nothing is recorded, and this conversation cannot book you in — for that, book a free assessment or call the number in the header. Sessions run about three minutes.",
     "transcript": "Live captions",
     "listening": "Listening. Say hello when you are ready.",
     "remaining": "{time} left in this conversation",
