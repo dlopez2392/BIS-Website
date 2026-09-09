@@ -48,14 +48,14 @@ export function Header() {
           {/* Icon-only tap-to-call, one tap with no menu — mobile visitors are the ones who dial. */}
           <CallLink
             withNumber={false}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-hairline text-ink hover:bg-surface-alt md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-ctl border border-hairline text-ink hover:bg-surface-alt md:hidden"
           />
           {/* Beside tap-to-call, because the phone is where a Valley visitor
               is already holding the site. */}
           <WhatsAppLink
             number={whatsapp}
             iconSize={18}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-hairline text-ink hover:bg-surface-alt md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-ctl border border-hairline text-ink hover:bg-surface-alt md:hidden"
           />
           <MobileNav />
         </div>

@@ -183,7 +183,7 @@ export function TalkToSofia(
   const connecting = phase === 'connecting';
 
   return (
-    <div className="rounded-2xl border border-hairline bg-surface-alt p-6 sm:p-8">
+    <div className="rounded-card border border-hairline bg-surface-alt p-6 sm:p-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           {/* Overridable because the two places this appears are making
@@ -198,7 +198,7 @@ export function TalkToSofia(
           <button
             type="button"
             onClick={() => { track('sofia_session_end', placement ? { placement } : undefined); stop('visitor'); }}
-            className="inline-flex items-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            className="inline-flex items-center gap-2 rounded-pill bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             <PhoneOff aria-hidden className="size-4" />
             {t('end')}
@@ -208,7 +208,7 @@ export function TalkToSofia(
             type="button"
             onClick={start}
             disabled={connecting}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="inline-flex items-center gap-2 rounded-pill bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             {connecting
               ? <Loader2 aria-hidden className="size-4 animate-spin" />
@@ -228,7 +228,7 @@ export function TalkToSofia(
       </div>
 
       {failure && (
-        <p data-testid="sofia-error" className="mt-4 rounded-xl border border-hairline bg-surface p-4 text-sm text-ink">
+        <p data-testid="sofia-error" className="mt-4 rounded-card border border-hairline bg-surface p-4 text-sm text-ink">
           {t(`errors.${failure}`)}
         </p>
       )}
@@ -248,7 +248,7 @@ export function TalkToSofia(
           </div>
           <div
             ref={logRef}
-            className="mt-2 max-h-64 space-y-3 overflow-y-auto rounded-xl border border-hairline bg-surface p-4"
+            className="mt-2 max-h-64 space-y-3 overflow-y-auto rounded-card border border-hairline bg-surface p-4"
           >
             {lines.length === 0 ? (
               <p className="text-sm text-ink-muted">{t('listening')}</p>

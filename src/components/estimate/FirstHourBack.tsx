@@ -39,7 +39,7 @@ function Field({
           value={Number.isFinite(value) ? value : ''}
           aria-describedby={`${id}-help`}
           onChange={(e) => onChange(e.target.value === '' ? 0 : Number(e.target.value))}
-          className="w-28 rounded-md border border-hairline bg-surface px-3 py-2 tabular-nums text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+          className="w-28 rounded-ctl border border-hairline bg-surface px-3 py-2 tabular-nums text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
         />
         {suffix && <span aria-hidden="true" className="text-ink-muted">{suffix}</span>}
         <input
@@ -106,13 +106,13 @@ export function FirstHourBack() {
 
       <div aria-live="polite">
         {!result.hasInput ? (
-          <div className="rounded-md border border-hairline bg-surface-alt p-6">
+          <div className="rounded-ctl border border-hairline bg-surface-alt p-6">
             <h2 className="font-bold text-ink">{t('emptyHeading')}</h2>
             <p className="mt-2 text-ink-muted">{t('emptyBody')}</p>
           </div>
         ) : (
           <>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('resultHeading')}</h2>
+            <h2 className="label">{t('resultHeading')}</h2>
             <ul className="mt-2 divide-y divide-hairline border-y border-hairline">
               {result.hoursPerWeek > 0 && (
                 <Line
@@ -132,8 +132,8 @@ export function FirstHourBack() {
               )}
             </ul>
 
-            <div className="mt-8 rounded-md bg-surface-alt p-6">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-accent">{t('assumptionsHeading')}</h3>
+            <div className="mt-8 rounded-ctl bg-surface-alt p-6">
+              <h3 className="label">{t('assumptionsHeading')}</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-ink-muted">
                 <li>{t('assumption1', { callRate: Math.round(CALL_CAPTURE_RATE * 100) })}</li>
                 <li>{t('assumption2', { adminRate: Math.round(ADMIN_AUTOMATION_RATE * 100) })}</li>
@@ -142,12 +142,12 @@ export function FirstHourBack() {
               </ul>
             </div>
 
-            <div className="mt-8 rounded-md border border-hairline p-6">
+            <div className="mt-8 rounded-ctl border border-hairline p-6">
               <h3 className="text-xl font-bold text-ink">{t('ctaHeading')}</h3>
               <p className="mt-2 text-ink-muted">{t('ctaBody')}</p>
               <Link
                 href="/contact"
-                className="mt-4 inline-block rounded-md bg-primary px-6 py-3 font-semibold text-on-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+                className="mt-4 inline-block rounded-ctl bg-primary px-6 py-3 font-semibold text-on-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
               >
                 {t('ctaButton')}
               </Link>

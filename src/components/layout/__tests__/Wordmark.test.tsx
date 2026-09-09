@@ -11,12 +11,15 @@ const read = (f: string) => JSON.parse(fs.readFileSync(path.join(process.cwd(), 
 describe('Wordmark', () => {
   it('sets the initialism in caps', () => {
     const { container } = render(<Wordmark />);
-    expect(container.textContent).toBe('BIS>');
+    expect(container.querySelector('[aria-hidden="true"]')?.textContent).toBe('BIS>');
   });
 
-  it('announces the company name, not the two characters on screen', () => {
+  it('announces the company name, not the characters on screen', () => {
     render(<Wordmark />);
-    expect(screen.getByLabelText(business.name)).toBeTruthy();
+    // Visually-hidden text rather than aria-label: a roleless <span> may not
+    // carry an accessible name, and the first version of this shipped one.
+    expect(screen.getByText(business.name)).toBeTruthy();
+    expect(screen.getByText(business.name).className).toContain('sr-only');
   });
 
   it('is spelled in exactly one file', () => {

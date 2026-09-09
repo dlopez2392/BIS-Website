@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { MARK_GRADIENT } from '@/lib/brand-palette';
 
 // iOS home-screen icon. Apple ignores SVG and does not round the corners for
 // you, so this is a real 180x180 raster with the radius baked in.
@@ -15,7 +16,7 @@ export default function AppleIcon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #7c3aed 0%, #0e7490 100%)',
+          background: MARK_GRADIENT,
           borderRadius: 40,
         }}
       >

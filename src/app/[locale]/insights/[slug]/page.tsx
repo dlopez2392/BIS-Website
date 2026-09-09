@@ -55,7 +55,7 @@ export default async function InsightPostPage(
         })}
       />
       <Link href="/insights" className="text-sm text-link hover:underline">{t('backToInsights')}</Link>
-      <p className="mt-8 text-xs font-bold uppercase tracking-widest text-accent">{t(`categories.${meta.category}`)}</p>
+      <p className="mt-8 label">{t(`categories.${meta.category}`)}</p>
       <h1 className="mt-3 text-4xl font-extrabold leading-tight text-ink">{meta.title}</h1>
       <p className="mt-3 text-sm text-ink-muted">
         {formatDate(loc, meta.date)} · {t('minRead', { minutes: meta.readingMinutes })}

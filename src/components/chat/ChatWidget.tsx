@@ -99,7 +99,7 @@ export function ChatWidget() {
           ref={panelRef}
           role="dialog"
           aria-label={t('title')}
-          className="flex h-[30rem] w-[21rem] flex-col rounded-xl border border-hairline bg-surface-alt shadow-xl sm:w-96"
+          className="flex h-[30rem] w-[21rem] flex-col rounded-card border border-hairline bg-surface-alt shadow-xl sm:w-96"
         >
           <div className="flex items-center justify-between border-b border-hairline px-4 py-3">
             <span className="font-bold text-ink">{t('title')}</span>
@@ -120,8 +120,8 @@ export function ChatWidget() {
               {messages.map((m) => (
                 <li key={m.id} className={m.role === 'user' ? 'text-right' : ''}>
                   <span className={m.role === 'user'
-                    ? 'inline-block rounded-lg bg-primary px-3 py-2 text-left text-on-primary'
-                    : 'inline-block rounded-lg bg-surface px-3 py-2 text-ink'}>
+                    ? 'inline-block rounded-ctl bg-primary px-3 py-2 text-left text-on-primary'
+                    : 'inline-block rounded-ctl bg-surface px-3 py-2 text-ink'}>
                     {m.parts.filter((p) => p.type === 'text').map((p, i) => (
                       <span key={i}>{linkify((p as { text: string }).text)}</span>
                     ))}
@@ -133,14 +133,14 @@ export function ChatWidget() {
             {/* A blank box tells a visitor nothing about what this can do. */}
             {messages.length === 0 && (
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('suggestionsLabel')}</p>
+                <p className="label">{t('suggestionsLabel')}</p>
                 <ul className="mt-2 space-y-2">
                   {SUGGESTIONS.map((key) => (
                     <li key={key}>
                       <button
                         type="button"
                         onClick={() => send(t(key))}
-                        className="w-full rounded-lg border border-hairline px-3 py-2 text-left text-ink hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+                        className="w-full rounded-ctl border border-hairline px-3 py-2 text-left text-ink hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
                       >
                         {t(key)}
                       </button>
@@ -157,7 +157,7 @@ export function ChatWidget() {
                   <span
                     key={i}
                     aria-hidden="true"
-                    className="h-1.5 w-1.5 rounded-full bg-ink-muted motion-safe:animate-pulse"
+                    className="h-1.5 w-1.5 rounded-pill bg-ink-muted motion-safe:animate-pulse"
                     style={{ animationDelay: `${i * 160}ms` }}
                   />
                 ))}
@@ -175,14 +175,14 @@ export function ChatWidget() {
                 non-browser caller; what a person reads here is this copy,
                 which also gives them a phone number. */}
             {error && (
-              <div data-testid="chat-error" role="alert" className="rounded-lg border border-hairline bg-surface p-3">
+              <div data-testid="chat-error" role="alert" className="rounded-ctl border border-hairline bg-surface p-3">
                 <p className="font-semibold text-ink">{t('errorHeading')}</p>
                 <p className="mt-1 text-ink-muted">{t('errorFallback')}</p>
               </div>
             )}
 
             {atLimit && (
-              <div className="rounded-lg border border-hairline bg-surface p-3">
+              <div className="rounded-ctl border border-hairline bg-surface p-3">
                 <p className="text-ink">{t('limitReached')}</p>
                 <Link href="/contact" className="mt-2 inline-block font-semibold text-link underline">
                   {t('limitCta')}
@@ -205,13 +205,13 @@ export function ChatWidget() {
               placeholder={t('placeholder')}
               aria-label={t('placeholder')}
               disabled={atLimit}
-              className="flex-1 rounded-md border border-hairline bg-surface px-3 py-2 text-sm text-ink disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+              className="flex-1 rounded-ctl border border-hairline bg-surface px-3 py-2 text-sm text-ink disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
             />
             <button
               type="submit"
               aria-label={t('send')}
               disabled={busy || atLimit}
-              className="rounded-md bg-primary px-3 text-on-primary disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+              className="rounded-ctl bg-primary px-3 text-on-primary disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
             >
               <Send size={16} />
             </button>
@@ -223,7 +223,7 @@ export function ChatWidget() {
           data-testid="chat-launcher"
           aria-label={t('open')}
           onClick={() => setOpen(true)}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-on-primary shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+          className="flex h-14 w-14 items-center justify-center rounded-pill bg-primary text-on-primary shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
         >
           <MessageCircle size={24} />
         </button>

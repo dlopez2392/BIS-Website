@@ -113,15 +113,15 @@ function ReportRequest({ domain, locale }: { domain: string; locale: string }) {
 
   if (state === 'sent') {
     return (
-      <div role="status" className="mt-8 rounded-md border border-hairline bg-surface-alt p-6">
+      <div role="status" className="mt-8 rounded-ctl border border-hairline bg-surface-alt p-6">
         <p className="text-ink">{t('reportSent')}</p>
       </div>
     );
   }
 
-  const field = 'w-full rounded-md border border-hairline bg-surface px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link';
+  const field = 'w-full rounded-ctl border border-hairline bg-surface px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link';
   return (
-    <form onSubmit={submit} className="mt-8 rounded-md border border-hairline bg-surface-alt p-6" noValidate>
+    <form onSubmit={submit} className="mt-8 rounded-ctl border border-hairline bg-surface-alt p-6" noValidate>
       <h3 className="text-xl font-bold text-ink">{t('reportHeading')}</h3>
       <p className="mt-2 text-ink-muted">{t('reportBody')}</p>
       <input ref={honeypot} type="text" tabIndex={-1} autoComplete="off" aria-hidden="true"
@@ -138,7 +138,7 @@ function ReportRequest({ domain, locale }: { domain: string; locale: string }) {
         </div>
       </div>
       <button type="submit" disabled={state === 'sending'}
-        className="mt-4 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 font-semibold text-on-primary disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link">
+        className="mt-4 inline-flex items-center gap-2 rounded-ctl bg-primary px-6 py-3 font-semibold text-on-primary disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link">
         {state === 'sending' ? <Loader2 aria-hidden="true" className="h-4 w-4 motion-safe:animate-spin" /> : <Mail aria-hidden="true" className="h-4 w-4" />}
         {state === 'sending' ? t('reportSending') : t('reportSubmit')}
       </button>
@@ -186,13 +186,13 @@ export function SecurityCheckForm() {
             onChange={(e) => setValue(e.target.value)}
             placeholder={t('placeholder')}
             aria-describedby="scan-disclaimer"
-            className="w-full rounded-md border border-hairline bg-surface px-4 py-3 text-ink placeholder:text-ink-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+            className="w-full rounded-ctl border border-hairline bg-surface px-4 py-3 text-ink placeholder:text-ink-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
           />
         </div>
         <button
           type="submit"
           disabled={busy}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 font-semibold text-white disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+          className="inline-flex items-center justify-center gap-2 rounded-ctl bg-primary px-6 py-3 font-semibold text-white disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
         >
           {busy && <Loader2 aria-hidden="true" className="h-4 w-4 motion-safe:animate-spin" />}
           {busy ? t('checking') : t('submit')}
@@ -203,7 +203,7 @@ export function SecurityCheckForm() {
 
       <div aria-live="polite">
         {result && !result.ok && (
-          <p role="alert" className="mt-8 rounded-md border border-hairline bg-surface-alt p-4 text-ink">
+          <p role="alert" className="mt-8 rounded-ctl border border-hairline bg-surface-alt p-4 text-ink">
             {t(`errors.${ERROR_KEY[result.error]}`)}
           </p>
         )}
@@ -221,20 +221,20 @@ export function SecurityCheckForm() {
 
             {result.headline.length > 0 ? (
               <div className="mt-8">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-accent">{t('fixFirstHeading')}</h3>
+                <h3 className="label">{t('fixFirstHeading')}</h3>
                 <ul className="mt-2 divide-y divide-hairline">
                   {result.headline.map((f) => <FindingRow key={f.id} finding={f} />)}
                 </ul>
               </div>
             ) : (
-              <div className="mt-8 rounded-md bg-surface-alt p-6">
+              <div className="mt-8 rounded-ctl bg-surface-alt p-6">
                 <h3 className="font-bold text-ink">{t('allClearHeading')}</h3>
                 <p className="mt-2 text-ink-muted">{t('allClearBody')}</p>
               </div>
             )}
 
             <div className="mt-10">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-accent">{t('detailHeading')}</h3>
+              <h3 className="label">{t('detailHeading')}</h3>
               <ul className="mt-2 divide-y divide-hairline">
                 {result.findings.map((f) => (
                   <FindingRow key={f.id} finding={f} compact={result.headline.some((h) => h.id === f.id)} />
@@ -244,12 +244,12 @@ export function SecurityCheckForm() {
 
             <ReportRequest domain={result.domain} locale={locale} />
 
-            <div className="mt-10 rounded-md border border-hairline bg-surface-alt p-6">
+            <div className="mt-10 rounded-ctl border border-hairline bg-surface-alt p-6">
               <h3 className="text-xl font-bold text-ink">{t('ctaHeading')}</h3>
               <p className="mt-2 text-ink-muted">{t('ctaBody')}</p>
               <Link
                 href="/contact"
-                className="mt-4 inline-block rounded-md bg-primary px-6 py-3 font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+                className="mt-4 inline-block rounded-ctl bg-primary px-6 py-3 font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
               >
                 {t('ctaButton')}
               </Link>

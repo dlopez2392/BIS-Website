@@ -67,7 +67,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
         })}
       />
 
-      <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.eyebrow')}</p>
+      <p className="label">{t('shared.eyebrow')}</p>
       <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink">{t(`${city}.heading`)}</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-muted">{t(`${city}.intro`)}</p>
 
@@ -75,7 +75,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
         <h2 className="text-2xl font-extrabold text-ink">{t('shared.sectorsHeading', { city: entry.name })}</h2>
         <div className="mt-6 space-y-6">
           {sectors.map((sector) => (
-            <div key={sector.title} className="rounded-xl border border-hairline bg-surface-alt p-6 sm:p-8">
+            <div key={sector.title} className="rounded-card border border-hairline bg-surface-alt p-6 sm:p-8">
               <h3 className="text-xl font-bold text-ink">{sector.title}</h3>
               <p className="mt-2 text-ink-muted">{sector.body}</p>
             </div>
@@ -86,16 +86,16 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
         </Link>
       </section>
 
-      <section className="mt-14 rounded-xl border border-hairline bg-surface-alt p-8">
+      <section className="mt-14 rounded-card border border-hairline bg-surface-alt p-8">
         <h2 className="text-2xl font-bold text-ink">{t('shared.howHeading')}</h2>
         <p className="mt-3 text-ink-muted">{t(`${city}.howBody`)}</p>
       </section>
 
-      <section className="mt-8 rounded-xl border border-hairline bg-primary/5 p-8">
+      <section className="mt-8 rounded-card border border-hairline bg-primary/5 p-8">
         <h2 className="text-2xl font-bold text-ink">{t('shared.provenHeading')}</h2>
         <p className="mt-3 text-ink-muted">{t('shared.provenBody')}</p>
         <div className="mt-5 flex flex-wrap items-center gap-4">
-          <CallLink className="inline-flex items-center gap-3 rounded-lg bg-primary px-5 py-3 text-lg font-extrabold text-on-primary" />
+          <CallLink className="inline-flex items-center gap-3 rounded-ctl bg-primary px-5 py-3 text-lg font-extrabold text-on-primary" />
           <Link href="/work" className="text-link hover:underline">{t('shared.provenLink')} →</Link>
         </div>
       </section>
@@ -103,19 +103,19 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
       <section className="mt-14">
         <h2 className="text-2xl font-extrabold text-ink">{t('shared.ctaTitle', { city: entry.name })}</h2>
         <p className="mt-2 text-ink-muted">{t('shared.ctaBody')}</p>
-        <Link href="/contact" className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-bold text-on-primary">
+        <Link href="/contact" className="mt-6 inline-block rounded-ctl bg-primary px-6 py-3 font-bold text-on-primary">
           {c('cta')}
         </Link>
       </section>
 
       <nav className="mt-16 border-t border-hairline pt-8">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-ink-muted">{t('shared.otherCitiesHeading')}</h2>
+        <h2 className="label">{t('shared.otherCitiesHeading')}</h2>
         <ul className="mt-4 flex flex-wrap gap-2">
           {others.map((o) => (
             <li key={o.id}>
               <Link
                 href={`/service-area/${o.id}`}
-                className="inline-block rounded-full border border-hairline bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink hover:border-primary hover:text-link"
+                className="inline-block rounded-pill border border-hairline bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink hover:border-primary hover:text-link"
               >
                 {o.name}
               </Link>

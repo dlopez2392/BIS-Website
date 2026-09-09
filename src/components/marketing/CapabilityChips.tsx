@@ -11,8 +11,8 @@ export function CapabilityChips({
             key={item}
             className={
               emphatic
-                ? 'rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-ink'
-                : 'rounded-full border border-hairline bg-surface-alt px-3 py-1.5 text-sm text-ink-muted'
+                ? 'rounded-pill border border-primary/40 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-ink'
+                : 'rounded-pill border border-hairline bg-surface-alt px-3 py-1.5 text-sm text-ink-muted'
             }
           >
             {item}

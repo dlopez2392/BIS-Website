@@ -2,52 +2,182 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ============================================================
+   Foundation — shared with app.bis-rgv.com
+
+   These are the platform's design tokens, value for value, from
+   bis-platform/apps/web/src/styles/tokens.css. The marketing site and the
+   product are one company; a client who signs in from here should land on
+   the same surfaces, the same violet and the same shapes rather than on
+   what looks like someone else's software.
+
+   Components keep consuming the semantic names they already use
+   (--color-ink, --color-surface-alt …). Those are aliases onto the ladder
+   below, so the palette has ONE source and 77 files did not have to change
+   their class names to adopt it.
+
+   Two deliberate deviations from the platform, both documented at the
+   token that carries them: the label colour, and the dark-mode button
+   foreground.
+   ============================================================ */
+
+/* ---------- light (default) ---------- */
 :root {
-  --color-surface: #faf9ff;
-  --color-surface-alt: #ffffff;
-  --color-ink: #171528;
-  --color-ink-muted: #4a4763;
-  --color-primary: #7c3aed;
-  --color-on-primary: #ffffff;
-  /* Text links, split out from --color-primary because one token cannot serve
-     both roles: a button fill wants to be dark enough for white text, a link
-     wants to be light enough to read ON the background. Identical to primary
-     here; in dark mode they diverge. */
-  --color-link: #7c3aed;
-  /* cyan-700, not cyan-600: accent is used for small uppercase labels, and
-     #0891b2 measured 3.52:1 on this surface — below the 4.5:1 AA floor for
-     text that size. Pinned by src/lib/__tests__/contrast.test.ts. */
-  --color-accent: #0e7490;
-  --color-hairline: #e7e3f5;
+  /* surface ladder: page → card → nested → raised. Four steps, never more:
+     a fifth means the layout needs redesigning, not another colour. */
+  --surface-0: #f6f5fa;
+  --surface-1: #ffffff;
+  --surface-2: #ffffff;
+  --surface-3: #f1eff7;
+
+  --line:        #e8e5f0;  /* structural borders */
+  --line-strong: #d8d4e6;  /* interactive edges  */
+
+  --text-1: #1d1930;
+  --text-2: #5d5876;
+  /* Decoration only — 3.22:1 on --surface-0. The platform uses this for its
+     micro-labels; this site cannot, because the same labels here are body-
+     sized marketing copy that has to clear AA. See --color-accent-label. */
+  --text-3: #8b86a0;
+
+  --accent:        #6d28d9;
+  --accent-strong: #5b21b8;
+  --accent-dim:    rgba(109, 40, 217, .09);
+  --ring-glow:     rgba(109, 40, 217, .28);
+
+  /* status — always rendered as dot + word, never colour alone */
+  --good: #15803d;  --good-bg: rgba(21, 128, 61, .10);
+  --warn: #b45309;  --warn-bg: rgba(180, 83, 9, .10);
+  --crit: #b91c1c;  --crit-bg: rgba(185, 28, 28, .09);
+
+  /* elevation: light mode = small tight shadows */
+  --shadow-card: 0 1px 2px rgba(29, 25, 48, .05), 0 10px 28px -18px rgba(29, 25, 48, .18);
+
+  /* ---- semantic aliases: the names this site's components already use ---- */
+  --color-surface:     var(--surface-0);
+  --color-surface-alt: var(--surface-1);
+  --color-surface-sunk: var(--surface-3);
+  --color-ink:         var(--text-1);
+  --color-ink-muted:   var(--text-2);
+  --color-ink-faint:   var(--text-3);
+  --color-hairline:    var(--line);
+  --color-hairline-strong: var(--line-strong);
+  --color-primary:     var(--accent);
+  --color-on-primary:  #ffffff;
+  /* Links stay split from the button fill. One token cannot serve both: a
+     fill wants to be dark enough for its foreground, a link wants to be
+     readable ON the page. They agree in light mode and diverge in dark. */
+  --color-link:        var(--accent);
+  /* Was cyan. The platform has no second hue — status colours are reserved
+     for status — so the eyebrow labels this token used to tint are now the
+     .label role below, and `accent` means what it means in the app: violet. */
+  --color-accent:      var(--accent);
+  /* The label colour, split out because the platform's own choice (--text-3)
+     measures 3.22:1 and these labels are text. --text-2 is the same role one
+     step up the ramp: 6.20:1 on the page, 6.72:1 on a card. */
+  --color-accent-label: var(--text-2);
+
   --font-sans: var(--font-hanken), system-ui, sans-serif;
+  /* No new font is downloaded for this. The platform sets micro-labels in
+     Geist Mono; keeping Hanken as the site's only web font was a deliberate
+     call, so the label role borrows the reader's own mono face instead —
+     same texture, same tracking, zero bytes. */
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", monospace;
 }
 
+/* ---------- dark ---------- */
 .dark {
-  --color-surface: #0b0a18;
-  --color-surface-alt: #14122a;
-  --color-ink: #f3f0ff;
-  --color-ink-muted: #b9b2d6;
-  --color-primary: #8b5cf6;
-  --color-on-primary: #ffffff;
-  /* #8b5cf6 as link text measured 4.31:1 on surface-alt — below AA, and cards
-     are where most links live. Lightening primary itself would have dropped
-     white-on-button to 2.72:1, so the roles split instead. */
-  --color-link: #a78bfa;
-  --color-accent: #22d3ee;
-  --color-hairline: #262340;
+  --surface-0: #0e0d14;
+  --surface-1: #16141e;
+  --surface-2: #1d1a28;
+  --surface-3: #252132;
+
+  --line:        #28243a;
+  --line-strong: #38334f;
+
+  --text-1: #f2f0f7;
+  --text-2: #a9a3bd;
+  --text-3: #6f6987;        /* decoration only — 3.72:1 */
+
+  --accent:        #8b7cf7;
+  --accent-strong: #a99eff;
+  --accent-dim:    rgba(139, 124, 247, .14);
+  --ring-glow:     rgba(139, 124, 247, .35);
+
+  --good: #4ade97;  --good-bg: rgba(74, 222, 151, .12);
+  --warn: #f0b35e;  --warn-bg: rgba(240, 179, 94, .12);
+  --crit: #f2708a;  --crit-bg: rgba(242, 112, 138, .12);
+
+  /* elevation: dark mode = inner top highlight + soft ambient, no grey blurs */
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 8px 24px -12px rgba(0, 0, 0, .6);
+
+  /* ---- semantic aliases ---- */
+  --color-surface:     var(--surface-0);
+  --color-surface-alt: var(--surface-1);
+  --color-surface-sunk: var(--surface-3);
+  --color-ink:         var(--text-1);
+  --color-ink-muted:   var(--text-2);
+  --color-ink-faint:   var(--text-3);
+  --color-hairline:    var(--line);
+  --color-hairline-strong: var(--line-strong);
+  --color-primary:     var(--accent);
+  /* Dark text on the violet, not white — the platform's own resolution, and
+     an improvement on what this site shipped: white on #8b7cf7 is 3.32:1,
+     #111111 on it is 5.69:1. */
+  --color-on-primary:  #111111;
+  /* --accent as link text measures 5.49:1 on a card, which passes; the
+     brighter step measures 7.83:1, and most links on this site live on
+     cards. Taking the headroom. */
+  --color-link:        var(--accent-strong);
+  --color-accent:      var(--accent);
+  --color-accent-label: var(--text-2);
 }
 
 @theme inline {
   --color-surface: var(--color-surface);
   --color-surface-alt: var(--color-surface-alt);
+  --color-surface-sunk: var(--color-surface-sunk);
   --color-ink: var(--color-ink);
   --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
   --color-primary: var(--color-primary);
   --color-on-primary: var(--color-on-primary);
   --color-link: var(--color-link);
   --color-accent: var(--color-accent);
   --color-hairline: var(--color-hairline);
+  --color-hairline-strong: var(--color-hairline-strong);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-crit: var(--crit);
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Three radii, no others. `rounded-ctl` for anything you click or type in,
+     `rounded-card` for anything that contains, `rounded-pill` for pills. */
+  --radius-ctl: 8px;
+  --radius-card: 11px;
+  --radius-pill: 999px;
+
+  --shadow-card: var(--shadow-card);
+
+  /* Every bare `transition` utility on the site now moves on the platform's
+     curve, without a single class changing. */
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: cubic-bezier(.2, .7, .3, 1);
+}
+
+/* The platform's micro-label role, at marketing scale.
+   Mono, uppercase, +0.14em, weight 500 — the platform's treatment exactly.
+   The size is 11px rather than its 10px: the app sets these beside 13px UI
+   text, this site sets them above 48px headlines, and a label reads as an
+   accident of scale if it does not hold its own against what follows it. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-accent-label);
 }
 
 body {
@@ -106,15 +236,15 @@ body {
   display: grid;
   grid-template-rows: 1fr auto;
   min-height: calc(100svh - var(--header-h));
-  background: #0b0a18;
+  background: #0e0d14;
   color: var(--hero-text);
 }
 .hero-photo {
   position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(900px 520px at 18% 6%, rgba(124, 58, 237, 0.45), transparent 62%),
-    radial-gradient(760px 480px at 88% 34%, rgba(14, 116, 144, 0.40), transparent 60%),
-    #0b0a18;
+    radial-gradient(900px 520px at 18% 6%, rgba(109, 40, 217, 0.48), transparent 62%),
+    radial-gradient(760px 480px at 88% 34%, rgba(139, 124, 247, 0.30), transparent 60%),
+    #0e0d14;
 }
 .hero-photo video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
@@ -127,14 +257,14 @@ body {
    the gradient fallback already carries the colors itself. */
 .hero-tint {
   position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(118deg, #7c3aed 0%, #6d4bd8 38%, #3a7fb0 68%, #22d3ee 100%);
+  background: linear-gradient(118deg, #6d28d9 0%, #7c4ddb 38%, #8b7cf7 72%, #a99eff 100%);
   mix-blend-mode: color; opacity: 0; transition: opacity 1.2s ease;
 }
 .hero-photo video.is-in ~ .hero-tint { opacity: 0.85; }
 /* The scrim is only what the stats row needs to stay legible over any frame. */
 .hero-photo::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(11, 10, 24, 0.18) 0%, rgba(11, 10, 24, 0) 28%, rgba(11, 10, 24, 0.22) 62%, rgba(11, 10, 24, 0.82) 100%);
+  background: linear-gradient(180deg, rgba(14, 13, 20, 0.18) 0%, rgba(14, 13, 20, 0) 28%, rgba(14, 13, 20, 0.22) 62%, rgba(14, 13, 20, 0.82) 100%);
 }
 .hero-grain {
   position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0.08; mix-blend-mode: soft-light;
@@ -151,8 +281,8 @@ body {
 }
 .badge {
   display: inline-flex; align-items: center; gap: 8px;
-  margin: 0 0 22px; padding: 9px 15px; border: 0; border-radius: 5px;
-  background: linear-gradient(90deg, #7c3aed 0%, #3b2477 52%, #14122a 100%);
+  margin: 0 0 22px; padding: 9px 15px; border: 0; border-radius: var(--radius-ctl);
+  background: linear-gradient(90deg, #6d28d9 0%, #3b2477 52%, #16141e 100%);
   color: #f2f2f2; font-size: 12.5px; font-weight: 400; letter-spacing: -0.01em;
 }
 .badge-star { flex: none; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.45)); animation: in-star 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
@@ -167,7 +297,7 @@ body {
   animation: in-em 1.2s ease 0.72s both;
 }
 .hero-grad {
-  background: linear-gradient(100deg, #a78bfa, #22d3ee);
+  background: linear-gradient(100deg, #c4b5fd, #8b7cf7);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .lede {
@@ -181,7 +311,7 @@ body {
 .btn {
   position: relative; isolation: isolate; overflow: hidden;
   display: inline-flex; align-items: center; justify-content: center;
-  height: 42px; padding: 0 18px; border-radius: 6px;
+  height: 42px; padding: 0 18px; border-radius: var(--radius-ctl);
   font-size: 13.5px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; cursor: pointer;
   transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease, filter 0.35s ease;
 }
@@ -192,25 +322,25 @@ body {
 }
 .btn:hover::after { transform: translateX(130%); }
 .btn-solid {
-  background: linear-gradient(180deg, #a78bfa 0%, #8b5cf6 48%, #7c3aed 100%);
-  color: #ffffff; border: 1px solid #a78bfa;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 24px -10px rgba(139, 92, 246, 0.7);
+  background: linear-gradient(180deg, #a99eff 0%, #8b7cf7 48%, #6d28d9 100%);
+  color: #ffffff; border: 1px solid #a99eff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 24px -10px rgba(139, 124, 247, 0.7);
 }
 .btn-solid:hover {
-  background: linear-gradient(180deg, #c4b5fd 0%, #a78bfa 42%, #8b5cf6 100%);
-  border-color: #c4b5fd;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 26px rgba(167, 139, 250, 0.45), 0 8px 18px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(180deg, #d6cdff 0%, #a99eff 42%, #8b7cf7 100%);
+  border-color: #d6cdff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 26px rgba(169, 158, 255, 0.45), 0 8px 18px rgba(139, 124, 247, 0.3);
 }
 .btn-ghost {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(11, 10, 24, 0.5) 46%, rgba(34, 211, 238, 0.10));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(14, 13, 20, 0.5) 46%, rgba(139, 124, 247, 0.14));
   color: #ffffff; border: 1px solid rgba(198, 198, 198, 0.55);
   -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 .btn-ghost:hover {
-  background: linear-gradient(135deg, rgba(210, 225, 255, 0.18), rgba(11, 10, 24, 0.35) 48%, rgba(34, 211, 238, 0.18));
-  border-color: rgba(220, 230, 255, 0.8);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 0 24px rgba(34, 211, 238, 0.28);
+  background: linear-gradient(135deg, rgba(214, 205, 255, 0.18), rgba(14, 13, 20, 0.35) 48%, rgba(139, 124, 247, 0.22));
+  border-color: rgba(214, 205, 255, 0.8);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 0 24px rgba(139, 124, 247, 0.30);
 }
 
 .hero-stats {
@@ -222,7 +352,7 @@ body {
   color: var(--hero-stat); font-size: 13.5px; letter-spacing: -0.015em;
 }
 .stat { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; }
-.stat svg { width: 20px; height: 20px; flex: none; color: #22d3ee; }
+.stat svg { width: 20px; height: 20px; flex: none; color: #a99eff; }
 
 /* Entrance. Resting opacity is 1 so nothing is ever blank; `both` applies the
    0% frame during the delay so the reveal still reads when animations run. */

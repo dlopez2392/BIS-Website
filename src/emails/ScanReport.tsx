@@ -1,6 +1,7 @@
 import { Html, Head, Body, Container, Text, Link, Hr } from '@react-email/components';
 import { scanReportStrings, type EmailLocale } from './messages';
 import { WORDMARK } from '@/lib/brand';
+import { palette } from '@/lib/brand-palette';
 
 export interface ReportFinding {
   /** Already localized by the server from the site's own catalogue. */
@@ -24,7 +25,7 @@ export interface ScanReportProps {
 // read in a client that strips styling, and colour alone says nothing to a
 // reader who cannot see it.
 const MARK = { pass: '✓', warn: '!', fail: '✕', unknown: '–' } as const;
-const TONE = { pass: '#15803d', warn: '#b45309', fail: '#b91c1c', unknown: '#6f6a8a' } as const;
+const TONE = { pass: palette.good, warn: palette.warn, fail: palette.crit, unknown: palette.inkFaint } as const;
 
 function Row({ finding, label, withExplanation = true }: { finding: ReportFinding; label: string; withExplanation?: boolean }) {
   return (
@@ -35,7 +36,7 @@ function Row({ finding, label, withExplanation = true }: { finding: ReportFindin
       {withExplanation && finding.explanation ? (
         <>
           <br />
-          <span style={{ color: '#4a4763' }}>{finding.explanation}</span>
+          <span style={{ color: palette.inkMuted }}>{finding.explanation}</span>
         </>
       ) : null}
     </Text>
@@ -51,7 +52,7 @@ export function ScanReport({ locale, name, domain, grade, points, headline, find
   return (
     <Html lang={locale}>
       <Head />
-      <Body style={{ fontFamily: 'Arial, sans-serif', background: '#faf9ff' }}>
+      <Body style={{ fontFamily: 'Arial, sans-serif', background: palette.surface }}>
         <Container style={{ padding: '24px', background: '#ffffff', maxWidth: '640px' }}>
           <Text style={{ fontWeight: 'bold' }}>{WORDMARK}</Text>
           <Text>{t.greeting(name)}</Text>
@@ -77,7 +78,7 @@ export function ScanReport({ locale, name, domain, grade, points, headline, find
           <Hr />
           <Text>{t.outro}</Text>
           <Text>
-            <Link href={bookingUrl} style={{ color: '#7c3aed', fontWeight: 'bold' }}>{t.cta}</Link>
+            <Link href={bookingUrl} style={{ color: palette.accent, fontWeight: 'bold' }}>{t.cta}</Link>
           </Text>
           <Text>{t.signoff}</Text>
         </Container>

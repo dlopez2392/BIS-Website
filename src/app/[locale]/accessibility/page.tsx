@@ -53,7 +53,7 @@ export default async function AccessibilityPage({ params }: { params: Promise<{ 
         </ul>
       </section>
 
-      <section className="mt-10 rounded-md bg-surface-alt p-6">
+      <section className="mt-10 rounded-ctl bg-surface-alt p-6">
         <h2 className="text-2xl font-bold text-ink">{t('problemHeading')}</h2>
         <p className="mt-3 text-ink-muted">{t('problemBody')}</p>
         <p className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
@@ -67,14 +67,14 @@ export default async function AccessibilityPage({ params }: { params: Promise<{ 
         <p className="mt-3 text-ink-muted">{t('helpBody')}</p>
         <Link
           href="/contact"
-          className="mt-4 inline-block rounded-md bg-primary px-6 py-3 font-semibold text-on-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+          className="mt-4 inline-block rounded-ctl bg-primary px-6 py-3 font-semibold text-on-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
         >
           {t('helpCta')}
         </Link>
       </section>
 
       <section className="mt-12 border-t border-hairline pt-6">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('updatedHeading')}</h2>
+        <h2 className="label">{t('updatedHeading')}</h2>
         <p className="mt-2 text-sm text-ink-muted">
           {t('updatedBody', { date: formattedDate })}
         </p>

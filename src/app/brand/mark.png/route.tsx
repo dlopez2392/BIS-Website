@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { MARK_GRADIENT } from '@/lib/brand-palette';
 
 /**
  * A 512x512 raster of the mark, for the places that will not take an SVG:
@@ -16,7 +17,7 @@ export function GET() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #7c3aed 0%, #0e7490 100%)',
+          background: MARK_GRADIENT,
           borderRadius: 112,
         }}
       >

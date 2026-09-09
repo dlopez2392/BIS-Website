@@ -5,7 +5,7 @@ export function ServiceCard({
   icon: Icon, title, body, href, learnMore,
 }: { icon: LucideIcon; title: string; body: string; href: string; learnMore: string }) {
   return (
-    <div className="rounded-xl border border-hairline bg-surface-alt p-6">
+    <div className="rounded-card border border-hairline bg-surface-alt p-6">
       <Icon className="text-link" size={28} />
       <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
       <p className="mt-2 text-sm text-ink-muted">{body}</p>

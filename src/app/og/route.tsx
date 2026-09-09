@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { WORDMARK } from '@/lib/brand';
+import { palette, MARK_GRADIENT } from '@/lib/brand-palette';
 
 export function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -9,7 +10,7 @@ export function GET(request: Request) {
       <div
         style={{
           height: '100%', width: '100%', display: 'flex', flexDirection: 'column',
-          justifyContent: 'space-between', background: '#faf9ff', padding: '80px',
+          justifyContent: 'space-between', background: palette.surface, padding: '80px',
           fontFamily: 'sans-serif',
         }}
       >
@@ -21,7 +22,7 @@ export function GET(request: Request) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'linear-gradient(135deg, #7c3aed 0%, #0e7490 100%)',
+              background: MARK_GRADIENT,
               borderRadius: 15,
             }}
           >
@@ -36,10 +37,10 @@ export function GET(request: Request) {
               }}
             />
           </div>
-          <div style={{ fontSize: 56, fontWeight: 800, color: '#171528' }}>{WORDMARK}</div>
+          <div style={{ fontSize: 56, fontWeight: 800, color: palette.ink }}>{WORDMARK}</div>
         </div>
-        <div style={{ fontSize: 64, fontWeight: 800, color: '#171528', lineHeight: 1.1 }}>{title}</div>
-        <div style={{ fontSize: 30, color: '#7c3aed', fontWeight: 700 }}>
+        <div style={{ fontSize: 64, fontWeight: 800, color: palette.ink, lineHeight: 1.1 }}>{title}</div>
+        <div style={{ fontSize: 30, color: palette.accent, fontWeight: 700 }}>
           Bespoke Intelligent Solutions · Rio Grande Valley
         </div>
       </div>

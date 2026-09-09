@@ -38,13 +38,13 @@ export function ResourceForm({ slug, downloadUrl }: { slug: string; downloadUrl:
   };
 
   if (sent) return (
-    <div role="status" className="rounded-md bg-surface-alt p-6 text-ink">
+    <div role="status" className="rounded-ctl bg-surface-alt p-6 text-ink">
       <p>{t('success')}</p>
       <a href={downloadUrl} className="mt-2 inline-block text-link underline">{t('downloadFallback')}</a>
     </div>
   );
 
-  const field = 'w-full rounded-md border border-hairline bg-surface px-3 py-2 text-ink';
+  const field = 'w-full rounded-ctl border border-hairline bg-surface px-3 py-2 text-ink';
   return (
     // onSubmit only reads honeypotRef.current when the user actually submits,
     // never during render — the compiler can't prove this statically.
@@ -67,7 +67,7 @@ export function ResourceForm({ slug, downloadUrl }: { slug: string; downloadUrl:
         <span>{t('consentLabel')}</span>
       </label>
       {errored && <p role="alert" className="text-sm text-red-500">{t('error')}</p>}
-      <button type="submit" disabled={isSubmitting} className="rounded-lg bg-primary px-6 py-3 font-bold text-on-primary disabled:opacity-60">
+      <button type="submit" disabled={isSubmitting} className="rounded-ctl bg-primary px-6 py-3 font-bold text-on-primary disabled:opacity-60">
         {isSubmitting ? t('sending') : t('submit')}
       </button>
     </form>

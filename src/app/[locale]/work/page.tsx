@@ -29,20 +29,20 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
         const stack = t.raw(`cases.${entry.id}.stack`) as string[];
 
         return (
-          <article key={entry.id} className="mt-12 overflow-hidden rounded-2xl border border-hairline bg-surface-alt">
+          <article key={entry.id} className="mt-12 overflow-hidden rounded-card border border-hairline bg-surface-alt">
             <header className="border-b border-hairline p-8 sm:p-10">
-              <p className="text-xs font-bold uppercase tracking-widest text-accent">{k('label')}</p>
+              <p className="label">{k('label')}</p>
               <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-ink">{k('title')}</h2>
               <p className="mt-4 text-ink-muted">{k('summary')}</p>
             </header>
 
             <div className="grid gap-10 p-8 sm:p-10 md:grid-cols-2">
               <section>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-ink-muted">{k('factsHeading')}</h3>
+                <h3 className="label">{k('factsHeading')}</h3>
                 <ul className="mt-4 space-y-4">
                   {facts.map((fact) => (
                     <li key={fact} className="flex gap-3 text-ink-muted">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-pill bg-accent" aria-hidden="true" />
                       <span>{fact}</span>
                     </li>
                   ))}
@@ -50,12 +50,12 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
               </section>
 
               <section>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-ink-muted">{k('builtHeading')}</h3>
+                <h3 className="label">{k('builtHeading')}</h3>
                 <p className="mt-4 text-ink-muted">{k('builtBody')}</p>
-                <h3 className="mt-8 text-xs font-bold uppercase tracking-widest text-ink-muted">{k('stackHeading')}</h3>
+                <h3 className="mt-8 label">{k('stackHeading')}</h3>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {stack.map((item) => (
-                    <li key={item} className="rounded-full border border-hairline bg-surface px-3 py-1 text-sm text-ink-muted">
+                    <li key={item} className="rounded-pill border border-hairline bg-surface px-3 py-1 text-sm text-ink-muted">
                       {item}
                     </li>
                   ))}
@@ -67,7 +67,7 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
               <div className="border-t border-hairline bg-primary/5 p-8 sm:p-10">
                 <h3 className="text-xl font-bold text-ink">{k('tryHeading')}</h3>
                 <p className="mt-2 text-ink-muted">{k('tryBody')}</p>
-                <CallLink className="mt-6 inline-flex items-center gap-3 rounded-lg bg-primary px-6 py-3 text-xl font-extrabold text-on-primary" />
+                <CallLink className="mt-6 inline-flex items-center gap-3 rounded-ctl bg-primary px-6 py-3 text-xl font-extrabold text-on-primary" />
                 <p className="mt-4 text-sm text-ink-muted">
                   {k('tryNote')}{' '}
                   <Link href="/privacy" className="text-link underline">
@@ -86,7 +86,7 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
         );
       })}
 
-      <section className="mt-12 rounded-xl border border-hairline bg-surface-alt p-8">
+      <section className="mt-12 rounded-card border border-hairline bg-surface-alt p-8">
         <h2 className="text-2xl font-bold text-ink">{t('nextHeading')}</h2>
         <p className="mt-3 text-ink-muted">{t('nextBody')}</p>
       </section>
@@ -94,7 +94,7 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
       <section className="mt-14">
         <h2 className="text-2xl font-extrabold text-ink">{t('ctaTitle')}</h2>
         <p className="mt-2 text-ink-muted">{t('ctaBody')}</p>
-        <Link href="/contact" className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-bold text-on-primary">
+        <Link href="/contact" className="mt-6 inline-block rounded-ctl bg-primary px-6 py-3 font-bold text-on-primary">
           {c('cta')}
         </Link>
       </section>

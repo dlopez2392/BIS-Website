@@ -35,7 +35,7 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: st
 
       {faqCategories.map((c) => (
         <section key={c.id} className="mt-12">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t(`categories.${c.id}`)}</h2>
+          <h2 className="label">{t(`categories.${c.id}`)}</h2>
           <div className="mt-4 divide-y divide-hairline border-y border-hairline">
             {c.items.map((id) => (
               // The native marker is hidden, so the chevron IS the only signal a

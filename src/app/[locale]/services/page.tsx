@@ -36,7 +36,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
           width — a full-bleed panel reads as a banner, not an invitation. */}
       <section className="mx-auto max-w-6xl px-6 pb-12">
         <div className="max-w-4xl">
-          <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
+          <p className="label">{t('sofiaKicker')}</p>
           <div className="mt-4">
             <TalkToSofia placement="services" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
           </div>

@@ -90,11 +90,11 @@ export function PlatformEmbed({ kind }: { kind: EmbedKind }) {
           src={src}
           title={title}
           loading="lazy"
-          className="block w-full rounded-lg border-0"
+          className="block w-full rounded-ctl border-0"
           style={{ height }}
         />
       ) : (
-        <div aria-hidden="true" className="w-full animate-pulse rounded-lg bg-surface-alt" style={{ height }} />
+        <div aria-hidden="true" className="w-full animate-pulse rounded-ctl bg-surface-alt" style={{ height }} />
       )}
       <a
         href={publicPageUrl(kind, locale)}

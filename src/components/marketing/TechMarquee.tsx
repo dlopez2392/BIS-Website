@@ -30,7 +30,7 @@ export function TechMarqueeView({
 }) {
   return (
     <section aria-label={label} className="border-y border-hairline bg-surface-alt py-10">
-      <p className="mb-6 text-center text-xs font-bold uppercase tracking-widest text-ink-muted">{label}</p>
+      <p className="mb-6 text-center label">{label}</p>
       <div className="marquee group relative overflow-hidden">
         <div className="marquee__track flex w-max items-center gap-16 group-hover:[animation-play-state:paused]">
           {logos.map((l) => (

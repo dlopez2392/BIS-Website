@@ -27,7 +27,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   return (
     <main>
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-8">
-        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('kicker')}</p>
+        <p className="label">{t('kicker')}</p>
         <h1 className="mt-3 text-5xl font-extrabold tracking-tight text-ink">{t('title')}</h1>
         <p className="mt-4 max-w-2xl text-lg text-ink-muted">{t('intro')}</p>
       </section>
@@ -36,7 +36,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           this reads as a normal text section in the meantime. */}
       <section className="mx-auto flex max-w-4xl flex-col gap-8 px-6 py-10 md:flex-row md:items-start md:gap-12">
         <div className="flex-1">
-          <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('founderKicker')}</p>
+          <p className="label">{t('founderKicker')}</p>
           <h2 className="mt-2 text-3xl font-extrabold text-ink">{t('founderName')}</h2>
           <blockquote className="mt-4 text-xl font-medium text-ink">“{t('founderQuote')}”</blockquote>
           <p className="mt-4 text-ink-muted">{t('founderBio')}</p>
@@ -45,14 +45,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-10">
-        <p className="mb-6 text-xs font-bold uppercase tracking-widest text-accent">{t('credKicker')}</p>
+        <p className="mb-6 label">{t('credKicker')}</p>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
           {creds.map((cr) => <CredentialCard key={cr.title} {...cr} />)}
         </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-10">
-        <p className="mb-2 text-xs font-bold uppercase tracking-widest text-accent">{t('methodKicker')}</p>
+        <p className="mb-2 label">{t('methodKicker')}</p>
         {steps.map((s) => <MethodStep key={s.index} {...s} />)}
       </section>
 

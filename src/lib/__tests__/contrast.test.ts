@@ -16,9 +16,30 @@ function palette(): { light: Record<string, string>; dark: Record<string, string
     if (!rule) throw new Error(`contrast test: no "${selector}" rule in globals.css`);
     const open = rule.index + rule[0].length - 1;
     const close = css.indexOf('}', open);
+    const body = css.slice(open, close);
+
+    // Every custom property in the rule, hexes and var() references alike.
+    // The palette is now a ladder (--surface-*, --text-*, --accent) with the
+    // semantic --color-* names aliased onto it, so a parser that only read
+    // literal hexes would find no --color-* value at all and pass vacuously.
+    const raw: Record<string, string> = {};
+    for (const [, name, value] of body.matchAll(/(--[\w-]+):\s*([^;]+);/g)) raw[name] = value.trim();
+
+    const resolve = (value: string, seen = new Set<string>()): string => {
+      const ref = /^var\((--[\w-]+)\)$/.exec(value);
+      if (!ref) return value;
+      if (seen.has(ref[1])) throw new Error(`contrast test: --${ref[1]} is a circular alias`);
+      seen.add(ref[1]);
+      const target = raw[ref[1]];
+      if (!target) throw new Error(`contrast test: ${value} resolves to nothing in "${selector}"`);
+      return resolve(target, seen);
+    };
+
     const out: Record<string, string> = {};
-    for (const [, name, value] of css.slice(open, close).matchAll(/--color-([\w-]+):\s*(#[0-9a-fA-F]{6})/g)) {
-      out[name] = value;
+    for (const [name, value] of Object.entries(raw)) {
+      if (!name.startsWith('--color-')) continue;
+      const resolved = resolve(value);
+      if (/^#[0-9a-fA-F]{6}$/.test(resolved)) out[name.slice('--color-'.length)] = resolved;
     }
     return out;
   };
@@ -48,7 +69,7 @@ describe('palette contrast', () => {
 
   it('parses both themes out of globals.css', () => {
     for (const theme of [light, dark]) {
-      for (const token of ['surface', 'surface-alt', 'ink', 'ink-muted', 'primary', 'accent', 'link']) {
+      for (const token of ['surface', 'surface-alt', 'ink', 'ink-muted', 'primary', 'accent', 'link', 'accent-label']) {
         expect(theme[token], token).toMatch(/^#[0-9a-fA-F]{6}$/);
       }
     }
@@ -59,7 +80,9 @@ describe('palette contrast', () => {
     // exactly what a looser selector match did.
     expect(light.surface).not.toBe(dark.surface);
     expect(light.ink).not.toBe(dark.ink);
-    expect(dark.surface).toBe('#0b0a18');
+    // The platform's dark page surface. Retargeted, not removed: this is the
+    // anchor proving the parser reached the .dark rule rather than :root twice.
+    expect(dark.surface).toBe('#0e0d14');
   });
 
   for (const [name, theme] of Object.entries({ light, dark })) {
@@ -71,10 +94,17 @@ describe('palette contrast', () => {
         });
 
         it(`accent clears AA on ${bg}`, () => {
-          // accent styles the small uppercase eyebrow labels on /work, the city
-          // pages, insights categories and contact bullets. 12px bold is NOT
-          // "large text", so it needs the full 4.5:1 — cyan-600 failed at 3.52.
+          // Accent is now the platform's violet and marks emphasis, bullets and
+          // icons rather than the eyebrows. Still text-sized in places, so it
+          // still owes the full 4.5:1.
           expect(contrast(theme.accent, theme[bg])).toBeGreaterThanOrEqual(AA_NORMAL);
+        });
+
+        it(`the .label eyebrow clears AA on ${bg}`, () => {
+          // 11px mono uppercase is NOT "large text", so it needs 4.5:1. This is
+          // why the label role uses --text-2 and not the platform's --text-3,
+          // which measures 3.22:1 on the page and 3.49:1 on a card.
+          expect(contrast(theme['accent-label'], theme[bg])).toBeGreaterThanOrEqual(AA_NORMAL);
         });
 
         it(`link text clears AA on ${bg}`, () => {
@@ -85,9 +115,10 @@ describe('palette contrast', () => {
       }
 
       it('primary buttons clear at least the large-text floor', () => {
-        // Known and accepted: dark-mode white on #8b5cf6 is 4.23:1, which passes
-        // for the bold button text it is used on but not for body copy. Pinned
-        // here so a palette change cannot quietly push it below 3:1 too.
+        // Both modes now clear AA outright: light is white on #6d28d9 (7.10:1)
+        // and dark is #111111 on #8b7cf7 (5.69:1) — the platform's own choice
+        // of a dark foreground on the lighter violet. Keeping the large-text
+        // floor as the assertion so the intent stays "never below 3:1".
         expect(contrast(theme['on-primary'], theme.primary)).toBeGreaterThanOrEqual(AA_LARGE);
       });
     });

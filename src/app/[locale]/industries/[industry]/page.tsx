@@ -85,13 +85,13 @@ export default async function IndustryPage(
       />
 
       <section className="mx-auto max-w-4xl px-6 pt-20">
-        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t(entry.labelKey)}</p>
+        <p className="label">{t(entry.labelKey)}</p>
         <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink">{t(`pages.${industry}.heading`)}</h1>
         <p className="mt-4 text-lg text-ink-muted">{t(`pages.${industry}.intro`)}</p>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pt-14">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.workHeading')}</h2>
+        <h2 className="label">{t('shared.workHeading')}</h2>
         <div className="mt-4 divide-y divide-hairline border-y border-hairline">
           {workflows.map((w) => (
             <div key={w.title} className="py-6">
@@ -103,8 +103,8 @@ export default async function IndustryPage(
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pt-14">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.sofiaHeading')}</h2>
-        <p className="mt-4 rounded-md bg-surface-alt p-6 text-ink">{t(`pages.${industry}.sofia`)}</p>
+        <h2 className="label">{t('shared.sofiaHeading')}</h2>
+        <p className="mt-4 rounded-ctl bg-surface-alt p-6 text-ink">{t(`pages.${industry}.sofia`)}</p>
         {/* The paragraph above is the argument, written for this trade. This
             is the same argument the visitor can test for themselves without
             dialling — which is the only version of it they have no reason to
@@ -122,7 +122,7 @@ export default async function IndustryPage(
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pt-14">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.faqHeading')}</h2>
+        <h2 className="label">{t('shared.faqHeading')}</h2>
         <dl className="mt-4 divide-y divide-hairline border-y border-hairline">
           {questions.map((item) => (
             <div key={item.q} className="py-6">
@@ -134,13 +134,13 @@ export default async function IndustryPage(
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pt-14">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.othersHeading')}</h2>
+        <h2 className="label">{t('shared.othersHeading')}</h2>
         <ul className="mt-4 flex flex-wrap gap-3">
           {others.map((o) => (
             <li key={o.id}>
               <Link
                 href={`/industries/${o.id}`}
-                className="inline-block rounded-full border border-hairline px-4 py-2 text-sm text-ink hover:bg-surface-alt focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+                className="inline-block rounded-pill border border-hairline px-4 py-2 text-sm text-ink hover:bg-surface-alt focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
               >
                 {t(o.labelKey)}
               </Link>
@@ -150,14 +150,14 @@ export default async function IndustryPage(
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pt-14">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.citiesHeading')}</h2>
+        <h2 className="label">{t('shared.citiesHeading')}</h2>
         <p className="mt-3 text-ink-muted">{t('shared.citiesBody')}</p>
         <ul className="mt-4 flex flex-wrap gap-3">
           {cityPages.map((city) => (
             <li key={city.id}>
               <Link
                 href={`/service-area/${city.id}`}
-                className="inline-block rounded-full border border-hairline px-4 py-2 text-sm text-ink hover:bg-surface-alt focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+                className="inline-block rounded-pill border border-hairline px-4 py-2 text-sm text-ink hover:bg-surface-alt focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
               >
                 {city.name}
               </Link>

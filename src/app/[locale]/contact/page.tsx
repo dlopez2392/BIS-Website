@@ -27,7 +27,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <h1 className="text-4xl font-extrabold tracking-tight text-ink">{t('title')}</h1>
           <p className="mt-4 text-ink-muted">{t('intro')}</p>
           <ul className="mt-6 space-y-2">
-            {bullets.map((b) => <li key={b} className="flex items-center gap-2 text-ink"><span className="h-2 w-2 rounded-full bg-accent" />{b}</li>)}
+            {bullets.map((b) => <li key={b} className="flex items-center gap-2 text-ink"><span className="h-2 w-2 rounded-pill bg-accent" />{b}</li>)}
           </ul>
           <div className="mt-8 text-sm text-ink-muted">
             <p className="font-bold uppercase">{t('callHeading')}</p>
@@ -44,7 +44,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 number={whatsapp}
                 withLabel
                 iconSize={18}
-                className="mt-3 inline-flex items-center gap-2 rounded-md bg-[#25D366] px-4 py-2 font-semibold text-[#0b0a18] hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
+                className="mt-3 inline-flex items-center gap-2 rounded-ctl bg-[#25D366] px-4 py-2 font-semibold text-[#0b0a18] hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
               />
             </div>
           )}

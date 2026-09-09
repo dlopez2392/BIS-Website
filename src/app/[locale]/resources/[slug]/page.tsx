@@ -47,14 +47,14 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight text-ink">{t(`items.${slug}.title`)}</h1>
           <p className="mt-4 text-lg text-ink-muted">{t(`items.${slug}.blurb`)}</p>
-          <h2 className="mt-8 text-xs font-bold uppercase tracking-widest text-accent">{t(`items.${slug}.whatsInsideHeading`)}</h2>
+          <h2 className="mt-8 label">{t(`items.${slug}.whatsInsideHeading`)}</h2>
           <ul className="mt-3 space-y-2 text-ink">
             <li className="flex gap-2"><span className="text-accent">✓</span>{t(`items.${slug}.point1`)}</li>
             <li className="flex gap-2"><span className="text-accent">✓</span>{t(`items.${slug}.point2`)}</li>
             <li className="flex gap-2"><span className="text-accent">✓</span>{t(`items.${slug}.point3`)}</li>
           </ul>
         </div>
-        <div className="rounded-xl border border-hairline bg-surface-alt p-8">
+        <div className="rounded-card border border-hairline bg-surface-alt p-8">
           <ResourceForm slug={slug} downloadUrl={downloadUrl} />
         </div>
       </div>

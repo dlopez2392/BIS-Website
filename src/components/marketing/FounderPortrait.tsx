@@ -21,7 +21,7 @@ export async function FounderPortrait({ locale }: { locale: string }) {
       // The portrait is above the fold on /about, so it is the LCP candidate.
       priority
       sizes="(min-width: 48rem) 20rem, 100vw"
-      className="w-full max-w-xs rounded-2xl border border-hairline object-cover"
+      className="w-full max-w-xs rounded-card border border-hairline object-cover"
     />
   );
 }

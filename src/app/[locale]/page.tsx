@@ -63,7 +63,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           yet know what we sell. Still early enough that nobody has to hunt
           for it. */}
       <section id="talk-to-sofia" className="mx-auto max-w-4xl px-6 pb-4">
-        <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
+        <p className="label">{t('sofiaKicker')}</p>
         <div className="mt-4">
           <TalkToSofia placement="home" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
         </div>

@@ -47,7 +47,7 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
 
       {/* Deliberately the first thing after the intro. A trust page that opens
           by listing what it cannot claim is the only kind worth reading. */}
-      <div className="mt-8 rounded-md bg-surface-alt p-6">
+      <div className="mt-8 rounded-ctl bg-surface-alt p-6">
         <h2 className="font-bold text-ink">{t('notHeading')}</h2>
         <p className="mt-2 text-ink-muted">{t('notBody')}</p>
       </div>
@@ -60,7 +60,7 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
         <ul className="space-y-2 border-y border-hairline py-4">
           {vendors.map((item) => (
             <li key={item} className="grid grid-cols-[6px_minmax(0,1fr)] gap-3">
-              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 rounded-pill bg-accent" />
               <span>{item}</span>
             </li>
           ))}
@@ -107,7 +107,7 @@ export default async function TrustPage({ params }: { params: Promise<{ locale: 
       <Section heading={t('exitHeading')}><p>{t('exitBody')}</p></Section>
 
       <section className="mt-12 border-t border-hairline pt-6">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('updatedHeading')}</h2>
+        <h2 className="label">{t('updatedHeading')}</h2>
         <p className="mt-2 text-sm text-ink-muted">{t('updatedBody', { date: reviewed })}</p>
       </section>
     </main>
