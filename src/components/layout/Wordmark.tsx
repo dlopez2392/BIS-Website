@@ -15,7 +15,13 @@ import { WORDMARK } from '@/lib/brand';
  */
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span className={className} aria-label={business.name}>
+    <span className={className}>
+      {/* Visually-hidden text, not aria-label. A bare <span> carries no role,
+          and ARIA forbids an accessible name on a roleless element: axe
+          reports it as aria-prohibited-attr, and a screen reader that honours
+          the rule drops the name entirely — leaving exactly the letter-by-
+          letter reading this was added to prevent. */}
+      <span className="sr-only">{business.name}</span>
       <span aria-hidden="true">{WORDMARK}</span>
     </span>
   );
