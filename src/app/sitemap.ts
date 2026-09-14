@@ -17,6 +17,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
 export const STATIC_PATHS = [
   '',
   '/services',
+  '/platform',
   '/industries',
   '/work',
   '/how-we-work',

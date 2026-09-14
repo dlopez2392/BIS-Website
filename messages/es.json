@@ -16,7 +16,8 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "call": "Llámanos",
-    "callAria": "Llama a BIS al {phone}"
+    "callAria": "Llama a BIS al {phone}",
+    "platform": "Plataforma"
   },
   "footer": {
     "tagline": "Tu Solución Inteligente",
@@ -1099,5 +1100,54 @@
       "rate_limited": "Ya usaste tus conversaciones por ahora. Inténtalo en una hora, o llama al número que aparece arriba y habla con Sofía por teléfono.",
       "unavailable": "Sofía no puede contestar aquí en este momento. Por favor llama al número que aparece arriba — ella contesta esa línea."
     }
+  },
+  "platform": {
+    "title": "La plataforma",
+    "metaDescription": "El sistema sobre el que construimos negocios del Valle: cada llamada contestada en inglés o español, cada prospecto en un solo lugar, y cuatro números cada lunes por la mañana.",
+    "heroKicker": "Lo que realmente recibes",
+    "heroTitle": "La hora que recuperas, y de dónde sale.",
+    "heroBody": "Tu primera hora recuperada no viene de trabajar más rápido. Viene de un sistema que contesta el teléfono cuando tú no puedes, anota al cliente antes de que se olvide, y el lunes te dice qué pasó de verdad la semana pasada. Este es ese sistema — el mismo que contesta nuestro propio teléfono.",
+    "sampleNoteTitle": "Sobre estas capturas",
+    "sampleNote": "Resaca Air Conditioning & Heating es una cuenta de ejemplo que armamos para mostrar el sistema funcionando. La empresa es inventada, y también lo son todos los clientes, teléfonos y cantidades que ves aquí. Preferimos enseñarte datos inventados de frente que los de un cliente real con las partes interesantes borroneadas.",
+    "sampleCaption": "Cuenta de ejemplo — empresa y datos inventados.",
+    "sections": {
+      "spanish": {
+        "kicker": "En español",
+        "title": "Contesta en español. Bien.",
+        "body": "A la mitad del Valle le acomoda más hacer negocio en español, y la mayoría de los servicios de contestación no lo hacen, o lo hacen tan mal que la gente cuelga. Sofía toma la llamada en el idioma en que empieza, agenda la cita, y anota toda la conversación en ese idioma — para que la puedas leer después aunque no hayas sido tú quien contestó.",
+        "quote": "¿El aire prende y sopla, pero sale el aire tibio, o no prende nada?",
+        "quoteSource": "De la transcripción de una llamada real — de usted, no de libro de texto."
+      },
+      "calls": {
+        "kicker": "Cada llamada",
+        "title": "Anotada — incluyendo las que no valían tu tiempo.",
+        "body": "Cada llamada lleva su resumen, su transcripción completa y un resultado: agendada, prospecto, recado, colgó, spam. Ves la llamada de ventas que se filtró y al que se rindió a los cuatro segundos. Así sabes que los demás números son de verdad."
+      },
+      "pipeline": {
+        "kicker": "Cada prospecto",
+        "title": "Nada vive en un papelito.",
+        "body": "Un diagnóstico de $89 y un trabajo de azotea de $14,200 están en el mismo tablero, y de un vistazo ves cuáles se quedaron callados. Sin hoja de cálculo, sin segundo sistema, sin «creo que alguien ya les habló»."
+      },
+      "booking": {
+        "kicker": "Tu nombre, no el nuestro",
+        "title": "Se agendan solos, en una página que se ve como tú.",
+        "body": "Tu logo, tu color, tus horarios, los nombres de tus servicios. El cliente aparta su cita sin llamarle a nadie, y nuestro nombre solo aparece en letra chica hasta abajo. Manda el enlace por mensaje o ponlo en tu propio sitio — es la misma página."
+      },
+      "report": {
+        "kicker": "Lunes por la mañana",
+        "title": "Cuatro números, en palabras, legibles desde el teléfono.",
+        "body": "Llamadas contestadas, prospectos captados, citas agendadas y visitas al sitio — cada uno junto a la semana anterior. Sin gráficas que descifrar y sin flechitas, porque una flecha no dice nada si te la leen en voz alta. Si no medimos algo, se omite en lugar de aparecer como un cero que te hace pensar que el teléfono está descompuesto. Y una semana tranquila también se manda, para que el silencio nunca te deje con la duda de si el producto dejó de funcionar."
+      }
+    },
+    "alt": {
+      "hero": "El tablero de BIS para una empresa de aire acondicionado de ejemplo, con las llamadas, prospectos y citas de esta semana",
+      "spanish": "La pantalla de detalle de una llamada, con toda la conversación en español entre el cliente y Sofía",
+      "calls": "El registro de llamadas, con el resultado de cada una — agendada, prospecto, recado, colgó o spam",
+      "pipeline": "El tablero de oportunidades, con trabajos desde un diagnóstico de $89 hasta un reemplazo comercial de $14,200",
+      "booking": "Una página de citas con el logo y el color de la empresa de ejemplo",
+      "report": "El correo del lunes por la mañana, con cuatro números junto a los de la semana anterior"
+    },
+    "ctaTitle": "Míralo con tus propios números adentro.",
+    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy, te decimos cuál de estas cosas realmente se pagaría sola, y cuál todavía no necesitas."
   }
 }
