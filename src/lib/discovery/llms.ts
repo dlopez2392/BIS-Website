@@ -26,6 +26,7 @@ type Link = { title: string; path: string; note: string };
 const CORE: Link[] = [
   { title: 'Home', path: '/en', note: 'What BIS does, in one page.' },
   { title: 'Services', path: '/en/services', note: 'The three service lines: AI strategy and adoption, secure infrastructure, modern digital presence.' },
+  { title: 'Platform', path: '/en/platform', note: 'The system a client runs on after we build it: bilingual AI call answering with full transcripts, a CRM and pipeline, self-serve booking under the client\u2019s own brand, and a weekly summary email. Screenshots are of a clearly-labelled sample account, not a real client.' },
   { title: 'Industries', path: '/en/industries', note: 'How the work differs for legal, medical, logistics, trades and agriculture businesses.' },
   { title: 'How we work', path: '/en/how-we-work', note: 'The engagement process, from free assessment to delivery.' },
   { title: 'Capabilities', path: '/en/capabilities', note: 'Named platforms and technologies BIS works with.' },

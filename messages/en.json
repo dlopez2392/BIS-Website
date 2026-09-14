@@ -16,7 +16,8 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "call": "Call us",
-    "callAria": "Call BIS at {phone}"
+    "callAria": "Call BIS at {phone}",
+    "platform": "Platform"
   },
   "footer": {
     "tagline": "Your Intelligent Solution",
@@ -1099,5 +1100,54 @@
       "rate_limited": "You have used your conversations for now. Try again in an hour, or call the number at the top of the page and speak to Sofía on the phone.",
       "unavailable": "Sofía cannot pick up here at the moment. Please call the number at the top of the page — she answers that line."
     }
+  },
+  "platform": {
+    "title": "The platform",
+    "metaDescription": "The system we build Valley businesses on: every call answered in English or Spanish, every lead in one place, and four numbers every Monday morning.",
+    "heroKicker": "What you actually get",
+    "heroTitle": "The hour you get back, and where it went.",
+    "heroBody": "Your first hour back does not come from working faster. It comes from a system that answers the phone when you cannot, writes the lead down before it is forgotten, and tells you on Monday what actually happened last week. This is that system — the same one that answers our own phone.",
+    "sampleNoteTitle": "About these screenshots",
+    "sampleNote": "Resaca Air Conditioning & Heating is a sample account we built to show the system working. The company is invented, and so is every customer, phone number and dollar figure you see here. We would rather show you made-up data honestly than a real client’s with the interesting parts blurred out.",
+    "sampleCaption": "Sample account — invented company and data.",
+    "sections": {
+      "spanish": {
+        "kicker": "En español",
+        "title": "She answers in Spanish. Properly.",
+        "body": "Half the Valley would rather do business in Spanish, and most answering services either do not, or do it badly enough that people hang up. Sofía takes the call in whichever language it starts in, books the appointment, and writes the whole conversation down in that language — so you can read it later even if you were not the one who answered.",
+        "quote": "¿El aire prende y sopla, pero sale el aire tibio, o no prende nada?",
+        "quoteSource": "From a real call transcript — usted, not a textbook."
+      },
+      "calls": {
+        "kicker": "Every call",
+        "title": "Written down — including the ones that were not worth your time.",
+        "body": "Each call gets a summary, a full transcript and an outcome: booked, lead, message, hung up, spam. You see the sales pitch that got filtered and the caller who gave up after four seconds. That is how you know the rest of the numbers are real."
+      },
+      "pipeline": {
+        "kicker": "Every lead",
+        "title": "Nothing lives on a sticky note.",
+        "body": "An $89 diagnostic and a $14,200 rooftop job sit on the same board, and you can see at a glance which ones have gone quiet. No spreadsheet, no second system, no “I think somebody called them back.”"
+      },
+      "booking": {
+        "kicker": "Your name, not ours",
+        "title": "They book themselves, on a page that looks like you.",
+        "body": "Your logo, your colour, your hours, your service names. A customer books a window without phoning anybody, and the only place our name appears is small type at the bottom. Send the link in a text or put it on your own site — it is the same page either way."
+      },
+      "report": {
+        "kicker": "Monday morning",
+        "title": "Four numbers, in words, readable on a phone.",
+        "body": "Calls answered, leads captured, bookings, website visitors — each next to the week before. No charts to squint at and no arrows, because an arrow means nothing read aloud. If we did not measure something it is left out rather than shown as a zero that makes you think the phone is broken. And a quiet week still sends, so silence never leaves you wondering whether the product stopped working."
+      }
+    },
+    "alt": {
+      "hero": "The BIS dashboard for a sample HVAC company, showing this week’s calls, leads and bookings",
+      "spanish": "A call detail screen showing a full conversation in Spanish between a caller and Sofía",
+      "calls": "The call log, listing each call with its outcome — booked, lead, message, hung up or spam",
+      "pipeline": "The opportunity board, with jobs from an $89 diagnostic to a $14,200 commercial replacement",
+      "booking": "A booking page carrying the sample company’s own logo and colour",
+      "report": "The Monday morning email, showing four numbers against the week before"
+    },
+    "ctaTitle": "See it with your own numbers in it.",
+    "ctaBody": "A free, no-pitch assessment: we look at how your business runs today, tell you which of these would actually earn its keep, and which you do not need yet."
   }
 }

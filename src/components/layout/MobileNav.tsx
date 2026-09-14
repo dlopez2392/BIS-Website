@@ -13,6 +13,7 @@ export function MobileNav() {
   const items = [
     { href: '/', label: t('home') },
     { href: '/services', label: t('services') },
+    { href: '/platform', label: t('platform') },
     { href: '/industries', label: t('industries') },
     { href: '/work', label: t('work') },
     { href: '/about', label: t('about') },
