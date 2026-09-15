@@ -79,17 +79,47 @@ describe('the /platform tour', () => {
   });
 
   /**
-   * The page is written to stand up with NO captures on disk — that is the
-   * whole point of the render-only-if-present rule. This asserts the state we
-   * are actually shipping in, and will need updating the day the pipeline
-   * lands its files, which is the moment to re-read the page with images in it.
+   * The captures have landed (2026-09-15), so this replaces the assertion that
+   * guarded the empty state. The render-only-if-present rule still holds — the
+   * page stands up with no files on disk — but now that files DO exist, the
+   * thing worth guarding is that they are the right files at the right size.
+   *
+   * That is not a hypothetical. The capture pipeline shipped half-resolution
+   * images TWICE: once because `shoot()` passed `scale: "css"`, and again
+   * because the weekly-report had its own screenshot call carrying a second
+   * copy of the same option that the first fix never touched. Both times the
+   * aspect ratio was right, so nothing looked broken — the images were simply
+   * soft on every retina screen, which is invisible in review and permanent
+   * on the page.
+   *
+   * `next/image` is handed these width/height values; if the file disagrees,
+   * it reserves the wrong box. So the declared numbers and the bytes on disk
+   * are asserted against each other, read straight out of the PNG's IHDR
+   * chunk (bytes 16-24, two big-endian uint32s) rather than by adding an
+   * image library for six files.
    */
-  it('ships before any capture exists, and says so here when that changes', () => {
-    const present = allShots().filter((s) =>
-      fs.existsSync(path.join(process.cwd(), 'public', 'screenshots', s.file)));
+  it('has every declared capture on disk, at exactly the declared size', () => {
+    const missing: string[] = [];
+    const wrongSize: string[] = [];
+
+    for (const slot of allShots()) {
+      const file = path.join(process.cwd(), 'public', 'screenshots', slot.file);
+      if (!fs.existsSync(file)) {
+        missing.push(slot.file);
+        continue;
+      }
+      const header = fs.readFileSync(file).subarray(16, 24);
+      const width = header.readUInt32BE(0);
+      const height = header.readUInt32BE(4);
+      if (width !== slot.width || height !== slot.height) {
+        wrongSize.push(`${slot.file}: ${width}x${height}, declared ${slot.width}x${slot.height}`);
+      }
+    }
+
+    expect(missing, 'declared captures with no file in public/screenshots').toEqual([]);
     expect(
-      present.map((s) => s.file),
-      'captures have landed — drop this assertion and review the page with images in it',
+      wrongSize,
+      'a capture does not match the size lib/platform-tour.ts declares — next/image will reserve the wrong box',
     ).toEqual([]);
   });
 });
