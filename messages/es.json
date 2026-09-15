@@ -74,7 +74,11 @@
     "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy y te mostramos la primera automatización que se paga sola.",
     "sofiaKicker": "Pruébalo, no es una demo",
     "sofiaTitle": "La recepcionista que contesta nuestro propio teléfono",
-    "sofiaBlurb": "Creamos sistemas que contestan cuando tú no puedes. Este es el nuestro — la misma Sofía que contesta al (956) 506-1545, en línea ahora mismo. Presiona el botón y pregúntale lo que quieras."
+    "sofiaBlurb": "Creamos sistemas que contestan cuando tú no puedes. Este es el nuestro — la misma Sofía que contesta al (956) 506-1545, en línea ahora mismo. Presiona el botón y pregúntale lo que quieras.",
+    "platformKicker": "Software propio",
+    "platformTitle": "El software es nuestro. Nosotros trabajamos con él todos los días.",
+    "platformBody": "Las llamadas, los prospectos, las citas, el correo del lunes por la mañana — un solo sistema que construimos y mantenemos, no una licencia que te revendimos. Así se ve por dentro.",
+    "platformLink": "Mira la plataforma por dentro"
   },
   "services": {
     "title": "Qué hacemos.",
@@ -150,7 +154,11 @@
       "ctaTitle": "Empieza con una evaluación gratuita",
       "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu negocio hoy y te mostramos la mejora que se paga sola primero.",
       "sofiaTryTitle": "Escúchala hacerlo",
-      "sofiaTryBlurb": "La misma Sofía, en vivo en tu navegador. Hazle las preguntas que te hacen tus clientes y juzga las respuestas tú mismo."
+      "sofiaTryBlurb": "La misma Sofía, en vivo en tu navegador. Hazle las preguntas que te hacen tus clientes y juzga las respuestas tú mismo.",
+      "platformKicker": "Por dentro",
+      "platformTitle": "Contestada en español a las 9 PM, agendada antes de que despertaras.",
+      "platformBody": "Cada llamada queda grabada, resumida y guardada en el mismo sistema — en el idioma en que entró. Esta es la pantalla real, no una maqueta.",
+      "platformLink": "Mira la plataforma por dentro"
     },
     "pages": {
       "legal": {
@@ -715,7 +723,11 @@
     "nextHeading": "Qué sigue en esta página",
     "nextBody": "Esta página crece conforme el trabajo entra en operación. Los proyectos de clientes aparecen aquí solo con su permiso y descritos con hechos que ellos y nosotros podemos sostener — sin números inventados ni logotipos prestados.",
     "ctaTitle": "¿Quieres una así contestando tu teléfono?",
-    "ctaBody": "Empieza con una evaluación gratuita. Te diremos con honestidad si esto le sirve a tu negocio — y si no, también te lo decimos."
+    "ctaBody": "Empieza con una evaluación gratuita. Te diremos con honestidad si esto le sirve a tu negocio — y si no, también te lo decimos.",
+    "platformKicker": "Detrás del trabajo",
+    "platformTitle": "La misma plataforma está detrás de todo esto.",
+    "platformBody": "Cada proyecto de arriba corre sobre software que escribimos y seguimos manteniendo. Aquí nadie te renta el producto de otro y cruza los dedos.",
+    "platformLink": "Mira la plataforma por dentro"
   },
   "photos": {
     "alt": {

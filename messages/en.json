@@ -74,7 +74,11 @@
     "ctaBody": "A free, no-pitch assessment: we look at how your business runs today and show you the one automation that pays for itself first.",
     "sofiaKicker": "Try it, not a demo",
     "sofiaTitle": "The receptionist that answers our own phone",
-    "sofiaBlurb": "We build systems that pick up when you cannot. This is ours — the same Sofía who answers (956) 506-1545, on the line right now. Press the button and ask her anything."
+    "sofiaBlurb": "We build systems that pick up when you cannot. This is ours — the same Sofía who answers (956) 506-1545, on the line right now. Press the button and ask her anything.",
+    "platformKicker": "Our own software",
+    "platformTitle": "The software is ours. We run our own shop on it.",
+    "platformBody": "The calls, the leads, the bookings, the Monday morning email — one system we build and keep running, not a licence we resold you. This is what it looks like from the inside.",
+    "platformLink": "Look inside the platform"
   },
   "services": {
     "title": "What we do.",
@@ -150,7 +154,11 @@
       "ctaTitle": "Start with a free assessment",
       "ctaBody": "Thirty minutes, no pitch. We look at how your business runs today and show you the one improvement that pays for itself first.",
       "sofiaTryTitle": "Hear her do it",
-      "sofiaTryBlurb": "The same Sofía, live in your browser. Ask her the questions your customers ask and judge the answers yourself."
+      "sofiaTryBlurb": "The same Sofía, live in your browser. Ask her the questions your customers ask and judge the answers yourself.",
+      "platformKicker": "Inside the software",
+      "platformTitle": "Answered in Spanish at 9 PM, booked before you woke up.",
+      "platformBody": "Every call is recorded, summarised and filed in the same system — in whichever language it came in. This is the actual screen, not a mockup.",
+      "platformLink": "Look inside the platform"
     },
     "pages": {
       "legal": {
@@ -715,7 +723,11 @@
     "nextHeading": "What goes here next",
     "nextBody": "This page grows as work goes live. Client projects appear here only with the client's permission, described in facts they and we can both stand behind — no invented numbers, no borrowed logos.",
     "ctaTitle": "Want one of these answering your phone?",
-    "ctaBody": "Start with a free assessment. We'll tell you honestly whether this fits your business — and if it doesn't, we'll say so."
+    "ctaBody": "Start with a free assessment. We'll tell you honestly whether this fits your business — and if it doesn't, we'll say so.",
+    "platformKicker": "Under the work",
+    "platformTitle": "The same platform runs behind these.",
+    "platformBody": "Every project above sits on software we wrote and still maintain. Nobody here is renting you somebody else's product and hoping it holds.",
+    "platformLink": "Look inside the platform"
   },
   "photos": {
     "alt": {

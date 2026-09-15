@@ -69,6 +69,24 @@ export const tourSections = [
 
 export type TourSectionId = (typeof tourSections)[number]['id'];
 
+/**
+ * One tour capture, by id, for the pages that borrow a single screenshot
+ * rather than running the whole tour (`PlatformProof` on the homepage, /work
+ * and the industry pages).
+ *
+ * A lookup rather than five exported constants: `tourSections` is already the
+ * single place a capture's file and dimensions are declared, and a second
+ * declaration is how the website and the capture pipeline would drift apart
+ * again. `TourSectionId` keeps a typo a compile error rather than a runtime
+ * `undefined` that renders nothing and looks like the render-only-if-present
+ * rule doing its job.
+ */
+export function tourShot(id: TourSectionId): ShotSlot {
+  const section = tourSections.find((s) => s.id === id);
+  if (!section) throw new Error(`tourShot: no section "${id}"`);
+  return section.shot;
+}
+
 /** The hero capture, above the fold and separate from the alternating tour. */
 export const heroShot: ShotSlot = {
   file: 'dashboard-dark.png', width: 2560, height: 1600,
