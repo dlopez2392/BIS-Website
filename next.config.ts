@@ -10,6 +10,18 @@ const withMDX = createMDX();
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  images: {
+    // Next's default is ['image/webp'] alone, so a browser advertising AVIF
+    // was still served WebP — verified against production before changing
+    // this. AVIF is listed first because the list is a preference order and
+    // Next serves the first entry the browser accepts, falling back to WebP
+    // and then the original for anything that does not.
+    //
+    // It matters most on the /platform captures: those are 2560x1600 PNGs of
+    // a dark UI, the case AVIF handles far better than WebP, and they now
+    // appear on the homepage, /work and every industry page.
+    formats: ['image/avif', 'image/webp'],
+  },
   // Every response carries the CSP and hardening headers; see
   // src/lib/security/headers.ts for what each allowance is for.
   async headers() {
