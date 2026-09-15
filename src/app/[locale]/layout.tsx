@@ -2,10 +2,11 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { routing } from '@/i18n/routing';
+import { clientMessages } from '@/i18n/client-namespaces';
 import { hankenGrotesk, instrumentSerif } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Header } from '@/components/layout/Header';
@@ -48,6 +49,10 @@ export default async function LocaleLayout({
   // Fed to the business schema so an ES page describes the company in Spanish.
   // SERVICE_GROUP_IDS is the same constant the AI context pack reads, so adding
   // a fourth service group updates both or neither.
+  // The full catalogue for this locale; `clientMessages` narrows it to the
+  // namespaces the browser actually needs before it crosses the boundary.
+  const messages = await getMessages({ locale });
+
   const tMeta = await getTranslations({ locale, namespace: 'meta' });
   const tServices = await getTranslations({ locale, namespace: 'services' });
   const services = SERVICE_GROUP_IDS.map((id) => ({
@@ -83,7 +88,11 @@ export default async function LocaleLayout({
       </head>
       <body>
         <ThemeProvider>
-          <NextIntlClientProvider>
+          {/* Only the namespaces a client component actually reads. Bare
+              <NextIntlClientProvider> inherits the WHOLE catalogue into every
+              page's RSC payload — ~77KB of JSON per page view, most of it copy
+              for pages the visitor is not on. See client-namespaces.ts. */}
+          <NextIntlClientProvider messages={clientMessages(messages)}>
             <Header />
             {children}
             <Footer />
