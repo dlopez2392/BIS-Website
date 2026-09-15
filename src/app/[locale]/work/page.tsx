@@ -5,6 +5,8 @@ import { CallLink } from '@/components/layout/CallLink';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { workCases } from '@/lib/work';
+import { PlatformProof } from '@/components/marketing/PlatformProof';
+import { tourShot } from '@/lib/platform-tour';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -17,6 +19,7 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'work' });
   const c = await getTranslations('common');
+  const p = await getTranslations({ locale, namespace: 'platform' });
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-20">
@@ -85,6 +88,22 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
           </article>
         );
       })}
+
+      {/* After the case studies, not before: the work earns the claim. The
+          capture is the call LOG rather than the dashboard — this page is
+          about delivery, and a list of real calls with outcomes reads as
+          delivery in a way a KPI row does not. */}
+      <div className="mt-12">
+        <PlatformProof
+          shot={tourShot('calls')}
+          alt={p('alt.calls')}
+          caption={p('sampleCaption')}
+          kicker={t('platformKicker')}
+          title={t('platformTitle')}
+          body={t('platformBody')}
+          linkLabel={t('platformLink')}
+        />
+      </div>
 
       <section className="mt-12 rounded-xl border border-hairline bg-surface-alt p-8">
         <h2 className="text-2xl font-bold text-ink">{t('nextHeading')}</h2>

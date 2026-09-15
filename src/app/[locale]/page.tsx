@@ -10,6 +10,8 @@ import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
 import { TechMarquee } from '@/components/marketing/TechMarquee';
 import { ResourceCTA } from '@/components/marketing/ResourceCTA';
+import { PlatformProof } from '@/components/marketing/PlatformProof';
+import { heroShot } from '@/lib/platform-tour';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
@@ -26,6 +28,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations('home');
   const c = await getTranslations('common');
   const it = await getTranslations({ locale, namespace: 'insights' });
+  // Alt text and the sample-data caption live in the `platform` namespace
+  // beside the capture they describe, not duplicated per page that shows one.
+  const p = await getTranslations({ locale, namespace: 'platform' });
   const r = await getTranslations({ locale, namespace: 'resources' });
   const latest = (await listPosts(locale as 'en' | 'es')).slice(0, 3);
 
@@ -56,12 +61,29 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* Directly after the services, not before them. A visitor who has just
-          read that we build AI that answers phones is the one for whom "here
-          is ours, talk to her" is an argument rather than a novelty; the same
-          panel above the services was a gadget meeting a stranger who did not
-          yet know what we sell. Still early enough that nobody has to hunt
-          for it. */}
+      {/* The product, once, on the way past. Placed AFTER the three service
+          cards and before Sofía on purpose: the cards say what we do, this
+          says the thing exists and is ours, and Sofía lets them try a piece
+          of it. Moving it above the cards would have the page make a claim
+          about software before saying what the company does. */}
+      <section className="mx-auto max-w-5xl px-6 py-14">
+        <PlatformProof
+          shot={heroShot}
+          alt={p('alt.hero')}
+          caption={p('sampleCaption')}
+          kicker={t('platformKicker')}
+          title={t('platformTitle')}
+          body={t('platformBody')}
+          linkLabel={t('platformLink')}
+        />
+      </section>
+      {/* Then Sofía — still on the far side of the services, not before them,
+          with the band above her a beat of the same argument rather than a
+          new subject. A visitor who has just read that we build AI that
+          answers phones is the one for whom "here is ours, talk to her" is an
+          argument rather than a novelty; the same panel above the services
+          was a gadget meeting a stranger who did not yet know what we sell.
+          Still early enough that nobody has to hunt for it. */}
       <section id="talk-to-sofia" className="mx-auto max-w-4xl px-6 pb-4">
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
         <div className="mt-4">

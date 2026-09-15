@@ -9,6 +9,8 @@ import { CTASection } from '@/components/ui/CTASection';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { industryPages, getIndustry, type IndustryWorkflow, type IndustryQuestion } from '@/lib/industries';
 import { cityPages } from '@/lib/cities';
+import { PlatformProof } from '@/components/marketing/PlatformProof';
+import { tourShot } from '@/lib/platform-tour';
 
 export function generateStaticParams() {
   return industryPages.map((i) => ({ industry: i.id }));
@@ -39,6 +41,7 @@ export default async function IndustryPage(
   const t = await getTranslations({ locale, namespace: 'industries' });
   const tNav = await getTranslations({ locale, namespace: 'nav' });
   const c = await getTranslations('common');
+  const p = await getTranslations({ locale, namespace: 'platform' });
   const workflows = t.raw(`pages.${industry}.workflows`) as IndustryWorkflow[];
   const questions = t.raw(`pages.${industry}.faq`) as IndustryQuestion[];
   const others = industryPages.filter((o) => o.id !== entry.id);
@@ -119,6 +122,23 @@ export default async function IndustryPage(
         <p className="mt-3 text-sm">
           <Link href="/work" className="text-link underline">{t('shared.sofiaLink')}</Link>
         </p>
+      </section>
+
+      {/* Straight after the Sofía section, which is where this page has just
+          claimed she answers in both languages. The capture is the SPANISH
+          call detail — the one screen that shows the claim being true rather
+          than restated, and the single strongest thing to put in front of a
+          Valley business owner. */}
+      <section className="mx-auto max-w-4xl px-6 pt-14">
+        <PlatformProof
+          shot={tourShot('spanish')}
+          alt={p('alt.spanish')}
+          caption={p('sampleCaption')}
+          kicker={t('shared.platformKicker')}
+          title={t('shared.platformTitle')}
+          body={t('shared.platformBody')}
+          linkLabel={t('shared.platformLink')}
+        />
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pt-14">

@@ -55,6 +55,38 @@ describe('the /platform tour', () => {
     }
   });
 
+  /**
+   * The /platform tour is the long argument; `PlatformProof` is the same
+   * argument made in passing on the homepage, /work and every industry page.
+   * Each placement pulls FOUR keys from its own namespace plus alt text and
+   * the sample-data caption from `platform`.
+   *
+   * A missing key here does not throw — next-intl renders the key path into
+   * the page — so "Our own software" quietly becomes "home.platformKicker" on
+   * a live marketing page. Asserted per locale because Spanish is where a
+   * copy addition is most likely to be forgotten.
+   */
+  it('gives every PlatformProof placement its copy in both languages', () => {
+    for (const [locale, m] of Object.entries(locales)) {
+      const blocks = {
+        home: m.home,
+        work: m.work,
+        'industries.shared': m.industries?.shared,
+      };
+      for (const [name, block] of Object.entries(blocks)) {
+        for (const key of ['platformKicker', 'platformTitle', 'platformBody', 'platformLink']) {
+          expect(block?.[key], `${locale}: ${name}.${key}`).toBeTruthy();
+        }
+      }
+      // Alt text and the caption are borrowed from the tour rather than
+      // restated per page — see `tourShot`.
+      expect(m.platform?.alt?.hero, `${locale}: platform.alt.hero`).toBeTruthy();
+      expect(m.platform?.alt?.calls, `${locale}: platform.alt.calls`).toBeTruthy();
+      expect(m.platform?.alt?.spanish, `${locale}: platform.alt.spanish`).toBeTruthy();
+      expect(m.platform?.sampleCaption, `${locale}: platform.sampleCaption`).toBeTruthy();
+    }
+  });
+
   it('is reachable from the nav in both languages', () => {
     for (const [locale, m] of Object.entries(locales)) {
       expect(m.nav?.platform, `${locale}: nav.platform`).toBeTruthy();
