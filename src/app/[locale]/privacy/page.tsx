@@ -14,6 +14,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   const t = await getTranslations({ locale, namespace: 'privacy' });
   const collectItems = t.raw('collectItems') as string[];
   const processorsItems = t.raw('processorsItems') as string[];
+  const smsItems = t.raw('smsItems') as string[];
 
   // heading/body-only sections rendered (in order) after the processors list.
   const proseSections = ['cookies', 'retention', 'rights', 'children', 'changes', 'contact'] as const;
@@ -35,6 +36,24 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       <section className="mt-8">
         <h2 className="text-xl font-bold text-ink">{t('useHeading')}</h2>
         <p className="mt-2 text-ink-muted">{t('useBody')}</p>
+      </section>
+
+      {/* Its own section, ahead of the processor list, because this is the one
+          part of this policy that is read by someone other than a customer.
+          A2P 10DLC campaign vetting scans the privacy policy for a specific
+          CTIA clause about mobile information and opt-in data, and a policy
+          that only says "we do not sell your information" does not satisfy it
+          — that sentence is about selling, and the carriers are asking about
+          sharing. `smsSharingBody` carries their wording deliberately; do not
+          paraphrase it into the house voice. The rest of the section is in
+          plain language for the person who actually ticked the box. */}
+      <section className="mt-8">
+        <h2 className="text-xl font-bold text-ink">{t('smsHeading')}</h2>
+        <p className="mt-2 text-ink-muted">{t('smsIntro')}</p>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-ink-muted">
+          {smsItems.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+        <p className="mt-3 text-ink-muted">{t('smsSharingBody')}</p>
       </section>
 
       <section className="mt-8">

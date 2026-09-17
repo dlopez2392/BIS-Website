@@ -31,6 +31,7 @@ export function Footer() {
             <li><Link href="/contact">{t('contactCol')}</Link></li>
             <li><Link href="/trust">{t('trust')}</Link></li>
             <li><Link href="/privacy">{t('privacy')}</Link></li>
+            <li><Link href="/terms">{t('terms')}</Link></li>
             <li><Link href="/accessibility">{t('accessibility')}</Link></li>
           </ul>
         </div>

@@ -27,6 +27,8 @@ const PAGES = [
   ['hours calculator', '/en/tools/first-hour-back'],
   ['hours calculator (ES)', '/es/tools/first-hour-back'],
   ['privacy', '/en/privacy'],
+  ['terms', '/en/terms'],
+  ['terms (ES)', '/es/terms'],
   ['accessibility statement', '/en/accessibility'],
   ['trust', '/en/trust'],
   ['trust (ES)', '/es/trust'],

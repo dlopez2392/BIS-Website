@@ -43,7 +43,8 @@
     "region": "Valle del Río Grande",
     "city": "Harlingen, TX",
     "email": "bespokeintelligentsolutions@gmail.com",
-    "rights": "© 2026 BIS. Todos los derechos reservados."
+    "rights": "© 2026 BIS. Todos los derechos reservados.",
+    "terms": "Términos y Condiciones"
   },
   "home": {
     "heroTitle": "Deja que seamos tu",
@@ -628,7 +629,7 @@
   "privacy": {
     "title": "Política de Privacidad",
     "metaDescription": "Cómo Bespoke Intelligent Solutions recopila, usa y protege tu información.",
-    "lastUpdated": "Última actualización: 9 de agosto de 2026",
+    "lastUpdated": "Última actualización: 17 de septiembre de 2026",
     "intro": "Bespoke Intelligent Solutions (\"BIS\", \"nosotros\") respeta tu privacidad. Esta política explica qué recopilamos a través de este sitio web, cómo lo usamos y las opciones que tienes. La mantenemos en lenguaje claro a propósito.",
     "collectHeading": "Qué recopilamos y por qué",
     "collectIntro": "Solo recopilamos lo que necesitamos para responderte y operar este sitio:",
@@ -650,7 +651,7 @@
       "Plataforma BIS (app.bis-rgv.com) — nuestra propia plataforma para clientes, que aloja el formulario de contacto y el agendador de evaluaciones y guarda lo que envías a través de ellos.",
       "DeepSeek — provee el modelo de IA detrás de nuestro asistente de chat en el sitio.",
       "OpenAI — provee el modelo de voz en tiempo real detrás de Sofía, la recepcionista de IA que contesta nuestra línea telefónica.",
-      "Telnyx — transporta las llamadas a nuestra línea de negocio."
+      "Telnyx — transporta las llamadas y los mensajes de texto hacia y desde nuestra línea de negocio."
     ],
     "cookiesHeading": "Cookies y rastreo",
     "cookiesBody": "Usamos analítica respetuosa de la privacidad y sin cookies. No usamos cookies de publicidad ni de rastreo entre sitios, así que no hay banner de consentimiento de cookies que aceptar. Tu navegador aún puede usar cookies esenciales necesarias para que el sitio funcione.",
@@ -663,7 +664,52 @@
     "changesHeading": "Cambios a esta política",
     "changesBody": "Podemos actualizar esta política a medida que cambian nuestros servicios. Cuando lo hagamos, actualizaremos la fecha en la parte superior de esta página.",
     "contactHeading": "¿Preguntas?",
-    "contactBody": "Si tienes preguntas sobre esta política o tu información, escríbenos a bespokeintelligentsolutions@gmail.com."
+    "contactBody": "Si tienes preguntas sobre esta política o tu información, escríbenos a bespokeintelligentsolutions@gmail.com.",
+    "smsHeading": "Mensajes de texto",
+    "smsIntro": "Nuestro formulario de contacto tiene una casilla opcional que pregunta si podemos enviarte mensajes de texto. Marcarla es lo que nos da permiso, y esto es exactamente lo que aceptas:",
+    "smsItems": [
+      "Qué recibirás: una respuesta sobre la evaluación que pediste y mensajes sobre una cita que agendes con nosotros — una confirmación, un recordatorio antes y un aviso si no te encontramos. Nada más.",
+      "Con qué frecuencia: solo cuando haya algo que decir sobre tu consulta o tu cita. No hay boletín, ni lista, ni publicidad.",
+      "Cuánto cuesta: nada de nuestra parte. Pueden aplicar tarifas de mensajes y datos de tu propia compañía telefónica.",
+      "Cómo detenerlos: responde STOP a cualquier mensaje y paramos, de inmediato y de forma definitiva. Responde HELP y recibes nuestro teléfono y correo.",
+      "La casilla es opcional. El formulario se envía sin marcarla, y de todos modos te responderemos por correo o por teléfono."
+    ],
+    "smsSharingBody": "No compartiremos tu información móvil con terceros ni con afiliados con fines de mercadotecnia o promoción. Los datos y el consentimiento de suscripción a mensajes de texto no se compartirán con ningún tercero para ningún fin. Tu número de teléfono se usa para responderte y para nada más. (Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes. All text messaging originator opt-in data and consent will not be shared with any third parties.)"
+  },
+  "terms": {
+    "title": "Términos y Condiciones",
+    "metaDescription": "Los términos que rigen este sitio web, nuestro programa de mensajes de texto y los asistentes de IA de este sitio.",
+    "lastUpdated": "Última actualización: 17 de septiembre de 2026",
+    "intro": "Estos términos cubren este sitio web, los mensajes de texto que enviamos y los asistentes de IA con los que puedes hablar aquí. Los proyectos se rigen por el acuerdo escrito que firmamos contigo; si ese acuerdo y esta página no coinciden, manda el acuerdo.",
+    "siteHeading": "Uso de este sitio",
+    "siteBody": "Puedes leer, citar y compartir lo que quieras de este sitio. Lo que no puedes hacer es lo que te imaginas: intentar vulnerarlo, extraer su contenido para revenderlo, o usar el formulario de contacto o los asistentes para enviar algo ilícito. Las herramientas gratuitas de aquí — la revisión de seguridad y la calculadora de horas — son informativas. No son una auditoría ni asesoría profesional, y así lo decimos en las herramientas mismas.",
+    "servicesHeading": "Nuestros servicios",
+    "servicesBody": "Nada en este sitio es una oferta ni una cotización. Una evaluación gratuita es exactamente eso: una conversación, sin costo y sin compromiso para ninguna de las dos partes. El trabajo empieza cuando ambos firmamos un acuerdo escrito con alcance, precio y tiempos.",
+    "smsHeading": "Mensajes de texto",
+    "smsIntro": "Bespoke Intelligent Solutions envía mensajes de texto desde el (956) 506-1545, y solo a quienes los pidieron. Estos son los términos de ese programa.",
+    "smsItems": [
+      "Consentimiento: te suscribes marcando la casilla de mensajes de texto en nuestro formulario de contacto. La casilla es opcional y está desmarcada por defecto, el formulario se envía sin ella, y nunca compramos, rentamos ni importamos números de ningún otro lado.",
+      "Qué enviamos: una respuesta sobre la evaluación que pediste y mensajes sobre una cita que agendes con nosotros — una confirmación, un recordatorio y un aviso si no te encontramos. Nada de publicidad, boletines ni promociones.",
+      "Frecuencia: la frecuencia varía. Escribimos cuando hay algo que decir sobre tu consulta o tu cita, y no en otro momento.",
+      "Costo: nosotros no cobramos nada. Pueden aplicar tarifas de mensajes y datos de tu propia compañía telefónica.",
+      "STOP: responde STOP a cualquier mensaje para terminarlos, de inmediato y de forma definitiva. Recibirás una confirmación de que funcionó y después nada más.",
+      "HELP: responde HELP para recibir nuestro teléfono y correo, o escríbenos cuando quieras a los datos que están al final de esta página.",
+      "Operadoras: las compañías telefónicas no son responsables de mensajes retrasados o no entregados.",
+      "Privacidad: tu número se usa para responderte y para nada más. La información móvil y los datos de suscripción a mensajes de texto nunca se comparten con terceros ni afiliados con fines de mercadotecnia o promoción. El aviso de privacidad tiene la declaración completa."
+    ],
+    "privacyLink": "Lee el aviso de privacidad completo",
+    "aiHeading": "Los asistentes de IA",
+    "aiBody": "Son dos: Sofía, que contesta nuestra línea telefónica y se puede probar desde este sitio, y el asistente de chat de estas páginas. Ambos son software. Explican lo que hacemos y pueden tomar tus datos o agendarte; no dan asesoría legal, médica, financiera ni de seguridad, y pueden equivocarse. Lo que importe, confírmalo con una persona — llámanos y te atenderá una. Sofía guarda una transcripción escrita y un resumen de la llamada, no una grabación de audio, y a quien llama se le avisa que la línea la atiende un asistente.",
+    "ipHeading": "Qué es de quién",
+    "ipBody": "Los textos, el diseño, el código y las imágenes de este sitio son nuestros. El trabajo que construimos para un cliente bajo un acuerdo firmado es del cliente, en cuentas a su nombre — así está planteado desde el principio, no es una concesión, y la página de confianza explica cómo funciona en la práctica.",
+    "liabilityHeading": "Lo que no prometemos",
+    "liabilityBody": "Mantenemos este sitio preciso y disponible, pero no podemos prometer que esté libre de errores ni que nunca falle, y no somos responsables de una pérdida derivada de confiar en una página de aquí en lugar de en un acuerdo con nosotros. Nada de este párrafo limita aquello que legalmente no se puede limitar.",
+    "lawHeading": "Legislación aplicable",
+    "lawBody": "Estos términos se rigen por las leyes del Estado de Texas, y cualquier disputa corresponde a los tribunales del Condado de Cameron, Texas.",
+    "changesHeading": "Cambios a estos términos",
+    "changesBody": "Podemos actualizar esta página conforme cambien nuestros servicios. Cuando lo hagamos, cambia también la fecha de arriba. Un cambio importante al programa de mensajes de texto se anuncia aquí antes de entrar en vigor.",
+    "contactHeading": "Cómo contactarnos",
+    "contactBody": "Las preguntas sobre cualquier cosa de esta página — incluidos los mensajes de texto — llegan a una persona, no a una fila de tickets."
   },
   "howWeWork": {
     "title": "Cómo Trabajamos",

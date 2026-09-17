@@ -43,7 +43,8 @@
     "region": "Rio Grande Valley",
     "city": "Harlingen, TX",
     "email": "bespokeintelligentsolutions@gmail.com",
-    "rights": "© 2026 BIS. All rights reserved."
+    "rights": "© 2026 BIS. All rights reserved.",
+    "terms": "Terms & Conditions"
   },
   "home": {
     "heroTitle": "Let us be your",
@@ -628,7 +629,7 @@
   "privacy": {
     "title": "Privacy Policy",
     "metaDescription": "How Bespoke Intelligent Solutions collects, uses, and protects your information.",
-    "lastUpdated": "Last updated: August 9, 2026",
+    "lastUpdated": "Last updated: September 17, 2026",
     "intro": "Bespoke Intelligent Solutions (\"BIS\", \"we\", \"us\") respects your privacy. This policy explains what we collect through this website, how we use it, and the choices you have. We keep it plain-language on purpose.",
     "collectHeading": "What we collect and why",
     "collectIntro": "We only collect what we need to respond to you and run this site:",
@@ -650,7 +651,7 @@
       "BIS Platform (app.bis-rgv.com) — our own client platform, which hosts the contact form and the assessment scheduler and stores what you submit through them.",
       "DeepSeek — provides the AI model behind our on-site chat assistant.",
       "OpenAI — provides the realtime speech model behind Sofía, the AI receptionist who answers our phone line.",
-      "Telnyx — carries the calls to our business line."
+      "Telnyx — carries the calls and the text messages to and from our business line."
     ],
     "cookiesHeading": "Cookies and tracking",
     "cookiesBody": "We use privacy-friendly, cookieless analytics. We do not use advertising or cross-site tracking cookies, so there is no cookie-consent banner to click through. Your browser may still use essential cookies needed for the site to function.",
@@ -663,7 +664,52 @@
     "changesHeading": "Changes to this policy",
     "changesBody": "We may update this policy as our services change. When we do, we will update the date at the top of this page.",
     "contactHeading": "Questions?",
-    "contactBody": "If you have any questions about this policy or your information, email us at bespokeintelligentsolutions@gmail.com."
+    "contactBody": "If you have any questions about this policy or your information, email us at bespokeintelligentsolutions@gmail.com.",
+    "smsHeading": "Text messages",
+    "smsIntro": "Our contact form has an optional box asking whether we may text you. Ticking it is what gives us permission, and this is exactly what you are agreeing to:",
+    "smsItems": [
+      "What you will get: a reply about the assessment you asked for, and messages about an appointment you book with us — a confirmation, a reminder before it, and a note if we miss you. Nothing else.",
+      "How often: only when there is something to say about your enquiry or your appointment. There is no newsletter, no list, and no marketing.",
+      "What it costs: nothing from us. Message and data rates from your own carrier may apply.",
+      "How to stop: reply STOP to any message and we stop, straight away and for good. Reply HELP and you get our phone number and email.",
+      "The box is optional. The form submits without it, and we will still reply by email or phone."
+    ],
+    "smsSharingBody": "Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes. Text-messaging originator opt-in data and consent will not be shared with any third parties for any purpose. Your phone number is used to reply to you and for nothing else."
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "metaDescription": "The terms that govern this website, our text-message program, and the AI assistants on this site.",
+    "lastUpdated": "Last updated: September 17, 2026",
+    "intro": "These terms cover this website, the text messages we send, and the AI assistants you can talk to here. Engagements are governed by the written agreement we sign with you — where that agreement and this page disagree, the agreement wins.",
+    "siteHeading": "Using this site",
+    "siteBody": "You are welcome to read, quote and share anything on this site. What you may not do is what you would expect: no attempts to break into it, no scraping it to resell, no using the contact form or the assistants to send anything unlawful. The free tools here — the security check and the hours calculator — are informational. They are not an audit and not professional advice, and we say so on the tools themselves.",
+    "servicesHeading": "Our services",
+    "servicesBody": "Nothing on this site is an offer or a quote. A free assessment is exactly that: a conversation, at no cost and with no obligation on either side. Work starts when we both sign a written agreement setting out scope, price and timing.",
+    "smsHeading": "Text messages",
+    "smsIntro": "Bespoke Intelligent Solutions sends text messages from (956) 506-1545, and only to people who asked for them. Here are the terms of that program.",
+    "smsItems": [
+      "Consent: you opt in by ticking the text-message box on our contact form. The box is optional and off by default, the form submits without it, and we never buy, rent or import a phone number from anywhere else.",
+      "What we send: a reply about the assessment you asked for, and messages about an appointment you book with us — a confirmation, a reminder, and a note if we miss you. No marketing, no newsletter, no promotions.",
+      "Frequency: message frequency varies. We text when there is something to say about your enquiry or your appointment, and not otherwise.",
+      "Cost: we charge nothing. Message and data rates from your own carrier may apply.",
+      "STOP: reply STOP to any message to end them, immediately and permanently. You will get one confirmation that it worked, and then nothing further.",
+      "HELP: reply HELP for our phone number and email address, or reach us any time at the addresses at the bottom of this page.",
+      "Carriers: mobile carriers are not liable for delayed or undelivered messages.",
+      "Privacy: your number is used to reply to you and for nothing else. Mobile information and text-messaging opt-in data are never shared with third parties or affiliates for marketing or promotional purposes. The privacy policy has the full statement."
+    ],
+    "privacyLink": "Read the full privacy policy",
+    "aiHeading": "The AI assistants",
+    "aiBody": "Two of them: Sofía, who answers our phone line and can be tried from this site, and the chat assistant on these pages. Both are software. They describe what we do and can take your details or book you a slot; they do not give legal, medical, financial or security advice, and they can be wrong. Anything that matters, check with a person — call us and you will get one. Sofía keeps a written transcript and summary of a call, not an audio recording, and callers are told the line is handled by an assistant.",
+    "ipHeading": "What belongs to whom",
+    "ipBody": "The writing, design, code and images on this site are ours. Work we build for a client under a signed agreement belongs to that client, in accounts with their name on them — that is the arrangement, not a concession, and the Trust page explains how it works in practice.",
+    "liabilityHeading": "What we do not promise",
+    "liabilityBody": "We keep this site accurate and available, but we cannot promise it is free of errors or never goes down, and we are not liable for a loss that follows from relying on a page here rather than on an agreement with us. Nothing in this paragraph limits anything that cannot lawfully be limited.",
+    "lawHeading": "Where this is governed",
+    "lawBody": "These terms are governed by the laws of the State of Texas, and any dispute belongs in the courts of Cameron County, Texas.",
+    "changesHeading": "Changes to these terms",
+    "changesBody": "We may update this page as our services change. When we do, the date at the top changes with it. A material change to the text-message program is announced here before it takes effect.",
+    "contactHeading": "Reaching us",
+    "contactBody": "Questions about anything on this page — including the text messages — come to a person, not a ticket queue."
   },
   "howWeWork": {
     "title": "How We Work",
