@@ -31,6 +31,7 @@ export const STATIC_PATHS = [
   '/about',
   '/contact',
   '/privacy',
+  '/terms',
   '/accessibility',
   '/trust',
 ];

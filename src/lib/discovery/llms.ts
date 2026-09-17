@@ -41,6 +41,7 @@ const CORE: Link[] = [
   { title: 'Contact', path: '/en/contact', note: 'Book a free assessment, or send a message. Both go straight to the founder.' },
   { title: 'How we protect your data', path: '/en/trust', note: 'The security questions a client asks a technology vendor, answered in advance: access, data ownership, sub-processors, regulated work, and what BIS does not claim.' },
   { title: 'Privacy policy', path: '/en/privacy', note: 'What BIS collects and how long it is kept.' },
+  { title: 'Terms & Conditions', path: '/en/terms', note: 'The terms covering the site, the AI assistants, and the text-message program — what BIS sends, how often, and how to stop it.' },
   { title: 'Accessibility', path: '/en/accessibility', note: 'How this site is built and tested for WCAG 2.1 AA, what automated testing does not cover, and the ADA Title II deadlines for Texas public entities.' },
 ];
 
