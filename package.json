@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "playwright test",
-    "resources:build": "node scripts/build-resources.mjs"
+    "resources:build": "node scripts/build-resources.mjs",
+    "higgsfield": "tsx --env-file=.env.local index.ts"
   },
   "dependencies": {
     "@ai-sdk/deepseek": "^3.0.7",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
+    "@higgsfield/client": "^0.2.6",
     "@next/env": "16.2.10",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
@@ -59,6 +61,7 @@
     "pdfkit": "^0.19.1",
     "tailwindcss": "^4",
     "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.23.13",
     "typescript": "^5",
     "vitest": "^4.1.9"
   }
