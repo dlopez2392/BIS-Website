@@ -52,6 +52,21 @@ describe('buildSiteContext', () => {
     for (const area of business.areaServed) expect(enPack, `area ${area}`).toContain(area);
   });
 
+  it('includes the platform — its promise, Sofía, the phone she answers, and all five tour sections — before the consulting services', () => {
+    const home = en.home as Record<string, string>;
+    const platform = en.platform as { heroBody: string; sections: Record<string, { title: string; body: string }> };
+    expect(enPack).toContain('## The BIS Platform');
+    expect(enPack).toContain(home.platformTitle);
+    expect(enPack).toContain(platform.heroBody);
+    expect(enPack).toContain(business.phone);
+    expect(enPack).toMatch(/Sofía, the AI receptionist/);
+    for (const id of ['spanish', 'calls', 'pipeline', 'booking', 'report']) {
+      expect(enPack, id).toContain(platform.sections[id].title);
+    }
+    expect(enPack.indexOf('## The BIS Platform')).toBeLessThan(enPack.indexOf('## Consulting services'));
+    expect(enPack).toContain(`${business.url}/en/platform`);
+  });
+
   it('includes every FAQ question and answer', () => {
     const items = (en.faq as { items: Record<string, { q: string; a: string }> }).items;
     for (const id of faqItemIds) {

@@ -41,7 +41,6 @@ export function contrast(a: string, b: string): number {
 
 const AA_NORMAL = 4.5;
 /** WCAG's large-text threshold: 18.66px bold or 24px regular. */
-const AA_LARGE = 3;
 
 describe('palette contrast', () => {
   const { light, dark } = palette();

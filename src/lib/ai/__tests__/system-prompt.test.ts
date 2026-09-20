@@ -5,6 +5,25 @@ import { business } from '@/lib/seo/business';
 const bookingLink = 'https://app.bis-rgv.com/b/7t36x3a3izen?locale=en';
 
 describe('buildSystemPrompt', () => {
+  it('sells the company as it is now: its own platform first, Sofía named, the phone to hear her, then consulting', () => {
+    const p = buildSystemPrompt({ bookingLink });
+    expect(p).toMatch(/WHAT BIS IS/);
+    expect(p).toMatch(/its own CRM platform/i);
+    expect(p).toMatch(/Sofía/);
+    expect(p).toContain('+1-956-506-1545');
+    expect(p).toMatch(/You are NOT Sofía/);
+    expect(p).toMatch(/CONSULTING:/);
+  });
+
+  it('asks for the five things the CRM needs, one or two at a time, and never promises a text', () => {
+    const p = buildSystemPrompt({ bookingLink });
+    for (const need of ['first name', 'business name', 'email', 'phone number']) expect(p).toContain(need);
+    expect(p).toMatch(/all five/);
+    expect(p).toMatch(/never as a form/i);
+    expect(p).toMatch(/exactly once/);
+    expect(p).toMatch(/Never promise a text/);
+  });
+
   it('includes BIS facts, the booking link, and the bilingual/scope rules', () => {
     const p = buildSystemPrompt({ bookingLink });
     expect(p).toContain('Bespoke Intelligent Solutions');

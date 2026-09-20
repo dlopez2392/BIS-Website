@@ -42,7 +42,8 @@ type Dict = Record<string, unknown>;
 
 /** Page path → what the model should expect to find there. Model-facing only, so intentionally English in both packs. */
 const PAGE_MAP: ReadonlyArray<readonly [string, string]> = [
-  ['', 'home: overview, platforms marquee, latest posts'],
+  ['', 'home: the platform in the hero, the three consulting services, latest posts'],
+  ['/platform', 'the BIS Platform tour: Sofía answering in Spanish, the call log, the lead board, self-booking, the Monday report — with real screenshots of a sample account'],
   ['/services', 'the three service groups in detail'],
   ['/industries', 'the five industries served'],
   ['/about', 'founder background and credentials'],
@@ -54,6 +55,9 @@ const PAGE_MAP: ReadonlyArray<readonly [string, string]> = [
   ['/insights', 'the article index'],
   ['/resources', 'free downloadable resources'],
   ['/contact', 'contact form plus the scheduler for booking a free assessment'],
+  ['/trust', 'how BIS protects a client\'s data'],
+  ['/tools/security-check', 'free website and email security check'],
+  ['/tools/first-hour-back', 'free calculator: hours a business could get back'],
   ['/privacy', 'privacy policy: what is collected and which processors are used'],
 ];
 
@@ -86,12 +90,21 @@ export function buildSiteContext({ locale, messages, posts }: SiteContextInput):
   out.push('## Business');
   out.push(
     `${business.name} (BIS). Founder: ${business.founder}. Email: ${business.email}. ` +
+      `Phone: ${business.phone} (answered by Sofía, the platform's AI receptionist). ` +
       `Based in ${business.address.locality}, ${business.address.region}. ` +
       `Works in: ${business.languages.join(' and ')}. ` +
       `Areas served: ${business.areaServed.join(', ')}.`,
   );
 
-  out.push(`\n## Services (detail: ${url('/services')})`);
+  out.push(`\n## The BIS Platform — BIS's own CRM (detail: ${url('/platform')})`);
+  out.push(`${m('home.platformTitle')} ${m('home.platformBody')}`);
+  out.push(m('platform.heroBody'));
+  out.push(`Sofía, the AI receptionist: ${m('sofia.blurb')} ${m('home.sofiaBlurb')} Phone: ${business.phone}.`);
+  for (const id of ['spanish', 'calls', 'pipeline', 'booking', 'report'] as const) {
+    out.push(`- ${m(`platform.sections.${id}.title`)} — ${m(`platform.sections.${id}.body`)}`);
+  }
+
+  out.push(`\n## Consulting services (detail: ${url('/services')})`);
   for (const g of SERVICE_GROUP_IDS) {
     out.push(
       `- ${m(`services.${g}Title`)} — ${m(`services.${g}Body`)} ` +
