@@ -1206,6 +1206,13 @@
       "report": "El correo del lunes por la mañana, con cuatro números junto a los de la semana anterior"
     },
     "ctaTitle": "Míralo con tus propios números adentro.",
-    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy, te decimos cuál de estas cosas realmente se pagaría sola, y cuál todavía no necesitas."
+    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy, te decimos cuál de estas cosas realmente se pagaría sola, y cuál todavía no necesitas.",
+    "stage": {
+      "tabsLabel": "Elige una pantalla",
+      "dashboard": "Panel",
+      "calls": "Llamadas",
+      "pipeline": "Oportunidades",
+      "spanish": "Una llamada en español"
+    }
   }
 }

@@ -1206,6 +1206,13 @@
       "report": "The Monday morning email, showing four numbers against the week before"
     },
     "ctaTitle": "See it with your own numbers in it.",
-    "ctaBody": "A free, no-pitch assessment: we look at how your business runs today, tell you which of these would actually earn its keep, and which you do not need yet."
+    "ctaBody": "A free, no-pitch assessment: we look at how your business runs today, tell you which of these would actually earn its keep, and which you do not need yet.",
+    "stage": {
+      "tabsLabel": "Choose a screen",
+      "dashboard": "Dashboard",
+      "calls": "Calls",
+      "pipeline": "Pipeline",
+      "spanish": "A call in Spanish"
+    }
   }
 }

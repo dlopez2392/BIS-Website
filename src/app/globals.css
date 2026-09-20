@@ -149,6 +149,82 @@ body {
   width: 100%; max-width: 860px;
   padding: 8px 24px 85px;
 }
+/* The copy and the product stage share the hero's first row. Below 1100px
+   they stack, copy first: a visitor on a phone should read what we do before
+   meeting the thing we built, and the stage is the first real art this hero
+   has ever given a phone (the backdrop video is gated at 901px). */
+.hero-main {
+  position: relative; z-index: 1;
+  align-self: end;
+  display: flex; flex-direction: column; align-items: center;
+  width: 100%;
+}
+/* Beats every `.hero-copy` padding rule below on specificity, whatever the
+   source order: with the stage underneath, the copy's bottom padding is a gap
+   between two things rather than the hero's floor. */
+.hero-main .hero-copy { padding-bottom: 30px; }
+
+/* --- The product stage: app.bis-rgv.com, in our own window ------------- */
+.hero-stage { position: relative; width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 12px; }
+/* Ambient violet under the glass, so the window sits in the aurora rather
+   than on top of it. */
+.hero-stage::before {
+  content: ""; position: absolute; z-index: -1;
+  inset: 6% -8% -14%;
+  background: radial-gradient(closest-side, rgba(124, 58, 237, 0.55), rgba(124, 58, 237, 0) 100%);
+  filter: blur(34px);
+}
+.stage-frame {
+  position: relative; border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #14122a;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.10) inset,
+    0 44px 90px -34px rgba(0, 0, 0, 0.9),
+    0 0 78px -28px rgba(124, 58, 237, 0.75);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+.stage-chrome {
+  display: flex; align-items: center; gap: 7px;
+  height: 32px; padding: 0 13px;
+  background: linear-gradient(180deg, #1d1a3c 0%, #15132c 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+.stage-dot { width: 9px; height: 9px; border-radius: 999px; background: rgba(243, 240, 255, 0.22); flex: none; }
+.stage-url {
+  margin-left: 10px; padding: 3px 11px; border-radius: 999px;
+  background: rgba(11, 10, 24, 0.55); border: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 11px; letter-spacing: -0.005em; color: rgba(243, 240, 255, 0.55);
+}
+/* The box is reserved from the frames' own 1600x933, so nothing reflows when
+   the first capture decodes. */
+.stage-screens { position: relative; aspect-ratio: 1600 / 933; background: #0f0d22; }
+.stage-screens img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left;
+  opacity: 0; transition: opacity 0.65s ease;
+}
+.stage-screens img.is-on { opacity: 1; }
+
+.stage-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.stage-tabs { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.stage-tab {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  background: rgba(243, 240, 255, 0.06); border: 1px solid rgba(243, 240, 255, 0.16);
+  color: rgba(243, 240, 255, 0.72); font-size: 12.5px; font-weight: 500; letter-spacing: -0.01em; line-height: 1;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.stage-tab::before {
+  content: ""; width: 5px; height: 5px; border-radius: 999px; flex: none;
+  background: rgba(243, 240, 255, 0.3); transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+.stage-tab:hover { background: rgba(243, 240, 255, 0.12); border-color: rgba(243, 240, 255, 0.3); color: #ffffff; }
+.stage-tab.is-on {
+  background: rgba(124, 58, 237, 0.26); border-color: #a78bfa; color: #ffffff;
+}
+.stage-tab.is-on::before { background: #22d3ee; box-shadow: 0 0 8px rgba(34, 211, 238, 0.9); }
+.stage-note { margin: 0; font-size: 11px; color: rgba(243, 240, 255, 0.45); letter-spacing: -0.005em; }
+
 .badge {
   display: inline-flex; align-items: center; gap: 8px;
   margin: 0 0 22px; padding: 9px 15px; border: 0; border-radius: 5px;
@@ -240,6 +316,7 @@ body {
 .appear--btn { animation-name: in-btn; }
 .appear--side { animation-name: in-side; }
 .appear--stat { animation-name: in-stat; }
+.appear--stage { animation-name: in-stage; display: block; width: 100%; }
 .appear.is-in { animation: none; opacity: 1; transform: none; clip-path: none; filter: none; }
 @keyframes in-scale { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }
 @keyframes in-soft { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -249,11 +326,40 @@ body {
 @keyframes in-side { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes in-stat { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes in-star { 0% { transform: scale(0.2) rotate(-50deg); } 65% { transform: scale(1.2) rotate(8deg); } 100% { transform: scale(1) rotate(0); } }
+@keyframes in-stage { from { opacity: 0; transform: translateY(34px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes in-em { from { opacity: 0.35; filter: blur(4px); } to { opacity: 1; filter: blur(0); } }
 
 /* Responsive: the same rhythm, scaled. */
+/* Two columns: the sentence on the left, the software on the right, tilted
+   just enough to read as an object in the scene rather than a pasted PNG. The
+   tilt eases flat on hover, which is also what makes the tabs feel clickable. */
+@media (min-width: 1100px) {
+  .hero-main {
+    display: grid; grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+    align-items: center; gap: 48px; padding: 16px 56px 0; align-self: center;
+  }
+  .hero-main .hero-copy {
+    align-items: flex-start; text-align: left;
+    max-width: 600px; padding: 0; justify-self: start;
+  }
+  .hero-main .hero-h1 { align-items: flex-start; }
+  .hero-main .headline-line { padding-left: 0; }
+  .hero-main .lede { max-width: 470px; }
+  .hero-main .hero-actions { justify-content: flex-start; }
+  .hero-stage { max-width: none; }
+  .stage-frame { transform: perspective(1700px) rotateY(-8deg) rotateX(3deg); transform-origin: 20% 50%; }
+  .hero-stage:hover .stage-frame,
+  .hero-stage:focus-within .stage-frame {
+    transform: perspective(1700px) rotateY(-2.5deg) rotateX(1deg);
+    box-shadow:
+      0 2px 0 rgba(255, 255, 255, 0.12) inset,
+      0 50px 100px -34px rgba(0, 0, 0, 0.9),
+      0 0 96px -26px rgba(124, 58, 237, 0.9);
+  }
+}
 @media (min-width: 1280px) { .hero-h1 { font-size: 54px; } .lede { font-size: 16px; } .hero-copy { max-width: 900px; } .hero-stats { padding-left: 112px; padding-right: 112px; } }
 @media (min-width: 1600px) {
+  .hero-main { gap: 64px; padding-left: 72px; padding-right: 72px; }
   .hero-h1 { font-size: 64px; } .lede { font-size: 18px; max-width: 540px; margin-top: 22px; }
   .badge { font-size: 13.5px; margin-bottom: 26px; } .hero-actions { margin-top: 30px; gap: 12px; }
   .btn { height: 48px; font-size: 15px; } .hero-copy { max-width: 980px; }
@@ -272,9 +378,16 @@ body {
   .hero-stats { font-size: 12.5px; padding: 0 64px max(28px, env(safe-area-inset-bottom)); }
 }
 @media (min-width: 901px) and (max-height: 850px) { .hero-h1 { font-size: 40px; } .hero-copy { padding-bottom: 48px; } .badge { margin-bottom: 12px; } .lede { margin-top: 12px; } .hero-actions { margin-top: 16px; } .hero-stats { padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
+@media (min-width: 1100px) and (max-height: 760px) { .hero-main { gap: 36px; padding-top: 0; } .hero-stage { max-width: 620px; justify-self: end; } }
 @media (min-width: 901px) and (max-height: 720px) { .hero-h1 { font-size: 34px; } .lede { font-size: 14px; } .hero-copy { padding-bottom: 32px; } .badge { margin-bottom: 8px; } .btn { height: 36px; } .hero-stats { padding-bottom: 18px; } }
 @media (max-width: 900px) {
   .hero-copy { padding: 20px 20px 64px; max-width: 100%; }
+  .hero-main { padding: 0 20px; }
+  .hero-main .hero-copy { padding-bottom: 26px; }
+  .hero-stage { gap: 10px; }
+  .stage-foot { justify-content: center; }
+  .stage-tabs { justify-content: center; }
+  .stage-tab { font-size: 12px; padding: 7px 11px; }
   .hero-h1 { font-size: 36px; } .lede { font-size: 16.5px; max-width: 100%; } .badge { font-size: 13.5px; }
   .btn { height: 48px; font-size: 15px; }
   /* Bottom clearance for the fixed chat launcher (56px + 20px inset). */
@@ -288,6 +401,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hero *, .hero *::before, .hero *::after { transition: none !important; animation: none !important; }
   .appear, .hero-photo video, .hero-h1 em, .badge-star { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
+  /* The stage keeps ONE frame visible rather than none: `.stage-screens img`
+     rests at opacity 0 and is revealed by `.is-on`, so a blanket
+     `opacity: 1 !important` would stack all four. */
+  .stage-screens img { opacity: 0 !important; }
+  .stage-screens img.is-on { opacity: 1 !important; }
+  .stage-frame { transform: none !important; }
 }
 
 /* --- Moving between pages ---------------------------------------------

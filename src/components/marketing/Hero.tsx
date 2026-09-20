@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import { useEffect, useRef } from 'react';
 import { Languages, UserRound, Zap } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import { HeroStage, type StageId } from './HeroStage';
 
 // Self-hosted (public/hero), encoded twice: VP9 WebM (~3 MB) for browsers
 // that decode it and H.264 MP4 (~5 MB, fast-start) for the rest. The site
@@ -30,7 +31,7 @@ function delay(d: string, dur?: string): CSSProperties {
 }
 
 export function Hero({
-  kicker, title, titleAccent, body, cta, cta2, stats,
+  kicker, title, titleAccent, body, cta, cta2, stats, stage,
 }: {
   kicker: string;
   title: string;
@@ -42,6 +43,16 @@ export function Hero({
   cta2: string;
   /** Three true statements, shown as the hero's footer row. */
   stats: readonly [string, string, string];
+  /**
+   * The product stage beside the copy: tab label + alt per screen, the
+   * sample-data caption, and the tab list's accessible name. The hero's
+   * argument is that BIS writes its own CRM, so the CRM is in the frame.
+   */
+  stage: {
+    copy: Readonly<Record<StageId, { label: string; alt: string }>>;
+    note: string;
+    tabsLabel: string;
+  };
 }) {
   const rootRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -119,25 +130,31 @@ export function Hero({
       </div>
       <div className="hero-grain" aria-hidden="true" />
 
-      <div className="hero-copy">
-        <p className="badge appear appear--pop" style={delay('0.22s')}>
-          <svg className="badge-star" viewBox="0 0 24 24" width="18" height="20" fill="#ffffff" aria-hidden="true">
-            <path d="M12 2.6C12.55 2.6 12.88 3.15 13.08 4.7c.62 4.7 1.52 5.6 6.22 6.22 1.55.2 2.1.53 2.1 1.08s-.55.88-2.1 1.08c-4.7.62-5.6 1.52-6.22 6.22-.2 1.55-.53 2.1-1.08 2.1s-.88-.55-1.08-2.1c-.62-4.7-1.52-5.6-6.22-6.22C3.15 12.88 2.6 12.55 2.6 12s.55-.88 2.1-1.08c4.7-.62 5.6-1.52 6.22-6.22C11.12 3.15 11.45 2.6 12 2.6Z" />
-          </svg>
-          {kicker}
-        </p>
+      <div className="hero-main">
+        <div className="hero-copy">
+          <p className="badge appear appear--pop" style={delay('0.22s')}>
+            <svg className="badge-star" viewBox="0 0 24 24" width="18" height="20" fill="#ffffff" aria-hidden="true">
+              <path d="M12 2.6C12.55 2.6 12.88 3.15 13.08 4.7c.62 4.7 1.52 5.6 6.22 6.22 1.55.2 2.1.53 2.1 1.08s-.55.88-2.1 1.08c-4.7.62-5.6 1.52-6.22 6.22-.2 1.55-.53 2.1-1.08 2.1s-.88-.55-1.08-2.1c-.62-4.7-1.52-5.6-6.22-6.22C3.15 12.88 2.6 12.55 2.6 12s.55-.88 2.1-1.08c4.7-.62 5.6-1.52 6.22-6.22C11.12 3.15 11.45 2.6 12 2.6Z" />
+            </svg>
+            {kicker}
+          </p>
 
-        <h1 id="hero-title" className="hero-h1">
-          <span className="headline-line"><span className="appear appear--mask" style={delay('0.42s')}>{title}</span></span>
-          {' '}
-          <span className="headline-line"><span className="appear appear--mask" style={delay('0.62s')}><em className="hero-grad">{titleAccent}</em></span></span>
-        </h1>
+          <h1 id="hero-title" className="hero-h1">
+            <span className="headline-line"><span className="appear appear--mask" style={delay('0.42s')}>{title}</span></span>
+            {' '}
+            <span className="headline-line"><span className="appear appear--mask" style={delay('0.62s')}><em className="hero-grad">{titleAccent}</em></span></span>
+          </h1>
 
-        <p className="lede appear appear--soft" style={delay('0.82s', '1.25s')}>{body}</p>
+          <p className="lede appear appear--soft" style={delay('0.82s', '1.25s')}>{body}</p>
 
-        <div className="hero-actions">
-          <Link href="/contact" className="btn btn-solid appear appear--btn" style={delay('0.96s')}>{cta2}</Link>
-          <Link href="/services" className="btn btn-ghost appear appear--side" style={delay('1.10s')}>{cta}</Link>
+          <div className="hero-actions">
+            <Link href="/contact" className="btn btn-solid appear appear--btn" style={delay('0.96s')}>{cta2}</Link>
+            <Link href="/services" className="btn btn-ghost appear appear--side" style={delay('1.10s')}>{cta}</Link>
+          </div>
+        </div>
+
+        <div className="appear appear--stage" style={delay('0.70s', '1.4s')}>
+          <HeroStage copy={stage.copy} note={stage.note} tabsLabel={stage.tabsLabel} />
         </div>
       </div>
 
