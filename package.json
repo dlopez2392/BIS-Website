@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "e2e": "playwright test",
     "resources:build": "node scripts/build-resources.mjs",
-    "higgsfield": "tsx --env-file=.env.local index.ts"
+    "higgsfield": "tsx --env-file=.env.local index.ts",
+    "hero:encode": "python3 scripts/hero-encode.py"
   },
   "dependencies": {
     "@ai-sdk/deepseek": "^3.0.7",

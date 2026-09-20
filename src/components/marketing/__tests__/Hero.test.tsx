@@ -86,6 +86,26 @@ describe('Hero', () => {
     expect(container.querySelector('canvas')).toBeNull();
   });
 
+  it('ships an inline early-start next to the video that carries the same sources and the same gate', () => {
+    const { container } = renderHero();
+    const video = container.querySelector('.hero-photo video');
+    const script = video?.nextElementSibling;
+    expect(script?.tagName).toBe('SCRIPT');
+    const code = script?.textContent ?? '';
+    // The script must be able to pick either source, and must refuse on
+    // exactly the conditions the effect refuses on — otherwise a phone or a
+    // reduced-motion visitor would get the file the effect was written to
+    // spare them.
+    expect(code).toContain('/hero/bis-hero.2.webm');
+    expect(code).toContain('/hero/bis-hero.2.mp4');
+    expect(code).toContain("matchMedia('(min-width: 901px)')");
+    expect(code).toContain("prefers-reduced-motion: reduce");
+    expect(code).toContain('saveData');
+    // And it never runs under React's own render, so the test above that
+    // asserts no fetch in a narrow environment still means what it says.
+    expect(video?.getAttribute('src')).toBeNull();
+  });
+
   it('pins every entrance element visible when no animation runs (the no-blank-hero guarantee)', async () => {
     const raf = vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => { cb(0); return 1; });
     try {
@@ -101,9 +121,9 @@ describe('Hero', () => {
 
   it('serves VP9 WebM only to browsers that can probably decode it, H.264 MP4 otherwise', () => {
     const says = (answer: (type: string) => CanPlayTypeResult) => ({ canPlayType: answer });
-    expect(pickVideoSource(says((t) => (t.startsWith('video/webm') ? 'probably' : 'maybe')))).toBe('/hero/bis-hero.1.webm');
-    expect(pickVideoSource(says((t) => (t.startsWith('video/mp4') ? 'probably' : '')))).toBe('/hero/bis-hero.1.mp4');
-    expect(pickVideoSource(says(() => ''))).toBe('/hero/bis-hero.1.mp4');
+    expect(pickVideoSource(says((t) => (t.startsWith('video/webm') ? 'probably' : 'maybe')))).toBe('/hero/bis-hero.2.webm');
+    expect(pickVideoSource(says((t) => (t.startsWith('video/mp4') ? 'probably' : '')))).toBe('/hero/bis-hero.2.mp4');
+    expect(pickVideoSource(says(() => ''))).toBe('/hero/bis-hero.2.mp4');
   });
 
   describe('the product stage', () => {

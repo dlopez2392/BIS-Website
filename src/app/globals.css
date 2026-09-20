@@ -104,16 +104,9 @@ body {
   opacity: 0; transition: opacity 1.2s ease;
 }
 .hero-photo video.is-in { opacity: 1; }
-/* Brand tint. The footage is greyscale, so a `color` blend hands it the
-   site's own hue ramp (violet at the top-left, cyan at the bottom-right) while
-   keeping every highlight and shadow of the frame. It only rides on the video;
-   the gradient fallback already carries the colors itself. */
-.hero-tint {
-  position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(118deg, #7c3aed 0%, #6d4bd8 38%, #3a7fb0 68%, #22d3ee 100%);
-  mix-blend-mode: color; opacity: 0; transition: opacity 1.2s ease;
-}
-.hero-photo video.is-in ~ .hero-tint { opacity: 0.85; }
+/* The brand tint is baked into the footage by scripts/hero-encode.py. It was
+   a `mix-blend-mode: color` layer here, and a full-screen blend the GPU redid
+   for every video frame; see the note above VIDEO_SOURCES in Hero.tsx. */
 /* Two scrims. `::before` shades the LEFT of the frame, where the copy sits
    and where the footage's bright plume also sits: sampled at 1440 the accent
    phrase was at 1.91:1 against it, and because the plume drifts the failure
@@ -128,6 +121,9 @@ body {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(11, 10, 24, 0.18) 0%, rgba(11, 10, 24, 0) 28%, rgba(11, 10, 24, 0.22) 62%, rgba(11, 10, 24, 0.82) 100%);
 }
+/* Grain rides the static gradient only. Over playing footage it was a second
+   per-frame blend for a texture nobody could see under drifting aurora. */
+.hero.has-video .hero-grain { display: none; }
 .hero-grain {
   position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0.08; mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -333,7 +329,7 @@ body {
    0% frame during the delay so the reveal still reads when animations run. */
 .appear {
   opacity: 1;
-  animation-duration: var(--dur, 1.05s);
+  animation-duration: var(--dur, 0.8s);
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   animation-delay: var(--d, 0.08s);

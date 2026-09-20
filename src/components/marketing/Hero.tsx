@@ -5,18 +5,23 @@ import { Languages, UserRound, Zap } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { HeroStage, type StageId } from './HeroStage';
 
-// Self-hosted (public/hero), encoded twice: VP9 WebM (~3 MB) for browsers
-// that decode it and H.264 MP4 (~5 MB, fast-start) for the rest. The site
-// never depends on a third-party CDN for its first paint, and the file only
-// leaves the server for visitors who will see it: the effect below sets `src`
-// at runtime for wide viewports that have not asked for reduced motion or
-// data saving. Phones get the gradient.
+// Self-hosted (public/hero), encoded twice by scripts/hero-encode.py: VP9 WebM
+// for browsers that decode it and H.264 MP4 (fast-start) for the rest. The
+// site never depends on a third-party CDN for its first paint, and the file
+// only leaves the server for visitors who will see it: the effect below sets
+// `src` at runtime for wide viewports that have not asked for reduced motion
+// or data saving. Phones get the gradient.
+// The brand tint is IN the footage. It used to be a `mix-blend-mode: color`
+// layer over greyscale video, and with the grain layer above it that cost a
+// full-screen blend per frame — measured at ~19 fps and half the video frames
+// dropped on a software-rendered GPU, the shape of an older laptop. Baked at
+// encode time the picture is the same and the video is just a video.
 // The version in the filename is what makes a year-long immutable cache safe
 // (see the /hero rule in next.config.ts): replacing the footage means bumping
-// it to .2, which is a new URL rather than a stale one nobody can flush.
+// it, which is a new URL rather than a stale one nobody can flush.
 const VIDEO_SOURCES = [
-  { src: '/hero/bis-hero.1.webm', type: 'video/webm; codecs="vp9"' },
-  { src: '/hero/bis-hero.1.mp4', type: 'video/mp4; codecs="avc1.640029"' },
+  { src: '/hero/bis-hero.2.webm', type: 'video/webm; codecs="vp9"' },
+  { src: '/hero/bis-hero.2.mp4', type: 'video/mp4; codecs="avc1.640029"' },
 ] as const;
 
 /** First source the browser says it can probably play; MP4 when it will not say. */
@@ -24,6 +29,20 @@ export function pickVideoSource(video: Pick<HTMLVideoElement, 'canPlayType'>): s
   const probable = VIDEO_SOURCES.find((s) => video.canPlayType(s.type) === 'probably');
   return (probable ?? VIDEO_SOURCES[VIDEO_SOURCES.length - 1]).src;
 }
+
+/** The same gate as the effect below, written to run at HTML-parse time. */
+const WANTS_VIDEO = "matchMedia('(min-width: 901px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches && !(navigator.connection && navigator.connection.saveData)";
+
+// Starts the footage BEFORE React. The effect below can only run once the
+// page's JavaScript has downloaded, parsed and hydrated, and on a slow
+// machine that is the whole wait: measured with the CPU throttled 4x, the
+// video request did not even begin until well over a second in. This runs
+// as the parser reaches it, applies the same gate (wide viewport, motion
+// allowed, no data saver), picks the same source, and starts the fetch; the
+// effect then finds `src` already set and only wires the listeners. The gate
+// is a shared string so the two cannot drift. Inline is allowed by the CSP
+// (`script-src 'unsafe-inline'`, see lib/security/headers.ts).
+const EARLY_START = `(function(){var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=='VIDEO'||v.getAttribute('src'))return;try{if(!(${WANTS_VIDEO}))return;}catch(e){return;}var s=${JSON.stringify(VIDEO_SOURCES.map((x) => [x.src, x.type]))};var pick=s[s.length-1][0];for(var i=0;i<s.length;i++){if(v.canPlayType(s[i][1])==='probably'){pick=s[i][0];break;}}v.src=pick;var p=v.play();if(p&&p.catch)p.catch(function(){});})();`;
 
 /** Per-element entrance delay (and optional duration), read by `.appear` in globals.css. */
 function delay(d: string, dur?: string): CSSProperties {
@@ -113,10 +132,19 @@ export function Hero({
         video.removeAttribute('src');
         video.load();
         video.classList.remove('is-in');
+        rootRef.current?.classList.remove('has-video');
       }
     };
-    const onLoaded = () => video.classList.add('is-in');
+    // `has-video` on the section retires the grain layer while footage plays:
+    // its soft-light blend was the other per-frame cost, and over drifting
+    // aurora it added nothing a viewer could point to. The static gradient
+    // fallback keeps it, where it is painted once.
+    const onLoaded = () => { video.classList.add('is-in'); rootRef.current?.classList.add('has-video'); };
     video.addEventListener('loadeddata', onLoaded);
+    // The early-start script may have had the first frame decoded before this
+    // listener existed, in which case `loadeddata` has already fired and the
+    // video would sit at opacity 0 forever.
+    if (video.getAttribute('src') && video.readyState >= 2) onLoaded();
     apply();
     wide.addEventListener?.('change', apply);
     reduce.addEventListener?.('change', apply);
@@ -130,14 +158,17 @@ export function Hero({
   return (
     <section ref={rootRef} className="hero" aria-labelledby="hero-title">
       <div className="hero-photo" aria-hidden="true">
-        <video ref={videoRef} muted loop playsInline autoPlay preload="none" tabIndex={-1} />
-        <div className="hero-tint" />
+        {/* suppressHydrationWarning: the early-start script sets `src` on this
+            element before React hydrates, and React would otherwise report the
+            attribute it did not render. It is the one attribute, on purpose. */}
+        <video ref={videoRef} muted loop playsInline autoPlay preload="none" tabIndex={-1} suppressHydrationWarning />
+        <script dangerouslySetInnerHTML={{ __html: EARLY_START }} />
       </div>
       <div className="hero-grain" aria-hidden="true" />
 
       <div className="hero-main">
         <div className="hero-copy">
-          <p className="badge appear appear--pop" style={delay('0.22s')}>
+          <p className="badge appear appear--pop" style={delay('0.06s')}>
             <svg className="badge-star" viewBox="0 0 24 24" width="18" height="20" fill="#ffffff" aria-hidden="true">
               <path d="M12 2.6C12.55 2.6 12.88 3.15 13.08 4.7c.62 4.7 1.52 5.6 6.22 6.22 1.55.2 2.1.53 2.1 1.08s-.55.88-2.1 1.08c-4.7.62-5.6 1.52-6.22 6.22-.2 1.55-.53 2.1-1.08 2.1s-.88-.55-1.08-2.1c-.62-4.7-1.52-5.6-6.22-6.22C3.15 12.88 2.6 12.55 2.6 12s.55-.88 2.1-1.08c4.7-.62 5.6-1.52 6.22-6.22C11.12 3.15 11.45 2.6 12 2.6Z" />
             </svg>
@@ -145,20 +176,20 @@ export function Hero({
           </p>
 
           <h1 id="hero-title" className="hero-h1">
-            <span className="headline-line"><span className="appear appear--mask" style={delay('0.42s')}>{title}</span></span>
+            <span className="headline-line"><span className="appear appear--mask" style={delay('0.14s')}>{title}</span></span>
             {' '}
-            <span className="headline-line"><span className="appear appear--mask" style={delay('0.62s')}><em className="hero-grad">{titleAccent}</em></span></span>
+            <span className="headline-line"><span className="appear appear--mask" style={delay('0.26s')}><em className="hero-grad">{titleAccent}</em></span></span>
           </h1>
 
-          <p className="lede appear appear--soft" style={delay('0.82s', '1.25s')}>{body}</p>
+          <p className="lede appear appear--soft" style={delay('0.36s', '0.9s')}>{body}</p>
 
           <div className="hero-actions">
-            <Link href="/contact" className="btn btn-solid appear appear--btn" style={delay('0.96s')}>{cta2}</Link>
-            <Link href="/platform" className="btn btn-ghost appear appear--side" style={delay('1.10s')}>{cta}</Link>
+            <Link href="/contact" className="btn btn-solid appear appear--btn" style={delay('0.44s')}>{cta2}</Link>
+            <Link href="/platform" className="btn btn-ghost appear appear--side" style={delay('0.52s')}>{cta}</Link>
           </div>
         </div>
 
-        <div className="appear appear--stage" style={delay('0.70s', '1.4s')}>
+        <div className="appear appear--stage" style={delay('0.30s', '1.0s')}>
           <HeroStage
             copy={stage.copy} note={stage.note} tabsLabel={stage.tabsLabel}
             pauseLabel={stage.pauseLabel} resumeLabel={stage.resumeLabel} first={stage.first}
@@ -167,9 +198,9 @@ export function Hero({
       </div>
 
       <ul className="hero-stats" role="list">
-        <li className="stat appear appear--stat" style={delay('1.12s')}><UserRound aria-hidden="true" />{stats[0]}</li>
-        <li className="stat appear appear--stat" style={delay('1.28s')}><Languages aria-hidden="true" />{stats[1]}</li>
-        <li className="stat appear appear--stat" style={delay('1.44s')}><Zap aria-hidden="true" />{stats[2]}</li>
+        <li className="stat appear appear--stat" style={delay('0.56s')}><UserRound aria-hidden="true" />{stats[0]}</li>
+        <li className="stat appear appear--stat" style={delay('0.64s')}><Languages aria-hidden="true" />{stats[1]}</li>
+        <li className="stat appear appear--stat" style={delay('0.72s')}><Zap aria-hidden="true" />{stats[2]}</li>
       </ul>
     </section>
   );

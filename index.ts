@@ -11,10 +11,10 @@
  *
  * `--out` downloads the result next to you instead of only printing a URL,
  * because the generated URL expires and `public/hero/` is where the file has
- * to end up anyway. Encoding it for the web (VP9 WebM + H.264 MP4, and a
- * version bump in the filename) is still a separate step — `next.config.ts`
- * caches `/hero/:file*` immutably for a year, so a REPLACED file at the same
- * name is a stale byte nobody can flush. Name the next one `bis-hero.2.*`.
+ * to end up anyway. Then `python3 scripts/hero-encode.py <file> <version>`
+ * tints it and writes the VP9 WebM + H.264 MP4 pair — with a NEW version
+ * number: `next.config.ts` caches `/hero/:file*` immutably for a year, so a
+ * replaced file at the same name is a stale byte nobody can flush.
  *
  * CREDENTIALS. `HF_CREDENTIALS` is `key-id:key-secret` and lives in
  * `.env.local`, which `.gitignore`'s `.env*` rule already covers. It is read
@@ -32,11 +32,12 @@ const MODEL = "bytedance/seedance-2.5/text-to-video";
 /**
  * The hero backdrop brief.
  *
- * COLOURLESS ON PURPOSE. `.hero-tint` in globals.css lays the brand ramp
- * (violet -> cyan) over this footage with `mix-blend-mode: color`, which takes
- * the frame's luminance and replaces its hue. Footage that arrives already
- * coloured fights that and lands muddy; near-monochrome footage takes the
- * brand's own hue exactly. So the prompt asks for silver/graphite, not violet.
+ * COLOURLESS ON PURPOSE. scripts/hero-encode.py lays the brand ramp
+ * (violet -> cyan) over this footage with the W3C `color` blend at encode
+ * time, which takes the frame's luminance and replaces its hue. Footage that
+ * arrives already coloured fights that and lands muddy; near-monochrome
+ * footage takes the brand's own hue exactly. So the prompt asks for
+ * silver/graphite, not violet.
  *
  * SLOW AND EDGE-WEIGHTED. Since the product stage now sits on the right and
  * the headline on the left, the backdrop has to stay quiet in the middle of
