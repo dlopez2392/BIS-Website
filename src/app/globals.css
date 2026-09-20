@@ -27,11 +27,15 @@
   --color-surface-alt: #14122a;
   --color-ink: #f3f0ff;
   --color-ink-muted: #b9b2d6;
-  --color-primary: #8b5cf6;
+  /* The same violet as light mode, not the lighter #8b5cf6 it was: white on
+     #8b5cf6 is 4.23:1, which the dark-mode axe sweep flagged on every
+     14–16px button label the site has. White on #7c3aed is 5.6:1 in both
+     themes, so a button reads the same wherever it is. Link text keeps its
+     own, lighter token below, because a link has to read ON the surface. */
+  --color-primary: #7c3aed;
   --color-on-primary: #ffffff;
   /* #8b5cf6 as link text measured 4.31:1 on surface-alt — below AA, and cards
-     are where most links live. Lightening primary itself would have dropped
-     white-on-button to 2.72:1, so the roles split instead. */
+     are where most links live, so the link role has its own token. */
   --color-link: #a78bfa;
   --color-accent: #22d3ee;
   --color-hairline: #262340;
@@ -72,6 +76,50 @@ body {
   }
 }
 
+/* --- Ground: the hero's lit dark island, as a primitive -------------------
+   Until now the site had one dark surface with light in it — `.hero` — and
+   no way for any other section to reach it, so every band below the fold
+   fell back to flat colour. `.ground` is that surface for anything else: the
+   CTA band, page headers, the 404. Dark in BOTH themes on purpose (the same
+   rule `.hero` states), so an art plate on it needs no light variant and a
+   white headline on it reads at ~17:1 whatever the page theme is.
+   With no plate, the two glows are the art; with one (`.ground-art`, from
+   lib/art.ts) the glows sit under it and the plate's own black is the page's
+   dark surface, so there is no seam. */
+.ground {
+  --ground-text: #ffffff;
+  --ground-muted: rgba(255, 255, 255, 0.78);
+  --ground-accent: #22d3ee;
+  position: relative; isolation: isolate; overflow: hidden;
+  background: #0b0a18; color: var(--ground-text);
+}
+.ground::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(900px 520px at 12% 18%, rgba(124, 58, 237, 0.42), transparent 62%),
+    radial-gradient(760px 480px at 90% 88%, rgba(34, 211, 238, 0.22), transparent 60%);
+}
+.ground-art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
+/* A soft centre veil so centred type never depends on where a plate's light
+   happens to fall; the plates are briefed dark in the centre, this is the
+   guarantee. */
+.ground-veil {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(60% 90% at 50% 50%, rgba(11, 10, 24, 0.55), transparent 70%);
+}
+.ground-text { color: var(--ground-text); }
+.ground-muted { color: var(--ground-muted); }
+.ground-accent { color: var(--ground-accent); }
+/* Solid, theme-independent: `--color-primary` flips to #8b5cf6 in dark mode,
+   which is 3.9:1 under white text. #7c3aed is 5.6:1, and the ground is the
+   same colour in both themes, so the button is too. */
+.ground-btn { background: #7c3aed; color: #ffffff; transition: background 0.2s ease; }
+.ground-btn:hover { background: #6d28d9; }
+.ground-btn:focus-visible { outline: 2px solid #a78bfa; outline-offset: 3px; }
+.ground-link { color: var(--ground-text); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.35); text-underline-offset: 3px; }
+.ground-link:hover { text-decoration-color: var(--ground-accent); }
+.ground-link:focus-visible { outline: 2px solid #a78bfa; outline-offset: 3px; border-radius: 4px; }
+
 /* --- Hero: full-viewport, video-backed, copy anchored to the bottom --- */
 /* A dark island in both themes: white type over a video needs a dark
    backdrop whether or not the video has arrived, so the hero paints the
@@ -83,6 +131,9 @@ body {
   --hero-muted: rgba(255, 255, 255, 0.74);
   --hero-stat: rgba(255, 255, 255, 0.86);
   --hero-border: rgba(255, 255, 255, 0.16);
+  /* The hero is dark in both themes, so its accent is the dark-mode cyan in
+     both, not the page's `--color-accent` (teal in light mode). */
+  --hero-accent: #22d3ee;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -323,7 +374,7 @@ body {
   color: var(--hero-stat); font-size: 13.5px; letter-spacing: -0.015em;
 }
 .stat { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; }
-.stat svg { width: 20px; height: 20px; flex: none; color: #22d3ee; }
+.stat svg { width: 20px; height: 20px; flex: none; color: var(--hero-accent); }
 
 /* Entrance. Resting opacity is 1 so nothing is ever blank; `both` applies the
    0% frame during the delay so the reveal still reads when animations run. */

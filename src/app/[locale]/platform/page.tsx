@@ -48,6 +48,11 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
             caption={t('sampleCaption')}
             // Above the fold once it exists, so it is the LCP candidate.
             priority
+            // This one renders full width (~69rem), not in the tour's 36rem
+            // column: with the default hint the browser chose a 640px file
+            // and stretched it 1.9x into an 1104px box, so a prospect's first
+            // look at the product was soft.
+            sizes="(min-width: 64rem) 69rem, 100vw"
           />
         </div>
 

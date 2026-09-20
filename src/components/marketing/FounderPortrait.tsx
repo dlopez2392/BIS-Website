@@ -18,8 +18,8 @@ export async function FounderPortrait({ locale }: { locale: string }) {
       alt={t(`alt.${slot.altKey}`)}
       width={slot.width}
       height={slot.height}
-      // The portrait is above the fold on /about, so it is the LCP candidate.
-      priority
+      // Not `priority`: the portrait sits below /about's opening section, so
+      // preloading it only competed with the real first paint.
       sizes="(min-width: 48rem) 20rem, 100vw"
       className="w-full max-w-xs rounded-2xl border border-hairline object-cover"
     />

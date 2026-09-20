@@ -10,7 +10,7 @@ export function pageMetadata({
   const languages: Record<string, string> = {};
   for (const l of routing.locales) languages[l] = `${SITE_URL}/${l}${seg}`;
   languages['x-default'] = `${SITE_URL}/${routing.defaultLocale}${seg}`;
-  const ogImage = `${SITE_URL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = `${SITE_URL}/og?title=${encodeURIComponent(title)}&locale=${locale}`;
   return {
     title,
     description,

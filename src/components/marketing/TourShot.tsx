@@ -14,8 +14,8 @@ import { hasShot, shotSrc, type ShotSlot } from '@/lib/platform-tour';
  * from the screenshot itself rather than from a note further up the page.
  */
 export function TourShot({
-  slot, alt, caption, priority = false,
-}: { slot: ShotSlot; alt: string; caption: string; priority?: boolean }) {
+  slot, alt, caption, priority = false, sizes = '(min-width: 64rem) 36rem, 100vw',
+}: { slot: ShotSlot; alt: string; caption: string; priority?: boolean; sizes?: string }) {
   if (!hasShot(slot)) return null;
 
   return (
@@ -26,7 +26,7 @@ export function TourShot({
         width={slot.width}
         height={slot.height}
         priority={priority}
-        sizes="(min-width: 64rem) 36rem, 100vw"
+        sizes={sizes}
         className="w-full rounded-xl border border-hairline shadow-sm"
       />
       <figcaption className="mt-2 text-xs text-ink-muted">{caption}</figcaption>

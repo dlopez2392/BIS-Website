@@ -52,3 +52,7 @@ build.log
 
 # The example is documentation, not a secret.
 !.env.example
+
+# Generated greyscale masters; the tinted files under public/art/ ship
+art/raw/
+__pycache__/

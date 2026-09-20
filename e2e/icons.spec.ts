@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { test, expect } from '@playwright/test';
 
 /**
@@ -46,12 +48,20 @@ test('the downloadable brand assets are reachable', async ({ request }) => {
   expect(await svg.text()).toContain('#7c3aed');
 });
 
-test('the about page holds its shape while the portrait slot is empty', async ({ page }) => {
+test('the about page renders the portrait slot exactly as the file on disk dictates', async ({ page }) => {
   await page.goto('/en/about');
   await expect(page.getByRole('heading', { name: 'Dan Lopez' })).toBeVisible();
-  // No photo file yet, so no image element — never a broken icon or a
-  // placeholder box. This flips when public/photos/dan-lopez.jpg lands.
-  await expect(page.locator('main img')).toHaveCount(0);
+  // The slot rule, asserted from the file rather than assumed: with
+  // public/photos/dan-lopez.jpg present there is exactly one image and it is
+  // a real one; without it there is none — never a broken icon or a
+  // placeholder box. (This asserted "none" for months after the file landed.)
+  const onDisk = fs.existsSync(path.join(process.cwd(), 'public', 'photos', 'dan-lopez.jpg'));
+  const imgs = page.locator('main img');
+  await expect(imgs).toHaveCount(onDisk ? 1 : 0);
+  if (onDisk) {
+    await expect(imgs.first()).toBeVisible();
+    expect(await imgs.first().evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  }
 });
 
 test('the OG image still renders and carries the mark', async ({ request }) => {
