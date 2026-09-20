@@ -61,6 +61,41 @@ describe('ChatWidget', () => {
     expect(container.innerHTML).toBe('');
   });
 
+  // The sheet on a phone locks the page behind it; the floating box on a
+  // wider screen must not, or closing the widget on a laptop would leave a
+  // page that cannot scroll.
+  function phone(matches: boolean) {
+    vi.stubGlobal('matchMedia', vi.fn((q: string) => ({
+      matches: q.includes('max-width') ? matches : false,
+      media: q, onchange: null, addEventListener: vi.fn(), removeEventListener: vi.fn(),
+      addListener: vi.fn(), removeListener: vi.fn(), dispatchEvent: vi.fn(),
+    })));
+  }
+
+  it('locks page scroll behind the sheet on a phone, and releases it on close', () => {
+    phone(true);
+    try {
+      document.body.style.overflow = '';
+      openWidget();
+      expect(document.body.style.overflow).toBe('hidden');
+      fireEvent.click(screen.getByRole('button', { name: en.chat.close }));
+      expect(document.body.style.overflow).toBe('');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('never touches page scroll on a wide screen', () => {
+    phone(false);
+    try {
+      document.body.style.overflow = '';
+      openWidget();
+      expect(document.body.style.overflow).toBe('');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('renders the launcher button when enabled', () => {
     process.env.NEXT_PUBLIC_AI_ENABLED = 'true';
     renderWidget();

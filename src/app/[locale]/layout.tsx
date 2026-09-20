@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
@@ -19,6 +19,19 @@ import { SITE_URL } from '@/lib/seo/business';
 import { SERVICE_GROUP_IDS } from '@/lib/ai/site-context';
 import { siteVerification } from '@/lib/seo/verification';
 import '../globals.css';
+
+/**
+ * `resizes-content` makes Chrome on Android shrink the layout viewport for
+ * the on-screen keyboard, so `100dvh` and `position: fixed` bottoms — the
+ * chat sheet's — sit above the keys rather than behind them. iOS ignores it;
+ * the widget handles that side with `visualViewport`. The other two values
+ * are Next's defaults, restated because exporting `viewport` replaces them.
+ */
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  interactiveWidget: 'resizes-content',
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

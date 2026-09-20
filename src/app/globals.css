@@ -56,6 +56,22 @@ body {
   font-family: var(--font-sans);
 }
 
+/* --- The chat panel is a sheet on phones ---------------------------------
+   Under 640px the floating box left 4px of margin on one side and the page
+   showing underneath, with its input at a fixed 480px that the keyboard then
+   covered. A sheet takes the whole visual viewport instead; its height and
+   top come from `visualViewport` (set by the widget while open) so it follows
+   the keyboard, with `100dvh` as the fallback where that API is missing.
+   Unlayered on purpose: it has to beat the Tailwind utilities on the same
+   element, and an unlayered rule outranks any layer regardless of order. */
+@media (max-width: 639px) {
+  .chat-panel {
+    position: fixed; left: 0; right: 0;
+    top: var(--chat-top, 0px); height: var(--chat-vh, 100dvh); width: auto;
+    border: 0; border-radius: 0; box-shadow: none;
+  }
+}
+
 /* --- Hero: full-viewport, video-backed, copy anchored to the bottom --- */
 /* A dark island in both themes: white type over a video needs a dark
    backdrop whether or not the video has arrived, so the hero paints the
@@ -427,8 +443,14 @@ body {
      inside `.hero-main`'s 20px the sentence was inset 40 against the art's 20. */
   .hero-main .hero-copy { padding: 20px 0 26px; }
   .hero-stage { gap: 10px; }
-  .stage-foot { justify-content: center; }
-  .stage-tabs { justify-content: center; }
+  /* The chat launcher is a 56px circle inset 20px in the bottom-right corner,
+     fixed. Centred pills scrolled through that corner put a tap target under
+     it — on a 360px Spanish phone, 35px of "Oportunidades" — and the caption
+     ran beneath it. Everything in the foot stays left of the launcher's
+     column instead, so nothing tappable or legally load-bearing is ever
+     covered at any scroll position. */
+  .stage-foot { padding-right: 68px; }
+  .stage-tabs { justify-content: flex-start; }
   .stage-tab { font-size: 12px; padding: 7px 12px; }
   .hero-h1 { font-size: 36px; } .lede { font-size: 16.5px; max-width: 100%; } .badge { font-size: 13.5px; }
   .btn { height: 48px; font-size: 15px; }

@@ -80,6 +80,43 @@ export function ChatWidget() {
     launcherRef.current?.focus();
   }, [open]);
 
+  // On a phone the panel is a full-screen sheet (`.chat-panel` in
+  // globals.css), and a sheet needs two things a floating box does not.
+  //
+  // The page behind it must not scroll: a thumb dragging the conversation
+  // otherwise moves the hero underneath, and the sheet drifts with it.
+  //
+  // It must shrink for the keyboard. `100dvh` accounts for the browser's own
+  // chrome, not for the keyboard; on iOS the layout viewport keeps its height
+  // and a `position: fixed` bottom edge ends up BEHIND the keys, input and
+  // all. `visualViewport` is the one measurement that follows the keyboard on
+  // both platforms, so the sheet takes its height and offset from there and
+  // the input stays in reach. (Android also gets `interactive-widget:
+  // resizes-content` from the layout's viewport export, which makes even the
+  // fallback correct there.)
+  useEffect(() => {
+    if (!open || typeof window.matchMedia !== 'function') return;
+    if (!window.matchMedia('(max-width: 639px)').matches) return;
+    const panel = panelRef.current;
+    const body = document.body;
+    const previousOverflow = body.style.overflow;
+    body.style.overflow = 'hidden';
+    const vv = window.visualViewport;
+    const fit = () => {
+      if (!panel || !vv) return;
+      panel.style.setProperty('--chat-vh', `${Math.round(vv.height)}px`);
+      panel.style.setProperty('--chat-top', `${Math.round(vv.offsetTop)}px`);
+    };
+    fit();
+    vv?.addEventListener('resize', fit);
+    vv?.addEventListener('scroll', fit);
+    return () => {
+      body.style.overflow = previousOverflow;
+      vv?.removeEventListener('resize', fit);
+      vv?.removeEventListener('scroll', fit);
+    };
+  }, [open]);
+
   const atLimit = messages.length >= MAX_STORED;
   const busy = status === 'submitted' || status === 'streaming';
 
@@ -99,7 +136,7 @@ export function ChatWidget() {
           ref={panelRef}
           role="dialog"
           aria-label={t('title')}
-          className="flex h-[30rem] w-[21rem] flex-col rounded-xl border border-hairline bg-surface-alt shadow-xl sm:w-96"
+          className="chat-panel flex h-[30rem] w-[21rem] flex-col rounded-xl border border-hairline bg-surface-alt shadow-xl sm:w-96"
         >
           <div className="flex items-center justify-between border-b border-hairline px-4 py-3">
             <span className="font-bold text-ink">{t('title')}</span>
@@ -195,7 +232,7 @@ export function ChatWidget() {
 
           <form
             onSubmit={(e) => { e.preventDefault(); send(input); }}
-            className="flex gap-2 border-t border-hairline p-3"
+            className="flex gap-2 border-t border-hairline p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
           >
             <input
               ref={inputRef}
