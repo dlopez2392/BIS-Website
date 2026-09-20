@@ -16,12 +16,13 @@ import { report } from '@/lib/observability/reporter';
 // build-time page-data collection: '@/db' calls neon() at module load and
 // throws without DATABASE_URL. execute() only runs at request time.
 async function captureLead(args: Parameters<typeof processCapturedLead>[0]) {
-  const [{ insertLead }, { sendLeadNotification }, { report }] = await Promise.all([
+  const [{ submitLeadToPlatform }, { insertLead }, { sendLeadNotification }, { report }] = await Promise.all([
+    import('@/lib/platform-intake'),
     import('@/lib/contact/repository'),
     import('@/lib/email/resend'),
     import('@/lib/observability/reporter'),
   ]);
-  return processCapturedLead(args, { insertLead, sendLeadNotification, report });
+  return processCapturedLead(args, { submitToPlatform: submitLeadToPlatform, insertLead, sendLeadNotification, report });
 }
 
 export const maxDuration = 30;
@@ -110,7 +111,7 @@ export async function POST(req: Request) {
     stopWhen: stepCountIs(4),
     tools: {
       capture_lead: tool({
-        description: "Save a qualified lead's name, email, and need. Call once you have all three.",
+        description: "Save a lead into the CRM. Call exactly once, only after you have all five: first name, business name, email, phone number, and what they need.",
         inputSchema: captureLeadSchema,
         execute: async (args) => captureLead(args),
       }),
