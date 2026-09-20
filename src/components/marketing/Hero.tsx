@@ -37,7 +37,8 @@ export function Hero({
   title: string;
   titleAccent: string;
   body: string;
-  /** Secondary action: "See how we do it" → /services. */
+  /** Secondary action: "Explore the platform" → /platform. The product is in
+      the frame beside it, so the second door is the one that opens it. */
   cta: string;
   /** Primary action: "Book a free assessment" → /contact. One primary per page. */
   cta2: string;
@@ -153,7 +154,7 @@ export function Hero({
 
           <div className="hero-actions">
             <Link href="/contact" className="btn btn-solid appear appear--btn" style={delay('0.96s')}>{cta2}</Link>
-            <Link href="/services" className="btn btn-ghost appear appear--side" style={delay('1.10s')}>{cta}</Link>
+            <Link href="/platform" className="btn btn-ghost appear appear--side" style={delay('1.10s')}>{cta}</Link>
           </div>
         </div>
 

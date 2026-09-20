@@ -47,12 +47,12 @@
     "terms": "Términos y Condiciones"
   },
   "home": {
-    "heroTitle": "Deja que seamos tu",
-    "heroTitleAccent": "Solución Inteligente a la Medida.",
-    "heroKicker": "Bespoke Intelligent Solutions · Hecho para el Valle",
+    "heroTitle": "El sistema que mueve tu negocio.",
+    "heroTitleAccent": "Hecho aquí, para aquí.",
+    "heroKicker": "Software propio · hecho en el Valle del Río Grande",
     "heroCta2": "Reserva una evaluación gratuita",
-    "heroBody": "En todo el Valle del Río Grande, ayudamos a los negocios a trabajar de forma más inteligente con IA, infraestructura segura e ingenio humano — in English y en español.",
-    "heroCta": "Descubre cómo lo hacemos",
+    "heroBody": "Un CRM que diseñamos para los negocios del Valle — llamadas, prospectos, citas y los números del lunes en un solo lugar, en inglés y en español. Y el equipo de TI detrás.",
+    "heroCta": "Explora la plataforma",
     "announceKicker": "Ya Abiertos",
     "announceTitle": "BIS ya está en el Valle del Río Grande para ayudar a los negocios locales a aprovechar la IA.",
     "announceBody": "Adopción de IA de nivel empresarial, modernización de seguridad y diseño web moderno — a la medida de los negocios que hacen funcionar el Valle, a través de un solo punto de contacto.",
@@ -509,10 +509,6 @@
         "a": "Ambas. Estamos en Harlingen y servimos a todo el Valle, así que trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — lo que te dé resultados."
       }
     }
-  },
-  "techMarquee": {
-    "label": "Plataformas y herramientas con las que trabajamos",
-    "viewAll": "Ver todas nuestras tecnologías"
   },
   "capabilities": {
     "title": "Capacidades",
