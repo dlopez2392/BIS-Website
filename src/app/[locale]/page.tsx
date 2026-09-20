@@ -44,6 +44,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         cta={t('heroCta')}
         cta2={t('heroCta2')}
         stats={[t('capOnePoint'), t('capBilingual'), t('capShip')]}
+        /* The alt text and the sample-data caption come from the `platform`
+           namespace beside the captures they describe, exactly as
+           `PlatformProof` below takes them — one place to change when a
+           capture is re-shot, not one per page that shows it. The dashboard
+           gets its OWN alt, though: PlatformProof further down shows the
+           uncropped capture with `alt.hero`, and two different images with
+           one sentence is one sentence read twice. */
+        stage={{
+          copy: {
+            dashboard: { label: p('stage.dashboard'), alt: p('alt.heroStage') },
+            calls: { label: p('stage.calls'), alt: p('alt.calls') },
+            pipeline: { label: p('stage.pipeline'), alt: p('alt.pipeline') },
+            spanish: { label: p('stage.spanish'), alt: p('alt.spanish') },
+          },
+          note: p('sampleCaption'),
+          tabsLabel: p('stage.tabsLabel'),
+          pauseLabel: p('stage.pause'),
+          resumeLabel: p('stage.resume'),
+          first: locale === 'es' ? 'spanish' : 'dashboard',
+        }}
       />
 
       <TechMarquee locale={locale} />

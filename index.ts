@@ -1,9 +1,20 @@
 /**
- * Higgsfield — Seedance 2.5 text-to-video, minimal end-to-end example.
+ * Higgsfield — Seedance 2.5 text-to-video, for the site's hero backdrop.
  *
- * Run:  pnpm higgsfield
+ * Run:  npm run higgsfield -- "<prompt>" [--seconds 5] [--resolution 1080p]
+ *                             [--ratio 16:9] [--out <file>]
  *   (= tsx --env-file=.env.local index.ts — Node 24 loads the env file natively,
  *    so no dotenv dependency.)
+ *
+ * With no prompt it renders DEFAULT_PROMPT, which is the hero backdrop brief:
+ * see the note above it for why the footage is deliberately colourless.
+ *
+ * `--out` downloads the result next to you instead of only printing a URL,
+ * because the generated URL expires and `public/hero/` is where the file has
+ * to end up anyway. Encoding it for the web (VP9 WebM + H.264 MP4, and a
+ * version bump in the filename) is still a separate step — `next.config.ts`
+ * caches `/hero/:file*` immutably for a year, so a REPLACED file at the same
+ * name is a stale byte nobody can flush. Name the next one `bis-hero.2.*`.
  *
  * CREDENTIALS. `HF_CREDENTIALS` is `key-id:key-secret` and lives in
  * `.env.local`, which `.gitignore`'s `.env*` rule already covers. It is read
@@ -11,11 +22,73 @@
  * anywhere. The v2 client refuses to run in a browser for the same reason —
  * this is a server-side script by design.
  */
+import { Buffer } from "node:buffer";
+import { rename, writeFile } from "node:fs/promises";
+
 import { config, higgsfield } from "@higgsfield/client/v2";
 
 const MODEL = "bytedance/seedance-2.5/text-to-video";
 
+/**
+ * The hero backdrop brief.
+ *
+ * COLOURLESS ON PURPOSE. `.hero-tint` in globals.css lays the brand ramp
+ * (violet -> cyan) over this footage with `mix-blend-mode: color`, which takes
+ * the frame's luminance and replaces its hue. Footage that arrives already
+ * coloured fights that and lands muddy; near-monochrome footage takes the
+ * brand's own hue exactly. So the prompt asks for silver/graphite, not violet.
+ *
+ * SLOW AND EDGE-WEIGHTED. Since the product stage now sits on the right and
+ * the headline on the left, the backdrop has to stay quiet in the middle of
+ * the frame and carry its movement at the edges, or it competes with both.
+ */
+const DEFAULT_PROMPT = [
+  "Abstract flowing silk ribbon of light drifting slowly through black space,",
+  "silver and graphite tones, no colour cast, soft volumetric glow,",
+  "fine particulate dust catching the light, shallow depth of field,",
+  "movement concentrated at the left and right edges of the frame while the",
+  "centre stays calm and dark, extremely slow hypnotic drift, seamless loop,",
+  "cinematic, shot on anamorphic lens, no text, no logos, no people.",
+].join(" ");
+
+/** `--flag value` out of argv; positional words become the prompt. */
+function parseArgs(argv: readonly string[]): {
+  prompt: string;
+  seconds: number;
+  resolution: string;
+  ratio: string;
+  out?: string;
+} {
+  const flags = new Map<string, string>();
+  const words: string[] = [];
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg.startsWith("--")) {
+      const next = argv[i + 1];
+      if (next === undefined || next.startsWith("--")) {
+        throw new Error(`${arg} needs a value.`);
+      }
+      flags.set(arg.slice(2), next);
+      i += 1;
+    } else {
+      words.push(arg);
+    }
+  }
+  const seconds = Number(flags.get("seconds") ?? 5);
+  if (!Number.isFinite(seconds) || seconds <= 0) {
+    throw new Error("--seconds must be a positive number.");
+  }
+  return {
+    prompt: words.length > 0 ? words.join(" ") : DEFAULT_PROMPT,
+    seconds,
+    resolution: flags.get("resolution") ?? "1080p",
+    ratio: flags.get("ratio") ?? "16:9",
+    out: flags.get("out"),
+  };
+}
+
 async function main(): Promise<void> {
+  const args = parseArgs(process.argv.slice(2));
   const credentials = process.env.HF_CREDENTIALS;
   if (!credentials) {
     // Named, never echoed: the point is to say WHICH variable is missing and
@@ -26,14 +99,14 @@ async function main(): Promise<void> {
   }
   config({ credentials });
 
-  console.log(`Requesting ${MODEL} …`);
+  console.log(`Requesting ${MODEL} — ${args.seconds}s, ${args.resolution}, ${args.ratio} …`);
 
   const result = await higgsfield.subscribe(MODEL, {
     input: {
-      prompt: "A cinematic scene at sunset",
-      duration: 5,
-      resolution: "720p",
-      aspect_ratio: "16:9",
+      prompt: args.prompt,
+      duration: args.seconds,
+      resolution: args.resolution,
+      aspect_ratio: args.ratio,
     },
     // The SDK polls to completion rather than returning a job to chase.
     withPolling: true,
@@ -65,6 +138,19 @@ async function main(): Promise<void> {
   }
 
   console.log(`Video URL: ${url}`);
+
+  if (args.out) {
+    // Written through a temp file and renamed, so an interrupted download
+    // cannot leave a half-file at a name that looks finished.
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`downloading the video failed: HTTP ${res.status}`);
+    }
+    const tmp = `${args.out}.part`;
+    await writeFile(tmp, Buffer.from(await res.arrayBuffer()));
+    await rename(tmp, args.out);
+    console.log(`Saved to ${args.out}`);
+  }
 }
 
 main().catch((err: unknown) => {

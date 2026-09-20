@@ -1203,9 +1203,19 @@
       "calls": "The call log, listing each call with its outcome — booked, lead, message, hung up or spam",
       "pipeline": "The opportunity board, with jobs from an $89 diagnostic to a $14,200 commercial replacement",
       "booking": "A booking page carrying the sample company’s own logo and colour",
-      "report": "The Monday morning email, showing four numbers against the week before"
+      "report": "The Monday morning email, showing four numbers against the week before",
+      "heroStage": "The BIS dashboard for a sample HVAC company, cropped to this week’s calls, appointments and pipeline"
     },
     "ctaTitle": "See it with your own numbers in it.",
-    "ctaBody": "A free, no-pitch assessment: we look at how your business runs today, tell you which of these would actually earn its keep, and which you do not need yet."
+    "ctaBody": "A free, no-pitch assessment: we look at how your business runs today, tell you which of these would actually earn its keep, and which you do not need yet.",
+    "stage": {
+      "tabsLabel": "Choose a screen",
+      "dashboard": "Dashboard",
+      "calls": "Calls",
+      "pipeline": "Opportunities",
+      "spanish": "A call in Spanish",
+      "pause": "Pause",
+      "resume": "Play"
+    }
   }
 }
