@@ -52,13 +52,6 @@ const nextConfig: NextConfig = {
         source: '/hero/:file*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
-      {
-        // Vendor logos are not versioned, so they get a day of freshness and a
-        // week of serving-while-revalidating rather than an immutable cache
-        // that would outlive a logo change by a year.
-        source: '/logos/:file*',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
-      },
     ];
   },
   async redirects() {

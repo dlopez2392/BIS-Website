@@ -8,7 +8,6 @@ import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { CapabilityBand } from '@/components/marketing/CapabilityBand';
 import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
-import { TechMarquee } from '@/components/marketing/TechMarquee';
 import { ResourceCTA } from '@/components/marketing/ResourceCTA';
 import { PlatformProof } from '@/components/marketing/PlatformProof';
 import { heroShot } from '@/lib/platform-tour';
@@ -65,8 +64,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           first: locale === 'es' ? 'spanish' : 'dashboard',
         }}
       />
-
-      <TechMarquee locale={locale} />
 
       <Announcement kicker={t('announceKicker')} title={t('announceTitle')} body={t('announceBody')} />
 

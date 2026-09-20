@@ -47,12 +47,12 @@
     "terms": "Terms & Conditions"
   },
   "home": {
-    "heroTitle": "Let us be your",
-    "heroTitleAccent": "Bespoke Intelligent Solution.",
-    "heroKicker": "Bespoke Intelligent Solutions · Built for the Valley",
+    "heroTitle": "The system your business runs on.",
+    "heroTitleAccent": "Built here, for here.",
+    "heroKicker": "Our own software · built in the Rio Grande Valley",
     "heroCta2": "Book a free assessment",
-    "heroBody": "Across the Rio Grande Valley, we help businesses work smarter with AI, secure infrastructure, and human ingenuity — in English y en español.",
-    "heroCta": "See how we do it",
+    "heroBody": "A CRM we designed for Valley businesses — calls, leads, bookings and Monday’s numbers in one place, in English y en español. Plus the IT team behind it.",
+    "heroCta": "Explore the platform",
     "announceKicker": "Now Open",
     "announceTitle": "BIS is open in the Rio Grande Valley to help local businesses harness AI.",
     "announceBody": "Enterprise-grade AI adoption, security modernization, and modern web design — right-sized for the businesses that keep the Valley running, through one point of contact.",
@@ -509,10 +509,6 @@
         "a": "Both. We're based in Harlingen and serve the entire Valley, so we can work on-site when it helps and remotely when that's faster — whatever gets you results."
       }
     }
-  },
-  "techMarquee": {
-    "label": "Platforms we work with",
-    "viewAll": "View our full technology stack"
   },
   "capabilities": {
     "title": "Capabilities",

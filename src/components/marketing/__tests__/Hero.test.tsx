@@ -26,7 +26,7 @@ const STAGE = {
 function renderHero(stage: typeof STAGE & { first?: 'dashboard' | 'calls' | 'pipeline' | 'spanish' } = STAGE) {
   return render(
     <Hero kicker="Kick" title="Let us Be your" titleAccent="Intelligent Solution."
-      body="Body copy" cta="See how we do it" cta2="Book a free assessment" stats={STATS} stage={stage} />,
+      body="Body copy" cta="Explore the platform" cta2="Book a free assessment" stats={STATS} stage={stage} />,
   );
 }
 
@@ -71,7 +71,7 @@ describe('Hero', () => {
     // them the name would read "Be yourIntelligent" and the e2e regex breaks.
     expect(screen.getByRole('heading', { level: 1, name: /Let us Be your Intelligent Solution\./i })).toBeTruthy();
     expect(screen.getByRole('link', { name: 'Book a free assessment' }).getAttribute('href')).toBe('/contact');
-    expect(screen.getByRole('link', { name: 'See how we do it' }).getAttribute('href')).toBe('/services');
+    expect(screen.getByRole('link', { name: 'Explore the platform' }).getAttribute('href')).toBe('/platform');
     for (const s of STATS) expect(screen.getByText(s)).toBeTruthy();
   });
 

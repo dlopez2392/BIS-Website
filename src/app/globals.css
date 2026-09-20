@@ -56,39 +56,6 @@ body {
   font-family: var(--font-sans);
 }
 
-/* --- Tech marquee (platforms we work with) --- */
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* Monochrome masked logos: the SVG's alpha becomes a silhouette tinted by the
-   element's background-color (bg-ink-muted / hover:bg-ink), so logos adapt to
-   light/dark and read uniform regardless of the source SVG's own colors. */
-.marquee__logo {
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-/* Edge fade so logos ease in/out at the strip edges instead of hard-cutting. */
-.marquee {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .marquee__track { animation: marquee-scroll 55s linear infinite; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee__track { flex-wrap: wrap; justify-content: center; }
-  .marquee__track > [aria-hidden="true"] { display: none; }
-}
-
 /* --- Hero: full-viewport, video-backed, copy anchored to the bottom --- */
 /* A dark island in both themes: white type over a video needs a dark
    backdrop whether or not the video has arrived, so the hero paints the
