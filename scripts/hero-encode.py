@@ -18,11 +18,10 @@ video frames dropped, against ~55 fps and 14 dropped with the two layers off.
 Applying the same blend here, once, at encode time, gives the identical
 picture for the price of a plain video.
 
-The blend is the W3C `color` mode exactly as browsers implement it — the
-tint's hue and saturation with the footage's luminance (SetLum with
-ClipColor) — at the CSS layer's 0.85 opacity, and the gradient is CSS's own
-118deg geometry with the same four stops. Interpolation is in sRGB, as CSS
-gradients are by default.
+The blend lives in scripts/bis_tint.py, shared with art-tint.py so stills
+and footage can never drift apart: the W3C `color` mode exactly as browsers
+implement it, at the old CSS layer's 0.85 opacity, over CSS's own 118deg
+gradient geometry with the same four stops.
 
 Silver footage in, brand footage out: that is why `npm run higgsfield`'s
 default prompt asks for colourless footage.
@@ -34,12 +33,10 @@ from pathlib import Path
 import numpy as np
 from imageio_ffmpeg import get_ffmpeg_exe
 
-FFMPEG = get_ffmpeg_exe()
+sys.path.insert(0, str(Path(__file__).parent))
+from bis_tint import TINT_OPACITY, css_gradient, tint  # noqa: E402  (the shared tint; see that file)
 
-# `.hero-tint`, as it was: linear-gradient(118deg, #7c3aed 0%, #6d4bd8 38%, #3a7fb0 68%, #22d3ee 100%)
-ANGLE_DEG = 118
-STOPS = [(0.00, (0x7C, 0x3A, 0xED)), (0.38, (0x6D, 0x4B, 0xD8)), (0.68, (0x3A, 0x7F, 0xB0)), (1.00, (0x22, 0xD3, 0xEE))]
-TINT_OPACITY = 0.85
+FFMPEG = get_ffmpeg_exe()
 
 
 def probe(src: Path) -> tuple[int, int, str]:
@@ -53,41 +50,6 @@ def probe(src: Path) -> tuple[int, int, str]:
     raise SystemExit(f"could not read the video stream of {src}")
 
 
-def css_gradient(w: int, h: int) -> np.ndarray:
-    """The tint as an (h, w, 3) float image in 0..1, CSS angle semantics."""
-    a = np.deg2rad(ANGLE_DEG)
-    dx, dy = np.sin(a), -np.cos(a)          # 0deg points up; y grows downward on screen
-    length = w * abs(np.sin(a)) + h * abs(np.cos(a))
-    ys, xs = np.mgrid[0:h, 0:w].astype(np.float32)
-    t = 0.5 + ((xs + 0.5 - w / 2) * dx + (ys + 0.5 - h / 2) * dy) / length
-    t = np.clip(t, 0, 1)
-    pos = np.array([s[0] for s in STOPS], dtype=np.float32)
-    cols = np.array([s[1] for s in STOPS], dtype=np.float32) / 255
-    out = np.empty((h, w, 3), dtype=np.float32)
-    for c in range(3):
-        out[..., c] = np.interp(t, pos, cols[:, c])
-    return out
-
-
-def lum(c: np.ndarray) -> np.ndarray:
-    return 0.3 * c[..., 0] + 0.59 * c[..., 1] + 0.11 * c[..., 2]
-
-
-def clip_color(c: np.ndarray) -> np.ndarray:
-    l = lum(c)[..., None]
-    n = c.min(axis=-1, keepdims=True)
-    x = c.max(axis=-1, keepdims=True)
-    c = np.where(n < 0, l + (c - l) * l / np.maximum(l - n, 1e-6), c)
-    c = np.where(x > 1, l + (c - l) * (1 - l) / np.maximum(x - l, 1e-6), c)
-    return c
-
-
-def blend_color(backdrop: np.ndarray, source: np.ndarray) -> np.ndarray:
-    """W3C `color`: the source's hue and saturation at the backdrop's luminance."""
-    d = (lum(backdrop) - lum(source))[..., None]
-    return clip_color(source + d)
-
-
 def main() -> None:
     if len(sys.argv) != 3:
         raise SystemExit(__doc__)
@@ -98,7 +60,7 @@ def main() -> None:
     if webm.exists() or mp4.exists():
         raise SystemExit(f"{webm} or {mp4} exists. /hero/ is cached immutably for a year: bump the version, never overwrite.")
 
-    tint = css_gradient(w, h)
+    gradient = css_gradient(w, h)
     frame_bytes = w * h * 3
 
     decode = subprocess.Popen(
@@ -125,9 +87,8 @@ def main() -> None:
         if len(raw) < frame_bytes:
             break
         frame = np.frombuffer(raw, dtype=np.uint8).reshape(h, w, 3).astype(np.float32) / 255
-        blended = blend_color(frame, tint)
-        out = (1 - TINT_OPACITY) * frame + TINT_OPACITY * blended
-        encode.stdin.write((np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8).tobytes())
+        out = tint(frame, gradient)
+        encode.stdin.write((out * 255 + 0.5).astype(np.uint8).tobytes())
         n += 1
     encode.stdin.close()
     decode.wait()

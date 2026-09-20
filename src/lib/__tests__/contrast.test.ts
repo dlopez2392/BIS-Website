@@ -84,11 +84,12 @@ describe('palette contrast', () => {
         });
       }
 
-      it('primary buttons clear at least the large-text floor', () => {
-        // Known and accepted: dark-mode white on #8b5cf6 is 4.23:1, which passes
-        // for the bold button text it is used on but not for body copy. Pinned
-        // here so a palette change cannot quietly push it below 3:1 too.
-        expect(contrast(theme['on-primary'], theme.primary)).toBeGreaterThanOrEqual(AA_LARGE);
+      it('primary buttons clear AA for normal text in both themes', () => {
+        // Was the 3:1 large-text floor, with dark-mode white on #8b5cf6
+        // "known and accepted" at 4.23:1 — until the dark-mode axe sweep
+        // flagged it on every 14px button label. Dark primary is #7c3aed now,
+        // 5.6:1 under white, and this pins the stricter floor.
+        expect(contrast(theme['on-primary'], theme.primary)).toBeGreaterThanOrEqual(AA_NORMAL);
       });
     });
   }

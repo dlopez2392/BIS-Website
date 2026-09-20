@@ -5,12 +5,12 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { CTASection } from '@/components/ui/CTASection';
 import { Hero } from '@/components/marketing/Hero';
 import { ServiceCard } from '@/components/marketing/ServiceCard';
-import { CapabilityBand } from '@/components/marketing/CapabilityBand';
 import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
 import { ResourceCTA } from '@/components/marketing/ResourceCTA';
 import { PlatformProof } from '@/components/marketing/PlatformProof';
 import { heroShot } from '@/lib/platform-tour';
+import { artProps } from '@/lib/art';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
@@ -67,14 +67,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <Announcement kicker={t('announceKicker')} title={t('announceTitle')} body={t('announceBody')} />
 
-      <CapabilityBand items={[t('capOnePoint'), t('capBilingual'), t('capSecurity'), t('capShip')]} />
-
       <section className="mx-auto max-w-6xl px-6 py-20">
         <SectionHeading title={t('servicesHeading')} />
         <div className="grid gap-6 md:grid-cols-3">
-          <ServiceCard icon={Brain} title={t('svc1Title')} body={t('svc1Body')} href="/services" learnMore={c('learnMore')} />
-          <ServiceCard icon={ShieldCheck} title={t('svc2Title')} body={t('svc2Body')} href="/services" learnMore={c('learnMore')} />
-          <ServiceCard icon={Code2} title={t('svc3Title')} body={t('svc3Body')} href="/services" learnMore={c('learnMore')} />
+          {/* The plates arrive from art/brief.json one at a time; each card
+              keeps its icon until its own file exists. */}
+          <ServiceCard icon={Brain} title={t('svc1Title')} body={t('svc1Body')} href="/services" learnMore={c('learnMore')} art={artProps('serviceAi')} />
+          <ServiceCard icon={ShieldCheck} title={t('svc2Title')} body={t('svc2Body')} href="/services" learnMore={c('learnMore')} art={artProps('serviceInfra')} />
+          <ServiceCard icon={Code2} title={t('svc3Title')} body={t('svc3Body')} href="/services" learnMore={c('learnMore')} art={artProps('serviceWeb')} />
         </div>
       </section>
 

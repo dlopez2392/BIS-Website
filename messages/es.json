@@ -337,7 +337,10 @@
           }
         ]
       }
-    }
+    },
+    "otherLabel": "Otro giro",
+    "otherTitle": "¿Ninguno de estos cinco?",
+    "otherBody": "La plataforma se hizo para cualquier negocio que vive del teléfono. Cuéntanos qué hace el tuyo y te mostramos cómo funcionaría."
   },
   "about": {
     "kicker": "Est. 2024 / Harlingen, TX",

@@ -52,6 +52,24 @@ for (const [name, path] of PAGES) {
   });
 }
 
+/**
+ * The same sweep in dark mode, on the two surfaces that carry the site's own
+ * dark ground plus the one that used to fail: the CTA band's primary button
+ * sat at 2.6:1 in dark mode on ten pages, and the light-only run never saw it.
+ */
+for (const [name, path] of [['home', '/en'], ['industries', '/en/industries'], ['not found', '/en/no-such-page']] as const) {
+  test(`${name} has no WCAG A/AA violations in dark mode`, async ({ page }) => {
+    await page.addInitScript(() => { try { localStorage.setItem('theme', 'dark'); } catch { /* private mode */ } });
+    await page.goto(path);
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .exclude('iframe')
+      .analyze();
+    const summary = results.violations.map((v) => `${v.id} (${v.impact}) x${v.nodes.length}: ${v.help}`);
+    expect(summary, `${path} (dark)\n${summary.join('\n')}`).toEqual([]);
+  });
+}
+
 test('every page is reachable and operable by keyboard alone', async ({ page }) => {
   await page.goto('/en');
   // Tab from the top and confirm focus lands somewhere visible rather than

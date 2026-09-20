@@ -52,6 +52,12 @@ const nextConfig: NextConfig = {
         source: '/hero/:file*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      {
+        // Same contract as /hero: art files carry a version in the name, so
+        // they are immutable for a year and a change is a new URL.
+        source: '/art/:file*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
     ];
   },
   async redirects() {

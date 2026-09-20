@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { IndustryCard } from '@/components/marketing/IndustryCard';
 import { industryPages } from '@/lib/industries';
+import { artFor, artProps } from '@/lib/art';
 import { CTASection } from '@/components/ui/CTASection';
 import { pageMetadata } from '@/lib/seo/metadata';
 
@@ -30,6 +31,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
     title: t(CARD_KEYS[i.id].title),
     body: t(CARD_KEYS[i.id].body),
     href: `/industries/${i.id}`,
+    art: artProps(artFor('ind', i.id)),
   }));
   return (
     <main>
@@ -40,6 +42,10 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
       <section className="mx-auto max-w-6xl px-6 pb-16">
         <div className="grid gap-6 md:grid-cols-3">
           {cards.map((c2) => <IndustryCard key={c2.label} {...c2} />)}
+          {/* Five industries in a three-column grid left a sixth cell empty,
+              and the page reading as unfinished. The sixth is the honest
+              answer to everyone the five do not name. */}
+          <IndustryCard label={t('otherLabel')} title={t('otherTitle')} body={t('otherBody')} href="/contact" />
         </div>
       </section>
       <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
