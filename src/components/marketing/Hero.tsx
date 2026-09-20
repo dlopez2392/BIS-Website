@@ -52,6 +52,10 @@ export function Hero({
     copy: Readonly<Record<StageId, { label: string; alt: string }>>;
     note: string;
     tabsLabel: string;
+    pauseLabel: string;
+    resumeLabel: string;
+    /** The screen the loop opens on; see `HeroStage`. */
+    first?: StageId;
   };
 }) {
   const rootRef = useRef<HTMLElement>(null);
@@ -154,11 +158,14 @@ export function Hero({
         </div>
 
         <div className="appear appear--stage" style={delay('0.70s', '1.4s')}>
-          <HeroStage copy={stage.copy} note={stage.note} tabsLabel={stage.tabsLabel} />
+          <HeroStage
+            copy={stage.copy} note={stage.note} tabsLabel={stage.tabsLabel}
+            pauseLabel={stage.pauseLabel} resumeLabel={stage.resumeLabel} first={stage.first}
+          />
         </div>
       </div>
 
-      <ul className="hero-stats">
+      <ul className="hero-stats" role="list">
         <li className="stat appear appear--stat" style={delay('1.12s')}><UserRound aria-hidden="true" />{stats[0]}</li>
         <li className="stat appear appear--stat" style={delay('1.28s')}><Languages aria-hidden="true" />{stats[1]}</li>
         <li className="stat appear appear--stat" style={delay('1.44s')}><Zap aria-hidden="true" />{stats[2]}</li>

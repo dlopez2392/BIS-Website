@@ -1203,7 +1203,8 @@
       "calls": "El registro de llamadas, con el resultado de cada una — agendada, prospecto, recado, colgó o spam",
       "pipeline": "El tablero de oportunidades, con trabajos desde un diagnóstico de $89 hasta un reemplazo comercial de $14,200",
       "booking": "Una página de citas con el logo y el color de la empresa de ejemplo",
-      "report": "El correo del lunes por la mañana, con cuatro números junto a los de la semana anterior"
+      "report": "El correo del lunes por la mañana, con cuatro números junto a los de la semana anterior",
+      "heroStage": "El panel de BIS para una empresa de climatización de muestra, recortado a las llamadas, citas y oportunidades de esta semana"
     },
     "ctaTitle": "Míralo con tus propios números adentro.",
     "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy, te decimos cuál de estas cosas realmente se pagaría sola, y cuál todavía no necesitas.",
@@ -1212,7 +1213,9 @@
       "dashboard": "Panel",
       "calls": "Llamadas",
       "pipeline": "Oportunidades",
-      "spanish": "Una llamada en español"
+      "spanish": "Una llamada en español",
+      "pause": "Pausar",
+      "resume": "Reproducir"
     }
   }
 }
