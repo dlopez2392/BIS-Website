@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { PROTECTED_ROUTES, checkLevelFor, securityCheckPath, CHAT_ROUTE, SOFIA_TICKET_ROUTE } from '../protected-routes';
+import { PROTECTED_ROUTES, checkLevelFor, securityCheckPath, SOFIA_TICKET_ROUTE } from '../protected-routes';
 import { resources } from '@/lib/resources';
 import { routing } from '@/i18n/routing';
 
 describe('PROTECTED_ROUTES', () => {
-  it('covers the chat endpoint, which spends model tokens per message', () => {
-    expect(PROTECTED_ROUTES.map((r) => r.path)).toContain(CHAT_ROUTE);
+  it('no longer lists the retired chat route — the assistant lives on the platform now', () => {
+    expect(PROTECTED_ROUTES.map((r) => r.path)).not.toContain('/api/chat');
   });
 
   it('covers the security checker, which makes requests to other servers from our address', () => {
@@ -24,7 +24,7 @@ describe('PROTECTED_ROUTES', () => {
   it('never checks the expensive endpoints less deeply than the cheap one', () => {
     const depth = { basic: 0, deepAnalysis: 1 } as const;
     const form = depth[checkLevelFor('/en/resources/ai-readiness-checklist')];
-    expect(depth[checkLevelFor(CHAT_ROUTE)]).toBeGreaterThanOrEqual(form);
+    expect(depth[checkLevelFor(SOFIA_TICKET_ROUTE)]).toBeGreaterThanOrEqual(form);
     expect(depth[checkLevelFor(securityCheckPath('en'))]).toBeGreaterThanOrEqual(form);
   });
 
@@ -38,10 +38,10 @@ describe('PROTECTED_ROUTES', () => {
         expect(PROTECTED_ROUTES.map((p) => p.path)).toContain(`/${locale}/resources/${r.slug}`);
       }
     }
-    // The two fixed API routes (chat, Sofía ticket) + one security-check page
+    // The one fixed API route (the Sofía ticket) + one security-check page
     // per locale + one page per guide per locale. The literal is the point:
     // it fails when an entry is added without a deliberate look at this list.
-    const FIXED_API_ROUTES = 2;
+    const FIXED_API_ROUTES = 1;
     expect(PROTECTED_ROUTES).toHaveLength(
       FIXED_API_ROUTES + routing.locales.length + routing.locales.length * resources.length,
     );
@@ -64,8 +64,8 @@ describe('the Sofía ticket route', () => {
     expect(checkLevelFor(SOFIA_TICKET_ROUTE)).toBe(entry.advancedOptions.checkLevel);
   });
 
-  it('is checked at least as deeply as chat — it costs more per request', () => {
+  it('is checked at least as deeply as the security checker — it costs more per request', () => {
     const rank = { basic: 0, deepAnalysis: 1 } as const;
-    expect(rank[checkLevelFor(SOFIA_TICKET_ROUTE)]).toBeGreaterThanOrEqual(rank[checkLevelFor(CHAT_ROUTE)]);
+    expect(rank[checkLevelFor(SOFIA_TICKET_ROUTE)]).toBeGreaterThanOrEqual(rank[checkLevelFor(securityCheckPath('en'))]);
   });
 });

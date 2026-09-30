@@ -418,24 +418,7 @@
     "contactDescription": "Book a free, no-pitch assessment. We find the one automation that pays for itself first. Bilingual, RGV-based."
   },
   "chat": {
-    "open": "Chat with us",
-    "title": "BIS Assistant",
-    "greeting": "Hi! I'm the BIS assistant. Ask me about the platform, Sofía, or IT for your Valley business — I can also set you up with a free assessment.",
-    "placeholder": "Type your message…",
-    "send": "Send",
-    "close": "Close chat",
-    "thinking": "Thinking…",
-    "suggestionsLabel": "Try asking",
-    "suggestion1": "What does the BIS platform actually do?",
-    "suggestion2": "Can Sofía answer my calls in Spanish?",
-    "suggestion3": "How does pricing work?",
-    "errorHeading": "That did not go through",
-    "errorFallback": "Something went wrong. Try again, or call us at (956) 506-1545.",
-    "retry": "Try again",
-    "limitReached": "This chat has run long. Book a free assessment and talk to Dan directly.",
-    "limitCta": "Book a free assessment",
-    "messagesLabel": "Conversation",
-    "restored": "Picking up where you left off."
+    "open": "Chat with us"
   },
   "insights": {
     "heading": "Insights",
@@ -628,14 +611,14 @@
   "privacy": {
     "title": "Privacy Policy",
     "metaDescription": "How Bespoke Intelligent Solutions collects, uses, and protects your information.",
-    "lastUpdated": "Last updated: September 17, 2026",
+    "lastUpdated": "Last updated: September 30, 2026",
     "intro": "Bespoke Intelligent Solutions (\"BIS\", \"we\", \"us\") respects your privacy. This policy explains what we collect through this website, how we use it, and the choices you have. We keep it plain-language on purpose.",
     "collectHeading": "What we collect and why",
     "collectIntro": "We only collect what we need to respond to you and run this site:",
     "collectItems": [
       "Contact form: your name, business name, email, phone, industry, and message — so we can reply and prepare your free assessment.",
       "Resource downloads: your name and email — so we can send you the resource and, if you opt in, occasional tips. The tips checkbox is off by default.",
-      "AI assistant: the messages you send our on-site chat assistant, so it can answer your questions.",
+      "AI assistant: the messages you send the chat assistant on this site, so it can answer your questions. The conversation is kept on the BIS Platform, and if you share your name and a way to reach you, it becomes a lead there so we can follow up.",
       "Phone calls: when you call our business line, our AI receptionist keeps a written transcript and a summary of the call, the number you called from, and whatever you tell her — your name, what you need, and any appointment you book — so we can follow up. We do not keep audio recordings of calls.",
       "Usage analytics: privacy-friendly, aggregate metrics about how our pages perform. This does not identify you."
     ],
@@ -645,11 +628,10 @@
     "processorsIntro": "We rely on a few trusted service providers to run the site. They only process your data to provide their service to us:",
     "processorsItems": [
       "Resend — sends our transactional emails (download links and our notifications).",
-      "Neon / Vercel Postgres — securely stores resource-download sign-ups and leads captured by the chat assistant.",
+      "Neon / Vercel Postgres — securely stores resource-download sign-ups and requests to email a security-check report.",
       "Vercel (Analytics & Speed Insights) — hosts the site and provides cookieless performance analytics.",
-      "BIS Platform (app.bis-rgv.com) — our own client platform, which hosts the contact form and the assessment scheduler and stores what you submit through them.",
-      "DeepSeek — provides the AI model behind our on-site chat assistant.",
-      "OpenAI — provides the realtime speech model behind Sofía, the AI receptionist who answers our phone line.",
+      "BIS Platform (app.bis-rgv.com) — our own client platform, which hosts the contact form, the assessment scheduler and the chat assistant, and stores what you submit through them.",
+      "OpenAI — provides the AI models behind Sofía, the AI receptionist who answers our phone line, and behind the chat assistant on this site.",
       "Telnyx — carries the calls and the text messages to and from our business line."
     ],
     "cookiesHeading": "Cookies and tracking",
@@ -1100,8 +1082,7 @@
       "Neon and Supabase — the databases behind those applications.",
       "Resend — sends transactional email such as confirmations and notifications.",
       "Telnyx — carries phone calls to an AI receptionist.",
-      "OpenAI — the speech model behind Sofía on a phone line.",
-      "DeepSeek — the model behind the assistant on this website. Client deployments use whichever provider the engagement calls for, and it is chosen with you rather than assumed.",
+      "OpenAI — the models behind Sofía, on a phone line and in the chat assistant on a website.",
       "Clerk — sign-in for the BIS Platform.",
       "Upstash — rate limiting, which holds counters rather than content."
     ],

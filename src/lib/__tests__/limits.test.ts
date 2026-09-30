@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import {
   makeLimits,
   createMemoryCounter,
-  CHAT_PER_MINUTE,
+  SCANS_PER_WINDOW,
   type Counter,
 } from '../limits';
 
@@ -21,27 +21,22 @@ function recordingCounter(): Counter & { calls: Array<{ key: string; ttl: number
   };
 }
 
-describe('allowChat', () => {
-  it('allows up to the per-minute limit and then refuses', async () => {
+describe('allowScan', () => {
+  it('allows up to the window limit and then refuses', async () => {
     const limits = makeLimits(recordingCounter());
-    for (let i = 0; i < CHAT_PER_MINUTE; i++) {
-      expect(await limits.allowChat('1.2.3.4'), `request ${i + 1}`).toBe(true);
+    for (let i = 0; i < SCANS_PER_WINDOW; i++) {
+      expect(await limits.allowScan('1.2.3.4'), `request ${i + 1}`).toBe(true);
     }
-    expect(await limits.allowChat('1.2.3.4')).toBe(false);
+    expect(await limits.allowScan('1.2.3.4')).toBe(false);
   });
 
-  it('counts each visitor separately', async () => {
-    const limits = makeLimits(recordingCounter());
-    for (let i = 0; i < CHAT_PER_MINUTE; i++) await limits.allowChat('1.2.3.4');
-    expect(await limits.allowChat('1.2.3.4')).toBe(false);
-    expect(await limits.allowChat('5.6.7.8')).toBe(true);
-  });
-
-  it('namespaces its keys under web: and expires them after a minute', async () => {
+  it('counts each visitor separately, under the web: namespace', async () => {
     const counter = recordingCounter();
-    await makeLimits(counter).allowChat('1.2.3.4');
-    expect(counter.calls[0].key).toBe('web:rl:chat:1.2.3.4');
-    expect(counter.calls[0].ttl).toBe(60);
+    const limits = makeLimits(counter);
+    for (let i = 0; i < SCANS_PER_WINDOW; i++) await limits.allowScan('1.2.3.4');
+    expect(await limits.allowScan('1.2.3.4')).toBe(false);
+    expect(await limits.allowScan('5.6.7.8')).toBe(true);
+    expect(counter.calls[0].key).toBe('web:rl:scan:1.2.3.4');
   });
 });
 
@@ -52,10 +47,10 @@ describe('when the counter is broken', () => {
     },
   };
 
-  it('lets chat through rather than silencing the assistant', async () => {
+  it('lets a scan through rather than turning a visitor away', async () => {
     const warn = vi.spyOn(console, 'error').mockImplementation(() => {});
     const limits = makeLimits(exploding);
-    expect(await limits.allowChat('1.2.3.4')).toBe(true);
+    expect(await limits.allowScan('1.2.3.4')).toBe(true);
     expect(warn).toHaveBeenCalled();
     warn.mockRestore();
   });

@@ -37,6 +37,18 @@ export const FORM_PUBLIC_IDS: Record<Locale, string> = {
   es: process.env.NEXT_PUBLIC_BIS_FORM_ID_ES ?? 'yqj4fywpjptn',
 };
 
+/**
+ * The BIS account's website assistant on the platform — the same concierge
+ * every client can switch on from their Voice page. Its public id is opaque,
+ * not a secret: it is the address the platform's loader mounts. Answers come
+ * from the account's own receptionist profile, so what the assistant knows
+ * about BIS is edited in the platform, not in this repo.
+ */
+export const CONCIERGE_PUBLIC_ID = process.env.NEXT_PUBLIC_BIS_CONCIERGE_ID ?? 'b2swbbu52be8';
+
+/** The platform's one loader script; it serves forms, booking and the concierge. */
+export const EMBED_SCRIPT_URL = `${PLATFORM_ORIGIN}/embed.js`;
+
 export type EmbedKind = 'form' | 'booking';
 export type HostTheme = 'light' | 'dark';
 

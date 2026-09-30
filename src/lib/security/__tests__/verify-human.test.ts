@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
 import { verifyHuman } from '../verify-human';
-import { CHAT_ROUTE, checkLevelFor } from '../protected-routes';
+import { SOFIA_TICKET_ROUTE, checkLevelFor } from '../protected-routes';
 
 const report = () => Promise.resolve();
-const path = CHAT_ROUTE;
+const path = SOFIA_TICKET_ROUTE;
 
 describe('verifyHuman', () => {
   it('allows a person', async () => {
@@ -39,12 +39,12 @@ describe('verifyHuman', () => {
     await verifyHuman({
       check: async (options) => { levels.push(options.advancedOptions.checkLevel); return { isBot: false, isVerifiedBot: false }; },
       report,
-      path: CHAT_ROUTE,
+      path: SOFIA_TICKET_ROUTE,
     });
     // The table is the single source of truth for both sides, so this asserts
     // agreement rather than a literal: a mismatch is what fails verification,
     // and the level itself is an operational choice that may change.
-    expect(levels).toEqual([checkLevelFor(CHAT_ROUTE)]);
+    expect(levels).toEqual([checkLevelFor(SOFIA_TICKET_ROUTE)]);
   });
 
   it('refuses to guess for a path nobody armed', async () => {
@@ -65,7 +65,7 @@ describe('the verdict is passed back for logging', () => {
   it('carries what the check said when it turned someone away', async () => {
     const r = await verifyHuman({
       check: async () => ({ isBot: true, isVerifiedBot: false }),
-      report, path: CHAT_ROUTE,
+      report, path: SOFIA_TICKET_ROUTE,
     });
     expect(r.allowed).toBe(false);
     expect(r.verdict).toEqual({ isBot: true, isVerifiedBot: false });
@@ -74,7 +74,7 @@ describe('the verdict is passed back for logging', () => {
   it('carries it on the allow path too, so a verified crawler is legible in logs', async () => {
     const r = await verifyHuman({
       check: async () => ({ isBot: true, isVerifiedBot: true }),
-      report, path: CHAT_ROUTE,
+      report, path: SOFIA_TICKET_ROUTE,
     });
     expect(r.allowed).toBe(true);
     expect(r.verdict).toEqual({ isBot: true, isVerifiedBot: true });
@@ -83,7 +83,7 @@ describe('the verdict is passed back for logging', () => {
   it('has no verdict when the check could not run — nothing to report', async () => {
     const r = await verifyHuman({
       check: async () => { throw new Error('no oidc'); },
-      report, path: CHAT_ROUTE,
+      report, path: SOFIA_TICKET_ROUTE,
     });
     expect(r).toEqual({ allowed: true, degraded: true });
     expect(r.verdict).toBeUndefined();

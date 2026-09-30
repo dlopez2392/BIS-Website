@@ -39,7 +39,10 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
     // Inline scripts are Next.js's own hydration payload and the theme
     // flash-guard; see the note above on why a nonce is the wrong trade here.
     // 'unsafe-eval' is the dev bundler's hot reload and never ships.
-    'script-src': ["'self'", "'unsafe-inline'", VERCEL_SCRIPTS, ...(dev ? ["'unsafe-eval'"] : [])],
+    // The one third-party-looking script is BIS's own: the platform's loader,
+    // which mounts the website assistant's bubble. Admitted by its exact
+    // path, not by origin, so nothing else the platform serves can run here.
+    'script-src': ["'self'", "'unsafe-inline'", VERCEL_SCRIPTS, `${platformOrigin()}/embed.js`, ...(dev ? ["'unsafe-eval'"] : [])],
     // Tailwind and next/font both write a <style> element into the document.
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': ["'self'", 'data:', 'blob:'],
@@ -56,7 +59,8 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
       "'self'", VERCEL_SCRIPTS, VERCEL_VITALS, OPENAI_REALTIME, platformOrigin(),
       ...(dev ? ['ws:'] : []),
     ],
-    // The contact page frames the BIS Platform's own form and scheduler.
+    // The contact page frames the BIS Platform's own form and scheduler, and
+    // every page frames its chat assistant inside the loader's bubble.
     //
     // `'self'` is here for Vercel BotID, which runs its challenge in an iframe
     // served from THIS origin. Omitting it did not fail loudly: the browser
