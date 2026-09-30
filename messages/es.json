@@ -158,7 +158,7 @@
     "shared": {
       "eyebrow": "Industrias",
       "workHeading": "Cómo se ve esto en la práctica",
-      "sofiaHeading": "¿Tienes preguntas primero?",
+      "sofiaHeading": "Cómo atiende Sofía tus llamadas",
       "sofiaLink": "Sofía contesta nuestra propia línea. Llámala e intenta romperla.",
       "faqHeading": "Preguntas que nos hacen",
       "othersHeading": "Otras industrias en las que trabajamos",
@@ -409,7 +409,7 @@
     "formFallback": "Abrir el formulario en una pestaña nueva",
     "bookTitle": "Agenda una evaluación gratuita",
     "poweredBy": "Este formulario y el agendador funcionan en la Plataforma BIS — la misma plataforma para clientes que configuramos para los negocios con los que trabajamos.",
-    "sofiaHeading": "¿Prefieres hablar?",
+    "sofiaHeading": "¿Tienes preguntas primero?",
     "sofiaTitle": "Pregúntale a Sofía en vez de llenar algo",
     "sofiaBlurb": "Te responde qué hacemos y cómo trabajamos. Desde aquí no puede agendarte — para eso está el calendario de abajo."
   },

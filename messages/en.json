@@ -158,7 +158,7 @@
     "shared": {
       "eyebrow": "Industries",
       "workHeading": "What this looks like",
-      "sofiaHeading": "Questions first?",
+      "sofiaHeading": "How Sofía handles your calls",
       "sofiaLink": "Sofía answers our own line. Call it and try to break it.",
       "faqHeading": "Questions we get",
       "othersHeading": "Other industries we work in",
@@ -409,7 +409,7 @@
     "formFallback": "Open the form in a new tab",
     "bookTitle": "Book a free assessment",
     "poweredBy": "This form and scheduler run on the BIS Platform — the same client platform we set up for the businesses we work with.",
-    "sofiaHeading": "Rather just talk?",
+    "sofiaHeading": "Questions first?",
     "sofiaTitle": "Ask Sofía instead of filling anything in",
     "sofiaBlurb": "She will answer questions about what we do and how we work. She cannot book you in from here — the scheduler below does that."
   },
