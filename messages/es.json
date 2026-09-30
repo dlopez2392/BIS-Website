@@ -79,7 +79,14 @@
     "platformKicker": "Software propio",
     "platformTitle": "El software es nuestro. Nosotros trabajamos con él todos los días.",
     "platformBody": "Las llamadas, los prospectos, las citas, el correo del lunes por la mañana — un solo sistema que construimos y mantenemos, no una licencia que te revendimos. Así se ve por dentro.",
-    "platformLink": "Mira la plataforma por dentro"
+    "platformLink": "Mira la plataforma por dentro",
+    "prismKicker": "También hecho por BIS",
+    "prismTitle": "Prism, una app de finanzas personales que cualquiera puede usar.",
+    "prismBody": "Quienes construyen la plataforma también hicieron esto: todas tus cuentas en una sola imagen, lo que puedes gastar antes del día de pago y tu saldo a 60 días. Abre la demo en vivo; no necesitas registrarte. Por ahora está solo en inglés.",
+    "prismDemo": "Ver la demo en vivo",
+    "prismMore": "Cómo la construimos",
+    "prismNewTab": "se abre en una pestaña nueva",
+    "prismAlt": "Pantalla de resumen de Prism: patrimonio neto, lo que puedes gastar antes del día de pago y el gasto de este mes"
   },
   "services": {
     "title": "Qué hacemos.",
@@ -714,8 +721,8 @@
   },
   "work": {
     "title": "Nuestro Trabajo",
-    "metaDescription": "Lo que Bespoke Intelligent Solutions ya tiene funcionando — empezando por Sofía, la recepcionista de IA bilingüe que contesta nuestra propia línea. Llámala y júzgalo tú mismo.",
-    "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo. Empezamos por nuestra propia recepción — porque esa la puedes probar en este momento, sin junta, sin demo y sin pedirnos permiso.",
+    "metaDescription": "Lo que Bespoke Intelligent Solutions ya tiene funcionando: Sofía, la recepcionista de IA bilingüe que contesta nuestra propia línea, y Prism, una app de finanzas personales que cualquiera puede usar. Pruébalas tú mismo.",
+    "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo: nuestra propia recepción, a la que puedes llamar en este momento, y Prism, una app de finanzas personales que puedes abrir sin registrarte.",
     "cases": {
       "sofia": {
         "label": "Bespoke Intelligent Solutions — nuestra propia recepción",
@@ -735,7 +742,7 @@
           "OpenAI Realtime",
           "Telnyx",
           "Plataforma BIS",
-          "Neon Postgres",
+          "Supabase Postgres",
           "Resend",
           "Next.js en Vercel"
         ],
@@ -745,6 +752,38 @@
         "tryNoteLink": "Cómo manejamos tu información",
         "tryBrowserTitle": "O habla con ella aquí mismo",
         "tryBrowserBlurb": "Sin llamar. Tu navegador te pedirá el micrófono, y ella responde igual que en la línea."
+      },
+      "prism": {
+        "label": "Prism de BIS — una app pública",
+        "title": "Prism, tu dinero a todo color",
+        "summary": "Prism es una app de finanzas personales que diseñamos, construimos y operamos nosotros mismos, y cualquiera la puede usar. Junta todas tus cuentas en una sola imagen — en qué gastaste, qué viene y cuánto has avanzado — y responde la pregunta que tu saldo del banco no puede: cuánto puedes gastar de verdad antes de tu próximo pago. La demo en vivo usa un hogar inventado, así que puedes recorrer cada pantalla sin registrarte. Por ahora, Prism está disponible solo en inglés.",
+        "videoLabel": "Reproducir el video de 30 segundos de Prism",
+        "galleryCaption": "Pantallas de la demo en vivo. El hogar es inventado; nada de esto es dinero real.",
+        "galleryAlt": {
+          "overview": "Resumen de Prism: patrimonio neto, lo que puedes gastar antes del día de pago y el gasto de este mes",
+          "future": "Pronóstico de Prism: lo que puedes gastar hoy y el saldo de la cuenta de cheques a 60 días",
+          "goals": "Metas de Prism: cuatro metas de ahorro, cada una con el mes en que se alcanza",
+          "spending": "Gastos de Prism: seis meses de gastos, desglosados por categoría"
+        },
+        "factsHeading": "Qué hace",
+        "facts": [
+          "Te muestra lo que puedes gastar sin problema: tu saldo, menos cada pago que vence antes de tu próximo día de pago, menos un colchón que tú eliges.",
+          "Pronostica el saldo de tu cuenta de cheques a 60 días según los pagos e ingresos que se repiten, con un rango probable en lugar de una sola cifra.",
+          "Reúne presupuestos, metas de ahorro y patrimonio neto en un solo lugar, y te dice cuándo alcanzarás cada meta al ritmo que llevas.",
+          "Solo lee, por diseño. Conectas tu banco iniciando sesión en la pantalla del propio banco a través de Plaid; Prism ve saldos y movimientos y nunca puede mover dinero."
+        ],
+        "builtHeading": "Cómo está construida",
+        "builtBody": "Una app web que funciona igual de bien en el teléfono que en la computadora, en modo claro y oscuro. Los datos de bancos y tarjetas llegan por Plaid, y los saldos de criptomonedas por Coinbase, como acceso de solo lectura que se puede revocar y que se guarda cifrado en el servidor. Inicias sesión con un código de un solo uso que llega a tu correo, con verificación en dos pasos opcional. No tiene anuncios ni rastreadores, y tus datos de dinero nunca se venden ni se usan para entrenar IA.",
+        "stackHeading": "Construida con",
+        "stack": [
+          "Next.js en Vercel",
+          "Plaid",
+          "Coinbase"
+        ],
+        "visitHeading": "Pruébala tú mismo",
+        "visitBody": "Abre la demo en vivo y recórrela. Cada número pertenece a un hogar inventado, así que nada de lo que ves es dinero real de nadie, y no necesitas cuenta.",
+        "visitLink": "Ver la demo en vivo",
+        "visitNewTab": "se abre en una pestaña nueva"
       }
     },
     "nextHeading": "Qué sigue en esta página",
@@ -1196,6 +1235,10 @@
       "spanish": "Una llamada en español",
       "pause": "Pausar",
       "resume": "Reproducir"
-    }
+    },
+    "filmKicker": "En 30 segundos",
+    "filmTitle": "Todo el sistema, de principio a fin.",
+    "filmBody": "Una llamada a las 9:15 de la noche, contestada en inglés o en español, anotada y en el tablero antes de la mañana, y el equipo de TI detrás de todo. Dale play para la versión de medio minuto; el recorrido de abajo es la versión larga.",
+    "filmLabel": "Reproducir el video de 30 segundos de BIS"
   }
 }

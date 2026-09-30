@@ -5,6 +5,8 @@ import { CallLink } from '@/components/layout/CallLink';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { workCases } from '@/lib/work';
+import { AdFilm } from '@/components/work/AdFilm';
+import { ThemedShot } from '@/components/work/ThemedShot';
 import { PlatformProof } from '@/components/marketing/PlatformProof';
 import { tourShot } from '@/lib/platform-tour';
 
@@ -32,12 +34,38 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
         const stack = t.raw(`cases.${entry.id}.stack`) as string[];
 
         return (
-          <article key={entry.id} className="mt-12 overflow-hidden rounded-2xl border border-hairline bg-surface-alt">
+          <article key={entry.id} id={entry.id} className="mt-12 scroll-mt-24 overflow-hidden rounded-2xl border border-hairline bg-surface-alt">
             <header className="border-b border-hairline p-8 sm:p-10">
               <p className="text-xs font-bold uppercase tracking-widest text-accent">{k('label')}</p>
               <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-ink">{k('title')}</h2>
               <p className="mt-4 text-ink-muted">{k('summary')}</p>
             </header>
+
+            {entry.media && (
+              // The product, before the claims about it. Film on the left at
+              // phone width, the screens on the right: one wide, then three
+              // phone-sized. Stacks on a phone, film first.
+              <div data-work-media className="grid gap-8 border-b border-hairline p-8 sm:p-10 md:grid-cols-[16rem_1fr] md:items-start">
+                {entry.media.video && (
+                  <AdFilm slot={entry.media.video} label={k('videoLabel')} className="mx-auto w-full max-w-[16rem]" />
+                )}
+                <figure className="m-0">
+                  {entry.media.desktop && (
+                    <ThemedShot shot={entry.media.desktop} alt={k(`galleryAlt.${entry.media.desktop.id}`)}
+                      sizes="(min-width: 56rem) 32rem, 100vw" />
+                  )}
+                  {entry.media.phones && (
+                    <div className="mt-4 grid grid-cols-3 gap-3">
+                      {entry.media.phones.map((shot) => (
+                        <ThemedShot key={shot.id} shot={shot} alt={k(`galleryAlt.${shot.id}`)}
+                          sizes="(min-width: 56rem) 10rem, 33vw" />
+                      ))}
+                    </div>
+                  )}
+                  <figcaption className="mt-3 text-xs text-ink-muted">{k('galleryCaption')}</figcaption>
+                </figure>
+              </div>
+            )}
 
             <div className="grid gap-10 p-8 sm:p-10 md:grid-cols-2">
               <section>
@@ -83,6 +111,22 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
                 <div className="mt-8 border-t border-hairline pt-8">
                   <TalkToSofia placement="work" title={k('tryBrowserTitle')} blurb={k('tryBrowserBlurb')} />
                 </div>
+              </div>
+            )}
+            {entry.cta === 'visit' && (
+              <div className="border-t border-hairline bg-primary/5 p-8 sm:p-10">
+                <h3 className="text-xl font-bold text-ink">{k('visitHeading')}</h3>
+                <p className="mt-2 text-ink-muted">{k('visitBody')}</p>
+                <a
+                  href={entry.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-bold text-on-primary"
+                >
+                  {k('visitLink')}
+                  <span aria-hidden="true">↗</span>
+                  <span className="sr-only">({k('visitNewTab')})</span>
+                </a>
               </div>
             )}
           </article>

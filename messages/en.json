@@ -79,7 +79,14 @@
     "platformKicker": "Our own software",
     "platformTitle": "The software is ours. We run our own shop on it.",
     "platformBody": "The calls, the leads, the bookings, the Monday morning email — one system we build and keep running, not a licence we resold you. This is what it looks like from the inside.",
-    "platformLink": "Look inside the platform"
+    "platformLink": "Look inside the platform",
+    "prismKicker": "Also built by BIS",
+    "prismTitle": "Prism, a personal finance app anyone can use.",
+    "prismBody": "The people who build the platform built this too: every account in one picture, what's safe to spend before payday, and your balance 60 days ahead. Open the live demo; no sign-up needed.",
+    "prismDemo": "See the live demo",
+    "prismMore": "How we built it",
+    "prismNewTab": "opens in a new tab",
+    "prismAlt": "Prism's overview screen: net worth, what's safe to spend before payday, and this month's spending"
   },
   "services": {
     "title": "What we do.",
@@ -714,8 +721,8 @@
   },
   "work": {
     "title": "Our Work",
-    "metaDescription": "What Bespoke Intelligent Solutions has actually shipped — starting with Sofía, the bilingual AI receptionist that answers our own phone line. Call her and judge for yourself.",
-    "intro": "We would rather show you than tell you. Everything on this page is running in production right now, and we describe it only in terms you can check yourself. We start with our own front desk — because that one you can test this minute, without a meeting, a demo login, or our permission.",
+    "metaDescription": "What Bespoke Intelligent Solutions has actually shipped: Sofía, the bilingual AI receptionist on our own phone line, and Prism, a personal finance app anyone can use. Try both yourself.",
+    "intro": "We would rather show you than tell you. Everything on this page is running in production right now, and we describe it only in terms you can check yourself: our own front desk, which you can call this minute, and Prism, a personal finance app you can open without signing up.",
     "cases": {
       "sofia": {
         "label": "Bespoke Intelligent Solutions — our own front desk",
@@ -735,7 +742,7 @@
           "OpenAI Realtime",
           "Telnyx",
           "BIS Platform",
-          "Neon Postgres",
+          "Supabase Postgres",
           "Resend",
           "Next.js on Vercel"
         ],
@@ -745,6 +752,38 @@
         "tryNoteLink": "How we handle your information",
         "tryBrowserTitle": "Or talk to her right here",
         "tryBrowserBlurb": "No phone call. Your browser will ask for your microphone, and she answers the same way she answers the line."
+      },
+      "prism": {
+        "label": "Prism by BIS — a public app",
+        "title": "Prism, your money in full color",
+        "summary": "Prism is a personal finance app we designed, built and run ourselves, and anyone can use it. It pulls every account into one picture — what you spent, what's coming, and how far you've come — and it answers the question a bank balance can't: how much is actually safe to spend before your next paycheck. The live demo runs on an invented household, so you can click through every screen without signing up.",
+        "videoLabel": "Play the 30-second Prism video",
+        "galleryCaption": "Screens from the live demo. The household is invented; none of it is real money.",
+        "galleryAlt": {
+          "overview": "Prism's overview: net worth, what's safe to spend before payday, and this month's spending",
+          "future": "Prism's forecast: safe to spend today and the checking balance 60 days ahead",
+          "goals": "Prism's goals: four savings goals, each with the month it will be reached",
+          "spending": "Prism's spending: six months of spending, broken down by category"
+        },
+        "factsHeading": "What it does",
+        "facts": [
+          "Shows what is safe to spend: your balance, minus every bill due before your next payday, minus a cushion you choose.",
+          "Forecasts your checking balance 60 days ahead from the paydays and bills it sees repeating, with a likely range rather than one confident guess.",
+          "Keeps budgets, savings goals and net worth in one place, and tells you when each goal will be reached at your current pace.",
+          "Is read-only by design. You connect a bank by signing in on the bank's own screen through Plaid; Prism can see balances and transactions and can never move money."
+        ],
+        "builtHeading": "How it is built",
+        "builtBody": "A web app that works as well on a phone as on a desktop, in light and dark. Bank and card data comes through Plaid, and crypto balances through Coinbase, as read-only access that can be revoked and is encrypted on the server. You sign in with a one-time code sent to your email, with optional two-step sign-in. There are no ads and no trackers, and your money data is never sold or used to train AI.",
+        "stackHeading": "Built with",
+        "stack": [
+          "Next.js on Vercel",
+          "Plaid",
+          "Coinbase"
+        ],
+        "visitHeading": "Try it yourself",
+        "visitBody": "Open the live demo and click around. Every number belongs to an invented household, so nothing you see is anyone's real money, and you don't need an account.",
+        "visitLink": "See the live demo",
+        "visitNewTab": "opens in a new tab"
       }
     },
     "nextHeading": "What goes here next",
@@ -1196,6 +1235,10 @@
       "spanish": "A call in Spanish",
       "pause": "Pause",
       "resume": "Play"
-    }
+    },
+    "filmKicker": "In 30 seconds",
+    "filmTitle": "The whole system, start to finish.",
+    "filmBody": "A call at 9:15 at night, answered in English or Spanish, written down and on the board before morning, plus the IT team behind it. Press play for the half-minute version; the tour below is the long one.",
+    "filmLabel": "Play the 30-second BIS video"
   }
 }
