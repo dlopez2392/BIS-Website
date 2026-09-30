@@ -5,6 +5,8 @@ import { TourShot } from '@/components/marketing/TourShot';
 import { TourSectionBlock } from '@/components/marketing/TourSectionBlock';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { tourSections, heroShot, allShots, hasShot } from '@/lib/platform-tour';
+import { AdFilm } from '@/components/work/AdFilm';
+import { BIS_AD } from '@/lib/work';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -66,6 +68,18 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
             <p className="mt-2 text-sm text-ink-muted">{t('sampleNote')}</p>
           </aside>
         ) : null}
+
+        {/* The half-minute version, before the long one. A phone-shaped film
+            beside a short paragraph, so it reads as "watch this or scroll",
+            never as a wall to get past. Click to play; nothing autoplays. */}
+        <section data-platform-film className="mt-16 grid gap-8 md:grid-cols-[16rem_1fr] md:items-center">
+          <AdFilm slot={BIS_AD} label={t('filmLabel')} className="mx-auto w-full max-w-[16rem]" />
+          <div className="max-w-xl">
+            <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('filmKicker')}</p>
+            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">{t('filmTitle')}</h2>
+            <p className="mt-4 text-ink-muted">{t('filmBody')}</p>
+          </div>
+        </section>
 
         {tourSections.map((section) => (
           <TourSectionBlock key={section.id} locale={locale} section={section} />

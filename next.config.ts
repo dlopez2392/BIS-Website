@@ -58,6 +58,19 @@ const nextConfig: NextConfig = {
         source: '/art/:file*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      {
+        // The 30-second films and their posters, and the /work screenshots:
+        // versioned names, same contract.
+        source: '/video/:file*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        // Scoped to the image folder, never '/work/:path*': that pattern also
+        // matches the bare /work URL, whose locale redirect must not be
+        // cached for a year.
+        source: '/work/prism/:file*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
     ];
   },
   async redirects() {

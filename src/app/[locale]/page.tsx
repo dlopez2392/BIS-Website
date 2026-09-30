@@ -8,6 +8,7 @@ import { ServiceCard } from '@/components/marketing/ServiceCard';
 import { Announcement } from '@/components/marketing/Announcement';
 import { InsightCard } from '@/components/marketing/InsightCard';
 import { ResourceCTA } from '@/components/marketing/ResourceCTA';
+import { PrismTeaser } from '@/components/work/PrismTeaser';
 import { PlatformProof } from '@/components/marketing/PlatformProof';
 import { heroShot } from '@/lib/platform-tour';
 import { artProps } from '@/lib/art';
@@ -106,6 +107,21 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mt-4">
           <TalkToSofia placement="home" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
         </div>
+      </section>
+
+      {/* After Sofía: the platform has made its case, so this is the beat
+          that says it is not the only thing we ship. A public app a visitor
+          can open this minute, no sign-up. */}
+      <section className="mx-auto max-w-5xl px-6 pt-14">
+        <PrismTeaser
+          kicker={t('prismKicker')}
+          title={t('prismTitle')}
+          body={t('prismBody')}
+          demo={t('prismDemo')}
+          more={t('prismMore')}
+          newTab={t('prismNewTab')}
+          alt={t('prismAlt')}
+        />
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-16">
