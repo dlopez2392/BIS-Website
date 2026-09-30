@@ -18,7 +18,7 @@ test('contact page offers calling alongside the form and the scheduler', async (
   await expect(page.getByText('Want to talk now?')).toBeVisible();
   await expect(page.locator('main').locator(`a[href="${TEL}"]`)).toBeVisible();
   // The three paths coexist: call, write, book.
-  await expect(page.getByRole('heading', { name: /Prefer to talk\? Book a call\./ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Or book a call\./ })).toBeVisible();
 });
 
 test('contact page call block is localized', async ({ page }) => {

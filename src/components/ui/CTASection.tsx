@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { artProps } from '@/lib/art';
+import { Arrow } from '@/components/ui/Arrow';
 
 /**
  * The band every page ends on. It was a flat violet slab with a white pill,
@@ -24,8 +25,8 @@ export function CTASection({ title, body, cta }: { title: string; body: string; 
       <div className="relative mx-auto max-w-4xl px-6 py-20 text-center">
         <h2 className="ground-text text-3xl font-extrabold sm:text-4xl">{title}</h2>
         <p className="ground-muted mx-auto mt-4 max-w-2xl">{body}</p>
-        <Link href="/contact" className="ground-btn mt-8 inline-block rounded-md px-6 py-3 font-bold">
-          {cta} &gt;
+        <Link href="/contact" className="ground-btn mt-8 inline-flex items-center gap-2 rounded-md px-6 py-3 font-bold">
+          {cta} <Arrow />
         </Link>
       </div>
     </section>

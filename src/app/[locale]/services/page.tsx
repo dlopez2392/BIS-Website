@@ -4,6 +4,7 @@ import { ServiceGroup } from '@/components/marketing/ServiceGroup';
 import { CTASection } from '@/components/ui/CTASection';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
+import { SERVICE_ANCHORS } from '@/lib/service-groups';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -17,9 +18,9 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   const t = await getTranslations('services');
   const c = await getTranslations('common');
   const groups = [
-    { title: t('g1Title'), body: t('g1Body'), proof: t('g1Proof'), bullets: t.raw('g1Bullets') as string[] },
-    { title: t('g2Title'), body: t('g2Body'), proof: t('g2Proof'), bullets: t.raw('g2Bullets') as string[] },
-    { title: t('g3Title'), body: t('g3Body'), proof: t('g3Proof'), bullets: t.raw('g3Bullets') as string[] },
+    { id: SERVICE_ANCHORS.g1, title: t('g1Title'), body: t('g1Body'), proof: t('g1Proof'), bullets: t.raw('g1Bullets') as string[] },
+    { id: SERVICE_ANCHORS.g2, title: t('g2Title'), body: t('g2Body'), proof: t('g2Proof'), bullets: t.raw('g2Bullets') as string[] },
+    { id: SERVICE_ANCHORS.g3, title: t('g3Title'), body: t('g3Body'), proof: t('g3Proof'), bullets: t.raw('g3Bullets') as string[] },
   ];
   return (
     <main>
@@ -36,7 +37,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
           width — a full-bleed panel reads as a banner, not an invitation. */}
       <section className="mx-auto max-w-6xl px-6 pb-12">
         <div className="max-w-4xl">
-          <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('sofiaKicker')}</p>
           <div className="mt-4">
             <TalkToSofia placement="services" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
           </div>

@@ -63,7 +63,7 @@ export function ResourceForm({ slug, downloadUrl }: { slug: string; downloadUrl:
         {errors.email && <p className="mt-1 text-sm text-red-500">{t('errEmail')}</p>}
       </div>
       <label className="flex items-start gap-2 text-sm text-ink-muted">
-        <input type="checkbox" className="mt-1" {...register('newsletterConsent')} />
+        <input type="checkbox" className="mt-0.5 size-5 shrink-0 accent-primary" {...register('newsletterConsent')} />
         <span>{t('consentLabel')}</span>
       </label>
       {errored && <p role="alert" className="text-sm text-red-500">{t('error')}</p>}

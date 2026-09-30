@@ -22,9 +22,9 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
       <h1 className="text-4xl font-extrabold text-ink">{t('title')}</h1>
       <p className="mt-3 max-w-3xl text-ink-muted">{t('intro')}</p>
 
-      <nav aria-label={t('indexLabel')} className="mt-8 flex flex-wrap gap-x-4 gap-y-2 border-y border-hairline py-4 text-sm">
+      <nav aria-label={t('indexLabel')} className="mt-8 flex flex-wrap gap-x-4 border-y border-hairline py-3 text-sm">
         {capabilityGroups.map((g) => (
-          <a key={g.id} href={`#${g.id}`} className="text-ink-muted hover:text-link">{t(`groups.${g.id}`)}</a>
+          <a key={g.id} href={`#${g.id}`} className="inline-block py-1.5 text-ink-muted hover:text-link">{t(`groups.${g.id}`)}</a>
         ))}
       </nav>
 
