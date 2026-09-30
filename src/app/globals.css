@@ -486,7 +486,10 @@ body {
   .hero-h1 { font-size: 36px; } .lede { font-size: 16.5px; max-width: 100%; } .badge { font-size: 13.5px; }
   .btn { height: 48px; font-size: 15px; }
   /* Bottom clearance for the fixed chat launcher (56px + 20px inset). */
-  .hero-stats { flex-direction: column; align-items: center; gap: 16px; padding: 0 20px max(92px, calc(env(safe-area-inset-bottom) + 92px)); font-size: 15px; }
+  /* Left-aligned under the stage's own left-aligned foot, with room above:
+     centred, the three stats started at three different x positions, and the
+     first sat 4px under the "Sample account" note as if it were part of it. */
+  .hero-stats { flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 32px; padding: 0 20px max(92px, calc(env(safe-area-inset-bottom) + 92px)); font-size: 15px; }
   .stat { white-space: normal; }
 }
 @media (max-width: 560px) {

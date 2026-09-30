@@ -8,6 +8,7 @@ import { serviceAreaCities } from '@/lib/seo/business';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { CallLink } from '@/components/layout/CallLink';
 import { cityPages, getCity, type CitySector } from '@/lib/cities';
+import { Arrow } from '@/components/ui/Arrow';
 
 export function generateStaticParams() {
   return cityPages.map((c) => ({ city: c.id }));
@@ -81,8 +82,8 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
             </div>
           ))}
         </div>
-        <Link href="/services" className="mt-6 inline-block text-link hover:underline">
-          {t('shared.servicesLink')} →
+        <Link href="/services" className="mt-6 inline-flex items-center gap-1.5 py-1 text-link hover:underline">
+          {t('shared.servicesLink')} <Arrow />
         </Link>
       </section>
 
@@ -96,7 +97,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
         <p className="mt-3 text-ink-muted">{t('shared.provenBody')}</p>
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <CallLink className="inline-flex items-center gap-3 rounded-lg bg-primary px-5 py-3 text-lg font-extrabold text-on-primary" />
-          <Link href="/work" className="text-link hover:underline">{t('shared.provenLink')} →</Link>
+          <Link href="/work" className="inline-flex items-center gap-1.5 py-1 text-link hover:underline">{t('shared.provenLink')} <Arrow /></Link>
         </div>
       </section>
 
@@ -122,8 +123,8 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
             </li>
           ))}
         </ul>
-        <Link href="/service-area" className="mt-4 inline-block text-sm text-link hover:underline">
-          {t('shared.backToAll', { count: serviceAreaCities.length })} →
+        <Link href="/service-area" className="mt-4 inline-flex items-center gap-1.5 py-1 text-sm text-link hover:underline">
+          {t('shared.backToAll', { count: serviceAreaCities.length })} <Arrow />
         </Link>
       </nav>
     </main>

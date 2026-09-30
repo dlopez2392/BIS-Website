@@ -1,10 +1,10 @@
 import { Check } from 'lucide-react';
 
 export function ServiceGroup({
-  title, body, proof, bullets,
-}: { title: string; body: string; proof: string; bullets: string[] }) {
+  id, title, body, proof, bullets,
+}: { id: string; title: string; body: string; proof: string; bullets: string[] }) {
   return (
-    <div className="border-t border-hairline py-12">
+    <div id={id} className="scroll-mt-24 border-t border-hairline py-12">
       <h2 className="text-2xl font-extrabold text-ink">{title}</h2>
       <p className="mt-3 max-w-2xl text-ink-muted">{body}</p>
       <p className="mt-4 max-w-2xl rounded-md bg-surface-alt p-4 text-sm italic text-ink-muted">{proof}</p>

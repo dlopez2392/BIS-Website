@@ -62,16 +62,16 @@ export default function RootNotFound() {
             {(['en', 'es'] as const).map((lang) => (
               <nav key={lang} lang={lang} aria-label={lang === 'en' ? 'English' : 'Español'}>
                 <p className="ground-accent text-xs font-bold uppercase tracking-widest">{lang === 'en' ? 'English' : 'Español'}</p>
-                <ul className="mt-3 space-y-2">
+                <ul className="mt-2">
                   {WAYS[lang].map(([href, label]) => (
-                    <li key={href}><Link href={href} className="ground-link">{label}</Link></li>
+                    <li key={href}><Link href={href} className="ground-link inline-block py-1.5">{label}</Link></li>
                   ))}
                 </ul>
               </nav>
             ))}
           </div>
           <p className="ground-muted mt-10 text-sm">
-            <a href="tel:+19565061545" className="ground-link">(956) 506-1545</a>
+            <a href="tel:+19565061545" className="ground-link inline-block py-1.5">(956) 506-1545</a>
           </p>
         </main>
       </body>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import { track } from '@vercel/analytics';
+import { Arrow } from '@/components/ui/Arrow';
 import {
   embedUrl, parseEmbedMessage, publicPageUrl, PLATFORM_ORIGIN,
   type EmbedKind, type HostTheme, type Locale,
@@ -100,9 +101,9 @@ export function PlatformEmbed({ kind }: { kind: EmbedKind }) {
         href={publicPageUrl(kind, locale)}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-3 inline-block text-sm font-bold text-link"
+        className="mt-3 inline-flex items-center gap-1.5 py-1 text-sm font-bold text-link"
       >
-        {fallback} &gt;
+        {fallback} <Arrow />
       </a>
     </div>
   );

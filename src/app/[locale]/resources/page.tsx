@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { resources } from '@/lib/resources';
+import { Arrow } from '@/components/ui/Arrow';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -24,7 +25,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
           <Link key={r.slug} href={`/resources/${r.slug}`} className="group block rounded-xl border border-hairline bg-surface-alt p-6 transition hover:border-primary">
             <h2 className="text-xl font-bold text-ink group-hover:text-link">{t(`items.${r.slug}.title`)}</h2>
             <p className="mt-2 text-sm text-ink-muted">{t(`items.${r.slug}.blurb`)}</p>
-            <p className="mt-4 text-sm font-semibold text-accent">{t('getLabel')} →</p>
+            <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">{t('getLabel')} <Arrow /></p>
           </Link>
         ))}
       </div>

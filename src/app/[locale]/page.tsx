@@ -15,6 +15,7 @@ import { artProps } from '@/lib/art';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
+import { SERVICE_ANCHORS } from '@/lib/service-groups';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -73,12 +74,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="grid gap-6 md:grid-cols-3">
           {/* The plates arrive from art/brief.json one at a time; each card
               keeps its icon until its own file exists. */}
-          <ServiceCard icon={Brain} title={t('svc1Title')} body={t('svc1Body')} href="/services" learnMore={c('learnMore')} art={artProps('serviceAi')} />
-          <ServiceCard icon={ShieldCheck} title={t('svc2Title')} body={t('svc2Body')} href="/services" learnMore={c('learnMore')} art={artProps('serviceInfra')} />
-          <ServiceCard icon={Code2} title={t('svc3Title')} body={t('svc3Body')} href="/services" learnMore={c('learnMore')} art={artProps('serviceWeb')} />
+          <ServiceCard icon={Brain} title={t('svc1Title')} body={t('svc1Body')} href={`/services#${SERVICE_ANCHORS.g1}`} learnMore={c('learnMore')} art={artProps('serviceAi')} />
+          <ServiceCard icon={ShieldCheck} title={t('svc2Title')} body={t('svc2Body')} href={`/services#${SERVICE_ANCHORS.g2}`} learnMore={c('learnMore')} art={artProps('serviceInfra')} />
+          <ServiceCard icon={Code2} title={t('svc3Title')} body={t('svc3Body')} href={`/services#${SERVICE_ANCHORS.g3}`} learnMore={c('learnMore')} art={artProps('serviceWeb')} />
         </div>
       </section>
 
+      {/* The platform, Sofía, Prism and the quote share one 5xl column, so the
+          run of proof reads as one stack with one left edge. They were 5xl,
+          4xl, 5xl and 4xl, and every other section started at a different x. */}
       {/* The product, once, on the way past. Placed AFTER the three service
           cards and before Sofía on purpose: the cards say what we do, this
           says the thing exists and is ours, and Sofía lets them try a piece
@@ -102,8 +106,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           argument rather than a novelty; the same panel above the services
           was a gadget meeting a stranger who did not yet know what we sell.
           Still early enough that nobody has to hunt for it. */}
-      <section id="talk-to-sofia" className="mx-auto max-w-4xl px-6 pb-4">
-        <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">{t('sofiaKicker')}</p>
+      <section id="talk-to-sofia" className="mx-auto max-w-5xl px-6 pb-4">
+        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('sofiaKicker')}</p>
         <div className="mt-4">
           <TalkToSofia placement="home" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
         </div>
@@ -124,8 +128,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         />
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 py-16">
-        <blockquote className="text-2xl font-medium text-ink">“{t('quote')}”</blockquote>
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <blockquote className="max-w-3xl text-2xl font-medium text-ink">“{t('quote')}”</blockquote>
         <p className="mt-4 font-bold text-ink">{t('quoteName')}</p>
         <p className="text-sm text-ink-muted">{t('quoteRole')}</p>
       </section>

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import type { ArtProps } from '@/lib/art';
+import { Arrow } from '@/components/ui/Arrow';
 
 /**
  * A service, as a card. With a Señal plate (`art`, from lib/art.ts — present
@@ -21,7 +22,7 @@ export function ServiceCard({
         {!art && <Icon className="text-link" size={28} />}
         <h3 className={art ? 'text-lg font-bold text-ink' : 'mt-4 text-lg font-bold text-ink'}>{title}</h3>
         <p className="mt-2 text-sm text-ink-muted">{body}</p>
-        <Link href={href} className="mt-4 inline-block text-sm font-bold text-link">{learnMore} &gt;</Link>
+        <Link href={href} className="mt-3 inline-flex items-center gap-1.5 py-1.5 text-sm font-bold text-link">{learnMore} <Arrow /></Link>
       </div>
     </div>
   );
