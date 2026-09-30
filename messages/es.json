@@ -418,24 +418,7 @@
     "contactDescription": "Reserva una evaluación gratuita y sin presión de venta. Encontramos la primera automatización que se paga sola. Bilingüe, en el RGV."
   },
   "chat": {
-    "open": "Chatea con nosotros",
-    "title": "Asistente de BIS",
-    "greeting": "¡Hola! Soy el asistente de BIS. Pregúntame sobre la plataforma, Sofía o TI para tu negocio en el Valle — también puedo agendarte una evaluación gratuita.",
-    "placeholder": "Escribe tu mensaje…",
-    "send": "Enviar",
-    "close": "Cerrar chat",
-    "thinking": "Pensando…",
-    "suggestionsLabel": "Puedes preguntar",
-    "suggestion1": "¿Qué hace exactamente la plataforma de BIS?",
-    "suggestion2": "¿Sofía puede contestar mis llamadas en español?",
-    "suggestion3": "¿Cómo funcionan los precios?",
-    "errorHeading": "Eso no se envió",
-    "errorFallback": "Algo salió mal. Inténtalo de nuevo o llámanos al (956) 506-1545.",
-    "retry": "Intentar de nuevo",
-    "limitReached": "Esta conversación ya se alargó. Agenda una evaluación gratuita y habla directamente con Dan.",
-    "limitCta": "Agenda una evaluación gratuita",
-    "messagesLabel": "Conversación",
-    "restored": "Retomamos donde te quedaste."
+    "open": "Chatea con nosotros"
   },
   "insights": {
     "heading": "Perspectivas",
@@ -628,14 +611,14 @@
   "privacy": {
     "title": "Política de Privacidad",
     "metaDescription": "Cómo Bespoke Intelligent Solutions recopila, usa y protege tu información.",
-    "lastUpdated": "Última actualización: 17 de septiembre de 2026",
+    "lastUpdated": "Última actualización: 30 de septiembre de 2026",
     "intro": "Bespoke Intelligent Solutions (\"BIS\", \"nosotros\") respeta tu privacidad. Esta política explica qué recopilamos a través de este sitio web, cómo lo usamos y las opciones que tienes. La mantenemos en lenguaje claro a propósito.",
     "collectHeading": "Qué recopilamos y por qué",
     "collectIntro": "Solo recopilamos lo que necesitamos para responderte y operar este sitio:",
     "collectItems": [
       "Formulario de contacto: tu nombre, nombre del negocio, correo, teléfono, industria y mensaje — para poder responderte y preparar tu evaluación gratuita.",
       "Descargas de recursos: tu nombre y correo — para enviarte el recurso y, si lo aceptas, consejos ocasionales. La casilla de consejos está desactivada por defecto.",
-      "Asistente de IA: los mensajes que envías a nuestro asistente de chat en el sitio, para que pueda responder tus preguntas.",
+      "Asistente de IA: los mensajes que envías al asistente de chat de este sitio, para que pueda responder tus preguntas. La conversación se guarda en la Plataforma BIS y, si compartes tu nombre y una forma de contactarte, se convierte ahí en un prospecto para darte seguimiento.",
       "Llamadas telefónicas: cuando llamas a nuestra línea de negocio, nuestra recepcionista de IA guarda una transcripción escrita y un resumen de la llamada, el número desde el que llamaste y lo que le compartas — tu nombre, lo que necesitas y cualquier cita que agendes — para poder darte seguimiento. No guardamos grabaciones de audio de las llamadas.",
       "Analítica de uso: métricas agregadas y respetuosas de la privacidad sobre el rendimiento de nuestras páginas. Esto no te identifica."
     ],
@@ -645,11 +628,10 @@
     "processorsIntro": "Nos apoyamos en algunos proveedores de confianza para operar el sitio. Solo procesan tus datos para brindarnos su servicio:",
     "processorsItems": [
       "Resend — envía nuestros correos transaccionales (enlaces de descarga y nuestras notificaciones).",
-      "Neon / Vercel Postgres — almacena de forma segura las suscripciones de descarga de recursos y los prospectos que capta el asistente de chat.",
+      "Neon / Vercel Postgres — almacena de forma segura las suscripciones de descarga de recursos y las solicitudes para recibir por correo un informe del chequeo de seguridad.",
       "Vercel (Analytics y Speed Insights) — aloja el sitio y ofrece analítica de rendimiento sin cookies.",
-      "Plataforma BIS (app.bis-rgv.com) — nuestra propia plataforma para clientes, que aloja el formulario de contacto y el agendador de evaluaciones y guarda lo que envías a través de ellos.",
-      "DeepSeek — provee el modelo de IA detrás de nuestro asistente de chat en el sitio.",
-      "OpenAI — provee el modelo de voz en tiempo real detrás de Sofía, la recepcionista de IA que contesta nuestra línea telefónica.",
+      "Plataforma BIS (app.bis-rgv.com) — nuestra propia plataforma para clientes, que aloja el formulario de contacto, el agendador de evaluaciones y el asistente de chat, y guarda lo que envías a través de ellos.",
+      "OpenAI — provee los modelos de IA detrás de Sofía, la recepcionista de IA que contesta nuestra línea telefónica, y del asistente de chat de este sitio.",
       "Telnyx — transporta las llamadas y los mensajes de texto hacia y desde nuestra línea de negocio."
     ],
     "cookiesHeading": "Cookies y rastreo",
@@ -1100,8 +1082,7 @@
       "Neon y Supabase — las bases de datos detrás de esas aplicaciones.",
       "Resend — envía correo transaccional como confirmaciones y avisos.",
       "Telnyx — transporta las llamadas hacia una recepcionista con IA.",
-      "OpenAI — el modelo de voz detrás de Sofía en una línea telefónica.",
-      "DeepSeek — el modelo detrás del asistente de este sitio. En los proyectos de clientes se usa el proveedor que el proyecto requiera, y se elige contigo en lugar de darse por hecho.",
+      "OpenAI — los modelos detrás de Sofía, en una línea telefónica y en el asistente de chat de un sitio web.",
       "Clerk — el inicio de sesión de la Plataforma BIS.",
       "Upstash — límites de uso, que guardan contadores y no contenido."
     ],

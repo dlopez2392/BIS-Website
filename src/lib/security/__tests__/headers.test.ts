@@ -38,9 +38,9 @@ describe('contentSecurityPolicy', () => {
     expect(csp).toContain('upgrade-insecure-requests');
   });
 
-  it('admits no third-party script origin beyond the analytics the site loads', () => {
+  it('admits no script origin beyond the analytics and the platform loader, the loader by its exact path', () => {
     const sources = directive(contentSecurityPolicy(), 'script-src').filter((s) => s.startsWith('http'));
-    expect(sources).toEqual(['https://va.vercel-scripts.com']);
+    expect(sources).toEqual(['https://va.vercel-scripts.com', `${PLATFORM_ORIGIN}/embed.js`]);
   });
 
   it('serves the hero video and the fonts from this origin only', () => {
@@ -119,10 +119,10 @@ describe('connect-src and the voice session', () => {
     expect(csp()).toMatch(/connect-src[^;]*https:\/\/app\.bis-rgv\.com/);
   });
 
-  it('adds both to connect-src only, never to script-src', () => {
-    const scriptSrc = /script-src ([^;]*)/.exec(csp())![1];
-    expect(scriptSrc).not.toContain('api.openai.com');
-    expect(scriptSrc).not.toContain('app.bis-rgv.com');
+  it('adds both to connect-src only — script-src names the platform by one exact file, never by origin', () => {
+    const scriptSrc = /script-src ([^;]*)/.exec(csp())![1]!.split(' ');
+    expect(scriptSrc.join(' ')).not.toContain('api.openai.com');
+    expect(scriptSrc.filter((s) => s.includes('app.bis-rgv.com'))).toEqual(['https://app.bis-rgv.com/embed.js']);
   });
 
   it('keeps default-src closed to self, so a new host must be named deliberately', () => {

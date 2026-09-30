@@ -12,7 +12,7 @@ import { TalkToSofia } from '@/components/sofia/TalkToSofia';
  * trust page that quietly re-dates itself on every deploy is claiming a review
  * that never happened, which is the exact failure it exists to argue against.
  */
-const REVIEWED = '2026-09-06';
+const REVIEWED = '2026-09-30';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;

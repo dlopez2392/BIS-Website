@@ -12,20 +12,20 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/components/seo/StructuredData';
-import { ChatWidget } from '@/components/chat/ChatWidget';
+import { ConciergeEmbed } from '@/components/chat/ConciergeEmbed';
 import { BotIdClient } from 'botid/client';
 import { PROTECTED_ROUTES } from '@/lib/security/protected-routes';
 import { SITE_URL } from '@/lib/seo/business';
-import { SERVICE_GROUP_IDS } from '@/lib/ai/site-context';
+import { SERVICE_GROUP_IDS } from '@/lib/service-groups';
 import { siteVerification } from '@/lib/seo/verification';
 import '../globals.css';
 
 /**
  * `resizes-content` makes Chrome on Android shrink the layout viewport for
- * the on-screen keyboard, so `100dvh` and `position: fixed` bottoms — the
- * chat sheet's — sit above the keys rather than behind them. iOS ignores it;
- * the widget handles that side with `visualViewport`. The other two values
- * are Next's defaults, restated because exporting `viewport` replaces them.
+ * the on-screen keyboard, so fixed-bottom UI and `100dvh` sit above the keys
+ * rather than behind them — the contact form's fields and the assistant's
+ * full-screen sheet on a phone. The other two values are Next's defaults,
+ * restated because exporting `viewport` replaces them.
  */
 export const viewport: Viewport = {
   width: 'device-width',
@@ -115,7 +115,7 @@ export default async function LocaleLayout({
             <Header />
             {children}
             <Footer />
-            <ChatWidget />
+            <ConciergeEmbed />
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />

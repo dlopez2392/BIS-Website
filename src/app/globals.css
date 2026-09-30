@@ -60,22 +60,6 @@ body {
   font-family: var(--font-sans);
 }
 
-/* --- The chat panel is a sheet on phones ---------------------------------
-   Under 640px the floating box left 4px of margin on one side and the page
-   showing underneath, with its input at a fixed 480px that the keyboard then
-   covered. A sheet takes the whole visual viewport instead; its height and
-   top come from `visualViewport` (set by the widget while open) so it follows
-   the keyboard, with `100dvh` as the fallback where that API is missing.
-   Unlayered on purpose: it has to beat the Tailwind utilities on the same
-   element, and an unlayered rule outranks any layer regardless of order. */
-@media (max-width: 639px) {
-  .chat-panel {
-    position: fixed; left: 0; right: 0;
-    top: var(--chat-top, 0px); height: var(--chat-vh, 100dvh); width: auto;
-    border: 0; border-radius: 0; box-shadow: none;
-  }
-}
-
 /* --- Ground: the hero's lit dark island, as a primitive -------------------
    Until now the site had one dark surface with light in it — `.hero` — and
    no way for any other section to reach it, so every band below the fold

@@ -5,7 +5,7 @@ import { resources } from '@/lib/resources';
  * The endpoints Vercel BotID verifies, at what depth, in one table.
  *
  * Three things on this site cost something real when a script hits them: the
- * chat route, which spends model tokens per message; the security checker,
+ * Sofía voice ticket, which starts a billed realtime session; the security checker,
  * which makes requests to other people's servers from BIS's address; and the
  * resource form, which writes a subscriber and sends an email. Everything
  * else is a static page that search and answer engines are explicitly invited
@@ -31,9 +31,9 @@ export type CheckLevel = 'basic' | 'deepAnalysis';
  * passes the free basic check, so it is spent where a bot getting through
  * costs more than the check does — not everywhere by default.
  *
- * Chat, because every message that reaches the model costs tokens, and
- * headless browsers are exactly what basic verification is weakest against.
- * The security checker, because abusing it turns BIS's own address into a
+ * The Sofía ticket, because a voice session bills by the minute and headless
+ * browsers are exactly what basic verification is weakest against. The
+ * security checker, because abusing it turns BIS's own address into a
  * scanning service pointed at third parties, which is a reputation problem
  * rather than a billing one.
  *
@@ -55,15 +55,14 @@ export type CheckLevel = 'basic' | 'deepAnalysis';
 // are unchanged and remain the real cost control. Restore 'deepAnalysis' here
 // once a real browser is observed passing it in the Firewall tab's BotID
 // traffic view — a broken check that refuses everyone protects nothing.
-const CHAT: CheckLevel = 'basic';
 /**
- * Deep Analysis too, and for a sharper version of chat's reason: a voice
- * session bills OpenAI Realtime audio by the minute for as long as it lives,
- * where a chat message bills once. This is the most expensive endpoint on the
- * site for a script to reach.
+ * A voice session bills OpenAI Realtime audio by the minute for as long as it
+ * lives. This is the most expensive endpoint on the site for a script to
+ * reach. (The chat assistant used to sit here too; it now lives on the BIS
+ * Platform, which guards its own endpoint.)
  */
-const SOFIA_TICKET: CheckLevel = 'basic'; // see the note on CHAT
-const SECURITY_CHECK: CheckLevel = 'basic'; // see the note on CHAT
+const SOFIA_TICKET: CheckLevel = 'basic';
+const SECURITY_CHECK: CheckLevel = 'basic'; // see the note above SOFIA_TICKET
 const RESOURCE_FORM: CheckLevel = 'basic';
 
 export interface ProtectedRoute {
@@ -79,7 +78,6 @@ export interface ProtectedRoute {
  * third guide cannot quietly ship unprotected.
  */
 export const PROTECTED_ROUTES: readonly ProtectedRoute[] = [
-  { path: '/api/chat', method: 'POST', advancedOptions: { checkLevel: CHAT } },
   { path: '/api/sofia/ticket', method: 'POST', advancedOptions: { checkLevel: SOFIA_TICKET } },
   ...routing.locales.map((locale) => ({
     path: `/${locale}/tools/security-check`,
@@ -108,6 +106,5 @@ export function checkLevelFor(path: string): CheckLevel {
 }
 
 /** Path constants, so a call site cannot typo its way out of protection. */
-export const CHAT_ROUTE = '/api/chat';
 export const SOFIA_TICKET_ROUTE = '/api/sofia/ticket';
 export const securityCheckPath = (locale: string) => `/${locale}/tools/security-check`;

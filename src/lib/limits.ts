@@ -4,16 +4,12 @@
  * The previous limiter kept its counts in a module-level Map, so on Vercel each
  * lambda instance had its own notepad and a recycled instance started blank —
  * "10 per minute" was really "10 per minute per instance until it forgets".
- * Shared counters stay even though the chat no longer books appointments
- * itself (the platform's scheduler owns that, with its own rate limit): a
- * per-instance cap on model calls is still not a cap.
+ * The website assistant used to be metered here too; it now runs on the BIS
+ * Platform, which caps turns and conversations on its own side.
  *
  * Keys are prefixed `web:` because this Upstash store is shared with the Sofía
  * receptionist, whose keys are `session:*` and `calls:*`.
  */
-
-export const CHAT_PER_MINUTE = 10;
-export const CHAT_WINDOW_SECONDS = 60;
 
 /**
  * The security checker makes requests to somebody else's server, so its limit
@@ -48,7 +44,6 @@ export interface Counter {
 }
 
 export interface Limits {
-  allowChat(ip: string): Promise<boolean>;
   allowScan(ip: string): Promise<boolean>;
   allowReport(ip: string): Promise<boolean>;
   allowSofiaSession(ip: string): Promise<boolean>;
@@ -64,21 +59,12 @@ function logBrokenCounter(err: unknown) {
 /**
  * Pure over its Counter, so the cap is testable without Redis.
  *
- * Fails OPEN. A dead Redis silencing the assistant is worse than an unmetered
- * window — the same call Sofía's daily call caps make, and the same
+ * Fails OPEN except where noted. A dead Redis turning away a visitor is worse
+ * than an unmetered window — the same call Sofía's daily call caps make, and the same
  * never-lose-a-lead rule the lead pipeline follows.
  */
 export function makeLimits(counter: Counter): Limits {
   return {
-    async allowChat(ip) {
-      try {
-        const used = await counter.incr(`web:rl:chat:${ip}`, CHAT_WINDOW_SECONDS);
-        return used <= CHAT_PER_MINUTE;
-      } catch (err) {
-        logBrokenCounter(err);
-        return true;
-      }
-    },
     async allowScan(ip) {
       try {
         const used = await counter.incr(`web:rl:scan:${ip}`, SCAN_WINDOW_SECONDS);
@@ -89,8 +75,8 @@ export function makeLimits(counter: Counter): Limits {
       }
     },
     /**
-     * Fails CLOSED, unlike the others. A dead counter silencing the assistant
-     * is worse than an unmetered window; a dead counter letting an unmetered
+     * Fails CLOSED, unlike the others. A dead counter refusing a scan is
+     * worse than an unmetered window; a dead counter letting an unmetered
      * number of emails leave the BIS domain is how a sending reputation is
      * lost, and the visitor still has their result on screen either way.
      */
