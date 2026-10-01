@@ -1,7 +1,7 @@
 export const business = {
   name: 'Bespoke Intelligent Solutions',
   url: 'https://bis-rgv.com',
-  email: 'bespokeintelligentsolutions@gmail.com',
+  email: 'hello@bis-rgv.com',
   // The Sofia answering-service line (Telnyx -> OpenAI SIP). Rendered for
   // humans and dialing via src/lib/phone.ts; consumed as-is by JSON-LD.
   phone: '+1-956-506-1545',
