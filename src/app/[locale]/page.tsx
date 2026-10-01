@@ -20,7 +20,7 @@ import { SERVICE_ANCHORS } from '@/lib/service-groups';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'meta' });
-  return pageMetadata({ locale, path: '/', title: t('homeTitle'), description: t('homeDescription') });
+  return pageMetadata({ locale, path: '/', title: t('title'), description: t('homeDescription'), absoluteTitle: true });
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {

@@ -6,7 +6,7 @@ import { FirstHourBack } from '@/components/estimate/FirstHourBack';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'firstHourBack' });
-  return pageMetadata({ locale, path: '/tools/first-hour-back', title: t('title'), description: t('metaDescription') });
+  return pageMetadata({ locale, path: '/tools/first-hour-back', title: t('metaTitle'), description: t('metaDescription') });
 }
 
 export default async function FirstHourBackPage({ params }: { params: Promise<{ locale: string }> }) {

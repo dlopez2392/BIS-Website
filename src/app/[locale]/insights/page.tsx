@@ -7,7 +7,7 @@ import { listPosts, formatDate } from '@/lib/insights';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'insights' });
-  return pageMetadata({ locale, path: '/insights', title: t('heading'), description: t('subheading') });
+  return pageMetadata({ locale, path: '/insights', title: t('heading'), description: t('metaDescription') });
 }
 
 export default async function InsightsPage({ params }: { params: Promise<{ locale: string }> }) {

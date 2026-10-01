@@ -3,8 +3,12 @@ import { routing } from '@/i18n/routing';
 import { SITE_URL, business } from './business';
 
 export function pageMetadata({
-  locale, path, title, description,
-}: { locale: string; path: string; title: string; description: string }): Metadata {
+  locale, path, title, description, absoluteTitle = false,
+}: {
+  locale: string; path: string; title: string; description: string;
+  /** Skip the layout's " · BIS" template: the home page's title is the full brand name. */
+  absoluteTitle?: boolean;
+}): Metadata {
   const seg = path === '/' ? '' : path;
   const canonical = `${SITE_URL}/${locale}${seg}`;
   const languages: Record<string, string> = {};
@@ -12,7 +16,7 @@ export function pageMetadata({
   languages['x-default'] = `${SITE_URL}/${routing.defaultLocale}${seg}`;
   const ogImage = `${SITE_URL}/og?title=${encodeURIComponent(title)}&locale=${locale}`;
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical, languages },
     openGraph: {
