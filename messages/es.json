@@ -95,41 +95,41 @@
   },
   "services": {
     "title": "Qué hacemos.",
-    "intro": "Soluciones Inteligentes a la medida para la empresa moderna. Cerramos la brecha entre el IT tradicional y la frontera de la IA.",
+    "intro": "IA que le quita horas a tu semana, IT que te mantiene seguro y sitios web que son tuyos — con un solo contacto. Detrás está la Plataforma BIS, el CRM que construimos para los negocios del Valle y con el que operamos el nuestro.",
     "g1Title": "IA y Automatización",
-    "g1Body": "IA que le quita horas reales a tu semana — no demos que juntan polvo. Construimos sistemas prácticos y listos para producción que se integran con tu equipo actual.",
+    "g1Body": "IA que le quita horas reales a tu semana, no demos que juntan polvo. La integramos a las herramientas y al equipo que ya tienes.",
     "g1Proof": "Construimos resúmenes de admisión de casos con IA para un bufete con varias oficinas — respuestas de viabilidad en minutos, no en días.",
     "g1Bullets": [
       "Evaluaciones de preparación para IA",
       "Automatización de flujos (Power Automate, Claude API)",
       "Asistentes de IA bilingües a la medida",
       "Procesamiento de documentos",
-      "Gobernanza de costos de IA",
+      "Costos de IA bajo control",
       "Capacitación del personal"
     ],
     "g2Title": "Consultoría IT y Seguridad",
-    "g2Body": "Veinte años de liderazgo en IT empresarial. No solo resolvemos problemas; diseñamos entornos resistentes que le permiten a tu firma escalar de forma segura a través de fronteras.",
+    "g2Body": "Veinte años manejando IT para organizaciones grandes, ahora para la tuya. Arreglamos lo que está mal y lo dejamos listo para que siga funcionando mientras creces — entre oficinas, y de ambos lados de la frontera si lo necesitas.",
     "g2Proof": "Dirigimos la modernización totalmente en la nube de una firma de 150 usuarios en tres oficinas y dos países.",
     "g2Bullets": [
       "Microsoft 365 / Nube (Entra ID, Intune)",
       "MFA resistente a phishing",
       "Protección de endpoints (Defender)",
       "Modernización de red",
-      "Supervisión de MSP",
+      "Supervisión de tu proveedor de IT (MSP)",
       "Respuesta a incidentes de seguridad",
-      "MDM"
+      "Administración de teléfonos y laptops (MDM)"
     ],
     "g3Title": "Diseño Web",
-    "g3Body": "Sitios rápidos y modernos que de verdad son tuyos. Sin ataduras propietarias. Sin cajas negras. Solo código limpio y de alto rendimiento que impulsa conversiones y representa la inteligencia de tu marca.",
+    "g3Body": "Sitios rápidos y modernos que de verdad son tuyos — sin ataduras y sin cajas negras. Hechos para traerte llamadas y clientes, en inglés y en español.",
     "g3Proof": "Cada proyecto se entrega con las llaves: tu hosting, tus cuentas, tu propiedad.",
     "g3Bullets": [
-      "Diseño / desarrollo a la medida",
-      "Arquitectura de contenido bilingüe (nativa)",
+      "Diseño y desarrollo a la medida",
+      "Escrito en ambos idiomas, no traducido",
       "SEO local para el RGV",
       "Paneles de analítica (Power BI)",
       "Entrega limpia"
     ],
-    "ctaTitle": "¿Listo para desplegar una solución inteligente a la medida?",
+    "ctaTitle": "Mira cómo se vería esto en tu negocio.",
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola.",
     "sofiaKicker": "Pruebas, no diapositivas",
     "sofiaTitle": "El primero ya contesta nuestro teléfono",
@@ -176,7 +176,7 @@
     "pages": {
       "legal": {
         "metaTitle": "TI e IA para despachos legales, Valle del Río Grande",
-        "metaDescription": "Recepción bilingüe que contesta fuera de horario, manejo de documentos que respeta la confidencialidad y TI para un despacho del Valle. Evaluación gratuita, un solo contacto.",
+        "metaDescription": "Recepción bilingüe fuera de horario, documentos manejados con confidencialidad y TI para un despacho del Valle. Evaluación gratis, un contacto.",
         "heading": "Tecnología para despachos legales del Valle",
         "intro": "Una llamada perdida es un caso perdido. Casi todos los que buscan abogado llaman a tres y contratan al que contesta primero, y en el Valle esa llamada llega en español con la misma frecuencia que en inglés. Lo que sigue trata de contestar todas, y de cuidar lo que el cliente cuenta cuando lo haces.",
         "sofia": "Sofía contesta tu línea en el idioma de quien llama, toma los datos de lo que pasó, explica cuánto cobras por la consulta y agenda una cita real en tu calendario. Nunca da asesoría legal ni dice si vas a tomar el caso. Lo que llega a tu escritorio es una hoja de admisión con formato, no un buzón de voz que tienes que devolver para entender.",
@@ -357,38 +357,38 @@
   "about": {
     "kicker": "Est. 2024 / Harlingen, TX",
     "title": "Quiénes somos.",
-    "intro": "Bespoke Intelligent Solutions lleva consultoría de IT e IA de nivel empresarial a los negocios que las grandes firmas pasan por alto. Servimos a quienes exigen Inteligencia Brutal y profundidad Estratégica.",
+    "intro": "Llevamos la tecnología y la IA con las que operan las grandes empresas a los negocios del Valle del Río Grande — en inglés y en español, con un solo contacto. Y lo que vendemos, primero lo usamos en nuestro propio negocio.",
     "founderKicker": "El Fundador",
     "founderName": "Dan Lopez",
-    "founderQuote": "Creé BIS porque la brecha entre la capacidad empresarial y la ejecución local se hacía cada vez más grande. Mi misión es cerrar esa brecha con precisión de ingeniería.",
-    "founderBio": "Dan Lopez es el arquitecto detrás de Bespoke Intelligent Solutions. Con una carrera forjada en el liderazgo de IT global de alto riesgo, Dan regresó a sus raíces en Harlingen con una visión única: llevar consultoría sofisticada de IA e IT de nivel empresarial a los mercados que las grandes firmas ignoran. Su enfoque no es de talla única — es el 'Bespoke': una estrategia a la medida que respeta el ADN único de cada organización con la que colabora.",
-    "credKicker": "Profundidad Técnica y Credenciales",
-    "cred1Title": "Más de 20 años de liderazgo en IT",
-    "cred1Body": "Dos décadas navegando cambios tecnológicos complejos al más alto nivel.",
-    "cred2Title": "Operaciones Transfronterizas",
-    "cred2Body": "Logística y arquitectura de múltiples oficinas para operaciones globales.",
-    "cred3Title": "Experto en Microsoft 365",
-    "cred3Body": "Arquitectura avanzada para ecosistemas M365 y seguridad.",
-    "cred4Title": "Profundidad en Seguridad",
-    "cred4Body": "Implementación de Defender, Fortinet y protección avanzada contra amenazas.",
-    "cred5Title": "Constructor de IA",
-    "cred5Body": "Especializado en integración de Claude y flujos de Power Automate.",
-    "cred6Title": "Salesforce / Legal-Tech",
-    "cred6Body": "Optimización de plataformas para cumplimiento legal y CRM de alto rendimiento.",
-    "cred7Title": "Totalmente Bilingüe",
-    "cred7Body": "Ejecución fluida en inglés y español para alcance global.",
+    "founderQuote": "Las grandes empresas reciben tecnología hecha a su manera de trabajar. Los negocios de aquí casi siempre reciben lo que el proveedor quiera vender. Fundé BIS para cerrar esa brecha, en casa.",
+    "founderBio": "Dan Lopez fundó Bespoke Intelligent Solutions después de más de veinte años en liderazgo de IT, gran parte de ellos a cargo de sistemas para organizaciones con oficinas en más de un país. Regresó a Harlingen, donde están sus raíces, para poner esa experiencia al servicio de los negocios de aquí. BIS construye y opera su propio software — la Plataforma BIS y Prism — así que sus recomendaciones vienen de usar las herramientas, no de revenderlas. Cada proyecto empieza por cómo funciona de verdad tu negocio.",
+    "credKicker": "Experiencia",
+    "cred1Title": "Más de 20 años liderando IT",
+    "cred1Body": "Dos décadas al frente de equipos de IT y de los sistemas que operan.",
+    "cred2Title": "Operaciones transfronterizas",
+    "cred2Body": "Sistemas para empresas con oficinas en más de un país.",
+    "cred3Title": "Microsoft 365",
+    "cred3Body": "Configurar y proteger el correo, los archivos y las cuentas con los que trabaja casi toda oficina.",
+    "cred4Title": "Seguridad",
+    "cred4Body": "Experiencia directa con Microsoft Defender, Fortinet y protección contra amenazas.",
+    "cred5Title": "Desarrollo con IA",
+    "cred5Body": "Integraciones de IA con Claude y flujos con Power Automate.",
+    "cred6Title": "Salesforce y tecnología legal",
+    "cred6Body": "CRMs y plataformas legales configurados para cumplir con la normativa.",
+    "cred7Title": "Totalmente bilingüe",
+    "cred7Body": "Trabaja en inglés y en español, con tu equipo y con tus clientes.",
     "cred8Title": "Con raíces en Harlingen",
-    "cred8Body": "Experiencia de clase mundial con profundo compromiso local.",
-    "methodKicker": "La Metodología",
+    "cred8Body": "Con base en Harlingen, trabajando en todo el Valle.",
+    "methodKicker": "Cómo trabajamos",
     "m1Title": "Evaluar",
-    "m1Body": "Mapeamos tu arquitectura actual para encontrar los puntos de fricción y las oportunidades ocultas para aprovechar la IA.",
-    "m2Title": "Secuenciar",
-    "m2Body": "La estrategia es un juego de orden. Trazamos la secuencia de despliegue para máximo ROI y mínima interrupción.",
+    "m1Body": "Vemos cómo funciona tu negocio hoy y encontramos dónde se pierde tiempo y dinero — y dónde la IA de verdad ayudaría.",
+    "m2Title": "Planear",
+    "m2Body": "Ponemos el trabajo en orden: lo que se paga solo primero y lo que puede esperar, para que nada se rompa mientras cambia.",
     "m3Title": "Construir",
-    "m3Body": "La ejecución es precisión. Desarrollamos integraciones y flujos de IA a la medida de tu ADN operativo.",
+    "m3Body": "Construimos las integraciones y automatizaciones alrededor de cómo ya trabaja tu equipo.",
     "m4Title": "Entregar",
-    "m4Body": "Empoderamos a tu equipo para que sea dueño de la solución: documentación, capacitación y una hoja de ruta sostenible para crecer.",
-    "ctaTitle": "Construyamos tu solución inteligente a la medida.",
+    "m4Body": "El resultado es tuyo: la documentación, la capacitación y las cuentas, más un plan para lo que sigue.",
+    "ctaTitle": "Encontremos tu primera hora libre.",
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta. Te mostraremos la primera automatización que se paga sola."
   },
   "contact": {
@@ -414,18 +414,17 @@
     "sofiaBlurb": "Te responde qué hacemos y cómo trabajamos. Desde aquí no puede agendarte — para eso está el calendario de abajo."
   },
   "meta": {
-    "title": "Bespoke Intelligent Solutions — IA, IT y Web para el Valle del Río Grande",
+    "title": "Bespoke Intelligent Solutions: IA e IT, Valle del Río Grande",
     "description": "BIS crea su propio CRM para negocios del Valle del Río Grande y la TI detrás — adopción de IA, seguridad, web moderna. Bilingüe, un solo punto de contacto.",
     "notFound": "Página no encontrada",
     "notFoundCta": "Volver al inicio",
-    "homeTitle": "IA, IT y Web para Negocios del Valle del Río Grande",
     "homeDescription": "Un CRM hecho para los negocios del Valle del Río Grande — llamadas, prospectos, citas y reportes en un solo lugar, EN/ES — y el equipo de TI detrás.",
     "servicesTitle": "Servicios — IA, Seguridad IT y Diseño Web",
-    "servicesDescription": "IA y automatización, IT y seguridad empresarial, y diseño web bilingüe moderno para negocios del RGV.",
+    "servicesDescription": "IA y automatización, IT y seguridad, y sitios web bilingües para negocios del Valle del Río Grande — un solo contacto, con la Plataforma BIS.",
     "industriesTitle": "Industrias — Hecho para el Valle",
     "industriesDescription": "Soluciones de IA e IT a la medida para negocios legales, médicos, de logística, oficios y agricultura del Valle del Río Grande.",
     "aboutTitle": "Nosotros — Quiénes Somos",
-    "aboutDescription": "Bespoke Intelligent Solutions lleva consultoría de IA e IT de nivel empresarial al Valle del Río Grande, fundada por Dan Lopez.",
+    "aboutDescription": "Conoce a Dan Lopez y a BIS: veinte años de liderazgo en IT, de regreso en Harlingen para crear IA, IT y software para negocios del Valle.",
     "contactTitle": "Evaluación Gratuita — Contáctanos",
     "contactDescription": "Reserva una evaluación gratuita y sin presión de venta. Encontramos la primera automatización que se paga sola. Bilingüe, en el RGV."
   },
@@ -444,7 +443,8 @@
       "Security": "Seguridad",
       "Culture": "Cultura",
       "AI": "IA"
-    }
+    },
+    "metaDescription": "Notas claras sobre IA, seguridad de IT y sitios web para negocios del Valle del Río Grande: cuánto cuesta, qué preguntar y qué debe ser tuyo."
   },
   "faq": {
     "title": "Preguntas Frecuentes",
@@ -511,7 +511,7 @@
   "capabilities": {
     "title": "Capacidades",
     "intro": "Las plataformas, herramientas y disciplinas detrás de BIS — dos décadas de experiencia práctica en IT e IA, al servicio de los negocios del Valle del Río Grande.",
-    "metaDescription": "El conjunto completo de plataformas, herramientas y disciplinas con las que trabaja BIS — nube, seguridad, redes, respaldo, IA y más — para los negocios del Valle del Río Grande.",
+    "metaDescription": "Las plataformas, herramientas y disciplinas con las que trabaja BIS — nube, seguridad, redes, respaldo, IA y más — para negocios del Valle.",
     "indexLabel": "Ir a",
     "expertiseHeading": "Áreas de Especialización",
     "viewAll": "Ver todas nuestras tecnologías",
@@ -569,7 +569,7 @@
   },
   "serviceArea": {
     "title": "Área de Servicio — El Valle del Río Grande",
-    "metaDescription": "Bespoke Intelligent Solutions sirve a negocios en todo el Valle del Río Grande — Harlingen, McAllen, Brownsville, Edinburg y más — con IA, seguridad de IT y diseño web bilingüe.",
+    "metaDescription": "IA, seguridad de IT y diseño web bilingüe para negocios en todo el Valle del Río Grande: Harlingen, McAllen, Brownsville, Edinburg y más.",
     "heading": "Servimos a todo el Valle del Río Grande",
     "intro": "Estamos en Harlingen y trabajamos con negocios en todo el Valle — presencialmente cuando ayuda, de forma remota cuando es más rápido.",
     "citiesHeading": "Ciudades que servimos",
@@ -583,7 +583,7 @@
     "libraryMetaDescription": "Guías y listas de verificación gratuitas de Bespoke Intelligent Solutions para ayudar a los negocios del Valle del Río Grande a empezar con IA e IT seguro.",
     "libraryIntro": "Guías prácticas y sin relleno para ayudarte a empezar. Descarga gratuita.",
     "getLabel": "Obtener la guía",
-    "detailMetaSuffix": "— Descarga gratuita de Bespoke Intelligent Solutions",
+    "detailMetaSuffix": "— Descarga gratuita de BIS",
     "form": {
       "nameLabel": "Nombre",
       "emailLabel": "Correo de trabajo",
@@ -706,7 +706,7 @@
   },
   "howWeWork": {
     "title": "Cómo Trabajamos",
-    "metaDescription": "Cómo Bespoke Intelligent Solutions trabaja con los negocios del Valle del Río Grande — una evaluación gratuita, una propuesta de precio fijo, un desarrollo limpio y propiedad total en la entrega.",
+    "metaDescription": "Cómo trabaja BIS con los negocios del Valle: evaluación gratuita, propuesta de precio fijo, un desarrollo limpio y todo a tu nombre al entregar.",
     "intro": "Sin sorpresas. Así es exactamente trabajar con nosotros — desde la primera conversación hasta el día en que todo queda en tus manos.",
     "stepsHeading": "El proceso",
     "step1Title": "Evaluación gratuita",
@@ -726,7 +726,7 @@
   },
   "work": {
     "title": "Nuestro Trabajo",
-    "metaDescription": "Lo que Bespoke Intelligent Solutions ya tiene funcionando: Sofía, la recepcionista de IA bilingüe que contesta nuestra propia línea, y Prism, una app de finanzas personales que cualquiera puede usar. Pruébalas tú mismo.",
+    "metaDescription": "Lo que BIS ya tiene funcionando: Sofía, la recepcionista de IA bilingüe de nuestra línea, y Prism, una app de finanzas personales. Pruébalas.",
     "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo: nuestra propia recepción, a la que puedes llamar en este momento, y Prism, una app de finanzas personales que puedes abrir sin registrarte.",
     "cases": {
       "sofia": {
@@ -821,7 +821,7 @@
     },
     "harlingen": {
       "metaTitle": "IT, IA y Web para negocios de Harlingen",
-      "metaDescription": "Bespoke Intelligent Solutions está en Harlingen. IA práctica, seguridad IT y diseño web bilingüe para clínicas, distribuidores y despachos profesionales de la ciudad.",
+      "metaDescription": "BIS está en Harlingen. IA práctica, seguridad IT y diseño web bilingüe para clínicas, distribuidores y despachos profesionales de la ciudad.",
       "heading": "IT e IA para negocios de Harlingen",
       "intro": "Harlingen es nuestra casa. Aquí está nuestra oficina, nuestro número es un número de Harlingen, y cuando un cliente quiere a alguien presente es un trayecto corto, no un vuelo. Eso cambia lo que podemos prometer con honestidad sobre estar ahí.",
       "sectors": [
@@ -842,7 +842,7 @@
     },
     "mcallen": {
       "metaTitle": "IT, IA y Web para negocios de McAllen",
-      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para comercios, consultorios médicos y negocios con varias sucursales en McAllen. Atendemos McAllen desde Harlingen.",
+      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para comercios, consultorios y negocios con varias sucursales en McAllen. Desde Harlingen.",
       "heading": "IT e IA para negocios de McAllen",
       "intro": "McAllen es el centro comercial del sur de Texas y del norte de México, y cerca de uno de cada ocho trabajadores del área está en el comercio minorista. Esa mezcla — mucho volumen, márgenes delgados y bastante tráfico de mostrador y de teléfono en dos idiomas — define qué problemas vale la pena resolver aquí.",
       "sectors": [
@@ -863,7 +863,7 @@
     },
     "brownsville": {
       "metaTitle": "IT, IA y Web para negocios de Brownsville",
-      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para agentes aduanales, transportistas y negocios cercanos al puerto en Brownsville. Atendemos Brownsville desde Harlingen.",
+      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para agentes aduanales, transportistas y negocios del puerto en Brownsville. Desde Harlingen.",
       "heading": "IT e IA para negocios de Brownsville",
       "intro": "Brownsville vive del comercio transfronterizo. Tiene el único puerto de aguas profundas ubicado directamente en la frontera entre Estados Unidos y México, y los negocios a su alrededor — agentes aduanales, transportistas, proveedores industriales — dependen de que el papeleo se mueva a tiempo.",
       "sectors": [
@@ -884,7 +884,7 @@
     },
     "edinburg": {
       "metaTitle": "IT, IA y Web para negocios de Edinburg",
-      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para despachos de abogados, consultorios y servicios profesionales en Edinburg. Atendemos Edinburg desde Harlingen.",
+      "metaDescription": "IA práctica, seguridad IT y diseño web bilingüe para despachos de abogados, consultorios y servicios profesionales en Edinburg.",
       "heading": "IT e IA para negocios de Edinburg",
       "intro": "Edinburg es la cabecera del condado de Hidalgo y sede del campus principal de UTRGV, lo que le da una mezcla poco común en el Valle: juzgados y oficinas del condado, una base grande de servicios de salud, y una población constante de despachos profesionales construidos alrededor de ambos.",
       "sectors": [
@@ -927,7 +927,7 @@
   },
   "securityCheck": {
     "title": "Revisión gratuita de seguridad web y de correo",
-    "metaDescription": "Revisa el sitio de cualquier negocio del Valle del Río Grande en aproximadamente un minuto. Leemos los mismos registros públicos que ya ven un navegador y un servidor de correo, y te decimos en español claro qué está expuesto.",
+    "metaDescription": "Revisa el sitio de cualquier negocio del Valle en un minuto. Leemos los registros públicos que ya ve un navegador y te decimos qué está expuesto.",
     "intro": "Escribe tu dirección web. En aproximadamente un minuto verás si alguien puede enviar correos haciéndose pasar por ti, si tu sitio está protegido en el navegador y qué conviene arreglar primero. Solo leemos registros públicos: no entramos a ninguna cuenta ni atacamos nada.",
     "inputLabel": "Tu dirección web",
     "placeholder": "tunegocio.com",
@@ -1057,7 +1057,7 @@
   },
   "firstHourBack": {
     "title": "Encuentra tu primera hora de vuelta",
-    "metaDescription": "Un estimado en dos minutos de cuántas horas a la semana podría recuperar un negocio del Valle del Río Grande con un asistente bilingüe y un par de automatizaciones. Con los supuestos a la vista.",
+    "metaDescription": "Un estimado en dos minutos de las horas por semana que un negocio del Valle podría recuperar con un asistente bilingüe. Con los supuestos a la vista.",
     "intro": "Cuatro preguntas sobre una semana normal. Vas a recibir un estimado de las horas que podrías recuperar, con todos los supuestos escritos. No se envía nada a ningún lado y no pedimos correo.",
     "callsLabel": "Llamadas que pierdes en una semana normal",
     "callsHelp": "Llamadas que suenan sin respuesta, caen al buzón o entran mientras estás en un trabajo.",
@@ -1085,7 +1085,8 @@
     "assumption4": "Son estimados para empezar una conversación, no una cotización. Lo que tu negocio recuperaría de verdad es justo para lo que sirve la evaluación gratuita.",
     "ctaHeading": "Averigua cuál es el número real",
     "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu semana y te decimos qué cambio se paga solo primero, incluso cuando la respuesta honesta es que todavía no nos necesitas.",
-    "ctaButton": "Agenda una evaluación gratuita"
+    "ctaButton": "Agenda una evaluación gratuita",
+    "metaTitle": "Calculadora de horas: recupera tu primera hora"
   },
   "accessibility": {
     "title": "Accesibilidad",
@@ -1111,7 +1112,7 @@
   },
   "trust": {
     "title": "Cómo protegemos tus datos",
-    "metaDescription": "Las preguntas de seguridad que un negocio del Valle del Río Grande debería hacerle a un proveedor de tecnología, contestadas por adelantado: quién ve tus sistemas, dónde viven tus datos, qué no prometemos y qué pasa cuando termina el trabajo.",
+    "metaDescription": "Las preguntas de seguridad que debes hacerle a un proveedor, contestadas de antemano: quién ve tus sistemas, dónde están tus datos y qué pasa al final.",
     "intro": "Antes de que una clínica, un despacho o una empresa de transporte deje que alguien se acerque a sus sistemas, alguien tiene que contestar una lista de preguntas. Esta página las contesta por adelantado, para que la conversación empiece más adelante y para que veas las respuestas antes de preguntar.",
     "notHeading": "Qué no es esta página",
     "notBody": "No es un reporte de auditoría. BIS no ha pasado por SOC 2 ni tiene una certificación de seguridad, y cualquier proveedor que insinúe lo contrario sin enseñarte el reporte te está vendiendo una sensación. Lo que sigue es cómo se hace el trabajo en realidad, dicho con la claridad suficiente para que nos lo puedas exigir.",
@@ -1185,7 +1186,7 @@
   },
   "platform": {
     "title": "La plataforma",
-    "metaDescription": "El sistema sobre el que construimos negocios del Valle: cada llamada contestada en inglés o español, cada prospecto en un solo lugar, y cuatro números cada lunes por la mañana.",
+    "metaDescription": "El sistema con el que operan negocios del Valle: cada llamada contestada en inglés o español, cada prospecto en un lugar y cuatro números cada lunes.",
     "heroKicker": "Lo que realmente recibes",
     "heroTitle": "La hora que recuperas, y de dónde sale.",
     "heroBody": "Tu primera hora recuperada no viene de trabajar más rápido. Viene de un sistema que contesta el teléfono cuando tú no puedes, anota al cliente antes de que se olvide, y el lunes te dice qué pasó de verdad la semana pasada. Este es ese sistema — el mismo que contesta nuestro propio teléfono.",

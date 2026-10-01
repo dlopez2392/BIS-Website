@@ -95,41 +95,41 @@
   },
   "services": {
     "title": "What we do.",
-    "intro": "Bespoke Intelligent Solutions for the modern enterprise. We bridge the gap between legacy IT and the frontier of AI.",
+    "intro": "AI that takes hours off your week, IT that keeps you secure, and websites you own — from one point of contact. Behind them is the BIS Platform, the CRM we built for Valley businesses and run our own on.",
     "g1Title": "AI & Automation",
-    "g1Body": "AI that removes real hours from your week — not demos that gather dust. We build practical, production-ready systems that integrate with your existing workforce.",
+    "g1Body": "AI that takes real hours off your week, not demos that gather dust. We build it into the tools and the team you already have.",
     "g1Proof": "Built AI case-intake summarization for a multi-office law firm — viability answers in minutes, not days.",
     "g1Bullets": [
       "AI readiness assessments",
       "Workflow automation (Power Automate, Claude API)",
       "Custom bilingual AI assistants",
       "Document pipelines",
-      "AI cost governance",
+      "Keeping AI costs in check",
       "Staff training"
     ],
     "g2Title": "IT Consulting & Security",
-    "g2Body": "Twenty years of enterprise IT leadership. We don't just fix problems; we architect resilient environments that allow your firm to scale securely across borders.",
+    "g2Body": "Twenty years of running IT for larger organizations, brought to yours. We fix what is broken, then set things up so it stays fixed as you grow — across offices, and across the border if you need it.",
     "g2Proof": "Led cloud-only modernization for a 150-user firm across three offices in two countries.",
     "g2Bullets": [
       "Microsoft 365 / Cloud (Entra ID, Intune)",
       "Phishing-resistant MFA",
       "Endpoint protection (Defender)",
       "Network modernization",
-      "MSP oversight",
-      "Security incident triage",
-      "MDM"
+      "Oversight of your IT provider (MSP)",
+      "First response to a security incident",
+      "Phone and laptop management (MDM)"
     ],
     "g3Title": "Website Design",
-    "g3Body": "Fast, modern sites you actually own. No proprietary lock-in. No black boxes. Just clean, performant code that drives conversion and represents your brand's intelligence.",
+    "g3Body": "Fast, modern sites you actually own — no lock-in, no black boxes. Built to bring in calls and leads, in English and Spanish.",
     "g3Proof": "Every build ships with the keys: your hosting, your accounts, your ownership.",
     "g3Bullets": [
-      "Custom design / dev",
-      "Bilingual content architecture (native)",
-      "Local SEO for RGV",
+      "Custom design and build",
+      "Written in both languages, not translated",
+      "Local SEO for the RGV",
       "Analytics dashboards (Power BI)",
       "Clean handoff"
     ],
-    "ctaTitle": "Ready to deploy a bespoke intelligent solution?",
+    "ctaTitle": "See what this would look like for your business.",
     "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself.",
     "sofiaKicker": "Proof, not a slide",
     "sofiaTitle": "The first one is already answering our phone",
@@ -176,7 +176,7 @@
     "pages": {
       "legal": {
         "metaTitle": "IT and AI for law firms, Rio Grande Valley",
-        "metaDescription": "Bilingual intake that answers after hours, document handling that stays confidential, and IT built for a Valley law practice. Free assessment, one point of contact.",
+        "metaDescription": "Bilingual intake that answers after hours, confidential document handling, and IT built for a Valley law practice. Free assessment, one contact.",
         "heading": "Technology for Valley law firms",
         "intro": "A missed call is a missed case. Most people looking for a lawyer call three and retain whoever answers first, and in the Valley that call is as likely to be in Spanish as in English. The work below is about answering every one of them, and keeping what a client tells you confidential once you do.",
         "sofia": "Sofía answers your line in the caller's language, takes the details of what happened, tells them what you charge for a consultation, and puts a real appointment on your calendar. She never gives legal advice and never says whether you will take the case. What lands on your desk is a formatted intake sheet, not a voicemail you have to call back to understand.",
@@ -357,38 +357,38 @@
   "about": {
     "kicker": "Est. 2024 / Harlingen, TX",
     "title": "Who we are.",
-    "intro": "Bespoke Intelligent Solutions brings enterprise-grade IT and AI consultancy to the businesses the giants overlook. We serve those who demand Brutal Intelligence and Strategic depth.",
+    "intro": "We bring the IT and AI that large companies run on to Rio Grande Valley businesses — in English and Spanish, through one point of contact. And we run what we sell on our own business first.",
     "founderKicker": "The Founder",
     "founderName": "Dan Lopez",
-    "founderQuote": "I built BIS because the gap between enterprise capability and local execution was widening. My mission is to bridge that divide with engineered precision.",
-    "founderBio": "Dan Lopez is the architect behind Bespoke Intelligent Solutions. With a career forged in high-stakes global IT leadership, Dan returned to his roots in Harlingen with a singular vision: to bring sophisticated, enterprise-grade AI and IT consultancy to markets the giants overlook. His approach isn't one-size-fits-all — it's the 'Bespoke': a custom strategy that respects the unique DNA of every organization he partners with.",
-    "credKicker": "Technical Depth & Credentials",
-    "cred1Title": "20+ Years IT Leadership",
-    "cred1Body": "Two decades navigating complex technological shifts at the highest levels.",
-    "cred2Title": "Cross-Border Operations",
-    "cred2Body": "Multi-office logistics and architecture for global operations.",
-    "cred3Title": "Microsoft 365 Expert",
-    "cred3Body": "Advanced architecture for M365 ecosystems and security.",
-    "cred4Title": "Security Depth",
-    "cred4Body": "Deployment of Defender, Fortinet, and advanced threat protection.",
-    "cred5Title": "AI Builder",
-    "cred5Body": "Specializing in Claude integration and Power Automate workflows.",
-    "cred6Title": "Salesforce / Legal-Tech",
-    "cred6Body": "Optimizing platforms for legal compliance and high-performance CRM.",
-    "cred7Title": "Fully Bilingual",
-    "cred7Body": "Fluent execution in English and Spanish for global reach.",
+    "founderQuote": "Big companies get technology built around the way they work. Businesses here usually get whatever the vendor sells. I started BIS to close that gap, at home.",
+    "founderBio": "Dan Lopez founded Bespoke Intelligent Solutions after more than twenty years in IT leadership, much of it running systems for organizations with offices in more than one country. He came back to Harlingen, where his roots are, to bring that experience to the businesses here. BIS builds and runs its own software — the BIS Platform and Prism — so its advice comes from using the tools, not reselling them. Every engagement starts with how your business actually works.",
+    "credKicker": "Experience",
+    "cred1Title": "20+ years in IT leadership",
+    "cred1Body": "Two decades leading IT teams and the systems they run.",
+    "cred2Title": "Cross-border operations",
+    "cred2Body": "Systems for companies with offices in more than one country.",
+    "cred3Title": "Microsoft 365",
+    "cred3Body": "Setting up and securing the email, files and accounts most offices run on.",
+    "cred4Title": "Security",
+    "cred4Body": "Hands-on with Microsoft Defender, Fortinet and threat protection.",
+    "cred5Title": "AI builder",
+    "cred5Body": "AI integrations with Claude, and workflows with Power Automate.",
+    "cred6Title": "Salesforce and legal tech",
+    "cred6Body": "CRMs and legal platforms set up to hold up to compliance.",
+    "cred7Title": "Fully bilingual",
+    "cred7Body": "Works in English and Spanish, with your staff and your customers.",
     "cred8Title": "Rooted in Harlingen",
-    "cred8Body": "World-class experience with deep local commitment.",
-    "methodKicker": "The Methodology",
+    "cred8Body": "Based in Harlingen, working across the Valley.",
+    "methodKicker": "How we work",
     "m1Title": "Assess",
-    "m1Body": "We map your current architecture to find the friction points and hidden opportunities for AI leverage.",
-    "m2Title": "Sequence",
-    "m2Body": "Strategy is a game of order. We map the deployment sequence for maximum ROI and minimum disruption.",
+    "m1Body": "We look at how your business runs today and find where time and money leak — and where AI would actually help.",
+    "m2Title": "Plan",
+    "m2Body": "We put the work in order: what pays for itself first and what can wait, so nothing breaks while things change.",
     "m3Title": "Build",
-    "m3Body": "Execution is precision. We develop custom integrations and AI workflows tailored to your operational DNA.",
+    "m3Body": "We build the integrations and automations around the way your team already works.",
     "m4Title": "Hand off",
-    "m4Body": "We empower your team to own the solution: documentation, training, and a sustainable roadmap for growth.",
-    "ctaTitle": "Let's build your bespoke intelligent solution.",
+    "m4Body": "You own the result: the documentation, the training and the accounts, plus a plan for what comes next.",
+    "ctaTitle": "Let's find your first hour back.",
     "ctaBody": "Start with a free, no-pitch assessment. We'll show you the one automation that pays for itself first."
   },
   "contact": {
@@ -414,18 +414,17 @@
     "sofiaBlurb": "She will answer questions about what we do and how we work. She cannot book you in from here — the scheduler below does that."
   },
   "meta": {
-    "title": "Bespoke Intelligent Solutions — AI, IT & Web for the Rio Grande Valley",
+    "title": "Bespoke Intelligent Solutions: AI, IT & Web for the RGV",
     "description": "BIS builds its own CRM for Rio Grande Valley businesses and the IT behind it — AI adoption, security, modern web. Bilingual, one point of contact.",
     "notFound": "Page not found",
     "notFoundCta": "Back home",
-    "homeTitle": "AI, IT & Web for Rio Grande Valley Businesses",
     "homeDescription": "A CRM built for Rio Grande Valley businesses — calls, leads, bookings and Monday’s numbers in one place, EN/ES — and the IT team behind it.",
     "servicesTitle": "Services — AI, IT Security & Web Design",
-    "servicesDescription": "AI & automation, enterprise IT and security, and modern bilingual web design for RGV businesses.",
+    "servicesDescription": "AI and automation, IT and security, and bilingual websites for Rio Grande Valley businesses — one point of contact, backed by the BIS Platform.",
     "industriesTitle": "Industries — Built for the Valley",
     "industriesDescription": "AI and IT solutions tailored for Rio Grande Valley legal, medical, logistics, skilled-trades, and agriculture businesses.",
     "aboutTitle": "About — Who We Are",
-    "aboutDescription": "Bespoke Intelligent Solutions brings enterprise-grade AI and IT consultancy to the Rio Grande Valley, founded by Dan Lopez.",
+    "aboutDescription": "Meet Dan Lopez and BIS: twenty years of IT leadership, brought home to Harlingen to build AI, IT and software for Rio Grande Valley businesses.",
     "contactTitle": "Free Assessment — Contact Us",
     "contactDescription": "Book a free, no-pitch assessment. We find the one automation that pays for itself first. Bilingual, RGV-based."
   },
@@ -444,7 +443,8 @@
       "Security": "Security",
       "Culture": "Culture",
       "AI": "AI"
-    }
+    },
+    "metaDescription": "Plain-English notes on AI, IT security and websites for Rio Grande Valley businesses: what things cost, what to ask, and what to own."
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -569,7 +569,7 @@
   },
   "serviceArea": {
     "title": "Service Area — The Rio Grande Valley",
-    "metaDescription": "Bespoke Intelligent Solutions serves businesses across the Rio Grande Valley — Harlingen, McAllen, Brownsville, Edinburg, and beyond — with AI, IT security, and bilingual web design.",
+    "metaDescription": "AI, IT security and bilingual web design for businesses across the Rio Grande Valley: Harlingen, McAllen, Brownsville, Edinburg and beyond.",
     "heading": "Serving the whole Rio Grande Valley",
     "intro": "We're based in Harlingen and work with businesses across the Valley — on-site when it helps, remote when that's faster.",
     "citiesHeading": "Cities we serve",
@@ -583,7 +583,7 @@
     "libraryMetaDescription": "Free guides and checklists from Bespoke Intelligent Solutions to help Rio Grande Valley businesses get started with AI and secure IT.",
     "libraryIntro": "Practical, no-fluff guides to help you get started. Free to download.",
     "getLabel": "Get the guide",
-    "detailMetaSuffix": "— Free download from Bespoke Intelligent Solutions",
+    "detailMetaSuffix": "— Free download from BIS",
     "form": {
       "nameLabel": "First name",
       "emailLabel": "Work email",
@@ -726,7 +726,7 @@
   },
   "work": {
     "title": "Our Work",
-    "metaDescription": "What Bespoke Intelligent Solutions has actually shipped: Sofía, the bilingual AI receptionist on our own phone line, and Prism, a personal finance app anyone can use. Try both yourself.",
+    "metaDescription": "What BIS has shipped: Sofía, the bilingual AI receptionist on our own phone line, and Prism, a personal finance app anyone can use. Try both.",
     "intro": "We would rather show you than tell you. Everything on this page is running in production right now, and we describe it only in terms you can check yourself: our own front desk, which you can call this minute, and Prism, a personal finance app you can open without signing up.",
     "cases": {
       "sofia": {
@@ -821,7 +821,7 @@
     },
     "harlingen": {
       "metaTitle": "IT, AI & Web for Harlingen Businesses",
-      "metaDescription": "Bespoke Intelligent Solutions is based in Harlingen. Practical AI, IT security and bilingual web design for clinics, distributors and professional firms across the city.",
+      "metaDescription": "BIS is based in Harlingen. Practical AI, IT security and bilingual web design for the city's clinics, distributors and professional firms.",
       "heading": "IT and AI for Harlingen businesses",
       "intro": "Harlingen is home. Our office is here, our number is a Harlingen number, and when a client wants somebody in the room it's a short drive rather than a flight. That changes what we can honestly promise about showing up.",
       "sectors": [
@@ -863,7 +863,7 @@
     },
     "brownsville": {
       "metaTitle": "IT, AI & Web for Brownsville Businesses",
-      "metaDescription": "Practical AI, IT security and bilingual web design for Brownsville customs brokers, freight forwarders and port-adjacent businesses. Serving Brownsville from Harlingen.",
+      "metaDescription": "Practical AI, IT security and bilingual web design for Brownsville customs brokers, freight forwarders and port businesses. From Harlingen.",
       "heading": "IT and AI for Brownsville businesses",
       "intro": "Brownsville runs on cross-border trade. It has the only deep-water seaport sitting directly on the U.S.–Mexico border, and the businesses around it — brokers, forwarders, carriers, industrial suppliers — live and die on paperwork moving on time.",
       "sectors": [
@@ -927,7 +927,7 @@
   },
   "securityCheck": {
     "title": "Free Website & Email Security Check",
-    "metaDescription": "Check any Rio Grande Valley business website in about a minute. We read the same public records a browser and a mail server already see, and tell you in plain English what is exposed.",
+    "metaDescription": "Check any Valley business website in about a minute. We read the public records a browser and mail server already see, and say plainly what's exposed.",
     "intro": "Type your web address. In about a minute you will see whether someone can send email pretending to be you, whether your site is protected in the browser, and what to fix first. We only read public records — nothing is logged into, nothing is attacked.",
     "inputLabel": "Your web address",
     "placeholder": "yourbusiness.com",
@@ -1057,7 +1057,7 @@
   },
   "firstHourBack": {
     "title": "Find your first hour back",
-    "metaDescription": "A two-minute estimate of how many hours a week a Rio Grande Valley business could hand back with a bilingual assistant and a couple of automations. Assumptions shown, nothing hidden.",
+    "metaDescription": "A two-minute estimate of the hours a week a Valley business could get back with a bilingual assistant and a few automations. Every assumption shown.",
     "intro": "Four questions about a normal week. You will get an estimate of the hours you could hand back, with every assumption behind it written out. Nothing is sent anywhere, and no email is required.",
     "callsLabel": "Calls you miss in a normal week",
     "callsHelp": "Calls that ring out, go to voicemail, or come in while you are on a job.",
@@ -1085,7 +1085,8 @@
     "assumption4": "These are estimates for a conversation, not a quote. What your business would actually get back is what the free assessment is for.",
     "ctaHeading": "Find out what the real number is",
     "ctaBody": "Thirty minutes, no pitch. We look at how your week actually runs and tell you which single change pays for itself first — including when the honest answer is that you do not need us yet.",
-    "ctaButton": "Book a free assessment"
+    "ctaButton": "Book a free assessment",
+    "metaTitle": "Hours calculator: find your first hour back"
   },
   "accessibility": {
     "title": "Accessibility",
@@ -1111,7 +1112,7 @@
   },
   "trust": {
     "title": "How we protect your data",
-    "metaDescription": "The security questions a Rio Grande Valley business should ask a technology vendor, answered in advance: who can see your systems, where your data lives, what we do not claim, and what happens when the work ends.",
+    "metaDescription": "The security questions to ask any technology vendor, answered up front: who can see your systems, where your data lives, what happens when work ends.",
     "intro": "Before a clinic, a law firm or a freight office lets anyone near its systems, someone has to answer a list of questions. This page answers them in advance so the conversation starts further along — and so you can see the answers before you ask.",
     "notHeading": "What this page is not",
     "notBody": "It is not an audit report. BIS has not been through SOC 2 and does not hold a security certification, and any vendor implying otherwise without showing you the report is selling you a feeling. What follows is how the work is actually done, stated plainly enough that you can hold us to it.",

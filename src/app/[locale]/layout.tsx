@@ -48,7 +48,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: 'meta' });
   return {
     metadataBase: new URL(SITE_URL),
-    title: { default: t('title'), template: '%s · Bespoke Intelligent Solutions' },
+    // " · BIS", not the full name: the 32-character suffix pushed 25 English
+    // titles past the ~60 characters a results page shows, so they were cut
+    // mid-brand. The home page carries the full name instead (see page.tsx).
+    title: { default: t('title'), template: '%s · BIS' },
     description: t('description'),
     verification: siteVerification(),
   };
