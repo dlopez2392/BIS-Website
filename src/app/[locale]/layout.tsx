@@ -12,7 +12,7 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/components/seo/StructuredData';
-import { ConciergeEmbed } from '@/components/chat/ConciergeEmbed';
+import { AskBis } from '@/components/chat/AskBis';
 import { BotIdClient } from 'botid/client';
 import { PROTECTED_ROUTES } from '@/lib/security/protected-routes';
 import { SITE_URL } from '@/lib/seo/business';
@@ -31,12 +31,10 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   interactiveWidget: 'resizes-content',
-  // The browser chrome on a phone follows the page: the light ground in light
-  // mode, the dark surface in dark. Without this it stayed default grey.
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#faf9ff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0b0a18' },
-  ],
+  // The browser chrome on a phone matches the site's default ground. The site
+  // is dark unless a visitor chooses light (see ThemeProvider), and the OS
+  // preference no longer decides the theme, so it no longer decides this.
+  themeColor: '#0b0a18',
 };
 
 export function generateStaticParams() {
@@ -118,7 +116,7 @@ export default async function LocaleLayout({
             <Header />
             {children}
             <Footer />
-            <ConciergeEmbed />
+            <AskBis />
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />

@@ -39,10 +39,10 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
     // Inline scripts are Next.js's own hydration payload and the theme
     // flash-guard; see the note above on why a nonce is the wrong trade here.
     // 'unsafe-eval' is the dev bundler's hot reload and never ships.
-    // The one third-party-looking script is BIS's own: the platform's loader,
-    // which mounts the website assistant's bubble. Admitted by its exact
-    // path, not by origin, so nothing else the platform serves can run here.
-    'script-src': ["'self'", "'unsafe-inline'", VERCEL_SCRIPTS, `${platformOrigin()}/embed.js`, ...(dev ? ["'unsafe-eval'"] : [])],
+    // No platform script runs here: the website assistant is this site's own
+    // launcher around the platform's chat page in a frame (frame-src), so
+    // the platform's loader, once admitted by its exact path, is not.
+    'script-src': ["'self'", "'unsafe-inline'", VERCEL_SCRIPTS, ...(dev ? ["'unsafe-eval'"] : [])],
     // Tailwind and next/font both write a <style> element into the document.
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': ["'self'", 'data:', 'blob:'],

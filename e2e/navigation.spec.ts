@@ -58,7 +58,8 @@ test('reduced motion switches the animation off entirely', async ({ page }) => {
     return texts.join('\n').replace(/\s+/g, '');
   });
   expect(css).toContain('@media(prefers-reduced-motion:reduce)');
-  expect(css).toContain('::view-transition-group(*){animation:none!important}');
+  // The dev server keeps the trailing semicolon a production build drops.
+  expect(css).toMatch(/::view-transition-group\(\*\)\{animation:none!important;?\}/);
 });
 
 test('speculation rules are present and valid, and never point at the API', async ({ page }) => {

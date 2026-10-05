@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 /**
  * The work BIS has shipped, shown rather than described: Prism's case on
- * /work, the 30-second films, and the Prism teaser on the home page.
+ * /work, the 30-second films, and the Prism section on the home page.
  *
  * What these pin is the policy, not the pixels: a film never plays or
  * downloads on its own (sound that starts by itself makes people leave, and
@@ -49,11 +49,14 @@ test('a film never plays or downloads by itself, and plays when asked', async ({
 test('the Prism screenshots follow the site theme', async ({ page }) => {
   await page.goto('/en/work');
   const shot = page.locator('article#prism [data-themed-shot="overview"]');
-  await expect(shot.locator('img[src*="overview-desktop-light"]')).toBeVisible();
-  await expect(shot.locator('img[src*="overview-desktop-dark"]')).toBeHidden();
-  await page.getByRole('button', { name: 'Toggle theme' }).first().click();
+  // Dark is the site's default.
   await expect(shot.locator('img[src*="overview-desktop-dark"]')).toBeVisible();
   await expect(shot.locator('img[src*="overview-desktop-light"]')).toBeHidden();
+  const toggle = page.getByRole('button', { name: 'Toggle theme' }).first();
+  await expect(toggle.locator('svg.lucide-sun')).toBeVisible(); // hydrated
+  await toggle.click();
+  await expect(shot.locator('img[src*="overview-desktop-light"]')).toBeVisible();
+  await expect(shot.locator('img[src*="overview-desktop-dark"]')).toBeHidden();
 });
 
 test('the Spanish case says plainly that Prism is in English for now', async ({ page }) => {
@@ -70,12 +73,12 @@ test('the platform page carries the 30-second film, click to play', async ({ pag
   await expect(film).toHaveAttribute('aria-label', 'Play the 30-second BIS video');
 });
 
-test('the home page points at Prism, both to the live demo and to how it was built', async ({ page }) => {
+test('the home page shows the Prism film, click to play, and points at the live demo', async ({ page }) => {
   await page.goto('/en');
-  const teaser = page.locator('[data-prism-teaser]');
-  await expect(teaser).toBeVisible();
-  await expect(teaser.getByRole('link', { name: /See the live demo/ })).toHaveAttribute('href', 'https://prism.bis-rgv.com');
-  await teaser.getByRole('link', { name: 'How we built it' }).click();
-  await expect(page).toHaveURL(/\/en\/work#prism$/);
-  await expect(page.locator('article#prism')).toBeInViewport();
+  const prism = page.locator('section#prism');
+  const film = prism.locator('video');
+  await expect(film).toHaveAttribute('preload', 'none');
+  await expect(film).toHaveAttribute('poster', '/video/prism-ad-poster.1.webp');
+  await expect(film).toHaveAttribute('aria-label', 'Play the 30-second Prism video');
+  await expect(prism.getByRole('link', { name: /See the live demo/ })).toHaveAttribute('href', 'https://prism.bis-rgv.com');
 });

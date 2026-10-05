@@ -1,21 +1,21 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { Brain, ShieldCheck, Code2 } from 'lucide-react';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { CTASection } from '@/components/ui/CTASection';
-import { Hero } from '@/components/marketing/Hero';
-import { ServiceCard } from '@/components/marketing/ServiceCard';
-import { Announcement } from '@/components/marketing/Announcement';
-import { InsightCard } from '@/components/marketing/InsightCard';
-import { ResourceCTA } from '@/components/marketing/ResourceCTA';
-import { PrismTeaser } from '@/components/work/PrismTeaser';
-import { PlatformProof } from '@/components/marketing/PlatformProof';
-import { heroShot } from '@/lib/platform-tour';
-import { artProps } from '@/lib/art';
-import { TalkToSofia } from '@/components/sofia/TalkToSofia';
+import { Link } from '@/i18n/navigation';
+import { AdFilm } from '@/components/work/AdFilm';
+import { FounderPortrait } from '@/components/marketing/FounderPortrait';
+import { SignalRibbon } from '@/components/home/SignalRibbon';
+import { LiveCall } from '@/components/home/LiveCall';
+import { HotspotShot } from '@/components/home/HotspotShot';
+import { SofiaSection } from '@/components/home/SofiaSection';
+import { Twin } from '@/components/home/Twin';
+import { heroShot, hasShot, shotSrc } from '@/lib/platform-tour';
+import { hasPhoto } from '@/lib/photos';
+import { PRISM_AD, PRISM_URL } from '@/lib/work';
+import { business } from '@/lib/seo/business';
+import { formatUsPhone, telHref } from '@/lib/phone';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
-import { SERVICE_ANCHORS } from '@/lib/service-groups';
+import { SERVICE_GROUP_IDS } from '@/lib/service-groups';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -23,144 +23,230 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return pageMetadata({ locale, path: '/', title: t('title'), description: t('homeDescription'), absoluteTitle: true });
 }
 
+/**
+ * Where the three markers sit on `dashboard-dark.png`, in percent of the
+ * capture: the week's calls KPI, the 9:15 PM Spanish call in recent activity,
+ * and the bookings column. Re-shooting the capture means re-checking these.
+ */
+const SPOTS = [
+  { left: 36.5, top: 24 },
+  { left: 52, top: 94.5 },
+  { left: 80, top: 61 },
+] as const;
+
+/**
+ * The home page: one signal of light down a dark page, and the product shown
+ * working rather than described. Sections separate by space, not boxes; the
+ * only two surfaces are the live call and the product frame, because they are
+ * the only two objects.
+ *
+ * Each section's headline has a twin in the other language (see `Twin`). The
+ * hero's `id="hero"` is also what the Ask BIS launcher watches to shrink to
+ * its orb over the headline on a phone.
+ */
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const other = locale === 'en' ? 'es' : 'en';
   const t = await getTranslations('home');
+  const tx = await getTranslations({ locale: other, namespace: 'home' });
   const c = await getTranslations('common');
-  const it = await getTranslations({ locale, namespace: 'insights' });
-  // Alt text and the sample-data caption live in the `platform` namespace
-  // beside the capture they describe, not duplicated per page that shows one.
+  const s = await getTranslations('services');
+  const sx = await getTranslations({ locale: other, namespace: 'services' });
   const p = await getTranslations({ locale, namespace: 'platform' });
   const r = await getTranslations({ locale, namespace: 'resources' });
+  const w = await getTranslations({ locale, namespace: 'work' });
+  const it = await getTranslations({ locale, namespace: 'insights' });
   const latest = (await listPosts(locale as 'en' | 'es')).slice(0, 3);
+  const phone = formatUsPhone(business.phone);
+  const tel = telHref(business.phone);
+  const withPhoto = hasPhoto('founder');
 
   return (
-    <main>
-      <Hero
-        kicker={t('heroKicker')}
-        title={t('heroTitle')}
-        titleAccent={t('heroTitleAccent')}
-        body={t('heroBody')}
-        cta={t('heroCta')}
-        cta2={t('heroCta2')}
-        stats={[t('capOnePoint'), t('capBilingual'), t('capShip')]}
-        /* The alt text and the sample-data caption come from the `platform`
-           namespace beside the captures they describe, exactly as
-           `PlatformProof` below takes them — one place to change when a
-           capture is re-shot, not one per page that shows it. The dashboard
-           gets its OWN alt, though: PlatformProof further down shows the
-           uncropped capture with `alt.hero`, and two different images with
-           one sentence is one sentence read twice. */
-        stage={{
-          copy: {
-            dashboard: { label: p('stage.dashboard'), alt: p('alt.heroStage') },
-            calls: { label: p('stage.calls'), alt: p('alt.calls') },
-            pipeline: { label: p('stage.pipeline'), alt: p('alt.pipeline') },
-            spanish: { label: p('stage.spanish'), alt: p('alt.spanish') },
-          },
-          note: p('sampleCaption'),
-          tabsLabel: p('stage.tabsLabel'),
-          pauseLabel: p('stage.pause'),
-          resumeLabel: p('stage.resume'),
-          first: locale === 'es' ? 'spanish' : 'dashboard',
-        }}
-      />
+    <main className="hm">
+      <SignalRibbon />
 
-      <Announcement kicker={t('announceKicker')} title={t('announceTitle')} body={t('announceBody')} />
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionHeading title={t('servicesHeading')} />
-        <div className="grid gap-6 md:grid-cols-3">
-          {/* The plates arrive from art/brief.json one at a time; each card
-              keeps its icon until its own file exists. */}
-          <ServiceCard icon={Brain} title={t('svc1Title')} body={t('svc1Body')} href={`/services#${SERVICE_ANCHORS.g1}`} learnMore={c('learnMore')} art={artProps('serviceAi')} />
-          <ServiceCard icon={ShieldCheck} title={t('svc2Title')} body={t('svc2Body')} href={`/services#${SERVICE_ANCHORS.g2}`} learnMore={c('learnMore')} art={artProps('serviceInfra')} />
-          <ServiceCard icon={Code2} title={t('svc3Title')} body={t('svc3Body')} href={`/services#${SERVICE_ANCHORS.g3}`} learnMore={c('learnMore')} art={artProps('serviceWeb')} />
+      <section id="hero" className="hm-hero">
+        <div className="hm-wrap">
+          <div className="hm-stack">
+            <div>
+              <h1 className="hm-display">{t('heroTitle')}</h1>
+              <Twin text={tx('heroTitle')} locale={locale} size="display" />
+            </div>
+            <p className="hm-lede">{t('heroBody')}</p>
+            <div className="hm-ctas">
+              <Link href="/contact" className="hm-btn hm-btn-primary">{t('heroCta2')}</Link>
+              <a href="#talk-to-sofia" className="hm-btn hm-btn-ghost">{t('heroTalk')}</a>
+            </div>
+            <p className="hm-status">
+              <span className="hm-dot" aria-hidden="true" />
+              <span>{t('statusLine', { phone })}</span>
+            </p>
+          </div>
+          <LiveCall
+            strings={{
+              label: t('call.label'), business: t('call.business'), live: t('call.live'), ended: t('call.ended'),
+              meta: t('call.meta'), crmTitle: t('call.crmTitle'), crmContact: t('call.crmContact'),
+              crmNeed: t('call.crmNeed'), crmLang: t('call.crmLang'), crmOutcome: t('call.crmOutcome'),
+              crmBooked: t('call.crmBooked'), need: t('call.need'), langEs: t('call.langEs'), langEn: t('call.langEn'),
+              mondayK: t('call.mondayK'), mondayCalls: t('call.mondayCalls'), mondayDelta: t('call.mondayDelta'),
+              note: t('call.note'), replay: t('call.replay'), langLabel: t('call.langLabel'), caller: t('call.caller'),
+            }}
+          />
         </div>
       </section>
 
-      {/* The platform, Sofía, Prism and the quote share one 5xl column, so the
-          run of proof reads as one stack with one left edge. They were 5xl,
-          4xl, 5xl and 4xl, and every other section started at a different x. */}
-      {/* The product, once, on the way past. Placed AFTER the three service
-          cards and before Sofía on purpose: the cards say what we do, this
-          says the thing exists and is ours, and Sofía lets them try a piece
-          of it. Moving it above the cards would have the page make a claim
-          about software before saying what the company does. */}
-      <section className="mx-auto max-w-5xl px-6 py-14">
-        <PlatformProof
-          shot={heroShot}
-          alt={p('alt.hero')}
-          caption={p('sampleCaption')}
-          kicker={t('platformKicker')}
-          title={t('platformTitle')}
-          body={t('platformBody')}
-          linkLabel={t('platformLink')}
-        />
-      </section>
-      {/* Then Sofía — still on the far side of the services, not before them,
-          with the band above her a beat of the same argument rather than a
-          new subject. A visitor who has just read that we build AI that
-          answers phones is the one for whom "here is ours, talk to her" is an
-          argument rather than a novelty; the same panel above the services
-          was a gadget meeting a stranger who did not yet know what we sell.
-          Still early enough that nobody has to hunt for it. */}
-      <section id="talk-to-sofia" className="mx-auto max-w-5xl px-6 pb-4">
-        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('sofiaKicker')}</p>
-        <div className="mt-4">
-          <TalkToSofia placement="home" title={t('sofiaTitle')} blurb={t('sofiaBlurb')} />
+      <section className="hm-proof" aria-label={t('proofLabel')}>
+        <div className="hm-wrap">
+          <ul>
+            <li><span className="hm-dot" aria-hidden="true" /><span>{t('proof1')}</span></li>
+            <li><strong>EN / ES</strong><span>{t('proof2')}</span></li>
+            <li><strong>Harlingen, TX</strong><span>{t('proof3')}</span></li>
+          </ul>
         </div>
       </section>
 
-      {/* After Sofía: the platform has made its case, so this is the beat
-          that says it is not the only thing we ship. A public app a visitor
-          can open this minute, no sign-up. */}
-      <section className="mx-auto max-w-5xl px-6 pt-14">
-        <PrismTeaser
-          kicker={t('prismKicker')}
-          title={t('prismTitle')}
-          body={t('prismBody')}
-          demo={t('prismDemo')}
-          more={t('prismMore')}
-          newTab={t('prismNewTab')}
-          alt={t('prismAlt')}
-        />
+      <section id="platform" className="hm-sec">
+        <div className="hm-wrap">
+          <div className="hm-plat-head">
+            <div className="hm-head">
+              <div>
+                <h2 className="hm-h2">{t('platformTitle')}</h2>
+                <Twin text={tx('platformTitle')} locale={locale} size="h2" hash="platform" />
+              </div>
+              <p className="hm-lede">{t('platformBody')}</p>
+            </div>
+            <Link href="/platform" className="hm-more">{t('platformLink')} <span aria-hidden="true">→</span></Link>
+          </div>
+          {hasShot(heroShot) ? (
+            <HotspotShot
+              src={shotSrc(heroShot)}
+              width={heroShot.width}
+              height={heroShot.height}
+              alt={p('alt.hero')}
+              caption={t('spots.hint')}
+              spots={SPOTS.map((pos, i) => ({
+                ...pos,
+                title: t(`spots.s${i + 1}t`),
+                body: t(`spots.s${i + 1}b`),
+                label: t('spots.open', { n: i + 1 }),
+              }))}
+            />
+          ) : null}
+        </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <blockquote className="max-w-3xl text-2xl font-medium text-ink">“{t('quote')}”</blockquote>
-        <p className="mt-4 font-bold text-ink">{t('quoteName')}</p>
-        <p className="text-sm text-ink-muted">{t('quoteRole')}</p>
-      </section>
-
-      <ResourceCTA
-        kicker={r('home.ctaKicker')}
-        title={r('home.ctaTitle')}
-        body={r('home.ctaBody')}
-        button={r('home.ctaButton')}
-        href="/resources/ai-readiness-checklist"
-      />
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionHeading title={t('insightsHeading')} />
-        {latest.length > 0 && (
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {latest.map((p) => (
-              <InsightCard
-                key={p.slug}
-                href={`/insights/${p.slug}`}
-                category={it(`categories.${p.category}`)}
-                title={p.title}
-                date={formatDate(locale as 'en' | 'es', p.date)}
-                minReadLabel={it('minRead', { minutes: p.readingMinutes })}
-              />
+      <section id="services" className="hm-sec">
+        <div className="hm-wrap">
+          <div className="hm-head">
+            <div>
+              <h2 className="hm-h2">{s('title')}</h2>
+              <Twin text={sx('title')} locale={locale} size="h2" hash="services" />
+            </div>
+            <p className="hm-lede">{s('intro')}</p>
+          </div>
+          <div className="hm-rows">
+            {SERVICE_GROUP_IDS.map((id) => (
+              <article key={id} className="hm-row">
+                <div>
+                  <h3>{s(`${id}Title`)}</h3>
+                  <Twin text={sx(`${id}Title`)} locale={locale} size="h3" as="text" />
+                </div>
+                <p>{s(`${id}Body`)}</p>
+                <div className="hm-done">
+                  <span className="hm-k">{id === 'g3' ? t('kEveryBuild') : t('kDelivered')}</span>
+                  <p>{s(`${id}Proof`)}</p>
+                </div>
+              </article>
             ))}
           </div>
-        )}
+          <p className="mt-7">
+            <Link href="/services" className="hm-more">{t('svcMore')} <span aria-hidden="true">→</span></Link>
+          </p>
+        </div>
       </section>
 
-      <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
+      <section id="talk-to-sofia" className="hm-sec">
+        <SofiaSection
+          idle={t('orbIdle')}
+          talking={t('orbTalk')}
+          connected={t('orbLive')}
+          heading={
+            <>
+              <div>
+                <h2 className="hm-h2">{t('sofiaTitle')}</h2>
+                <Twin text={tx('sofiaTitle')} locale={locale} size="h2" hash="talk-to-sofia" />
+              </div>
+              <p className="hm-lede">{t('sofiaBlurb')}</p>
+            </>
+          }
+        />
+      </section>
+
+      <section id="prism" className="hm-sec">
+        <div className="hm-wrap hm-prism">
+          <AdFilm slot={PRISM_AD} label={w('cases.prism.videoLabel')} />
+          <div className="hm-stack">
+            <span className="hm-k">{t('prismKicker')}</span>
+            <h2 className="hm-h2">{t('prismTitle')}</h2>
+            <p className="hm-lede">{t('prismBody')}</p>
+            <div className="hm-ctas">
+              <a href={PRISM_URL} target="_blank" rel="noopener" className="hm-btn hm-btn-ghost">
+                {t('prismDemo')} <span aria-hidden="true">↗</span>
+                <span className="sr-only">({t('prismNewTab')})</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="founder" className="hm-sec">
+        <div className="hm-wrap">
+          <div className={withPhoto ? 'hm-founder' : 'hm-founder hm-founder--solo'}>
+            <FounderPortrait locale={locale} className="h-auto w-full rounded-[18px] object-cover" />
+            <figure className="m-0">
+              <blockquote>“{t('quote')}”</blockquote>
+              <figcaption><strong>{t('quoteName')}</strong> · {t('quoteRole')}</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="close" className="hm-close">
+        <div className="hm-wrap hm-stack">
+          <div>
+            <h2 className="hm-display">{t('ctaTitle')}</h2>
+            <Twin text={tx('ctaTitle')} locale={locale} size="display" hash="close" />
+          </div>
+          <p className="hm-lede">{t('ctaBody')}</p>
+          <div className="hm-ctas">
+            <Link href="/contact" className="hm-btn hm-btn-primary">{c('cta')}</Link>
+            <a href={tel} className="hm-num">{phone}</a>
+          </div>
+          <p className="hm-lede">
+            {t('checklistLine')}{' '}
+            <Link href="/resources/ai-readiness-checklist" className="hm-more">{r('home.ctaButton')}</Link>
+          </p>
+          {latest.length > 0 && (
+            <div className="mt-10 grid gap-4">
+              <h2 className="hm-k">{t('insightsHeading')}</h2>
+              <ul className="hm-reads">
+                {latest.map((post) => (
+                  <li key={post.slug}>
+                    <Link href={`/insights/${post.slug}`}>
+                      <span>{post.title}</span>
+                      <time dateTime={post.date}>
+                        {formatDate(locale as 'en' | 'es', post.date)} · {it('minRead', { minutes: post.readingMinutes })}
+                      </time>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p><Link href="/insights" className="hm-more">{t('insightsMore')} <span aria-hidden="true">→</span></Link></p>
+            </div>
+          )}
+        </div>
+      </section>
     </main>
   );
 }

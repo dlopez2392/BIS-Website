@@ -19,6 +19,13 @@
      text that size. Pinned by src/lib/__tests__/contrast.test.ts. */
   --color-accent: #0e7490;
   --color-hairline: #e7e3f5;
+  /* The home page's signal ribbon and orb, as rgb triplets for canvas
+     gradients, and the "live" green. Light mode dims the ribbon: lit on a
+     pale ground it would read as a smear, not light. */
+  --sig-a: 124, 58, 237;
+  --sig-b: 14, 116, 144;
+  --sig-strength: 0.42;
+  --color-ok: #047857;
   --font-sans: var(--font-hanken), system-ui, sans-serif;
 }
 
@@ -39,6 +46,10 @@
   --color-link: #a78bfa;
   --color-accent: #22d3ee;
   --color-hairline: #262340;
+  --sig-a: 124, 58, 237;
+  --sig-b: 34, 211, 238;
+  --sig-strength: 1;
+  --color-ok: #34d399;
 }
 
 @theme inline {
@@ -104,415 +115,263 @@ body {
 .ground-link:hover { text-decoration-color: var(--ground-accent); }
 .ground-link:focus-visible { outline: 2px solid #a78bfa; outline-offset: 3px; border-radius: 4px; }
 
-/* --- Hero: full-viewport, video-backed, copy anchored to the bottom --- */
-/* A dark island in both themes: white type over a video needs a dark
-   backdrop whether or not the video has arrived, so the hero paints the
-   site's dark surface and violet/cyan glows itself rather than reading the
-   page theme. Everything below it is the page again. */
-.hero {
-  --header-h: 69px;
-  --hero-text: #ffffff;
-  --hero-muted: rgba(255, 255, 255, 0.74);
-  --hero-stat: rgba(255, 255, 255, 0.86);
-  --hero-border: rgba(255, 255, 255, 0.16);
-  /* The hero is dark in both themes, so its accent is the dark-mode cyan in
-     both, not the page's `--color-accent` (teal in light mode). */
-  --hero-accent: #22d3ee;
+/* --- Home: one signal of light down the page ----------------------------
+   Sections separate by space and light, never by boxes. Only two things on
+   the page are OBJECTS — the live call and the product frame — so only they
+   get a surface. Everything else sits on the ground the ribbon lights.
+   Colours are the site tokens above; the few mixes below derive from them,
+   so a palette change reaches the home page without a second edit. */
+.hm {
+  --hm-raise-2: color-mix(in oklab, var(--color-surface-alt) 88%, var(--color-ink));
+  --hm-line-strong: color-mix(in oklab, var(--color-hairline) 70%, var(--color-ink));
+  --hm-r-ctl: 10px;
+  --hm-r-obj: 18px;
+  --font-serif: var(--font-instrument), "Iowan Old Style", Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
   position: relative;
   isolation: isolate;
+  overflow-x: clip;
+}
+.hm-signal { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.hm-wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+.hm-display { font-weight: 700; font-size: clamp(2.5rem, 5.4vw, 4.5rem); line-height: 1.02; letter-spacing: -.04em; margin: 0; text-wrap: balance; color: var(--color-ink); }
+.hm-h2 { font-weight: 700; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.05; letter-spacing: -.035em; margin: 0; text-wrap: balance; color: var(--color-ink); }
+/* The other language's headline, one tap from being the page. A link, not a
+   toggle: it goes to the same section of the other locale's page. */
+.hm-twin {
+  display: block; margin: .3em 0 0; font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  color: var(--color-ink-muted); letter-spacing: -.01em; line-height: 1.08; text-wrap: balance;
+  text-decoration: none; transition: color .15s;
+}
+a.hm-twin:hover { color: var(--color-ink); }
+.hm-twin--display { font-size: clamp(1.95rem, 4.2vw, 3.5rem); }
+.hm-twin--h2 { font-size: clamp(1.6rem, 3.2vw, 2.55rem); }
+.hm-twin--h3 { font-size: clamp(1.1rem, 1.8vw, 1.5rem); margin-top: 4px; }
+.hm-lede { font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.6; color: var(--color-ink-muted); max-width: 36em; margin: 0; }
+.hm-k { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent); }
+.hm-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.hm-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 46px; padding: 0 20px; border-radius: var(--hm-r-ctl); font-weight: 600; font-size: 15.5px;
+  text-decoration: none; cursor: pointer; border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s, background .15s, border-color .15s;
+}
+.hm-btn:active { transform: translateY(1px); }
+.hm-btn-primary { background: var(--color-primary); color: var(--color-on-primary); box-shadow: 0 10px 30px -12px rgba(var(--sig-a), .9); }
+.hm-btn-primary:hover { background: color-mix(in oklab, var(--color-primary) 88%, white); }
+.hm-btn-ghost { background: transparent; border-color: var(--hm-line-strong); color: var(--color-ink); }
+.hm-btn-ghost:hover { border-color: var(--color-ink-muted); }
+.hm-btn-sm { height: 36px; padding: 0 14px; font-size: 14px; }
+.hm-more { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; color: var(--color-link); text-decoration: none; }
+.hm-more:hover { text-decoration: underline; text-underline-offset: 4px; }
+.hm :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 6px; }
+.hm-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-ok); flex: none; animation: hm-pulse 2s infinite; }
+@keyframes hm-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-ok) 55%, transparent); } 70% { box-shadow: 0 0 0 9px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+.hm-status { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 13px; color: var(--color-ink-muted); margin: 0; }
+.hm-num { display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 15px; color: var(--color-ink); padding: 0 14px; height: 46px; border: 1px solid var(--color-hairline); border-radius: var(--hm-r-ctl); text-decoration: none; }
+.hm-num:hover { border-color: var(--hm-line-strong); }
+
+/* hero */
+.hm-hero { padding-block: clamp(48px, 7vw, 96px) clamp(56px, 7vw, 88px); }
+.hm-hero > .hm-wrap { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hm-stack { display: grid; gap: 26px; min-width: 0; align-content: start; }
+@media (max-width: 960px) { .hm-hero > .hm-wrap { grid-template-columns: 1fr; } }
+
+/* the live call — an object, so it gets a surface */
+.hm-call {
+  position: relative; min-width: 0; margin: 0;
+  background: color-mix(in oklab, var(--color-surface-alt) 88%, transparent);
+  border: 1px solid var(--color-hairline); border-radius: var(--hm-r-obj);
+  box-shadow: 0 40px 100px -40px rgba(var(--sig-a), .55), inset 0 1px 0 color-mix(in oklab, white 7%, transparent);
   overflow: hidden;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: calc(100svh - var(--header-h));
-  background: #0b0a18;
-  color: var(--hero-text);
 }
-.hero-photo {
-  position: absolute; inset: 0; z-index: 0;
+:root:not(.dark) .hm-call { box-shadow: 0 30px 70px -36px rgba(var(--sig-a), .35); }
+.hm-call-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--color-hairline); }
+.hm-call-who { min-width: 0; }
+.hm-call-biz { font-weight: 600; font-size: 14.5px; color: var(--color-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hm-call-meta { font-family: var(--font-mono); font-size: 12px; color: var(--color-ink-muted); }
+.hm-timer { margin-left: auto; font-family: var(--font-mono); font-size: 13px; color: var(--color-ink-muted); font-variant-numeric: tabular-nums; }
+.hm-live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-ok); flex: none; }
+.hm-live[data-ended="true"] { color: var(--color-ink-muted); }
+.hm-live[data-ended="true"] .hm-dot { background: var(--color-ink-muted); animation: none; }
+.hm-transcript { list-style: none; margin: 0; padding: 16px 18px 6px; display: flex; flex-direction: column; gap: 10px; height: 318px; overflow: hidden; justify-content: flex-end; }
+.hm-msg { display: grid; gap: 3px; max-width: 86%; animation: hm-rise .35s ease both; }
+.hm-spk { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-ink-muted); }
+.hm-txt { font-size: 15px; line-height: 1.45; padding: 9px 13px; border-radius: 12px; color: var(--color-ink); }
+.hm-msg[data-who="sofia"] .hm-txt { background: color-mix(in oklab, var(--color-primary) 18%, var(--color-surface-alt)); border: 1px solid color-mix(in oklab, var(--color-primary) 35%, transparent); }
+.hm-msg[data-who="caller"] { align-self: flex-end; text-align: right; }
+.hm-msg[data-who="caller"] .hm-txt { background: var(--hm-raise-2); border: 1px solid var(--color-hairline); }
+.hm-caret { display: inline-block; width: 2px; height: 1em; background: var(--color-link); vertical-align: -2px; margin-left: 2px; animation: hm-blink 1s steps(1) infinite; }
+@keyframes hm-blink { 50% { opacity: 0; } }
+@keyframes hm-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.hm-crm { margin: 6px 18px 14px; border: 1px solid var(--color-hairline); border-radius: 12px; background: var(--hm-raise-2); overflow: hidden; transition: opacity .4s, transform .4s; }
+.hm-crm[data-on="false"] { opacity: 0; transform: translateY(8px); }
+.hm-crm-title { display: flex; align-items: center; gap: 8px; padding: 9px 13px; font-size: 12.5px; font-weight: 600; color: var(--color-ink-muted); border-bottom: 1px solid var(--color-hairline); margin: 0; }
+.hm-crm-title svg { color: var(--color-accent); }
+.hm-crm dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); }
+.hm-crm dt, .hm-crm dd { margin: 0; padding: 7px 13px; font-size: 13.5px; border-bottom: 1px solid color-mix(in oklab, var(--color-hairline) 60%, transparent); }
+.hm-crm dt { color: var(--color-ink-muted); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .04em; padding-top: 9px; }
+.hm-crm dd { min-width: 0; color: var(--color-ink); transition: opacity .3s; }
+.hm-crm dd[data-on="false"] { opacity: 0; }
+.hm-crm dl > :nth-last-child(-n+2) { border-bottom: 0; }
+.hm-chip { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; }
+.hm-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--color-ok); }
+.hm-monday { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding: 11px 18px 14px; border-top: 1px solid var(--color-hairline); font-size: 13.5px; color: var(--color-ink-muted); }
+.hm-monday .hm-n { font-weight: 700; font-size: 20px; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+.hm-call-foot { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 18px 14px; }
+.hm-call-note { font-size: 12px; color: var(--color-ink-muted); margin-right: auto; }
+.hm-seg { display: inline-flex; border: 1px solid var(--hm-line-strong); border-radius: var(--hm-r-ctl); padding: 2px; gap: 2px; }
+.hm-seg button { border: 0; background: transparent; padding: 4px 9px; border-radius: 7px; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600; color: var(--color-ink-muted); transition: background .15s, color .15s; }
+.hm-seg button[aria-pressed="true"] { background: var(--hm-raise-2); color: var(--color-ink); }
+
+/* proof strip */
+.hm-proof { padding-block: 8px 24px; }
+.hm-proof ul { list-style: none; margin: 0; padding: 18px 0; display: flex; flex-wrap: wrap; gap: 14px 40px; border-block: 1px solid var(--color-hairline); }
+.hm-proof li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--color-ink-muted); }
+.hm-proof li strong { color: var(--color-ink); font-weight: 600; white-space: nowrap; }
+
+/* sections */
+.hm-sec { padding-block: clamp(80px, 11vw, 150px); scroll-margin-top: 72px; }
+.hm-head { display: grid; gap: 18px; max-width: 760px; margin-bottom: clamp(36px, 5vw, 64px); }
+.hm-plat-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; margin-bottom: clamp(32px, 4vw, 52px); }
+.hm-plat-head .hm-head { margin-bottom: 0; }
+@media (max-width: 860px) { .hm-plat-head { grid-template-columns: 1fr; } }
+
+/* product frame — the other object */
+.hm-frame { position: relative; border-radius: var(--hm-r-obj); border: 1px solid var(--hm-line-strong); box-shadow: 0 60px 140px -50px rgba(var(--sig-a), .7); }
+.hm-frame img { border-radius: calc(var(--hm-r-obj) - 1px); width: 100%; height: auto; display: block; }
+.hm-spot {
+  position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%;
+  border: 0; cursor: pointer; background: var(--color-primary); color: var(--color-on-primary); font: inherit; font-weight: 700; font-size: 14px;
+  box-shadow: 0 0 0 6px rgba(var(--sig-a), .3), 0 8px 24px -6px rgba(0, 0, 0, .6);
+  display: grid; place-items: center;
+}
+.hm-spot[aria-expanded="true"] { background: var(--color-accent); color: var(--color-surface); box-shadow: 0 0 0 6px rgba(var(--sig-b), .3); }
+.hm-pop {
+  position: absolute; z-index: 2; width: min(300px, 80vw); padding: 14px 16px; border-radius: 12px;
+  background: var(--color-surface-alt); color: var(--color-ink); border: 1px solid var(--hm-line-strong); font-size: 14.5px; line-height: 1.5;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .6);
+}
+.hm-pop strong { display: block; margin-bottom: 4px; }
+.hm-caption { margin: 14px 0 0; font-size: 13px; color: var(--color-ink-muted); }
+
+/* services as rows, not cards */
+.hm-rows { border-top: 1px solid var(--color-hairline); }
+.hm-row { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px 40px; padding-block: 30px; border-bottom: 1px solid var(--color-hairline); align-items: baseline; }
+.hm-row h3 { margin: 0; font-size: clamp(1.45rem, 2.3vw, 1.9rem); letter-spacing: -.025em; line-height: 1.15; font-weight: 700; color: var(--color-ink); }
+.hm-row p { margin: 0; color: var(--color-ink-muted); }
+.hm-done { display: grid; gap: 6px; }
+.hm-done .hm-k { font-size: 11px; }
+.hm-done p { color: var(--color-ink); font-size: 15.5px; }
+@media (max-width: 860px) { .hm-row { grid-template-columns: 1fr; } }
+
+/* Sofía */
+.hm-sofia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.hm-orb-box { position: relative; display: grid; place-items: center; aspect-ratio: 1; max-width: 420px; width: 100%; justify-self: center; }
+.hm-orb-box canvas { width: 100%; height: 100%; }
+.hm-orb-label { position: absolute; bottom: 8%; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-ink-muted); }
+@media (max-width: 860px) { .hm-sofia { grid-template-columns: 1fr; } .hm-orb-box { max-width: 300px; } }
+
+/* Prism */
+.hm-prism { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+@media (max-width: 760px) { .hm-prism { grid-template-columns: 1fr; } .hm-prism figure { max-width: 300px; } }
+
+/* founder */
+.hm-founder { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; margin: 0; }
+.hm-founder blockquote { margin: 0; font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.3; letter-spacing: -.02em; font-weight: 500; text-wrap: pretty; color: var(--color-ink); }
+.hm-founder figcaption { margin-top: 18px; color: var(--color-ink-muted); font-size: 15px; }
+.hm-founder figcaption strong { color: var(--color-ink); }
+.hm-founder--solo { grid-template-columns: 1fr; }
+@media (max-width: 760px) { .hm-founder { grid-template-columns: 1fr; } .hm-founder img { max-width: 220px; } }
+
+/* close */
+.hm-close { padding-block: clamp(100px, 13vw, 180px); }
+.hm-close .hm-lede { max-width: 34em; }
+.hm-reads { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-hairline); }
+.hm-reads li { border-bottom: 1px solid var(--color-hairline); }
+.hm-reads a { display: flex; gap: 16px; align-items: baseline; justify-content: space-between; padding: 14px 0; text-decoration: none; color: var(--color-ink); font-weight: 600; }
+.hm-reads a:hover span:first-child { text-decoration: underline; text-underline-offset: 4px; }
+.hm-reads time { font-family: var(--font-mono); font-size: 12px; font-weight: 400; color: var(--color-ink-muted); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-dot, .hm-msg, .hm-caret { animation: none; }
+  .hm-caret { display: none; }
+  .hm-crm, .hm-crm dd, .hm-btn { transition: none; }
+}
+
+/* --- Ask BIS: one entry point, for typing and for talking -----------------
+   Replaces the platform loader's bubble on this site only. The conversation
+   still lives in the platform's iframe; this is the chrome around it. */
+.ask {
+  --ask-raise-2: color-mix(in oklab, var(--color-surface-alt) 88%, var(--color-ink));
+  --ask-line: color-mix(in oklab, var(--color-hairline) 70%, var(--color-ink));
+}
+.ask-launch {
+  position: fixed; z-index: 60; right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 18px 0 8px;
+  border-radius: 999px; border: 1px solid var(--ask-line); cursor: pointer;
+  background: color-mix(in oklab, var(--color-surface-alt) 82%, transparent); color: var(--color-ink);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 50px -18px rgba(var(--sig-a), .75);
+  font: inherit; font-weight: 600; font-size: 15px; transition: padding .25s, gap .25s, transform .15s;
+}
+.ask-launch:hover { transform: translateY(-1px); }
+/* visibility, not opacity: a hidden launcher must also leave the tab order. */
+.ask-launch[aria-expanded="true"] { visibility: hidden; }
+.ask-launch[data-compact="true"] { padding: 0 7px; gap: 0; }
+.ask-launch[data-compact="true"] .ask-word { width: 0; overflow: hidden; }
+.ask-word { white-space: nowrap; }
+.ask-orb {
+  width: 36px; height: 36px; border-radius: 50%; flex: none;
   background:
-    radial-gradient(900px 520px at 18% 6%, rgba(124, 58, 237, 0.45), transparent 62%),
-    radial-gradient(760px 480px at 88% 34%, rgba(14, 116, 144, 0.40), transparent 60%),
-    #0b0a18;
+    radial-gradient(circle at 34% 30%, rgba(var(--sig-b), .95), transparent 46%),
+    radial-gradient(circle at 62% 66%, rgba(var(--sig-a), 1), rgba(var(--sig-a), .55) 60%, transparent 72%);
+  box-shadow: 0 0 22px rgba(var(--sig-a), .55);
+  animation: ask-breathe 3.6s ease-in-out infinite;
 }
-.hero-photo video {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  opacity: 0; transition: opacity 1.2s ease;
+@keyframes ask-breathe { 50% { transform: scale(1.07); } }
+.ask-panel {
+  position: fixed; z-index: 61; right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: min(392px, calc(100vw - 32px)); height: min(640px, calc(100dvh - 110px));
+  display: flex; flex-direction: column; overflow: hidden;
+  background: color-mix(in oklab, var(--color-surface-alt) 92%, transparent); color: var(--color-ink);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--ask-line); border-radius: 18px;
+  box-shadow: 0 40px 110px -30px rgba(0, 0, 0, .65);
+  transform-origin: bottom right; animation: ask-in .25s ease both;
 }
-.hero-photo video.is-in { opacity: 1; }
-/* The brand tint is baked into the footage by scripts/hero-encode.py. It was
-   a `mix-blend-mode: color` layer here, and a full-screen blend the GPU redid
-   for every video frame; see the note above VIDEO_SOURCES in Hero.tsx. */
-/* Two scrims. `::before` shades the LEFT of the frame, where the copy sits
-   and where the footage's bright plume also sits: sampled at 1440 the accent
-   phrase was at 1.91:1 against it, and because the plume drifts the failure
-   was intermittent — it read as a rendering bug. The gradient is gone by 56%,
-   so the product side keeps the full aurora. */
-.hero-photo::before {
-  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(100deg, rgba(11, 10, 24, 0.78) 0%, rgba(11, 10, 24, 0.42) 32%, rgba(11, 10, 24, 0) 56%);
+.ask-panel[hidden] { display: none; }
+/* The chat frame needs the full height; Sofía's tab is a button and a few
+   lines, so the panel fits it rather than framing an empty column. */
+.ask-panel:has(.ask-talk:not([hidden])) { height: auto; }
+:root:not(.dark) .ask-panel { box-shadow: 0 30px 80px -30px rgba(var(--sig-a), .35); }
+@keyframes ask-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@supports not (backdrop-filter: blur(1px)) {
+  .ask-launch, .ask-panel { background: var(--color-surface-alt); }
 }
-/* `::after` is only what the stats row needs to stay legible over any frame. */
-.hero-photo::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(11, 10, 24, 0.18) 0%, rgba(11, 10, 24, 0) 28%, rgba(11, 10, 24, 0.22) 62%, rgba(11, 10, 24, 0.82) 100%);
-}
-/* Grain rides the static gradient only. Over playing footage it was a second
-   per-frame blend for a texture nobody could see under drifting aurora. */
-.hero.has-video .hero-grain { display: none; }
-.hero-grain {
-  position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0.08; mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 240px 240px;
-}
-
-.hero-copy {
-  position: relative; z-index: 1;
-  align-self: end; justify-self: center;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  width: 100%; max-width: 860px;
-  padding: 8px 24px 85px;
-}
-/* The copy and the product stage share the hero's first row. Below 1180px
-   (1000px on a short window) they stack, copy first: a visitor on a phone
-   should read what we do before meeting the thing we built, and the stage is
-   the first real art this hero has ever given a phone (the backdrop video is
-   gated at 901px). */
-.hero-main {
-  position: relative; z-index: 1;
-  align-self: end;
-  display: flex; flex-direction: column; align-items: center;
-  width: 100%;
-}
-/* Beats every `.hero-copy` padding rule below on specificity, whatever the
-   source order: with the stage underneath, the copy's bottom padding is a gap
-   between two things rather than the hero's floor.
-   `align-self: center` is not decoration: `.hero-copy`'s own `align-self: end`
-   was written for the hero grid, where `end` meant the bottom. Inside this
-   column flex, `end` is the cross axis — the RIGHT edge — and between 901 and
-   1099px the sentence sat flush right with the window flush left. */
-.hero-main .hero-copy { align-self: center; padding-bottom: 30px; }
-.hero-main .hero-stage { margin-inline: auto; }
-
-/* --- The product stage: app.bis-rgv.com, in our own window ------------- */
-.hero-stage { position: relative; width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 12px; }
-/* Two light sources under the glass, so the window sits in the aurora rather
-   than on top of it: violet up-left where the plume is, and the second
-   accent, cyan, behind and below the near corner — the one cheap move that
-   makes the object lit by the scene instead of pasted onto it. */
-.hero-stage::before {
-  content: ""; position: absolute; z-index: -1;
-  inset: -6% -12% -18%;
-  background:
-    radial-gradient(60% 55% at 28% 30%, rgba(139, 92, 246, 0.42), transparent 70%),
-    radial-gradient(55% 60% at 88% 78%, rgba(34, 211, 238, 0.26), transparent 72%);
-  filter: blur(46px);
-}
-.stage-frame {
-  position: relative; border-radius: 14px; overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: #14122a;
-  /* A 1px top highlight (2px reads as a band at 2x), a violet rim on the
-     edge that faces the plume so the light in the scene is the light on the
-     object, and a wide violet halo. A black drop shadow on a black ground was
-     doing nothing and is gone. */
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    inset 1px 0 0 rgba(167, 139, 250, 0.24),
-    0 40px 80px -30px rgba(0, 0, 0, 0.85),
-    0 0 120px -40px rgba(139, 92, 246, 0.9);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
-}
-.stage-chrome {
-  position: relative;
-  display: flex; align-items: center; gap: 7px;
-  height: 32px; padding: 0 13px;
-  background: linear-gradient(180deg, #1d1a3c 0%, #15132c 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-}
-.stage-dot { width: 9px; height: 9px; border-radius: 999px; background: rgba(243, 240, 255, 0.22); flex: none; }
-.stage-url {
-  position: absolute; left: 50%; transform: translateX(-50%);
-  padding: 3px 11px; border-radius: 999px;
-  background: rgba(11, 10, 24, 0.55); border: 1px solid rgba(255, 255, 255, 0.07);
-  font-size: 11px; letter-spacing: -0.005em; color: rgba(243, 240, 255, 0.55);
-}
-/* The box is reserved from the frames' own 1600x933, so nothing reflows when
-   the first capture decodes. */
-.stage-screens { position: relative; aspect-ratio: 1600 / 933; background: #0f0d22; }
-.stage-screens img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left;
-  opacity: 0; transition: opacity 0.65s ease;
-}
-.stage-screens img.is-on { opacity: 1; }
-
-.stage-foot { display: block; }
-.stage-tabs { display: flex; flex-wrap: wrap; gap: 10px 6px; list-style: none; margin: 0; padding: 0; }
-.stage-tab {
-  position: relative;
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 6px 12px; border-radius: 999px; cursor: pointer;
-  background: rgba(243, 240, 255, 0.06); border: 1px solid rgba(243, 240, 255, 0.16);
-  color: rgba(243, 240, 255, 0.72); font-size: 12.5px; font-weight: 500; letter-spacing: -0.01em; line-height: 1;
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-}
-/* A 28px pill is under any touch guidance. The pseudo-element takes the hit
-   area to 44px without a pixel of layout; the 10px row gap above is what
-   stops stacked rows' hit areas overlapping. */
-.stage-tab::after { content: ""; position: absolute; inset: -8px -2px; }
-/* The dot marks the lit frame only: four grey dots and one cyan one was noise. */
-.stage-tab.is-on::before {
-  content: ""; width: 5px; height: 5px; border-radius: 999px; flex: none;
-  background: #22d3ee; box-shadow: 0 0 6px rgba(34, 211, 238, 0.6);
-}
-.stage-tab:hover { background: rgba(243, 240, 255, 0.12); border-color: rgba(243, 240, 255, 0.3); color: #ffffff; }
-.stage-tab.is-on {
-  background: rgba(124, 58, 237, 0.26); border-color: #a78bfa; color: #ffffff;
-}
-/* The one control that is not a screen: quieter, and never lit like one. */
-.stage-pause { color: rgba(243, 240, 255, 0.55); border-style: dashed; }
-.stage-pause[aria-pressed="true"] { color: #ffffff; border-style: solid; }
-/* The repo's ring everywhere else is 2px offset 2; the UA default sat flush
-   against the pill's own border. #a78bfa is already the lit pill's border. */
-.stage-tab:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
-@media (forced-colors: active) {
-  .stage-tab.is-on { forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight; }
-  .stage-tab.is-on::before { background: HighlightText; box-shadow: none; }
-}
-/* The disclaimer that keeps the invented-company claim honest, so it has to
-   clear 4.5:1 (0.45 alpha composited on the ground was 4.1:1). */
-.stage-note { margin: 10px 0 0; font-size: 12px; color: rgba(243, 240, 255, 0.62); letter-spacing: -0.005em; }
-
-.badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin: 0 0 22px; padding: 9px 15px; border: 0; border-radius: 5px;
-  background: linear-gradient(90deg, #7c3aed 0%, #3b2477 52%, #14122a 100%);
-  color: #f2f2f2; font-size: 12.5px; font-weight: 400; letter-spacing: -0.01em;
-}
-.badge-star { flex: none; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.45)); animation: in-star 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
-.hero-h1 {
-  margin: 0; display: flex; flex-direction: column; align-items: center;
-  font-size: 48px; font-weight: 600; letter-spacing: -0.045em; line-height: 1.12; color: var(--hero-text);
-}
-/* `balance` is what saves the Spanish accent line: 33 characters cannot fit
-   one line at this size, so the job is a good break — "Solución Inteligente /
-   a la Medida." rather than "a la" dangling. */
-.headline-line { display: block; overflow: hidden; padding: 0.06em 0.15em 0.14em; text-wrap: balance; }
-.hero-h1 em {
-  font-family: var(--font-instrument), "Times New Roman", Times, serif;
-  font-style: italic; font-weight: 400; font-size: 1.08em; letter-spacing: -0.03em;
-  animation: in-em 1.2s ease 0.72s both;
-}
-.hero-grad {
-  background: linear-gradient(100deg, #a78bfa, #22d3ee);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.lede {
-  margin: 18px 0 0; max-width: 470px;
-  color: var(--hero-muted); font-size: 15.5px; font-weight: 400; line-height: 1.55; letter-spacing: -0.015em;
-  text-wrap: pretty;
-}
-.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
-
-/* Buttons: one liquid-glass language, in the brand's violet rather than chrome. */
-.btn {
-  position: relative; isolation: isolate; overflow: hidden;
-  display: inline-flex; align-items: center; justify-content: center;
-  height: 42px; padding: 0 18px; border-radius: 6px;
-  font-size: 13.5px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; cursor: pointer;
-  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease, filter 0.35s ease;
-}
-.btn::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.45) 48%, transparent 76%);
-  transform: translateX(-130%); transition: transform 0.65s ease;
-}
-.btn:hover::after { transform: translateX(130%); }
-.btn-solid {
-  background: linear-gradient(180deg, #a78bfa 0%, #8b5cf6 48%, #7c3aed 100%);
-  color: #ffffff; border: 1px solid #a78bfa;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 24px -10px rgba(139, 92, 246, 0.7);
-}
-.btn-solid:hover {
-  background: linear-gradient(180deg, #c4b5fd 0%, #a78bfa 42%, #8b5cf6 100%);
-  border-color: #c4b5fd;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 26px rgba(167, 139, 250, 0.45), 0 8px 18px rgba(139, 92, 246, 0.3);
-}
-.btn-ghost {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(11, 10, 24, 0.5) 46%, rgba(34, 211, 238, 0.10));
-  color: #ffffff; border: 1px solid rgba(198, 198, 198, 0.55);
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-.btn-ghost:hover {
-  background: linear-gradient(135deg, rgba(210, 225, 255, 0.18), rgba(11, 10, 24, 0.35) 48%, rgba(34, 211, 238, 0.18));
-  border-color: rgba(220, 230, 255, 0.8);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 0 24px rgba(34, 211, 238, 0.28);
-}
-
-.hero-stats {
-  position: relative; z-index: 1; list-style: none; margin: 0;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  /* Inset a little more than the row's own rhythm needs: the chat launcher is
-     a fixed circle in the bottom-right corner and the last stat must clear it. */
-  padding: 0 104px max(36px, env(safe-area-inset-bottom));
-  color: var(--hero-stat); font-size: 13.5px; letter-spacing: -0.015em;
-}
-.stat { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; }
-.stat svg { width: 20px; height: 20px; flex: none; color: var(--hero-accent); }
-
-/* Entrance. Resting opacity is 1 so nothing is ever blank; `both` applies the
-   0% frame during the delay so the reveal still reads when animations run. */
-.appear {
-  opacity: 1;
-  animation-duration: var(--dur, 0.8s);
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  animation-delay: var(--d, 0.08s);
-}
-.appear--scale { animation-name: in-scale; }
-.appear--soft { animation-name: in-soft; }
-.appear--mask { animation-name: in-mask; display: inline-block; }
-.appear--pop { animation-name: in-pop; }
-.appear--btn { animation-name: in-btn; }
-.appear--side { animation-name: in-side; }
-.appear--stat { animation-name: in-stat; }
-.appear--stage { animation-name: in-stage; display: block; width: 100%; }
-.appear.is-in { animation: none; opacity: 1; transform: none; clip-path: none; filter: none; }
-@keyframes in-scale { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }
-@keyframes in-soft { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes in-mask { from { opacity: 0; transform: translateY(40%); } to { opacity: 1; transform: translateY(0); } }
-@keyframes in-pop { 0% { opacity: 0; transform: scale(0.9); } 70% { opacity: 1; transform: scale(1.03); } 100% { opacity: 1; transform: scale(1); } }
-@keyframes in-btn { from { opacity: 0; transform: translateY(18px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes in-side { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes in-stat { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes in-star { 0% { transform: scale(0.2) rotate(-50deg); } 65% { transform: scale(1.2) rotate(8deg); } 100% { transform: scale(1) rotate(0); } }
-@keyframes in-stage { from { opacity: 0; transform: translateY(34px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes in-em { from { opacity: 0.35; filter: blur(4px); } to { opacity: 1; filter: blur(0); } }
-
-/* Responsive: the same rhythm, scaled. */
-/* Two columns: the sentence on the left, the software on the right, tilted
-   just enough to read as an object in the scene rather than a pasted PNG. The
-   tilt eases flat on hover, which is also what makes the tabs feel clickable. */
-/* 1180, not 1100: the column has to hold the lede's own 470px measure and the
-   Spanish action row (418px) with room, and it first does at 1160. Wide-and-
-   short windows (a 1024x600 netbook, an iPad landscape) ALSO get two columns
-   — stacked, the stage sat 205px under the fold there, and a short wide
-   viewport is exactly the shape two columns exist for. */
-@media (min-width: 1180px), (min-width: 1000px) and (max-height: 800px) {
-  .hero-main {
-    display: grid; grid-template-columns: minmax(470px, 0.94fr) minmax(0, 1.06fr);
-    align-items: center; gap: 48px; padding: 16px 56px 0; align-self: center;
-  }
-  .hero-main .hero-copy {
-    align-self: center; align-items: flex-start; text-align: left;
-    max-width: 600px; padding: 0; justify-self: start;
-  }
-  .hero-main .hero-h1 { align-items: flex-start; }
-  .hero-main .headline-line { padding-left: 0; }
-  .hero-main .lede { max-width: 470px; }
-  .hero-main .hero-actions { justify-content: flex-start; }
-  /* The gap is measured against the untransformed box; rotateX drops the
-     near corner ~11px below it, and the tab row was landing 1px under that. */
-  .hero-stage { max-width: none; gap: 26px; }
-  /* Origin on the NEAR edge, so the perspective expansion goes inboard: the
-     right edge then lands exactly on the 56px padding line, matches the text
-     margin on the left, and stays put through the hover. With the origin at
-     20% the overhang was a function of frame width — 37px at 1440, 44px at
-     1920 — and it moved on hover as the box narrowed. */
-  .stage-frame { transform: perspective(1900px) rotateY(-5deg) rotateX(1.6deg); transform-origin: 85% 50%; }
-  /* Flat, plus a lift. Half-flattening read as jitter. */
-  .hero-stage:hover .stage-frame,
-  .hero-stage:focus-within .stage-frame {
-    transform: perspective(1900px) rotateY(0deg) rotateX(0deg) translateY(-4px);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.16),
-      inset 1px 0 0 rgba(167, 139, 250, 0.3),
-      0 48px 90px -30px rgba(0, 0, 0, 0.9),
-      0 0 130px -36px rgba(139, 92, 246, 1);
-  }
-}
-@media (min-width: 1280px) { .hero-h1 { font-size: 54px; } .lede { font-size: 16px; } .hero-copy { max-width: 900px; } .hero-stats { padding-left: 112px; padding-right: 112px; } }
-@media (min-width: 1600px) {
-  /* `.hero-main .hero-copy` outranks `.hero-copy`'s own wide-screen caps, so
-     without these the column stayed at 600px while the grid track grew to
-     654 and 804 — and "Solution." wrapped onto a line of its own. */
-  .hero-main { gap: 64px; padding-left: 72px; padding-right: 72px; }
-  .hero-main .hero-copy { max-width: 660px; }
-  .hero-h1 { font-size: 64px; } .lede { font-size: 18px; max-width: 540px; margin-top: 22px; }
-  .badge { font-size: 13.5px; margin-bottom: 26px; } .hero-actions { margin-top: 30px; gap: 12px; }
-  .btn { height: 48px; font-size: 15px; } .hero-copy { max-width: 980px; }
-  .hero-stats { font-size: 15px; padding: 0 128px max(44px, env(safe-area-inset-bottom)); } .stat svg { width: 22px; height: 22px; }
-}
-@media (min-width: 1920px) {
-  .hero-main .hero-copy { max-width: 780px; }
-  .hero-h1 { font-size: 76px; } .lede { font-size: 20px; max-width: 620px; } .badge { font-size: 14.5px; padding: 10px 15px; }
-  .btn { height: 52px; font-size: 16px; padding: 0 22px; } .hero-copy { max-width: 1120px; }
-  .hero-stats { font-size: 16px; padding: 0 152px max(52px, env(safe-area-inset-bottom)); }
-}
-@media (min-width: 2560px) { .hero-h1 { font-size: 88px; } .lede { font-size: 22px; max-width: 680px; } .hero-copy { max-width: 1280px; } .hero-stats { padding-left: 192px; padding-right: 192px; } }
-@media (min-width: 901px) and (max-width: 1279px) {
-  .hero-h1 { font-size: 42px; } .lede { font-size: 15px; max-width: 440px; margin-top: 14px; }
-  .badge { font-size: 12px; margin-bottom: 16px; } .hero-actions { margin-top: 20px; }
-  .btn { height: 40px; font-size: 13px; } .hero-copy { max-width: 760px; padding-bottom: 64px; }
-  /* 88, not 64: the chat launcher is a 56px circle inset 20px, so anything
-     inside the last 76px of the row sits under it. */
-  .hero-stats { font-size: 12.5px; padding: 0 88px max(28px, env(safe-area-inset-bottom)); }
-}
-@media (min-width: 901px) and (max-height: 850px) { .hero-h1 { font-size: 40px; } .hero-copy { padding-bottom: 48px; } .badge { margin-bottom: 12px; } .lede { margin-top: 12px; } .hero-actions { margin-top: 16px; } .hero-stats { padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
-/* The short-and-wide branch: the copy takes the larger share so the Spanish
-   buttons stay on one row, and the stage gives up height rather than the
-   headline. */
-@media (min-width: 1000px) and (max-width: 1179px) and (max-height: 800px) {
-  .hero-main { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 36px; padding-top: 0; }
-}
-@media (min-width: 1180px) and (max-height: 760px) { .hero-main { gap: 36px; padding-top: 0; } .hero-stage { max-width: 620px; justify-self: end; } }
-@media (min-width: 901px) and (max-height: 720px) { .hero-h1 { font-size: 34px; } .lede { font-size: 14px; } .hero-copy { padding-bottom: 32px; } .badge { margin-bottom: 8px; } .btn { height: 36px; } .hero-stats { padding-bottom: 18px; } }
-@media (max-width: 900px) {
-  .hero-copy { padding: 20px 20px 64px; max-width: 100%; }
-  .hero-main { padding: 0 20px; }
-  /* `.hero-copy` carries its own 20px side padding for the stacked layout;
-     inside `.hero-main`'s 20px the sentence was inset 40 against the art's 20. */
-  .hero-main .hero-copy { padding: 20px 0 26px; }
-  .hero-stage { gap: 10px; }
-  /* The chat launcher is a 56px circle inset 20px in the bottom-right corner,
-     fixed. Centred pills scrolled through that corner put a tap target under
-     it — on a 360px Spanish phone, 35px of "Oportunidades" — and the caption
-     ran beneath it. Everything in the foot stays left of the launcher's
-     column instead, so nothing tappable or legally load-bearing is ever
-     covered at any scroll position. */
-  .stage-foot { padding-right: 68px; }
-  .stage-tabs { justify-content: flex-start; }
-  .stage-tab { font-size: 12px; padding: 7px 12px; }
-  .hero-h1 { font-size: 36px; } .lede { font-size: 16.5px; max-width: 100%; } .badge { font-size: 13.5px; }
-  .btn { height: 48px; font-size: 15px; }
-  /* Bottom clearance for the fixed chat launcher (56px + 20px inset). */
-  /* Left-aligned under the stage's own left-aligned foot, with room above:
-     centred, the three stats started at three different x positions, and the
-     first sat 4px under the "Sample account" note as if it were part of it. */
-  .hero-stats { flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 32px; padding: 0 20px max(92px, calc(env(safe-area-inset-bottom) + 92px)); font-size: 15px; }
-  .stat { white-space: normal; }
-}
+.ask-head { display: flex; align-items: center; gap: 12px; padding: 14px 14px 12px 16px; border-bottom: 1px solid var(--color-hairline); }
+.ask-head .ask-orb { width: 30px; height: 30px; }
+.ask-head h2 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+.ask-head p { margin: 0; font-size: 12.5px; color: var(--color-ink-muted); }
+.ask-x { margin-left: auto; width: 36px; height: 36px; display: inline-grid; place-items: center; cursor: pointer; border: 1px solid var(--ask-line); border-radius: 10px; background: transparent; color: var(--color-ink-muted); }
+.ask-x:hover { color: var(--color-ink); }
+.ask-tabs { display: flex; gap: 4px; padding: 10px 16px; }
+.ask-tabs button { flex: 1; height: 34px; border-radius: 8px; border: 1px solid transparent; background: transparent; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; color: var(--color-ink-muted); }
+.ask-tabs button[aria-selected="true"] { background: var(--ask-raise-2); color: var(--color-ink); border-color: var(--color-hairline); }
+.ask-pane { flex: 1; min-height: 0; }
+.ask-pane[hidden] { display: none; }
+.ask-pane iframe { display: block; width: 100%; height: 100%; border: 0; }
+.ask-talk { overflow-y: auto; padding: 4px 16px 16px; display: grid; gap: 12px; align-content: start; }
+.ask-talk > p { margin: 0; color: var(--color-ink-muted); font-size: 14.5px; }
+.ask :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 @media (max-width: 560px) {
-  /* Measured at 360x640: the stacked hero ran 1018px (EN) / 1081px (ES), and
-     in Spanish the window's top edge was 1.5px BELOW the fold — no art on the
-     first screen at all. These take ~90px back so the window's top is on
-     screen in both languages. The stats row scrolls; on a phone it is a row
-     of content, not a footer, and the 1fr/auto pinning was fiction there. */
-  .badge { font-size: 12px; margin-bottom: 12px; padding: 7px 12px; }
-  .hero-h1 { font-size: 32px; } .lede { font-size: 15px; line-height: 1.5; margin-top: 12px; }
-  .hero-actions { margin-top: 16px; gap: 8px; } .btn { height: 44px; }
-  .hero-main .hero-copy { padding-bottom: 18px; }
-  .hero-actions { flex-direction: column; align-items: stretch; width: 100%; } .btn { width: 100%; }
+  .ask-panel { inset: 0; width: auto; height: 100dvh; border-radius: 0; border: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero *, .hero *::before, .hero *::after { transition: none !important; animation: none !important; }
-  .appear, .hero-photo video, .hero-h1 em, .badge-star { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
-  /* The stage keeps ONE frame visible rather than none: `.stage-screens img`
-     rests at opacity 0 and is revealed by `.is-on`, so a blanket
-     `opacity: 1 !important` would stack all four. */
-  .stage-screens img { opacity: 0 !important; }
-  .stage-screens img.is-on { opacity: 1 !important; }
-  .stage-frame { transform: none !important; }
+  .ask-orb, .ask-panel { animation: none; }
+  .ask-launch { transition: none; }
 }
 
 /* --- Moving between pages ---------------------------------------------
