@@ -36,6 +36,8 @@ const PAGES = [
   ['not found', '/en/no-such-page'],
 ] as const;
 
+// Dark is the site's default theme, so this sweep is the dark one; the
+// light theme gets its own sweep below.
 for (const [name, path] of PAGES) {
   test(`${name} has no WCAG A/AA violations`, async ({ page }) => {
     await page.goto(path);
@@ -53,20 +55,21 @@ for (const [name, path] of PAGES) {
 }
 
 /**
- * The same sweep in dark mode, on the two surfaces that carry the site's own
- * dark ground plus the one that used to fail: the CTA band's primary button
- * sat at 2.6:1 in dark mode on ten pages, and the light-only run never saw it.
+ * The same sweep in light mode — a visitor's choice from the toggle, no
+ * longer the default — on the home page in both languages and the two
+ * surfaces that carry the site's own dark ground inside a light page.
  */
-for (const [name, path] of [['home', '/en'], ['industries', '/en/industries'], ['not found', '/en/no-such-page']] as const) {
-  test(`${name} has no WCAG A/AA violations in dark mode`, async ({ page }) => {
-    await page.addInitScript(() => { try { localStorage.setItem('theme', 'dark'); } catch { /* private mode */ } });
+for (const [name, path] of [['home', '/en'], ['home (ES)', '/es'], ['industries', '/en/industries'], ['not found', '/en/no-such-page']] as const) {
+  test(`${name} has no WCAG A/AA violations in light mode`, async ({ page }) => {
+    await page.addInitScript(() => { try { localStorage.setItem('theme', 'light'); } catch { /* private mode */ } });
     await page.goto(path);
+    await expect(page.locator('html')).not.toHaveClass(/\bdark\b/);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
       .exclude('iframe')
       .analyze();
     const summary = results.violations.map((v) => `${v.id} (${v.impact}) x${v.nodes.length}: ${v.help}`);
-    expect(summary, `${path} (dark)\n${summary.join('\n')}`).toEqual([]);
+    expect(summary, `${path} (light)\n${summary.join('\n')}`).toEqual([]);
   });
 }
 

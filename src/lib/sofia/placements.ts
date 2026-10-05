@@ -30,6 +30,8 @@ export const sofiaPlacements = [
     blurbKey: 'work.cases.sofia.tryBrowserBlurb',
   },
   { id: 'contact', titleKey: 'contact.sofiaTitle', blurbKey: 'contact.sofiaBlurb' },
+  // The Talk tab of the site-wide Ask BIS panel.
+  { id: 'ask', titleKey: 'chat.talkTitle', blurbKey: 'chat.talkBlurb' },
   {
     id: 'industry',
     titleKey: 'industries.shared.sofiaTryTitle',

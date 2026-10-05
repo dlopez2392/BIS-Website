@@ -46,9 +46,6 @@ export const FORM_PUBLIC_IDS: Record<Locale, string> = {
  */
 export const CONCIERGE_PUBLIC_ID = process.env.NEXT_PUBLIC_BIS_CONCIERGE_ID ?? 'b2swbbu52be8';
 
-/** The platform's one loader script; it serves forms, booking and the concierge. */
-export const EMBED_SCRIPT_URL = `${PLATFORM_ORIGIN}/embed.js`;
-
 export type EmbedKind = 'form' | 'booking';
 export type HostTheme = 'light' | 'dark';
 
@@ -80,13 +77,8 @@ export interface EmbedUrlInput {
   referrer: string;
 }
 
-/**
- * The iframe `src`, built the way `embed.js` builds it: locale and theme as
- * hints, utm_* and click ids lifted off the HOST url (the iframe's own url is
- * the platform's, so it can never see them), then the host page url and its
- * referrer so the lead's attribution records where it actually came from.
- */
-export function embedUrl({ kind, locale, theme, hostHref, referrer }: EmbedUrlInput): string {
+/** The host-page hints and attribution every platform iframe carries. */
+function hostParams({ locale, theme, hostHref, referrer }: Omit<EmbedUrlInput, 'kind'>): URLSearchParams {
   const params = new URLSearchParams();
   params.set('locale', locale);
   params.set('theme', theme);
@@ -104,8 +96,44 @@ export function embedUrl({ kind, locale, theme, hostHref, referrer }: EmbedUrlIn
     params.set('page', host.href);
   }
   if (referrer) params.set('ref', referrer);
-  return `${pathFor(kind, locale)}?${params.toString()}`;
+  return params;
 }
+
+/**
+ * The iframe `src`, built the way `embed.js` builds it: locale and theme as
+ * hints, utm_* and click ids lifted off the HOST url (the iframe's own url is
+ * the platform's, so it can never see them), then the host page url and its
+ * referrer so the lead's attribution records where it actually came from.
+ */
+export function embedUrl({ kind, ...host }: EmbedUrlInput): string {
+  return `${pathFor(kind, host.locale)}?${hostParams(host).toString()}`;
+}
+
+/**
+ * The website assistant's iframe `src` — `/c/<publicId>` with the same hints
+ * and attribution `embed.js` gives its concierge branch, so a lead that starts
+ * in the Ask BIS panel is attributed exactly as one from the platform's own
+ * bubble would be.
+ */
+export function conciergeUrl(host: Omit<EmbedUrlInput, 'kind'>): string {
+  return `${PLATFORM_ORIGIN}/c/${encodeURIComponent(CONCIERGE_PUBLIC_ID)}?${hostParams(host).toString()}`;
+}
+
+/**
+ * The platform's chat page asks its host to close the panel with this
+ * message (its own × and Esc). The caller has already checked the message's
+ * source and origin.
+ */
+export function isConciergeClose(data: unknown): boolean {
+  return !!data && typeof data === 'object' && (data as { type?: unknown }).type === 'bis-concierge-close';
+}
+
+/**
+ * The chat page mints a render token when it loads, valid for 30 minutes.
+ * The panel reloads a frame older than this before showing it, a little ahead
+ * of the real expiry, exactly as `embed.js` does.
+ */
+export const CONCIERGE_REFRESH_MS = 25 * 60 * 1000;
 
 export type EmbedMessage =
   | { type: 'height'; height: number }

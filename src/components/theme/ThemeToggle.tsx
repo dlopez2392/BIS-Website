@@ -16,7 +16,11 @@ export function ThemeToggle() {
     <button
       type="button"
       aria-label="Toggle theme"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      // From the resolved theme, not `isDark`: the icon waits for mount, the
+      // action must not. With dark the default, a click in the instant
+      // between hydration and that effect read "not dark" and set dark —
+      // a dead first click.
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-hairline text-ink hover:bg-surface-alt"
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}

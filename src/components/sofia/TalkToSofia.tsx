@@ -24,9 +24,21 @@ type Phase = 'idle' | 'connecting' | 'live' | 'ended';
  * and it never claims the session did anything it did not — Sofía has no
  * tools here, which the panel says out loud rather than letting someone
  * believe they have been booked in.
+ *
+ * `bare` drops the card frame for surfaces that are already a frame of their
+ * own (the homepage's Sofía section, the Ask BIS panel). `onVoice` hands the
+ * caller her incoming audio stream while a session is live, and null when it
+ * ends, so a visual (the homepage orb) can move with her actual voice rather
+ * than a simulation of one.
  */
 export function TalkToSofia(
-  { title, blurb, placement }: { title?: string; blurb?: string; placement?: SofiaPlacementId } = {},
+  { title, blurb, placement, bare = false, onVoice }: {
+    title?: string;
+    blurb?: string;
+    placement?: SofiaPlacementId;
+    bare?: boolean;
+    onVoice?: (stream: MediaStream | null) => void;
+  } = {},
 ) {
   const t = useTranslations('sofia');
   const [phase, setPhase] = useState<Phase>('idle');
@@ -38,6 +50,10 @@ export function TalkToSofia(
   const streamRef = useRef<MediaStream | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const logRef = useRef<HTMLDivElement | null>(null);
+  // Read through a ref so a parent passing a fresh closure each render does
+  // not rebuild `stop` and `start` (and with them, the unmount cleanup).
+  const onVoiceRef = useRef(onVoice);
+  useEffect(() => { onVoiceRef.current = onVoice; }, [onVoice]);
 
   /** Idempotent: called by the visitor, by the countdown, and by unmount. */
   const stop = useCallback((reason: 'visitor' | 'timeup' | 'unmount') => {
@@ -46,6 +62,7 @@ export function TalkToSofia(
     streamRef.current?.getTracks().forEach((tr) => tr.stop());
     streamRef.current = null;
     if (audioRef.current) audioRef.current.srcObject = null;
+    onVoiceRef.current?.(null);
     setLeft(null);
     if (reason !== 'unmount') setPhase('ended');
   }, []);
@@ -123,6 +140,7 @@ export function TalkToSofia(
       pcRef.current = pc;
       pc.ontrack = (e) => {
         if (audioRef.current && e.streams[0]) audioRef.current.srcObject = e.streams[0];
+        if (e.streams[0]) onVoiceRef.current?.(e.streams[0]);
       };
       const track0 = stream.getAudioTracks()[0];
       if (track0) pc.addTrack(track0, stream);
@@ -183,16 +201,19 @@ export function TalkToSofia(
   const connecting = phase === 'connecting';
 
   return (
-    <div className="rounded-2xl border border-hairline bg-surface-alt p-6 sm:p-8">
+    <div className={bare ? '' : 'rounded-2xl border border-hairline bg-surface-alt p-6 sm:p-8'} data-sofia-panel>
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          {/* Overridable because the two places this appears are making
-              different arguments. On the trust page it is evidence for a claim
-              the surrounding text already made. On the homepage it IS the
-              claim, met by a stranger who has read one paragraph about us. */}
-          <h3 className="text-lg font-bold text-ink">{title ?? t('title')}</h3>
-          <p className="mt-1 max-w-prose text-sm text-ink-muted">{blurb ?? t('blurb')}</p>
-        </div>
+        {/* Overridable because the places this appears are making different
+            arguments. On the trust page it is evidence for a claim the
+            surrounding text already made; on a trade page it backs the
+            paragraph above. A `bare` host (the homepage's Sofía section, the
+            Ask BIS panel) sets its own heading, so the panel draws none. */}
+        {!bare && (
+          <div>
+            <h3 className="text-lg font-bold text-ink">{title ?? t('title')}</h3>
+            <p className="mt-1 max-w-prose text-sm text-ink-muted">{blurb ?? t('blurb')}</p>
+          </div>
+        )}
 
         {live ? (
           <button

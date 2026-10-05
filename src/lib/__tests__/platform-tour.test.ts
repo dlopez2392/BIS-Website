@@ -57,7 +57,8 @@ describe('the /platform tour', () => {
 
   /**
    * The /platform tour is the long argument; `PlatformProof` is the same
-   * argument made in passing on the homepage, /work and every industry page.
+   * argument made in passing on /work and every industry page. (The homepage
+   * makes it with its own annotated capture, and checks its copy below.)
    * Each placement pulls FOUR keys from its own namespace plus alt text and
    * the sample-data caption from `platform`.
    *
@@ -69,7 +70,6 @@ describe('the /platform tour', () => {
   it('gives every PlatformProof placement its copy in both languages', () => {
     for (const [locale, m] of Object.entries(locales)) {
       const blocks = {
-        home: m.home,
         work: m.work,
         'industries.shared': m.industries?.shared,
       };
@@ -77,6 +77,9 @@ describe('the /platform tour', () => {
         for (const key of ['platformKicker', 'platformTitle', 'platformBody', 'platformLink']) {
           expect(block?.[key], `${locale}: ${name}.${key}`).toBeTruthy();
         }
+      }
+      for (const key of ['platformTitle', 'platformBody', 'platformLink']) {
+        expect(m.home?.[key], `${locale}: home.${key}`).toBeTruthy();
       }
       // Alt text and the caption are borrowed from the tour rather than
       // restated per page — see `tourShot`.
