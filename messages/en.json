@@ -463,7 +463,38 @@
     "tabsLabel": "How to ask",
     "frameTitle": "BIS assistant chat",
     "talkTitle": "Talk to Sofía",
-    "talkBlurb": "Talk to Sofía in your browser, the same receptionist who answers our phone."
+    "talkBlurb": "Talk to Sofía in your browser, the same receptionist who answers our phone.",
+    "chipsLabel": "Suggested questions",
+    "chips": {
+      "top": [
+        "What does Sofía do after hours?",
+        "What does a free assessment involve?",
+        "Can she answer in Spanish and English?"
+      ],
+      "platform": [
+        "What happens to a call after hours?",
+        "What’s in the Monday email?",
+        "Can my team use the dashboard too?"
+      ],
+      "services": [
+        "Can you help with Microsoft 365?",
+        "Do you build websites in Spanish?",
+        "Where would AI save us the most time?"
+      ],
+      "sofia": [
+        "Can Sofía book appointments?",
+        "Does she switch languages mid-call?",
+        "What if a caller wants a person?"
+      ],
+      "prism": [
+        "Is my bank data safe in Prism?",
+        "Does Prism cost anything?"
+      ],
+      "founder": [
+        "Who will I actually work with?",
+        "Do you work outside Harlingen?"
+      ]
+    }
   },
   "insights": {
     "heading": "Insights",

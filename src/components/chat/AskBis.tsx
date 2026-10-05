@@ -8,7 +8,7 @@ import { usePathname } from '@/i18n/navigation';
 import { useTheme } from 'next-themes';
 import { X } from 'lucide-react';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
-import { CONCIERGE_REFRESH_MS, PLATFORM_ORIGIN, conciergeUrl, isConciergeClose, type Locale } from '@/lib/platform';
+import { CONCIERGE_REFRESH_MS, PLATFORM_ORIGIN, askMessage, conciergeUrl, isConciergeClose, type Locale } from '@/lib/platform';
 
 type Tab = 'type' | 'talk';
 
@@ -54,6 +54,13 @@ function AskBisPanel() {
   const [tab, setTab] = useState<Tab>('type');
   const [compact, setCompact] = useState(false);
   const [frameKey, setFrameKey] = useState(0);
+  // Which frame has finished loading, as `${frameKey}:${src}`: a question
+  // posted before the chat page is listening is lost, so the suggestions wait.
+  const [loaded, setLoaded] = useState<string | null>(null);
+  // The part of the page being read decides which questions are suggested;
+  // once one is sent the row steps aside for the conversation.
+  const [section, setSection] = useState('top');
+  const [asked, setAsked] = useState(false);
   const mountedAt = useRef(0);
 
   const launcher = useRef<HTMLButtonElement>(null);
@@ -134,6 +141,31 @@ function AskBisPanel() {
     return () => { io.disconnect(); setCompact(false); };
   }, [pathname]);
 
+  // The section in the middle of the screen, from the page's own
+  // `data-ask-section` markers (the home page has them; any other page keeps
+  // the general questions). Re-observed on every navigation for the same
+  // reason as the hero above.
+  useEffect(() => {
+    const marked = document.querySelectorAll<HTMLElement>('[data-ask-section]');
+    if (!marked.length || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver((entries) => {
+      for (const en of entries) {
+        if (en.isIntersecting) setSection(en.target.getAttribute('data-ask-section') ?? 'top');
+      }
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    marked.forEach((el) => io.observe(el));
+    return () => { io.disconnect(); setSection('top'); };
+  }, [pathname]);
+
+  const chipsKey = `chips.${section}`;
+  const chips: string[] = t.has(chipsKey) ? (t.raw(chipsKey) as string[]) : (t.raw('chips.top') as string[]);
+  const frameId = `${frameKey}:${src}`;
+  const ask = (text: string) => {
+    frame.current?.contentWindow?.postMessage(askMessage(text), PLATFORM_ORIGIN);
+    setAsked(true);
+    frame.current?.focus();
+  };
+
   const select = (next: Tab) => setTab(next);
   const onTabKey = (e: ReactKeyboardEvent) => {
     if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
@@ -193,7 +225,14 @@ function AskBisPanel() {
           </button>
         </div>
 
-        <div id={typeId} className="ask-pane" role="tabpanel" aria-labelledby={`${typeId}-tab`} hidden={tab !== 'type'}>
+        <div id={typeId} className="ask-pane ask-type" role="tabpanel" aria-labelledby={`${typeId}-tab`} hidden={tab !== 'type'}>
+          {!asked && src && loaded === frameId ? (
+            <div className="ask-chips" role="group" aria-label={t('chipsLabel')} data-ask-chips={section}>
+              {chips.map((q) => (
+                <button key={q} type="button" onClick={() => ask(q)}>{q}</button>
+              ))}
+            </div>
+          ) : null}
           {src ? (
             <iframe
               key={frameKey}
@@ -201,6 +240,7 @@ function AskBisPanel() {
               id="bis-concierge-frame"
               src={src}
               title={t('frameTitle')}
+              onLoad={() => setLoaded(frameId)}
             />
           ) : null}
         </div>

@@ -42,7 +42,9 @@ const SPOTS = [
  *
  * Each section's headline has a twin in the other language (see `Twin`). The
  * hero's `id="hero"` is also what the Ask BIS launcher watches to shrink to
- * its orb over the headline on a phone.
+ * its orb over the headline on a phone, and each section's
+ * `data-ask-section` picks the questions Ask BIS suggests while it is being
+ * read (the keys are `chat.chips.*`).
  */
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -66,7 +68,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <main className="hm">
       <SignalRibbon />
 
-      <section id="hero" className="hm-hero">
+      <section id="hero" data-ask-section="top" className="hm-hero">
         <div className="hm-wrap">
           <div className="hm-stack">
             <div>
@@ -106,7 +108,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section id="platform" className="hm-sec">
+      <section id="platform" data-ask-section="platform" className="hm-sec">
         <div className="hm-wrap">
           <div className="hm-plat-head">
             <div className="hm-head">
@@ -136,7 +138,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section id="services" className="hm-sec">
+      <section id="services" data-ask-section="services" className="hm-sec">
         <div className="hm-wrap">
           <div className="hm-head">
             <div>
@@ -166,7 +168,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section id="talk-to-sofia" className="hm-sec">
+      <section id="talk-to-sofia" data-ask-section="sofia" className="hm-sec">
         <SofiaSection
           idle={t('orbIdle')}
           talking={t('orbTalk')}
@@ -183,7 +185,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         />
       </section>
 
-      <section id="prism" className="hm-sec">
+      <section id="prism" data-ask-section="prism" className="hm-sec">
         <div className="hm-wrap hm-prism">
           <AdFilm slot={PRISM_AD} label={w('cases.prism.videoLabel')} />
           <div className="hm-stack">
@@ -200,7 +202,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section id="founder" className="hm-sec">
+      <section id="founder" data-ask-section="founder" className="hm-sec">
         <div className="hm-wrap">
           <div className={withPhoto ? 'hm-founder' : 'hm-founder hm-founder--solo'}>
             <FounderPortrait locale={locale} className="h-auto w-full rounded-[18px] object-cover" />
@@ -212,7 +214,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section id="close" className="hm-close">
+      <section id="close" data-ask-section="founder" className="hm-close">
         <div className="hm-wrap hm-stack">
           <div>
             <h2 className="hm-display">{t('ctaTitle')}</h2>

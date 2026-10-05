@@ -56,12 +56,18 @@ test.describe('desktop', () => {
     await expect(page.locator('.ask-launch')).toHaveAttribute('aria-expanded', 'false');
   });
 
-  test('the chat page\'s own × closes the panel', async ({ page }) => {
+  test('the chat is bare inside the panel, and a suggested question lands in it as the visitor\'s own', async ({ page }) => {
     await page.goto('/en');
     await launcher(page).click();
     const chat = page.frameLocator(`iframe[src^="${PLATFORM}/c/"]`);
-    await chat.locator('.bis-concierge-close').click();
-    await expect(page.getByRole('dialog', { name: 'Ask BIS' })).toBeHidden();
+    await expect(chat.locator('#bis-concierge-input')).toBeVisible();
+    // The panel's own header is the only one: the chat drew no brand row or ×.
+    await expect(chat.locator('.bis-concierge-close')).toHaveCount(0);
+    const suggestions = page.getByRole('group', { name: 'Suggested questions' });
+    const question = (await suggestions.getByRole('button').first().textContent())!;
+    await suggestions.getByRole('button', { name: question }).click();
+    await expect(chat.locator('.bis-msg-visitor')).toHaveText(question);
+    await expect(suggestions).toHaveCount(0);
   });
 
   test('a language switch swaps the chat for a Spanish one instead of stacking a second', async ({ page }) => {

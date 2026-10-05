@@ -116,7 +116,24 @@ export function embedUrl({ kind, ...host }: EmbedUrlInput): string {
  * bubble would be.
  */
 export function conciergeUrl(host: Omit<EmbedUrlInput, 'kind'>): string {
-  return `${PLATFORM_ORIGIN}/c/${encodeURIComponent(CONCIERGE_PUBLIC_ID)}?${hostParams(host).toString()}`;
+  const params = hostParams(host);
+  // The Ask BIS panel draws its own header and close, so the chat page drops
+  // its own when framed (bis-platform#180). Without this it stacks a second
+  // brand row and a second × under the panel's.
+  params.set('chrome', 'bare');
+  return `${PLATFORM_ORIGIN}/c/${encodeURIComponent(CONCIERGE_PUBLIC_ID)}?${params.toString()}`;
+}
+
+/**
+ * A suggested question, posted into the chat frame. The chat page sends it
+ * exactly as if the visitor had typed it, and accepts it only from its parent
+ * window at the origin of the `page` this site handed it (bis-platform#180).
+ * Posted with the platform's origin as the target, so it can never reach a
+ * frame that has navigated anywhere else.
+ */
+export const ASK_MESSAGE_TYPE = 'bis-concierge-ask';
+export function askMessage(text: string) {
+  return { type: ASK_MESSAGE_TYPE, text } as const;
 }
 
 /**

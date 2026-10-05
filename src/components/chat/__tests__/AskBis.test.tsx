@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import en from '../../../../messages/en.json';
 import es from '../../../../messages/es.json';
@@ -49,6 +49,8 @@ describe('AskBis', () => {
     expect(`${src.origin}${src.pathname}`).toBe('https://app.bis-rgv.com/c/b2swbbu52be8');
     expect(src.searchParams.get('locale')).toBe('es');
     expect(src.searchParams.get('theme')).toBe('dark');
+    // The panel draws its own header and close; the chat must not stack its own.
+    expect(src.searchParams.get('chrome')).toBe('bare');
     expect(screen.queryByRole('dialog')).toBeNull(); // hidden until opened
   });
 
@@ -124,5 +126,46 @@ describe('AskBis', () => {
     fireEvent.click(launcher());
     fireEvent.keyDown(screen.getByRole('tab', { name: 'Type' }), { key: 'ArrowRight' });
     expect(screen.getByRole('tab', { name: 'Talk', selected: true })).toBe(document.activeElement);
+  });
+
+  it('suggests questions only once the chat has loaded, posts a tap to the platform alone, then steps aside', () => {
+    render(ui());
+    fireEvent.click(launcher());
+    // Before the frame loads, a posted question would be lost: no chips yet.
+    expect(screen.queryByRole('group', { name: 'Suggested questions' })).toBeNull();
+    const el = frame()!;
+    fireEvent.load(el);
+    const group = screen.getByRole('group', { name: 'Suggested questions' });
+    const first = en.chat.chips.top[0];
+    const post = vi.spyOn(el.contentWindow!, 'postMessage').mockImplementation(() => {});
+    fireEvent.click(within(group).getByRole('button', { name: first }));
+    // MUTATION: post with "*" — a frame that navigated elsewhere would get it.
+    expect(post).toHaveBeenCalledWith({ type: 'bis-concierge-ask', text: first }, 'https://app.bis-rgv.com');
+    expect(screen.queryByRole('group', { name: 'Suggested questions' })).toBeNull();
+  });
+
+  it('suggests the questions for the section being read', () => {
+    let fire: (target: Element) => void = () => {};
+    class IO {
+      constructor(cb: (e: Array<{ isIntersecting: boolean; target: Element }>) => void) {
+        fire = (target) => cb([{ isIntersecting: true, target }]);
+      }
+      observe() {} disconnect() {} unobserve() {}
+    }
+    vi.stubGlobal('IntersectionObserver', IO);
+    const sofia = document.createElement('section');
+    sofia.setAttribute('data-ask-section', 'sofia');
+    document.body.appendChild(sofia);
+    try {
+      render(ui('es'));
+      fireEvent.click(launcher());
+      fireEvent.load(frame()!);
+      act(() => fire(sofia));
+      const group = screen.getByRole('group', { name: 'Preguntas sugeridas' });
+      expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual(es.chat.chips.sofia);
+    } finally {
+      sofia.remove();
+      vi.unstubAllGlobals();
+    }
   });
 });

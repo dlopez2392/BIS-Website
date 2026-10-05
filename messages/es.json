@@ -463,7 +463,38 @@
     "tabsLabel": "Cómo preguntar",
     "frameTitle": "Chat del asistente de BIS",
     "talkTitle": "Habla con Sofía",
-    "talkBlurb": "Habla con Sofía desde tu navegador, la misma recepcionista que contesta nuestro teléfono."
+    "talkBlurb": "Habla con Sofía desde tu navegador, la misma recepcionista que contesta nuestro teléfono.",
+    "chipsLabel": "Preguntas sugeridas",
+    "chips": {
+      "top": [
+        "¿Qué hace Sofía fuera de horario?",
+        "¿Qué incluye la evaluación gratuita?",
+        "¿Puede contestar en español y en inglés?"
+      ],
+      "platform": [
+        "¿Qué pasa con una llamada fuera de horario?",
+        "¿Qué trae el correo del lunes?",
+        "¿Mi equipo también puede usar el tablero?"
+      ],
+      "services": [
+        "¿Pueden ayudar con Microsoft 365?",
+        "¿Hacen sitios web en español?",
+        "¿Dónde nos ahorraría más tiempo la IA?"
+      ],
+      "sofia": [
+        "¿Sofía puede agendar citas?",
+        "¿Cambia de idioma a media llamada?",
+        "¿Y si alguien quiere hablar con una persona?"
+      ],
+      "prism": [
+        "¿Mis datos bancarios están seguros en Prism?",
+        "¿Prism cuesta algo?"
+      ],
+      "founder": [
+        "¿Con quién voy a trabajar?",
+        "¿Trabajan fuera de Harlingen?"
+      ]
+    }
   },
   "insights": {
     "heading": "Perspectivas",
