@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   embedUrl, parseEmbedMessage, publicPageUrl, PLATFORM_ORIGIN, BOOKING_PUBLIC_ID, FORM_PUBLIC_IDS,
-  conciergeUrl, isConciergeClose, CONCIERGE_REFRESH_MS,
+  conciergeUrl, isConciergeClose, CONCIERGE_REFRESH_MS, askMessage,
 } from '../platform';
 
 describe('embedUrl', () => {
@@ -113,5 +113,11 @@ describe('isConciergeClose', () => {
     expect(isConciergeClose({ type: 'bis-concierge-closed' })).toBe(false);
     expect(isConciergeClose('bis-concierge-close')).toBe(false);
     expect(isConciergeClose(null)).toBe(false);
+  });
+});
+
+describe('askMessage', () => {
+  it('is the exact shape the chat page accepts (bis-platform#180)', () => {
+    expect(askMessage('Hi')).toEqual({ type: 'bis-concierge-ask', text: 'Hi' });
   });
 });
