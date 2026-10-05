@@ -343,6 +343,9 @@ a.hm-twin:hover { color: var(--color-ink); }
   transform-origin: bottom right; animation: ask-in .25s ease both;
 }
 .ask-panel[hidden] { display: none; }
+/* The chat frame needs the full height; Sofía's tab is a button and a few
+   lines, so the panel fits it rather than framing an empty column. */
+.ask-panel:has(.ask-talk:not([hidden])) { height: auto; }
 :root:not(.dark) .ask-panel { box-shadow: 0 30px 80px -30px rgba(var(--sig-a), .35); }
 @keyframes ask-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
 @supports not (backdrop-filter: blur(1px)) {
