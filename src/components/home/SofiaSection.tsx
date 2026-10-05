@@ -31,6 +31,9 @@ export function SofiaSection({ heading, idle, talking, connected }: {
     const Ctx = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!Ctx) return;
     const ac = new Ctx();
+    // Created after the visitor pressed Start, but some browsers still begin
+    // a context suspended; a suspended analyser reads silence forever.
+    void ac.resume().catch(() => {});
     const analyser = ac.createAnalyser();
     analyser.fftSize = 512;
     ac.createMediaStreamSource(stream).connect(analyser);
@@ -93,6 +96,8 @@ export function SofiaSection({ heading, idle, talking, connected }: {
       redraw.observe(root, { attributes: true, attributeFilter: ['class'] });
       return () => redraw.disconnect();
     }
+    draw(0);
+    if (typeof IntersectionObserver === 'undefined') return;
     // Only animate while the orb is on screen.
     let onScreen = false;
     const io = new IntersectionObserver(([en]) => {
@@ -104,7 +109,6 @@ export function SofiaSection({ heading, idle, talking, connected }: {
       if (time - last > 33) { draw(time); last = time; }
       if (onScreen) raf = requestAnimationFrame(frame);
     };
-    draw(0);
     io.observe(cv);
     return () => { cancelAnimationFrame(raf); io.disconnect(); };
   }, []);

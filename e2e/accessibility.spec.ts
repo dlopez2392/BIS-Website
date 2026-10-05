@@ -56,10 +56,9 @@ for (const [name, path] of PAGES) {
 
 /**
  * The same sweep in light mode — a visitor's choice from the toggle, no
- * longer the default — on the home page in both languages and the two
- * surfaces that carry the site's own dark ground inside a light page.
+ * longer the default, but still a theme every page has to pass in.
  */
-for (const [name, path] of [['home', '/en'], ['home (ES)', '/es'], ['industries', '/en/industries'], ['not found', '/en/no-such-page']] as const) {
+for (const [name, path] of PAGES) {
   test(`${name} has no WCAG A/AA violations in light mode`, async ({ page }) => {
     await page.addInitScript(() => { try { localStorage.setItem('theme', 'light'); } catch { /* private mode */ } });
     await page.goto(path);

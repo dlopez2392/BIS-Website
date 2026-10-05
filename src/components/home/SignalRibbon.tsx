@@ -9,7 +9,8 @@ import { useEffect, useRef } from 'react';
  *
  * Cheap on purpose: ~30 frames a second, a device-pixel ratio capped at 1.5,
  * and nothing drawn while the tab is hidden. Under reduced motion it draws
- * one still frame and redraws only on scroll and resize — no drift.
+ * one still frame, at a fixed height, and redraws only on resize or a theme
+ * change — no drift and nothing tied to the scroll.
  *
  * The colours come from `--sig-a`/`--sig-b`/`--sig-strength`, so the light
  * theme's dimmer ribbon is a token, not a branch here.
@@ -37,8 +38,10 @@ export function SignalRibbon() {
       const b = css.getPropertyValue('--sig-b').trim();
       const k = parseFloat(css.getPropertyValue('--sig-strength')) || 1;
       ctx.clearRect(0, 0, W, H);
+      // Under reduced motion the ribbon holds one height: following the
+      // scroll would be scroll-linked movement for someone who asked for none.
       const span = Math.max(1, root.scrollHeight - window.innerHeight);
-      const sy = window.scrollY / span;
+      const sy = reduced ? 0 : window.scrollY / span;
       const baseY = H * (0.26 + 0.5 * (0.5 - 0.5 * Math.cos(sy * Math.PI * 3)));
       ctx.globalCompositeOperation = root.classList.contains('dark') ? 'lighter' : 'source-over';
       const strands: Array<[number, number]> = [[64 * dpr, 0.05], [26 * dpr, 0.09], [9 * dpr, 0.16], [2.2 * dpr, 0.5]];
@@ -84,7 +87,6 @@ export function SignalRibbon() {
 
     if (reduced) {
       still();
-      window.addEventListener('scroll', still, { passive: true });
     } else {
       raf = requestAnimationFrame(frame);
     }
@@ -92,7 +94,6 @@ export function SignalRibbon() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', onResize);
-      window.removeEventListener('scroll', still);
       themeWatch.disconnect();
     };
   }, []);

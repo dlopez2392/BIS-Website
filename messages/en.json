@@ -70,7 +70,6 @@
     "prismTitle": "Prism, a personal finance app anyone can use.",
     "prismBody": "The people who build the platform built this too: every account in one picture, what's safe to spend before payday, and your balance 60 days ahead. Open the live demo; no sign-up needed.",
     "prismDemo": "See the live demo",
-    "prismAlt": "Prism's overview screen: net worth, what's safe to spend before payday, and this month's spending",
     "statusLine": "Sofía is answering {phone} right now",
     "call": {
       "label": "A sample after-hours call, answered by Sofía",
@@ -117,7 +116,8 @@
     "orbLive": "Connected",
     "checklistLine": "Not ready to talk yet?",
     "insightsMore": "All insights",
-    "heroTalk": "Talk to Sofía"
+    "heroTalk": "Talk to Sofía",
+    "prismNewTab": "opens in a new tab"
   },
   "services": {
     "title": "What we do.",

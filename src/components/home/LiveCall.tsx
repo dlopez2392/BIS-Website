@@ -16,6 +16,8 @@ export interface LiveCallStrings {
 interface Line { id: number; who: Speaker; text: string; typing?: boolean }
 
 interface CallState {
+  /** Which playback wrote this state (`lang:run`), so a new one starts empty. */
+  key: string;
   lines: Line[];
   seconds: number;
   ended: boolean;
@@ -29,12 +31,13 @@ const FIELDS = 4;
 
 function finished(lang: CallLang): CallState {
   return {
+    key: 'finished',
     lines: finishedLines(lang).map(([who, text], id) => ({ id, who, text })),
     seconds: CALL_SECONDS, ended: true, crmOn: true, filled: FIELDS, monday: MONDAY_AFTER,
   };
 }
 
-const EMPTY: CallState = { lines: [], seconds: 0, ended: false, crmOn: false, filled: 0, monday: MONDAY_BEFORE };
+const EMPTY: CallState = { key: '', lines: [], seconds: 0, ended: false, crmOn: false, filled: 0, monday: MONDAY_BEFORE };
 
 class Stale extends Error {}
 
@@ -68,7 +71,12 @@ export function LiveCall({ strings, initialLang = 'es' }: { strings: LiveCallStr
   useEffect(() => {
     const el = box.current;
     if (!el || typeof IntersectionObserver === 'undefined') return;
-    const io = new IntersectionObserver(([en]) => setVisible(en.isIntersecting), { threshold: 0.25 });
+    const io = new IntersectionObserver(([en]) => {
+      setVisible(en.isIntersecting);
+      // Scrolled away: the next time it is on screen is a new playback, so it
+      // starts from the top rather than resuming a half-typed line.
+      if (!en.isIntersecting) setRun((r) => r + 1);
+    }, { threshold: 0.25 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -76,10 +84,13 @@ export function LiveCall({ strings, initialLang = 'es' }: { strings: LiveCallStr
   useEffect(() => {
     if (!motion || !visible) return;
     let live = true;
+    const key = `${lang}:${run}`;
     const wait = (ms: number) => new Promise<void>((res, rej) => {
       setTimeout(() => (live ? res() : rej(new Stale())), ms);
     });
-    const patch = (fn: (s: CallState) => CallState) => { if (live) setState(fn); };
+    const patch = (fn: (s: CallState) => CallState) => {
+      if (live) setState((s) => ({ ...fn(s.key === key ? s : { ...EMPTY, key }), key }));
+    };
     let nextId = 0;
     const push = (line: Omit<Line, 'id'>) => {
       const id = nextId++;
@@ -97,8 +108,6 @@ export function LiveCall({ strings, initialLang = 'es' }: { strings: LiveCallStr
     }, 280);
 
     (async () => {
-      await wait(0);
-      patch(() => EMPTY);
       await wait(500);
       for (const [who, text] of SAMPLE_CALLS[lang]) {
         if (who === 'sofia') {
@@ -132,9 +141,11 @@ export function LiveCall({ strings, initialLang = 'es' }: { strings: LiveCallStr
   }, [lang, run, motion, visible]);
 
   // Off screen or under reduced motion, the call is simply finished — derived,
-  // not stored, so there is no state to reset when playback stops.
+  // not stored. While playing, a state written by an earlier playback (another
+  // language, a replay, a previous pass on screen) is never shown: the new
+  // one starts empty from its first frame.
   const playing = motion && visible;
-  const view = playing ? state : finished(lang);
+  const view = !playing ? finished(lang) : state.key === `${lang}:${run}` ? state : EMPTY;
   const moved = view.monday === MONDAY_AFTER;
   const fill = (i: number) => String(view.filled > i);
 
@@ -193,9 +204,13 @@ export function LiveCall({ strings, initialLang = 'es' }: { strings: LiveCallStr
             </button>
           ))}
         </div>
-        <button type="button" className="hm-btn hm-btn-ghost hm-btn-sm" onClick={() => setRun((r) => r + 1)}>
-          {strings.replay}
-        </button>
+        {/* Under reduced motion the call is always shown finished, so there
+            is nothing to replay. */}
+        {motion ? (
+          <button type="button" className="hm-btn hm-btn-ghost hm-btn-sm" onClick={() => setRun((r) => r + 1)}>
+            {strings.replay}
+          </button>
+        ) : null}
       </figcaption>
     </figure>
   );

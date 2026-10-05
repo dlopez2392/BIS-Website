@@ -4,6 +4,7 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
 } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from '@/i18n/navigation';
 import { useTheme } from 'next-themes';
 import { X } from 'lucide-react';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
@@ -51,7 +52,6 @@ function AskBisPanel() {
 
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState<Tab>('type');
-  const [talkSeen, setTalkSeen] = useState(false);
   const [compact, setCompact] = useState(false);
   const [frameKey, setFrameKey] = useState(0);
   const mountedAt = useRef(0);
@@ -78,7 +78,6 @@ function AskBisPanel() {
 
   const close = useCallback(() => {
     setOpen(false);
-    setTalkSeen(false);
     launcher.current?.focus();
   }, []);
 
@@ -95,7 +94,7 @@ function AskBisPanel() {
   useEffect(() => {
     if (!open) return;
     const id = window.setTimeout(() => {
-      if (tab === 'type') frame.current?.focus();
+      if (tab === 'type') (frame.current ?? tabType.current)?.focus();
       else tabTalk.current?.focus();
     }, 30);
     return () => window.clearTimeout(id);
@@ -121,7 +120,10 @@ function AskBisPanel() {
   }, [close]);
 
   // Over the home page's hero on a phone, the launcher shrinks to its orb so
-  // it does not sit on the headline.
+  // it does not sit on the headline. Re-run on every navigation: this lives
+  // in the layout, which persists, so a visitor who arrives on another page
+  // and then taps the logo meets a hero that did not exist at mount.
+  const pathname = usePathname();
   useEffect(() => {
     const hero = document.getElementById('hero');
     if (!hero || typeof IntersectionObserver === 'undefined') return;
@@ -129,13 +131,10 @@ function AskBisPanel() {
       setCompact(en.isIntersecting && window.innerWidth < 760);
     }, { threshold: 0.35 });
     io.observe(hero);
-    return () => io.disconnect();
-  }, []);
+    return () => { io.disconnect(); setCompact(false); };
+  }, [pathname]);
 
-  const select = (next: Tab) => {
-    setTab(next);
-    if (next === 'talk') setTalkSeen(true);
-  };
+  const select = (next: Tab) => setTab(next);
   const onTabKey = (e: ReactKeyboardEvent) => {
     if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
     e.preventDefault();
@@ -208,11 +207,10 @@ function AskBisPanel() {
 
         <div id={talkId} className="ask-pane ask-talk" role="tabpanel" aria-labelledby={`${talkId}-tab`} hidden={tab !== 'talk'}>
           <p>{t('talkBlurb')}</p>
-          {/* Mounted only once the tab has been opened, and unmounted when
-              the panel closes: closing the panel ends a live conversation
-              rather than leaving her voice playing with no visible way to
-              stop it. */}
-          {talkSeen ? <TalkToSofia placement="ask" bare /> : null}
+          {/* Mounted only while this tab is showing in an open panel: closing
+              the panel or switching to Type ends a live conversation rather
+              than leaving her voice playing with no visible way to stop it. */}
+          {open && tab === 'talk' ? <TalkToSofia placement="ask" bare /> : null}
         </div>
       </section>
     </div>

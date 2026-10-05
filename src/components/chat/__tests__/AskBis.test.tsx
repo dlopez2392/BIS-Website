@@ -106,12 +106,15 @@ describe('AskBis', () => {
     expect(frame()).toBe(first);
   });
 
-  it('puts Sofía on the Talk tab, only once it is opened, and ends her when the panel closes', () => {
+  it('puts Sofía on the Talk tab only while it shows: switching to Type or closing ends her', () => {
     render(ui());
     fireEvent.click(launcher());
     expect(screen.queryByTestId('talk')).toBeNull();
     fireEvent.click(screen.getByRole('tab', { name: 'Talk' }));
     expect(screen.getByTestId('talk').dataset.placement).toBe('ask');
+    fireEvent.click(screen.getByRole('tab', { name: 'Type' }));
+    expect(screen.queryByTestId('talk')).toBeNull();
+    fireEvent.click(screen.getByRole('tab', { name: 'Talk' }));
     fireEvent.click(screen.getByRole('button', { name: 'Close' }));
     expect(screen.queryByTestId('talk')).toBeNull();
   });

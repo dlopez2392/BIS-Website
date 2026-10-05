@@ -317,7 +317,8 @@ a.hm-twin:hover { color: var(--color-ink); }
   font: inherit; font-weight: 600; font-size: 15px; transition: padding .25s, gap .25s, transform .15s;
 }
 .ask-launch:hover { transform: translateY(-1px); }
-.ask-launch[aria-expanded="true"] { opacity: 0; pointer-events: none; }
+/* visibility, not opacity: a hidden launcher must also leave the tab order. */
+.ask-launch[aria-expanded="true"] { visibility: hidden; }
 .ask-launch[data-compact="true"] { padding: 0 7px; gap: 0; }
 .ask-launch[data-compact="true"] .ask-word { width: 0; overflow: hidden; }
 .ask-word { white-space: nowrap; }

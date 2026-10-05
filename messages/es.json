@@ -70,7 +70,6 @@
     "prismTitle": "Prism, una app de finanzas personales que cualquiera puede usar.",
     "prismBody": "Quienes construyen la plataforma también hicieron esto: todas tus cuentas en una sola imagen, lo que puedes gastar antes del día de pago y tu saldo a 60 días. Abre la demo en vivo; no necesitas registrarte. Por ahora está solo en inglés.",
     "prismDemo": "Ver la demo en vivo",
-    "prismAlt": "Pantalla de resumen de Prism: patrimonio neto, lo que puedes gastar antes del día de pago y el gasto de este mes",
     "statusLine": "Sofía está contestando el {phone} ahora mismo",
     "call": {
       "label": "Una llamada de muestra fuera de horario, contestada por Sofía",
@@ -117,7 +116,8 @@
     "orbLive": "Conectada",
     "checklistLine": "¿Todavía no quieres hablar?",
     "insightsMore": "Todos los artículos",
-    "heroTalk": "Habla con Sofía"
+    "heroTalk": "Habla con Sofía",
+    "prismNewTab": "se abre en una pestaña nueva"
   },
   "services": {
     "title": "Qué hacemos.",

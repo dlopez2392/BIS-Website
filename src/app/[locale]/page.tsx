@@ -193,6 +193,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="hm-ctas">
               <a href={PRISM_URL} target="_blank" rel="noopener" className="hm-btn hm-btn-ghost">
                 {t('prismDemo')} <span aria-hidden="true">↗</span>
+                <span className="sr-only">({t('prismNewTab')})</span>
               </a>
             </div>
           </div>
@@ -201,13 +202,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section id="founder" className="hm-sec">
         <div className="hm-wrap">
-          <figure className={withPhoto ? 'hm-founder' : 'hm-founder hm-founder--solo'}>
+          <div className={withPhoto ? 'hm-founder' : 'hm-founder hm-founder--solo'}>
             <FounderPortrait locale={locale} className="h-auto w-full rounded-[18px] object-cover" />
-            <div>
+            <figure className="m-0">
               <blockquote>“{t('quote')}”</blockquote>
               <figcaption><strong>{t('quoteName')}</strong> · {t('quoteRole')}</figcaption>
-            </div>
-          </figure>
+            </figure>
+          </div>
         </div>
       </section>
 

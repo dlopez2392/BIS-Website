@@ -101,6 +101,15 @@ test.describe('phone', () => {
     }
   });
 
+  test('it shrinks over the hero after an in-site navigation home, too, not only on a fresh load', async ({ page }) => {
+    await page.goto('/es/services');
+    const button = page.locator('.ask-launch');
+    await expect(button).toHaveAttribute('data-compact', 'false');
+    await page.locator('header a[href="/es"]').first().click();
+    await expect(page).toHaveURL(/\/es$/);
+    await expect(button).toHaveAttribute('data-compact', 'true');
+  });
+
   test('the open panel is a full-screen sheet', async ({ page }) => {
     await page.goto('/es');
     await page.locator('.ask-launch').click();

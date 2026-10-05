@@ -68,8 +68,15 @@ export function TalkToSofia(
   }, []);
 
   // The microphone must not survive the component. A tab left open with a
-  // live track is both a privacy problem and a bill.
-  useEffect(() => () => stop('unmount'), [stop]);
+  // live track is both a privacy problem and a bill. `alive` covers the case
+  // `stop` cannot: an unmount while `start` is still awaiting (the ticket, the
+  // session, the mic prompt, the SDP answer), when there is nothing yet to
+  // close. `start` checks it after every await and tears down what it built.
+  const aliveRef = useRef(true);
+  useEffect(() => {
+    aliveRef.current = true;
+    return () => { aliveRef.current = false; stop('unmount'); };
+  }, [stop]);
 
   // Newest caption in view without yanking the whole page around.
   useEffect(() => {
@@ -105,6 +112,7 @@ export function TalkToSofia(
         body: JSON.stringify({}),
       });
       const ticketBody = await ticketRes.json().catch(() => null);
+      if (!aliveRef.current) return;
       const ticket = readTicketResponse(ticketRes.status, ticketBody);
       if (!ticket.ok) {
         setFailure(ticket.failure);
@@ -123,6 +131,7 @@ export function TalkToSofia(
         return;
       }
       const session = (await sessionRes.json()) as { value: string; maxSeconds: number };
+      if (!aliveRef.current) return;
 
       // Asked for only now — after we know there is a session to spend it on,
       // so nobody is prompted for their microphone and then told no.
@@ -130,8 +139,13 @@ export function TalkToSofia(
       try {
         stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       } catch (err) {
+        if (!aliveRef.current) return;
         setFailure(readMicError(err));
         setPhase('ended');
+        return;
+      }
+      if (!aliveRef.current) {
+        stream.getTracks().forEach((tr) => tr.stop());
         return;
       }
       streamRef.current = stream;
@@ -161,19 +175,24 @@ export function TalkToSofia(
         }
       };
 
+      // From here on the stream and the connection are in the refs, so an
+      // unmount's own `stop` has already closed them; just do not go live.
       const offer = await pc.createOffer();
       await pc.setLocalDescription(offer);
+      if (!aliveRef.current) return;
       const sdpRes = await fetch('https://api.openai.com/v1/realtime/calls', {
         method: 'POST',
         body: offer.sdp,
         headers: { Authorization: `Bearer ${session.value}`, 'Content-Type': 'application/sdp' },
       });
+      if (!aliveRef.current) return;
       if (!sdpRes.ok) {
         setFailure('unavailable');
         stop('visitor');
         return;
       }
       await pc.setRemoteDescription({ type: 'answer', sdp: await sdpRes.text() });
+      if (!aliveRef.current) return;
 
       const startedAt = Date.now();
       const max = session.maxSeconds;
@@ -192,6 +211,7 @@ export function TalkToSofia(
         if (pc.connectionState === 'closed') window.clearInterval(tick);
       });
     } catch {
+      if (!aliveRef.current) return;
       setFailure('unavailable');
       setPhase('ended');
     }
