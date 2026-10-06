@@ -87,3 +87,23 @@ test('the close lists the three newest insights, each resolving', async ({ page 
   await expect(page.locator('#close').getByRole('link', { name: 'Get the free checklist' }))
     .toHaveAttribute('href', '/en/resources/ai-readiness-checklist');
 });
+
+test('the missed-calls calculator shows calls first, and money only once the owner names a job value', async ({ page }) => {
+  await page.goto('/en');
+  const calc = page.locator('[data-calc]');
+  await calc.scrollIntoViewIfNeeded();
+  // 30 calls a week, a fifth missed: 26 a month ring out, and no dollar figure yet.
+  await expect(calc.locator('.calc-big')).toHaveText('26 calls a month ring out');
+  await expect(calc.locator('[data-calc-lost]')).toHaveCount(0);
+  await expect(calc).toContainText('Add your average job');
+
+  await calc.getByLabel('Your average job').fill('400');
+  // 26 missed x 1 in 4 x $400.
+  await expect(calc.locator('[data-calc-lost]')).toHaveText('$2,600 a month going to whoever picked up');
+  await expect(calc).toContainText('roughly $2,080 a month back');
+  await expect(calc).toContainText('only 1 in 4 missed calls');
+
+  // Nothing missed: the answer goes quiet rather than claiming zero.
+  await calc.getByLabel('How many you miss').fill('0');
+  await expect(calc).toContainText("Set how many calls you miss");
+});

@@ -1467,5 +1467,24 @@
     "filmTitle": "Todo el sistema, de principio a fin.",
     "filmBody": "Una llamada a las 9:15 de la noche, contestada en inglés o en español, anotada y en el tablero antes de la mañana, y el equipo de TI detrás de todo. Dale play para la versión de medio minuto; el recorrido de abajo es la versión larga.",
     "filmLabel": "Reproducir el video de 30 segundos de BIS"
+  },
+  "missedCalls": {
+    "title": "Lo que valen las llamadas que no contestas",
+    "body": "Tres números de tu semana. No se envía nada; la cuenta se hace aquí mismo, en la página.",
+    "callsLabel": "Llamadas de clientes por semana",
+    "callsHelp": "Solo clientes de verdad. Sin contar las llamadas automáticas.",
+    "missedLabel": "Cuántas no contestas",
+    "missedHelp": "En un trabajo, fuera de horario, en la otra línea.",
+    "jobLabel": "Tu trabajo promedio",
+    "jobHelp": "Lo que deja un trabajo típico. Este número no lo adivinamos por ti.",
+    "missedLine": "{n, plural, one {# llamada al mes se queda sin contestar} other {# llamadas al mes se quedan sin contestar}}",
+    "jobsLine": "Unos {n} trabajos al mes se van con quien sí contestó",
+    "lostLine": "{amount} al mes que se van con quien sí contestó",
+    "recoverLine": "Sofía contesta cerca del {rate}% de las llamadas que perderías: unos {amount} al mes de vuelta.",
+    "setJob": "Agrega tu trabajo promedio para ver cuánto vale.",
+    "empty": "Indica cuántas llamadas no contestas para ver cuánto valen.",
+    "assumption": "Contamos solo 1 de cada {share} llamadas perdidas como un trabajo que habrías ganado. La mayoría de los dueños diría que son más.",
+    "cta": "Reserva una evaluación gratuita",
+    "more": "El cálculo completo, con horas de vuelta"
   }
 }

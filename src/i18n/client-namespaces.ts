@@ -35,6 +35,7 @@ export const CLIENT_NAMESPACES = [
   'firstHourBack',  // FirstHourBack
   'footer',         // Footer
   'meta',           // not-found
+  'missedCalls',    // MissedCalls (home)
   'nav',            // Header, MobileNav, CallLink
   'resources',      // ResourceForm (resources.form)
   'securityCheck',  // SecurityCheckForm

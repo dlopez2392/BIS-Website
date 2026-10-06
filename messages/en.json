@@ -1467,5 +1467,24 @@
     "filmTitle": "The whole system, start to finish.",
     "filmBody": "A call at 9:15 at night, answered in English or Spanish, written down and on the board before morning, plus the IT team behind it. Press play for the half-minute version; the tour below is the long one.",
     "filmLabel": "Play the 30-second BIS video"
+  },
+  "missedCalls": {
+    "title": "What the calls you miss are worth",
+    "body": "Three numbers about your week. Nothing is sent anywhere; the answer is worked out right here on the page.",
+    "callsLabel": "Customer calls a week",
+    "callsHelp": "Real customers only. Leave out the robocalls.",
+    "missedLabel": "How many you miss",
+    "missedHelp": "On a job, after hours, on the other line.",
+    "jobLabel": "Your average job",
+    "jobHelp": "What a typical job brings in. We won't guess this one for you.",
+    "missedLine": "{n, plural, one {# call a month rings out} other {# calls a month ring out}}",
+    "jobsLine": "About {n} jobs a month go to whoever picked up",
+    "lostLine": "{amount} a month going to whoever picked up",
+    "recoverLine": "Sofía answers about {rate}% of the calls you'd miss: roughly {amount} a month back.",
+    "setJob": "Add your average job to see what that's worth.",
+    "empty": "Set how many calls you miss to see what they're worth.",
+    "assumption": "We count only 1 in {share} missed calls as a job you'd have won. Most owners would put it higher.",
+    "cta": "Book a free assessment",
+    "more": "The full estimate, with hours back"
   }
 }

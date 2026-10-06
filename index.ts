@@ -5,8 +5,8 @@
  *         video (default model, Seedance 2.5):  [--seconds 5] [--resolution 1080p] [--ratio 16:9]
  *         stills:  --model flux-pro/kontext/max/text-to-image [--ratio 16:9]
  *                  --model /v1/text2image/soul [--size 2048x1152] [--batch 1|4]
- *       npm run higgsfield -- --jobs art/brief.json
- *         runs every job in the file (see JOBS below) and saves each result.
+ *       npm run higgsfield -- --jobs art/brief.json [--only cta-band,og-plate]
+ *         runs every job in the file (or just the named ones) and saves each result.
  *   (= tsx --env-file=.env.local index.ts — Node 24 loads the env file natively,
  *    so no dotenv dependency.)
  *
@@ -80,7 +80,7 @@ const DEFAULT_PROMPT = [
 ].join(" ");
 
 /** `--flag value` out of argv; positional words become the prompt. */
-function parseArgs(argv: readonly string[]): Job & { jobs?: string } {
+function parseArgs(argv: readonly string[]): Job & { jobs?: string; only?: string } {
   const flags = new Map<string, string>();
   const words: string[] = [];
   for (let i = 0; i < argv.length; i += 1) {
@@ -116,6 +116,7 @@ function parseArgs(argv: readonly string[]): Job & { jobs?: string } {
     seed: flags.has("seed") ? Number(flags.get("seed")) : undefined,
     out: flags.get("out") ?? "",
     jobs: flags.get("jobs"),
+    only: flags.get("only"),
   };
 }
 
@@ -208,10 +209,20 @@ async function main(): Promise<void> {
   config({ credentials });
 
   if (args.jobs) {
-    const jobs = JSON.parse(await readFile(args.jobs, "utf8")) as Job[];
-    if (!Array.isArray(jobs) || jobs.length === 0) {
+    const all = JSON.parse(await readFile(args.jobs, "utf8")) as Job[];
+    if (!Array.isArray(all) || all.length === 0) {
       throw new Error(`${args.jobs} holds no jobs.`);
     }
+    // `--only cta-band,og-plate` runs those jobs and no others — a run costs
+    // credits per job, so the first pass can be the two that change the site
+    // most. An unknown name is an error, not a silent no-op: a typo would
+    // otherwise spend nothing and report success.
+    const wanted = (args.only ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+    const unknown = wanted.filter((n) => !all.some((j) => j.name === n));
+    if (unknown.length) {
+      throw new Error(`--only names no such job: ${unknown.join(", ")}`);
+    }
+    const jobs = wanted.length ? all.filter((j) => wanted.includes(j.name)) : all;
     // One at a time, deliberately: a failure names the job it was on, and a
     // partial run leaves every finished file on disk to skip next time.
     const failures: string[] = [];
