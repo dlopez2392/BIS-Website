@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
+import { InlineBooking } from '@/components/platform/InlineBooking';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -13,7 +13,6 @@ export default async function HowWeWorkPage({ params }: { params: Promise<{ loca
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'howWeWork' });
-  const c = await getTranslations('common');
   const steps = [1, 2, 3, 4] as const;
 
   return (
@@ -49,7 +48,7 @@ export default async function HowWeWorkPage({ params }: { params: Promise<{ loca
       <section className="mt-14">
         <h2 className="text-2xl font-extrabold text-ink">{t('ctaTitle')}</h2>
         <p className="mt-2 text-ink-muted">{t('ctaBody')}</p>
-        <Link href="/contact" className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-bold text-on-primary">{c('cta')}</Link>
+        <InlineBooking className="mt-6 max-w-3xl" />
       </section>
     </main>
   );

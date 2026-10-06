@@ -15,7 +15,6 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'capabilities' });
-  const c = await getTranslations('common');
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-20">
@@ -39,7 +38,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
       />
 
       <div className="mt-16">
-        <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
+        <CTASection title={t('ctaTitle')} body={t('ctaBody')} />
       </div>
     </main>
   );

@@ -16,7 +16,6 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('industries');
-  const c = await getTranslations('common');
   // Card copy is keyed off the same list the detail pages are generated from,
   // so a sixth industry cannot appear here without a page behind it.
   const CARD_KEYS = {
@@ -48,7 +47,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
           <IndustryCard label={t('otherLabel')} title={t('otherTitle')} body={t('otherBody')} href="/contact" />
         </div>
       </section>
-      <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
+      <CTASection title={t('ctaTitle')} body={t('ctaBody')} />
     </main>
   );
 }

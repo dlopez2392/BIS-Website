@@ -9,6 +9,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { CallLink } from '@/components/layout/CallLink';
 import { cityPages, getCity, type CitySector } from '@/lib/cities';
 import { Arrow } from '@/components/ui/Arrow';
+import { InlineBooking } from '@/components/platform/InlineBooking';
 
 export function generateStaticParams() {
   return cityPages.map((c) => ({ city: c.id }));
@@ -37,7 +38,6 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: 'cities' });
   const tNav = await getTranslations({ locale, namespace: 'nav' });
   const tArea = await getTranslations({ locale, namespace: 'serviceArea' });
-  const c = await getTranslations('common');
   const sectors = t.raw(`${city}.sectors`) as CitySector[];
   const others = cityPages.filter((o) => o.id !== entry.id);
 
@@ -104,9 +104,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: s
       <section className="mt-14">
         <h2 className="text-2xl font-extrabold text-ink">{t('shared.ctaTitle', { city: entry.name })}</h2>
         <p className="mt-2 text-ink-muted">{t('shared.ctaBody')}</p>
-        <Link href="/contact" className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-bold text-on-primary">
-          {c('cta')}
-        </Link>
+        <InlineBooking className="mt-6 max-w-3xl" />
       </section>
 
       <nav className="mt-16 border-t border-hairline pt-8">

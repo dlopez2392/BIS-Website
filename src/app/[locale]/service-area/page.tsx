@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { business, serviceAreaCities } from '@/lib/seo/business';
 import { cityPages } from '@/lib/cities';
+import { InlineBooking } from '@/components/platform/InlineBooking';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -15,7 +16,6 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ lo
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'serviceArea' });
-  const c = await getTranslations('common');
   const cities = serviceAreaCities;
 
   const jsonLd = {
@@ -60,7 +60,7 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ lo
       <section className="mt-12">
         <h2 className="text-2xl font-extrabold text-ink">{t('ctaTitle')}</h2>
         <p className="mt-2 text-ink-muted">{t('ctaBody')}</p>
-        <a href={`/${locale}/contact`} className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-bold text-on-primary">{c('cta')}</a>
+        <InlineBooking className="mt-6 max-w-3xl" />
       </section>
     </main>
   );

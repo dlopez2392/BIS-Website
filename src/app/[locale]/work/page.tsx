@@ -9,6 +9,7 @@ import { AdFilm } from '@/components/work/AdFilm';
 import { ThemedShot } from '@/components/work/ThemedShot';
 import { PlatformProof } from '@/components/marketing/PlatformProof';
 import { tourShot } from '@/lib/platform-tour';
+import { InlineBooking } from '@/components/platform/InlineBooking';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -20,7 +21,6 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'work' });
-  const c = await getTranslations('common');
   const p = await getTranslations({ locale, namespace: 'platform' });
 
   return (
@@ -157,9 +157,7 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
       <section className="mt-14">
         <h2 className="text-2xl font-extrabold text-ink">{t('ctaTitle')}</h2>
         <p className="mt-2 text-ink-muted">{t('ctaBody')}</p>
-        <Link href="/contact" className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-bold text-on-primary">
-          {c('cta')}
-        </Link>
+        <InlineBooking className="mt-6 max-w-3xl" />
       </section>
     </main>
   );

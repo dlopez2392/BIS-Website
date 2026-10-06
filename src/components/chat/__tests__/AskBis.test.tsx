@@ -6,6 +6,8 @@ import es from '../../../../messages/es.json';
 
 let theme: string | undefined = 'dark';
 vi.mock('next-themes', () => ({ useTheme: () => ({ resolvedTheme: theme }) }));
+const track = vi.fn();
+vi.mock('@vercel/analytics', () => ({ track: (...args: unknown[]) => track(...args) }));
 // The voice panel opens a WebRTC session; here it only has to be present.
 vi.mock('@/components/sofia/TalkToSofia', () => ({
   TalkToSofia: ({ placement }: { placement?: string }) => <div data-testid="talk" data-placement={placement} />,
@@ -167,5 +169,17 @@ describe('AskBis', () => {
       sofia.remove();
       vi.unstubAllGlobals();
     }
+  });
+
+  it('records an open and a suggestion tap, with the section, as the Phase 2 baseline', () => {
+    track.mockReset();
+    render(ui());
+    fireEvent.click(launcher());
+    expect(track).toHaveBeenCalledWith('ask_open', { section: 'top' });
+    const el = frame()!;
+    fireEvent.load(el);
+    vi.spyOn(el.contentWindow!, 'postMessage').mockImplementation(() => {});
+    fireEvent.click(within(screen.getByRole('group', { name: 'Suggested questions' })).getAllByRole('button')[0]!);
+    expect(track).toHaveBeenCalledWith('ask_suggestion', { section: 'top' });
   });
 });

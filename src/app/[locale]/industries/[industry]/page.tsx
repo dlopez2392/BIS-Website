@@ -40,7 +40,6 @@ export default async function IndustryPage(
 
   const t = await getTranslations({ locale, namespace: 'industries' });
   const tNav = await getTranslations({ locale, namespace: 'nav' });
-  const c = await getTranslations('common');
   const p = await getTranslations({ locale, namespace: 'platform' });
   const workflows = t.raw(`pages.${industry}.workflows`) as IndustryWorkflow[];
   const questions = t.raw(`pages.${industry}.faq`) as IndustryQuestion[];
@@ -186,7 +185,7 @@ export default async function IndustryPage(
         </ul>
       </section>
 
-      <CTASection title={t('shared.ctaTitle')} body={t('shared.ctaBody')} cta={c('cta')} />
+      <CTASection title={t('shared.ctaTitle')} body={t('shared.ctaBody')} />
     </main>
   );
 }
