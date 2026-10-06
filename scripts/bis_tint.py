@@ -1,9 +1,9 @@
 """
 The brand tint, once, for every generated asset.
 
-`hero-encode.py` (video) and `art-tint.py` (stills) both import from here, so
-the footage behind the headline and the plate on a service card can never
-drift apart: one angle, one set of stops, one opacity, one blend.
+`art-tint.py` imports from here, so every plate on the site wears one angle,
+one set of stops, one opacity, one blend. (The video hero that shared it was
+retired with the 2026-10 home redesign.)
 
 Assets are GENERATED GREYSCALE and tinted here on purpose. A model cannot hit
 #7c3aed on request; it can hit silver. Luminance is the only thing worth

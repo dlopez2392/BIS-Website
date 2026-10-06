@@ -47,7 +47,7 @@ export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): 
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': ["'self'", 'data:', 'blob:'],
     'font-src': ["'self'", 'data:'],
-    // The hero backdrop, served from /public/hero.
+    // The 30-second films under /public/video.
     'media-src': ["'self'"],
     // Chat and every server action are same-origin; the rest is analytics.
     // OPENAI_REALTIME is the SDP exchange that opens the voice session: the
