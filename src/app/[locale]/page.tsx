@@ -26,13 +26,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 /**
  * Where the three markers sit on `dashboard-dark.png`, in percent of the
- * capture: the week's calls KPI, the 9:15 PM Spanish call in recent activity,
- * and the bookings column. Re-shooting the capture means re-checking these.
+ * capture: the calls-answered KPI, the after-hours KPI, and the activity
+ * feed of bookings. Re-shooting the capture means re-checking these.
+ *
+ * Retaken 2026-10-06: the dashboard gained a "To do" row above the KPIs, which
+ * pushed the recent-calls table (where the second marker used to sit on the
+ * 9:15 PM Spanish call) below the bottom of the capture. That marker now sits
+ * on the after-hours tile, which is the same claim made by the number rather
+ * than by one row of it.
  */
 const SPOTS = [
-  { left: 36.5, top: 24 },
-  { left: 52, top: 94.5 },
-  { left: 80, top: 61 },
+  { left: 34.5, top: 46 },
+  { left: 71, top: 42 },
+  { left: 80, top: 79 },
 ] as const;
 
 /**

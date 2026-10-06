@@ -68,7 +68,7 @@ test('each marker on the product capture explains itself, and Esc puts it away',
   await expect(marker).toHaveAttribute('aria-expanded', 'true');
   const note = shot.locator('#hm-spot-note');
   await expect(note).toBeVisible();
-  await expect(note).toContainText('9:15 PM, in Spanish, booked');
+  await expect(note).toContainText('After hours, still answered');
   await page.keyboard.press('Escape');
   await expect(note).toBeHidden();
   await expect(marker).toBeFocused();
