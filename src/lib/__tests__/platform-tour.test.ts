@@ -13,7 +13,8 @@ describe('the /platform tour', () => {
       for (const s of tourSections) {
         const sec = m.platform?.sections?.[s.id];
         expect(sec, `${locale}: platform.sections.${s.id} is missing`).toBeTruthy();
-        for (const key of ['kicker', 'title', 'body']) {
+        // `label` is drawn on the story frame while the step is read.
+        for (const key of ['kicker', 'label', 'title', 'body']) {
           expect(sec[key], `${locale}: platform.sections.${s.id}.${key}`).toBeTruthy();
         }
         // A quoted section carries the line AND where it came from — a quote
@@ -93,6 +94,22 @@ describe('the /platform tour', () => {
   it('is reachable from the nav in both languages', () => {
     for (const [locale, m] of Object.entries(locales)) {
       expect(m.nav?.platform, `${locale}: nav.platform`).toBeTruthy();
+    }
+  });
+
+  /**
+   * The story frame zooms to each step's focus. A point off the image, or a
+   * zoom so deep it shows a few pixels of one button, is a frame arguing for
+   * nothing — and a scale below 1 would shrink the capture inside the frame.
+   */
+  it('points every step\'s zoom inside its capture, at a readable depth', () => {
+    for (const s of tourSections) {
+      expect(s.focus.x, `${s.id}.focus.x`).toBeGreaterThanOrEqual(0);
+      expect(s.focus.x, `${s.id}.focus.x`).toBeLessThanOrEqual(100);
+      expect(s.focus.y, `${s.id}.focus.y`).toBeGreaterThanOrEqual(0);
+      expect(s.focus.y, `${s.id}.focus.y`).toBeLessThanOrEqual(100);
+      expect(s.focus.scale, `${s.id}.focus.scale`).toBeGreaterThanOrEqual(1);
+      expect(s.focus.scale, `${s.id}.focus.scale`).toBeLessThanOrEqual(2.5);
     }
   });
 

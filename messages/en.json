@@ -102,8 +102,8 @@
       "hint": "Sample account — invented company and data. Tap the numbers.",
       "s1t": "Calls answered this week",
       "s1b": "With the change from last week in plain view, so a quiet week never looks like a broken one.",
-      "s2t": "9:15 PM, in Spanish, booked",
-      "s2b": "The call from the top of the page. It came in after closing; Sofía answered in Spanish, wrote it down and put it on the calendar.",
+      "s2t": "After hours, still answered",
+      "s2b": "Calls that came in after closing — like the 9:15 PM one at the top of the page. Sofía answered each one, in Spanish when that is how it started.",
       "s3t": "Every booking, as it happens",
       "s3b": "What Sofía books lands here and on the calendar. Nothing lives on a sticky note.",
       "open": "Explain point {n}"
@@ -1261,6 +1261,7 @@
     "sections": {
       "spanish": {
         "kicker": "En español",
+        "label": "Booked · in Spanish",
         "title": "She answers in Spanish. Properly.",
         "body": "Half the Valley would rather do business in Spanish, and most answering services either do not, or do it badly enough that people hang up. Sofía takes the call in whichever language it starts in, books the appointment, and writes the whole conversation down in that language — so you can read it later even if you were not the one who answered.",
         "quote": "¿El aire prende y sopla, pero sale el aire tibio, o no prende nada?",
@@ -1268,21 +1269,25 @@
       },
       "calls": {
         "kicker": "Every call",
+        "label": "Spam and hang-ups, logged too",
         "title": "Written down — including the ones that were not worth your time.",
         "body": "Each call gets a summary, a full transcript and an outcome: booked, lead, message, hung up, spam. You see the sales pitch that got filtered and the caller who gave up after four seconds. That is how you know the rest of the numbers are real."
       },
       "pipeline": {
         "kicker": "Every lead",
+        "label": "Every lead, one board",
         "title": "Nothing lives on a sticky note.",
         "body": "An $89 diagnostic and a $14,200 rooftop job sit on the same board, and you can see at a glance which ones have gone quiet. No spreadsheet, no second system, no “I think somebody called them back.”"
       },
       "booking": {
         "kicker": "Your name, not ours",
+        "label": "Your logo, your hours",
         "title": "They book themselves, on a page that looks like you.",
         "body": "Your logo, your colour, your hours, your service names. A customer books a window without phoning anybody, and the only place our name appears is small type at the bottom. Send the link in a text or put it on your own site — it is the same page either way."
       },
       "report": {
         "kicker": "Monday morning",
+        "label": "Four numbers, every Monday",
         "title": "Four numbers, in words, readable on a phone.",
         "body": "Calls answered, leads captured, bookings, website visitors — each next to the week before. No charts to squint at and no arrows, because an arrow means nothing read aloud. If we did not measure something it is left out rather than shown as a zero that makes you think the phone is broken. And a quiet week still sends, so silence never leaves you wondering whether the product stopped working."
       }

@@ -3,8 +3,9 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { CTASection } from '@/components/ui/CTASection';
 import { TourShot } from '@/components/marketing/TourShot';
 import { TourSectionBlock } from '@/components/marketing/TourSectionBlock';
+import { TourStory } from '@/components/marketing/TourStory';
 import { pageMetadata } from '@/lib/seo/metadata';
-import { tourSections, heroShot, allShots, hasShot } from '@/lib/platform-tour';
+import { tourSections, heroShot, allShots, hasShot, shotSrc } from '@/lib/platform-tour';
 import { AdFilm } from '@/components/work/AdFilm';
 import { BIS_AD } from '@/lib/work';
 
@@ -80,9 +81,26 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
           </div>
         </section>
 
-        {tourSections.map((section) => (
-          <TourSectionBlock key={section.id} locale={locale} section={section} />
-        ))}
+        {/* One story, not five boxes: the steps scroll past a single pinned
+            frame that zooms to what each one is about (TourStory). Only the
+            steps whose capture is on disk get a frame. */}
+        <TourStory
+          caption={t('sampleCaption')}
+          frames={tourSections.filter((s) => hasShot(s.shot)).map((s) => ({
+            id: s.id,
+            src: shotSrc(s.shot),
+            width: s.shot.width,
+            height: s.shot.height,
+            alt: t(`alt.${s.id}`),
+            label: t(`sections.${s.id}.label`),
+            focus: s.focus,
+            labelTop: 'labelTop' in s ? s.labelTop : undefined,
+          }))}
+        >
+          {tourSections.map((section) => (
+            <TourSectionBlock key={section.id} locale={locale} section={section} />
+          ))}
+        </TourStory>
       </div>
 
       <div className="mt-8">

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import type { Focus } from './tour-pose';
 
 /**
  * The /platform tour — what a client's own workspace looks like, section by
@@ -39,8 +40,6 @@ export interface ShotSlot {
 export interface TourSection {
   id: string;
   shot: ShotSlot;
-  /** Renders the image first on wide screens, so the page alternates. */
-  reversed?: boolean;
   /**
    * A line of real interface copy, quoted as TEXT rather than only shown in
    * the picture. Present on the sections where the words themselves are the
@@ -48,6 +47,20 @@ export interface TourSection {
    * `platform.sections.<id>.quote`, with `quoteSource` naming where it is from.
    */
   quoted?: boolean;
+  /**
+   * Where the /platform story frame zooms while this step is being read: the
+   * part of the capture the words are about, in percent of the image (see
+   * `tour-pose.ts`). Re-check these whenever the captures are retaken — a
+   * focus that lands on the wrong panel is a zoom that argues for nothing.
+   * `platform.sections.<id>.label` names what it lands on.
+   */
+  focus: Focus;
+  /**
+   * Draw the frame's label at the top instead of the bottom, for a step whose
+   * point is at the foot of its capture — the call log's spam row sits where
+   * the label would otherwise cover exactly the thing it names.
+   */
+  labelTop?: boolean;
 }
 
 /**
@@ -60,11 +73,21 @@ export interface TourSection {
  * believable afterwards.
  */
 export const tourSections = [
-  { id: 'spanish', shot: { file: 'call-detail-es.png', width: 2560, height: 1600 }, quoted: true },
-  { id: 'calls', shot: { file: 'call-log.png', width: 2560, height: 1600 }, reversed: true },
-  { id: 'pipeline', shot: { file: 'pipeline.png', width: 2560, height: 1600 } },
-  { id: 'booking', shot: { file: 'booking-page.png', width: 1280, height: 1600 }, reversed: true },
-  { id: 'report', shot: { file: 'weekly-report.png', width: 1280, height: 1600 } },
+  // The transcript, both sides of it.
+  { id: 'spanish', shot: { file: 'call-detail-es.png', width: 2560, height: 1600 }, quoted: true,
+    focus: { x: 52, y: 72, scale: 1.5 } },
+  // Callers and outcomes, down to the spam and the hang-up.
+  { id: 'calls', shot: { file: 'call-log.png', width: 2560, height: 1600 },
+    focus: { x: 57, y: 70, scale: 1.3 }, labelTop: true },
+  // The board itself — the $89 diagnostic beside the bigger jobs.
+  { id: 'pipeline', shot: { file: 'pipeline.png', width: 2560, height: 1600 },
+    focus: { x: 58, y: 55, scale: 1.3 } },
+  // The client's own name and logo over the open times.
+  { id: 'booking', shot: { file: 'booking-page.png', width: 1280, height: 1600 },
+    focus: { x: 50, y: 27, scale: 1.8 } },
+  // The four numbers, in words.
+  { id: 'report', shot: { file: 'weekly-report.png', width: 1280, height: 1600 },
+    focus: { x: 50, y: 22, scale: 2 } },
 ] as const satisfies readonly TourSection[];
 
 export type TourSectionId = (typeof tourSections)[number]['id'];

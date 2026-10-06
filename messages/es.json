@@ -102,8 +102,8 @@
       "hint": "Cuenta de muestra — empresa y datos inventados. Toca los números.",
       "s1t": "Llamadas contestadas esta semana",
       "s1b": "Con el cambio contra la semana pasada a la vista, para que una semana tranquila nunca parezca una falla.",
-      "s2t": "9:15 PM, en español, agendada",
-      "s2b": "La llamada del inicio de la página. Llegó después del cierre; Sofía contestó en español, la anotó y la puso en el calendario.",
+      "s2t": "Fuera de horario, igual contestadas",
+      "s2b": "Llamadas que llegaron después del cierre — como la de las 9:15 PM al inicio de la página. Sofía contestó cada una, en español cuando así empezó.",
       "s3t": "Cada cita, al momento",
       "s3b": "Lo que Sofía agenda llega aquí y al calendario. Nada se queda en un papelito.",
       "open": "Explicar el punto {n}"
@@ -1261,6 +1261,7 @@
     "sections": {
       "spanish": {
         "kicker": "En español",
+        "label": "Agendada · en español",
         "title": "Contesta en español. Bien.",
         "body": "A la mitad del Valle le acomoda más hacer negocio en español, y la mayoría de los servicios de contestación no lo hacen, o lo hacen tan mal que la gente cuelga. Sofía toma la llamada en el idioma en que empieza, agenda la cita, y anota toda la conversación en ese idioma — para que la puedas leer después aunque no hayas sido tú quien contestó.",
         "quote": "¿El aire prende y sopla, pero sale el aire tibio, o no prende nada?",
@@ -1268,21 +1269,25 @@
       },
       "calls": {
         "kicker": "Cada llamada",
+        "label": "Spam y cuelgues, también anotados",
         "title": "Anotada — incluyendo las que no valían tu tiempo.",
         "body": "Cada llamada lleva su resumen, su transcripción completa y un resultado: agendada, prospecto, recado, colgó, spam. Ves la llamada de ventas que se filtró y al que se rindió a los cuatro segundos. Así sabes que los demás números son de verdad."
       },
       "pipeline": {
         "kicker": "Cada prospecto",
+        "label": "Cada prospecto, un tablero",
         "title": "Nada vive en un papelito.",
         "body": "Un diagnóstico de $89 y un trabajo de azotea de $14,200 están en el mismo tablero, y de un vistazo ves cuáles se quedaron callados. Sin hoja de cálculo, sin segundo sistema, sin «creo que alguien ya les habló»."
       },
       "booking": {
         "kicker": "Tu nombre, no el nuestro",
+        "label": "Tu logo, tus horarios",
         "title": "Se agendan solos, en una página que se ve como tú.",
         "body": "Tu logo, tu color, tus horarios, los nombres de tus servicios. El cliente aparta su cita sin llamarle a nadie, y nuestro nombre solo aparece en letra chica hasta abajo. Manda el enlace por mensaje o ponlo en tu propio sitio — es la misma página."
       },
       "report": {
         "kicker": "Lunes por la mañana",
+        "label": "Cuatro números, cada lunes",
         "title": "Cuatro números, en palabras, legibles desde el teléfono.",
         "body": "Llamadas contestadas, prospectos captados, citas agendadas y visitas al sitio — cada uno junto a la semana anterior. Sin gráficas que descifrar y sin flechitas, porque una flecha no dice nada si te la leen en voz alta. Si no medimos algo, se omite en lugar de aparecer como un cero que te hace pensar que el teléfono está descompuesto. Y una semana tranquila también se manda, para que el silencio nunca te deje con la duda de si el producto dejó de funcionar."
       }

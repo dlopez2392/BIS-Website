@@ -385,6 +385,60 @@ a.hm-twin:hover { color: var(--color-ink); }
   .ask-launch { transition: none; }
 }
 
+/* --- /platform: the tour told as one story --------------------------------
+   See TourStory.tsx. Everything below `data-live` only applies once the story
+   has hydrated on a wide screen; before that, and on a phone, each step is
+   words followed by its own capture, in one column. */
+.tour-inline { margin-top: 1.5rem; max-width: 48rem; }
+.tour-frame-col { display: none; }
+@media (min-width: 64rem) {
+  .tour[data-live] {
+    display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 4rem; align-items: start;
+  }
+  .tour[data-live] .tour-inline { display: none; }
+  .tour[data-live] .tour-frame-col { display: block; height: 100%; }
+  /* Tall enough that each step holds the middle of the screen for a while,
+     so the frame is not changing under the reader every few lines. */
+  .tour[data-live] [data-tour-step] {
+    min-height: 72vh; display: flex; flex-direction: column; justify-content: center;
+  }
+  .tour-frame { position: sticky; top: max(6rem, calc(50vh - 15rem)); }
+}
+.tour-view {
+  position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+  border-radius: 0.75rem; border: 1px solid var(--color-hairline);
+  background: var(--color-surface-alt);
+  box-shadow: 0 24px 60px -30px color-mix(in oklab, var(--color-primary) 45%, transparent);
+}
+.tour-layer {
+  position: absolute; inset: 0; opacity: 0; transform-origin: 50% 50%;
+  transition: opacity 360ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.tour-layer[data-active] { opacity: 1; }
+.tour-layer img { width: 100%; height: 100%; object-fit: contain; }
+.tour-label {
+  position: absolute; left: 12px; bottom: 12px; margin: 0;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; color: var(--color-ink);
+  background: color-mix(in oklab, var(--color-surface) 86%, transparent);
+  border: 1px solid var(--color-hairline);
+  backdrop-filter: blur(8px);
+}
+.tour-label[data-top] { bottom: auto; top: 12px; }
+.tour-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--color-accent); }
+.tour-count {
+  position: absolute; right: 12px; bottom: 12px; margin: 0;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+  color: var(--color-ink-muted);
+  padding: 4px 8px; border-radius: 6px;
+  background: color-mix(in oklab, var(--color-surface) 86%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-layer { transition: none; }
+}
+
 /* --- Moving between pages ---------------------------------------------
    `@view-transition` covers a full document load: a typed address, a link
    from a search result, a page opened in a new tab. Those are most of the
