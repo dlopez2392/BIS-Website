@@ -9,7 +9,18 @@ regenerated.
 
 ## The run
 
-    npm run higgsfield -- --jobs art/brief.json      # greyscale masters -> art/raw/
+**From GitHub (no key on your machine):** Actions → *Generate Señal art* →
+Run workflow. It reads the `HF_CREDENTIALS` repository secret, makes the jobs
+named in its box (the CTA band and the OG plate by default; blank for all
+twenty), and returns the takes as an artifact with `index.html`, a contact
+sheet showing each slot's four takes side by side. Pick one per slot, then tint
+the picks as below.
+
+**Locally:**
+
+    npm run higgsfield -- --jobs art/brief.json [--only cta-band,og-plate]
+                                                     # greyscale masters -> art/raw/
+    node scripts/art-sheet.mjs art/raw               # contact sheet -> art/raw/index.html
     python3 scripts/art-tint.py art/raw/<name>.png <name> 1 [--crop WxH]
                                                      # tinted WebP -> public/art/<name>.1.webp
 
