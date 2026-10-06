@@ -5,12 +5,11 @@ Tint a generated greyscale still and ship it as a site asset.
     python3 scripts/art-tint.py <source image> <name> <version> [--crop WxH] [--jpg]
     # -> public/art/<name>.<version>.webp   (or .jpg with --jpg, for the OG plate)
 
-Needs `pip install imageio-ffmpeg numpy` (the same as hero-encode.py); the
+Needs `pip install imageio-ffmpeg numpy`; the
 WebP is written by the project's own `sharp`, so nothing else is installed.
 
-The tint is scripts/bis_tint.py — the SAME arithmetic the hero footage wears,
-so a plate on a card and the aurora behind the headline are one family by
-construction. After the blend the still is composited over the site's dark
+The tint is scripts/bis_tint.py — one arithmetic for every plate, so a plate
+on a card and the CTA band's plate are one family by construction. After the blend the still is composited over the site's dark
 surface (#0b0a18), so its darkest pixel is the page it sits on and a plate has
 no visible seam in either theme.
 

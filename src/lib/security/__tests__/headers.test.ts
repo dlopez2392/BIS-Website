@@ -43,7 +43,7 @@ describe('contentSecurityPolicy', () => {
     expect(sources).toEqual(['https://va.vercel-scripts.com']);
   });
 
-  it('serves the hero video and the fonts from this origin only', () => {
+  it('serves the films and the fonts from this origin only', () => {
     const csp = contentSecurityPolicy();
     expect(directive(csp, 'media-src')).toEqual(["'self'"]);
     expect(directive(csp, 'font-src')).toEqual(["'self'", 'data:']);

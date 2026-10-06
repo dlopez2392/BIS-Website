@@ -10,15 +10,16 @@
  *   (= tsx --env-file=.env.local index.ts — Node 24 loads the env file natively,
  *    so no dotenv dependency.)
  *
- * With no prompt it renders DEFAULT_PROMPT, which is the hero backdrop brief:
- * see the note above it for why the footage is deliberately colourless.
+ * With no prompt it renders DEFAULT_PROMPT, the brief the retired video hero
+ * was cut from (the home page dropped it in the 2026-10 redesign); kept as a
+ * starting point for future footage, and colourless for the reason in the
+ * note above it.
  *
  * `--out` downloads the result next to you instead of only printing a URL,
- * because the generated URL expires and `public/hero/` is where the file has
- * to end up anyway. Then `python3 scripts/hero-encode.py <file> <version>`
- * tints it and writes the VP9 WebM + H.264 MP4 pair — with a NEW version
- * number: `next.config.ts` caches `/hero/:file*` immutably for a year, so a
- * replaced file at the same name is a stale byte nobody can flush.
+ * because the generated URL expires. A still then goes through
+ * `scripts/art-tint.py`, which writes a versioned file under `public/art/` —
+ * `next.config.ts` caches those immutably for a year, so a replaced file at
+ * the same name is a stale byte nobody can flush.
  *
  * CREDENTIALS. `HF_CREDENTIALS` is `key-id:key-secret` and lives in
  * `.env.local`, which `.gitignore`'s `.env*` rule already covers. It is read
@@ -58,9 +59,9 @@ const isSoul = (model: string) => /text2image\/soul/.test(model);
 /**
  * The hero backdrop brief.
  *
- * COLOURLESS ON PURPOSE. scripts/hero-encode.py lays the brand ramp
- * (violet -> cyan) over this footage with the W3C `color` blend at encode
- * time, which takes the frame's luminance and replaces its hue. Footage that
+ * COLOURLESS ON PURPOSE. The brand tint (scripts/bis_tint.py) lays the ramp
+ * (violet -> cyan) over generated assets with the W3C `color` blend, which
+ * takes the frame's luminance and replaces its hue. Footage that
  * arrives already coloured fights that and lands muddy; near-monochrome
  * footage takes the brand's own hue exactly. So the prompt asks for
  * silver/graphite, not violet.

@@ -45,16 +45,10 @@ const nextConfig: NextConfig = {
       },
       {
         // Files under /public are served with `max-age=0, must-revalidate` by
-        // default, so every returning desktop visitor made a round trip to
-        // revalidate a 3 MB video while the JS beside it was cached for a
-        // year. These names carry a version, so the URL changes when the
-        // footage does and an immutable cache can never serve stale bytes.
-        source: '/hero/:file*',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
-      },
-      {
-        // Same contract as /hero: art files carry a version in the name, so
-        // they are immutable for a year and a change is a new URL.
+        // default, so a returning visitor made a round trip to revalidate
+        // every asset while the JS beside it was cached for a year. Art files
+        // carry a version in the name, so they are immutable for a year and a
+        // change is a new URL — an immutable cache can never serve stale bytes.
         source: '/art/:file*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
