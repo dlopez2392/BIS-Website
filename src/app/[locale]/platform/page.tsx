@@ -32,7 +32,6 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'platform' });
-  const c = await getTranslations('common');
 
   return (
     <main>
@@ -87,7 +86,7 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
       </div>
 
       <div className="mt-8">
-        <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
+        <CTASection title={t('ctaTitle')} body={t('ctaBody')} />
       </div>
     </main>
   );

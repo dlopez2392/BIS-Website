@@ -16,7 +16,6 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('services');
-  const c = await getTranslations('common');
   const groups = [
     { id: SERVICE_ANCHORS.g1, title: t('g1Title'), body: t('g1Body'), proof: t('g1Proof'), bullets: t.raw('g1Bullets') as string[] },
     { id: SERVICE_ANCHORS.g2, title: t('g2Title'), body: t('g2Body'), proof: t('g2Proof'), bullets: t.raw('g2Bullets') as string[] },
@@ -43,7 +42,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
           </div>
         </div>
       </section>
-      <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
+      <CTASection title={t('ctaTitle')} body={t('ctaBody')} />
     </main>
   );
 }

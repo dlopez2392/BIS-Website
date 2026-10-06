@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from '@/i18n/navigation';
 import { useTheme } from 'next-themes';
 import { X } from 'lucide-react';
+import { track } from '@vercel/analytics';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { CONCIERGE_REFRESH_MS, PLATFORM_ORIGIN, askMessage, conciergeUrl, isConciergeClose, type Locale } from '@/lib/platform';
 
@@ -94,7 +95,10 @@ function AskBisPanel() {
       mountedAt.current = Date.now();
     }
     setOpen(true);
-  }, [src]);
+    // Measured so Phase 2's changes can be judged against a baseline: how
+    // often the assistant is opened at all, and from which part of the page.
+    track('ask_open', { section });
+  }, [src, section]);
 
   // Focus follows the visitor: into the chat so they can type, or onto the
   // Talk tab so the start button is one Tab away.
@@ -162,6 +166,7 @@ function AskBisPanel() {
   const frameId = `${frameKey}:${src}`;
   const ask = (text: string) => {
     frame.current?.contentWindow?.postMessage(askMessage(text), PLATFORM_ORIGIN);
+    track('ask_suggestion', { section });
     setAsked(true);
     frame.current?.focus();
   };

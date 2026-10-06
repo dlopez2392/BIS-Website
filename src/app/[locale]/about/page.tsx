@@ -16,7 +16,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('about');
-  const c = await getTranslations('common');
   const creds = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({ title: t(`cred${n}Title`), body: t(`cred${n}Body`) }));
   const steps = [
     { index: '01', title: t('m1Title'), body: t('m1Body') },
@@ -56,7 +55,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         {steps.map((s) => <MethodStep key={s.index} {...s} />)}
       </section>
 
-      <CTASection title={t('ctaTitle')} body={t('ctaBody')} cta={c('cta')} />
+      <CTASection title={t('ctaTitle')} body={t('ctaBody')} />
     </main>
   );
 }

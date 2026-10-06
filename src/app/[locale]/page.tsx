@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { AdFilm } from '@/components/work/AdFilm';
 import { FounderPortrait } from '@/components/marketing/FounderPortrait';
+import { InlineBooking } from '@/components/platform/InlineBooking';
 import { SignalRibbon } from '@/components/home/SignalRibbon';
 import { LiveCall } from '@/components/home/LiveCall';
 import { HotspotShot } from '@/components/home/HotspotShot';
@@ -52,7 +53,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const other = locale === 'en' ? 'es' : 'en';
   const t = await getTranslations('home');
   const tx = await getTranslations({ locale: other, namespace: 'home' });
-  const c = await getTranslations('common');
+  const cc = await getTranslations('contact');
   const s = await getTranslations('services');
   const sx = await getTranslations({ locale: other, namespace: 'services' });
   const p = await getTranslations({ locale, namespace: 'platform' });
@@ -221,10 +222,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <Twin text={tx('ctaTitle')} locale={locale} size="display" hash="close" />
           </div>
           <p className="hm-lede">{t('ctaBody')}</p>
-          <div className="hm-ctas">
-            <Link href="/contact" className="hm-btn hm-btn-primary">{c('cta')}</Link>
-            <a href={tel} className="hm-num">{phone}</a>
-          </div>
+          <InlineBooking className="max-w-3xl" />
+          <p className="hm-lede">
+            {cc('callHeading')}{' '}
+            <a href={tel} className="hm-more">{phone}</a>
+          </p>
           <p className="hm-lede">
             {t('checklistLine')}{' '}
             <Link href="/resources/ai-readiness-checklist" className="hm-more">{r('home.ctaButton')}</Link>
