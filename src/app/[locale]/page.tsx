@@ -9,6 +9,7 @@ import { LiveCall } from '@/components/home/LiveCall';
 import { HotspotShot } from '@/components/home/HotspotShot';
 import { SofiaSection } from '@/components/home/SofiaSection';
 import { Twin } from '@/components/home/Twin';
+import { MissedCalls } from '@/components/home/MissedCalls';
 import { heroShot, hasShot, shotSrc } from '@/lib/platform-tour';
 import { hasPhoto } from '@/lib/photos';
 import { PRISM_AD, PRISM_URL } from '@/lib/work';
@@ -60,6 +61,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations('home');
   const tx = await getTranslations({ locale: other, namespace: 'home' });
   const cc = await getTranslations('contact');
+  const mc = await getTranslations('missedCalls');
+  const mcx = await getTranslations({ locale: other, namespace: 'missedCalls' });
   const s = await getTranslations('services');
   const sx = await getTranslations({ locale: other, namespace: 'services' });
   const p = await getTranslations({ locale, namespace: 'platform' });
@@ -172,6 +175,21 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <p className="mt-7">
             <Link href="/services" className="hm-more">{t('svcMore')} <span aria-hidden="true">→</span></Link>
           </p>
+        </div>
+      </section>
+
+      {/* What the calls you miss are worth — just before the section that
+          answers them, so the number and the fix sit side by side. */}
+      <section id="missed-calls" data-ask-section="sofia" className="hm-sec">
+        <div className="hm-wrap">
+          <div className="hm-head">
+            <div>
+              <h2 className="hm-h2">{mc('title')}</h2>
+              <Twin text={mcx('title')} locale={locale} size="h2" hash="missed-calls" />
+            </div>
+            <p className="hm-lede">{mc('body')}</p>
+          </div>
+          <MissedCalls />
         </div>
       </section>
 
