@@ -7,7 +7,11 @@ import { breadcrumbSchema, BUSINESS_ID } from '@/lib/seo/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { CTASection } from '@/components/ui/CTASection';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
-import { industryPages, getIndustry, type IndustryWorkflow, type IndustryQuestion } from '@/lib/industries';
+import {
+  industryPages, getIndustry,
+  type IndustryWorkflow, type IndustryQuestion, type IndustryArtifact as Artifact,
+} from '@/lib/industries';
+import { IndustryArtifact } from '@/components/marketing/IndustryArtifact';
 import { cityPages } from '@/lib/cities';
 import { PlatformProof } from '@/components/marketing/PlatformProof';
 import { tourShot } from '@/lib/platform-tour';
@@ -43,6 +47,7 @@ export default async function IndustryPage(
   const p = await getTranslations({ locale, namespace: 'platform' });
   const workflows = t.raw(`pages.${industry}.workflows`) as IndustryWorkflow[];
   const questions = t.raw(`pages.${industry}.faq`) as IndustryQuestion[];
+  const artifact = t.raw(`pages.${industry}.artifact`) as Artifact;
   const others = industryPages.filter((o) => o.id !== entry.id);
 
   // Scoped to this industry so each page claims the work it actually describes
@@ -121,6 +126,19 @@ export default async function IndustryPage(
         <p className="mt-3 text-sm">
           <Link href="/work" className="text-link underline">{t('shared.sofiaLink')}</Link>
         </p>
+      </section>
+
+      {/* The paragraph above says what lands on the owner's desk; this is it.
+          Proof, not a slide: the same principle /work runs on. */}
+      <section className="mx-auto max-w-4xl px-6 pt-14">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-accent">{t('shared.artifactHeading')}</h2>
+        <div className="mt-4">
+          <IndustryArtifact
+            artifact={artifact}
+            heading={t('shared.artifactHeading')}
+            caption={t('shared.artifactCaption')}
+          />
+        </div>
       </section>
 
       {/* Straight after the Sofía section, which is where this page has just

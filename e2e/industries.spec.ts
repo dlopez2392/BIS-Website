@@ -22,3 +22,21 @@ test('the industry and contact pages each keep their own Sofía heading', async 
   await page.goto('/es/contact');
   await expect(page.getByRole('heading', { name: '¿Tienes preguntas primero?' })).toBeVisible();
 });
+
+// Each industry shows what lands on the owner's desk, as real text, and says
+// it is a sample. Legal and medical pinned by content, both languages.
+test('every industry page shows its desk example, marked as a sample', async ({ page }) => {
+  for (const id of ['legal', 'medical', 'logistics', 'trades', 'agriculture']) {
+    await page.goto(`/en/industries/${id}`);
+    const example = page.locator('[data-industry-artifact]');
+    await expect(example).toHaveCount(1);
+    await expect(example).toContainText('Sample: invented names');
+  }
+  await page.goto('/en/industries/legal');
+  await expect(page.locator('[data-industry-artifact]')).toContainText('No legal advice given');
+  await page.goto('/es/industries/medical');
+  const thread = page.locator('[data-industry-artifact] ol li');
+  await expect(thread).toHaveCount(3);
+  await expect(thread.nth(1)).toHaveText('1');
+  await expect(thread.nth(0)).toHaveAttribute('lang', 'es');
+});

@@ -299,6 +299,47 @@ a.hm-twin:hover { color: var(--color-ink); }
   .hm-crm, .hm-crm dd, .hm-btn { transition: none; }
 }
 
+/* --- Industry pages: what lands on your desk --------------------------------
+   A document, not a card grid: one sheet with a mono header, labelled rows or
+   a short message thread, and a footnote saying what Sofía did NOT do. */
+.ind-art-sheet {
+  border: 1px solid var(--color-hairline); border-radius: 14px; background: var(--color-surface-alt);
+  overflow: hidden;
+}
+.ind-art-head {
+  display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; justify-content: space-between;
+  padding: 14px 20px; border-bottom: 1px solid var(--color-hairline);
+  background: color-mix(in oklab, var(--color-primary) 6%, transparent);
+}
+.ind-art-label { margin: 0; font-weight: 700; color: var(--color-ink); }
+.ind-art-meta { margin: 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--color-ink-muted); }
+.ind-art-rows { margin: 0; padding: 6px 20px; }
+.ind-art-rows > div {
+  display: grid; grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr); gap: 4px 20px;
+  padding: 10px 0; border-bottom: 1px dashed var(--color-hairline);
+}
+.ind-art-rows > div:last-child { border-bottom: 0; }
+.ind-art-rows dt { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink-muted); padding-top: 3px; }
+.ind-art-rows dd { margin: 0; color: var(--color-ink); }
+@media (max-width: 560px) { .ind-art-rows > div { grid-template-columns: 1fr; } }
+.ind-art-thread { list-style: none; margin: 0; padding: 18px 20px; display: grid; gap: 10px; }
+.ind-art-thread li {
+  max-width: 80%; padding: 10px 14px; border-radius: 16px; line-height: 1.45; color: var(--color-ink);
+  background: var(--color-surface); border: 1px solid var(--color-hairline); border-bottom-left-radius: 4px;
+}
+.ind-art-thread li[data-who="patient"] {
+  justify-self: end; border-bottom-left-radius: 16px; border-bottom-right-radius: 4px;
+  background: color-mix(in oklab, var(--color-primary) 14%, var(--color-surface)); font-weight: 600;
+}
+.ind-art-quote { margin: 0 20px 14px; padding: 12px 16px; border-left: 2px solid var(--color-link); }
+.ind-art-quote p { margin: 0; font-size: 1.05rem; color: var(--color-ink); }
+.ind-art-quote footer { margin-top: 6px; font-size: 13px; color: var(--color-ink-muted); }
+.ind-art-note { margin: 0 20px 12px; font-size: 14px; color: var(--color-ink-muted); }
+.ind-art-foot {
+  margin: 0; padding: 12px 20px; border-top: 1px solid var(--color-hairline);
+  font-size: 13px; color: var(--color-ink-muted);
+}
+
 /* --- Ask BIS: one entry point, for typing and for talking -----------------
    Replaces the platform loader's bubble on this site only. The conversation
    still lives in the platform's iframe; this is the chrome around it. */

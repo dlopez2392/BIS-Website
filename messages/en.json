@@ -197,7 +197,9 @@
       "platformKicker": "Inside the software",
       "platformTitle": "Answered in Spanish at 9 PM, booked before you woke up.",
       "platformBody": "Every call is recorded, summarised and filed in the same system — in whichever language it came in. This is the actual screen, not a mockup.",
-      "platformLink": "Look inside the platform"
+      "platformLink": "Look inside the platform",
+      "artifactHeading": "What lands on your desk",
+      "artifactCaption": "Sample: invented names and details, in the format you actually receive."
     },
     "pages": {
       "legal": {
@@ -233,7 +235,40 @@
             "q": "Can it handle Spanish-speaking callers properly?",
             "a": "Yes, and that is the point. It answers in the language the caller uses, in the register a person actually speaks, not a translation of an English script."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Intake sheet",
+          "meta": "Saturday 8:12 PM · call taken in Spanish",
+          "rows": [
+            {
+              "k": "Caller",
+              "v": "Marisol Treviño (sample)"
+            },
+            {
+              "k": "Matter",
+              "v": "Car accident on Oct 2; caller says the other driver ran a red light"
+            },
+            {
+              "k": "Injuries",
+              "v": "Neck and back pain; seen at urgent care the next day"
+            },
+            {
+              "k": "Already happened",
+              "v": "The other driver's insurer has called her twice"
+            },
+            {
+              "k": "Told the caller",
+              "v": "Consultations are free and last 30 minutes"
+            },
+            {
+              "k": "Booked",
+              "v": "Consultation, Tuesday 10:00 AM, in Spanish"
+            }
+          ],
+          "quote": "«Me están llamando del seguro del otro carro y no sé si debo hablar con ellos.»",
+          "quoteNote": "In her words: the insurer keeps calling, and she doesn't know whether to talk to them.",
+          "footnote": "No legal advice given, and nothing said about whether the firm will take the case."
+        }
       },
       "medical": {
         "metaTitle": "IT and AI for doctors and dentists, Rio Grande Valley",
@@ -268,7 +303,30 @@
             "q": "We already have a practice management system. Does this replace it?",
             "a": "No. It works around what you have. The assessment starts by looking at what you already pay for, because the cheapest improvement is usually a feature you own and are not using."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Appointment reminder, by text",
+          "meta": "Sent the day before · patient prefers Spanish",
+          "thread": [
+            {
+              "who": "office",
+              "lang": "es",
+              "text": "Hola Rosa, le recordamos su limpieza dental mañana jueves a las 10:00 AM. Traiga su identificación y su tarjeta del seguro. Responda 1 para confirmar o 2 para cambiar la hora."
+            },
+            {
+              "who": "patient",
+              "lang": "es",
+              "text": "1"
+            },
+            {
+              "who": "office",
+              "lang": "es",
+              "text": "¡Gracias, Rosa! Su cita queda confirmada. Nos vemos mañana."
+            }
+          ],
+          "translation": "In English: a reminder of tomorrow's 10:00 AM cleaning, what to bring, and 1 to confirm or 2 to move it. She replied 1, and the calendar updated itself.",
+          "footnote": "Patients who prefer English get the same message in English. Nothing clinical is ever discussed by text."
+        }
       },
       "logistics": {
         "metaTitle": "IT and AI for logistics and freight, Rio Grande Valley",
@@ -303,7 +361,38 @@
             "q": "Our brokers call at all hours from both sides of the border. Does that matter?",
             "a": "That is the case this is built for. The line is answered in whichever language the caller opens with, and the message reaches your dispatcher in the form they need it."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "After-hours check call",
+          "meta": "Tuesday 2:07 AM · call taken in English",
+          "rows": [
+            {
+              "k": "Driver",
+              "v": "Unit 14, Ramón (sample)"
+            },
+            {
+              "k": "Load",
+              "v": "Reefer, produce, delivering Dallas"
+            },
+            {
+              "k": "Where",
+              "v": "Northbound on I-69E past Raymondville"
+            },
+            {
+              "k": "Status",
+              "v": "Running 3 hours late after a long wait at the bridge"
+            },
+            {
+              "k": "Reefer",
+              "v": "Holding at 34°F, per the driver"
+            },
+            {
+              "k": "Next",
+              "v": "Dispatcher call-back booked for 6:30 AM to warn the receiver"
+            }
+          ],
+          "footnote": "Nothing urgent, so nobody was woken. Had there been, the call would have gone straight to the on-call dispatcher."
+        }
       },
       "trades": {
         "metaTitle": "IT and AI for contractors and trades, Rio Grande Valley",
@@ -338,7 +427,38 @@
             "q": "What does it cost?",
             "a": "It depends on the volume of calls and what you want it to handle, and we scope it after a free assessment so you get a fixed number before anything starts. We will also say when the honest answer is that you do not need it yet."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "New job, booked while you were on a roof",
+          "meta": "Wednesday 2:14 PM · call taken in Spanish",
+          "rows": [
+            {
+              "k": "Customer",
+              "v": "Javier Cantú (sample)"
+            },
+            {
+              "k": "Address",
+              "v": "123 Sample St., Harlingen"
+            },
+            {
+              "k": "Problem",
+              "v": "AC blowing warm air since Monday; outdoor unit humming"
+            },
+            {
+              "k": "Told the customer",
+              "v": "Service call is $89, applied to the repair"
+            },
+            {
+              "k": "Scheduled",
+              "v": "Thursday, 10 AM to 12 PM"
+            },
+            {
+              "k": "Good to know",
+              "v": "Dog in the back yard; side gate is unlocked"
+            }
+          ],
+          "footnote": "Texted to you and on the schedule before you were back down the ladder."
+        }
       },
       "agriculture": {
         "metaTitle": "IT and AI for agriculture, Rio Grande Valley",
@@ -373,7 +493,38 @@
             "q": "Harvest is not the time to change systems. When should we start?",
             "a": "The off-season, and the assessment is the right thing to do during the busy one. We look at where the season actually hurt and have the change ready before the next one."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Buyer enquiry, taken during harvest",
+          "meta": "Thursday 11:40 AM · office empty, everyone in the field",
+          "rows": [
+            {
+              "k": "Caller",
+              "v": "Buyer for a regional grocer (sample)"
+            },
+            {
+              "k": "Wants",
+              "v": "Two loads of grapefruit, 40 lb cartons"
+            },
+            {
+              "k": "When",
+              "v": "Pickup next Tuesday or Wednesday"
+            },
+            {
+              "k": "Needs",
+              "v": "Lot codes on every pallet for traceability"
+            },
+            {
+              "k": "Asked about",
+              "v": "Price per carton (left for you to quote)"
+            },
+            {
+              "k": "Booked",
+              "v": "Call-back with Miguel today at 5:30 PM"
+            }
+          ],
+          "footnote": "Prices are yours to give, so Sofía took the order details and booked the call instead of guessing."
+        }
       }
     },
     "otherLabel": "Something else",

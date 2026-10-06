@@ -42,3 +42,22 @@ export interface IndustryQuestion {
   q: string;
   a: string;
 }
+
+/**
+ * What lands on the owner's desk after Sofía takes a call in this trade —
+ * shown on the page instead of described. Either labelled rows (an intake
+ * sheet, a dispatch note) or a short message thread (a reminder text), never
+ * both. Copy lives at `industries.pages.<id>.artifact`, in both languages.
+ */
+export interface IndustryArtifact {
+  label: string;
+  meta: string;
+  rows?: { k: string; v: string }[];
+  thread?: { who: 'office' | 'patient'; lang: string; text: string }[];
+  /** The caller's own words, kept in the language they were said in. */
+  quote?: string;
+  quoteNote?: string;
+  translation?: string;
+  footnote: string;
+}
+
