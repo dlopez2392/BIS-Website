@@ -60,3 +60,41 @@ describe('industry pages', () => {
     for (const industry of industryPages) expect(industry.id).toMatch(/^[a-z]+$/);
   });
 });
+
+/**
+ * "What lands on your desk": one concrete example per industry, in place of
+ * a blurb. Same structure in both languages so the Spanish page is never a
+ * thinner page, and every named person is marked as invented, so the example
+ * can never read as a real client's file.
+ */
+describe('industry examples', () => {
+  it('gives every industry one example, the same shape in both languages', () => {
+    for (const industry of industryPages) {
+      const en = locales.en.industries.pages[industry.id].artifact;
+      const es = locales.es.industries.pages[industry.id].artifact;
+      for (const [locale, a] of [['en', en], ['es', es]] as const) {
+        expect(a, `${locale}.${industry.id}.artifact`).toBeTruthy();
+        for (const key of ['label', 'meta', 'footnote']) {
+          expect(a[key], `${locale}.${industry.id}.artifact.${key}`).toBeTruthy();
+        }
+        // Rows OR a thread, never neither.
+        expect(Boolean(a.rows) !== Boolean(a.thread), `${locale}.${industry.id}: rows xor thread`).toBe(true);
+      }
+      expect(es.rows?.length, `${industry.id}: es rows match en`).toBe(en.rows?.length);
+      expect(es.thread?.length, `${industry.id}: es thread matches en`).toBe(en.thread?.length);
+    }
+  });
+
+  it('marks every named person as a sample, in the page language', () => {
+    const marker = { en: '(sample)', es: '(ejemplo)' } as const;
+    for (const [locale, messages] of Object.entries(locales) as ['en' | 'es', typeof locales.en][]) {
+      for (const industry of industryPages) {
+        const a = messages.industries.pages[industry.id].artifact;
+        if (!a.rows) continue;
+        const named = a.rows.filter((r: { v: string }) => r.v.includes(marker[locale]));
+        expect(named.length, `${locale}.${industry.id}: no row is marked ${marker[locale]}`).toBeGreaterThan(0);
+      }
+      expect(messages.industries.shared.artifactCaption, `${locale}: artifactCaption`).toBeTruthy();
+    }
+  });
+});

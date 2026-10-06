@@ -197,7 +197,9 @@
       "platformKicker": "Por dentro",
       "platformTitle": "Contestada en español a las 9 PM, agendada antes de que despertaras.",
       "platformBody": "Cada llamada queda grabada, resumida y guardada en el mismo sistema — en el idioma en que entró. Esta es la pantalla real, no una maqueta.",
-      "platformLink": "Mira la plataforma por dentro"
+      "platformLink": "Mira la plataforma por dentro",
+      "artifactHeading": "Lo que llega a tu escritorio",
+      "artifactCaption": "Ejemplo: nombres y datos inventados, en el formato que de verdad recibes."
     },
     "pages": {
       "legal": {
@@ -233,7 +235,40 @@
             "q": "¿Atiende bien a quien llama en español?",
             "a": "Sí, y ese es justo el punto. Contesta en el idioma con el que abre la llamada y en la forma en que la gente habla de verdad, no como traducción de un guion en inglés."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Hoja de admisión",
+          "meta": "Sábado 8:12 PM · llamada atendida en español",
+          "rows": [
+            {
+              "k": "Llamó",
+              "v": "Marisol Treviño (ejemplo)"
+            },
+            {
+              "k": "Asunto",
+              "v": "Choque el 2 de octubre; dice que el otro conductor se pasó el alto"
+            },
+            {
+              "k": "Lesiones",
+              "v": "Dolor de cuello y espalda; la atendieron en urgencias al día siguiente"
+            },
+            {
+              "k": "Ya pasó",
+              "v": "El seguro del otro conductor le ha llamado dos veces"
+            },
+            {
+              "k": "Se le dijo",
+              "v": "La consulta es gratuita y dura 30 minutos"
+            },
+            {
+              "k": "Agendada",
+              "v": "Consulta, martes 10:00 AM, en español"
+            }
+          ],
+          "quote": "«Me están llamando del seguro del otro carro y no sé si debo hablar con ellos.»",
+          "quoteNote": "En sus palabras, tal como quedó en la transcripción.",
+          "footnote": "No se dio asesoría legal ni se dijo si el despacho tomará el caso."
+        }
       },
       "medical": {
         "metaTitle": "TI e IA para médicos y dentistas, Valle del Río Grande",
@@ -268,7 +303,30 @@
             "q": "Ya tenemos sistema de gestión del consultorio. ¿Esto lo reemplaza?",
             "a": "No. Trabaja alrededor de lo que ya tienes. La evaluación empieza por revisar lo que ya pagas, porque la mejora más barata casi siempre es una función que ya tienes y no estás usando."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Recordatorio de cita, por mensaje",
+          "meta": "Enviado el día anterior · la paciente prefiere español",
+          "thread": [
+            {
+              "who": "office",
+              "lang": "es",
+              "text": "Hola Rosa, le recordamos su limpieza dental mañana jueves a las 10:00 AM. Traiga su identificación y su tarjeta del seguro. Responda 1 para confirmar o 2 para cambiar la hora."
+            },
+            {
+              "who": "patient",
+              "lang": "es",
+              "text": "1"
+            },
+            {
+              "who": "office",
+              "lang": "es",
+              "text": "¡Gracias, Rosa! Su cita queda confirmada. Nos vemos mañana."
+            }
+          ],
+          "translation": "Respondió 1 y el calendario se actualizó solo.",
+          "footnote": "Quien prefiere inglés recibe el mismo mensaje en inglés. Por mensaje nunca se habla de nada clínico."
+        }
       },
       "logistics": {
         "metaTitle": "TI e IA para logística y carga, Valle del Río Grande",
@@ -303,7 +361,38 @@
             "q": "Nuestros brokers llaman a toda hora de los dos lados de la frontera. ¿Eso importa?",
             "a": "Ese es justo el caso para el que está hecho. La línea se contesta en el idioma con el que abre quien llama, y el mensaje llega a tu despachador en la forma en que lo necesita."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Llamada de seguimiento fuera de horario",
+          "meta": "Martes 2:07 AM · llamada atendida en inglés",
+          "rows": [
+            {
+              "k": "Chofer",
+              "v": "Unidad 14, Ramón (ejemplo)"
+            },
+            {
+              "k": "Carga",
+              "v": "Refrigerada, producto fresco, entrega en Dallas"
+            },
+            {
+              "k": "Dónde",
+              "v": "Rumbo al norte en la I-69E, pasando Raymondville"
+            },
+            {
+              "k": "Estado",
+              "v": "Tres horas de retraso tras una larga espera en el puente"
+            },
+            {
+              "k": "Termo",
+              "v": "Se mantiene a 34°F, según el chofer"
+            },
+            {
+              "k": "Siguiente",
+              "v": "Llamada del despachador agendada a las 6:30 AM para avisar al receptor"
+            }
+          ],
+          "footnote": "Nada urgente, así que no se despertó a nadie. Si lo hubiera sido, la llamada habría pasado directo al despachador de guardia."
+        }
       },
       "trades": {
         "metaTitle": "TI e IA para contratistas y oficios, Valle del Río Grande",
@@ -338,7 +427,38 @@
             "q": "¿Cuánto cuesta?",
             "a": "Depende del volumen de llamadas y de qué quieras que atienda, y lo cotizamos después de una evaluación gratuita para que tengas un número fijo antes de empezar. También te vamos a decir cuándo la respuesta honesta es que todavía no lo necesitas."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Trabajo nuevo, agendado mientras estabas en un techo",
+          "meta": "Miércoles 2:14 PM · llamada atendida en español",
+          "rows": [
+            {
+              "k": "Cliente",
+              "v": "Javier Cantú (ejemplo)"
+            },
+            {
+              "k": "Dirección",
+              "v": "123 Sample St., Harlingen"
+            },
+            {
+              "k": "Problema",
+              "v": "El aire echa aire tibio desde el lunes; la unidad de afuera zumba"
+            },
+            {
+              "k": "Se le dijo",
+              "v": "La visita cuesta $89 y se abona a la reparación"
+            },
+            {
+              "k": "Agendado",
+              "v": "Jueves, de 10 AM a 12 PM"
+            },
+            {
+              "k": "Para saber",
+              "v": "Hay un perro en el patio; la puerta del lado está abierta"
+            }
+          ],
+          "footnote": "Te llegó por mensaje y quedó en la agenda antes de que bajaras de la escalera."
+        }
       },
       "agriculture": {
         "metaTitle": "TI e IA para agricultura, Valle del Río Grande",
@@ -373,7 +493,38 @@
             "q": "La cosecha no es momento de cambiar sistemas. ¿Cuándo empezamos?",
             "a": "Fuera de temporada, y la evaluación es justo lo que conviene hacer durante la ocupada. Revisamos dónde dolió de verdad la temporada y dejamos el cambio listo antes de la siguiente."
           }
-        ]
+        ],
+        "artifact": {
+          "label": "Consulta de un comprador, atendida en plena cosecha",
+          "meta": "Jueves 11:40 AM · oficina vacía, todos en el campo",
+          "rows": [
+            {
+              "k": "Llamó",
+              "v": "Comprador de una cadena regional (ejemplo)"
+            },
+            {
+              "k": "Quiere",
+              "v": "Dos cargas de toronja, cajas de 40 lb"
+            },
+            {
+              "k": "Cuándo",
+              "v": "Recoger el martes o miércoles próximo"
+            },
+            {
+              "k": "Necesita",
+              "v": "Código de lote en cada tarima para trazabilidad"
+            },
+            {
+              "k": "Preguntó",
+              "v": "Precio por caja (te toca a ti cotizarlo)"
+            },
+            {
+              "k": "Agendado",
+              "v": "Llamada con Miguel hoy a las 5:30 PM"
+            }
+          ],
+          "footnote": "Los precios los das tú, así que Sofía tomó los datos del pedido y agendó la llamada en lugar de adivinar."
+        }
       }
     },
     "otherLabel": "Otro giro",
