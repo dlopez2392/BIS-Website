@@ -45,7 +45,10 @@ export async function GET(request: Request) {
           position: 'relative', height: '100%', width: '100%', display: 'flex', flexDirection: 'column',
           justifyContent: 'space-between', padding: '72px 80px',
           background: '#0b0a18',
-          backgroundImage: plate ? undefined : 'linear-gradient(118deg, #221247 0%, #0b0a18 46%, #08202a 100%)',
+          // Spread, never `backgroundImage: undefined`: satori trims every
+          // style value it is handed, and an undefined one threw — so the
+          // card 500'd the moment the plate existed, on every share.
+          ...(plate ? {} : { backgroundImage: 'linear-gradient(118deg, #221247 0%, #0b0a18 46%, #08202a 100%)' }),
           fontFamily: 'Hanken Grotesk', color: '#ffffff',
         }}
       >

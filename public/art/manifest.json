@@ -1,0 +1,38 @@
+[
+  {
+    "name": "cta-band",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/cta-band.png",
+    "count": 4,
+    "input": {
+      "prompt": "Two separate ribbons of light in an empty black void, one entering at the far left edge and one entering at the far right edge, each rolling over once close to its own edge where it brightens to a bone-white core, and each thinning into loose drifting particles and going out well before it reaches the middle of the frame. The entire centre third of the frame is empty black and completely undisturbed. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T15:38:17.113Z",
+    "take": 1,
+    "shipped": "public/art/cta-band.1.webp",
+    "tint": "(no crop: 16:9 master)",
+    "run": 37645421984
+  },
+  {
+    "name": "og-plate",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/og-plate.png",
+    "count": 4,
+    "input": {
+      "prompt": "A ribbon of light crossing an empty black void diagonally from the lower left toward the upper right, staying thin and nearly dark until it reaches the upper right quadrant where it rolls over once and brightens to a bone-white core before leaving the top right corner as loose particles. The entire left half of the frame and the whole bottom third are empty black, unbroken, with only sparse suspended dust. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T15:38:39.874Z",
+    "take": 1,
+    "shipped": "public/art/og-plate.1.jpg",
+    "tint": "--crop 1200x630 --jpg",
+    "run": 37645421984
+  }
+]
