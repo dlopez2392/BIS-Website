@@ -22,7 +22,10 @@ export interface ArtSlot {
 const wide = (name: string): ArtSlot => ({ file: `${name}.1.webp`, width: 2048, height: 1152 });
 
 export const artSlots = {
-  ctaBand: { file: 'cta-band.1.webp', width: 2048, height: 683 },
+  // 16:9, not the 3:1 first briefed: since the booking card moved into the
+  // band it stands ~1.65:1 on a desktop, and a 3:1 plate under `cover` lost
+  // all but the outer slivers of its light.
+  ctaBand: wide('cta-band'),
   ogPlate: { file: 'og-plate.1.jpg', width: 1200, height: 630 },
   notFoundWide: wide('not-found-wide'),
   notFoundTall: { file: 'not-found-tall.1.webp', width: 1152, height: 2048 },

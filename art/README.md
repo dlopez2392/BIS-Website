@@ -31,8 +31,10 @@ are `batch: 4` — look at four, keep one. `art/raw/` is git-ignored; the
 tinted masters under `public/art/` are what ship, and `manifest.json` beside
 them records model, prompt and seed per asset so any of it can be re-rolled.
 
-Crops for the wide surfaces: `--crop 2048x683` for the CTA band (3:1),
-`--crop 2048x585` for page headers (3.5:1), `--jpg` for the OG plate.
+Crops: none for the CTA band (it ships the 16:9 master — with the booking card
+in it the band stands ~1.65:1, and a 3:1 crop left only slivers of light under
+`cover`), `--crop 2048x585` for page headers (3.5:1), and
+`--crop 1200x630 --jpg` for the OG plate.
 
 ## Writing the prompts: say what is there, never what is not
 
