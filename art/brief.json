@@ -1,7 +1,7 @@
 [
   {
     "name": "cta-band",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/cta-band.png",
@@ -9,14 +9,15 @@
   },
   {
     "name": "og-plate",
-    "model": "flux-pro/kontext/max/text-to-image",
-    "ratio": "16:9",
+    "model": "higgsfield-ai/soul/v2/standard",
     "out": "art/raw/og-plate.png",
-    "prompt": "A ribbon of light crossing an empty black void diagonally from the lower left toward the upper right, staying thin and nearly dark until it reaches the upper right quadrant where it rolls over once and brightens to a bone-white core before leaving the top right corner as loose particles. The entire left half of the frame and the whole bottom third are empty black, unbroken, with only sparse suspended dust. Strictly neutral monochrome: a bone-white core falling through silver and pewter into graphite and then pure black. No colour cast of any kind — no warmth, no coolness, no violet, no blue, no teal. The image must read as colourless silver. Fine particulate dust is suspended in the space around the light, individual specks catching it and falling out of focus toward the edges. Heavy volumetric falloff; the blacks are genuinely black with no atmospheric haze lifting them. Shot on an 85mm anamorphic lens at f/2, shallow depth of field, faint sensor grain. There are no people, faces, hands or animals in this image. There is no text, lettering, numerals, watermark or logo anywhere in the frame. There are no screens, windows, interface panels, buttons, dials or charts. There are no circuit boards, chips, motherboards, wiring, network-node meshes, wireframe globes, glowing brains, robots or humanoid silhouettes. No lens-flare stars, no streak flares crossing the frame, no bokeh discs, no god rays. Nothing is illustrated or 3D-rendered as an object — this is a photograph of light in empty space."
+    "prompt": "A ribbon of light crossing an empty black void diagonally from the lower left toward the upper right, staying thin and nearly dark until it reaches the upper right quadrant where it rolls over once and brightens to a bone-white core before leaving the top right corner as loose particles. The entire left half of the frame and the whole bottom third are empty black, unbroken, with only sparse suspended dust. Strictly neutral monochrome: a bone-white core falling through silver and pewter into graphite and then pure black. No colour cast of any kind — no warmth, no coolness, no violet, no blue, no teal. The image must read as colourless silver. Fine particulate dust is suspended in the space around the light, individual specks catching it and falling out of focus toward the edges. Heavy volumetric falloff; the blacks are genuinely black with no atmospheric haze lifting them. Shot on an 85mm anamorphic lens at f/2, shallow depth of field, faint sensor grain. There are no people, faces, hands or animals in this image. There is no text, lettering, numerals, watermark or logo anywhere in the frame. There are no screens, windows, interface panels, buttons, dials or charts. There are no circuit boards, chips, motherboards, wiring, network-node meshes, wireframe globes, glowing brains, robots or humanoid silhouettes. No lens-flare stars, no streak flares crossing the frame, no bokeh discs, no god rays. Nothing is illustrated or 3D-rendered as an object — this is a photograph of light in empty space.",
+    "size": "2048x1152",
+    "batch": 4
   },
   {
     "name": "service-ai",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/service-ai.png",
@@ -24,7 +25,7 @@
   },
   {
     "name": "service-infra",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/service-infra.png",
@@ -32,7 +33,7 @@
   },
   {
     "name": "service-web",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/service-web.png",
@@ -40,7 +41,7 @@
   },
   {
     "name": "not-found-wide",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/not-found-wide.png",
@@ -48,7 +49,7 @@
   },
   {
     "name": "not-found-tall",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "1152x2048",
     "batch": 4,
     "out": "art/raw/not-found-tall.png",
@@ -56,7 +57,7 @@
   },
   {
     "name": "ind-legal",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/ind-legal.png",
@@ -64,7 +65,7 @@
   },
   {
     "name": "ind-medical",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/ind-medical.png",
@@ -72,7 +73,7 @@
   },
   {
     "name": "ind-logistics",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/ind-logistics.png",
@@ -80,7 +81,7 @@
   },
   {
     "name": "ind-trades",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/ind-trades.png",
@@ -88,7 +89,7 @@
   },
   {
     "name": "ind-agriculture",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/ind-agriculture.png",
@@ -96,7 +97,7 @@
   },
   {
     "name": "header-work",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/header-work.png",
@@ -104,7 +105,7 @@
   },
   {
     "name": "header-industries",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/header-industries.png",
@@ -112,7 +113,7 @@
   },
   {
     "name": "header-place",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/header-place.png",
@@ -120,7 +121,7 @@
   },
   {
     "name": "city-harlingen",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/city-harlingen.png",
@@ -128,7 +129,7 @@
   },
   {
     "name": "city-mcallen",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/city-mcallen.png",
@@ -136,7 +137,7 @@
   },
   {
     "name": "city-brownsville",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/city-brownsville.png",
@@ -144,7 +145,7 @@
   },
   {
     "name": "city-edinburg",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/city-edinburg.png",
@@ -152,7 +153,7 @@
   },
   {
     "name": "city-weslaco",
-    "model": "/v1/text2image/soul",
+    "model": "higgsfield-ai/soul/v2/standard",
     "size": "2048x1152",
     "batch": 4,
     "out": "art/raw/city-weslaco.png",
