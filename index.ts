@@ -53,8 +53,23 @@ interface Job {
   seed?: number;
 }
 
-const isStill = (model: string) => /text-to-image|text2image|image-to-image/.test(model);
-const isSoul = (model: string) => /text2image\/soul/.test(model);
+const isSoul = (model: string) => /(^|\/)soul(\/|$)/.test(model);
+const isStill = (model: string) => isSoul(model) || /text-to-image|text2image|image-to-image/.test(model);
+
+/**
+ * SOUL V2 takes an aspect ratio and a resolution tier, not a pixel size. The
+ * brief keeps its sizes in pixels (they are what the slots are cut to), so the
+ * nearest ratio the model allows is picked here: 2048x1152 -> "16:9",
+ * 1152x2048 -> "9:16". The tint step (scripts/art-tint.py) crops and sizes
+ * the master to its slot afterwards.
+ */
+const SOUL_RATIOS = ["9:16", "16:9", "4:3", "3:4", "1:1", "2:3", "3:2"] as const;
+function soulAspect(size: string | undefined): string {
+  const [w, h] = (size ?? "2048x1152").split("x").map(Number);
+  const target = w / h;
+  const value = (r: string) => { const [a, b] = r.split(":").map(Number); return a / b; };
+  return SOUL_RATIOS.reduce((best, r) => Math.abs(Math.log(value(r) / target)) < Math.abs(Math.log(value(best) / target)) ? r : best);
+}
 
 /**
  * The hero backdrop brief.
@@ -125,9 +140,12 @@ function inputFor(job: Job): Record<string, unknown> {
   const model = job.model ?? MODEL;
   const seed = job.seed !== undefined ? { seed: job.seed } : {};
   if (isSoul(model)) {
+    // SOUL V2 (higgsfield-ai/soul/v2/standard). The v1 route the brief was
+    // written against, /v1/text2image/soul, now answers 404 — 2026-10-07's
+    // first run found that out for both jobs.
     // enhance_prompt off: the rewriter re-introduces colour and cliché, which
     // is the single most likely way the art system stops being one family.
-    return { prompt: job.prompt, width_and_height: job.size ?? "2048x1152", quality: "1080p", batch_size: job.batch ?? 1, enhance_prompt: false, ...seed };
+    return { prompt: job.prompt, aspect_ratio: soulAspect(job.size), resolution: "1080p", batch_size: job.batch ?? 1, enhance_prompt: false, ...seed };
   }
   if (isStill(model)) {
     return { prompt: job.prompt, aspect_ratio: job.ratio ?? "16:9", ...seed };
