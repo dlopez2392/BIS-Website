@@ -33,8 +33,14 @@ them records model, prompt and seed per asset so any of it can be re-rolled.
 
 Crops: none for the CTA band (it ships the 16:9 master — with the booking card
 in it the band stands ~1.65:1, and a 3:1 crop left only slivers of light under
-`cover`), `--crop 2048x585` for page headers (3.5:1), and
+`cover`) and none for the page headers either (a centre crop to 3.5:1 cut
+header-place's horizon off; the page crops with `object-position`), and
 `--crop 1200x630 --jpg` for the OG plate.
+
+A take can be mirrored (`sharp().flop()`) before tinting when its light runs
+the wrong way — ind-legal's beam narrows left to right that way — and a take
+with a bright line along an edge (a scan artefact) is inset-trimmed 16px
+before tinting. The manifest records both.
 
 ## Writing the prompts: say what is there, never what is not
 

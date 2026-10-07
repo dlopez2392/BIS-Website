@@ -29,9 +29,13 @@ export const artSlots = {
   ogPlate: { file: 'og-plate.1.jpg', width: 1200, height: 630 },
   notFoundWide: wide('not-found-wide'),
   notFoundTall: { file: 'not-found-tall.1.webp', width: 1152, height: 2048 },
-  headerWork: { file: 'header-work.1.webp', width: 2048, height: 585 },
-  headerIndustries: { file: 'header-industries.1.webp', width: 2048, height: 585 },
-  headerPlace: { file: 'header-place.1.webp', width: 2048, height: 585 },
+  // The header bands also ship as 16:9 masters, for the CTA band's reason:
+  // a centre crop to 3.5:1 is chosen before the page exists and cut
+  // header-place's horizon off. Crop where the band is drawn, with
+  // object-position, once a page wires one in.
+  headerWork: wide('header-work'),
+  headerIndustries: wide('header-industries'),
+  headerPlace: wide('header-place'),
   serviceAi: wide('service-ai'),
   serviceInfra: wide('service-infra'),
   serviceWeb: wide('service-web'),
