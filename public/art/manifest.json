@@ -34,5 +34,333 @@
     "shipped": "public/art/og-plate.1.jpg",
     "tint": "--crop 1200x630 --jpg",
     "run": 37645421984
+  },
+  {
+    "name": "service-ai",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/service-ai.png",
+    "count": 4,
+    "input": {
+      "prompt": "A single fine filament of light entering an empty black void at the lower left, twisting into one tight fold near the centre-left where it is brightest and its surface catches the light, then leaving the right edge of the frame as one straight, calm, unbroken line. The fold is the one moment of complexity; everything after it is resolved and still. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:17:10.808Z",
+    "take": 2,
+    "shipped": "public/art/service-ai.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "service-infra",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/service-infra.png",
+    "count": 4,
+    "input": {
+      "prompt": "A taut vertical membrane of light standing in an empty black void, dense and bright along its base across the bottom of the frame and dissolving upward into separated drifting particles before it reaches the top edge. The left third and right third of the frame are empty black. The membrane stands straight and still. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:17:44.588Z",
+    "take": 1,
+    "shipped": "public/art/service-infra.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721,
+    "edit": "inset-trimmed 16px (bottom edge)"
+  },
+  {
+    "name": "service-web",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/service-web.png",
+    "count": 4,
+    "input": {
+      "prompt": "A broad shallow wave of light opening outward from a single bright point near the right edge of an empty black frame, its crest flattening and thinning as it travels left until it is only suspended dust at the left edge. It is one single wave. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:18:20.691Z",
+    "take": 2,
+    "shipped": "public/art/service-web.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "not-found-wide",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/not-found-wide.png",
+    "count": 4,
+    "input": {
+      "prompt": "A ribbon of light entering an empty black void at the left edge bright, whole and continuous, and coming apart halfway across the frame into separate drifting particles that stay apart. The right half of the frame is almost empty — only scattered specks continuing in the direction the ribbon was travelling. A generous band of empty black runs across the vertical centre of the frame. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:18:56.463Z",
+    "take": 4,
+    "shipped": "public/art/not-found-wide.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "not-found-tall",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/not-found-tall.png",
+    "count": 4,
+    "input": {
+      "prompt": "A ribbon of light entering an empty black void at the top edge bright, whole and continuous, and coming apart around the upper third of the frame into separate drifting particles that stay apart. The lower half of the frame is almost entirely empty black, with only a few scattered specks still falling through it. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "9:16",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:19:23.635Z",
+    "take": 1,
+    "shipped": "public/art/not-found-tall.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "ind-legal",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/ind-legal.png",
+    "count": 4,
+    "input": {
+      "prompt": "A single straight beam of light crossing an empty black void from the left edge to the right edge and bending sharply where it passes through an invisible plane at the centre of the frame. The half that emerges is narrower, brighter and more ordered than the half that entered. Above and below the beam the frame is empty black. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:19:50.392Z",
+    "take": 4,
+    "shipped": "public/art/ind-legal.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721,
+    "edit": "mirrored (flop) before tint"
+  },
+  {
+    "name": "ind-medical",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/ind-medical.png",
+    "count": 4,
+    "input": {
+      "prompt": "A long horizontal ribbon of light travelling from the left edge to the right edge of an empty black frame, carrying even, regular thickenings along its length like a slow steady pulse. Every thickening is the same size and the same distance apart, steady and even all the way across. The upper and lower thirds of the frame are empty black. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:20:26.156Z",
+    "take": 1,
+    "shipped": "public/art/ind-medical.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "ind-logistics",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/ind-logistics.png",
+    "count": 4,
+    "input": {
+      "prompt": "A straight corridor of light receding from the full height of the left edge to a small bright vanishing point near the right edge of an empty black frame. Its walls are made of streaming particles drawn out into fine lines by the speed of travel. Everything above and below the corridor is empty black. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:21:01.820Z",
+    "take": 1,
+    "shipped": "public/art/ind-logistics.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "ind-trades",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/ind-trades.png",
+    "count": 4,
+    "input": {
+      "prompt": "A short, thick, blunt bar of light burning at the lower left of an otherwise empty black frame, throwing a fan of hard bright sparks up and to the right that fall away and go out before they reach the edge. The upper right two thirds of the frame is empty black. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:21:27.468Z",
+    "take": 2,
+    "shipped": "public/art/ind-trades.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "ind-agriculture",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/ind-agriculture.png",
+    "count": 4,
+    "input": {
+      "prompt": "Long parallel furrows of light running across the lower third of an empty black frame toward a low horizon, the rows receding and converging as they go. Above the horizon there is only empty black and sparse suspended dust. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:21:52.137Z",
+    "take": 1,
+    "shipped": "public/art/ind-agriculture.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "header-work",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/header-work.png",
+    "count": 4,
+    "input": {
+      "prompt": "A single ribbon of light lying horizontally across a wide empty black frame, entering thin and almost invisible at the left edge and gathering brightness only in the right third, where it rolls over once and catches the light along its fold before leaving the right edge. The entire left half of the frame is empty black with only sparse dust in it. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:22:28.210Z",
+    "take": 1,
+    "shipped": "public/art/header-work.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "header-industries",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/header-industries.png",
+    "count": 4,
+    "input": {
+      "prompt": "A fan of five separate fine filaments of light spreading apart from a single point at the right edge of a wide empty black frame, each one reaching a different height as it travels left and each fading into loose particles before it reaches the centre. The left half of the frame is empty black. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:22:53.675Z",
+    "take": 2,
+    "shipped": "public/art/header-industries.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721,
+    "edit": "inset-trimmed 16px (edge frame)"
+  },
+  {
+    "name": "header-place",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/header-place.png",
+    "count": 4,
+    "input": {
+      "prompt": "A low wide field of light lying along the bottom edge of a wide empty black frame, brightest at the right and thinning steadily toward the left until it fades away completely. Everything above the field is empty black with suspended dust. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:23:16.090Z",
+    "take": 1,
+    "shipped": "public/art/header-place.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "city-harlingen",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/city-harlingen.png",
+    "count": 4,
+    "input": {
+      "prompt": "A wide low field of light lying across the bottom third of an empty black frame; the upper two thirds are empty black with sparse suspended dust, and at the centre of that field a single steady source, the light radiating outward evenly in every direction from it and falling off smoothly into the dark. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:23:41.681Z",
+    "take": 1,
+    "shipped": "public/art/city-harlingen.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "city-mcallen",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/city-mcallen.png",
+    "count": 4,
+    "input": {
+      "prompt": "A wide low field of light lying across the bottom third of an empty black frame; the upper two thirds are empty black with sparse suspended dust, the field made of a dense braid of many fine filaments running left to right, all travelling in the same direction at once, tightly packed and fast. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:24:15.236Z",
+    "take": 2,
+    "shipped": "public/art/city-mcallen.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721,
+    "edit": "right edge trimmed (scan line), 16:9 kept"
+  },
+  {
+    "name": "city-brownsville",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/city-brownsville.png",
+    "count": 4,
+    "input": {
+      "prompt": "A wide low field of light lying across the bottom third of an empty black frame; the upper two thirds are empty black with sparse suspended dust, the field made of one broad flat sheet of light that spreads and thins as it reaches the right edge, flattening out until it is dust. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:24:40.254Z",
+    "take": 2,
+    "shipped": "public/art/city-brownsville.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "city-edinburg",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/city-edinburg.png",
+    "count": 4,
+    "input": {
+      "prompt": "A wide low field of light lying across the bottom third of an empty black frame; the upper two thirds are empty black with sparse suspended dust, with a tall slow column of light standing at the centre-left of the field, steady and unwavering from the field up into the dark. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:25:04.974Z",
+    "take": 3,
+    "shipped": "public/art/city-edinburg.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
+  },
+  {
+    "name": "city-weslaco",
+    "model": "higgsfield-ai/soul/v2/standard",
+    "out": "art/raw/city-weslaco.png",
+    "count": 4,
+    "input": {
+      "prompt": "A wide low field of light lying across the bottom third of an empty black frame; the upper two thirds are empty black with sparse suspended dust, the field made of rows of light laid side by side across the frame, each row slightly brighter than the one before it from left to right. Black-and-white photograph of light and dust in deep darkness. The light is soft and silky, like a long-exposure trail of smoke, glowing silver-white at its brightest and fading through soft grey into deep black. Fine dust drifts in the dark around it, a few specks catching the light and blurring toward the edges. Everything else in the frame is plain, deep, empty black. Shot on black-and-white film with a 50mm lens, gentle focus falloff, fine grain.",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "batch_size": 4,
+      "enhance_prompt": false
+    },
+    "at": "2026-10-07T16:25:39.852Z",
+    "take": 1,
+    "shipped": "public/art/city-weslaco.1.webp",
+    "tint": "(no crop: master size)",
+    "run": 37650703721
   }
 ]
