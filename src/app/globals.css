@@ -102,6 +102,25 @@ body {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: radial-gradient(60% 90% at 50% 50%, rgba(11, 10, 24, 0.55), transparent 70%);
 }
+/* Page headers put type and light side by side, never one over the other.
+   Measured, not hoped: with a full-bleed plate behind the headline and
+   intro, the intro fell to 1.3-3.3:1 and one headline to 1.2:1, and no veil
+   dark enough to fix that left any light in the plate. So on a wide screen
+   the plate is masked to the end half of the band and the type sits on the
+   plain ground; on a phone, where the type spans the width, the plate is a
+   16:9-ish strip under the type, showing its whole composition. */
+.ground-art[data-mask="end"] {
+  top: auto; height: 13rem;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%);
+          mask-image: linear-gradient(to bottom, transparent, #000 45%);
+}
+@media (min-width: 48rem) {
+  .ground-art[data-mask="end"] {
+    top: 0; height: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent 52%, #000 88%);
+            mask-image: linear-gradient(to right, transparent 52%, #000 88%);
+  }
+}
 .ground-text { color: var(--ground-text); }
 .ground-muted { color: var(--ground-muted); }
 .ground-accent { color: var(--ground-accent); }

@@ -17,9 +17,15 @@ export interface ArtSlot {
   file: string;
   width: number;
   height: number;
+  /**
+   * Where a band that crops this plate should anchor it (CSS
+   * `object-position`). The masters ship whole, at 16:9; the band that draws
+   * one decides the crop, and this says which part of the light to keep.
+   */
+  position?: string;
 }
 
-const wide = (name: string): ArtSlot => ({ file: `${name}.1.webp`, width: 2048, height: 1152 });
+const wide = (name: string, position?: string): ArtSlot => ({ file: `${name}.1.webp`, width: 2048, height: 1152, position });
 
 export const artSlots = {
   // 16:9, not the 3:1 first briefed: since the booking card moved into the
@@ -31,11 +37,12 @@ export const artSlots = {
   notFoundTall: { file: 'not-found-tall.1.webp', width: 1152, height: 2048 },
   // The header bands also ship as 16:9 masters, for the CTA band's reason:
   // a centre crop to 3.5:1 is chosen before the page exists and cut
-  // header-place's horizon off. Crop where the band is drawn, with
-  // object-position, once a page wires one in.
-  headerWork: wide('header-work'),
-  headerIndustries: wide('header-industries'),
-  headerPlace: wide('header-place'),
+  // header-place's horizon off. `PageHeader` crops them where it draws
+  // them, anchored at each slot's `position`.
+  headerWork: wide('header-work', '50% 45%'),
+  headerIndustries: wide('header-industries', '50% 50%'),
+  // The horizon sits at ~76% down the master; a centred crop loses it.
+  headerPlace: wide('header-place', '50% 72%'),
   serviceAi: wide('service-ai'),
   serviceInfra: wide('service-infra'),
   serviceWeb: wide('service-web'),
@@ -44,11 +51,12 @@ export const artSlots = {
   indLogistics: wide('ind-logistics'),
   indTrades: wide('ind-trades'),
   indAgriculture: wide('ind-agriculture'),
-  cityHarlingen: wide('city-harlingen'),
-  cityMcallen: wide('city-mcallen'),
-  cityBrownsville: wide('city-brownsville'),
-  cityEdinburg: wide('city-edinburg'),
-  cityWeslaco: wide('city-weslaco'),
+  // The city plates are briefed as a field across the bottom third.
+  cityHarlingen: wide('city-harlingen', '50% 62%'),
+  cityMcallen: wide('city-mcallen', '50% 55%'),
+  cityBrownsville: wide('city-brownsville', '50% 70%'),
+  cityEdinburg: wide('city-edinburg', '50% 75%'),
+  cityWeslaco: wide('city-weslaco', '50% 66%'),
 } as const satisfies Record<string, ArtSlot>;
 
 export type ArtSlotName = keyof typeof artSlots;
@@ -70,6 +78,12 @@ export function artProps(name: ArtSlotName | undefined): ArtProps | undefined {
   if (!name || !hasArt(name)) return undefined;
   const { width, height } = artSlots[name];
   return { src: artSrc(name), width, height };
+}
+
+/** The anchor a cropping band should use for this plate. */
+export function artPosition(name: ArtSlotName): string {
+  const slot: ArtSlot = artSlots[name];
+  return slot.position ?? '50% 50%';
 }
 
 /** The slot for an industry or city id, so pages can look one up by id. */
