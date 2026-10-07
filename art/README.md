@@ -34,6 +34,18 @@ them records model, prompt and seed per asset so any of it can be re-rolled.
 Crops for the wide surfaces: `--crop 2048x683` for the CTA band (3:1),
 `--crop 2048x585` for page headers (3.5:1), `--jpg` for the OG plate.
 
+## Writing the prompts: say what is there, never what is not
+
+SOUL V2 has no negative prompt, and naming a thing — even to forbid it — puts
+it in the picture. The first run (2026-10-07) proved it: prompts that ended
+"no circuit boards, chips, wireframe globes, glowing brains, flares, no
+violet, no blue" came back with circuit boards, chips, wireframe globes,
+brain-like blobs, flares and violet edges, in almost every take. The brief
+now describes only what the frame holds — light, dust, deep black,
+black-and-white film — and the rules below are kept by choosing takes, not
+by listing what to leave out. Keep it that way when adding a slot: no
+"no", "not" or "without" in a prompt.
+
 ## Rules that keep it one family
 
 - One light source, one gesture, one frame. Light enters at an edge and
