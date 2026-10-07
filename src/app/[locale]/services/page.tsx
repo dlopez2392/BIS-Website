@@ -5,6 +5,7 @@ import { CTASection } from '@/components/ui/CTASection';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { SERVICE_ANCHORS } from '@/lib/service-groups';
+import { artProps } from '@/lib/art';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -17,9 +18,9 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   setRequestLocale(locale);
   const t = await getTranslations('services');
   const groups = [
-    { id: SERVICE_ANCHORS.g1, title: t('g1Title'), body: t('g1Body'), proof: t('g1Proof'), bullets: t.raw('g1Bullets') as string[] },
-    { id: SERVICE_ANCHORS.g2, title: t('g2Title'), body: t('g2Body'), proof: t('g2Proof'), bullets: t.raw('g2Bullets') as string[] },
-    { id: SERVICE_ANCHORS.g3, title: t('g3Title'), body: t('g3Body'), proof: t('g3Proof'), bullets: t.raw('g3Bullets') as string[] },
+    { id: SERVICE_ANCHORS.g1, title: t('g1Title'), body: t('g1Body'), proof: t('g1Proof'), bullets: t.raw('g1Bullets') as string[], art: artProps('serviceAi') },
+    { id: SERVICE_ANCHORS.g2, title: t('g2Title'), body: t('g2Body'), proof: t('g2Proof'), bullets: t.raw('g2Bullets') as string[], art: artProps('serviceInfra') },
+    { id: SERVICE_ANCHORS.g3, title: t('g3Title'), body: t('g3Body'), proof: t('g3Proof'), bullets: t.raw('g3Bullets') as string[], art: artProps('serviceWeb') },
   ];
   return (
     <main>

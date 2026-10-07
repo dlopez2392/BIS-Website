@@ -4,6 +4,7 @@ import { IndustryCard } from '@/components/marketing/IndustryCard';
 import { industryPages } from '@/lib/industries';
 import { artFor, artProps } from '@/lib/art';
 import { CTASection } from '@/components/ui/CTASection';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { pageMetadata } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -34,11 +35,8 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
   }));
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-10">
-        <h1 className="text-5xl font-extrabold tracking-tight text-ink">{t('title')}</h1>
-        <p className="mt-4 max-w-2xl text-lg text-ink-muted">{t('intro')}</p>
-      </section>
-      <section className="mx-auto max-w-6xl px-6 pb-16">
+      <PageHeader art="headerIndustries" title={t('title')} intro={t('intro')} />
+      <section className="mx-auto max-w-6xl px-6 pt-12 pb-16">
         <div className="grid gap-6 md:grid-cols-3">
           {cards.map((c2) => <IndustryCard key={c2.label} {...c2} />)}
           {/* Five industries in a three-column grid left a sixth cell empty,
