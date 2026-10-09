@@ -85,3 +85,40 @@ describe.each(Object.entries(locales))('search snippets (%s)', (locale, messages
     expect(metaTitle).not.toBe(articleTitle);
   });
 });
+
+/**
+ * Titles, held to what a results page shows: about 60 characters, and every
+ * page but the home page wears the layout's " · BIS" (6 more). The 2026-10-09
+ * live audit found nine titles past 60, the longest at 76, all of them
+ * article titles or industry titles. An article keeps its full title as the
+ * H1 and sets a shorter `seoTitle` for the results page.
+ */
+const SUFFIX = ' · BIS';
+const TITLE_MAX = 60;
+
+function articleTitles(locale: string) {
+  const dir = path.join(root, 'src', 'content', 'insights', locale);
+  return fs.readdirSync(dir).filter((f) => f.endsWith('.mdx')).map((file) => {
+    const source = fs.readFileSync(path.join(dir, file), 'utf8');
+    const field = (name: string) =>
+      source.match(new RegExp(`^\\s*${name}:\\s*(['"])(.*)\\1,\\s*$`, 'm'))?.[2]?.replace(/\\(['"])/g, '$1');
+    return { file, title: field('seoTitle') ?? field('title') ?? '' };
+  });
+}
+
+describe.each(Object.entries(locales))('search titles (%s)', (locale, messages) => {
+  it('keeps every article title, suffix included, within 60 (mutation: drop a seoTitle -> FAILS)', () => {
+    const offenders = articleTitles(locale)
+      .filter((a) => (a.title + SUFFIX).length > TITLE_MAX)
+      .map((a) => `${a.file} (${(a.title + SUFFIX).length})`);
+    expect(offenders).toEqual([]);
+  });
+
+  it('keeps every metaTitle message, suffix included, within 60', () => {
+    const offenders = Object.entries(flatten(messages))
+      .filter(([key]) => /(^|\.)metaTitle$/.test(key))
+      .filter(([, value]) => (value + SUFFIX).length > TITLE_MAX)
+      .map(([key, value]) => `${key} (${(value + SUFFIX).length})`);
+    expect(offenders).toEqual([]);
+  });
+});

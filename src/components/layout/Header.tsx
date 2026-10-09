@@ -45,7 +45,7 @@ export function Header() {
             iconSize={18}
           />
           <LocaleSwitcher />
-          <ThemeToggle />
+          <ThemeToggle label={t('toggleTheme')} />
           {/* Icon-only tap-to-call, one tap with no menu — mobile visitors are the ones who dial. */}
           <CallLink
             withNumber={false}

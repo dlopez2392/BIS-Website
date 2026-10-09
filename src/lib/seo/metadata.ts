@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import { routing } from '@/i18n/routing';
 import { SITE_URL, business } from './business';
 
+/** Open Graph wants a language AND a region (`es_US`), not the bare route
+ *  locale: Facebook ignores `es` and falls back to `en_US`. Both audiences
+ *  are in the US, so the region is US for both. */
+const OG_LOCALE: Record<string, string> = { en: 'en_US', es: 'es_US' };
+
 export function pageMetadata({
   locale, path, title, description, absoluteTitle = false,
 }: {
@@ -21,8 +26,10 @@ export function pageMetadata({
     alternates: { canonical, languages },
     openGraph: {
       title, description, url: canonical, siteName: business.name,
-      locale, type: 'website',
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      locale: OG_LOCALE[locale] ?? 'en_US',
+      alternateLocale: Object.entries(OG_LOCALE).filter(([l]) => l !== locale).map(([, v]) => v),
+      type: 'website',
+      images: [{ url: ogImage, width: 1200, height: 630, type: 'image/jpeg' }],
     },
     twitter: { card: 'summary_large_image', title, description, images: [ogImage] },
   };

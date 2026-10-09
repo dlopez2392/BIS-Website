@@ -14,6 +14,7 @@
     "work": "Nuestro Trabajo",
     "contact": "Contacto",
     "openMenu": "Abrir menú",
+    "toggleTheme": "Cambiar a modo claro u oscuro",
     "closeMenu": "Cerrar menú",
     "call": "Llámanos",
     "callAria": "Llama a BIS al {phone}",
@@ -54,7 +55,7 @@
   "home": {
     "heroTitle": "El sistema que mueve tu negocio.",
     "heroCta2": "Reserva una evaluación gratuita",
-    "heroBody": "Un CRM que diseñamos para los negocios del Valle — llamadas, prospectos, citas y los números del lunes en un solo lugar, en inglés y en español. Y el equipo de TI detrás.",
+    "heroBody": "Un CRM que diseñamos para los negocios del Valle — llamadas, prospectos, citas y los números del lunes en un solo lugar, en inglés y en español. Y el equipo de IT detrás.",
     "quote": "La tecnología de las grandes firmas nunca ha estado fuera del alcance de los negocios del Valle — simplemente nunca se construyó para ellos. Bespoke significa que empezamos con tu flujo de trabajo, tus clientes, tus dos idiomas.",
     "quoteName": "Dan Lopez",
     "quoteRole": "Fundador, BIS",
@@ -203,8 +204,8 @@
     },
     "pages": {
       "legal": {
-        "metaTitle": "TI e IA para despachos legales, Valle del Río Grande",
-        "metaDescription": "Recepción bilingüe fuera de horario, documentos manejados con confidencialidad y TI para un despacho del Valle. Evaluación gratis, un contacto.",
+        "metaTitle": "IT e IA para despachos legales, Valle del Río Grande",
+        "metaDescription": "Recepción bilingüe fuera de horario, documentos manejados con confidencialidad y IT para un despacho del Valle. Evaluación gratis, un contacto.",
         "heading": "Tecnología para despachos legales del Valle",
         "intro": "Una llamada perdida es un caso perdido. Casi todos los que buscan abogado llaman a tres y contratan al que contesta primero, y en el Valle esa llamada llega en español con la misma frecuencia que en inglés. Lo que sigue trata de contestar todas, y de cuidar lo que el cliente cuenta cuando lo haces.",
         "sofia": "Sofía contesta tu línea en el idioma de quien llama, toma los datos de lo que pasó, explica cuánto cobras por la consulta y agenda una cita real en tu calendario. Nunca da asesoría legal ni dice si vas a tomar el caso. Lo que llega a tu escritorio es una hoja de admisión con formato, no un buzón de voz que tienes que devolver para entender.",
@@ -271,8 +272,8 @@
         }
       },
       "medical": {
-        "metaTitle": "TI e IA para médicos y dentistas, Valle del Río Grande",
-        "metaDescription": "Agenda bilingüe, recordatorios que reducen las faltas y TI segura para una clínica o consultorio dental del Valle. Evaluación gratuita, un solo contacto.",
+        "metaTitle": "IT e IA para médicos y dentistas, Valle del Río Grande",
+        "metaDescription": "Agenda bilingüe, recordatorios que reducen las faltas y IT seguro para una clínica o consultorio dental del Valle. Evaluación gratuita, un solo contacto.",
         "heading": "Tecnología para clínicas y consultorios del Valle",
         "intro": "Tu recepción contesta el teléfono, registra a un paciente y atiende una solicitud de receta al mismo tiempo. Casi todo lo que la interrumpe es rutinario y repetible, que es exactamente el trabajo que puede resolverse antes de llegar a una persona.",
         "sofia": "Sofía contesta en inglés o español, agenda y reagenda citas contra tu calendario real y le dice a quien llama qué necesita traer. Está hecha para mantenerse lejos de lo clínico: no habla de síntomas, no da consejos y todo lo que suene urgente pasa de inmediato a una persona con quien llamó todavía en la línea.",
@@ -286,7 +287,7 @@
             "body": "Formatos llenados con anticipación, en el idioma del paciente, para que la visita empiece con atención y no con una tabla y una pluma."
           },
           {
-            "title": "TI que un consultorio regulado puede defender",
+            "title": "IT que un consultorio regulado puede defender",
             "body": "Acceso limitado por persona, equipos administrados y cifrados, respaldos que se prueban en lugar de suponerse y un registro escrito de cómo funciona todo."
           }
         ],
@@ -329,8 +330,8 @@
         }
       },
       "logistics": {
-        "metaTitle": "TI e IA para logística y carga, Valle del Río Grande",
-        "metaDescription": "Despacho que contesta de día y de noche, papeleo que se llena solo y TI para carga transfronteriza. Evaluación gratuita, un solo contacto.",
+        "metaTitle": "IT e IA para logística y carga, Valle del Río Grande",
+        "metaDescription": "Despacho que contesta de día y de noche, papeleo que se llena solo y IT para carga transfronteriza. Evaluación gratuita, un solo contacto.",
         "heading": "Tecnología para transporte y logística del Valle",
         "intro": "La carga no respeta horario de oficina, y el papeleo que la acompaña son los mismos datos capturados una y otra vez en formatos distintos. Las dos cosas se arreglan sin cambiar cómo mueves las cargas.",
         "sofia": "Sofía contesta la línea de la oficina en cualquiera de los dos idiomas, toma solicitudes de carga y tarifa con los datos que de verdad necesitas y agenda devoluciones de llamada en el calendario de tus despachadores. Operadores y brokers reciben la respuesta de una persona a las 2 de la mañana en vez de un buzón, y tus despachadores dejan de perder una hora al día en llamadas que nunca fueron urgentes.",
@@ -395,7 +396,7 @@
         }
       },
       "trades": {
-        "metaTitle": "TI e IA para contratistas y oficios, Valle del Río Grande",
+        "metaTitle": "IT e IA para contratistas y oficios del Valle",
         "metaDescription": "Contesta cada llamada desde la escalera, cotiza más rápido y cobra antes. Sistemas bilingües para contratistas del Valle. Evaluación gratuita, un solo contacto.",
         "heading": "Tecnología para contratistas y oficios del Valle",
         "intro": "No puedes contestar el teléfono desde un techo, y quien te llama va a marcarle al siguiente de la lista. Casi todo lo que le cuesta dinero a un negocio de oficios es el hueco entre que entra una llamada y alguien la devuelve.",
@@ -461,7 +462,7 @@
         }
       },
       "agriculture": {
-        "metaTitle": "TI e IA para agricultura, Valle del Río Grande",
+        "metaTitle": "IT e IA para agricultura, Valle del Río Grande",
         "metaDescription": "Conecta registros de campo, inventario y facturación, y contesta la línea en los dos idiomas. Tecnología práctica para productores y empacadoras del Valle.",
         "heading": "Tecnología para productores y empacadoras del Valle",
         "intro": "Casi todas las operaciones del Valle funcionan con registros que viven en tres lugares: una libreta, una hoja de cálculo y la memoria de alguien. Temporada tras temporada eso funciona, hasta la única semana en que no, casi siempre al facturar o en una auditoría.",
@@ -532,7 +533,7 @@
     "otherBody": "La plataforma se hizo para cualquier negocio que vive del teléfono. Cuéntanos qué hace el tuyo y te mostramos cómo funcionaría."
   },
   "about": {
-    "kicker": "Est. 2024 / Harlingen, TX",
+    "kicker": "Fundada en 2024 / Harlingen, TX",
     "title": "Quiénes somos.",
     "intro": "Llevamos la tecnología y la IA con las que operan las grandes empresas a los negocios del Valle del Río Grande — en inglés y en español, con un solo contacto. Y lo que vendemos, primero lo usamos en nuestro propio negocio.",
     "founderKicker": "El Fundador",
@@ -592,10 +593,10 @@
   },
   "meta": {
     "title": "Bespoke Intelligent Solutions: IA e IT, Valle del Río Grande",
-    "description": "BIS crea su propio CRM para negocios del Valle del Río Grande y la TI detrás — adopción de IA, seguridad, web moderna. Bilingüe, un solo punto de contacto.",
+    "description": "BIS crea su propio CRM para negocios del Valle del Río Grande y el IT detrás — adopción de IA, seguridad, web moderna. Bilingüe, un solo punto de contacto.",
     "notFound": "Página no encontrada",
     "notFoundCta": "Volver al inicio",
-    "homeDescription": "Un CRM hecho para los negocios del Valle del Río Grande — llamadas, prospectos, citas y reportes en un solo lugar, EN/ES — y el equipo de TI detrás.",
+    "homeDescription": "Un CRM hecho para los negocios del Valle del Río Grande — llamadas, prospectos, citas y reportes en un solo lugar, EN/ES — y el equipo de IT detrás.",
     "servicesTitle": "Servicios — IA, Seguridad IT y Diseño Web",
     "servicesDescription": "IA y automatización, IT y seguridad, y sitios web bilingües para negocios del Valle del Río Grande — un solo contacto, con la Plataforma BIS.",
     "industriesTitle": "Industrias — Hecho para el Valle",
@@ -649,6 +650,7 @@
   },
   "insights": {
     "heading": "Perspectivas",
+    "metaTitle": "Perspectivas: IA, IT y web para el Valle",
     "subheading": "Ideas sobre IA, IT y web para los negocios del Valle del Río Grande.",
     "readArticle": "Leer artículo",
     "minRead": "{minutes} min de lectura",
@@ -726,6 +728,7 @@
   },
   "capabilities": {
     "title": "Capacidades",
+    "metaTitle": "Capacidades y plataformas con las que trabajamos",
     "intro": "Las plataformas, herramientas y disciplinas detrás de BIS — dos décadas de experiencia práctica en IT e IA, al servicio de los negocios del Valle del Río Grande.",
     "metaDescription": "Las plataformas, herramientas y disciplinas con las que trabaja BIS — nube, seguridad, redes, respaldo, IA y más — para negocios del Valle.",
     "indexLabel": "Ir a",
@@ -942,6 +945,7 @@
   },
   "work": {
     "title": "Nuestro Trabajo",
+    "metaTitle": "Nuestro trabajo: lo que ya opera hoy",
     "metaDescription": "Lo que BIS ya tiene funcionando: Sofía, la recepcionista de IA bilingüe de nuestra línea, y Prism, una app de finanzas personales. Pruébalas.",
     "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo: nuestra propia recepción, a la que puedes llamar en este momento, y Prism, una app de finanzas personales que puedes abrir sin registrarte.",
     "cases": {
@@ -1402,6 +1406,7 @@
   },
   "platform": {
     "title": "La plataforma",
+    "metaTitle": "La plataforma: un CRM hecho para el Valle",
     "metaDescription": "El sistema con el que operan negocios del Valle: cada llamada contestada en inglés o español, cada prospecto en un lugar y cuatro números cada lunes.",
     "heroKicker": "Lo que realmente recibes",
     "heroTitle": "La hora que recuperas, y de dónde sale.",
@@ -1465,7 +1470,7 @@
     },
     "filmKicker": "En 30 segundos",
     "filmTitle": "Todo el sistema, de principio a fin.",
-    "filmBody": "Una llamada a las 9:15 de la noche, contestada en inglés o en español, anotada y en el tablero antes de la mañana, y el equipo de TI detrás de todo. Dale play para la versión de medio minuto; el recorrido de abajo es la versión larga.",
+    "filmBody": "Una llamada a las 9:15 de la noche, contestada en inglés o en español, anotada y en el tablero antes de la mañana, y el equipo de IT detrás de todo. Dale play para la versión de medio minuto; el recorrido de abajo es la versión larga.",
     "filmLabel": "Reproducir el video de 30 segundos de BIS"
   },
   "missedCalls": {

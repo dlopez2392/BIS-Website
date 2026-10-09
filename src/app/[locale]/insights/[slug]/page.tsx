@@ -17,7 +17,7 @@ export async function generateMetadata(
   const { locale, slug } = await params;
   const post = await getPost(locale as 'en' | 'es', slug);
   if (!post) return {};
-  return pageMetadata({ locale, path: `/insights/${slug}`, title: post.meta.title, description: post.meta.description });
+  return pageMetadata({ locale, path: `/insights/${slug}`, title: post.meta.seoTitle ?? post.meta.title, description: post.meta.description });
 }
 
 export default async function InsightPostPage(

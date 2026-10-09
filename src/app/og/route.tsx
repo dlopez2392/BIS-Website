@@ -38,7 +38,7 @@ export async function GET(request: Request) {
     ? `data:image/jpeg;base64,${(await readFile(path.join(process.cwd(), 'public', 'art', artSlots.ogPlate.file))).toString('base64')}`
     : null;
 
-  return new ImageResponse(
+  const card = new ImageResponse(
     (
       <div
         style={{
@@ -80,4 +80,32 @@ export async function GET(request: Request) {
       ],
     },
   );
+  return asJpeg(card);
+}
+
+/**
+ * Re-encodes the card as JPEG. Satori only speaks PNG, and a PNG of the
+ * plate's photographic gradients came out at 722–731 KB (live audit,
+ * 2026-10-09). WhatsApp is widely reported to drop a link preview whose image
+ * is past about 300 KB, and WhatsApp is how a link to this site travels in the
+ * Valley. A JPEG of the same card is a fraction of that.
+ *
+ * Falls back to the PNG, untouched, if sharp cannot load or encode: a
+ * heavier card beats no card. sharp is Next's own image dependency, imported
+ * lazily so a missing native binary costs this route nothing until it runs.
+ */
+async function asJpeg(card: ImageResponse): Promise<Response> {
+  const png = Buffer.from(await card.arrayBuffer());
+  const headers = new Headers(card.headers);
+  try {
+    const { default: sharp } = await import('sharp');
+    const jpeg = await sharp(png).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+    headers.set('content-type', 'image/jpeg');
+    headers.set('content-length', String(jpeg.length));
+    return new Response(new Uint8Array(jpeg), { status: card.status, headers });
+  } catch (e) {
+    console.error(`og: JPEG encode failed, serving the PNG: ${String(e)}`);
+    headers.set('content-length', String(png.length));
+    return new Response(new Uint8Array(png), { status: card.status, headers });
+  }
 }

@@ -77,6 +77,15 @@ describe('sitemap', () => {
     }
   });
 
+  it('dates every article from its own front matter, and nothing else', () => {
+    const entries = sitemap();
+    const articles = entries.filter((e) => e.url.includes('/insights/'));
+    expect(articles.length).toBeGreaterThan(0);
+    for (const e of articles) expect(e.lastModified, e.url).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    // Mutation: stamp every entry with the build time -> FAILS here.
+    for (const e of entries.filter((x) => !x.url.includes('/insights/'))) expect(e.lastModified, e.url).toBeUndefined();
+  });
+
   it('has no duplicate urls', () => {
     const urls = sitemap().map((e) => e.url);
     expect(new Set(urls).size).toBe(urls.length);
