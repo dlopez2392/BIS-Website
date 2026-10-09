@@ -100,7 +100,7 @@
     "proof3": "un solo contacto, no un centro de llamadas",
     "spots": {
       "hint": "Cuenta de muestra — empresa y datos inventados. Toca los números.",
-      "s1t": "Llamadas contestadas esta semana",
+      "s1t": "Llamadas contestadas en los últimos 7 días",
       "s1b": "Con el cambio contra la semana pasada a la vista, para que una semana tranquila nunca parezca una falla.",
       "s2t": "Fuera de horario, igual contestadas",
       "s2b": "Llamadas que llegaron después del cierre — como la de las 9:15 PM al inicio de la página. Sofía contestó cada una, en español cuando así empezó.",

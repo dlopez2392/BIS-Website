@@ -100,7 +100,7 @@
     "proof3": "one point of contact, not a call centre",
     "spots": {
       "hint": "Sample account — invented company and data. Tap the numbers.",
-      "s1t": "Calls answered this week",
+      "s1t": "Calls answered in the last 7 days",
       "s1b": "With the change from last week in plain view, so a quiet week never looks like a broken one.",
       "s2t": "After hours, still answered",
       "s2b": "Calls that came in after closing — like the 9:15 PM one at the top of the page. Sofía answered each one, in Spanish when that is how it started.",

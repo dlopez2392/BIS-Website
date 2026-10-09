@@ -35,11 +35,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
  * 9:15 PM Spanish call) below the bottom of the capture. That marker now sits
  * on the after-hours tile, which is the same claim made by the number rather
  * than by one row of it.
+ *
+ * Retaken 2026-10-09: a "LAST 7 DAYS" caption above the KPI row pushed the
+ * KPIs and the activity feed down by 61px of 1250 (4.9%), so every marker
+ * moved down 5 points to land on the same spot within its card.
  */
 const SPOTS = [
-  { left: 34.5, top: 46 },
-  { left: 71, top: 42 },
-  { left: 80, top: 79 },
+  { left: 34.5, top: 51 },
+  { left: 71, top: 47 },
+  { left: 80, top: 84 },
 ] as const;
 
 /**
