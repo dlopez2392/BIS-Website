@@ -12,7 +12,7 @@ import { BIS_AD } from '@/lib/work';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'platform' });
-  return pageMetadata({ locale, path: '/platform', title: t('title'), description: t('metaDescription') });
+  return pageMetadata({ locale, path: '/platform', title: t('metaTitle'), description: t('metaDescription') });
 }
 
 /**

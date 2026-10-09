@@ -15,7 +15,7 @@ import { PageHeader } from '@/components/ui/PageHeader';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'work' });
-  return pageMetadata({ locale, path: '/work', title: t('title'), description: t('metaDescription') });
+  return pageMetadata({ locale, path: '/work', title: t('metaTitle'), description: t('metaDescription') });
 }
 
 export default async function WorkPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -3,7 +3,10 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
-export function ThemeToggle() {
+/** `label` is the button's accessible name. It comes from the caller's
+ *  translations (Header passes `nav.toggleTheme`) because every /es page read
+ *  "Toggle theme" to a screen reader while the rest of the page was Spanish. */
+export function ThemeToggle({ label = 'Toggle theme' }: { label?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   // next-themes hydration guard: must set mounted after first client render
@@ -15,7 +18,7 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label="Toggle theme"
+      aria-label={label}
       // From the resolved theme, not `isDark`: the icon waits for mount, the
       // action must not. With dark the default, a click in the instant
       // between hydration and that effect read "not dark" and set dark —

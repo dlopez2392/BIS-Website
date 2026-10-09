@@ -14,6 +14,7 @@
     "work": "Our Work",
     "contact": "Contact",
     "openMenu": "Open menu",
+    "toggleTheme": "Toggle theme",
     "closeMenu": "Close menu",
     "call": "Call us",
     "callAria": "Call BIS at {phone}",
@@ -395,7 +396,7 @@
         }
       },
       "trades": {
-        "metaTitle": "IT and AI for contractors and trades, Rio Grande Valley",
+        "metaTitle": "IT and AI for contractors & trades, Rio Grande Valley",
         "metaDescription": "Answer every call from the ladder, quote faster, and get paid sooner. Bilingual systems for Valley contractors. Free assessment, one point of contact.",
         "heading": "Technology for Valley contractors and trades",
         "intro": "You cannot answer the phone from a roof, and the person calling you will call the next number on the list. Almost everything that costs a trades business money is the gap between a call coming in and someone getting back to it.",
@@ -649,6 +650,7 @@
   },
   "insights": {
     "heading": "Insights",
+    "metaTitle": "Insights: IT, AI and web for RGV businesses",
     "subheading": "Ideas on AI, IT, and web for Rio Grande Valley businesses.",
     "readArticle": "Read article",
     "minRead": "{minutes} min read",
@@ -726,6 +728,7 @@
   },
   "capabilities": {
     "title": "Capabilities",
+    "metaTitle": "Capabilities and the platforms we work in",
     "intro": "The platforms, tools, and disciplines behind BIS — two decades of hands-on IT and AI experience, put to work for Rio Grande Valley businesses.",
     "metaDescription": "The full stack of platforms, tools, and disciplines BIS works across — cloud, security, networking, backup, AI, and more — for Rio Grande Valley businesses.",
     "indexLabel": "Jump to",
@@ -942,6 +945,7 @@
   },
   "work": {
     "title": "Our Work",
+    "metaTitle": "Our Work: what we run in production",
     "metaDescription": "What BIS has shipped: Sofía, the bilingual AI receptionist on our own phone line, and Prism, a personal finance app anyone can use. Try both.",
     "intro": "We would rather show you than tell you. Everything on this page is running in production right now, and we describe it only in terms you can check yourself: our own front desk, which you can call this minute, and Prism, a personal finance app you can open without signing up.",
     "cases": {
@@ -1402,6 +1406,7 @@
   },
   "platform": {
     "title": "The platform",
+    "metaTitle": "The platform: a CRM built for the Valley",
     "metaDescription": "The system we build Valley businesses on: every call answered in English or Spanish, every lead in one place, and four numbers every Monday morning.",
     "heroKicker": "What you actually get",
     "heroTitle": "The hour you get back, and where it comes from.",

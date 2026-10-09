@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 import { SITE_URL } from '@/lib/seo/business';
-import { allSlugs } from '@/lib/insights';
+import { allSlugs, postDate, type Locale } from '@/lib/insights';
 import { resources } from '@/lib/resources';
 import { cityPages } from '@/lib/cities';
 import { industryPages } from '@/lib/industries';
@@ -59,11 +59,24 @@ function priorityFor(path: string): number {
   return 0.8;
 }
 
+/**
+ * A last-modified date only where the site actually knows one: an article's
+ * own `date`. Static pages get none, because stamping them with the build
+ * time would tell Google every page changed on every deploy, and Google
+ * stops trusting a sitemap's dates once they prove unreliable.
+ */
+function lastModifiedFor(locale: string, path: string): { lastModified?: string } {
+  if (!path.startsWith('/insights/')) return {};
+  const date = postDate(locale as Locale, path.slice('/insights/'.length));
+  return date ? { lastModified: date } : {};
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = sitemapPaths();
   return routing.locales.flatMap((locale) =>
     paths.map((p) => ({
       url: `${BASE}/${locale}${p}`,
+      ...lastModifiedFor(locale, p),
       changeFrequency: 'monthly' as const,
       priority: priorityFor(p),
       alternates: {

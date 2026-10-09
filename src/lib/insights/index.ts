@@ -9,6 +9,9 @@ export type Category = (typeof CATEGORIES)[number];
 export interface PostMeta {
   slug: string;
   title: string;
+  /** The title a results page shows, when `title` (the H1) runs past what
+   *  Google displays: 60 characters INCLUDING the layout's " · BIS". */
+  seoTitle?: string;
   description: string;
   category: Category;
   date: string; // 'YYYY-MM-DD'
@@ -25,6 +28,18 @@ function slugsFor(locale: Locale): string[] {
 
 export function allSlugs(): string[] {
   return [...new Set([...slugsFor('en'), ...slugsFor('es')])].sort();
+}
+
+/**
+ * A post's `date`, read straight from its source without importing the MDX,
+ * for callers that must stay synchronous (the sitemap). `null` when the file
+ * or the field is missing, so a caller omits the date rather than invent one.
+ */
+export function postDate(locale: Locale, slug: string): string | null {
+  const file = path.join(CONTENT_DIR, locale, `${slug}.mdx`);
+  if (!fs.existsSync(file)) return null;
+  const match = fs.readFileSync(file, 'utf8').match(/^\s*date:\s*['"](\d{4}-\d{2}-\d{2})['"]/m);
+  return match ? match[1] : null;
 }
 
 export function missingTranslations(): { slug: string; missing: Locale }[] {

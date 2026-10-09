@@ -8,7 +8,7 @@ import { capabilityGroups, expertiseIds } from '@/lib/tech/capabilities';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'capabilities' });
-  return pageMetadata({ locale, path: '/capabilities', title: t('title'), description: t('metaDescription') });
+  return pageMetadata({ locale, path: '/capabilities', title: t('metaTitle'), description: t('metaDescription') });
 }
 
 export default async function CapabilitiesPage({ params }: { params: Promise<{ locale: string }> }) {
