@@ -39,11 +39,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
  * Retaken 2026-10-09: a "LAST 7 DAYS" caption above the KPI row pushed the
  * KPIs and the activity feed down by 61px of 1250 (4.9%), so every marker
  * moved down 5 points to land on the same spot within its card.
+ *
+ * Retaken 2026-10-10: the capture is now 1760 tall rather than 1600, so the
+ * chart's day labels are in frame. The layout above did not move, so every
+ * marker keeps its pixel position and only the percentage changes:
+ * top × 1600 / 1760.
  */
 const SPOTS = [
-  { left: 34.5, top: 51 },
-  { left: 71, top: 47 },
-  { left: 80, top: 84 },
+  { left: 34.5, top: 46.4 },
+  { left: 71, top: 42.7 },
+  { left: 80, top: 76.4 },
 ] as const;
 
 /**

@@ -112,7 +112,10 @@ export function tourShot(id: TourSectionId): ShotSlot {
 
 /** The hero capture, above the fold and separate from the alternating tour. */
 export const heroShot: ShotSlot = {
-  file: 'dashboard-dark.png', width: 2560, height: 1600,
+  // Taller than the tour's 2560x1600 since 2026-10-10: the capture shoots the
+  // dashboard alone at 1280x880 so the calls chart keeps its day labels
+  // (bis-platform screenshots/capture.spec.ts, `DASHBOARD`).
+  file: 'dashboard-dark.png', width: 2560, height: 1760,
 };
 
 const PUBLIC_SHOTS = path.join(process.cwd(), 'public', 'screenshots');
