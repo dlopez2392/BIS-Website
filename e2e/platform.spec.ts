@@ -66,7 +66,7 @@ test.describe('phone', () => {
       const step = page.locator(`#${id} .tour-inline`);
       await step.scrollIntoViewIfNeeded();
       await expect(step.locator('[data-phone] img'), id).toBeVisible();
-      await expect(step.locator('.tour-label'), id).toHaveText(name);
+      await expect(step.locator('.phone-label'), id).toHaveText(name);
       // The phone fits the panel across: the page must not scroll sideways.
       const box = (await step.locator('[data-phone]').boundingBox())!;
       expect(box.x, id).toBeGreaterThanOrEqual(0);

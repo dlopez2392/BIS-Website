@@ -32,7 +32,7 @@ export function TourShot({
       <figure className="m-0">
         <div className="ground phone-stage relative">
           {label ? (
-            <p className="tour-label">
+            <p className="phone-label">
               <span className="tour-dot" aria-hidden="true" />
               {label}
             </p>
