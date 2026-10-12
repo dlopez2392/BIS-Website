@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { tourSections, heroShot, allShots, shotSrc } from '../platform-tour';
+import { PHONE } from '../phone-frame';
 
 const read = (f: string) =>
   JSON.parse(fs.readFileSync(path.join(process.cwd(), 'messages', f), 'utf8'));
@@ -102,14 +103,46 @@ describe('the /platform tour', () => {
    * zoom so deep it shows a few pixels of one button, is a frame arguing for
    * nothing — and a scale below 1 would shrink the capture inside the frame.
    */
-  it('points every step\'s zoom inside its capture, at a readable depth', () => {
+  it('points every zoomed step\'s focus inside its capture, at a readable depth', () => {
     for (const s of tourSections) {
+      if (!('focus' in s)) continue;
       expect(s.focus.x, `${s.id}.focus.x`).toBeGreaterThanOrEqual(0);
       expect(s.focus.x, `${s.id}.focus.x`).toBeLessThanOrEqual(100);
       expect(s.focus.y, `${s.id}.focus.y`).toBeGreaterThanOrEqual(0);
       expect(s.focus.y, `${s.id}.focus.y`).toBeLessThanOrEqual(100);
       expect(s.focus.scale, `${s.id}.focus.scale`).toBeGreaterThanOrEqual(1);
       expect(s.focus.scale, `${s.id}.focus.scale`).toBeLessThanOrEqual(2.5);
+    }
+  });
+
+  /**
+   * A step is zoomed OR on a phone. Both would crop the bezel the phone is
+   * drawn for; neither would leave the frame with nothing to do.
+   */
+  it('gives every step a focus or a phone, never both', () => {
+    for (const s of tourSections) {
+      expect(('focus' in s) !== ('phone' in s), `${s.id}: exactly one of focus and phone`).toBe(true);
+    }
+  });
+
+  /**
+   * The phone is drawn around a phone-sized capture: a 390x797 screen (the
+   * phone's 390x844 less the status bar the frame draws) at a whole-number
+   * density. Anything else is a desktop layout shrunk into a bezel, or a
+   * capture the frame will stretch.
+   */
+  it('puts only phone-sized captures on a phone, showing enough of it to read', () => {
+    const phoned = tourSections.filter((s) => 'phone' in s);
+    expect(phoned.map((s) => s.id)).toEqual(['booking', 'report']);
+    for (const s of phoned) {
+      const density = s.shot.width / PHONE.screen.width;
+      expect(Number.isInteger(density), `${s.id}: ${s.shot.width} wide is not a whole multiple of 390`).toBe(true);
+      expect(s.shot.height, `${s.id}: not a phone screen below the status bar`)
+        .toBe((PHONE.screen.height - PHONE.statusBar) * density);
+      expect(s.phone.show, `${s.id}.phone.show`).toBeGreaterThan(0.4);
+      expect(s.phone.show, `${s.id}.phone.show`).toBeLessThanOrEqual(1);
+      expect(s.phone.clock, `${s.id}.phone.clock`).toMatch(/^([1-9]|1[0-2]):[0-5]\d$/);
+      expect(s.phone.ground, `${s.id}.phone.ground`).toMatch(/^#[0-9a-f]{6}$/i);
     }
   });
 

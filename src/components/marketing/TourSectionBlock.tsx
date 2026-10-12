@@ -43,7 +43,13 @@ export async function TourSectionBlock({
       </div>
 
       <div className="tour-inline">
-        <TourShot slot={section.shot} alt={t(`alt.${section.id}`)} caption={t('sampleCaption')} />
+        <TourShot
+          slot={section.shot}
+          alt={t(`alt.${section.id}`)}
+          caption={t('sampleCaption')}
+          phone={section.phone}
+          label={section.phone ? t(`${k}.label`) : undefined}
+        />
       </div>
     </section>
   );

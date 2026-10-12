@@ -1437,13 +1437,13 @@
       },
       "booking": {
         "kicker": "Your name, not ours",
-        "label": "Your logo, your hours",
+        "label": "Your customer's phone",
         "title": "They book themselves, on a page that looks like you.",
         "body": "Your logo, your colour, your hours, your service names. A customer books a window without phoning anybody, and the only place our name appears is small type at the bottom. Send the link in a text or put it on your own site — it is the same page either way."
       },
       "report": {
         "kicker": "Monday morning",
-        "label": "Four numbers, every Monday",
+        "label": "Your phone, Monday at 8",
         "title": "Four numbers, in words, readable on a phone.",
         "body": "Calls answered, leads captured, bookings, website visitors — each next to the week before. No charts to squint at and no arrows, because an arrow means nothing read aloud. If we did not measure something it is left out rather than shown as a zero that makes you think the phone is broken. And a quiet week still sends, so silence never leaves you wondering whether the product stopped working."
       }

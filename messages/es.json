@@ -1437,13 +1437,13 @@
       },
       "booking": {
         "kicker": "Tu nombre, no el nuestro",
-        "label": "Tu logo, tus horarios",
+        "label": "El teléfono de tu cliente",
         "title": "Se agendan solos, en una página que se ve como tú.",
         "body": "Tu logo, tu color, tus horarios, los nombres de tus servicios. El cliente aparta su cita sin llamarle a nadie, y nuestro nombre solo aparece en letra chica hasta abajo. Manda el enlace por mensaje o ponlo en tu propio sitio — es la misma página."
       },
       "report": {
         "kicker": "Lunes por la mañana",
-        "label": "Cuatro números, cada lunes",
+        "label": "Tu teléfono, el lunes a las 8",
         "title": "Cuatro números, en palabras, legibles desde el teléfono.",
         "body": "Llamadas contestadas, prospectos captados, citas agendadas y visitas al sitio — cada uno junto a la semana anterior. Sin gráficas que descifrar y sin flechitas, porque una flecha no dice nada si te la leen en voz alta. Si no medimos algo, se omite en lugar de aparecer como un cero que te hace pensar que el teléfono está descompuesto. Y una semana tranquila también se manda, para que el silencio nunca te deje con la duda de si el producto dejó de funcionar."
       }

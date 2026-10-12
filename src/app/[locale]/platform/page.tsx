@@ -93,7 +93,8 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
             height: s.shot.height,
             alt: t(`alt.${s.id}`),
             label: t(`sections.${s.id}.label`),
-            focus: s.focus,
+            focus: 'focus' in s ? s.focus : undefined,
+            phone: 'phone' in s ? s.phone : undefined,
             labelTop: 'labelTop' in s ? s.labelTop : undefined,
           }))}
         >

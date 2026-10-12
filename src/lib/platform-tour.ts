@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Focus } from './tour-pose';
+import type { PhoneScreen } from './phone-frame';
 
 /**
  * The /platform tour — what a client's own workspace looks like, section by
@@ -53,8 +54,18 @@ export interface TourSection {
    * `tour-pose.ts`). Re-check these whenever the captures are retaken — a
    * focus that lands on the wrong panel is a zoom that argues for nothing.
    * `platform.sections.<id>.label` names what it lands on.
+   *
+   * A step has a focus OR a phone, never both: a phone is already shown at a
+   * size to read, and zooming into one would crop away the bezel that is the
+   * whole point of drawing it.
    */
-  focus: Focus;
+  focus?: Focus;
+  /**
+   * Show this capture inside a phone (`lib/phone-frame.ts`) instead of as a
+   * bare screenshot. For the customer-side screens: they are the client's
+   * brand, light on a dark site, and the frame says whose phone they are on.
+   */
+  phone?: PhoneScreen;
   /**
    * Draw the frame's label at the top instead of the bottom, for a step whose
    * point is at the foot of its capture — the call log's spam row sits where
@@ -82,12 +93,13 @@ export const tourSections = [
   // The board itself — the $89 diagnostic beside the bigger jobs.
   { id: 'pipeline', shot: { file: 'pipeline.png', width: 2560, height: 1600 },
     focus: { x: 58, y: 55, scale: 1.3 } },
-  // The client's own name and logo over the open times.
-  { id: 'booking', shot: { file: 'booking-page.png', width: 1280, height: 1600 },
-    focus: { x: 50, y: 27, scale: 1.8 } },
-  // The four numbers, in words.
-  { id: 'report', shot: { file: 'weekly-report.png', width: 1280, height: 1600 },
-    focus: { x: 50, y: 22, scale: 2 } },
+  // The client's own name and logo over the open times, on the customer's
+  // phone. 1170x2391: a 390x797 phone screen at 3x (capture.spec.ts `PHONE`).
+  { id: 'booking', shot: { file: 'booking-page.png', width: 1170, height: 2391 },
+    phone: { clock: '2:00', show: 0.62, ground: '#ffffff' } },
+  // The four numbers, in words, on the owner's phone at 8 on Monday.
+  { id: 'report', shot: { file: 'weekly-report.png', width: 1170, height: 2391 },
+    phone: { clock: '8:02', show: 0.58, ground: '#ffffff' } },
 ] as const satisfies readonly TourSection[];
 
 export type TourSectionId = (typeof tourSections)[number]['id'];
