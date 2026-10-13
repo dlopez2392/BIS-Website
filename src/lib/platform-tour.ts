@@ -96,7 +96,7 @@ export const tourSections = [
   // The client's own name and logo over the open times, on the customer's
   // phone. 1170x2391: a 390x797 phone screen at 3x (capture.spec.ts `PHONE`).
   { id: 'booking', shot: { file: 'booking-page.png', width: 1170, height: 2391 },
-    phone: { clock: '2:00', show: 0.6, ground: '#ffffff' } },
+    phone: { clock: '2:00', show: 0.63, ground: '#ffffff' } },
   // The four numbers, in words, on the owner's phone at 8 on Monday.
   { id: 'report', shot: { file: 'weekly-report.png', width: 1170, height: 2391 },
     phone: { clock: '8:02', show: 0.67, ground: '#ffffff' } },
