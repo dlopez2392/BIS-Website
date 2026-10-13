@@ -29,7 +29,8 @@ const round = (v: number) => Math.round(v * 100) / 100;
  * it can go WITHOUT dragging an edge of the layer into view.
  *
  * The layer is `object-fit: contain`, so a capture taller than the frame
- * (the booking page and the report are 4:5) sits in a centred column of it.
+ * would sit in a centred column of it. (The two portrait captures, the
+ * booking page and the report, are drawn on a phone instead and never posed.)
  * The focus is mapped from image percent into frame percent first, and the
  * pan is then clamped against the frame's edges: scaling by `s` about
  * `(x, y)` puts the left edge at `x(1-s)` and the right at `x + s(100-x)`,

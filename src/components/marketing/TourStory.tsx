@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { framePose, type Focus } from '@/lib/tour-pose';
+import type { PhoneScreen } from '@/lib/phone-frame';
+import { PhoneFrame } from './PhoneFrame';
 
 export interface StoryFrame {
   /** The step this frame belongs to — the `data-tour-step` it follows. */
@@ -13,7 +15,10 @@ export interface StoryFrame {
   alt: string;
   /** A few words naming what the zoom is showing, drawn on the frame. */
   label: string;
-  focus: Focus;
+  /** Where to zoom, for a bare capture. */
+  focus?: Focus;
+  /** Or: draw the capture on a phone, at full size, with no zoom. */
+  phone?: PhoneScreen;
   labelTop?: boolean;
 }
 
@@ -79,13 +84,32 @@ export function TourStory({ frames, caption, children }: {
             <div className="tour-view">
               {frames.map((f, i) => {
                 const on = i === index;
+                // A phone fills the frame with its own lit panel and is
+                // never zoomed: it is already at a size to read, and a zoom
+                // would crop the bezel that says whose phone it is.
+                if (f.phone) {
+                  return (
+                    <div
+                      key={f.id}
+                      className="tour-layer phone-layer ground"
+                      data-active={on ? 'true' : undefined}
+                      aria-hidden={on ? undefined : true}
+                    >
+                      <PhoneFrame
+                        phone={f.phone} src={f.src} alt={f.alt} width={f.width} height={f.height}
+                        sizes="(min-width: 64rem) 18rem, 1px"
+                      />
+                    </div>
+                  );
+                }
+                const focus = f.focus ?? { x: 50, y: 50, scale: 1 };
                 return (
                   <div
                     key={f.id}
                     className="tour-layer"
                     data-active={on ? 'true' : undefined}
                     aria-hidden={on ? undefined : true}
-                    style={on ? framePose(f.focus, f.width / f.height) : undefined}
+                    style={on ? framePose(focus, f.width / f.height) : undefined}
                   >
                     {/* Sized for the ZOOMED width: the frame is ~40rem, and a
                         layer at 2x shows half the capture across all of it.
@@ -93,7 +117,7 @@ export function TourStory({ frames, caption, children }: {
                         the zoom then stretched, and the text went soft. */}
                     <Image
                       src={f.src} alt={f.alt} width={f.width} height={f.height}
-                      sizes={`(min-width: 64rem) ${Math.ceil(40 * f.focus.scale)}rem, 1px`}
+                      sizes={`(min-width: 64rem) ${Math.ceil(40 * focus.scale)}rem, 1px`}
                     />
                   </div>
                 );

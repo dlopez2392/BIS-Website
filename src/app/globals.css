@@ -518,7 +518,7 @@ a.hm-twin:hover { color: var(--color-ink); }
 }
 .tour-layer[data-active] { opacity: 1; }
 .tour-layer img { width: 100%; height: 100%; object-fit: contain; }
-.tour-label {
+.tour-label, .phone-label {
   position: absolute; left: 12px; bottom: 12px; margin: 0;
   display: inline-flex; align-items: center; gap: 8px;
   padding: 6px 12px; border-radius: 999px;
@@ -538,6 +538,62 @@ a.hm-twin:hover { color: var(--color-ink); }
 }
 @media (prefers-reduced-motion: reduce) {
   .tour-layer { transition: none; }
+}
+
+/* --- The phone the customer-side captures sit in (PhoneFrame.tsx) ---------
+   Geometry from lib/phone-frame.ts, in device points: a 390x844 screen, a
+   12pt bezel, so 414 points across. `--u` is one point at whatever size the
+   phone is drawn, read off the crop's own width (it is the size container),
+   so the bezel, the radii and the status bar scale as one object.
+   Literal colours, like `.ground`: this is a physical object, the same in
+   both themes, not page chrome. */
+.phone-crop { container-type: inline-size; position: relative; overflow: hidden; }
+.phone {
+  --u: calc(100cqw / 414);
+  box-sizing: border-box; width: 100%; aspect-ratio: 414 / 868;
+  padding: calc(12 * var(--u));
+  border-radius: calc(60 * var(--u));
+  background: #0c0b12;
+  /* A lit rim, so the bezel separates from the dark ground behind it. */
+  box-shadow: inset 0 0 0 calc(1.5 * var(--u)) #34314a, inset 0 0 0 calc(4 * var(--u)) #16141f;
+}
+.phone-screen {
+  position: relative; height: 100%; overflow: hidden;
+  display: flex; flex-direction: column;
+  border-radius: calc(48 * var(--u)); background: #ffffff;
+}
+.phone-status {
+  flex: none; position: relative; height: calc(47 * var(--u));
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 calc(26 * var(--u)) 0 calc(36 * var(--u));
+  color: #000000; font: 600 calc(16 * var(--u)) / 1 -apple-system, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.phone-island {
+  position: absolute; left: 50%; top: calc(9 * var(--u)); transform: translateX(-50%);
+  width: calc(120 * var(--u)); height: calc(32 * var(--u));
+  border-radius: 999px; background: #000000;
+}
+.phone-icons { display: inline-flex; align-items: center; gap: calc(6 * var(--u)); }
+.phone-signal { width: calc(17 * var(--u)); height: calc(11 * var(--u)); fill: currentColor; }
+.phone-battery { width: calc(27 * var(--u)); height: calc(13 * var(--u)); fill: currentColor; }
+.phone-content { flex: 1; min-height: 0; }
+.phone-content img { display: block; width: 100%; height: auto; }
+
+/* Inline (a phone, or no JavaScript): the phone rises out of the bottom edge
+   of a lit panel. The top padding clears the label, which sits above the
+   phone rather than over the screen it names. */
+.phone-stage {
+  border-radius: 0.75rem; border: 1px solid var(--color-hairline);
+  padding: 3.25rem 1.5rem 0; display: flex; justify-content: center;
+}
+.phone-stage .phone-crop { width: min(19rem, 80%); }
+.phone-stage .phone-label { top: 12px; bottom: auto; }
+/* In the story frame: the same panel fills the frame, and the phone stands
+   right of centre, clear of the label in the bottom-left corner. */
+.tour-layer.phone-layer { position: absolute; }
+.phone-layer .phone-crop {
+  position: absolute; top: 7%; left: 58%; height: 93%; transform: translateX(-50%);
 }
 
 /* --- Moving between pages ---------------------------------------------
