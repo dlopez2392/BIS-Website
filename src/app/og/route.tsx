@@ -97,6 +97,12 @@ export async function GET(request: Request) {
 async function asJpeg(card: ImageResponse): Promise<Response> {
   const png = Buffer.from(await card.arrayBuffer());
   const headers = new Headers(card.headers);
+  // A share card is an image for link previews, not a page. Google found
+  // /og?title=… through each page's og:image tag and listed it in Search
+  // Console as "Crawled – currently not indexed" (2026-10-16). The header,
+  // not a robots.txt Disallow: Twitterbot obeys robots.txt, so a Disallow
+  // would cost every link posted on X its preview.
+  headers.set('x-robots-tag', 'noindex');
   try {
     const { default: sharp } = await import('sharp');
     const jpeg = await sharp(png).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
