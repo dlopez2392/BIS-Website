@@ -10,6 +10,9 @@ test('OG route returns a JPEG small enough for a WhatsApp preview', async ({ req
   const body = await res.body();
   expect(body.subarray(0, 3)).toEqual(Buffer.from([0xff, 0xd8, 0xff]));
   expect(body.length).toBeLessThan(300 * 1024);
+  // An image, not a page: Search Console listed /og?title=… as a page it
+  // crawled and chose not to index (2026-10-16).
+  expect(res.headers()['x-robots-tag']).toBe('noindex');
 });
 
 test('a page references the OG image in its metadata', async ({ page }) => {
