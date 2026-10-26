@@ -50,6 +50,9 @@ export interface PhoneScreen {
   /** The status bar's background: the colour at the top of the capture, so
    *  the bar and the page read as one screen. */
   ground: string;
+  /** The status bar's text and icons, for a dark capture (the booking page
+   *  since 2026-10-26). Black when absent, as on a light screen. */
+  ink?: string;
 }
 
 /** The aspect ratio of the visible part of the phone, width / height. */
