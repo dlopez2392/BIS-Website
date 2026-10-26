@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { IndustryCard } from '@/components/marketing/IndustryCard';
 import { industryPages } from '@/lib/industries';
-import { artFor, artProps } from '@/lib/art';
+import { IndustryScene } from '@/components/marketing/IndustryScene';
 import { CTASection } from '@/components/ui/CTASection';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { pageMetadata } from '@/lib/seo/metadata';
@@ -31,7 +31,7 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
     title: t(CARD_KEYS[i.id].title),
     body: t(CARD_KEYS[i.id].body),
     href: `/industries/${i.id}`,
-    art: artProps(artFor('ind', i.id)),
+    visual: <IndustryScene kind={i.id} />,
   }));
   return (
     <main>
