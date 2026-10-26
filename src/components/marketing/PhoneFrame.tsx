@@ -33,7 +33,7 @@ export function PhoneFrame({
     >
       <div className="phone">
         <div className="phone-screen">
-          <div className="phone-status" style={{ background: phone.ground }} aria-hidden="true">
+          <div className="phone-status" style={{ background: phone.ground, color: phone.ink }} aria-hidden="true">
             <span className="phone-clock">{phone.clock}</span>
             <span className="phone-island" />
             <span className="phone-icons">

@@ -160,7 +160,119 @@
     "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola.",
     "sofiaKicker": "Pruebas, no diapositivas",
     "sofiaTitle": "El primero ya contesta nuestro teléfono",
-    "sofiaBlurb": "Todo lo anterior es más fácil de creer si puedes comprobar una parte. Sofía es la nuestra — presiona el botón y pregúntale qué hacemos."
+    "sofiaBlurb": "Todo lo anterior es más fácil de creer si puedes comprobar una parte. Sofía es la nuestra — presiona el botón y pregúntale qué hacemos.",
+    "pageKicker": "Servicios",
+    "pageTitle": "Un solo aliado para IA, TI y tu sitio web.",
+    "pageIntro": "IA que te devuelve horas, TI que te mantiene seguro, sitios web que son tuyos y la plataforma que contesta tu teléfono — con un solo punto de contacto en el Valle.",
+    "heroCta": "Agenda una evaluación gratuita",
+    "heroSecondary": "Cómo trabajamos",
+    "indexLabel": "Cuatro formas en que ayudamos",
+    "needIfLabel": "Lo necesitas si",
+    "getLabel": "Lo que recibes",
+    "toolsLabel": "Herramientas con las que trabajamos",
+    "firstStepLabel": "Primer paso gratuito",
+    "proofLive": "En vivo",
+    "detail": {
+      "g1": {
+        "outcome": "Horas de vuelta cada semana, con las herramientas que ya usas.",
+        "needIf": [
+          "Tu equipo captura la misma información en dos sistemas.",
+          "Documentos, formularios de admisión o correos se acumulan esperando que alguien los lea.",
+          "Ya probaste una herramienta de IA, pero nadie sabe si ahorra tiempo — ni cuánto cuesta."
+        ],
+        "get": [
+          "Una evaluación de dónde la IA ahorra horas reales — y dónde no",
+          "Automatizaciones dentro de Microsoft 365 y las aplicaciones que ya pagas",
+          "Asistentes que contestan en inglés y en español",
+          "Lectura y resúmenes de documentos, revisados por una persona antes de que importen",
+          "Un costo mensual de IA que puedes ver y limitar",
+          "Capacitación para que tu equipo la use — y confíe en ella"
+        ],
+        "tools": [
+          "Microsoft 365",
+          "Power Automate",
+          "Claude API"
+        ],
+        "firstStep": "Calcula las horas que recuperarías",
+        "cta": "Hablemos de IA para tu negocio"
+      },
+      "g2": {
+        "outcome": "TI segura y administrada que sigue funcionando mientras creces.",
+        "needIf": [
+          "Una contraseña es lo único entre un extraño y tu correo.",
+          "Nadie puede decir con certeza qué laptops y teléfonos tienen tus datos.",
+          "Le pagas a un proveedor de TI pero no sabes qué estás recibiendo."
+        ],
+        "get": [
+          "Microsoft 365 bien configurado: cuentas, correo, archivos y permisos",
+          "Protección al iniciar sesión que detiene contraseñas robadas y phishing",
+          "Cada laptop y teléfono administrado — y borrado a distancia si se pierde",
+          "Protección en cada computadora, vigilada contra amenazas",
+          "Redes para una oficina o varias, de los dos lados de la frontera si hace falta",
+          "Una mirada independiente sobre tu proveedor de TI actual",
+          "Un plan — y alguien que responda primero — si algo sale mal"
+        ],
+        "tools": [
+          "Microsoft 365",
+          "Entra ID",
+          "Intune",
+          "Defender",
+          "MFA resistente a phishing"
+        ],
+        "firstStep": "Haz la revisión de seguridad gratuita",
+        "cta": "Hablemos de tu TI"
+      },
+      "g3": {
+        "outcome": "Un sitio bilingüe y rápido que es tuyo, hecho para traer llamadas.",
+        "needIf": [
+          "Tu sitio se ve anticuado en el teléfono — o no tienes uno.",
+          "Tus clientes buscan en español y encuentran a alguien más.",
+          "No controlas tu propio dominio, hosting ni contraseñas."
+        ],
+        "get": [
+          "Diseño a la medida, escrito para tus clientes en inglés y en español — no traducido por máquina",
+          "Páginas rápidas que funcionan en cualquier teléfono",
+          "Búsqueda local configurada para el Valle, para que los clientes cercanos te encuentren",
+          "Formularios de contacto y reservas que te mandan los prospectos directamente",
+          "Tableros sencillos que muestran qué hacen tus visitantes",
+          "Cada cuenta a tu nombre, con las llaves en tus manos"
+        ],
+        "tools": [
+          "Next.js",
+          "Vercel",
+          "Google Search Console",
+          "Power BI"
+        ],
+        "firstStep": "Mira cuánto te cuestan las llamadas perdidas",
+        "cta": "Hablemos de tu sitio web"
+      }
+    },
+    "platform": {
+      "title": "BIS Platform",
+      "outcome": "Cada llamada contestada y cada prospecto con seguimiento — en un solo lugar.",
+      "body": "El sistema con el que operamos nuestro propio negocio: Sofía, una recepcionista con IA que contesta en inglés y en español, más el CRM, la página de reservas y los seguimientos detrás de ella. Lo instalamos y lo operamos por ti.",
+      "needIf": [
+        "Las llamadas fuera de horario se van al buzón — y esas personas no vuelven a llamar.",
+        "Tus prospectos viven en mensajes, libretas y tres bandejas de entrada distintas.",
+        "Quieres saber cada lunes cómo te fue la semana pasada, sin armar un reporte."
+      ],
+      "get": [
+        "Sofía contesta tu línea de día y de noche, en inglés y en español, y agenda citas",
+        "Una página de reservas con tu logo y tus colores",
+        "Cada llamada, formulario y mensaje llega a un solo expediente del cliente",
+        "Recordatorios y seguimientos que se envían solos",
+        "Un reporte de cuatro números cada lunes por la mañana",
+        "Lo instalamos y lo mantenemos nosotros — no tienes nada que instalar"
+      ],
+      "proof": "Sofía contesta nuestra propia línea publicada. Llámala, o habla con ella aquí mismo.",
+      "phoneLabel": "El teléfono de tu cliente",
+      "firstStep": "Recorre la plataforma",
+      "cta": "Hablemos de la plataforma"
+    },
+    "processHeading": "Cómo es trabajar con nosotros",
+    "processMore": "Más sobre cómo trabajamos",
+    "faqHeading": "Las preguntas que más nos hacen",
+    "faqMore": "Todas las preguntas"
   },
   "industries": {
     "title": "Hecho para el Valle.",
@@ -723,6 +835,10 @@
       "remote": {
         "q": "¿Trabajan de forma remota o presencial?",
         "a": "Ambas. Estamos en Harlingen y servimos a todo el Valle, así que trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — lo que te dé resultados."
+      },
+      "replaceMsp": {
+        "q": "¿Tengo que cambiar a mi compañía de TI actual?",
+        "a": "No. Muchos clientes conservan a su proveedor. Podemos trabajar junto a ellos — marcando el rumbo, revisando el trabajo y entrando en proyectos o seguridad — para que por fin sepas qué estás pagando."
       }
     }
   },
