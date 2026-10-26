@@ -96,10 +96,10 @@ export const tourSections = [
   // The client's own name and logo over the open times, on the customer's
   // phone. 1170x2391: a 390x797 phone screen at 3x (capture.spec.ts `PHONE`).
   // Dark since 2026-10-26: the demo company's logo is drawn on black. The
-  // clock is early afternoon because the capture shows the morning gone and
-  // the 2:00 PM time still open.
+  // capture shows tomorrow's times (today's are gone), so the clock reads late
+  // afternoon.
   { id: 'booking', shot: { file: 'booking-page.png', width: 1170, height: 2391 },
-    phone: { clock: '12:40', show: 0.63, ground: '#0d1117', ink: '#ffffff' } },
+    phone: { clock: '4:52', show: 0.63, ground: '#0d1117', ink: '#ffffff' } },
   // The four numbers, in words, on the owner's phone at 8 on Monday.
   { id: 'report', shot: { file: 'weekly-report.png', width: 1170, height: 2391 },
     phone: { clock: '8:02', show: 0.67, ground: '#ffffff' } },
@@ -128,9 +128,10 @@ export function tourShot(id: TourSectionId): ShotSlot {
 /** The hero capture, above the fold and separate from the alternating tour. */
 export const heroShot: ShotSlot = {
   // Taller than the tour's 2560x1600 since 2026-10-10: the capture shoots the
-  // dashboard alone at 1280x880 so the calls chart keeps its day labels
-  // (bis-platform screenshots/capture.spec.ts, `DASHBOARD`).
-  file: 'dashboard-dark.png', width: 2560, height: 1760,
+  // dashboard alone so the calls chart keeps its day labels (bis-platform
+  // screenshots/capture.spec.ts, `DASHBOARD`). 1280x1000 since 2026-10-26,
+  // when the business status card ("Open today") joined the page above it.
+  file: 'dashboard-dark.png', width: 2560, height: 2000,
 };
 
 const PUBLIC_SHOTS = path.join(process.cwd(), 'public', 'screenshots');
