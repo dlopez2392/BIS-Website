@@ -18,11 +18,12 @@ export type IndustryKind = IndustryId;
  * - trades:      two gears mesh.
  * - agriculture: rows of a crop come up in a wave under a sun.
  *
- * `band` draws the scene as a card's 16:9 header, edge to edge.
+ * `band` (the default) draws the scene as a card's 16:9 header, edge to edge;
+ * without it, the scene is a framed object, as on the industry's own page.
  */
-export function IndustryScene({ kind }: { kind: IndustryKind }) {
+export function IndustryScene({ kind, band = true }: { kind: IndustryKind; band?: boolean }) {
   return (
-    <ScenePlayer kind={kind} band>
+    <ScenePlayer kind={kind} band={band}>
       <div className="scene-floor" />
       {kind === 'legal' ? <Legal />
         : kind === 'medical' ? <Medical />

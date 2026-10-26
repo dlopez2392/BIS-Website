@@ -12,6 +12,7 @@ import {
   type IndustryWorkflow, type IndustryQuestion, type IndustryArtifact as Artifact,
 } from '@/lib/industries';
 import { IndustryArtifact } from '@/components/marketing/IndustryArtifact';
+import { IndustryScene } from '@/components/marketing/IndustryScene';
 import { cityPages } from '@/lib/cities';
 import { PlatformProof } from '@/components/marketing/PlatformProof';
 import { tourShot } from '@/lib/platform-tour';
@@ -91,10 +92,16 @@ export default async function IndustryPage(
         })}
       />
 
-      <section className="mx-auto max-w-4xl px-6 pt-20">
-        <p className="text-xs font-bold uppercase tracking-widest text-accent">{t(entry.labelKey)}</p>
-        <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink">{t(`pages.${industry}.heading`)}</h1>
-        <p className="mt-4 text-lg text-ink-muted">{t(`pages.${industry}.intro`)}</p>
+      {/* The same scene as this industry's card on /industries, so a visitor
+          who arrives from that card, or from search, lands on the object they
+          recognise. Beside the headline on a wide screen, under it on a phone. */}
+      <section className="mx-auto grid max-w-4xl items-center gap-8 px-6 pt-20 md:grid-cols-[minmax(0,1fr)_18rem]">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-widest text-accent">{t(entry.labelKey)}</p>
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink">{t(`pages.${industry}.heading`)}</h1>
+          <p className="mt-4 text-lg text-ink-muted">{t(`pages.${industry}.intro`)}</p>
+        </div>
+        <IndustryScene kind={entry.id} band={false} />
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pt-14">
