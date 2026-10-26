@@ -1,8 +1,6 @@
-import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import type { ArtProps } from '@/lib/art';
 
 /**
  * One service on /services, written for the owner who signs the cheque, not
@@ -15,8 +13,8 @@ import type { ArtProps } from '@/lib/art';
  * The aside carries the proof and the next steps beside the argument on a
  * wide screen and under it on a phone, so the page's strongest sentence is
  * never the smallest, greyest one on it (the old layout set it in italics
- * on a muted box). `visual` replaces the Señal plate where a section has
- * something real to show instead (the platform's phone).
+ * on a muted box). `visual` is what the section shows above
+ * the proof: a looping 3D scene (ServiceScene) or the platform's phone.
  *
  * The per-service link is deliberately the bordered secondary style, not the
  * solid button: on this site solid means "book an assessment", and the page
@@ -24,7 +22,7 @@ import type { ArtProps } from '@/lib/art';
  */
 export function ServiceSection({
   id, index, icon, title, outcome, body, needIfLabel, needIf, getLabel, get, toolsLabel, tools,
-  proofLabel, proof, firstStepLabel, firstStep, cta, art, visual, children,
+  proofLabel, proof, firstStepLabel, firstStep, cta, visual, children,
 }: {
   id: string;
   index: number;
@@ -43,7 +41,6 @@ export function ServiceSection({
   firstStepLabel: string;
   firstStep: { href: string; label: string };
   cta: { href: string; label: string };
-  art?: ArtProps;
   visual?: ReactNode;
   children?: ReactNode;
 }) {
@@ -98,15 +95,7 @@ export function ServiceSection({
         </div>
 
         <aside className="flex flex-col gap-4">
-          {visual ?? (art ? (
-            <Image
-              {...art}
-              alt=""
-              aria-hidden="true"
-              sizes="(min-width: 64rem) 20rem, 100vw"
-              className="hidden aspect-video w-full rounded-xl border border-hairline object-cover lg:block"
-            />
-          ) : null)}
+          {visual}
           <figure className="m-0 rounded-xl border border-hairline bg-surface-alt p-5" data-service-proof>
             <p className="text-xs font-bold uppercase tracking-widest text-accent">{proofLabel}</p>
             <blockquote className="mt-2 border-l-2 border-accent pl-3 text-base font-semibold leading-snug text-ink">

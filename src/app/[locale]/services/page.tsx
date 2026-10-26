@@ -4,6 +4,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Globe, PhoneCall, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { ServiceSection } from '@/components/marketing/ServiceSection';
+import { ServiceScene } from '@/components/marketing/ServiceScene';
 import { TourShot } from '@/components/marketing/TourShot';
 import { CTASection } from '@/components/ui/CTASection';
 import { PageHeader } from '@/components/ui/PageHeader';
@@ -12,7 +13,6 @@ import { pageMetadata } from '@/lib/seo/metadata';
 import { SERVICE_ANCHORS } from '@/lib/service-groups';
 import { SERVICES_FAQ } from '@/lib/faq';
 import { tourSections } from '@/lib/platform-tour';
-import { artProps } from '@/lib/art';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -44,11 +44,11 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   const tPlatform = await getTranslations('platform');
 
   const groups = [
-    { key: 'g1', anchor: SERVICE_ANCHORS.g1, icon: <Sparkles size={16} />, art: artProps('serviceAi'),
+    { key: 'g1', anchor: SERVICE_ANCHORS.g1, icon: <Sparkles size={16} />, scene: 'ai',
       proofLabel: tHome('kDelivered'), firstStepHref: '/tools/first-hour-back' },
-    { key: 'g2', anchor: SERVICE_ANCHORS.g2, icon: <ShieldCheck size={16} />, art: artProps('serviceInfra'),
+    { key: 'g2', anchor: SERVICE_ANCHORS.g2, icon: <ShieldCheck size={16} />, scene: 'infra',
       proofLabel: tHome('kDelivered'), firstStepHref: '/tools/security-check' },
-    { key: 'g3', anchor: SERVICE_ANCHORS.g3, icon: <Globe size={16} />, art: artProps('serviceWeb'),
+    { key: 'g3', anchor: SERVICE_ANCHORS.g3, icon: <Globe size={16} />, scene: 'web',
       proofLabel: tHome('kEveryBuild'), firstStepHref: '/#missed-calls' },
   ] as const;
 
@@ -123,7 +123,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
             firstStepLabel={t('firstStepLabel')}
             firstStep={{ href: g.firstStepHref, label: t(`detail.${g.key}.firstStep`) }}
             cta={{ href: '/contact', label: t(`detail.${g.key}.cta`) }}
-            art={g.art}
+            visual={<ServiceScene kind={g.scene} />}
           />
         ))}
 
