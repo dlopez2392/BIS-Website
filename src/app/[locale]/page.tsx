@@ -44,11 +44,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
  * chart's day labels are in frame. The layout above did not move, so every
  * marker keeps its pixel position and only the percentage changes:
  * top × 1600 / 1760.
+ *
+ * Retaken 2026-10-26: 2000 tall, and the business status card ("Open today")
+ * now sits above the KPIs, so every marker was re-measured on the new
+ * capture rather than scaled: the calls tile's sparkline, the after-hours
+ * tile's figure and the newest booking in Activity.
  */
 const SPOTS = [
-  { left: 34.5, top: 46.4 },
-  { left: 71, top: 42.7 },
-  { left: 80, top: 76.4 },
+  { left: 34.5, top: 56.6 },
+  { left: 71, top: 53.8 },
+  { left: 88, top: 80.3 },
 ] as const;
 
 /**
