@@ -8,7 +8,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
  * cost nothing until the reader reaches them. Without JavaScript the scene
  * simply plays.
  */
-export function ScenePlayer({ kind, children }: { kind: string; children: ReactNode }) {
+export function ScenePlayer({ kind, band = false, children }: { kind: string; band?: boolean; children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const [onScreen, setOnScreen] = useState(true);
 
@@ -21,7 +21,7 @@ export function ScenePlayer({ kind, children }: { kind: string; children: ReactN
   }, []);
 
   return (
-    <div ref={ref} className="scene" data-scene={kind} data-paused={onScreen ? undefined : ''} aria-hidden="true">
+    <div ref={ref} className={band ? 'scene scene-band' : 'scene'} data-scene={kind} data-paused={onScreen ? undefined : ''} aria-hidden="true">
       {children}
     </div>
   );
