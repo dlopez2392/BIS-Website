@@ -160,7 +160,119 @@
     "ctaBody": "Start with a free, no-pitch assessment and see the first automation that pays for itself.",
     "sofiaKicker": "Proof, not a slide",
     "sofiaTitle": "The first one is already answering our phone",
-    "sofiaBlurb": "Everything above is easier to believe if you can check one piece of it. Sofía is ours — press the button and ask her what we do."
+    "sofiaBlurb": "Everything above is easier to believe if you can check one piece of it. Sofía is ours — press the button and ask her what we do.",
+    "pageKicker": "Services",
+    "pageTitle": "One partner for AI, IT and your website.",
+    "pageIntro": "AI that gives you hours back, IT that keeps you secure, websites you own, and the platform that answers your phone — with one point of contact in the Valley.",
+    "heroCta": "Book a free assessment",
+    "heroSecondary": "How we work",
+    "indexLabel": "Four ways we help",
+    "needIfLabel": "You need this if",
+    "getLabel": "What you get",
+    "toolsLabel": "Tools we work in",
+    "firstStepLabel": "Free first step",
+    "proofLive": "Live now",
+    "detail": {
+      "g1": {
+        "outcome": "Hours back every week, from tools you already use.",
+        "needIf": [
+          "Your team re-types the same information into two systems.",
+          "Documents, intake forms or emails pile up waiting for someone to read them.",
+          "You've tried an AI tool, but nobody knows if it saves time — or what it costs."
+        ],
+        "get": [
+          "An assessment of where AI saves real hours — and where it doesn't",
+          "Automations built into Microsoft 365 and the apps you already pay for",
+          "Assistants that answer in English and Spanish",
+          "Document reading and summaries, checked by a person before they matter",
+          "A monthly AI cost you can see and cap",
+          "Training so your staff use it — and trust it"
+        ],
+        "tools": [
+          "Microsoft 365",
+          "Power Automate",
+          "Claude API"
+        ],
+        "firstStep": "Estimate the hours you'd get back",
+        "cta": "Talk about AI for your business"
+      },
+      "g2": {
+        "outcome": "Secure, managed IT that keeps working as you grow.",
+        "needIf": [
+          "A password is the only thing between a stranger and your email.",
+          "Nobody can say for sure which laptops and phones hold your data.",
+          "You pay an IT provider but can't tell what you're getting."
+        ],
+        "get": [
+          "Microsoft 365 set up properly: accounts, email, files and permissions",
+          "Sign-in protection that stops stolen passwords and phishing",
+          "Every laptop and phone managed — and wiped remotely if it's lost",
+          "Protection on every computer, watched for threats",
+          "Networks for one office or several, on both sides of the border if needed",
+          "An independent eye on your current IT provider",
+          "A plan — and a first responder — if something goes wrong"
+        ],
+        "tools": [
+          "Microsoft 365",
+          "Entra ID",
+          "Intune",
+          "Defender",
+          "Phishing-resistant MFA"
+        ],
+        "firstStep": "Run the free security check",
+        "cta": "Talk about your IT"
+      },
+      "g3": {
+        "outcome": "A fast bilingual site you own, built to bring in calls.",
+        "needIf": [
+          "Your site looks dated on a phone — or you don't have one.",
+          "Customers search in Spanish and find someone else.",
+          "You don't control your own domain, hosting or logins."
+        ],
+        "get": [
+          "Custom design, written for your customers in English and Spanish — not machine-translated",
+          "Fast pages that work on any phone",
+          "Local search set up for the Valley, so nearby customers find you",
+          "Contact forms and booking that send leads straight to you",
+          "Simple dashboards showing what visitors do",
+          "Every account in your name, with the keys handed over"
+        ],
+        "tools": [
+          "Next.js",
+          "Vercel",
+          "Google Search Console",
+          "Power BI"
+        ],
+        "firstStep": "See what missed calls are costing you",
+        "cta": "Talk about your website"
+      }
+    },
+    "platform": {
+      "title": "BIS Platform",
+      "outcome": "Every call answered, every lead followed up — in one place.",
+      "body": "The system we run our own business on: Sofía, an AI receptionist who answers in English and Spanish, plus the CRM, booking page and follow-ups behind her. We set it up and run it for you.",
+      "needIf": [
+        "After-hours calls go to voicemail — and those callers don't call back.",
+        "Leads live in texts, notebooks and three different inboxes.",
+        "You want to know every Monday how last week went, without building a report."
+      ],
+      "get": [
+        "Sofía answers your line day and night, in English and Spanish, and books appointments",
+        "A booking page with your logo and colors",
+        "Every call, form and text lands on one customer record",
+        "Reminders and follow-ups that send themselves",
+        "A four-number report every Monday morning",
+        "Set up and maintained by us — nothing for you to install"
+      ],
+      "proof": "Sofía answers our own published line. Call it, or talk to her right here.",
+      "phoneLabel": "Your customer's phone",
+      "firstStep": "Take the platform tour",
+      "cta": "Talk about the platform"
+    },
+    "processHeading": "How working with us goes",
+    "processMore": "More on how we work",
+    "faqHeading": "Questions we hear first",
+    "faqMore": "All questions"
   },
   "industries": {
     "title": "Built for the Valley.",
@@ -723,6 +835,10 @@
       "remote": {
         "q": "Do you work remotely or on-site?",
         "a": "Both. We're based in Harlingen and serve the entire Valley, so we can work on-site when it helps and remotely when that's faster — whatever gets you results."
+      },
+      "replaceMsp": {
+        "q": "Do I have to replace my current IT company?",
+        "a": "No. Many clients keep the provider they have. We can work alongside them — setting direction, checking the work and stepping in on projects or security — so you finally know what you're paying for."
       }
     }
   },
