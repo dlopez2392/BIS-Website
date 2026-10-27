@@ -4,6 +4,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import {
   workCases, workCaseTextKeys, workCaseListKeys, workCallCtaKeys, workVisitCtaKeys, workMediaKeys,
+  workVideoKeys, workTourCtaKeys, RESACA_MEDIA,
   BIS_AD, PRISM_AD, PRISM_MEDIA, PRISM_URL, type ThemedShot,
 } from '../work';
 
@@ -66,6 +67,23 @@ describe('work case studies', () => {
     }
   });
 
+  it('has the tour copy for every case that links to the platform tour', () => {
+    for (const [locale, messages] of Object.entries(locales)) {
+      for (const c of workCases.filter((x) => x.cta === 'tour')) {
+        for (const key of workTourCtaKeys) {
+          expect(typeof messages.work.cases[c.id][key], `${locale} ${c.id}.${key}`).toBe('string');
+        }
+      }
+    }
+  });
+
+  it('says in both languages, in the label and the caption, that the demo company is not a client', () => {
+    expect(locales.en.work.cases.resaca.label).toMatch(/demo account, not a client/);
+    expect(locales.en.work.cases.resaca.galleryCaption).toMatch(/invented/);
+    expect(locales.es.work.cases.resaca.label).toMatch(/demostración, no un cliente/);
+    expect(locales.es.work.cases.resaca.galleryCaption).toMatch(/inventados/);
+  });
+
   it('has the visit copy for every case that links out, and links only to https', () => {
     for (const [locale, messages] of Object.entries(locales)) {
       for (const c of workCases) {
@@ -83,7 +101,8 @@ describe('work case studies', () => {
       for (const c of workCases) {
         if (!c.media) continue;
         const entry = messages.work.cases[c.id];
-        for (const key of workMediaKeys) {
+        const keys = c.media.video ? [...workMediaKeys, ...workVideoKeys] : workMediaKeys;
+        for (const key of keys) {
           expect(typeof entry[key], `${locale} ${c.id}.${key}`).toBe('string');
         }
         const shots = [c.media.desktop, ...(c.media.phones ?? [])].filter(Boolean) as ThemedShot[];
@@ -132,6 +151,15 @@ describe('work media files', () => {
         const meta = await sharp(pub(f)).metadata();
         expect([meta.width, meta.height], f).toEqual([shot.width, shot.height]);
       }
+    }
+  });
+
+  it('shows the demo account from the same captures the platform tour uses', () => {
+    const shots = [RESACA_MEDIA.desktop!, ...RESACA_MEDIA.phones!];
+    for (const shot of shots) {
+      expect(shot.light).toBe(shot.dark);
+      expect(shot.light.startsWith('/screenshots/'), shot.light).toBe(true);
+      expect(fs.existsSync(pub(shot.light)), shot.light).toBe(true);
     }
   });
 

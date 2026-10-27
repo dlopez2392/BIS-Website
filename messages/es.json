@@ -1063,7 +1063,7 @@
     "title": "Nuestro Trabajo",
     "metaTitle": "Nuestro trabajo: lo que ya opera hoy",
     "metaDescription": "Lo que BIS ya tiene funcionando: Sofía, la recepcionista de IA bilingüe de nuestra línea, y Prism, una app de finanzas personales. Pruébalas.",
-    "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo: nuestra propia recepción, a la que puedes llamar en este momento, y Prism, una app de finanzas personales que puedes abrir sin registrarte.",
+    "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo: nuestra propia recepción, a la que puedes llamar en este momento; la plataforma que usan nuestros clientes, mostrada en una empresa de demostración que inventamos y lo decimos; y Prism, una app de finanzas personales que puedes abrir sin registrarte.",
     "cases": {
       "sofia": {
         "label": "Bespoke Intelligent Solutions — nuestra propia recepción",
@@ -1093,6 +1093,38 @@
         "tryNoteLink": "Cómo manejamos tu información",
         "tryBrowserTitle": "O habla con ella aquí mismo",
         "tryBrowserBlurb": "Sin llamar. Tu navegador te pedirá el micrófono, y ella responde igual que en la línea."
+      },
+      "resaca": {
+        "label": "Resaca Air: una cuenta de demostración, no un cliente",
+        "title": "Lo que recibe un cliente, mostrado en una empresa inventada",
+        "summary": "Resaca Air es una empresa de aire acondicionado que no existe. La inventamos para mostrar la BIS Platform con pantallas reales en lugar de pantallas borrosas: sus llamadas, citas y su reporte del lunes salen del mismo software que usan nuestros clientes. Todos los nombres y teléfonos de clientes son ficticios. Las pantallas son reales.",
+        "galleryCaption": "Pantallas de la cuenta de demostración de Resaca Air. La empresa y sus clientes son inventados; el software es el que usan los clientes.",
+        "galleryAlt": {
+          "dashboard": "El panel de Resaca Air: el estado del día, llamadas contestadas, prospectos captados y citas, con una gráfica de llamadas por día",
+          "booking": "La página de citas de Resaca Air en un teléfono, con el logotipo de la empresa y los horarios disponibles para mañana",
+          "report": "El correo del reporte del lunes en un teléfono: llamadas contestadas, prospectos captados, citas y visitantes del sitio web, cada uno comparado con la semana anterior"
+        },
+        "factsHeading": "Lo que ve el dueño",
+        "facts": [
+          "Cada llamada contestada, en español o en inglés, con su transcripción y un resumen por escrito que el dueño lee en menos de un minuto.",
+          "Una página de citas con el nombre, el logotipo y los colores de la empresa, que los clientes usan desde un enlace, el sitio web o la recepcionista en el teléfono.",
+          "Un panel y un registro de llamadas para el día: quién llamó, qué llamadas se volvieron prospectos y qué está agendado, con el spam y las llamadas colgadas marcadas como tales y no contadas como prospectos.",
+          "Un reporte breve cada lunes por la mañana con cuatro números y cómo cambió cada uno respecto a la semana anterior, explicado con palabras y no con flechas. Una semana tranquila también recibe su reporte."
+        ],
+        "builtHeading": "Cómo mantenemos honesta la demostración",
+        "builtBody": "La demostración no es una maqueta. La cuenta la crea un programa que vive en el código de la propia plataforma y coloca llamadas a horas realistas, y cada imagen de este sitio se captura de ella, no se dibuja. Cuando una pantalla cambia, volvemos a tomar las imágenes de la misma cuenta, así que nada aquí muestra una función que no esté terminada.",
+        "stackHeading": "Hecho con",
+        "stack": [
+          "BIS Platform",
+          "OpenAI Realtime",
+          "Telnyx",
+          "Supabase Postgres",
+          "Resend",
+          "Next.js en Vercel"
+        ],
+        "tourHeading": "Recórrela",
+        "tourBody": "El recorrido de la plataforma sigue un día en Resaca Air, pantalla por pantalla, incluida una llamada completa en español.",
+        "tourLink": "Ver el recorrido de la plataforma"
       },
       "prism": {
         "label": "Prism de BIS — una app pública",
@@ -1130,11 +1162,7 @@
     "nextHeading": "Qué sigue en esta página",
     "nextBody": "Esta página crece conforme el trabajo entra en operación. Los proyectos de clientes aparecen aquí solo con su permiso y descritos con hechos que ellos y nosotros podemos sostener — sin números inventados ni logotipos prestados.",
     "ctaTitle": "¿Quieres una así contestando tu teléfono?",
-    "ctaBody": "Empieza con una evaluación gratuita. Te diremos con honestidad si esto le sirve a tu negocio — y si no, también te lo decimos.",
-    "platformKicker": "Detrás del trabajo",
-    "platformTitle": "La misma plataforma está detrás de todo esto.",
-    "platformBody": "Cada proyecto de arriba corre sobre software que escribimos y seguimos manteniendo. Aquí nadie te renta el producto de otro y cruza los dedos.",
-    "platformLink": "Mira la plataforma por dentro"
+    "ctaBody": "Empieza con una evaluación gratuita. Te diremos con honestidad si esto le sirve a tu negocio — y si no, también te lo decimos."
   },
   "photos": {
     "alt": {

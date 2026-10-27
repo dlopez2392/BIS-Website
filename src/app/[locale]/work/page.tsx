@@ -7,8 +7,6 @@ import { pageMetadata } from '@/lib/seo/metadata';
 import { workCases } from '@/lib/work';
 import { AdFilm } from '@/components/work/AdFilm';
 import { ThemedShot } from '@/components/work/ThemedShot';
-import { PlatformProof } from '@/components/marketing/PlatformProof';
-import { tourShot } from '@/lib/platform-tour';
 import { InlineBooking } from '@/components/platform/InlineBooking';
 import { PageHeader } from '@/components/ui/PageHeader';
 
@@ -22,7 +20,6 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'work' });
-  const p = await getTranslations({ locale, namespace: 'platform' });
 
   return (
     <main>
@@ -45,8 +42,9 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
               {entry.media && (
                 // The product, before the claims about it. Film on the left at
                 // phone width, the screens on the right: one wide, then three
-                // phone-sized. Stacks on a phone, film first.
-                <div data-work-media className="grid gap-8 border-b border-hairline p-8 sm:p-10 md:grid-cols-[16rem_1fr] md:items-start">
+                // phone-sized. Stacks on a phone, film first. A case with no
+                // film gives the screens the full width.
+                <div data-work-media className={`grid gap-8 border-b border-hairline p-8 sm:p-10 ${entry.media.video ? 'md:grid-cols-[16rem_1fr] md:items-start' : ''}`}>
                   {entry.media.video && (
                     <AdFilm slot={entry.media.video} label={k('videoLabel')} className="mx-auto w-full max-w-[16rem]" />
                   )}
@@ -56,7 +54,7 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
                         sizes="(min-width: 56rem) 32rem, 100vw" />
                     )}
                     {entry.media.phones && (
-                      <div className="mt-4 grid grid-cols-3 gap-3">
+                      <div className={`mt-4 grid gap-3 ${entry.media.phones.length === 2 ? 'mx-auto max-w-md grid-cols-2' : 'grid-cols-3'}`}>
                         {entry.media.phones.map((shot) => (
                           <ThemedShot key={shot.id} shot={shot} alt={k(`galleryAlt.${shot.id}`)}
                             sizes="(min-width: 56rem) 10rem, 33vw" />
@@ -114,6 +112,16 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
                   </div>
                 </div>
               )}
+              {entry.cta === 'tour' && (
+                <div className="border-t border-hairline bg-primary/5 p-8 sm:p-10">
+                  <h3 className="text-xl font-bold text-ink">{k('tourHeading')}</h3>
+                  <p className="mt-2 text-ink-muted">{k('tourBody')}</p>
+                  <Link href="/platform" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-bold text-on-primary">
+                    {k('tourLink')}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              )}
               {entry.cta === 'visit' && (
                 <div className="border-t border-hairline bg-primary/5 p-8 sm:p-10">
                   <h3 className="text-xl font-bold text-ink">{k('visitHeading')}</h3>
@@ -133,22 +141,6 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
             </article>
           );
         })}
-
-        {/* After the case studies, not before: the work earns the claim. The
-            capture is the call LOG rather than the dashboard — this page is
-            about delivery, and a list of real calls with outcomes reads as
-            delivery in a way a KPI row does not. */}
-        <div className="mt-12">
-          <PlatformProof
-            shot={tourShot('calls')}
-            alt={p('alt.calls')}
-            caption={p('sampleCaption')}
-            kicker={t('platformKicker')}
-            title={t('platformTitle')}
-            body={t('platformBody')}
-            linkLabel={t('platformLink')}
-          />
-        </div>
 
         <section className="mt-12 rounded-xl border border-hairline bg-surface-alt p-8">
           <h2 className="text-2xl font-bold text-ink">{t('nextHeading')}</h2>
