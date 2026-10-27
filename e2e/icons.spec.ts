@@ -10,8 +10,8 @@ import { test, expect } from '@playwright/test';
 
 test('the page declares both the vector icon and the iOS icon', async ({ page }) => {
   await page.goto('/en');
-  const icon = page.locator('link[rel="icon"]');
-  await expect(icon).toHaveAttribute('type', 'image/svg+xml');
+  // Two rel="icon" links since #69: the vector icon and favicon.ico.
+  await expect(page.locator('link[rel="icon"][type="image/svg+xml"]')).toHaveCount(1);
   await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('sizes', '180x180');
 });
 
@@ -31,9 +31,12 @@ test('every declared icon serves an image without a redirect', async ({ page, re
   }
 });
 
-test('the create-next-app favicon is gone', async ({ request }) => {
+// It was create-next-app's and was deleted; #69 brought back our own, because
+// Google's results only show a site icon it can find at /favicon.ico.
+test('favicon.ico is ours and serves an icon, not a redirect', async ({ request }) => {
   const res = await request.get('/favicon.ico', { maxRedirects: 0 });
-  expect(res.status()).toBe(404);
+  expect(res.status()).toBe(200);
+  expect(res.headers()['content-type']).toMatch(/^image\//);
 });
 
 test('the downloadable brand assets are reachable', async ({ request }) => {
@@ -56,7 +59,10 @@ test('the about page renders the portrait slot exactly as the file on disk dicta
   // a real one; without it there is none — never a broken icon or a
   // placeholder box. (This asserted "none" for months after the file landed.)
   const onDisk = fs.existsSync(path.join(process.cwd(), 'public', 'photos', 'dan-lopez.jpg'));
-  const imgs = page.locator('main img');
+  // Scoped to the founder's section: the page's other images (the booking
+  // band's art plate) are not the portrait.
+  const founder = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Dan Lopez' }) });
+  const imgs = founder.locator('img');
   await expect(imgs).toHaveCount(onDisk ? 1 : 0);
   if (onDisk) {
     await expect(imgs.first()).toBeVisible();
@@ -67,6 +73,8 @@ test('the about page renders the portrait slot exactly as the file on disk dicta
 test('the OG image still renders and carries the mark', async ({ request }) => {
   const res = await request.get('/og?title=Test', { maxRedirects: 0 });
   expect(res.status()).toBe(200);
-  expect(res.headers()['content-type']).toContain('image/png');
+  // JPEG since #69: a share card is a photograph-like plate, and as PNG it
+  // was several times the size.
+  expect(res.headers()['content-type']).toContain('image/jpeg');
   expect((await res.body()).length).toBeGreaterThan(10_000);
 });

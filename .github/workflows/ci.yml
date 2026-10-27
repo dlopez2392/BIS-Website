@@ -66,7 +66,66 @@ jobs:
       - name: Production build
         run: npm run build
 
-# Deliberately NOT here: Playwright. It needs a dev server and browser
-# downloads, and its cold-compile flakiness under load would train everyone to
-# ignore a red CI. Run it locally instead: npx playwright test --workers=1
-# (it binds port 3100, so it will not collide with another project's dev server).
+  # The browser suite, since 2026-10-27. It was kept out for one reason, stated
+  # here until then: run against `next dev`, the first request to each page
+  # compiled it, and those cold compiles timed out under load. It now runs
+  # against the PRODUCTION server over a build made first (E2E_SERVER=start,
+  # playwright.config.ts), where nothing compiles on request. Kept out of it:
+  # the two `@live-platform` tests, which look inside the production
+  # platform's chat and send it a question; a push must never start a real
+  # conversation on production. They still run locally.
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # The chat launcher only exists when this is set at BUILD time, and the
+      # concierge specs read it too.
+      NEXT_PUBLIC_AI_ENABLED: 'true'
+      E2E_SERVER: start
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      # `npm install`, not `npm ci`: see the verify job.
+      - run: npm install --no-audit --no-fund
+
+      # Bounded, with a retry that can work. bis-platform's CI learned both
+      # halves (2026-10-26): an Ubuntu mirror can stall this step for the
+      # whole job, and after a timed-out attempt the apt-get Playwright
+      # started under sudo runs on holding the dpkg lock, so a retry started
+      # at once fails with "Could not get lock". Wait for the lock first.
+      - name: Install Chromium for Playwright
+        timeout-minutes: 18
+        run: |
+          for attempt in 1 2; do
+            if timeout --kill-after=20s 6m npx playwright install --with-deps chromium; then
+              exit 0
+            fi
+            echo "::warning::Chromium install attempt $attempt failed or exceeded 6 minutes"
+            for _ in $(seq 1 48); do
+              sudo fuser /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock /var/cache/apt/archives/lock >/dev/null 2>&1 || break
+              sleep 5
+            done
+          done
+          echo "::error::Chromium install failed twice; see the apt output above"
+          exit 1
+
+      - name: Production build
+        run: npm run build
+
+      - name: Playwright
+        run: npx playwright test --grep-invert @live-platform --workers=2
+
+      - name: Keep the report when it fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
