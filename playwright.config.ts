@@ -27,7 +27,10 @@ const BASE_URL = `http://localhost:${PORT}`;
 export default defineConfig({
   testDir: './e2e',
   webServer: {
-    command: `npm run dev -- -p ${PORT}`,
+    // E2E_SERVER=start runs the PRODUCTION server over a build made first
+    // (CI, 2026-10-27): no compile on first request, so none of the
+    // cold-compile timeouts that kept Playwright out of CI until then.
+    command: process.env.E2E_SERVER === 'start' ? `npm run start -- -p ${PORT}` : `npm run dev -- -p ${PORT}`,
     url: BASE_URL,
     reuseExistingServer: !process.env.CI,
     // 120s was not enough for a cold Turbopack compile of 50+ routes on a
