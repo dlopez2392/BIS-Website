@@ -1063,7 +1063,7 @@
     "title": "Our Work",
     "metaTitle": "Our Work: what we run in production",
     "metaDescription": "What BIS has shipped: Sofía, the bilingual AI receptionist on our own phone line, and Prism, a personal finance app anyone can use. Try both.",
-    "intro": "We would rather show you than tell you. Everything on this page is running in production right now, and we describe it only in terms you can check yourself: our own front desk, which you can call this minute, and Prism, a personal finance app you can open without signing up.",
+    "intro": "We would rather show you than tell you. Everything on this page is running in production right now, and we describe it only in terms you can check yourself: our own front desk, which you can call this minute; the platform our clients run, shown on a demo company we made up and say so; and Prism, a personal finance app you can open without signing up.",
     "cases": {
       "sofia": {
         "label": "Bespoke Intelligent Solutions — our own front desk",
@@ -1093,6 +1093,38 @@
         "tryNoteLink": "How we handle your information",
         "tryBrowserTitle": "Or talk to her right here",
         "tryBrowserBlurb": "No phone call. Your browser will ask for your microphone, and she answers the same way she answers the line."
+      },
+      "resaca": {
+        "label": "Resaca Air: a demo account, not a client",
+        "title": "What a client gets, shown on a company we made up",
+        "summary": "Resaca Air is an HVAC company that does not exist. We invented it so we could show the BIS Platform with real screens instead of blurred ones: its calls, bookings and Monday report come from the same software our clients use. Every customer name and phone number in it is fictional. The screens are real.",
+        "galleryCaption": "Screens from the Resaca Air demo account. The company and its customers are invented; the software is the one clients run.",
+        "galleryAlt": {
+          "dashboard": "The Resaca Air dashboard: today's status, calls answered, leads captured and bookings, with a chart of calls by day",
+          "booking": "Resaca Air's booking page on a phone, with the company's own logo and the open times for tomorrow",
+          "report": "The Monday report email on a phone: calls answered, leads captured, bookings and website visitors, each compared with the week before"
+        },
+        "factsHeading": "What the owner sees",
+        "facts": [
+          "Every call answered, in English or Spanish, with a transcript and a written summary the owner can read in under a minute.",
+          "A booking page in the company's own name, logo and colors, which customers use from a link, the website or the receptionist on the phone.",
+          "A dashboard and a call log for the day: who called, which calls turned into leads and what is booked, with spam and hang-ups labelled rather than counted as leads.",
+          "A short report every Monday morning with four numbers and how each changed from the week before, written in words rather than arrows. A quiet week still gets a report."
+        ],
+        "builtHeading": "How the demo is kept honest",
+        "builtBody": "The demo is not a mock-up. The account is built by a script that lives in the platform's own code and places calls at realistic hours, and every picture on this site is captured from it rather than drawn. When a screen changes, we retake the pictures from the same account, so nothing here shows a feature that is not shipped.",
+        "stackHeading": "Built with",
+        "stack": [
+          "BIS Platform",
+          "OpenAI Realtime",
+          "Telnyx",
+          "Supabase Postgres",
+          "Resend",
+          "Next.js on Vercel"
+        ],
+        "tourHeading": "Walk through it",
+        "tourBody": "The platform tour follows one day at Resaca Air, screen by screen, including a full call in Spanish.",
+        "tourLink": "Take the platform tour"
       },
       "prism": {
         "label": "Prism by BIS — a public app",
@@ -1130,11 +1162,7 @@
     "nextHeading": "What goes here next",
     "nextBody": "This page grows as work goes live. Client projects appear here only with the client's permission, described in facts they and we can both stand behind — no invented numbers, no borrowed logos.",
     "ctaTitle": "Want one of these answering your phone?",
-    "ctaBody": "Start with a free assessment. We'll tell you honestly whether this fits your business — and if it doesn't, we'll say so.",
-    "platformKicker": "Under the work",
-    "platformTitle": "The same platform runs behind these.",
-    "platformBody": "Every project above sits on software we wrote and still maintain. Nobody here is renting you somebody else's product and hoping it holds.",
-    "platformLink": "Look inside the platform"
+    "ctaBody": "Start with a free assessment. We'll tell you honestly whether this fits your business — and if it doesn't, we'll say so."
   },
   "photos": {
     "alt": {

@@ -8,12 +8,16 @@
 //             dial themselves);
 //   'visit' — a link out to something a visitor can open and use themselves,
 //             no sign-up (Prism's public demo);
+//   'tour'  — a link into this site's own /platform tour, for a case that is
+//             the platform itself (the Resaca Air demo account);
 //   'none'  — ends the card after the facts, which is what a client
 //             engagement will normally want.
 //
 // `media` is optional: a short film and/or a screen gallery shown between the
 // summary and the facts. Files live under public/ with a version in the name,
 // so they are cached as immutable and a new cut is a new URL.
+
+import { heroShot, shotSrc, tourShot, type ShotSlot } from './platform-tour';
 
 export interface VideoSlot {
   /** Paths under public/, both encodes of the same cut. */
@@ -74,12 +78,41 @@ export const PRISM_MEDIA: WorkMedia = {
   phones: [prismShot('future', 'phone'), prismShot('goals', 'phone'), prismShot('spending', 'phone')],
 };
 
+/**
+ * One capture of the platform, from the same files the /platform tour shows
+ * (`lib/platform-tour.ts`). The capture pipeline shoots each screen in one
+ * theme only, so both sides of the pair are the same file: the dashboard is
+ * dark because operators default to dark, and the booking page and report
+ * are the client's own brand whatever the reader's theme.
+ */
+const platformShot = (id: string, slot: ShotSlot): ThemedShot => ({
+  id,
+  light: shotSrc(slot),
+  dark: shotSrc(slot),
+  width: slot.width,
+  height: slot.height,
+});
+
+/**
+ * Resaca Air is the demo account the platform's screenshots come from: an
+ * invented HVAC company, seeded by bis-platform's `packages/db/src/demo/`.
+ * The case says so in its label, its summary and its caption. Passing it off
+ * as a client would be the fabricated case study this page promises not to
+ * publish.
+ */
+export const RESACA_MEDIA: WorkMedia = {
+  desktop: platformShot('dashboard', heroShot),
+  phones: [platformShot('booking', tourShot('booking')), platformShot('report', tourShot('report'))],
+};
+
 export type WorkCase =
   | { id: 'sofia'; cta: 'call'; media?: undefined }
-  | { id: 'prism'; cta: 'visit'; href: string; media: WorkMedia };
+  | { id: 'prism'; cta: 'visit'; href: string; media: WorkMedia }
+  | { id: 'resaca'; cta: 'tour'; media: WorkMedia };
 
 export const workCases: readonly WorkCase[] = [
   { id: 'sofia', cta: 'call' },
+  { id: 'resaca', cta: 'tour', media: RESACA_MEDIA },
   { id: 'prism', cta: 'visit', href: PRISM_URL, media: PRISM_MEDIA },
 ];
 
@@ -110,5 +143,11 @@ export const workCallCtaKeys = [
 /** Text keys required only by cases whose `cta` is 'visit'. */
 export const workVisitCtaKeys = ['visitHeading', 'visitBody', 'visitLink', 'visitNewTab'] as const;
 
+/** Text keys required only by cases whose `cta` is 'tour'. */
+export const workTourCtaKeys = ['tourHeading', 'tourBody', 'tourLink'] as const;
+
 /** Text keys required only by cases that carry media. */
-export const workMediaKeys = ['videoLabel', 'galleryCaption'] as const;
+export const workMediaKeys = ['galleryCaption'] as const;
+
+/** Text keys required only by cases whose media includes a film. */
+export const workVideoKeys = ['videoLabel'] as const;

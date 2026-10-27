@@ -55,7 +55,12 @@ for (const width of WIDTHS) {
   for (const path of PAGES) {
     test(`header type reads over its plate: ${path} at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
-      await page.goto(path, { waitUntil: 'networkidle' });
+      // 'load' plus fonts, not 'networkidle': a production server prefetches
+      // every link in view, so on a link-heavy page like /industries the
+      // network can stay busy past the test timeout (PR #80's first run).
+      // What this test needs settled is the type and the plate, awaited below.
+      await page.goto(path, { waitUntil: 'load' });
+      await page.evaluate(() => document.fonts.ready);
       // The plate is the point of the test: it must be there, and painted.
       const plate = page.locator('[data-page-header] img').first();
       await expect(plate).toBeVisible();

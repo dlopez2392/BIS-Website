@@ -39,3 +39,18 @@ test('footer links to the work page', async ({ page }) => {
   await page.goto('/en');
   await expect(page.locator('footer').getByRole('link', { name: /Our Work/i })).toHaveAttribute('href', '/en/work');
 });
+
+test('the Resaca Air case says it is a demo and leads into the platform tour', async ({ page }) => {
+  await page.goto('/en/work');
+  const resaca = page.locator('article#resaca');
+  await expect(resaca).toContainText('a demo account, not a client');
+  await expect(resaca.locator('[data-themed-shot]')).toHaveCount(3);
+  for (const img of await resaca.locator('[data-themed-shot] img:visible').all()) {
+    expect((await img.getAttribute('alt'))?.length ?? 0).toBeGreaterThan(20);
+  }
+  await expect(resaca.getByRole('link', { name: /Take the platform tour/ })).toHaveAttribute('href', '/en/platform');
+
+  await page.goto('/es/work');
+  await expect(page.locator('article#resaca')).toContainText('no un cliente');
+  await expect(page.locator('article#resaca').getByRole('link', { name: /recorrido/ })).toHaveAttribute('href', '/es/platform');
+});

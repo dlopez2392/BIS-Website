@@ -59,8 +59,9 @@ describe('the /platform tour', () => {
 
   /**
    * The /platform tour is the long argument; `PlatformProof` is the same
-   * argument made in passing on /work and every industry page. (The homepage
-   * makes it with its own annotated capture, and checks its copy below.)
+   * argument made in passing on every industry page. (The homepage makes it
+   * with its own annotated capture, and checks its copy below; /work makes it
+   * with the Resaca Air case, checked in work.test.ts.)
    * Each placement pulls FOUR keys from its own namespace plus alt text and
    * the sample-data caption from `platform`.
    *
@@ -72,7 +73,6 @@ describe('the /platform tour', () => {
   it('gives every PlatformProof placement its copy in both languages', () => {
     for (const [locale, m] of Object.entries(locales)) {
       const blocks = {
-        work: m.work,
         'industries.shared': m.industries?.shared,
       };
       for (const [name, block] of Object.entries(blocks)) {
