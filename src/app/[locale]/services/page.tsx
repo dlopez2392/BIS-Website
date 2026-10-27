@@ -5,6 +5,7 @@ import { Globe, PhoneCall, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { ServiceSection } from '@/components/marketing/ServiceSection';
 import { ServiceScene } from '@/components/marketing/ServiceScene';
+import { TrackedLink } from '@/components/marketing/TrackedLink';
 import { TourShot } from '@/components/marketing/TourShot';
 import { CTASection } from '@/components/ui/CTASection';
 import { PageHeader } from '@/components/ui/PageHeader';
@@ -75,9 +76,9 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageHeader kicker={t('pageKicker')} title={t('pageTitle')} intro={t('pageIntro')}>
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <Link href="/contact" className="ground-btn inline-flex items-center rounded-lg px-6 py-3 font-bold">
+          <TrackedLink href="/contact" cta="assessment" className="ground-btn inline-flex items-center rounded-lg px-6 py-3 font-bold">
             {t('heroCta')}
-          </Link>
+          </TrackedLink>
           <Link href="/how-we-work" className="ground-link font-semibold">{t('heroSecondary')}</Link>
         </div>
       </PageHeader>

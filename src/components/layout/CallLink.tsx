@@ -1,4 +1,7 @@
+'use client';
+import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { track } from '@vercel/analytics';
 import { Phone } from 'lucide-react';
 import { business } from '@/lib/seo/business';
 import { telHref, formatUsPhone } from '@/lib/phone';
@@ -16,7 +19,9 @@ interface CallLinkProps {
 /**
  * The single place the business number becomes a link. Every placement shares
  * this so the dialable href, the printed form, and the screen-reader label
- * cannot disagree with each other or with `business.phone`.
+ * cannot disagree with each other or with `business.phone`. It reports each
+ * click as `call_click` with the page, as WhatsAppLink does: a call is this
+ * business's other conversion, and the site could not count it.
  */
 export function CallLink({
   className,
@@ -27,9 +32,10 @@ export function CallLink({
 }: CallLinkProps) {
   const t = useTranslations('nav');
   const display = formatUsPhone(business.phone);
+  const path = usePathname();
 
   return (
-    <a href={telHref(business.phone)} aria-label={t('callAria', { phone: display })} onClick={onClick} className={className}>
+    <a href={telHref(business.phone)} aria-label={t('callAria', { phone: display })} onClick={() => { track('call_click', { path }); onClick?.(); }} className={className}>
       {withIcon && <Phone size={16} aria-hidden="true" />}
       {withLabel && <span>{t('call')}</span>}
       {withNumber && <span>{display}</span>}

@@ -73,7 +73,10 @@ export function PlatformEmbed({ kind }: { kind: EmbedKind }) {
         // the native form's submit handler; the iframe boundary would have
         // silently zeroed it, which is exactly the kind of "everything looks
         // fine" failure the platform's own embed contract warns about.
-        track(message.kind === 'form' ? 'lead_submitted' : 'assessment_booked', { locale, source: 'bis-platform' });
+        // `path` (2026-10-27): which page the visitor booked from, so the
+        // pages can be judged by what they convert, not only by visits.
+        track(message.kind === 'form' ? 'lead_submitted' : 'assessment_booked',
+          { locale, source: 'bis-platform', path: window.location.pathname });
       }
     }
     window.addEventListener('message', onMessage);
