@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
+import { TrackedLink } from './TrackedLink';
 
 /**
  * One service on /services, written for the owner who signs the cheque, not
@@ -102,8 +102,10 @@ export function ServiceSection({
               {proof}
             </blockquote>
           </figure>
-          <Link
+          <TrackedLink
             href={firstStep.href}
+            cta="first_step"
+            service={id}
             className="group flex items-center justify-between gap-3 rounded-xl border border-hairline p-4 hover:bg-surface-alt focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
           >
             <span>
@@ -111,13 +113,15 @@ export function ServiceSection({
               <span className="mt-1 block text-sm font-semibold text-ink">{firstStep.label}</span>
             </span>
             <ArrowRight size={18} aria-hidden="true" className="shrink-0 text-link motion-safe:transition group-hover:translate-x-0.5" />
-          </Link>
-          <Link
+          </TrackedLink>
+          <TrackedLink
             href={cta.href}
+            cta="service"
+            service={id}
             className="inline-flex items-center justify-center gap-2 rounded-lg border border-hairline px-5 py-3 font-bold text-ink hover:bg-surface-alt focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
           >
             {cta.label} <span aria-hidden="true">→</span>
-          </Link>
+          </TrackedLink>
         </aside>
       </div>
       {children}

@@ -80,9 +80,9 @@ describe('PlatformEmbed', () => {
   it('counts a submitted form as a lead, and a booking as a booking', () => {
     render(<PlatformEmbed kind="form" />);
     post(frame(), { type: 'bis-form-submitted' });
-    expect(track).toHaveBeenCalledWith('lead_submitted', { locale: 'en', source: 'bis-platform' });
+    expect(track).toHaveBeenCalledWith('lead_submitted', { locale: 'en', source: 'bis-platform', path: window.location.pathname });
     post(frame(), { type: 'bis-booking-submitted' });
-    expect(track).toHaveBeenCalledWith('assessment_booked', { locale: 'en', source: 'bis-platform' });
+    expect(track).toHaveBeenCalledWith('assessment_booked', { locale: 'en', source: 'bis-platform', path: window.location.pathname });
   });
 
   it('does not count a submitted message from anywhere but its own iframe', () => {

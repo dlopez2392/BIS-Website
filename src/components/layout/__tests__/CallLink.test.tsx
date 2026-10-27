@@ -1,6 +1,10 @@
-import { describe, it, expect } from 'vitest';
-import { render } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { render, fireEvent } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
+const track = vi.fn();
+vi.mock('@vercel/analytics', () => ({ track: (...args: unknown[]) => track(...args) }));
+vi.mock('next/navigation', () => ({ usePathname: () => '/en/services' }));
+
 import { CallLink } from '../CallLink';
 import { business } from '@/lib/seo/business';
 
@@ -50,5 +54,14 @@ describe('CallLink', () => {
     const { container } = renderLink();
     const digits = business.phone.replace(/\D/g, '');
     expect(container.querySelector('a')?.getAttribute('href')).toBe(`tel:+${digits}`);
+  });
+
+  it('reports a click as call_click with the page, and still runs its own onClick (mutation: drop the track call -> FAILS)', () => {
+    track.mockReset();
+    const onClick = vi.fn();
+    const { container } = renderLink({ onClick });
+    fireEvent.click(container.querySelector('a')!);
+    expect(track).toHaveBeenCalledWith('call_click', { path: '/en/services' });
+    expect(onClick).toHaveBeenCalledOnce();
   });
 });
