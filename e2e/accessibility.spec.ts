@@ -36,6 +36,15 @@ const PAGES = [
   ['not found', '/en/no-such-page'],
 ] as const;
 
+// Both sweeps run under reduced motion (2026-10-26). Contrast is a property
+// of the page at rest, but the home page's live call fades each of its
+// rows in, and a scan that landed inside a 0.4s fade measured half-faded text
+// against the card: the light sweep failed home in 4 runs of 6, on
+// "Outcome" at 1.23:1 and the "Booked" chip at 1.03:1. Under reduced motion
+// every animated surface renders finished, which is the state a visitor
+// reads, so the sweep measures that and nothing in between.
+test.use({ contextOptions: { reducedMotion: 'reduce' } });
+
 // Dark is the site's default theme, so this sweep is the dark one; the
 // light theme gets its own sweep below.
 for (const [name, path] of PAGES) {
