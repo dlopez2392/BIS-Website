@@ -42,7 +42,11 @@ test.describe('desktop', () => {
     expect(violations).toEqual([]);
   });
 
-  test('opens on the chat, Talk holds Sofía, and Esc closes', async ({ page }) => {
+  // `@live-platform` (2026-10-27): this and the next test look inside the
+  // production platform's chat frame, and the next one sends it a question.
+  // CI leaves both out (`--grep-invert @live-platform`, ci.yml) so a push
+  // never starts a real conversation on production; a local run keeps them.
+  test('opens on the chat, Talk holds Sofía, and Esc closes', { tag: '@live-platform' }, async ({ page }) => {
     await page.goto('/en');
     await launcher(page).click();
     await expect(page.locator('.ask-launch')).toHaveAttribute('aria-expanded', 'true');
@@ -56,7 +60,7 @@ test.describe('desktop', () => {
     await expect(page.locator('.ask-launch')).toHaveAttribute('aria-expanded', 'false');
   });
 
-  test('the chat is bare inside the panel, and a suggested question lands in it as the visitor\'s own', async ({ page }) => {
+  test('the chat is bare inside the panel, and a suggested question lands in it as the visitor\'s own', { tag: '@live-platform' }, async ({ page }) => {
     await page.goto('/en');
     await launcher(page).click();
     const chat = page.frameLocator(`iframe[src^="${PLATFORM}/c/"]`);
