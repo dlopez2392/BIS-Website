@@ -18,7 +18,9 @@ test('runs a live scan with the new checks and offers the report', async ({ page
   }
   // And the capture form is there.
   await expect(page.getByRole('heading', { name: /full report by email/i })).toBeVisible();
-  await page.screenshot({ path: process.env.SHOT_DIR + '/report-form.png', fullPage: true });
+  // Only when asked for (SHOT_DIR set): unset, this wrote `undefined/report-form.png`
+  // into the checkout on every run.
+  if (process.env.SHOT_DIR) await page.screenshot({ path: `${process.env.SHOT_DIR}/report-form.png`, fullPage: true });
 });
 
 test('a bad address is refused without sending anything', async ({ page }) => {
