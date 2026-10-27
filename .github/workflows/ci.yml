@@ -75,8 +75,12 @@ jobs:
   # platform's chat and send it a question; a push must never start a real
   # conversation on production. They still run locally.
   e2e:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Pinned, not ubuntu-latest: since 2026-10-19 ubuntu-latest has been moving
+    # to Ubuntu 26, whose package mirror took minutes per font package for
+    # `--with-deps` and never finished inside this step (PR #79's first run).
+    # 24.04 is the image bis-platform's identical install has run on for months.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
     env:
       # The chat launcher only exists when this is set at BUILD time, and the
       # concierge specs read it too.
@@ -99,14 +103,16 @@ jobs:
       # started under sudo runs on holding the dpkg lock, so a retry started
       # at once fails with "Could not get lock". Wait for the lock first.
       - name: Install Chromium for Playwright
-        timeout-minutes: 18
+        timeout-minutes: 22
         run: |
           for attempt in 1 2; do
             if timeout --kill-after=20s 6m npx playwright install --with-deps chromium; then
               exit 0
             fi
             echo "::warning::Chromium install attempt $attempt failed or exceeded 6 minutes"
-            for _ in $(seq 1 48); do
+            # Up to 8 minutes: a 4-minute wait once expired with the orphan
+            # still downloading, and the retry hit the lock anyway.
+            for _ in $(seq 1 96); do
               sudo fuser /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock /var/cache/apt/archives/lock >/dev/null 2>&1 || break
               sleep 5
             done
