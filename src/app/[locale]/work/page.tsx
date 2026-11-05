@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { CallLink } from '@/components/layout/CallLink';
 import { TalkToSofia } from '@/components/sofia/TalkToSofia';
 import { pageMetadata } from '@/lib/seo/metadata';
-import { workCases } from '@/lib/work';
+import { resacaMedia, workCases } from '@/lib/work';
 import { AdFilm } from '@/components/work/AdFilm';
 import { ThemedShot } from '@/components/work/ThemedShot';
 import { InlineBooking } from '@/components/platform/InlineBooking';
@@ -28,6 +28,8 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
 
         {workCases.map((entry) => {
           const k = (key: string) => t(`cases.${entry.id}.${key}`);
+          // The demo account's screens in the page's own language.
+          const media = entry.id === 'resaca' ? resacaMedia(locale) : entry.media;
           const facts = t.raw(`cases.${entry.id}.facts`) as string[];
           const stack = t.raw(`cases.${entry.id}.stack`) as string[];
 
@@ -39,23 +41,23 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
                 <p className="mt-4 text-ink-muted">{k('summary')}</p>
               </header>
 
-              {entry.media && (
+              {media && (
                 // The product, before the claims about it. Film on the left at
                 // phone width, the screens on the right: one wide, then three
                 // phone-sized. Stacks on a phone, film first. A case with no
                 // film gives the screens the full width.
-                <div data-work-media className={`grid gap-8 border-b border-hairline p-8 sm:p-10 ${entry.media.video ? 'md:grid-cols-[16rem_1fr] md:items-start' : ''}`}>
-                  {entry.media.video && (
-                    <AdFilm slot={entry.media.video} label={k('videoLabel')} className="mx-auto w-full max-w-[16rem]" />
+                <div data-work-media className={`grid gap-8 border-b border-hairline p-8 sm:p-10 ${media.video ? 'md:grid-cols-[16rem_1fr] md:items-start' : ''}`}>
+                  {media.video && (
+                    <AdFilm slot={media.video} label={k('videoLabel')} className="mx-auto w-full max-w-[16rem]" />
                   )}
                   <figure className="m-0">
-                    {entry.media.desktop && (
-                      <ThemedShot shot={entry.media.desktop} alt={k(`galleryAlt.${entry.media.desktop.id}`)}
+                    {media.desktop && (
+                      <ThemedShot shot={media.desktop} alt={k(`galleryAlt.${media.desktop.id}`)}
                         sizes="(min-width: 56rem) 32rem, 100vw" />
                     )}
-                    {entry.media.phones && (
-                      <div className={`mt-4 grid gap-3 ${entry.media.phones.length === 2 ? 'mx-auto max-w-md grid-cols-2' : 'grid-cols-3'}`}>
-                        {entry.media.phones.map((shot) => (
+                    {media.phones && (
+                      <div className={`mt-4 grid gap-3 ${media.phones.length === 2 ? 'mx-auto max-w-md grid-cols-2' : 'grid-cols-3'}`}>
+                        {media.phones.map((shot) => (
                           <ThemedShot key={shot.id} shot={shot} alt={k(`galleryAlt.${shot.id}`)}
                             sizes="(min-width: 56rem) 10rem, 33vw" />
                         ))}

@@ -151,7 +151,17 @@ export function hasShot(slot: ShotSlot): boolean {
   return fs.existsSync(path.join(PUBLIC_SHOTS, slot.file));
 }
 
-export function shotSrc(slot: ShotSlot): string {
+/**
+ * The capture for a locale. Since 2026-11 the capture pipeline also shoots the
+ * dashboard in Spanish (bis-platform's screenshots/capture.spec.ts, the `es/`
+ * set, same file names and sizes), so a Spanish page shows the product in
+ * Spanish. A locale with no capture on disk falls back to the English one
+ * rather than to nothing.
+ */
+export function shotSrc(slot: ShotSlot, locale?: string): string {
+  if (locale && locale !== 'en' && fs.existsSync(path.join(PUBLIC_SHOTS, locale, slot.file))) {
+    return `/screenshots/${locale}/${slot.file}`;
+  }
   return `/screenshots/${slot.file}`;
 }
 

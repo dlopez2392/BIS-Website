@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import { hasShot, shotSrc, type ShotSlot } from '@/lib/platform-tour';
 import type { PhoneScreen } from '@/lib/phone-frame';
 import { PhoneFrame } from './PhoneFrame';
@@ -25,6 +26,7 @@ export function TourShot({
   slot: ShotSlot; alt: string; caption: string; priority?: boolean; sizes?: string;
   phone?: PhoneScreen; label?: string;
 }) {
+  const locale = useLocale();
   if (!hasShot(slot)) return null;
 
   if (phone) {
@@ -39,7 +41,7 @@ export function TourShot({
           ) : null}
           <PhoneFrame
             phone={phone}
-            src={shotSrc(slot)}
+            src={shotSrc(slot, locale)}
             alt={alt}
             width={slot.width}
             height={slot.height}
@@ -56,7 +58,7 @@ export function TourShot({
   return (
     <figure className="m-0">
       <Image
-        src={shotSrc(slot)}
+        src={shotSrc(slot, locale)}
         alt={alt}
         width={slot.width}
         height={slot.height}

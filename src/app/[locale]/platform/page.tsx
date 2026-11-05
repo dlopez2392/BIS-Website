@@ -88,7 +88,7 @@ export default async function PlatformPage({ params }: { params: Promise<{ local
           caption={t('sampleCaption')}
           frames={tourSections.filter((s) => hasShot(s.shot)).map((s) => ({
             id: s.id,
-            src: shotSrc(s.shot),
+            src: shotSrc(s.shot, locale),
             width: s.shot.width,
             height: s.shot.height,
             alt: t(`alt.${s.id}`),

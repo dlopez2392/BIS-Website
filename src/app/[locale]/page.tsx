@@ -146,7 +146,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
           {hasShot(heroShot) ? (
             <HotspotShot
-              src={shotSrc(heroShot)}
+              src={shotSrc(heroShot, locale)}
               width={heroShot.width}
               height={heroShot.height}
               alt={p('alt.hero')}
