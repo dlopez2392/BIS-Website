@@ -16,11 +16,11 @@ test('the industry and contact pages each keep their own Sofía heading', async 
   await page.goto('/en/industries/medical');
   await expect(page.getByRole('heading', { name: 'How Sofía handles your calls' })).toBeVisible();
   await page.goto('/es/industries/medical');
-  await expect(page.getByRole('heading', { name: 'Cómo atiende Sofía tus llamadas' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cómo atiende Sofía sus llamadas' })).toBeVisible();
   await page.goto('/en/contact');
   await expect(page.getByRole('heading', { name: 'Questions first?' })).toBeVisible();
   await page.goto('/es/contact');
-  await expect(page.getByRole('heading', { name: '¿Tienes preguntas primero?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '¿Tiene preguntas primero?' })).toBeVisible();
 });
 
 // Each industry shows what lands on the owner's desk, as real text, and says

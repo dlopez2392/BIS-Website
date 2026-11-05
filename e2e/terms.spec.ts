@@ -35,7 +35,7 @@ test('terms page renders and carries every SMS disclosure vetting looks for (EN)
 test('terms page renders in Spanish', async ({ page }) => {
   await page.goto('/es/terms');
   await expect(page.getByRole('heading', { level: 1, name: /Términos y Condiciones/i })).toBeVisible();
-  await expect(page.getByRole('main')).toContainText(/responde STOP/i);
+  await expect(page.getByRole('main')).toContainText(/responda STOP/i);
 });
 
 test('the terms page links to the privacy policy, and the footer links to both', async ({ page }) => {

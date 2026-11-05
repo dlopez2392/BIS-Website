@@ -2,7 +2,7 @@
   "common": {
     "brand": "bis>",
     "fullName": "Bespoke Intelligent Solutions",
-    "cta": "Reserva tu evaluación",
+    "cta": "Agende su evaluación",
     "learnMore": "Más información"
   },
   "nav": {
@@ -16,12 +16,12 @@
     "openMenu": "Abrir menú",
     "toggleTheme": "Cambiar a modo claro u oscuro",
     "closeMenu": "Cerrar menú",
-    "call": "Llámanos",
-    "callAria": "Llama a BIS al {phone}",
+    "call": "Llámenos",
+    "callAria": "Llame a BIS al {phone}",
     "platform": "Plataforma"
   },
   "footer": {
-    "tagline": "Tu Solución Inteligente",
+    "tagline": "Su Solución Inteligente",
     "company": "Empresa",
     "contactCol": "Contacto",
     "aiStrategy": "Estrategia de IA",
@@ -37,7 +37,7 @@
     "hoursTool": "Calculadora de horas",
     "privacy": "Política de Privacidad",
     "accessibility": "Accesibilidad",
-    "trust": "Cómo protegemos tus datos",
+    "trust": "Cómo protegemos sus datos",
     "region": "Valle del Río Grande",
     "city": "Harlingen, TX",
     "email": "hello@bis-rgv.com",
@@ -53,27 +53,27 @@
     "navLabel": "Sitio"
   },
   "home": {
-    "heroTitle": "El sistema que mueve tu negocio.",
-    "heroCta2": "Reserva una evaluación gratuita",
-    "heroBody": "Un CRM que diseñamos para los negocios del Valle — llamadas, prospectos, citas y los números del lunes en un solo lugar, en inglés y en español. Y el equipo de IT detrás.",
-    "quote": "La tecnología de las grandes firmas nunca ha estado fuera del alcance de los negocios del Valle — simplemente nunca se construyó para ellos. Bespoke significa que empezamos con tu flujo de trabajo, tus clientes, tus dos idiomas.",
+    "heroTitle": "El sistema que mueve su negocio.",
+    "heroCta2": "Agende una evaluación gratuita",
+    "heroBody": "Un CRM que diseñamos para los negocios del Valle — llamadas, clientes potenciales, citas y los números del lunes en un solo lugar, en inglés y en español. Y el equipo de IT detrás.",
+    "quote": "La tecnología de las grandes firmas nunca ha estado fuera del alcance de los negocios del Valle — simplemente nunca se construyó para ellos. Bespoke significa que empezamos con su flujo de trabajo, sus clientes, sus dos idiomas.",
     "quoteName": "Dan Lopez",
     "quoteRole": "Fundador, BIS",
     "insightsHeading": "Lo que pensamos",
-    "ctaTitle": "Encontremos tu primera hora recuperada.",
-    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy y te mostramos la primera automatización que se paga sola.",
+    "ctaTitle": "Encontremos su primera hora recuperada.",
+    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona su negocio hoy y le mostramos la primera automatización que se paga sola.",
     "sofiaTitle": "La recepcionista que contesta nuestro propio teléfono",
-    "sofiaBlurb": "Creamos sistemas que contestan cuando tú no puedes. Este es el nuestro — la misma Sofía que contesta al (956) 506-1545, en línea ahora mismo. Presiona el botón y pregúntale lo que quieras.",
+    "sofiaBlurb": "Creamos sistemas que contestan cuando usted no puede. Este es el nuestro — la misma Sofía que contesta al (956) 506-1545, en línea ahora mismo. Presione el botón y pregúntele lo que quiera.",
     "platformTitle": "El software es nuestro. Nosotros trabajamos con él todos los días.",
-    "platformBody": "Las llamadas, los prospectos, las citas, el correo del lunes por la mañana — un solo sistema que construimos y mantenemos, no una licencia que te revendimos. Así se ve por dentro.",
-    "platformLink": "Mira la plataforma por dentro",
+    "platformBody": "Las llamadas, los clientes potenciales, las citas, el correo del lunes por la mañana — un solo sistema que construimos y mantenemos, no una licencia que le revendimos. Así se ve por dentro.",
+    "platformLink": "Vea la plataforma por dentro",
     "prismKicker": "También hecho por BIS",
     "prismTitle": "Prism, una app de finanzas personales que cualquiera puede usar.",
-    "prismBody": "Quienes construyen la plataforma también hicieron esto: todas tus cuentas en una sola imagen, lo que puedes gastar antes del día de pago y tu saldo a 60 días. Abre la demo en vivo; no necesitas registrarte. Por ahora está solo en inglés.",
+    "prismBody": "Quienes construyen la plataforma también hicieron esto: todas sus cuentas en una sola imagen, lo que puede gastar antes del día de pago y su saldo a 60 días. Abra la demo en vivo; no necesita registrarse. Por ahora está solo en inglés.",
     "prismDemo": "Ver la demo en vivo",
     "statusLine": "Sofía está contestando el {phone} ahora mismo",
     "call": {
-      "label": "Una llamada de muestra fuera de horario, contestada por Sofía",
+      "label": "Una llamada de muestra fuera de horario, atendida por Sofía",
       "business": "Resaca Air Conditioning & Heating",
       "live": "En vivo",
       "ended": "Terminó",
@@ -88,9 +88,9 @@
       "langEs": "Español",
       "langEn": "Inglés",
       "mondayK": "Correo del lunes",
-      "mondayCalls": "llamadas contestadas",
+      "mondayCalls": "llamadas atendidas",
       "mondayDelta": "4 más que la semana anterior",
-      "note": "Llamada de muestra en nuestra cuenta demo. La vuelves a ver en el tablero de abajo.",
+      "note": "Llamada de muestra en nuestra cuenta demo. La vuelve a ver en el tablero de abajo.",
       "replay": "Repetir",
       "langLabel": "Idioma de la llamada de muestra",
       "caller": "Verónica"
@@ -100,10 +100,10 @@
     "proof2": "en la misma llamada, a media frase si hace falta",
     "proof3": "un solo contacto, no un centro de llamadas",
     "spots": {
-      "hint": "Cuenta de muestra — empresa y datos inventados. Toca los números.",
-      "s1t": "Llamadas contestadas en los últimos 7 días",
+      "hint": "Cuenta de muestra — empresa y datos inventados. Toque los números.",
+      "s1t": "Llamadas atendidas en los últimos 7 días",
       "s1b": "Con el cambio contra la semana pasada a la vista, para que una semana tranquila nunca parezca una falla.",
-      "s2t": "Fuera de horario, igual contestadas",
+      "s2t": "Fuera de horario, igual atendidas",
       "s2b": "Llamadas que llegaron después del cierre — como la de las 9:15 PM al inicio de la página. Sofía contestó cada una, en español cuando así empezó.",
       "s3t": "Cada cita, al momento",
       "s3b": "Lo que Sofía agenda llega aquí y al calendario. Nada se queda en un papelito.",
@@ -112,19 +112,19 @@
     "kDelivered": "Entregado",
     "kEveryBuild": "Cada proyecto",
     "svcMore": "Todo lo que hacemos",
-    "orbIdle": "Esperando tu voz",
+    "orbIdle": "Esperando su voz",
     "orbTalk": "Sofía está hablando",
     "orbLive": "Conectada",
-    "checklistLine": "¿Todavía no quieres hablar?",
+    "checklistLine": "¿Todavía no quiere hablar?",
     "insightsMore": "Todos los artículos",
-    "heroTalk": "Habla con Sofía",
+    "heroTalk": "Hable con Sofía",
     "prismNewTab": "se abre en una pestaña nueva"
   },
   "services": {
     "title": "Qué hacemos.",
-    "intro": "IA que le quita horas a tu semana, IT que te mantiene seguro y sitios web que son tuyos — con un solo contacto. Detrás está la Plataforma BIS, el CRM que construimos para los negocios del Valle y con el que operamos el nuestro.",
+    "intro": "IA que le quita horas a su semana, IT que lo mantiene seguro y sitios web que son suyos — con un solo contacto. Detrás está la Plataforma BIS, el CRM que construimos para los negocios del Valle y con el que operamos el nuestro.",
     "g1Title": "IA y Automatización",
-    "g1Body": "IA que le quita horas reales a tu semana, no demos que juntan polvo. La integramos a las herramientas y al equipo que ya tienes.",
+    "g1Body": "IA que le quita horas reales a su semana, no demos que juntan polvo. La integramos a las herramientas y al equipo que ya tiene.",
     "g1Proof": "Construimos resúmenes de admisión de casos con IA para un bufete con varias oficinas — respuestas de viabilidad en minutos, no en días.",
     "g1Bullets": [
       "Evaluaciones de preparación para IA",
@@ -135,20 +135,20 @@
       "Capacitación del personal"
     ],
     "g2Title": "Consultoría IT y Seguridad",
-    "g2Body": "Veinte años manejando IT para organizaciones grandes, ahora para la tuya. Arreglamos lo que está mal y lo dejamos listo para que siga funcionando mientras creces — entre oficinas, y de ambos lados de la frontera si lo necesitas.",
+    "g2Body": "Veinte años manejando IT para organizaciones grandes, ahora para la suya. Arreglamos lo que está mal y lo dejamos listo para que siga funcionando mientras crece — entre oficinas, y de ambos lados de la frontera si lo necesita.",
     "g2Proof": "Dirigimos la modernización totalmente en la nube de una firma de 150 usuarios en tres oficinas y dos países.",
     "g2Bullets": [
       "Microsoft 365 / Nube (Entra ID, Intune)",
       "MFA resistente a phishing",
       "Protección de endpoints (Defender)",
       "Modernización de red",
-      "Supervisión de tu proveedor de IT (MSP)",
+      "Supervisión de su proveedor de IT (MSP)",
       "Respuesta a incidentes de seguridad",
       "Administración de teléfonos y laptops (MDM)"
     ],
     "g3Title": "Diseño Web",
-    "g3Body": "Sitios rápidos y modernos que de verdad son tuyos — sin ataduras y sin cajas negras. Hechos para traerte llamadas y clientes, en inglés y en español.",
-    "g3Proof": "Cada proyecto se entrega con las llaves: tu hosting, tus cuentas, tu propiedad.",
+    "g3Body": "Sitios rápidos y modernos que de verdad son suyos — sin ataduras y sin cajas negras. Hechos para traerle llamadas y clientes, en inglés y en español.",
+    "g3Proof": "Cada proyecto se entrega con las llaves: su hosting, sus cuentas, su propiedad.",
     "g3Bullets": [
       "Diseño y desarrollo a la medida",
       "Escrito en ambos idiomas, no traducido",
@@ -156,52 +156,52 @@
       "Paneles de analítica (Power BI)",
       "Entrega limpia"
     ],
-    "ctaTitle": "Mira cómo se vería esto en tu negocio.",
-    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta, y descubre la primera automatización que se paga sola.",
+    "ctaTitle": "Vea cómo se vería esto en su negocio.",
+    "ctaBody": "Empiece con una evaluación gratuita y sin presión de venta, y descubra la primera automatización que se paga sola.",
     "sofiaKicker": "Pruebas, no diapositivas",
     "sofiaTitle": "El primero ya contesta nuestro teléfono",
-    "sofiaBlurb": "Todo lo anterior es más fácil de creer si puedes comprobar una parte. Sofía es la nuestra — presiona el botón y pregúntale qué hacemos.",
+    "sofiaBlurb": "Todo lo anterior es más fácil de creer si puede comprobar una parte. Sofía es la nuestra — presione el botón y pregúntele qué hacemos.",
     "pageKicker": "Servicios",
-    "pageTitle": "Un solo aliado para IA, TI y tu sitio web.",
-    "pageIntro": "IA que te devuelve horas, TI que te mantiene seguro, sitios web que son tuyos y la plataforma que contesta tu teléfono — con un solo punto de contacto en el Valle.",
-    "heroCta": "Agenda una evaluación gratuita",
+    "pageTitle": "Un solo aliado para IA, TI y su sitio web.",
+    "pageIntro": "IA que le devuelve horas, TI que lo mantiene seguro, sitios web que son suyos y la plataforma que contesta su teléfono — con un solo punto de contacto en el Valle.",
+    "heroCta": "Agende una evaluación gratuita",
     "heroSecondary": "Cómo trabajamos",
     "indexLabel": "Cuatro formas en que ayudamos",
-    "needIfLabel": "Lo necesitas si",
-    "getLabel": "Lo que recibes",
+    "needIfLabel": "Lo necesita si",
+    "getLabel": "Lo que recibe",
     "toolsLabel": "Herramientas con las que trabajamos",
     "firstStepLabel": "Primer paso gratuito",
     "proofLive": "En vivo",
     "detail": {
       "g1": {
-        "outcome": "Horas de vuelta cada semana, con las herramientas que ya usas.",
+        "outcome": "Horas de vuelta cada semana, con las herramientas que ya usa.",
         "needIf": [
-          "Tu equipo captura la misma información en dos sistemas.",
+          "Su equipo captura la misma información en dos sistemas.",
           "Documentos, formularios de admisión o correos se acumulan esperando que alguien los lea.",
-          "Ya probaste una herramienta de IA, pero nadie sabe si ahorra tiempo — ni cuánto cuesta."
+          "Ya probó una herramienta de IA, pero nadie sabe si ahorra tiempo — ni cuánto cuesta."
         ],
         "get": [
           "Una evaluación de dónde la IA ahorra horas reales — y dónde no",
-          "Automatizaciones dentro de Microsoft 365 y las aplicaciones que ya pagas",
+          "Automatizaciones dentro de Microsoft 365 y las aplicaciones que ya paga",
           "Asistentes que contestan en inglés y en español",
           "Lectura y resúmenes de documentos, revisados por una persona antes de que importen",
-          "Un costo mensual de IA que puedes ver y limitar",
-          "Capacitación para que tu equipo la use — y confíe en ella"
+          "Un costo mensual de IA que puede ver y limitar",
+          "Capacitación para que su equipo la use — y confíe en ella"
         ],
         "tools": [
           "Microsoft 365",
           "Power Automate",
           "Claude API"
         ],
-        "firstStep": "Calcula las horas que recuperarías",
-        "cta": "Hablemos de IA para tu negocio"
+        "firstStep": "Calcule las horas que recuperaría",
+        "cta": "Hablemos de IA para su negocio"
       },
       "g2": {
-        "outcome": "TI segura y administrada que sigue funcionando mientras creces.",
+        "outcome": "TI segura y administrada que sigue funcionando mientras crece.",
         "needIf": [
-          "Una contraseña es lo único entre un extraño y tu correo.",
-          "Nadie puede decir con certeza qué laptops y teléfonos tienen tus datos.",
-          "Le pagas a un proveedor de TI pero no sabes qué estás recibiendo."
+          "Una contraseña es lo único entre un extraño y su correo.",
+          "Nadie puede decir con certeza qué laptops y teléfonos tienen sus datos.",
+          "Le paga a un proveedor de TI pero no sabe qué está recibiendo."
         ],
         "get": [
           "Microsoft 365 bien configurado: cuentas, correo, archivos y permisos",
@@ -209,7 +209,7 @@
           "Cada laptop y teléfono administrado — y borrado a distancia si se pierde",
           "Protección en cada computadora, vigilada contra amenazas",
           "Redes para una oficina o varias, de los dos lados de la frontera si hace falta",
-          "Una mirada independiente sobre tu proveedor de TI actual",
+          "Una mirada independiente sobre su proveedor de TI actual",
           "Un plan — y alguien que responda primero — si algo sale mal"
         ],
         "tools": [
@@ -219,23 +219,23 @@
           "Defender",
           "MFA resistente a phishing"
         ],
-        "firstStep": "Haz la revisión de seguridad gratuita",
-        "cta": "Hablemos de tu TI"
+        "firstStep": "Haga la revisión de seguridad gratuita",
+        "cta": "Hablemos de su TI"
       },
       "g3": {
-        "outcome": "Un sitio bilingüe y rápido que es tuyo, hecho para traer llamadas.",
+        "outcome": "Un sitio bilingüe y rápido que es suyo, hecho para traer llamadas.",
         "needIf": [
-          "Tu sitio se ve anticuado en el teléfono — o no tienes uno.",
-          "Tus clientes buscan en español y encuentran a alguien más.",
-          "No controlas tu propio dominio, hosting ni contraseñas."
+          "Su sitio se ve anticuado en el teléfono — o no tiene uno.",
+          "Sus clientes buscan en español y encuentran a alguien más.",
+          "No controla su propio dominio, hosting ni contraseñas."
         ],
         "get": [
-          "Diseño a la medida, escrito para tus clientes en inglés y en español — no traducido por máquina",
+          "Diseño a la medida, escrito para sus clientes en inglés y en español — no traducido por máquina",
           "Páginas rápidas que funcionan en cualquier teléfono",
-          "Búsqueda local configurada para el Valle, para que los clientes cercanos te encuentren",
-          "Formularios de contacto y reservas que te mandan los prospectos directamente",
-          "Tableros sencillos que muestran qué hacen tus visitantes",
-          "Cada cuenta a tu nombre, con las llaves en tus manos"
+          "Búsqueda local configurada para el Valle, para que los clientes cercanos lo encuentren",
+          "Formularios de contacto y de citas que le mandan los clientes potenciales directamente",
+          "Tableros sencillos que muestran qué hacen sus visitantes",
+          "Cada cuenta a su nombre, con las llaves en sus manos"
         ],
         "tools": [
           "Next.js",
@@ -243,30 +243,30 @@
           "Google Search Console",
           "Power BI"
         ],
-        "firstStep": "Mira cuánto te cuestan las llamadas perdidas",
-        "cta": "Hablemos de tu sitio web"
+        "firstStep": "Vea cuánto le cuestan las llamadas perdidas",
+        "cta": "Hablemos de su sitio web"
       }
     },
     "platform": {
       "title": "BIS Platform",
-      "outcome": "Cada llamada contestada y cada prospecto con seguimiento — en un solo lugar.",
-      "body": "El sistema con el que operamos nuestro propio negocio: Sofía, una recepcionista con IA que contesta en inglés y en español, más el CRM, la página de reservas y los seguimientos detrás de ella. Lo instalamos y lo operamos por ti.",
+      "outcome": "Cada llamada atendida y cada cliente potencial con seguimiento — en un solo lugar.",
+      "body": "El sistema con el que operamos nuestro propio negocio: Sofía, una recepcionista con IA que contesta en inglés y en español, más el CRM, la página de citas y los seguimientos detrás de ella. Lo instalamos y lo operamos por usted.",
       "needIf": [
         "Las llamadas fuera de horario se van al buzón — y esas personas no vuelven a llamar.",
-        "Tus prospectos viven en mensajes, libretas y tres bandejas de entrada distintas.",
-        "Quieres saber cada lunes cómo te fue la semana pasada, sin armar un reporte."
+        "Sus clientes potenciales viven en mensajes, libretas y tres bandejas de entrada distintas.",
+        "Quiere saber cada lunes cómo le fue la semana pasada, sin armar un reporte."
       ],
       "get": [
-        "Sofía contesta tu línea de día y de noche, en inglés y en español, y agenda citas",
-        "Una página de reservas con tu logo y tus colores",
+        "Sofía contesta su línea de día y de noche, en inglés y en español, y agenda citas",
+        "Una página de citas con su logo y sus colores",
         "Cada llamada, formulario y mensaje llega a un solo expediente del cliente",
         "Recordatorios y seguimientos que se envían solos",
         "Un reporte de cuatro números cada lunes por la mañana",
-        "Lo instalamos y lo mantenemos nosotros — no tienes nada que instalar"
+        "Lo instalamos y lo mantenemos nosotros — no tiene nada que instalar"
       ],
-      "proof": "Sofía contesta nuestra propia línea publicada. Llámala, o habla con ella aquí mismo.",
-      "phoneLabel": "El teléfono de tu cliente",
-      "firstStep": "Recorre la plataforma",
+      "proof": "Sofía contesta nuestra propia línea publicada. Llámela, o hable con ella aquí mismo.",
+      "phoneLabel": "El teléfono de su cliente",
+      "firstStep": "Recorra la plataforma",
       "cta": "Hablemos de la plataforma"
     },
     "processHeading": "Cómo es trabajar con nosotros",
@@ -282,57 +282,57 @@
     "legalBody": "La admisión legal con IA evalúa a posibles clientes las 24 horas, entregando datos de casos formateados y priorizados antes del primer café.",
     "medLabel": "Médico y Dental",
     "medTitle": "Menos administración, más pacientes.",
-    "medBody": "Automatiza agendas, recordatorios y la admisión bilingüe de pacientes para que tu equipo dedique el tiempo al cuidado, no al papeleo.",
+    "medBody": "Automatice agendas, recordatorios y la admisión bilingüe de pacientes para que su equipo dedique el tiempo al cuidado, no al papeleo.",
     "logLabel": "Logística y Transporte",
     "logTitle": "Una ventaja en el corredor.",
-    "logBody": "Sistemas predictivos y documentación automatizada mantienen la carga en movimiento a través de la frontera a la velocidad que tus clientes esperan.",
+    "logBody": "Sistemas predictivos y documentación automatizada mantienen la carga en movimiento a través de la frontera a la velocidad que sus clientes esperan.",
     "tradesLabel": "Oficios Especializados",
-    "tradesTitle": "Cotiza, agenda, cobra.",
-    "tradesBody": "Sitios modernos y automatizaciones que capturan clientes, agendan trabajos y dan seguimiento — en los dos idiomas que hablan tus clientes.",
+    "tradesTitle": "Estimados, citas y cobros.",
+    "tradesBody": "Sitios modernos y automatizaciones que capturan clientes, agendan trabajos y dan seguimiento — en los dos idiomas que hablan sus clientes.",
     "agLabel": "Agricultura",
     "agTitle": "Con datos, del campo a la factura.",
-    "agBody": "Conecta operaciones, inventario y reportes con IA práctica hecha para la realidad de la agricultura del Valle.",
-    "ctaTitle": "¿No ves tu industria?",
-    "ctaBody": "Si tu negocio funciona con trabajo repetitivo, probablemente podamos automatizar una parte. Averigüémoslo gratis.",
+    "agBody": "Conecte operaciones, inventario y reportes con IA práctica hecha para la realidad de la agricultura del Valle.",
+    "ctaTitle": "¿No ve su industria?",
+    "ctaBody": "Si su negocio funciona con trabajo repetitivo, probablemente podamos automatizar una parte. Averigüémoslo gratis.",
     "shared": {
       "eyebrow": "Industrias",
       "workHeading": "Cómo se ve esto en la práctica",
-      "sofiaHeading": "Cómo atiende Sofía tus llamadas",
-      "sofiaLink": "Sofía contesta nuestra propia línea. Llámala e intenta romperla.",
+      "sofiaHeading": "Cómo atiende Sofía sus llamadas",
+      "sofiaLink": "Sofía contesta nuestra propia línea. Llámela e intente romperla.",
       "faqHeading": "Preguntas que nos hacen",
       "othersHeading": "Otras industrias en las que trabajamos",
       "citiesHeading": "Dónde trabajamos",
       "citiesBody": "Estamos en Harlingen y atendemos todo el Valle. Estas páginas cubren las ciudades por las que más nos preguntan.",
-      "ctaTitle": "Empieza con una evaluación gratuita",
-      "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu negocio hoy y te mostramos la mejora que se paga sola primero.",
-      "sofiaTryTitle": "Escúchala hacerlo",
-      "sofiaTryBlurb": "La misma Sofía, en vivo en tu navegador. Hazle las preguntas que te hacen tus clientes y juzga las respuestas tú mismo.",
+      "ctaTitle": "Empiece con una evaluación gratuita",
+      "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona su negocio hoy y le mostramos la mejora que se paga sola primero.",
+      "sofiaTryTitle": "Escúchela hacerlo",
+      "sofiaTryBlurb": "La misma Sofía, en vivo en su navegador. Hágale las preguntas que le hacen sus clientes y juzgue las respuestas usted mismo.",
       "platformKicker": "Por dentro",
-      "platformTitle": "Contestada en español a las 9 PM, agendada antes de que despertaras.",
+      "platformTitle": "Atendida en español a las 9 PM, agendada antes de que despertara.",
       "platformBody": "Cada llamada queda grabada, resumida y guardada en el mismo sistema — en el idioma en que entró. Esta es la pantalla real, no una maqueta.",
-      "platformLink": "Mira la plataforma por dentro",
-      "artifactHeading": "Lo que llega a tu escritorio",
-      "artifactCaption": "Ejemplo: nombres y datos inventados, en el formato que de verdad recibes."
+      "platformLink": "Vea la plataforma por dentro",
+      "artifactHeading": "Lo que llega a su escritorio",
+      "artifactCaption": "Ejemplo: nombres y datos inventados, en el formato que de verdad recibe."
     },
     "pages": {
       "legal": {
         "metaTitle": "IT e IA para despachos legales, Valle del Río Grande",
         "metaDescription": "Recepción bilingüe fuera de horario, documentos manejados con confidencialidad y IT para un despacho del Valle. Evaluación gratis, un contacto.",
         "heading": "Tecnología para despachos legales del Valle",
-        "intro": "Una llamada perdida es un caso perdido. Casi todos los que buscan abogado llaman a tres y contratan al que contesta primero, y en el Valle esa llamada llega en español con la misma frecuencia que en inglés. Lo que sigue trata de contestar todas, y de cuidar lo que el cliente cuenta cuando lo haces.",
-        "sofia": "Sofía contesta tu línea en el idioma de quien llama, toma los datos de lo que pasó, explica cuánto cobras por la consulta y agenda una cita real en tu calendario. Nunca da asesoría legal ni dice si vas a tomar el caso. Lo que llega a tu escritorio es una hoja de admisión con formato, no un buzón de voz que tienes que devolver para entender.",
+        "intro": "Una llamada perdida es un caso perdido. Casi todos los que buscan abogado llaman a tres y contratan al que contesta primero, y en el Valle esa llamada llega en español con la misma frecuencia que en inglés. Lo que sigue trata de contestar todas, y de cuidar lo que el cliente cuenta cuando lo hace.",
+        "sofia": "Sofía contesta su línea en el idioma de quien llama, toma los datos de lo que pasó, explica cuánto cobra usted por la consulta y agenda una cita real en su calendario. Nunca da asesoría legal ni dice si usted va a tomar el caso. Lo que llega a su escritorio es una hoja de admisión con formato, no un buzón de voz que tiene que devolver para entender.",
         "workflows": [
           {
             "title": "Recepción que contesta fuera de horario",
-            "body": "Las llamadas de las 8 de la noche y del sábado reciben una conversación real en lugar de una grabadora. Los datos llegan a tu correo, con el mismo formato siempre, antes de que abras el despacho."
+            "body": "Las llamadas de las 8 de la noche y del sábado reciben una conversación real en lugar de una grabadora. Los datos llegan a su correo, con el mismo formato siempre, antes de que abra el despacho."
           },
           {
             "title": "Confidencialidad desde el diseño",
-            "body": "La información del cliente se queda en cuentas que tú controlas, con acceso limitado a quien lo necesita. Trabajamos con acuerdo de confidencialidad cuando lo pidas y podemos decirte exactamente dónde vive cada archivo."
+            "body": "La información del cliente se queda en cuentas que usted controla, con acceso limitado a quien lo necesita. Trabajamos con acuerdo de confidencialidad cuando lo pida y podemos decirle exactamente dónde vive cada archivo."
           },
           {
             "title": "Documentos que dejan de ser recaptura",
-            "body": "Formatos de admisión, cartas de contratación y correspondencia de rutina se llenan con información que ya recabaste, para no capturar los mismos datos cuatro veces."
+            "body": "Formatos de admisión, cartas de contratación y correspondencia de rutina se llenan con información que ya recabó, para no capturar los mismos datos cuatro veces."
           }
         ],
         "faq": [
@@ -342,7 +342,7 @@
           },
           {
             "q": "¿La información del cliente está segura en un sistema de IA?",
-            "a": "Está tan segura como la configures. Guardamos los datos en cuentas que tú controlas, limitamos quién y qué puede leerlos y preferimos herramientas que no entrenan con tu contenido. Te lo dejamos por escrito antes de poner nada en marcha."
+            "a": "Está tan segura como la configure. Guardamos los datos en cuentas que usted controla, limitamos quién y qué puede leerlos y preferimos herramientas que no entrenan con su contenido. Se lo dejamos por escrito antes de poner nada en marcha."
           },
           {
             "q": "¿Atiende bien a quien llama en español?",
@@ -387,8 +387,8 @@
         "metaTitle": "IT e IA para médicos y dentistas, Valle del Río Grande",
         "metaDescription": "Agenda bilingüe, recordatorios que reducen las faltas y IT seguro para una clínica o consultorio dental del Valle. Evaluación gratuita, un solo contacto.",
         "heading": "Tecnología para clínicas y consultorios del Valle",
-        "intro": "Tu recepción contesta el teléfono, registra a un paciente y atiende una solicitud de receta al mismo tiempo. Casi todo lo que la interrumpe es rutinario y repetible, que es exactamente el trabajo que puede resolverse antes de llegar a una persona.",
-        "sofia": "Sofía contesta en inglés o español, agenda y reagenda citas contra tu calendario real y le dice a quien llama qué necesita traer. Está hecha para mantenerse lejos de lo clínico: no habla de síntomas, no da consejos y todo lo que suene urgente pasa de inmediato a una persona con quien llamó todavía en la línea.",
+        "intro": "Su recepción contesta el teléfono, registra a un paciente y atiende una solicitud de receta al mismo tiempo. Casi todo lo que la interrumpe es rutinario y repetible, que es exactamente el trabajo que puede resolverse antes de llegar a una persona.",
+        "sofia": "Sofía contesta en inglés o español, agenda y reagenda citas contra su calendario real y le dice a quien llama qué necesita traer. Está hecha para mantenerse lejos de lo clínico: no habla de síntomas, no da consejos y todo lo que suene urgente pasa de inmediato a una persona con quien llamó todavía en la línea.",
         "workflows": [
           {
             "title": "Agenda y recordatorios en los dos idiomas",
@@ -406,15 +406,15 @@
         "faq": [
           {
             "q": "¿Esto cumple con HIPAA?",
-            "a": "El cumplimiento es una propiedad de todo tu consultorio, no de una herramienta, así que nadie puede vendértelo honestamente en una caja. Lo que hacemos es diseñar el flujo para que la información de salud protegida se quede en sistemas que tú controlas, con límites de acceso y un acuerdo con cualquier proveedor que la toque, y documentarlo para que tu asesor de cumplimiento lo revise."
+            "a": "El cumplimiento es una propiedad de todo su consultorio, no de una herramienta, así que nadie puede vendérselo honestamente en una caja. Lo que hacemos es diseñar el flujo para que la información de salud protegida se quede en sistemas que usted controla, con límites de acceso y un acuerdo con cualquier proveedor que la toque, y documentarlo para que su asesor de cumplimiento lo revise."
           },
           {
             "q": "¿La IA va a hablar de síntomas con los pacientes?",
-            "a": "No. Agenda, confirma y responde cosas prácticas como horarios y qué traer. Todo lo clínico o urgente pasa a tu personal de inmediato, y a quien llama se le avisa que eso está pasando."
+            "a": "No. Agenda, confirma y responde cosas prácticas como horarios y qué traer. Todo lo clínico o urgente pasa a su personal de inmediato, y a quien llama se le avisa que eso está pasando."
           },
           {
             "q": "Ya tenemos sistema de gestión del consultorio. ¿Esto lo reemplaza?",
-            "a": "No. Trabaja alrededor de lo que ya tienes. La evaluación empieza por revisar lo que ya pagas, porque la mejora más barata casi siempre es una función que ya tienes y no estás usando."
+            "a": "No. Trabaja alrededor de lo que ya tiene. La evaluación empieza por revisar lo que ya paga, porque la mejora más barata casi siempre es una función que ya tiene y no está usando."
           }
         ],
         "artifact": {
@@ -445,8 +445,8 @@
         "metaTitle": "IT e IA para logística y carga, Valle del Río Grande",
         "metaDescription": "Despacho que contesta de día y de noche, papeleo que se llena solo y IT para carga transfronteriza. Evaluación gratuita, un solo contacto.",
         "heading": "Tecnología para transporte y logística del Valle",
-        "intro": "La carga no respeta horario de oficina, y el papeleo que la acompaña son los mismos datos capturados una y otra vez en formatos distintos. Las dos cosas se arreglan sin cambiar cómo mueves las cargas.",
-        "sofia": "Sofía contesta la línea de la oficina en cualquiera de los dos idiomas, toma solicitudes de carga y tarifa con los datos que de verdad necesitas y agenda devoluciones de llamada en el calendario de tus despachadores. Operadores y brokers reciben la respuesta de una persona a las 2 de la mañana en vez de un buzón, y tus despachadores dejan de perder una hora al día en llamadas que nunca fueron urgentes.",
+        "intro": "La carga no respeta horario de oficina, y el papeleo que la acompaña son los mismos datos capturados una y otra vez en formatos distintos. Las dos cosas se arreglan sin cambiar cómo mueve las cargas.",
+        "sofia": "Sofía contesta la línea de la oficina en cualquiera de los dos idiomas, toma solicitudes de carga y tarifa con los datos que de verdad necesita y agenda devoluciones de llamada en el calendario de sus despachadores. Operadores y brokers reciben la respuesta de una persona a las 2 de la mañana en vez de un buzón, y sus despachadores dejan de perder una hora al día en llamadas que nunca fueron urgentes.",
         "workflows": [
           {
             "title": "Una línea que sí contesta a las 2 de la mañana",
@@ -464,15 +464,15 @@
         "faq": [
           {
             "q": "¿Puede cotizar una tarifa?",
-            "a": "Solo si tú quieres y solo dentro de reglas que tú definas. Por defecto toma el carril, el equipo, las fechas y el contacto, y se lo pasa a una persona. Cotizar es una decisión de negocio, no de tecnología, y debe seguir siendo tuya."
+            "a": "Solo si usted quiere y solo dentro de reglas que usted defina. Por defecto toma el carril, el equipo, las fechas y el contacto, y se lo pasa a una persona. Cotizar es una decisión de negocio, no de tecnología, y debe seguir siendo suya."
           },
           {
             "q": "¿Esto reemplaza nuestro TMS?",
-            "a": "No. Se acomoda alrededor de lo que ya usas y quita la captura y el tráfico telefónico. Empezamos por encontrar qué tarea repetida te cuesta más horas."
+            "a": "No. Se acomoda alrededor de lo que ya usa y quita la captura y el tráfico telefónico. Empezamos por encontrar qué tarea repetida le cuesta más horas."
           },
           {
             "q": "Nuestros brokers llaman a toda hora de los dos lados de la frontera. ¿Eso importa?",
-            "a": "Ese es justo el caso para el que está hecho. La línea se contesta en el idioma con el que abre quien llama, y el mensaje llega a tu despachador en la forma en que lo necesita."
+            "a": "Ese es justo el caso para el que está hecho. La línea se contesta en el idioma con el que abre quien llama, y el mensaje llega a su despachador en la forma en que lo necesita."
           }
         ],
         "artifact": {
@@ -509,40 +509,40 @@
       },
       "trades": {
         "metaTitle": "IT e IA para contratistas y oficios del Valle",
-        "metaDescription": "Contesta cada llamada desde la escalera, cotiza más rápido y cobra antes. Sistemas bilingües para contratistas del Valle. Evaluación gratuita, un solo contacto.",
+        "metaDescription": "Conteste cada llamada desde la escalera, dé estimados más rápido y cobre antes. Sistemas bilingües para contratistas del Valle. Evaluación gratuita.",
         "heading": "Tecnología para contratistas y oficios del Valle",
-        "intro": "No puedes contestar el teléfono desde un techo, y quien te llama va a marcarle al siguiente de la lista. Casi todo lo que le cuesta dinero a un negocio de oficios es el hueco entre que entra una llamada y alguien la devuelve.",
-        "sofia": "Sofía contesta mientras estás en la obra, en inglés o español, pide la dirección y qué está fallando, dice cuánto cobras por ir y agenda al cliente. Bajas de la escalera con un trabajo agendado en vez de un buzón de voz, y nunca pierdes un cliente por estar trabajando.",
+        "intro": "No puede contestar el teléfono desde un techo, y quien le llama va a marcarle al siguiente de la lista. Casi todo lo que le cuesta dinero a un negocio de oficios es el hueco entre que entra una llamada y alguien la devuelve.",
+        "sofia": "Sofía contesta mientras usted está en la obra, en inglés o español, pide la dirección y qué está fallando, dice cuánto cobra usted por ir y agenda al cliente. Usted baja de la escalera con un trabajo agendado en vez de un buzón de voz, y nunca pierde un cliente por estar trabajando.",
         "workflows": [
           {
-            "title": "Cada llamada contestada, hasta desde la escalera",
-            "body": "Una conversación real en cualquiera de los dos idiomas mientras trabajas, con los datos del trabajo y la dirección en tus manos para cuando revises el teléfono."
+            "title": "Cada llamada atendida, hasta desde la escalera",
+            "body": "Una conversación real en cualquiera de los dos idiomas mientras usted trabaja, con los datos del trabajo y la dirección en sus manos para cuando revise el teléfono."
           },
           {
-            "title": "Cotizaciones y seguimiento que sí salen",
-            "body": "Presupuestos que reutilizan lo que ya recabaste y seguimientos que ocurren solos, no cuando te acuerdas el domingo en la noche."
+            "title": "Estimados y seguimiento que sí salen",
+            "body": "Estimados que reutilizan lo que ya recabó y seguimientos que ocurren solos, no cuando se acuerda el domingo en la noche."
           },
           {
             "title": "Un sitio que convierte una búsqueda en una cita",
-            "body": "Rápido, bilingüe y hecho para que quien te encuentre desde el celular pueda agendar o llamar con un toque. Tus cuentas y tu dominio quedan a tu nombre."
+            "body": "Rápido, bilingüe y hecho para que quien lo encuentre desde el celular pueda agendar o llamar con un toque. Sus cuentas y su dominio quedan a su nombre."
           }
         ],
         "faq": [
           {
             "q": "Somos dos personas. ¿No es demasiado para nosotros?",
-            "a": "Está pensado justo para ustedes. Una empresa grande tiene recepcionista; tú tienes un teléfono en la bolsa mientras trabajas. Entre más chica la cuadrilla, más cuesta una llamada perdida."
+            "a": "Está pensado justo para ustedes. Una empresa grande tiene recepcionista; usted tiene un teléfono en la bolsa mientras trabaja. Entre más chica la cuadrilla, más cuesta una llamada perdida."
           },
           {
             "q": "¿Los clientes van a notar que no soy yo?",
-            "a": "Se presenta como tu asistente. No finge ser una persona y, en la práctica, a la gente le molesta mucho menos que mandarla al buzón. Te pasa la llamada en cuanto alguien lo pide."
+            "a": "Se presenta como su asistente. No finge ser una persona y, en la práctica, a la gente le molesta mucho menos que mandarla al buzón. Le pasa la llamada en cuanto alguien lo pide."
           },
           {
             "q": "¿Cuánto cuesta?",
-            "a": "Depende del volumen de llamadas y de qué quieras que atienda, y lo cotizamos después de una evaluación gratuita para que tengas un número fijo antes de empezar. También te vamos a decir cuándo la respuesta honesta es que todavía no lo necesitas."
+            "a": "Depende del volumen de llamadas y de qué quiera que atienda, y lo definimos después de una evaluación gratuita para que tenga un número fijo antes de empezar. También le vamos a decir cuándo la respuesta honesta es que todavía no lo necesita."
           }
         ],
         "artifact": {
-          "label": "Trabajo nuevo, agendado mientras estabas en un techo",
+          "label": "Trabajo nuevo, agendado mientras estaba en un techo",
           "meta": "Miércoles 2:14 PM · llamada atendida en español",
           "rows": [
             {
@@ -570,23 +570,23 @@
               "v": "Hay un perro en el patio; la puerta del lado está abierta"
             }
           ],
-          "footnote": "Te llegó por mensaje y quedó en la agenda antes de que bajaras de la escalera."
+          "footnote": "Le llegó por mensaje y quedó en la agenda antes de que bajara de la escalera."
         }
       },
       "agriculture": {
         "metaTitle": "IT e IA para agricultura, Valle del Río Grande",
-        "metaDescription": "Conecta registros de campo, inventario y facturación, y contesta la línea en los dos idiomas. Tecnología práctica para productores y empacadoras del Valle.",
+        "metaDescription": "Conecte registros de campo, inventario y facturación, y conteste la línea en los dos idiomas. Tecnología práctica para productores y empacadoras del Valle.",
         "heading": "Tecnología para productores y empacadoras del Valle",
         "intro": "Casi todas las operaciones del Valle funcionan con registros que viven en tres lugares: una libreta, una hoja de cálculo y la memoria de alguien. Temporada tras temporada eso funciona, hasta la única semana en que no, casi siempre al facturar o en una auditoría.",
-        "sofia": "Sofía contesta la línea de la oficina en inglés o español, toma solicitudes de compradores y proveedores con los datos que necesitas y agenda devoluciones de llamada. En cosecha, cuando la oficina está vacía porque todos están en el campo, la línea sigue contestando.",
+        "sofia": "Sofía contesta la línea de la oficina en inglés o español, toma solicitudes de compradores y proveedores con los datos que necesita y agenda devoluciones de llamada. En cosecha, cuando la oficina está vacía porque todos están en el campo, la línea sigue contestando.",
         "workflows": [
           {
             "title": "Registros conectados con la facturación",
             "body": "Lo que se cortó, se empacó y se embarcó ligado a lo que se cobra, para que los números cuadren sin una semana persiguiendo papeles."
           },
           {
-            "title": "Reportes que le puedes entregar a un comprador",
-            "body": "La trazabilidad y el reporte de volumen que los compradores piden cada vez más, generados a partir de registros que ya llevas y no armados a mano cada vez."
+            "title": "Reportes que le puede entregar a un comprador",
+            "body": "La trazabilidad y el reporte de volumen que los compradores piden cada vez más, generados a partir de registros que ya lleva y no armados a mano cada vez."
           },
           {
             "title": "Sistemas hechos para cómo se trabaja",
@@ -596,7 +596,7 @@
         "faq": [
           {
             "q": "Nuestros registros están en papel y en hojas de cálculo. ¿Eso es un problema?",
-            "a": "Es el punto de partida normal. El primer paso casi siempre es conectar lo que ya llevas en lugar de reemplazarlo, porque un sistema que nadie en el campo va a usar es peor que la libreta."
+            "a": "Es el punto de partida normal. El primer paso casi siempre es conectar lo que ya lleva en lugar de reemplazarlo, porque un sistema que nadie en el campo va a usar es peor que la libreta."
           },
           {
             "q": "¿La cuadrilla necesita hablar inglés para usarlo?",
@@ -629,20 +629,20 @@
             },
             {
               "k": "Preguntó",
-              "v": "Precio por caja (te toca a ti cotizarlo)"
+              "v": "Precio por caja (le toca a usted cotizarlo)"
             },
             {
               "k": "Agendado",
               "v": "Llamada con Miguel hoy a las 5:30 PM"
             }
           ],
-          "footnote": "Los precios los das tú, así que Sofía tomó los datos del pedido y agendó la llamada en lugar de adivinar."
+          "footnote": "Los precios los da usted, así que Sofía tomó los datos del pedido y agendó la llamada en lugar de adivinar."
         }
       }
     },
     "otherLabel": "Otro giro",
     "otherTitle": "¿Ninguno de estos cinco?",
-    "otherBody": "La plataforma se hizo para cualquier negocio que vive del teléfono. Cuéntanos qué hace el tuyo y te mostramos cómo funcionaría."
+    "otherBody": "La plataforma se hizo para cualquier negocio que vive del teléfono. Cuéntenos qué hace el suyo y le mostramos cómo funcionaría."
   },
   "about": {
     "kicker": "Fundada en 2024 / Harlingen, TX",
@@ -651,7 +651,7 @@
     "founderKicker": "El Fundador",
     "founderName": "Dan Lopez",
     "founderQuote": "Las grandes empresas reciben tecnología hecha a su manera de trabajar. Los negocios de aquí casi siempre reciben lo que el proveedor quiera vender. Fundé BIS para cerrar esa brecha, en casa.",
-    "founderBio": "Dan Lopez fundó Bespoke Intelligent Solutions después de más de veinte años en liderazgo de IT, gran parte de ellos a cargo de sistemas para organizaciones con oficinas en más de un país. Regresó a Harlingen, donde están sus raíces, para poner esa experiencia al servicio de los negocios de aquí. BIS construye y opera su propio software — la Plataforma BIS y Prism — así que sus recomendaciones vienen de usar las herramientas, no de revenderlas. Cada proyecto empieza por cómo funciona de verdad tu negocio.",
+    "founderBio": "Dan Lopez fundó Bespoke Intelligent Solutions después de más de veinte años en liderazgo de IT, gran parte de ellos a cargo de sistemas para organizaciones con oficinas en más de un país. Regresó a Harlingen, donde están sus raíces, para poner esa experiencia al servicio de los negocios de aquí. BIS construye y opera su propio software — la Plataforma BIS y Prism — así que sus recomendaciones vienen de usar las herramientas, no de revenderlas. Cada proyecto empieza por cómo funciona de verdad su negocio.",
     "credKicker": "Experiencia",
     "cred1Title": "Más de 20 años liderando IT",
     "cred1Body": "Dos décadas al frente de equipos de IT y de los sistemas que operan.",
@@ -666,68 +666,68 @@
     "cred6Title": "Salesforce y tecnología legal",
     "cred6Body": "CRMs y plataformas legales configurados para cumplir con la normativa.",
     "cred7Title": "Totalmente bilingüe",
-    "cred7Body": "Trabaja en inglés y en español, con tu equipo y con tus clientes.",
+    "cred7Body": "Trabaja en inglés y en español, con su equipo y con sus clientes.",
     "cred8Title": "Con raíces en Harlingen",
     "cred8Body": "Con base en Harlingen, trabajando en todo el Valle.",
     "methodKicker": "Cómo trabajamos",
     "m1Title": "Evaluar",
-    "m1Body": "Vemos cómo funciona tu negocio hoy y encontramos dónde se pierde tiempo y dinero — y dónde la IA de verdad ayudaría.",
+    "m1Body": "Vemos cómo funciona su negocio hoy y encontramos dónde se pierde tiempo y dinero — y dónde la IA de verdad ayudaría.",
     "m2Title": "Planear",
     "m2Body": "Ponemos el trabajo en orden: lo que se paga solo primero y lo que puede esperar, para que nada se rompa mientras cambia.",
     "m3Title": "Construir",
-    "m3Body": "Construimos las integraciones y automatizaciones alrededor de cómo ya trabaja tu equipo.",
+    "m3Body": "Construimos las integraciones y automatizaciones alrededor de cómo ya trabaja su equipo.",
     "m4Title": "Entregar",
-    "m4Body": "El resultado es tuyo: la documentación, la capacitación y las cuentas, más un plan para lo que sigue.",
-    "ctaTitle": "Encontremos tu primera hora libre.",
-    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta. Te mostraremos la primera automatización que se paga sola."
+    "m4Body": "El resultado es suyo: la documentación, la capacitación y las cuentas, más un plan para lo que sigue.",
+    "ctaTitle": "Encontremos su primera hora libre.",
+    "ctaBody": "Empiece con una evaluación gratuita y sin presión de venta. Le mostraremos la primera automatización que se paga sola."
   },
   "contact": {
-    "title": "Encontremos tu primera hora recuperada.",
-    "intro": "Nuestra evaluación Bespoke es un diagnóstico de alta precisión que identifica las fugas operativas y las oportunidades de automatización inmediatas dentro de tu stack actual.",
-    "b1": "Recorrido por tus flujos de trabajo",
+    "title": "Encontremos su primera hora recuperada.",
+    "intro": "Nuestra evaluación Bespoke es un diagnóstico de alta precisión que identifica las fugas operativas y las oportunidades de automatización inmediatas dentro de su stack actual.",
+    "b1": "Recorrido por sus flujos de trabajo",
     "b2": "Una automatización identificada",
     "b3": "Diagnóstico de seguridad",
     "b4": "Hoja de ruta de 90 días",
     "localOps": "Operaciones Locales",
     "localOpsValue": "Harlingen, Texas — al servicio del Valle del Río Grande. Se habla español.",
-    "callHeading": "¿Quieres hablar ahora?",
-    "callBody": "Llámanos y seguimos desde ahí.",
-    "bookHeading": "O agenda una llamada.",
-    "bookSubtext": "Reserva un espacio gratuito de 20 minutos que te funcione — sin presión de venta, solo un vistazo a dónde la IA o la automatización pueden ayudar a tu negocio.",
-    "bookFallback": "Abrir la página de reservación",
+    "callHeading": "¿Quiere hablar ahora?",
+    "callBody": "Llámenos y seguimos desde ahí.",
+    "bookHeading": "O agende una llamada.",
+    "bookSubtext": "Agende un espacio gratuito de 20 minutos que le funcione — sin presión de venta, solo un vistazo a dónde la IA o la automatización pueden ayudar a su negocio.",
+    "bookFallback": "Abrir la página para agendar",
     "formTitle": "Formulario de contacto",
     "formFallback": "Abrir el formulario en una pestaña nueva",
-    "bookTitle": "Agenda una evaluación gratuita",
+    "bookTitle": "Agende una evaluación gratuita",
     "poweredBy": "Este formulario y el agendador funcionan en la Plataforma BIS — la misma plataforma para clientes que configuramos para los negocios con los que trabajamos.",
-    "sofiaHeading": "¿Tienes preguntas primero?",
-    "sofiaTitle": "Pregúntale a Sofía en vez de llenar algo",
-    "sofiaBlurb": "Te responde qué hacemos y cómo trabajamos. Desde aquí no puede agendarte — para eso está el calendario de abajo."
+    "sofiaHeading": "¿Tiene preguntas primero?",
+    "sofiaTitle": "Pregúntele a Sofía en vez de llenar algo",
+    "sofiaBlurb": "Le responde qué hacemos y cómo trabajamos. Desde aquí no puede agendarle una cita — para eso está el calendario de abajo."
   },
   "meta": {
     "title": "Bespoke Intelligent Solutions: IA e IT, Valle del Río Grande",
     "description": "BIS crea su propio CRM para negocios del Valle del Río Grande y el IT detrás — adopción de IA, seguridad, web moderna. Bilingüe, un solo punto de contacto.",
     "notFound": "Página no encontrada",
     "notFoundCta": "Volver al inicio",
-    "homeDescription": "Un CRM hecho para los negocios del Valle del Río Grande — llamadas, prospectos, citas y reportes en un solo lugar, EN/ES — y el equipo de IT detrás.",
+    "homeDescription": "Un CRM hecho para los negocios del Valle del Río Grande — llamadas, clientes potenciales, citas y reportes en un solo lugar, EN/ES — y el equipo de IT detrás.",
     "servicesTitle": "Servicios — IA, Seguridad IT y Diseño Web",
     "servicesDescription": "IA y automatización, IT y seguridad, y sitios web bilingües para negocios del Valle del Río Grande — un solo contacto, con la Plataforma BIS.",
     "industriesTitle": "Industrias — Hecho para el Valle",
     "industriesDescription": "Soluciones de IA e IT a la medida para negocios legales, médicos, de logística, oficios y agricultura del Valle del Río Grande.",
     "aboutTitle": "Nosotros — Quiénes Somos",
-    "aboutDescription": "Conoce a Dan Lopez y a BIS: veinte años de liderazgo en IT, de regreso en Harlingen para crear IA, IT y software para negocios del Valle.",
-    "contactTitle": "Evaluación Gratuita — Contáctanos",
-    "contactDescription": "Reserva una evaluación gratuita y sin presión de venta. Encontramos la primera automatización que se paga sola. Bilingüe, en el RGV."
+    "aboutDescription": "Conozca a Dan Lopez y a BIS: veinte años de liderazgo en IT, de regreso en Harlingen para crear IA, IT y software para negocios del Valle.",
+    "contactTitle": "Evaluación Gratuita — Contáctenos",
+    "contactDescription": "Agende una evaluación gratuita y sin presión de venta. Encontramos la primera automatización que se paga sola. Bilingüe, en el RGV."
   },
   "chat": {
-    "ask": "Pregúntale a BIS",
-    "askSub": "Escribe una pregunta o habla con Sofía.",
+    "ask": "Pregúntele a BIS",
+    "askSub": "Escriba una pregunta o hable con Sofía.",
     "close": "Cerrar",
     "tabType": "Escribir",
     "tabTalk": "Hablar",
     "tabsLabel": "Cómo preguntar",
     "frameTitle": "Chat del asistente de BIS",
-    "talkTitle": "Habla con Sofía",
-    "talkBlurb": "Habla con Sofía desde tu navegador, la misma recepcionista que contesta nuestro teléfono.",
+    "talkTitle": "Hable con Sofía",
+    "talkBlurb": "Hable con Sofía desde su navegador, la misma recepcionista que contesta nuestro teléfono.",
     "chipsLabel": "Preguntas sugeridas",
     "chips": {
       "top": [
@@ -767,14 +767,14 @@
     "readArticle": "Leer artículo",
     "minRead": "{minutes} min de lectura",
     "backToInsights": "← Volver a Perspectivas",
-    "emptyState": "Aún no hay publicaciones — vuelve pronto.",
+    "emptyState": "Aún no hay publicaciones — vuelva pronto.",
     "categories": {
       "Insights": "Perspectivas",
       "Security": "Seguridad",
       "Culture": "Cultura",
       "AI": "IA"
     },
-    "metaDescription": "Notas claras sobre IA, seguridad de IT y sitios web para negocios del Valle del Río Grande: cuánto cuesta, qué preguntar y qué debe ser tuyo."
+    "metaDescription": "Notas claras sobre IA, seguridad de IT y sitios web para negocios del Valle del Río Grande: cuánto cuesta, qué preguntar y qué debe ser suyo."
   },
   "faq": {
     "title": "Preguntas Frecuentes",
@@ -790,7 +790,7 @@
     "items": {
       "whatIsBis": {
         "q": "¿Qué hace Bespoke Intelligent Solutions?",
-        "a": "Somos una consultoría de IT e IA para los negocios del Valle del Río Grande. Te ayudamos a adoptar IA práctica, modernizar y asegurar tu IT, y crear sitios web bilingües y rápidos — con un solo punto de contacto, de la estrategia a la entrega."
+        "a": "Somos una consultoría de IT e IA para los negocios del Valle del Río Grande. Le ayudamos a adoptar IA práctica, modernizar y asegurar su IT, y crear sitios web bilingües y rápidos — con un solo punto de contacto, de la estrategia a la entrega."
       },
       "whoServe": {
         "q": "¿Con quién trabajan?",
@@ -798,47 +798,47 @@
       },
       "bespoke": {
         "q": "¿Qué significa “bespoke” (a la medida) para mi negocio?",
-        "a": "Significa que empezamos con tu flujo de trabajo, tus clientes y tus dos idiomas — no con una plantilla. Solo recomendamos lo que vale la pena y lo construimos para que encaje con tu forma real de operar."
+        "a": "Significa que empezamos con su flujo de trabajo, sus clientes y sus dos idiomas — no con una plantilla. Solo recomendamos lo que vale la pena y lo construimos para que encaje con su forma real de operar."
       },
       "aiPractical": {
         "q": "¿La IA es realmente práctica para un negocio de mi tamaño?",
-        "a": "Sí. Nos enfocamos en quitarte horas reales de la semana — automatizando admisión, agendas, seguimientos y manejo de documentos — no en demos llamativas. Si una tarea es repetitiva, casi siempre hay una parte que podemos automatizar."
+        "a": "Sí. Nos enfocamos en quitarle horas reales de la semana — automatizando admisión, agendas, seguimientos y manejo de documentos — no en demos llamativas. Si una tarea es repetitiva, casi siempre hay una parte que podemos automatizar."
       },
       "aiCost": {
         "q": "¿Cuánto cuesta la IA y cuál es el retorno?",
-        "a": "Depende del alcance, pero buscamos automatizaciones que se paguen solas con el tiempo ahorrado. La evaluación gratuita identifica la automatización con el retorno más rápido para que empieces en pequeño y compruebes el valor."
+        "a": "Depende del alcance, pero buscamos automatizaciones que se paguen solas con el tiempo ahorrado. La evaluación gratuita identifica la automatización con el retorno más rápido para que empiece en pequeño y compruebe el valor."
       },
       "dataHandling": {
         "q": "¿Cómo manejan nuestros datos y la confidencialidad?",
-        "a": "Tratamos tus datos como confidenciales, trabajamos bajo un acuerdo de confidencialidad (NDA) cuando lo deseas, usamos acceso de privilegio mínimo y preferimos herramientas que mantienen tus datos en tus propias cuentas. Tú eres dueño de tus sistemas y tus datos — siempre."
+        "a": "Tratamos sus datos como confidenciales, trabajamos bajo un acuerdo de confidencialidad (NDA) cuando lo desee, usamos acceso de privilegio mínimo y preferimos herramientas que mantienen sus datos en sus propias cuentas. Usted es dueño de sus sistemas y sus datos — siempre."
       },
       "compliance": {
         "q": "¿Trabajan con áreas reguladas como legal y salud?",
-        "a": "Sí. Somos seguridad primero y conscientes de la privacidad para áreas como legal y médico/dental, y diseñamos los flujos pensando en la confidencialidad y la protección de datos. No sustituimos a tu asesor de cumplimiento, pero construimos para apoyarlo."
+        "a": "Sí. Somos seguridad primero y conscientes de la privacidad para áreas como legal y médico/dental, y diseñamos los flujos pensando en la confidencialidad y la protección de datos. No sustituimos a su asesor de cumplimiento, pero construimos para apoyarlo."
       },
       "ownWebsite": {
         "q": "¿Somos dueños de nuestro sitio web y cuentas?",
-        "a": "Por completo. Cada proyecto se entrega con las llaves: tu hosting, tu dominio, tus cuentas. Sin ataduras propietarias, sin cajas negras — código limpio que puedes entregar a cualquiera."
+        "a": "Por completo. Cada proyecto se entrega con las llaves: su hosting, su dominio, sus cuentas. Sin ataduras propietarias, sin cajas negras — código limpio que puede entregar a cualquiera."
       },
       "webWhat": {
         "q": "¿Qué tipo de trabajo web hacen?",
-        "a": "Sitios y aplicaciones web rápidos, modernos y bilingües que convierten — con contenido nativo en inglés/español, SEO local para el RGV y analítica para que veas qué funciona."
+        "a": "Sitios y aplicaciones web rápidos, modernos y bilingües que convierten — con contenido nativo en inglés/español, SEO local para el RGV y analítica para que vea qué funciona."
       },
       "howStart": {
         "q": "¿Cómo empezamos?",
-        "a": "Reserva una evaluación gratuita y sin presión de venta. Analizamos cómo funciona tu negocio hoy y te mostramos la primera mejora que se paga sola. Sin compromiso."
+        "a": "Agende una evaluación gratuita y sin presión de venta. Analizamos cómo funciona su negocio hoy y le mostramos la primera mejora que se paga sola. Sin compromiso."
       },
       "pricing": {
         "q": "¿Cómo cobran su trabajo?",
-        "a": "La mayoría de los proyectos se definen en una propuesta de precio fijo después de la evaluación gratuita, para que conozcas el costo antes de empezar. Ajustamos a la medida de tu negocio en lugar de vender un paquete único."
+        "a": "La mayoría de los proyectos se definen en una propuesta de precio fijo después de la evaluación gratuita, para que conozca el costo antes de empezar. Ajustamos a la medida de su negocio en lugar de vender un paquete único."
       },
       "remote": {
         "q": "¿Trabajan de forma remota o presencial?",
-        "a": "Ambas. Estamos en Harlingen y servimos a todo el Valle, así que trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — lo que te dé resultados."
+        "a": "Ambas. Estamos en Harlingen y servimos a todo el Valle, así que trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — lo que le dé resultados."
       },
       "replaceMsp": {
         "q": "¿Tengo que cambiar a mi compañía de TI actual?",
-        "a": "No. Muchos clientes conservan a su proveedor. Podemos trabajar junto a ellos — marcando el rumbo, revisando el trabajo y entrando en proyectos o seguridad — para que por fin sepas qué estás pagando."
+        "a": "No. Muchos clientes conservan a su proveedor. Podemos trabajar junto a ellos — marcando el rumbo, revisando el trabajo y entrando en proyectos o seguridad — para que por fin sepa qué está pagando."
       }
     }
   },
@@ -850,8 +850,8 @@
     "indexLabel": "Ir a",
     "expertiseHeading": "Áreas de Especialización",
     "viewAll": "Ver todas nuestras tecnologías",
-    "ctaTitle": "¿Necesitas esta experiencia de tu lado?",
-    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta — alineamos las herramientas correctas con tus objetivos.",
+    "ctaTitle": "¿Necesita esta experiencia de su lado?",
+    "ctaBody": "Empiece con una evaluación gratuita y sin presión de venta — alineamos las herramientas correctas con sus objetivos.",
     "groups": {
       "infraCloud": "Infraestructura y Nube",
       "virtualization": "Virtualización",
@@ -909,34 +909,34 @@
     "intro": "Estamos en Harlingen y trabajamos con negocios en todo el Valle — presencialmente cuando ayuda, de forma remota cuando es más rápido.",
     "citiesHeading": "Ciudades que servimos",
     "whyLocalHeading": "Por qué lo local importa",
-    "whyLocalBody": "La tecnología de nivel empresarial siempre se construyó para otro lugar. Nosotros construimos para aquí — para los dos idiomas del Valle, su ritmo fronterizo y los negocios que lo mantienen en marcha. Ser locales significa que entendemos a tus clientes y estamos a poca distancia cuando nos necesitas.",
-    "ctaTitle": "Encontremos tu primera hora recuperada.",
-    "ctaBody": "Reserva una evaluación gratuita y sin presión de venta — donde sea que estés en el Valle."
+    "whyLocalBody": "La tecnología de nivel empresarial siempre se construyó para otro lugar. Nosotros construimos para aquí — para los dos idiomas del Valle, su ritmo fronterizo y los negocios que lo mantienen en marcha. Ser locales significa que entendemos a sus clientes y estamos a poca distancia cuando nos necesita.",
+    "ctaTitle": "Encontremos su primera hora recuperada.",
+    "ctaBody": "Agende una evaluación gratuita y sin presión de venta — donde sea que esté en el Valle."
   },
   "resources": {
     "libraryTitle": "Recursos Gratuitos",
     "libraryMetaDescription": "Guías y listas de verificación gratuitas de Bespoke Intelligent Solutions para ayudar a los negocios del Valle del Río Grande a empezar con IA e IT seguro.",
-    "libraryIntro": "Guías prácticas y sin relleno para ayudarte a empezar. Descarga gratuita.",
+    "libraryIntro": "Guías prácticas y sin relleno para ayudarle a empezar. Descarga gratuita.",
     "getLabel": "Obtener la guía",
     "detailMetaSuffix": "— Descarga gratuita de BIS",
     "form": {
       "nameLabel": "Nombre",
       "emailLabel": "Correo de trabajo",
-      "consentLabel": "Envíame consejos ocasionales (sin spam, cancela cuando quieras).",
-      "submit": "Envíamelo",
+      "consentLabel": "Envíenme consejos ocasionales (sin spam, cancele cuando quiera).",
+      "submit": "Envíenmelo",
       "sending": "Enviando…",
-      "success": "¡Listo! Tu descarga debería empezar automáticamente — también te enviamos una copia por correo.",
-      "error": "Algo salió mal. Inténtalo de nuevo o escríbenos directamente.",
-      "downloadFallback": "¿No empezó la descarga? Haz clic aquí.",
-      "errEmail": "Ingresa un correo válido."
+      "success": "¡Listo! Su descarga debería empezar automáticamente — también le enviamos una copia por correo.",
+      "error": "Algo salió mal. Inténtelo de nuevo o escríbanos directamente.",
+      "downloadFallback": "¿No empezó la descarga? Haga clic aquí.",
+      "errEmail": "Ingrese un correo válido."
     },
     "items": {
       "ai-readiness-checklist": {
         "title": "Lista de Preparación para IA",
-        "blurb": "Una autoevaluación rápida para ver dónde la IA puede ahorrarle más tiempo a tu negocio — y el primer paso a seguir.",
+        "blurb": "Una autoevaluación rápida para ver dónde la IA puede ahorrarle más tiempo a su negocio — y el primer paso a seguir.",
         "whatsInsideHeading": "Qué incluye",
-        "point1": "Más de 15 puntos de sí/no sobre tus flujos de trabajo, datos, herramientas, equipo y seguridad",
-        "point2": "Una forma simple de ver dónde estás y por dónde empezar",
+        "point1": "Más de 15 puntos de sí/no sobre sus flujos de trabajo, datos, herramientas, equipo y seguridad",
+        "point2": "Una forma simple de ver dónde está y por dónde empezar",
         "point3": "La automatización con más probabilidad de pagarse sola primero"
       },
       "cybersecurity-guide": {
@@ -945,89 +945,89 @@
         "whatsInsideHeading": "Qué incluye",
         "point1": "Una lista rápida sobre cuentas, correo, dispositivos, respaldos y respuesta",
         "point2": "Lo básico que detiene los ataques más comunes — sin presupuesto de empresa grande",
-        "point3": "La solución que cierra tu brecha más grande primero"
+        "point3": "La solución que cierra su brecha más grande primero"
       }
     },
     "home": {
       "ctaKicker": "Descarga gratuita",
-      "ctaTitle": "¿Aún no listo para hablar? Empieza aquí.",
-      "ctaBody": "Toma la Lista de Preparación para IA y encuentra la primera automatización que se paga sola.",
+      "ctaTitle": "¿Aún no está listo para hablar? Empiece aquí.",
+      "ctaBody": "Tome la Lista de Preparación para IA y encuentre la primera automatización que se paga sola.",
       "ctaButton": "Obtener la lista gratis"
     }
   },
   "privacy": {
     "title": "Política de Privacidad",
-    "metaDescription": "Cómo Bespoke Intelligent Solutions recopila, usa y protege tu información.",
+    "metaDescription": "Cómo Bespoke Intelligent Solutions recopila, usa y protege su información.",
     "lastUpdated": "Última actualización: 1 de octubre de 2026",
-    "intro": "Bespoke Intelligent Solutions (\"BIS\", \"nosotros\") respeta tu privacidad. Esta política explica qué recopilamos a través de este sitio web, cómo lo usamos y las opciones que tienes. La mantenemos en lenguaje claro a propósito.",
+    "intro": "Bespoke Intelligent Solutions (\"BIS\", \"nosotros\") respeta su privacidad. Esta política explica qué recopilamos a través de este sitio web, cómo lo usamos y las opciones que tiene. La mantenemos en lenguaje claro a propósito.",
     "collectHeading": "Qué recopilamos y por qué",
-    "collectIntro": "Solo recopilamos lo que necesitamos para responderte y operar este sitio:",
+    "collectIntro": "Solo recopilamos lo que necesitamos para responderle y operar este sitio:",
     "collectItems": [
-      "Formulario de contacto: tu nombre, nombre del negocio, correo, teléfono, industria y mensaje — para poder responderte y preparar tu evaluación gratuita.",
-      "Descargas de recursos: tu nombre y correo — para enviarte el recurso y, si lo aceptas, consejos ocasionales. La casilla de consejos está desactivada por defecto.",
-      "Asistente de IA: los mensajes que envías al asistente de chat de este sitio, para que pueda responder tus preguntas. La conversación se guarda en la Plataforma BIS y, si compartes tu nombre y una forma de contactarte, se convierte ahí en un prospecto para darte seguimiento.",
-      "Llamadas telefónicas: cuando llamas a nuestra línea de negocio, nuestra recepcionista de IA guarda una transcripción escrita y un resumen de la llamada, el número desde el que llamaste y lo que le compartas — tu nombre, lo que necesitas y cualquier cita que agendes — para poder darte seguimiento. No guardamos grabaciones de audio de las llamadas.",
-      "Analítica de uso: métricas agregadas y respetuosas de la privacidad sobre el rendimiento de nuestras páginas. Esto no te identifica."
+      "Formulario de contacto: su nombre, nombre del negocio, correo, teléfono, industria y mensaje — para poder responderle y preparar su evaluación gratuita.",
+      "Descargas de recursos: su nombre y correo — para enviarle el recurso y, si lo acepta, consejos ocasionales. La casilla de consejos está desactivada por defecto.",
+      "Asistente de IA: los mensajes que envía al asistente de chat de este sitio, para que pueda responder sus preguntas. La conversación se guarda en la Plataforma BIS y, si comparte su nombre y una forma de contactarlo, se convierte ahí en un cliente potencial para darle seguimiento.",
+      "Llamadas telefónicas: cuando llama a nuestra línea de negocio, nuestra recepcionista de IA guarda una transcripción escrita y un resumen de la llamada, el número desde el que llamó y lo que le comparta — su nombre, lo que necesita y cualquier cita que agende — para poder darle seguimiento. No guardamos grabaciones de audio de las llamadas.",
+      "Analítica de uso: métricas agregadas y respetuosas de la privacidad sobre el rendimiento de nuestras páginas. Esto no lo identifica."
     ],
-    "useHeading": "Cómo usamos tu información",
-    "useBody": "Usamos tu información para responder consultas, preparar y entregar evaluaciones y recursos, mejorar el sitio y — solo si lo aceptas — enviarte novedades ocasionales. No vendemos tu información y nunca la compartimos con fines publicitarios.",
-    "processorsHeading": "Quién procesa tus datos",
-    "processorsIntro": "Nos apoyamos en algunos proveedores de confianza para operar el sitio. Solo procesan tus datos para brindarnos su servicio:",
+    "useHeading": "Cómo usamos su información",
+    "useBody": "Usamos su información para responder consultas, preparar y entregar evaluaciones y recursos, mejorar el sitio y — solo si lo acepta — enviarle novedades ocasionales. No vendemos su información y nunca la compartimos con fines publicitarios.",
+    "processorsHeading": "Quién procesa sus datos",
+    "processorsIntro": "Nos apoyamos en algunos proveedores de confianza para operar el sitio. Solo procesan sus datos para brindarnos el servicio que ofrecen:",
     "processorsItems": [
       "Resend — envía nuestros correos transaccionales (enlaces de descarga y nuestras notificaciones).",
       "Neon / Vercel Postgres — almacena de forma segura las suscripciones de descarga de recursos y las solicitudes para recibir por correo un informe del chequeo de seguridad.",
       "Vercel (Analytics y Speed Insights) — aloja el sitio y ofrece analítica de rendimiento sin cookies.",
-      "Plataforma BIS (app.bis-rgv.com) — nuestra propia plataforma para clientes, que aloja el formulario de contacto, el agendador de evaluaciones y el asistente de chat, y guarda lo que envías a través de ellos.",
+      "Plataforma BIS (app.bis-rgv.com) — nuestra propia plataforma para clientes, que aloja el formulario de contacto, el agendador de evaluaciones y el asistente de chat, y guarda lo que envía a través de ellos.",
       "OpenAI — provee los modelos de IA detrás de Sofía, la recepcionista de IA que contesta nuestra línea telefónica, y del asistente de chat de este sitio.",
       "Telnyx — transporta las llamadas y los mensajes de texto hacia y desde nuestra línea de negocio."
     ],
     "cookiesHeading": "Cookies y rastreo",
-    "cookiesBody": "Usamos analítica respetuosa de la privacidad y sin cookies. No usamos cookies de publicidad ni de rastreo entre sitios, así que no hay banner de consentimiento de cookies que aceptar. Tu navegador aún puede usar cookies esenciales necesarias para que el sitio funcione.",
-    "retentionHeading": "Cuánto tiempo conservamos tus datos",
-    "retentionBody": "Conservamos los envíos de contacto y de recursos, junto con las transcripciones y los resúmenes de las llamadas a nuestra línea de negocio, solo el tiempo necesario para atenderte y para nuestros registros, y los eliminamos cuando nos lo pides o cuando ya no se necesitan.",
-    "rightsHeading": "Tus derechos",
-    "rightsBody": "Puedes pedirnos una copia de la información que tenemos sobre ti, pedir que la corrijamos o que la eliminemos — en cualquier momento y sin dar motivo. Solo escríbenos a hello@bis-rgv.com y nos encargamos.",
+    "cookiesBody": "Usamos analítica respetuosa de la privacidad y sin cookies. No usamos cookies de publicidad ni de rastreo entre sitios, así que no hay banner de consentimiento de cookies que aceptar. Su navegador aún puede usar cookies esenciales necesarias para que el sitio funcione.",
+    "retentionHeading": "Cuánto tiempo conservamos sus datos",
+    "retentionBody": "Conservamos los envíos de contacto y de recursos, junto con las transcripciones y los resúmenes de las llamadas a nuestra línea de negocio, solo el tiempo necesario para atenderle y para nuestros registros, y los borramos cuando nos lo pide o cuando ya no se necesitan.",
+    "rightsHeading": "Sus derechos",
+    "rightsBody": "Puede pedirnos una copia de la información que tenemos sobre usted, pedir que la corrijamos o que la borremos — en cualquier momento y sin dar motivo. Solo escríbanos a hello@bis-rgv.com y nos encargamos.",
     "childrenHeading": "Privacidad de menores",
     "childrenBody": "Este sitio está dirigido a negocios y no a menores de 13 años. No recopilamos información de menores de forma intencional.",
     "changesHeading": "Cambios a esta política",
     "changesBody": "Podemos actualizar esta política a medida que cambian nuestros servicios. Cuando lo hagamos, actualizaremos la fecha en la parte superior de esta página.",
     "contactHeading": "¿Preguntas?",
-    "contactBody": "Si tienes preguntas sobre esta política o tu información, escríbenos a hello@bis-rgv.com.",
+    "contactBody": "Si tiene preguntas sobre esta política o su información, escríbanos a hello@bis-rgv.com.",
     "smsHeading": "Mensajes de texto",
-    "smsIntro": "Nuestro formulario de contacto tiene una casilla opcional que pregunta si podemos enviarte mensajes de texto. Marcarla es lo que nos da permiso, y esto es exactamente lo que aceptas:",
+    "smsIntro": "Nuestro formulario de contacto tiene una casilla opcional que pregunta si podemos enviarle mensajes de texto. Marcarla es lo que nos da permiso, y esto es exactamente lo que acepta:",
     "smsItems": [
-      "Qué recibirás: una respuesta sobre la evaluación que pediste y mensajes sobre una cita que agendes con nosotros — una confirmación, un recordatorio antes y un aviso si no te encontramos. Nada más.",
-      "Con qué frecuencia: solo cuando haya algo que decir sobre tu consulta o tu cita. No hay boletín, ni lista, ni publicidad.",
-      "Cuánto cuesta: nada de nuestra parte. Pueden aplicar tarifas de mensajes y datos de tu propia compañía telefónica.",
-      "Cómo detenerlos: responde STOP a cualquier mensaje y paramos, de inmediato y de forma definitiva. Responde HELP y recibes nuestro teléfono y correo.",
-      "La casilla es opcional. El formulario se envía sin marcarla, y de todos modos te responderemos por correo o por teléfono."
+      "Qué recibirá: una respuesta sobre la evaluación que pidió y mensajes sobre una cita que agende con nosotros — una confirmación, un recordatorio antes y un aviso si no lo encontramos. Nada más.",
+      "Con qué frecuencia: solo cuando haya algo que decir sobre su consulta o su cita. No hay boletín, ni lista, ni publicidad.",
+      "Cuánto cuesta: nada de nuestra parte. Pueden aplicar tarifas de mensajes y datos de su propia compañía telefónica.",
+      "Cómo detenerlos: responda STOP a cualquier mensaje y paramos, de inmediato y de forma definitiva. Responda HELP y recibe nuestro teléfono y correo.",
+      "La casilla es opcional. El formulario se envía sin marcarla, y de todos modos le responderemos por correo o por teléfono."
     ],
-    "smsSharingBody": "No compartiremos tu información móvil con terceros ni con afiliados con fines de mercadotecnia o promoción. Los datos y el consentimiento de suscripción a mensajes de texto no se compartirán con ningún tercero para ningún fin. Tu número de teléfono se usa para responderte y para nada más. (Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes. All text messaging originator opt-in data and consent will not be shared with any third parties.)"
+    "smsSharingBody": "No compartiremos su información móvil con terceros ni con afiliados con fines de mercadotecnia o promoción. Los datos y el consentimiento de suscripción a mensajes de texto no se compartirán con ningún tercero para ningún fin. Su número de teléfono se usa para responderle y para nada más. (Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes. All text messaging originator opt-in data and consent will not be shared with any third parties.)"
   },
   "terms": {
     "title": "Términos y Condiciones",
     "metaDescription": "Los términos que rigen este sitio web, nuestro programa de mensajes de texto y los asistentes de IA de este sitio.",
     "lastUpdated": "Última actualización: 17 de septiembre de 2026",
-    "intro": "Estos términos cubren este sitio web, los mensajes de texto que enviamos y los asistentes de IA con los que puedes hablar aquí. Los proyectos se rigen por el acuerdo escrito que firmamos contigo; si ese acuerdo y esta página no coinciden, manda el acuerdo.",
+    "intro": "Estos términos cubren este sitio web, los mensajes de texto que enviamos y los asistentes de IA con los que puede hablar aquí. Los proyectos se rigen por el acuerdo escrito que firmamos con usted; si ese acuerdo y esta página no coinciden, manda el acuerdo.",
     "siteHeading": "Uso de este sitio",
-    "siteBody": "Puedes leer, citar y compartir lo que quieras de este sitio. Lo que no puedes hacer es lo que te imaginas: intentar vulnerarlo, extraer su contenido para revenderlo, o usar el formulario de contacto o los asistentes para enviar algo ilícito. Las herramientas gratuitas de aquí — la revisión de seguridad y la calculadora de horas — son informativas. No son una auditoría ni asesoría profesional, y así lo decimos en las herramientas mismas.",
+    "siteBody": "Puede leer, citar y compartir lo que quiera de este sitio. Lo que no puede hacer es lo que se imagina: intentar vulnerarlo, extraer su contenido para revenderlo, o usar el formulario de contacto o los asistentes para enviar algo ilícito. Las herramientas gratuitas de aquí — la revisión de seguridad y la calculadora de horas — son informativas. No son una auditoría ni asesoría profesional, y así lo decimos en las herramientas mismas.",
     "servicesHeading": "Nuestros servicios",
-    "servicesBody": "Nada en este sitio es una oferta ni una cotización. Una evaluación gratuita es exactamente eso: una conversación, sin costo y sin compromiso para ninguna de las dos partes. El trabajo empieza cuando ambos firmamos un acuerdo escrito con alcance, precio y tiempos.",
+    "servicesBody": "Nada en este sitio es una oferta ni un estimado. Una evaluación gratuita es exactamente eso: una conversación, sin costo y sin compromiso para ninguna de las dos partes. El trabajo empieza cuando ambos firmamos un acuerdo escrito con alcance, precio y tiempos.",
     "smsHeading": "Mensajes de texto",
     "smsIntro": "Bespoke Intelligent Solutions envía mensajes de texto desde el (956) 506-1545, y solo a quienes los pidieron. Estos son los términos de ese programa.",
     "smsItems": [
-      "Consentimiento: te suscribes marcando la casilla de mensajes de texto en nuestro formulario de contacto. La casilla es opcional y está desmarcada por defecto, el formulario se envía sin ella, y nunca compramos, rentamos ni importamos números de ningún otro lado.",
-      "Qué enviamos: una respuesta sobre la evaluación que pediste y mensajes sobre una cita que agendes con nosotros — una confirmación, un recordatorio y un aviso si no te encontramos. Nada de publicidad, boletines ni promociones.",
-      "Frecuencia: la frecuencia varía. Escribimos cuando hay algo que decir sobre tu consulta o tu cita, y no en otro momento.",
-      "Costo: nosotros no cobramos nada. Pueden aplicar tarifas de mensajes y datos de tu propia compañía telefónica.",
-      "STOP: responde STOP a cualquier mensaje para terminarlos, de inmediato y de forma definitiva. Recibirás una confirmación de que funcionó y después nada más.",
-      "HELP: responde HELP para recibir nuestro teléfono y correo, o escríbenos cuando quieras a los datos que están al final de esta página.",
+      "Consentimiento: usted se suscribe marcando la casilla de mensajes de texto en nuestro formulario de contacto. La casilla es opcional y está desmarcada por defecto, el formulario se envía sin ella, y nunca compramos, rentamos ni importamos números de ningún otro lado.",
+      "Qué enviamos: una respuesta sobre la evaluación que pidió y mensajes sobre una cita que agende con nosotros — una confirmación, un recordatorio y un aviso si no lo encontramos. Nada de publicidad, boletines ni promociones.",
+      "Frecuencia: la frecuencia varía. Escribimos cuando hay algo que decir sobre su consulta o su cita, y no en otro momento.",
+      "Costo: nosotros no cobramos nada. Pueden aplicar tarifas de mensajes y datos de su propia compañía telefónica.",
+      "STOP: responda STOP a cualquier mensaje para terminarlos, de inmediato y de forma definitiva. Recibirá una confirmación de que funcionó y después nada más.",
+      "HELP: responda HELP para recibir nuestro teléfono y correo, o escríbanos cuando quiera a los datos que están al final de esta página.",
       "Operadoras: las compañías telefónicas no son responsables de mensajes retrasados o no entregados.",
-      "Privacidad: tu número se usa para responderte y para nada más. La información móvil y los datos de suscripción a mensajes de texto nunca se comparten con terceros ni afiliados con fines de mercadotecnia o promoción. El aviso de privacidad tiene la declaración completa."
+      "Privacidad: su número se usa para responderle y para nada más. La información móvil y los datos de suscripción a mensajes de texto nunca se comparten con terceros ni afiliados con fines de mercadotecnia o promoción. El aviso de privacidad tiene la declaración completa."
     ],
-    "privacyLink": "Lee el aviso de privacidad completo",
+    "privacyLink": "Lea el aviso de privacidad completo",
     "aiHeading": "Los asistentes de IA",
-    "aiBody": "Son dos: Sofía, que contesta nuestra línea telefónica y se puede probar desde este sitio, y el asistente de chat de estas páginas. Ambos son software. Explican lo que hacemos y pueden tomar tus datos o agendarte; no dan asesoría legal, médica, financiera ni de seguridad, y pueden equivocarse. Lo que importe, confírmalo con una persona — llámanos y te atenderá una. Sofía guarda una transcripción escrita y un resumen de la llamada, no una grabación de audio, y a quien llama se le avisa que la línea la atiende un asistente.",
+    "aiBody": "Son dos: Sofía, que contesta nuestra línea telefónica y se puede probar desde este sitio, y el asistente de chat de estas páginas. Ambos son software. Explican lo que hacemos y pueden tomar sus datos o agendarle una cita; no dan asesoría legal, médica, financiera ni de seguridad, y pueden equivocarse. Lo que importe, confírmelo con una persona — llámenos y lo atenderá una. Sofía guarda una transcripción escrita y un resumen de la llamada, no una grabación de audio, y a quien llama se le avisa que la línea la atiende un asistente.",
     "ipHeading": "Qué es de quién",
     "ipBody": "Los textos, el diseño, el código y las imágenes de este sitio son nuestros. El trabajo que construimos para un cliente bajo un acuerdo firmado es del cliente, en cuentas a su nombre — así está planteado desde el principio, no es una concesión, y la página de confianza explica cómo funciona en la práctica.",
     "liabilityHeading": "Lo que no prometemos",
@@ -1041,43 +1041,43 @@
   },
   "howWeWork": {
     "title": "Cómo Trabajamos",
-    "metaDescription": "Cómo trabaja BIS con los negocios del Valle: evaluación gratuita, propuesta de precio fijo, un desarrollo limpio y todo a tu nombre al entregar.",
-    "intro": "Sin sorpresas. Así es exactamente trabajar con nosotros — desde la primera conversación hasta el día en que todo queda en tus manos.",
+    "metaDescription": "Cómo trabaja BIS con los negocios del Valle: evaluación gratuita, propuesta de precio fijo, un desarrollo limpio y todo a su nombre al entregar.",
+    "intro": "Sin sorpresas. Así es exactamente trabajar con nosotros — desde la primera conversación hasta el día en que todo queda en sus manos.",
     "stepsHeading": "El proceso",
     "step1Title": "Evaluación gratuita",
-    "step1Body": "Empezamos por entender cómo funciona de verdad tu negocio — tus flujos de trabajo, tus herramientas, tus dos idiomas. Sin presión de venta, sin compromiso. Te vas sabiendo cuál es la primera mejora que se pagaría sola.",
+    "step1Body": "Empezamos por entender cómo funciona de verdad su negocio — sus flujos de trabajo, sus herramientas, sus dos idiomas. Sin presión de venta, sin compromiso. Usted se va sabiendo cuál es la primera mejora que se pagaría sola.",
     "step2Title": "Propuesta de precio fijo",
-    "step2Body": "Antes de empezar cualquier trabajo, recibes una propuesta clara: qué construiremos, cuánto cuesta y cuánto tardará. Apruebas el alcance y el precio por adelantado, así que no hay facturas sorpresa.",
+    "step2Body": "Antes de empezar cualquier trabajo, recibe una propuesta clara: qué construiremos, cuánto cuesta y cuánto tardará. Usted aprueba el alcance y el precio por adelantado, así que no hay facturas sorpresa.",
     "step3Title": "Desarrollo",
-    "step3Body": "Lo construimos y te mantenemos al tanto — comunicándonos en los momentos clave en lugar de desaparecer. Ves el progreso, no una caja negra.",
+    "step3Body": "Lo construimos y le mantenemos al tanto — comunicándonos en los momentos clave en lugar de desaparecer. Usted ve el progreso, no una caja negra.",
     "step4Title": "Entrega",
-    "step4Body": "Cuando está listo, recibes las llaves: tus cuentas, tu código, tus datos. Sin ataduras propietarias y nada que no puedas entregar a otra persona. Lo que construimos es tuyo.",
+    "step4Body": "Cuando está listo, recibe las llaves: sus cuentas, su código, sus datos. Sin ataduras propietarias y nada que no pueda entregar a otra persona. Lo que construimos es suyo.",
     "pricingHeading": "Cómo funciona el precio",
-    "pricingBody": "No vendemos paquetes de talla única. Después de la evaluación gratuita, la mayoría del trabajo se define en una propuesta de precio fijo — a la medida de tu negocio — para que conozcas el costo total antes de comprometerte. Empieza en pequeño, comprueba el valor y crece desde ahí.",
+    "pricingBody": "No vendemos paquetes de talla única. Después de la evaluación gratuita, la mayoría del trabajo se define en una propuesta de precio fijo — a la medida de su negocio — para que conozca el costo total antes de comprometerse. Empiece en pequeño, compruebe el valor y crezca desde ahí.",
     "expectHeading": "Qué esperar",
-    "expectBody": "La mayoría de los negocios ve su primera automatización funcionando en unas dos semanas. Los proyectos más grandes toman más tiempo, pero siempre tendrás un cronograma claro en tu propuesta. Trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — en todo el Valle.",
-    "ctaTitle": "¿Listo para recuperar tu primera hora?",
-    "ctaBody": "Empieza con una evaluación gratuita y sin presión de venta. Te mostraremos por dónde empezar."
+    "expectBody": "La mayoría de los negocios ve su primera automatización funcionando en unas dos semanas. Los proyectos más grandes toman más tiempo, pero siempre tendrá un cronograma claro en su propuesta. Trabajamos presencialmente cuando ayuda y de forma remota cuando es más rápido — en todo el Valle.",
+    "ctaTitle": "¿Listo para recuperar su primera hora?",
+    "ctaBody": "Empiece con una evaluación gratuita y sin presión de venta. Le mostraremos por dónde empezar."
   },
   "work": {
     "title": "Nuestro Trabajo",
     "metaTitle": "Nuestro trabajo: lo que ya opera hoy",
-    "metaDescription": "Lo que BIS ya tiene funcionando: Sofía, la recepcionista de IA bilingüe de nuestra línea, y Prism, una app de finanzas personales. Pruébalas.",
-    "intro": "Preferimos mostrarte a decirte. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puedes comprobar tú mismo: nuestra propia recepción, a la que puedes llamar en este momento; la plataforma que usan nuestros clientes, mostrada en una empresa de demostración que inventamos y lo decimos; y Prism, una app de finanzas personales que puedes abrir sin registrarte.",
+    "metaDescription": "Lo que BIS ya tiene funcionando: Sofía, la recepcionista de IA bilingüe de nuestra línea, y Prism, una app de finanzas personales. Pruébelas.",
+    "intro": "Preferimos mostrarle a decirle. Todo lo que está en esta página está funcionando en producción ahora mismo, y lo describimos solo con datos que puede comprobar usted mismo: nuestra propia recepción, a la que puede llamar en este momento; la plataforma que usan nuestros clientes, mostrada en una empresa de demostración que inventamos y lo decimos; y Prism, una app de finanzas personales que puede abrir sin registrarse.",
     "cases": {
       "sofia": {
         "label": "Bespoke Intelligent Solutions — nuestra propia recepción",
         "title": "Sofía, nuestra recepcionista de IA",
-        "summary": "Llama a nuestra línea principal y contesta Sofía. Es una IA — preferimos que lo leas aquí a que te quedes con la duda después. Ella lleva la primera conversación como la llevaría una buena recepcionista: averigua qué necesitas, contesta lo que puede y te agenda. Esto no es una demostración de laboratorio. Es el mismo número que aparece arriba en esta página.",
+        "summary": "Llame a nuestra línea principal y contesta Sofía. Es una IA — preferimos que lo lea aquí a que se quede con la duda después. Ella lleva la primera conversación como la llevaría una buena recepcionista: averigua qué necesita, contesta lo que puede y le agenda una cita. Esto no es una demostración de laboratorio. Es el mismo número que aparece arriba en esta página.",
         "factsHeading": "Qué hace",
         "facts": [
           "Contesta nuestra línea real y publicada — el mismo número del encabezado y de la página de contacto, no un número de prueba que reiniciamos entre demostraciones.",
-          "Habla inglés y español, y te sigue si cambias de idioma a media llamada.",
-          "Agenda en un calendario real. Pídele una evaluación gratuita y revisa la disponibilidad en vivo, coloca la cita en nuestro calendario de la Plataforma BIS, y te llega un correo de confirmación como en cualquier otra reserva.",
-          "Deja un registro que permanece. Cada llamada termina con una transcripción escrita, un resumen y un prospecto en la misma plataforma donde escribe el formulario de este sitio — para que nada se pierda entre la llamada y el seguimiento."
+          "Habla inglés y español, y lo sigue si cambia de idioma a media llamada.",
+          "Agenda en un calendario real. Pídale una evaluación gratuita y revisa la disponibilidad en vivo, coloca la cita en nuestro calendario de la Plataforma BIS, y le llega un correo de confirmación como con cualquier otra cita.",
+          "Deja un registro que permanece. Cada llamada termina con una transcripción escrita, un resumen y un cliente potencial en la misma plataforma donde escribe el formulario de este sitio — para que nada se pierda entre la llamada y el seguimiento."
         ],
         "builtHeading": "Cómo está construido",
-        "builtBody": "Un número telefónico enrutado por SIP hacia un modelo de voz en tiempo real, con el calendario, la base de datos de prospectos y nuestras notificaciones por correo conectados como herramientas que el modelo sí puede usar — no es un menú grabado de opciones. El sitio que estás leyendo y la recepcionista que contesta el teléfono escriben en la misma tabla de prospectos: un solo flujo, dos puertas de entrada.",
+        "builtBody": "Un número telefónico enrutado por SIP hacia un modelo de voz en tiempo real, con el calendario, la base de datos de clientes potenciales y nuestras notificaciones por correo conectados como herramientas que el modelo sí puede usar — no es un menú grabado de opciones. El sitio que está leyendo y la recepcionista que contesta el teléfono escriben en la misma tabla de clientes potenciales: un solo flujo, dos puertas de entrada.",
         "stackHeading": "Construido con",
         "stack": [
           "OpenAI Realtime",
@@ -1087,12 +1087,12 @@
           "Resend",
           "Next.js en Vercel"
         ],
-        "tryHeading": "Pruébalo tú mismo",
-        "tryBody": "Toca para llamar. Pregúntale qué hace BIS, cámbiate al español a media llamada o reserva una evaluación gratuita y mira cómo te llega al correo.",
-        "tryNote": "Las llamadas se transcriben y se resumen para poder darte un buen seguimiento.",
-        "tryNoteLink": "Cómo manejamos tu información",
-        "tryBrowserTitle": "O habla con ella aquí mismo",
-        "tryBrowserBlurb": "Sin llamar. Tu navegador te pedirá el micrófono, y ella responde igual que en la línea."
+        "tryHeading": "Pruébelo usted mismo",
+        "tryBody": "Toque para llamar. Pregúntele qué hace BIS, cámbiese al español a media llamada o agende una evaluación gratuita y vea cómo le llega al correo.",
+        "tryNote": "Las llamadas se transcriben y se resumen para poder darle un buen seguimiento.",
+        "tryNoteLink": "Cómo manejamos su información",
+        "tryBrowserTitle": "O hable con ella aquí mismo",
+        "tryBrowserBlurb": "Sin llamar. Su navegador le pedirá el micrófono, y ella responde igual que en la línea."
       },
       "resaca": {
         "label": "Resaca Air: una cuenta de demostración, no un cliente",
@@ -1100,15 +1100,15 @@
         "summary": "Resaca Air es una empresa de aire acondicionado que no existe. La inventamos para mostrar la BIS Platform con pantallas reales en lugar de pantallas borrosas: sus llamadas, citas y su reporte del lunes salen del mismo software que usan nuestros clientes. Todos los nombres y teléfonos de clientes son ficticios. Las pantallas son reales.",
         "galleryCaption": "Pantallas de la cuenta de demostración de Resaca Air. La empresa y sus clientes son inventados; el software es el que usan los clientes.",
         "galleryAlt": {
-          "dashboard": "El panel de Resaca Air: el estado del día, llamadas contestadas, prospectos captados y citas, con una gráfica de llamadas por día",
+          "dashboard": "El panel de Resaca Air: el estado del día, llamadas atendidas, clientes potenciales captados y citas, con una gráfica de llamadas por día",
           "booking": "La página de citas de Resaca Air en un teléfono, con el logotipo de la empresa y los horarios disponibles para mañana",
-          "report": "El correo del reporte del lunes en un teléfono: llamadas contestadas, prospectos captados, citas y visitantes del sitio web, cada uno comparado con la semana anterior"
+          "report": "El correo del reporte del lunes en un teléfono: llamadas atendidas, clientes potenciales captados, citas y visitantes del sitio web, cada uno comparado con la semana anterior"
         },
         "factsHeading": "Lo que ve el dueño",
         "facts": [
-          "Cada llamada contestada, en español o en inglés, con su transcripción y un resumen por escrito que el dueño lee en menos de un minuto.",
+          "Cada llamada atendida, en español o en inglés, con su transcripción y un resumen por escrito que el dueño lee en menos de un minuto.",
           "Una página de citas con el nombre, el logotipo y los colores de la empresa, que los clientes usan desde un enlace, el sitio web o la recepcionista en el teléfono.",
-          "Un panel y un registro de llamadas para el día: quién llamó, qué llamadas se volvieron prospectos y qué está agendado, con el spam y las llamadas colgadas marcadas como tales y no contadas como prospectos.",
+          "Un panel y un registro de llamadas para el día: quién llamó, qué llamadas se volvieron clientes potenciales y qué está agendado, con el spam y las llamadas colgadas marcadas como tales y no contadas como clientes potenciales.",
           "Un reporte breve cada lunes por la mañana con cuatro números y cómo cambió cada uno respecto a la semana anterior, explicado con palabras y no con flechas. Una semana tranquila también recibe su reporte."
         ],
         "builtHeading": "Cómo mantenemos honesta la demostración",
@@ -1122,47 +1122,47 @@
           "Resend",
           "Next.js en Vercel"
         ],
-        "tourHeading": "Recórrela",
+        "tourHeading": "Recórrala",
         "tourBody": "El recorrido de la plataforma sigue un día en Resaca Air, pantalla por pantalla, incluida una llamada completa en español.",
         "tourLink": "Ver el recorrido de la plataforma"
       },
       "prism": {
         "label": "Prism de BIS — una app pública",
-        "title": "Prism, tu dinero a todo color",
-        "summary": "Prism es una app de finanzas personales que diseñamos, construimos y operamos nosotros mismos, y cualquiera la puede usar. Junta todas tus cuentas en una sola imagen — en qué gastaste, qué viene y cuánto has avanzado — y responde la pregunta que tu saldo del banco no puede: cuánto puedes gastar de verdad antes de tu próximo pago. La demo en vivo usa un hogar inventado, así que puedes recorrer cada pantalla sin registrarte. Por ahora, Prism está disponible solo en inglés.",
+        "title": "Prism, su dinero a todo color",
+        "summary": "Prism es una app de finanzas personales que diseñamos, construimos y operamos nosotros mismos, y cualquiera la puede usar. Junta todas sus cuentas en una sola imagen — en qué gastó, qué viene y cuánto ha avanzado — y responde la pregunta que su saldo del banco no puede: cuánto puede gastar de verdad antes de su próximo pago. La demo en vivo usa un hogar inventado, así que puede recorrer cada pantalla sin registrarse. Por ahora, Prism está disponible solo en inglés.",
         "videoLabel": "Reproducir el video de 30 segundos de Prism",
         "galleryCaption": "Pantallas de la demo en vivo. El hogar es inventado; nada de esto es dinero real.",
         "galleryAlt": {
-          "overview": "Resumen de Prism: patrimonio neto, lo que puedes gastar antes del día de pago y el gasto de este mes",
-          "future": "Pronóstico de Prism: lo que puedes gastar hoy y el saldo de la cuenta de cheques a 60 días",
+          "overview": "Resumen de Prism: patrimonio neto, lo que puede gastar antes del día de pago y el gasto de este mes",
+          "future": "Pronóstico de Prism: lo que puede gastar hoy y el saldo de la cuenta de cheques a 60 días",
           "goals": "Metas de Prism: cuatro metas de ahorro, cada una con el mes en que se alcanza",
           "spending": "Gastos de Prism: seis meses de gastos, desglosados por categoría"
         },
         "factsHeading": "Qué hace",
         "facts": [
-          "Te muestra lo que puedes gastar sin problema: tu saldo, menos cada pago que vence antes de tu próximo día de pago, menos un colchón que tú eliges.",
-          "Pronostica el saldo de tu cuenta de cheques a 60 días según los pagos e ingresos que se repiten, con un rango probable en lugar de una sola cifra.",
-          "Reúne presupuestos, metas de ahorro y patrimonio neto en un solo lugar, y te dice cuándo alcanzarás cada meta al ritmo que llevas.",
-          "Solo lee, por diseño. Conectas tu banco iniciando sesión en la pantalla del propio banco a través de Plaid; Prism ve saldos y movimientos y nunca puede mover dinero."
+          "Le muestra lo que puede gastar sin problema: su saldo, menos cada pago que vence antes de su próximo día de pago, menos un colchón que usted elige.",
+          "Pronostica el saldo de su cuenta de cheques a 60 días según los pagos e ingresos que se repiten, con un rango probable en lugar de una sola cifra.",
+          "Reúne presupuestos, metas de ahorro y patrimonio neto en un solo lugar, y le dice cuándo alcanzará cada meta al ritmo que lleva.",
+          "Solo lee, por diseño. Usted conecta su banco iniciando sesión en la pantalla del propio banco a través de Plaid; Prism ve saldos y movimientos y nunca puede mover dinero."
         ],
         "builtHeading": "Cómo está construida",
-        "builtBody": "Una app web que funciona igual de bien en el teléfono que en la computadora, en modo claro y oscuro. Los datos de bancos y tarjetas llegan por Plaid, y los saldos de criptomonedas por Coinbase, como acceso de solo lectura que se puede revocar y que se guarda cifrado en el servidor. Inicias sesión con un código de un solo uso que llega a tu correo, con verificación en dos pasos opcional. No tiene anuncios ni rastreadores, y tus datos de dinero nunca se venden ni se usan para entrenar IA.",
+        "builtBody": "Una app web que funciona igual de bien en el teléfono que en la computadora, en modo claro y oscuro. Los datos de bancos y tarjetas llegan por Plaid, y los saldos de criptomonedas por Coinbase, como acceso de solo lectura que se puede revocar y que se guarda cifrado en el servidor. Inicia sesión con un código de un solo uso que llega a su correo, con verificación en dos pasos opcional. No tiene anuncios ni rastreadores, y sus datos de dinero nunca se venden ni se usan para entrenar IA.",
         "stackHeading": "Construida con",
         "stack": [
           "Next.js en Vercel",
           "Plaid",
           "Coinbase"
         ],
-        "visitHeading": "Pruébala tú mismo",
-        "visitBody": "Abre la demo en vivo y recórrela. Cada número pertenece a un hogar inventado, así que nada de lo que ves es dinero real de nadie, y no necesitas cuenta.",
+        "visitHeading": "Pruébela usted mismo",
+        "visitBody": "Abra la demo en vivo y recórrala. Cada número pertenece a un hogar inventado, así que nada de lo que ve es dinero real de nadie, y no necesita cuenta.",
         "visitLink": "Ver la demo en vivo",
         "visitNewTab": "se abre en una pestaña nueva"
       }
     },
     "nextHeading": "Qué sigue en esta página",
     "nextBody": "Esta página crece conforme el trabajo entra en operación. Los proyectos de clientes aparecen aquí solo con su permiso y descritos con hechos que ellos y nosotros podemos sostener — sin números inventados ni logotipos prestados.",
-    "ctaTitle": "¿Quieres una así contestando tu teléfono?",
-    "ctaBody": "Empieza con una evaluación gratuita. Te diremos con honestidad si esto le sirve a tu negocio — y si no, también te lo decimos."
+    "ctaTitle": "¿Quiere una así contestando su teléfono?",
+    "ctaBody": "Empiece con una evaluación gratuita. Le diremos con honestidad si esto le sirve a su negocio — y si no, también se lo decimos."
   },
   "photos": {
     "alt": {
@@ -1174,14 +1174,14 @@
       "eyebrow": "Área de Servicio",
       "sectorsHeading": "Lo que vemos en {city}",
       "howHeading": "Cómo trabajamos aquí",
-      "provenHeading": "Prueba nuestro trabajo antes de contratarnos",
-      "provenBody": "La recepcionista de IA que contesta nuestra propia línea está funcionando y es pública. Llámala, cámbiate al español a media llamada, agenda una cita — y luego decides si sabemos lo que hacemos.",
-      "provenLink": "Mira cómo funciona",
+      "provenHeading": "Pruebe nuestro trabajo antes de contratarnos",
+      "provenBody": "La recepcionista de IA que contesta nuestra propia línea está funcionando y es pública. Llámela, cámbiese al español a media llamada, agende una cita — y luego decide si sabemos lo que hacemos.",
+      "provenLink": "Vea cómo funciona",
       "servicesLink": "Todo lo que hacemos",
       "otherCitiesHeading": "Otras ciudades que atendemos",
       "backToAll": "Las {count} ciudades de nuestra área de servicio",
       "ctaTitle": "Veamos {city} juntos",
-      "ctaBody": "Una evaluación gratuita es una conversación, no una venta. Vemos a dónde se te van realmente las horas y te decimos qué vale la pena automatizar — incluso cuando la respuesta honesta es que todavía nada."
+      "ctaBody": "Una evaluación gratuita es una conversación, no una venta. Vemos a dónde se le van realmente las horas y le decimos qué vale la pena automatizar — incluso cuando la respuesta honesta es que todavía nada."
     },
     "harlingen": {
       "metaTitle": "IT, IA y Web para negocios de Harlingen",
@@ -1202,7 +1202,7 @@
           "body": "Esas oficinas donde una sola persona contesta el teléfono, agenda las citas, persigue las facturas y actualiza el sitio web. Normalmente no les estamos reemplazando un sistema. Les estamos reemplazando el hecho de que no hay ninguno."
         }
       ],
-      "howBody": "Estar basados aquí nos permite empezar en persona y seguir localizables después. También significa que respondemos localmente — aquí vivimos, y en un pueblo de este tamaño un mal trabajo te persigue."
+      "howBody": "Estar basados aquí nos permite empezar en persona y seguir localizables después. También significa que respondemos localmente — aquí vivimos, y en un pueblo de este tamaño un mal trabajo lo persigue a uno."
     },
     "mcallen": {
       "metaTitle": "IT, IA y Web para negocios de McAllen",
@@ -1212,7 +1212,7 @@
       "sectors": [
         {
           "title": "Comercio y negocios con varias sucursales",
-          "body": "Cuando tus clientes vienen de los dos lados del río, el teléfono suena en dos idiomas y tus horas más ocupadas son justo las horas en las que nadie puede contestar. Algo que responda en el idioma en que te hablen, a las horas que no puedes cubrir con personal, aquí no es un lujo — es lo mínimo."
+          "body": "Cuando sus clientes vienen de los dos lados del río, el teléfono suena en dos idiomas y sus horas más ocupadas son justo las horas en las que nadie puede contestar. Algo que responda en el idioma en que le hablen, a las horas que no puede cubrir con personal, aquí no es un lujo — es lo mínimo."
         },
         {
           "title": "Consultorios médicos",
@@ -1233,7 +1233,7 @@
       "sectors": [
         {
           "title": "Agentes aduanales y agentes de carga",
-          "body": "Mucho documento, mucha fecha límite, y casi siempre el mismo trabajo repetido con variaciones pequeñas: pedimentos, cotizaciones, actualizaciones de estatus, las mismas cinco preguntas de cada cliente todos los días. Es el caso de automatización más claro del Valle, porque el trabajo es de alto volumen, estructurado y caro cuando sale mal."
+          "body": "Mucho documento, mucha fecha límite, y casi siempre el mismo trabajo repetido con variaciones pequeñas: pedimentos, estimados, actualizaciones de estatus, las mismas cinco preguntas de cada cliente todos los días. Es el caso de automatización más claro del Valle, porque el trabajo es de alto volumen, estructurado y caro cuando sale mal."
         },
         {
           "title": "Transporte y despacho",
@@ -1244,7 +1244,7 @@
           "body": "Los proveedores, patios y contratistas alrededor del puerto suelen tener operaciones sólidas y muy poco IT. Muchas veces el primer proyecto correcto no es inteligencia artificial — es asegurarse de que un solo correo con ransomware no pueda parar el andén de carga."
         }
       ],
-      "howBody": "Atendemos Brownsville desde Harlingen, lo bastante cerca para estar ahí el mismo día cuando algo lo amerita. Trabajamos en inglés y en español porque así lo hacen tus clientes, tus operadores y tus contrapartes del otro lado del puente."
+      "howBody": "Atendemos Brownsville desde Harlingen, lo bastante cerca para estar ahí el mismo día cuando algo lo amerita. Trabajamos en inglés y en español porque así lo hacen sus clientes, sus operadores y sus contrapartes del otro lado del puente."
     },
     "edinburg": {
       "metaTitle": "IT, IA y Web para negocios de Edinburg",
@@ -1265,7 +1265,7 @@
           "body": "Contabilidad, seguros, reclutamiento — las oficinas que mantienen funcionando a un condado. Trabajo que llega en formularios y sale en formularios, donde la mayor parte del esfuerzo es pasar información entre sistemas que nunca se presentaron entre sí."
         }
       ],
-      "howBody": "Edinburg es un trayecto directo desde Harlingen. Para despachos que manejan expedientes confidenciales preferimos que la primera sesión sea en persona, ver el flujo de trabajo real y ser específicos sobre qué sale de tu oficina y qué no."
+      "howBody": "Edinburg es un trayecto directo desde Harlingen. Para despachos que manejan expedientes confidenciales preferimos que la primera sesión sea en persona, ver el flujo de trabajo real y ser específicos sobre qué sale de su oficina y qué no."
     },
     "weslaco": {
       "metaTitle": "IT, IA y Web para negocios de Weslaco",
@@ -1279,58 +1279,58 @@
         },
         {
           "title": "Servicios y equipo agrícola",
-          "body": "Los distribuidores, proveedores y talleres alrededor de las operaciones agrícolas viven de cotizaciones, disponibilidad de refacciones y llamadas de servicio. Cuando tus clientes están parados en el campo, el que contesta más rápido se queda con el trabajo."
+          "body": "Los distribuidores, proveedores y talleres alrededor de las operaciones agrícolas viven de estimados, disponibilidad de refacciones y llamadas de servicio. Cuando sus clientes están parados en el campo, el que contesta más rápido se queda con el trabajo."
         },
         {
           "title": "Negocios familiares",
           "body": "Mucho del negocio en Weslaco es de segunda y tercera generación, donde el proceso vive en la cabeza de una sola persona. Nuestro primer trabajo suele ser escribir eso antes de automatizar nada — un proceso que nadie puede describir es un proceso que nadie puede entregar."
         }
       ],
-      "howBody": "Andamos por el Valle medio con regularidad, y planeamos alrededor de tu temporada, no de la nuestra. Nadie debería estar estrenando software a medio corte."
+      "howBody": "Andamos por el Valle medio con regularidad, y planeamos alrededor de su temporada, no de la nuestra. Nadie debería estar estrenando software a medio corte."
     }
   },
   "securityCheck": {
     "title": "Revisión gratuita de seguridad web y de correo",
-    "metaDescription": "Revisa el sitio de cualquier negocio del Valle en un minuto. Leemos los registros públicos que ya ve un navegador y te decimos qué está expuesto.",
-    "intro": "Escribe tu dirección web. En aproximadamente un minuto verás si alguien puede enviar correos haciéndose pasar por ti, si tu sitio está protegido en el navegador y qué conviene arreglar primero. Solo leemos registros públicos: no entramos a ninguna cuenta ni atacamos nada.",
-    "inputLabel": "Tu dirección web",
-    "placeholder": "tunegocio.com",
+    "metaDescription": "Revise el sitio de cualquier negocio del Valle en un minuto. Leemos los registros públicos que ya ve un navegador y le decimos qué está expuesto.",
+    "intro": "Escriba su dirección web. En aproximadamente un minuto verá si alguien puede enviar correos haciéndose pasar por usted, si su sitio está protegido en el navegador y qué conviene arreglar primero. Solo leemos registros públicos: no entramos a ninguna cuenta ni atacamos nada.",
+    "inputLabel": "Su dirección web",
+    "placeholder": "sunegocio.com",
     "submit": "Revisar mi sitio",
     "checking": "Revisando…",
     "again": "Revisar otra dirección",
     "resultHeading": "Resultados de {domain}",
     "scoreLabel": "Puntaje",
-    "fixFirstHeading": "Arregla esto primero",
+    "fixFirstHeading": "Arregle esto primero",
     "allClearHeading": "No encontramos nada urgente",
-    "allClearBody": "Todas las revisiones públicas salieron limpias. Una revisión completa mira lo que ningún análisis externo puede ver: quién tiene acceso de administrador, cómo se prueban los respaldos y qué pasa cuando alguien se va de la empresa.",
+    "allClearBody": "Todas las revisiones públicas salieron limpias. Una revisión completa mira lo que ningún análisis externo puede ver: quién tiene acceso de administrador, cómo se prueban los respaldos y qué pasa cuando alguien se va del negocio.",
     "detailHeading": "Todo lo que revisamos",
-    "ctaHeading": "¿Quieres ver el panorama completo?",
+    "ctaHeading": "¿Quiere ver el panorama completo?",
     "ctaBody": "Esta revisión lee lo que se ve desde afuera. Casi todo lo que pone en riesgo a un negocio del Valle no se ve: contraseñas compartidas, falta de respaldos, una sola persona con todas las llaves. La evaluación es gratis y toma 30 minutos.",
-    "ctaButton": "Agenda una evaluación gratuita",
-    "disclaimer": "Esta revisión lee registros DNS públicos y los encabezados de respuesta que tu sitio ya envía a cada visitante. No inicia sesión, no escanea puertos ni prueba ninguna contraseña.",
+    "ctaButton": "Agende una evaluación gratuita",
+    "disclaimer": "Esta revisión lee registros DNS públicos y los encabezados de respuesta que su sitio ya envía a cada visitante. No inicia sesión, no escanea puertos ni prueba ninguna contraseña.",
     "statusPass": "Bien",
     "statusWarn": "Se puede mejorar",
     "statusFail": "Necesita atención",
     "statusUnknown": "No aplica",
     "errors": {
-      "empty": "Escribe tu dirección web para empezar.",
-      "malformed": "Eso no parece una dirección web. Escríbela así: tunegocio.com.",
+      "empty": "Escriba su dirección web para empezar.",
+      "malformed": "Eso no parece una dirección web. Escríbala así: sunegocio.com.",
       "notPublic": "Esa dirección no es un sitio público, así que no hay nada que podamos revisar desde aquí.",
-      "ipAddress": "Escribe un nombre de dominio en lugar de una dirección IP.",
-      "unreachable": "No pudimos abrir esa dirección. Revisa que esté bien escrita o inténtalo en un minuto.",
-      "rateLimited": "Son muchas revisiones en poco tiempo. Espera un minuto e inténtalo de nuevo.",
-      "failed": "Algo falló de nuestro lado. Inténtalo otra vez o llámanos al (956) 506-1545."
+      "ipAddress": "Escriba un nombre de dominio en lugar de una dirección IP.",
+      "unreachable": "No pudimos abrir esa dirección. Revise que esté bien escrita o inténtelo en un minuto.",
+      "rateLimited": "Son muchas revisiones en poco tiempo. Espere un minuto e inténtelo de nuevo.",
+      "failed": "Algo falló de nuestro lado. Inténtelo otra vez o llámenos al (956) 506-1545."
     },
     "checks": {
       "https": {
-        "title": "Tu sitio abre de forma segura",
-        "pass": "Tu sitio responde por una conexión segura.",
-        "fail": "No pudimos abrir tu sitio de forma segura. Es posible que los visitantes vean una advertencia del navegador antes de llegar a ti."
+        "title": "Su sitio abre de forma segura",
+        "pass": "Su sitio responde por una conexión segura.",
+        "fail": "No pudimos abrir su sitio de forma segura. Es posible que los visitantes vean una advertencia del navegador antes de llegar a usted."
       },
       "httpsRedirect": {
         "title": "Las visitas inseguras se envían a la dirección segura",
-        "pass": "Quien escribe tu dirección sin “https” pasa automáticamente a la versión segura.",
-        "fail": "Quien escribe tu dirección sin “https” se queda en la versión insegura, donde lo que envíe puede leerse en el camino.",
+        "pass": "Quien escribe su dirección sin “https” pasa automáticamente a la versión segura.",
+        "fail": "Quien escribe su dirección sin “https” se queda en la versión insegura, donde lo que envíe puede leerse en el camino.",
         "unknown": "No pudimos determinarlo. Conviene revisarlo a mano."
       },
       "hsts": {
@@ -1340,152 +1340,152 @@
         "fail": "No está configurado. Cada visita empieza en la dirección insegura antes de redirigirse, y ese es justo el momento que aprovecha un atacante en un Wi-Fi compartido."
       },
       "csp": {
-        "title": "Solo tu propio código puede ejecutarse en tus páginas",
-        "pass": "Tu sitio le indica al navegador qué código puede ejecutarse, que es lo que impide que un script inyectado lea tus formularios.",
+        "title": "Solo su propio código puede ejecutarse en sus páginas",
+        "pass": "Su sitio le indica al navegador qué código puede ejecutarse, que es lo que impide que un script inyectado lea sus formularios.",
         "warn": "Existe una política, pero permite código de cualquier origen, así que detiene muy poco.",
-        "fail": "No hay política. Si algo de tu sitio llega a verse comprometido, el código inyectado se ejecuta sin nada que lo detenga."
+        "fail": "No hay política. Si algo de su sitio llega a verse comprometido, el código inyectado se ejecuta sin nada que lo detenga."
       },
       "clickjacking": {
-        "title": "Tu sitio no puede incrustarse dentro de otro",
-        "pass": "Nadie puede cargar tu sitio dentro de su propia página para engañar a tus clientes.",
-        "fail": "Cualquiera puede cargar tu sitio dentro de su propia página. Así se arma una pantalla falsa de pago o de acceso encima de un negocio real."
+        "title": "Su sitio no puede incrustarse dentro de otro",
+        "pass": "Nadie puede cargar su sitio dentro de una página ajena para engañar a sus clientes.",
+        "fail": "Cualquiera puede cargar su sitio dentro de una página ajena. Así se arma una pantalla falsa de pago o de acceso encima de un negocio real."
       },
       "nosniff": {
         "title": "Los archivos subidos no pueden ejecutarse como código",
-        "pass": "Se le indica al navegador que trate tus archivos exactamente como lo que son.",
+        "pass": "Se le indica al navegador que trate sus archivos exactamente como lo que son.",
         "fail": "Falta. Un archivo que suba un cliente puede interpretarse como código y ejecutarse en el navegador de otro visitante."
       },
       "referrerPolicy": {
-        "title": "Las páginas de tus visitantes quedan privadas",
-        "pass": "Otros sitios no reciben información sobre qué página tuya visitó la persona.",
+        "title": "Las páginas de sus visitantes quedan privadas",
+        "pass": "Otros sitios no reciben información sobre qué página de su sitio visitó la persona.",
         "warn": "No está configurado, así que cada sitio al que pase un visitante sabe exactamente de qué página salió, incluido lo que venga en la dirección."
       },
       "cookieFlags": {
         "title": "Las cookies están protegidas",
-        "pass": "Tu portada no deja cookies, o las que deja no pueden leerse desde scripts ni viajar de forma insegura.",
+        "pass": "Su portada no deja cookies, o las que deja no pueden leerse desde scripts ni viajar de forma insegura.",
         "warn": "Al menos una cookie puede leerse desde scripts o viajar por una conexión insegura. Si es una cookie de sesión, es una cuenta que alguien más puede usar."
       },
       "serverDisclosure": {
-        "title": "No anuncias las versiones de tu software",
-        "pass": "Tu sitio no anuncia exactamente qué software y qué versión usa.",
-        "warn": "Tu sitio anuncia la versión exacta de su software, lo que le dice a un atacante qué vulnerabilidad conocida probar primero."
+        "title": "No anuncia las versiones de su software",
+        "pass": "Su sitio no anuncia exactamente qué software y qué versión usa.",
+        "warn": "Su sitio anuncia la versión exacta del software que usa, lo que le dice a un atacante qué vulnerabilidad conocida probar primero."
       },
       "spf": {
-        "title": "Solo tus servidores pueden enviar correo en tu nombre",
-        "pass": "Publicas quién puede enviar correo con tu dominio y pides que se rechace a todos los demás.",
-        "warn": "Publicas la lista, pero pides que a los impostores solo se les marque en lugar de rechazarlos.",
-        "fail": "Cualquier persona en el mundo puede enviar correos que parezcan venir de tu negocio. Esa es la forma más común en que un negocio pequeño pierde dinero por fraude."
+        "title": "Solo sus servidores pueden enviar correo en su nombre",
+        "pass": "Usted publica quién puede enviar correo con su dominio y pide que se rechace a todos los demás.",
+        "warn": "Publica la lista, pero pide que a los impostores solo se les marque en lugar de rechazarlos.",
+        "fail": "Cualquier persona en el mundo puede enviar correos que parezcan venir de su negocio. Esa es la forma más común en que un negocio pequeño pierde dinero por fraude."
       },
       "dmarc": {
         "title": "El correo falsificado sí se rechaza",
-        "pass": "El correo que no pasa tus revisiones se envía a cuarentena o se rechaza en lugar de entregarse.",
-        "warn": "Tienes el registro, pero está en modo de observación, así que el correo falsificado sigue llegando a tus clientes.",
-        "fail": "No hay política, así que los servidores de correo no tienen instrucciones sobre qué hacer con el correo falsificado en tu nombre, y la mayoría lo entrega."
+        "pass": "El correo que no pasa sus revisiones se envía a cuarentena o se rechaza en lugar de entregarse.",
+        "warn": "Tiene el registro, pero está en modo de observación, así que el correo falsificado sigue llegando a sus clientes.",
+        "fail": "No hay política, así que los servidores de correo no tienen instrucciones sobre qué hacer con el correo falsificado en su nombre, y la mayoría lo entrega."
       },
       "mx": {
-        "title": "Tu dominio recibe correo",
-        "pass": "Tu dominio publica servidores de correo.",
+        "title": "Su dominio recibe correo",
+        "pass": "Su dominio publica servidores de correo.",
         "unknown": "Este dominio no recibe correo, así que las revisiones de correo de arriba importan menos, aunque un dominio que no envía correo también debería declararlo."
       },
       "certExpiry": {
-        "title": "Tu certificado no está por vencer",
-        "pass": "Al certificado que comprueba que el sitio es tuyo le queda tiempo de sobra.",
+        "title": "Su certificado no está por vencer",
+        "pass": "Al certificado que comprueba que el sitio es suyo le queda tiempo de sobra.",
         "warn": "Vence pronto. La mayoría de los proveedores renueva solo como un mes antes, así que estar tan cerca casi siempre significa que la renovación está atorada.",
-        "fail": "Vence en días o ya venció. Cuando eso pasa, cada visitante ve una advertencia de pantalla completa diciendo que tu sitio no es seguro.",
+        "fail": "Vence en días o ya venció. Cuando eso pasa, cada visitante ve una advertencia de pantalla completa diciendo que su sitio no es seguro.",
         "unknown": "No pudimos leer el certificado."
       },
       "mixedContent": {
-        "title": "Tus páginas seguras solo cargan archivos seguros",
-        "pass": "Todo lo que carga tu página viene por una conexión segura.",
-        "fail": "Tu página segura carga al menos un archivo por una conexión insegura. Los navegadores los bloquean o advierten, lo que puede romper parte de tu sitio sin avisar y anula el candado.",
+        "title": "Sus páginas seguras solo cargan archivos seguros",
+        "pass": "Todo lo que carga su página viene por una conexión segura.",
+        "fail": "Su página segura carga al menos un archivo por una conexión insegura. Los navegadores los bloquean o advierten, lo que puede romper parte de su sitio sin avisar y anula el candado.",
         "unknown": "No pudimos leer la página para revisarlo."
       },
       "dkim": {
-        "title": "Tu correo va firmado",
-        "pass": "Tu correo saliente lleva una firma que los servidores que lo reciben pueden verificar.",
-        "warn": "No encontramos una llave de firma en los selectores que usan los proveedores comunes. Si tu correo no va firmado, más de él cae en spam y tu política DMARC tiene menos con qué trabajar.",
+        "title": "Su correo va firmado",
+        "pass": "Su correo saliente lleva una firma que los servidores que lo reciben pueden verificar.",
+        "warn": "No encontramos una llave de firma en los selectores que usan los proveedores comunes. Si su correo no va firmado, más de él cae en spam y su política DMARC tiene menos con qué trabajar.",
         "unknown": "Este dominio no recibe correo."
       }
     },
-    "reportHeading": "¿Quieres el reporte completo por correo?",
-    "reportBody": "Te enviamos todo lo de arriba, con qué significa cada hallazgo y qué hacer al respecto, en un solo correo que puedes reenviar a quien cuida tus sistemas.",
-    "nameLabel": "Tu nombre",
+    "reportHeading": "¿Quiere el reporte completo por correo?",
+    "reportBody": "Le enviamos todo lo de arriba, con qué significa cada hallazgo y qué hacer al respecto, en un solo correo que puede reenviar a quien cuida sus sistemas.",
+    "nameLabel": "Su nombre",
     "emailLabel": "A dónde lo enviamos",
     "reportSubmit": "Envíenme el reporte",
     "reportSending": "Enviando…",
-    "reportSent": "Enviado. Revisa tu bandeja y también la carpeta de spam, que es justo donde suele caer un mensaje sobre seguridad de correo.",
-    "reportErrorInvalid": "Revisa el correo electrónico e inténtalo de nuevo.",
-    "reportErrorRateLimited": "Son varios reportes en poco tiempo. Inténtalo en una hora o llámanos al (956) 506-1545.",
-    "reportErrorFailed": "No pudimos enviarlo. Inténtalo de nuevo o llámanos al (956) 506-1545.",
-    "reportPrivacy": "Lo usamos para enviarte este reporte y para dar seguimiento una vez. Sin listas ni compartirlo con nadie."
+    "reportSent": "Enviado. Revise su bandeja y también la carpeta de spam, que es justo donde suele caer un mensaje sobre seguridad de correo.",
+    "reportErrorInvalid": "Revise el correo e inténtelo de nuevo.",
+    "reportErrorRateLimited": "Son varios reportes en poco tiempo. Inténtelo en una hora o llámenos al (956) 506-1545.",
+    "reportErrorFailed": "No pudimos enviarlo. Inténtelo de nuevo o llámenos al (956) 506-1545.",
+    "reportPrivacy": "Lo usamos para enviarle este reporte y para dar seguimiento una vez. Sin listas ni compartirlo con nadie."
   },
   "firstHourBack": {
-    "title": "Encuentra tu primera hora de vuelta",
+    "title": "Encuentre su primera hora de vuelta",
     "metaDescription": "Un estimado en dos minutos de las horas por semana que un negocio del Valle podría recuperar con un asistente bilingüe. Con los supuestos a la vista.",
-    "intro": "Cuatro preguntas sobre una semana normal. Vas a recibir un estimado de las horas que podrías recuperar, con todos los supuestos escritos. No se envía nada a ningún lado y no pedimos correo.",
-    "callsLabel": "Llamadas que pierdes en una semana normal",
-    "callsHelp": "Llamadas que suenan sin respuesta, caen al buzón o entran mientras estás en un trabajo.",
+    "intro": "Cuatro preguntas sobre una semana normal. Va a recibir un estimado de las horas que podría recuperar, con todos los supuestos escritos. No se envía nada a ningún lado y no pedimos correo.",
+    "callsLabel": "Llamadas que pierde en una semana normal",
+    "callsHelp": "Llamadas que suenan sin respuesta, caen al buzón o entran mientras está en un trabajo.",
     "adminLabel": "Horas por semana en papeleo repetitivo",
     "adminHelp": "Agendar, captura de datos, seguimiento, recapturar los mismos datos en formatos distintos.",
-    "rateLabel": "Cuánto vale una hora de tu tiempo",
-    "rateHelp": "Opcional. Si lo dejas en blanco, no lo adivinamos.",
-    "spanishLabel": "Porcentaje de tus clientes que prefiere español",
+    "rateLabel": "Cuánto vale una hora de su tiempo",
+    "rateHelp": "Opcional. Si lo deja en blanco, no lo adivinamos.",
+    "spanishLabel": "Porcentaje de sus clientes que prefiere español",
     "spanishHelp": "Un porcentaje aproximado está bien.",
-    "emptyHeading": "Contesta las primeras dos preguntas",
-    "emptyBody": "El estimado aparece aquí en cuanto nos cuentes cómo es una semana normal.",
+    "emptyHeading": "Conteste las primeras dos preguntas",
+    "emptyBody": "El estimado aparece aquí en cuanto nos cuente cómo es una semana normal.",
     "resultHeading": "Una semana normal, con el trabajo de rutina resuelto",
     "hoursLine": "Alrededor de {hours} horas a la semana de vuelta",
     "hoursYear": "{hoursYear} horas al año, con {weeks} semanas laborales.",
-    "callsLine": "Alrededor de {calls} llamadas más contestadas por semana",
-    "callsBody": "Contestadas en el idioma de quien llama, con los datos en tus manos y, cuando aplica, la cita ya agendada.",
+    "callsLine": "Alrededor de {calls} llamadas más atendidas por semana",
+    "callsBody": "Atendidas en el idioma de quien llama, con los datos en sus manos y, cuando aplica, la cita ya agendada.",
     "valueLine": "Equivale a unos {value} al año",
-    "valueBody": "Tu propia cifra por hora, multiplicada por las horas de arriba. Es un estimado, no una cotización.",
-    "bilingualHeading": "Contesta primero en español",
-    "bilingualBody": "Con ese porcentaje de tus clientes, una puerta de entrada bilingüe no es un detalle. Es la diferencia entre que se queden en la línea o le marquen al siguiente negocio.",
+    "valueBody": "Su propia cifra por hora, multiplicada por las horas de arriba. Es un estimado, no un precio cerrado.",
+    "bilingualHeading": "Conteste primero en español",
+    "bilingualBody": "Con ese porcentaje de sus clientes, una puerta de entrada bilingüe no es un detalle. Es la diferencia entre que se queden en la línea o le marquen al siguiente negocio.",
     "assumptionsHeading": "Qué supone este cálculo",
-    "assumption1": "{callRate}% de las llamadas perdidas se convierte en una cita agendada o en un prospecto capturado. No todas: hay quien busca a una persona en específico y hay quien cuelga sin importar quién conteste.",
+    "assumption1": "{callRate}% de las llamadas perdidas se convierte en una cita agendada o en un cliente potencial capturado. No todas: hay quien busca a una persona en específico y hay quien cuelga sin importar quién conteste.",
     "assumption2": "{adminRate}% del papeleo repetitivo se elimina en un primer proyecto. A propósito alrededor de un tercio y no la mayoría: la primera etapa automatiza uno o dos flujos con reglas claras, y el resto sigue necesitando el criterio de una persona.",
     "assumption3": "Un año laboral son {weeks} semanas, no 52.",
-    "assumption4": "Son estimados para empezar una conversación, no una cotización. Lo que tu negocio recuperaría de verdad es justo para lo que sirve la evaluación gratuita.",
-    "ctaHeading": "Averigua cuál es el número real",
-    "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona tu semana y te decimos qué cambio se paga solo primero, incluso cuando la respuesta honesta es que todavía no nos necesitas.",
-    "ctaButton": "Agenda una evaluación gratuita",
-    "metaTitle": "Calculadora de horas: recupera tu primera hora"
+    "assumption4": "Son estimados para empezar una conversación, no un precio cerrado. Lo que su negocio recuperaría de verdad es justo para lo que sirve la evaluación gratuita.",
+    "ctaHeading": "Averigüe cuál es el número real",
+    "ctaBody": "Treinta minutos, sin discurso de venta. Revisamos cómo funciona su semana y le decimos qué cambio se paga solo primero, incluso cuando la respuesta honesta es que todavía no nos necesita.",
+    "ctaButton": "Agende una evaluación gratuita",
+    "metaTitle": "Calculadora de horas: recupere su primera hora"
   },
   "accessibility": {
     "title": "Accesibilidad",
-    "metaDescription": "Cómo está construido bis-rgv.com en materia de accesibilidad, qué probamos, qué sabemos que no es perfecto y cómo avisarnos cuando algo no te funciona.",
+    "metaDescription": "Cómo está construido bis-rgv.com en materia de accesibilidad, qué probamos, qué sabemos que no es perfecto y cómo avisarnos cuando algo no le funciona.",
     "intro": "Este sitio está hecho para cumplir con WCAG 2.1 Nivel AA. Es el estándar que el Departamento de Justicia fijó para los sitios de gobiernos estatales y locales, y es el que aplicamos a nuestro propio trabajo, esté obligado el cliente o no.",
     "statusHeading": "Cómo está este sitio",
     "statusBody": "Cada tipo de página de este sitio se revisa de forma automática contra las reglas WCAG 2.1 A y AA en cada cambio, en inglés y en español: la portada, las páginas de servicios e industrias, las de ciudades, los artículos, las preguntas frecuentes, las dos herramientas gratuitas, la página de contacto y la página a la que llega un enlace mal escrito. En la última revisión, todas pasaron sin ninguna violación.",
     "honestHeading": "Qué significa eso y qué no",
-    "honestBody": "Las pruebas automáticas detectan alrededor de un tercio de las barreras reales de accesibilidad. Pueden decirte que un botón no tiene nombre; no pueden decirte que el nombre confunde, ni que completar un proceso con un dispositivo de conmutador resulta agotador. No hemos contratado una auditoría independiente de este sitio ni lo hemos probado con un panel de personas usuarias de tecnología de asistencia, y preferimos decirlo con claridad antes que insinuar un nivel de garantía que no hemos pagado.",
+    "honestBody": "Las pruebas automáticas detectan alrededor de un tercio de las barreras reales de accesibilidad. Pueden decirle que un botón no tiene nombre; no pueden decirle que el nombre confunde, ni que completar un proceso con un dispositivo de conmutador resulta agotador. No hemos contratado una auditoría independiente de este sitio ni lo hemos probado con un panel de personas usuarias de tecnología de asistencia, y preferimos decirlo con claridad antes que insinuar un nivel de garantía que no hemos pagado.",
     "practicesHeading": "Qué hacemos",
     "practice1": "Primero el teclado. Todos los controles se pueden alcanzar y usar sin ratón, y el indicador de foco se ve en lugar de quitarse por estética.",
     "practice2": "El estado nunca es solo color. Cuando este sitio reporta un resultado, sea un hallazgo de seguridad o un error de formulario, lleva un icono y una palabra además del color.",
     "practice3": "El movimiento respeta la configuración del sistema. Todo lo que se anima se detiene para quien pidió a su dispositivo reducir el movimiento.",
     "practice4": "Los dos idiomas, de forma nativa. Las páginas declaran su idioma para que un lector de pantalla las pronuncie bien, y el español está escrito, no traducido.",
     "practice5": "Texto real y estructura real. Los encabezados describen la página en vez de darle estilo, las imágenes con significado llevan descripción y lo decorativo se oculta a la tecnología de asistencia en lugar de leerse en voz alta.",
-    "problemHeading": "Si algo no te funciona",
-    "problemBody": "Dinos y lo arreglamos. Escríbenos o llámanos, describe la página y qué pasó, y respondemos en un plazo de dos días hábiles. Si mientras tanto necesitas información de este sitio en otro formato, pídela y te la enviamos.",
-    "helpHeading": "Si lo necesitas para tu propio sitio",
-    "helpBody": "Las ciudades, condados, distritos escolares y distritos especiales de Texas están cubiertos por el Título II de la ADA, que exige que sus sitios y aplicaciones móviles cumplan con WCAG 2.1 Nivel AA. Después de que el Departamento de Justicia extendió los plazos en abril de 2026, las entidades públicas que atienden a 50,000 personas o más tienen hasta el 26 de abril de 2027, y las entidades más pequeñas y los distritos especiales hasta el 26 de abril de 2028. Remediamos sitios existentes, evaluamos lo que ya tienes y construimos sitios nuevos con ese estándar. Los negocios privados no están cubiertos por el Título II, y aun así recomendamos el mismo estándar, porque las personas a las que ayuda son tus clientes.",
+    "problemHeading": "Si algo no le funciona",
+    "problemBody": "Díganos y lo arreglamos. Escríbanos o llámenos, describa la página y qué pasó, y respondemos en un plazo de dos días hábiles. Si mientras tanto necesita información de este sitio en otro formato, pídala y se la enviamos.",
+    "helpHeading": "Si lo necesita para su propio sitio",
+    "helpBody": "Las ciudades, condados, distritos escolares y distritos especiales de Texas están cubiertos por el Título II de la ADA, que exige que sus sitios y aplicaciones móviles cumplan con WCAG 2.1 Nivel AA. Después de que el Departamento de Justicia extendió los plazos en abril de 2026, las entidades públicas que atienden a 50,000 personas o más tienen hasta el 26 de abril de 2027, y las entidades más pequeñas y los distritos especiales hasta el 26 de abril de 2028. Remediamos sitios existentes, evaluamos lo que ya tiene y construimos sitios nuevos con ese estándar. Los negocios privados no están cubiertos por el Título II, y aun así recomendamos el mismo estándar, porque las personas a las que ayuda son sus clientes.",
     "helpCta": "Hablemos de accesibilidad",
     "updatedHeading": "Sobre esta declaración",
     "updatedBody": "Escrita el {date}. Describe lo que es cierto de este sitio hoy, y la actualizamos cuando eso cambia en lugar de dejar una fecha envejeciendo."
   },
   "trust": {
-    "title": "Cómo protegemos tus datos",
-    "metaDescription": "Las preguntas de seguridad que debes hacerle a un proveedor, contestadas de antemano: quién ve tus sistemas, dónde están tus datos y qué pasa al final.",
-    "intro": "Antes de que una clínica, un despacho o una empresa de transporte deje que alguien se acerque a sus sistemas, alguien tiene que contestar una lista de preguntas. Esta página las contesta por adelantado, para que la conversación empiece más adelante y para que veas las respuestas antes de preguntar.",
+    "title": "Cómo protegemos sus datos",
+    "metaDescription": "Las preguntas de seguridad que debe hacerle a un proveedor, contestadas de antemano: quién ve sus sistemas, dónde están sus datos y qué pasa al final.",
+    "intro": "Antes de que una clínica, un despacho o una empresa de transporte deje que alguien se acerque a sus sistemas, alguien tiene que contestar una lista de preguntas. Esta página las contesta por adelantado, para que la conversación empiece más adelante y para que vea las respuestas antes de preguntar.",
     "notHeading": "Qué no es esta página",
-    "notBody": "No es un reporte de auditoría. BIS no ha pasado por SOC 2 ni tiene una certificación de seguridad, y cualquier proveedor que insinúe lo contrario sin enseñarte el reporte te está vendiendo una sensación. Lo que sigue es cómo se hace el trabajo en realidad, dicho con la claridad suficiente para que nos lo puedas exigir.",
-    "accessHeading": "Quién puede ver tus sistemas",
-    "accessBody": "El acceso se pide por persona y por sistema, para el trabajo que tenemos enfrente, y se quita cuando ese trabajo termina. No pedimos un usuario compartido y no necesitamos tus contraseñas para casi nada: los sistemas modernos permiten dar acceso delegado sin entregar una cuenta. Si un acuerdo de confidencialidad te da tranquilidad, lo firmamos antes de empezar.",
-    "ownershipHeading": "Dónde viven tus datos y de quién son",
-    "ownershipBody": "En cuentas que llevan tu nombre. Tu hosting, tu dominio, tu base de datos, tu cuenta con el proveedor de IA. Preferimos herramientas que mantengan tus datos en tu propio espacio en lugar de juntarlos en el nuestro, y cada proyecto se entrega con las llaves. Si el año que viene nos reemplazas, no hay que sacar nada de ningún lado: ya es tuyo.",
-    "vendorsHeading": "Proveedores que tocarían tus datos",
-    "vendorsIntro": "Cualquier servicio que vaya a guardar o procesar tus datos se nombra antes de usarse, no se descubre después en un recibo. Estos son sobre los que BIS construye hoy:",
+    "notBody": "No es un reporte de auditoría. BIS no ha pasado por SOC 2 ni tiene una certificación de seguridad, y cualquier proveedor que insinúe lo contrario sin enseñarle el reporte le está vendiendo una sensación. Lo que sigue es cómo se hace el trabajo en realidad, dicho con la claridad suficiente para que nos lo pueda exigir.",
+    "accessHeading": "Quién puede ver sus sistemas",
+    "accessBody": "El acceso se pide por persona y por sistema, para el trabajo que tenemos enfrente, y se quita cuando ese trabajo termina. No pedimos un usuario compartido y no necesitamos sus contraseñas para casi nada: los sistemas modernos permiten dar acceso delegado sin entregar una cuenta. Si un acuerdo de confidencialidad le da tranquilidad, lo firmamos antes de empezar.",
+    "ownershipHeading": "Dónde viven sus datos y de quién son",
+    "ownershipBody": "En cuentas que llevan su nombre. Su hosting, su dominio, su base de datos, su cuenta con el proveedor de IA. Preferimos herramientas que mantengan sus datos en su propio espacio en lugar de juntarlos en el nuestro, y cada proyecto se entrega con las llaves. Si el año que viene nos reemplaza, no hay que sacar nada de ningún lado: ya es suyo.",
+    "vendorsHeading": "Proveedores que tocarían sus datos",
+    "vendorsIntro": "Cualquier servicio que vaya a guardar o procesar sus datos se nombra antes de usarse, no se descubre después en un recibo. Estos son sobre los que BIS construye hoy:",
     "vendorsItems": [
       "Vercel — aloja los sitios y aplicaciones que construimos.",
       "Neon y Supabase — las bases de datos detrás de esas aplicaciones.",
@@ -1495,13 +1495,13 @@
       "Clerk — el inicio de sesión de la Plataforma BIS.",
       "Upstash — límites de uso, que guardan contadores y no contenido."
     ],
-    "vendorsOutro": "Si un proyecto necesita algo que no esté en esta lista, te enteras antes de que se introduzca.",
-    "sofiaHeading": "Si operamos una recepcionista con IA para ti",
-    "sofiaBody": "Sofía guarda una transcripción escrita y un resumen de cada llamada, el número desde el que entró y lo que la persona le cuente. No guarda grabaciones de audio. Todo llega a tu propia cuenta en la Plataforma BIS, donde puedes leerlo, exportarlo o borrarlo. A quien llama se le dice que la atiende un asistente y que la llamada se transcribe: ser directo con la persona en la línea no es opcional.",
+    "vendorsOutro": "Si un proyecto necesita algo que no esté en esta lista, se entera antes de que se introduzca.",
+    "sofiaHeading": "Si operamos una recepcionista con IA para usted",
+    "sofiaBody": "Sofía guarda una transcripción escrita y un resumen de cada llamada, el número desde el que entró y lo que la persona le cuente. No guarda grabaciones de audio. Todo llega a su propia cuenta en la Plataforma BIS, donde puede leerlo, exportarlo o borrarlo. A quien llama se le dice que la atiende un asistente y que la llamada se transcribe: ser directo con la persona en la línea no es opcional.",
     "regulatedHeading": "Trabajo regulado: legal, médico y dental",
-    "regulatedBody": "El cumplimiento es una propiedad de todo tu consultorio o despacho, no de un producto, así que nadie te lo puede entregar honestamente en una caja. Lo que hacemos es diseñar el flujo para que la información protegida se quede en sistemas que tú controlas, con acceso limitado por persona, un acuerdo con cualquier proveedor que la toque y todo documentado para que tu asesor de cumplimiento lo revise en lugar de creernos. No sustituimos a ese asesor y siempre lo vamos a decir.",
+    "regulatedBody": "El cumplimiento es una propiedad de todo su consultorio o despacho, no de un producto, así que nadie se lo puede entregar honestamente en una caja. Lo que hacemos es diseñar el flujo para que la información protegida se quede en sistemas que usted controla, con acceso limitado por persona, un acuerdo con cualquier proveedor que la toque y todo documentado para que su asesor de cumplimiento lo revise en lugar de creernos. No sustituimos a ese asesor y siempre lo vamos a decir.",
     "siteHeading": "Cómo está protegido este sitio",
-    "siteIntro": "El proveedor más fácil de revisar es el que tienes enfrente, así que esto es lo que hace este sitio y cómo comprobarlo tú mismo:",
+    "siteIntro": "El proveedor más fácil de revisar es el que tiene enfrente, así que esto es lo que hace este sitio y cómo comprobarlo usted mismo:",
     "siteItems": [
       "Una política de seguridad de contenido que no admite ningún script de terceros, además de HSTS y protección contra incrustación y contra interpretación equivocada de archivos en cada respuesta.",
       "Verificación invisible de bots en los puntos que cuestan dinero, con un límite por dirección detrás.",
@@ -1510,101 +1510,101 @@
       "Cada página revisada contra WCAG 2.1 AA en cada cambio.",
       "Las fallas que pierden un contacto levantan una alerta a una persona en lugar de una línea en un registro que nadie lee."
     ],
-    "siteCta": "Corre nuestra propia herramienta contra este dominio",
+    "siteCta": "Corra nuestra propia herramienta contra este dominio",
     "incidentHeading": "Si algo sale mal",
-    "incidentBody": "Avísanos y te contesta una persona, no una fila de tickets, en un plazo de dos días hábiles. Si el problema afecta tus datos, se te dice qué pasó, qué alcanzó y qué hicimos al respecto, en ese orden, en lenguaje claro y sin esperar a que quede bonito.",
+    "incidentBody": "Avísenos y le contesta una persona, no una fila de tickets, en un plazo de dos días hábiles. Si el problema afecta sus datos, se le dice qué pasó, qué alcanzó y qué hicimos al respecto, en ese orden, en lenguaje claro y sin esperar a que quede bonito.",
     "incidentCta": "hello@bis-rgv.com",
     "exitHeading": "Cuando termina el trabajo",
-    "exitBody": "Te quedas con todo: cuentas, dominios, código, datos y la documentación para operarlo. El acceso que se nos dio se devuelve o se elimina. No hay una capa propietaria que desenredar ni una cuota para recuperar tus propios sistemas, porque el acuerdo nunca dependió de que estuvieras atrapado.",
+    "exitBody": "Usted se queda con todo: cuentas, dominios, código, datos y la documentación para operarlo. El acceso que se nos dio se devuelve o se elimina. No hay una capa propietaria que desenredar ni una cuota para recuperar sus propios sistemas, porque el acuerdo nunca dependió de que estuviera atrapado.",
     "updatedHeading": "Sobre esta página",
     "updatedBody": "Escrita el {date}. Describe cómo trabaja BIS hoy. Cuando eso cambie, esta página cambia con ello."
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "aria": "Escríbenos por WhatsApp",
+    "aria": "Escríbanos por WhatsApp",
     "prefill": "Hola BIS — estoy en su sitio y quisiera preguntar sobre",
-    "contactHeading": "¿Prefieres escribir en lugar de llamar?",
-    "contactBody": "Mándanos un WhatsApp. Llega a la misma persona, en inglés o español, y te contestamos sin que tengas que esperar en el teléfono.",
-    "contactCta": "Escríbenos por WhatsApp"
+    "contactHeading": "¿Prefiere escribir en lugar de llamar?",
+    "contactBody": "Mándenos un WhatsApp. Llega a la misma persona, en inglés o español, y le contestamos sin que tenga que esperar en el teléfono.",
+    "contactCta": "Escríbanos por WhatsApp"
   },
   "sofia": {
     "title": "Habla con Sofía ahora mismo",
-    "blurb": "Sofía es la recepcionista con IA que contesta nuestro teléfono. Presiona el botón y salúdala — aquí responde igual que en la línea.",
+    "blurb": "Sofía es la recepcionista con IA que contesta nuestro teléfono. Presione el botón y salúdela — aquí responde igual que en la línea.",
     "start": "Empezar a hablar",
     "again": "Hablar otra vez",
     "connecting": "Conectando…",
     "end": "Terminar",
-    "limits": "Tu navegador te pedirá permiso para usar el micrófono. No se graba nada, y esta conversación no puede agendarte una cita — para eso, agenda una evaluación gratuita o llama al número que aparece arriba. Las sesiones duran unos tres minutos.",
+    "limits": "Su navegador le pedirá permiso para usar el micrófono. No se graba nada, y esta conversación no puede agendarle una cita — para eso, agende una evaluación gratuita o llame al número que aparece arriba. Las sesiones duran unos tres minutos.",
     "transcript": "Subtítulos en vivo",
-    "listening": "Escuchando. Saluda cuando estés listo.",
+    "listening": "Escuchando. Salude cuando esté listo.",
     "remaining": "Quedan {time} de esta conversación",
-    "liveAnnounce": "Estás conectado con Sofía. Habla cuando quieras.",
+    "liveAnnounce": "Está conectado con Sofía. Hable cuando quiera.",
     "speakerSofia": "Sofía",
-    "speakerYou": "Tú",
+    "speakerYou": "Usted",
     "errors": {
-      "unsupported": "Este navegador no puede hacer una llamada de voz. Chrome, Edge, Safari y Firefox sí pueden — o simplemente llama al número que aparece arriba.",
-      "mic_denied": "No pudimos usar tu micrófono. Permite el acceso al micrófono para este sitio en tu navegador e inténtalo de nuevo — o llama al número que aparece arriba.",
-      "rate_limited": "Ya usaste tus conversaciones por ahora. Inténtalo en una hora, o llama al número que aparece arriba y habla con Sofía por teléfono.",
-      "unavailable": "Sofía no puede contestar aquí en este momento. Por favor llama al número que aparece arriba — ella contesta esa línea."
+      "unsupported": "Este navegador no puede hacer una llamada de voz. Chrome, Edge, Safari y Firefox sí pueden — o simplemente llame al número que aparece arriba.",
+      "mic_denied": "No pudimos usar su micrófono. Permita el acceso al micrófono para este sitio en su navegador e inténtelo de nuevo — o llame al número que aparece arriba.",
+      "rate_limited": "Ya usó sus conversaciones por ahora. Inténtelo en una hora, o llame al número que aparece arriba y hable con Sofía por teléfono.",
+      "unavailable": "Sofía no puede contestar aquí en este momento. Por favor llame al número que aparece arriba — ella contesta esa línea."
     }
   },
   "platform": {
     "title": "La plataforma",
     "metaTitle": "La plataforma: un CRM hecho para el Valle",
-    "metaDescription": "El sistema con el que operan negocios del Valle: cada llamada contestada en inglés o español, cada prospecto en un lugar y cuatro números cada lunes.",
-    "heroKicker": "Lo que realmente recibes",
-    "heroTitle": "La hora que recuperas, y de dónde sale.",
-    "heroBody": "Tu primera hora recuperada no viene de trabajar más rápido. Viene de un sistema que contesta el teléfono cuando tú no puedes, anota al cliente antes de que se olvide, y el lunes te dice qué pasó de verdad la semana pasada. Este es ese sistema — el mismo que contesta nuestro propio teléfono.",
+    "metaDescription": "El sistema con el que operan negocios del Valle: cada llamada atendida en inglés o español, cada cliente potencial en un lugar y cuatro números cada lunes.",
+    "heroKicker": "Lo que realmente recibe",
+    "heroTitle": "La hora que recupera, y de dónde sale.",
+    "heroBody": "Su primera hora recuperada no viene de trabajar más rápido. Viene de un sistema que contesta el teléfono cuando usted no puede, anota al cliente antes de que se olvide, y el lunes le dice qué pasó de verdad la semana pasada. Este es ese sistema — el mismo que contesta nuestro propio teléfono.",
     "sampleNoteTitle": "Sobre estas capturas",
-    "sampleNote": "Resaca Air Conditioning & Heating es una cuenta de ejemplo que armamos para mostrar el sistema funcionando. La empresa es inventada, y también lo son todos los clientes, teléfonos y cantidades que ves aquí. Preferimos enseñarte datos inventados de frente que los de un cliente real con las partes interesantes borroneadas.",
+    "sampleNote": "Resaca Air Conditioning & Heating es una cuenta de ejemplo que armamos para mostrar el sistema funcionando. La empresa es inventada, y también lo son todos los clientes, teléfonos y cantidades que ve aquí. Preferimos enseñarle datos inventados de frente que los de un cliente real con las partes interesantes borroneadas.",
     "sampleCaption": "Cuenta de ejemplo — empresa y datos inventados.",
     "sections": {
       "spanish": {
         "kicker": "En español",
         "label": "Agendada · en español",
         "title": "Contesta en español. Bien.",
-        "body": "A la mitad del Valle le acomoda más hacer negocio en español, y la mayoría de los servicios de contestación no lo hacen, o lo hacen tan mal que la gente cuelga. Sofía toma la llamada en el idioma en que empieza, agenda la cita, y anota toda la conversación en ese idioma — para que la puedas leer después aunque no hayas sido tú quien contestó.",
+        "body": "A la mitad del Valle le acomoda más hacer negocio en español, y la mayoría de los servicios de contestación no lo hacen, o lo hacen tan mal que la gente cuelga. Sofía toma la llamada en el idioma en que empieza, agenda la cita, y anota toda la conversación en ese idioma — para que la pueda leer después aunque no haya sido usted quien contestó.",
         "quote": "¿El aire prende y sopla, pero sale el aire tibio, o no prende nada?",
         "quoteSource": "De la transcripción de una llamada real — de usted, no de libro de texto."
       },
       "calls": {
         "kicker": "Cada llamada",
         "label": "Spam y cuelgues, también anotados",
-        "title": "Anotada — incluyendo las que no valían tu tiempo.",
-        "body": "Cada llamada lleva su resumen, su transcripción completa y un resultado: agendada, prospecto, recado, colgó, spam. Ves la llamada de ventas que se filtró y al que se rindió a los cuatro segundos. Así sabes que los demás números son de verdad."
+        "title": "Anotada — incluyendo las que no valían su tiempo.",
+        "body": "Cada llamada lleva su resumen, su transcripción completa y un resultado: agendada, cliente potencial, recado, colgó, spam. Usted ve la llamada de ventas que se filtró y al que se rindió a los cuatro segundos. Así sabe que los demás números son de verdad."
       },
       "pipeline": {
-        "kicker": "Cada prospecto",
-        "label": "Cada prospecto, un tablero",
+        "kicker": "Cada cliente potencial",
+        "label": "Cada cliente potencial, un tablero",
         "title": "Nada vive en un papelito.",
-        "body": "Un diagnóstico de $89 y un trabajo de azotea de $14,200 están en el mismo tablero, y de un vistazo ves cuáles se quedaron callados. Sin hoja de cálculo, sin segundo sistema, sin «creo que alguien ya les habló»."
+        "body": "Un diagnóstico de $89 y un trabajo de azotea de $14,200 están en el mismo tablero, y de un vistazo ve cuáles se quedaron callados. Sin hoja de cálculo, sin segundo sistema, sin «creo que alguien ya les habló»."
       },
       "booking": {
-        "kicker": "Tu nombre, no el nuestro",
-        "label": "El teléfono de tu cliente",
-        "title": "Se agendan solos, en una página que se ve como tú.",
-        "body": "Tu logo, tu color, tus horarios, los nombres de tus servicios. El cliente aparta su cita sin llamarle a nadie, y nuestro nombre solo aparece en letra chica hasta abajo. Manda el enlace por mensaje o ponlo en tu propio sitio — es la misma página."
+        "kicker": "Su nombre, no el nuestro",
+        "label": "El teléfono de su cliente",
+        "title": "Se agendan solos, en una página con la cara de su negocio.",
+        "body": "Su logo, su color, sus horarios, los nombres de sus servicios. El cliente agenda su cita sin llamarle a nadie, y nuestro nombre solo aparece en letra chica hasta abajo. Mande el enlace por mensaje o póngalo en su propio sitio — es la misma página."
       },
       "report": {
         "kicker": "Lunes por la mañana",
-        "label": "Tu teléfono, el lunes a las 8",
+        "label": "Su teléfono, el lunes a las 8",
         "title": "Cuatro números, en palabras, legibles desde el teléfono.",
-        "body": "Llamadas contestadas, prospectos captados, citas agendadas y visitas al sitio — cada uno junto a la semana anterior. Sin gráficas que descifrar y sin flechitas, porque una flecha no dice nada si te la leen en voz alta. Si no medimos algo, se omite en lugar de aparecer como un cero que te hace pensar que el teléfono está descompuesto. Y una semana tranquila también se manda, para que el silencio nunca te deje con la duda de si el producto dejó de funcionar."
+        "body": "Llamadas atendidas, clientes potenciales captados, citas agendadas y visitas al sitio — cada uno junto a la semana anterior. Sin gráficas que descifrar y sin flechitas, porque una flecha no dice nada si se la leen en voz alta. Si no medimos algo, se omite en lugar de aparecer como un cero que le hace pensar que el teléfono está descompuesto. Y una semana tranquila también se manda, para que el silencio nunca lo deje con la duda de si el producto dejó de funcionar."
       }
     },
     "alt": {
-      "hero": "El tablero de BIS para una empresa de aire acondicionado de ejemplo, con las llamadas, prospectos y citas de esta semana",
+      "hero": "El tablero de BIS para una empresa de aire acondicionado de ejemplo, con las llamadas, clientes potenciales y citas de esta semana",
       "spanish": "La pantalla de detalle de una llamada, con toda la conversación en español entre el cliente y Sofía",
-      "calls": "El registro de llamadas, con el resultado de cada una — agendada, prospecto, recado, colgó o spam",
+      "calls": "El registro de llamadas, con el resultado de cada una — agendada, cliente potencial, recado, colgó o spam",
       "pipeline": "El tablero de oportunidades, con trabajos desde un diagnóstico de $89 hasta un reemplazo comercial de $14,200",
       "booking": "Una página de citas con el logo y el color de la empresa de ejemplo",
       "report": "El correo del lunes por la mañana, con cuatro números junto a los de la semana anterior",
       "heroStage": "El panel de BIS para una empresa de climatización de muestra, recortado a las llamadas, citas y oportunidades de esta semana"
     },
-    "ctaTitle": "Míralo con tus propios números adentro.",
-    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona tu negocio hoy, te decimos cuál de estas cosas realmente se pagaría sola, y cuál todavía no necesitas.",
+    "ctaTitle": "Mírelo con sus propios números adentro.",
+    "ctaBody": "Una evaluación gratuita y sin presión de venta: analizamos cómo funciona su negocio hoy, le decimos cuál de estas cosas realmente se pagaría sola, y cuál todavía no necesita.",
     "stage": {
-      "tabsLabel": "Elige una pantalla",
+      "tabsLabel": "Elija una pantalla",
       "dashboard": "Panel",
       "calls": "Llamadas",
       "pipeline": "Oportunidades",
@@ -1614,26 +1614,26 @@
     },
     "filmKicker": "En 30 segundos",
     "filmTitle": "Todo el sistema, de principio a fin.",
-    "filmBody": "Una llamada a las 9:15 de la noche, contestada en inglés o en español, anotada y en el tablero antes de la mañana, y el equipo de IT detrás de todo. Dale play para la versión de medio minuto; el recorrido de abajo es la versión larga.",
+    "filmBody": "Una llamada a las 9:15 de la noche, atendida en inglés o en español, anotada y en el tablero antes de la mañana, y el equipo de IT detrás de todo. Dele play para la versión de medio minuto; el recorrido de abajo es la versión larga.",
     "filmLabel": "Reproducir el video de 30 segundos de BIS"
   },
   "missedCalls": {
-    "title": "Lo que valen las llamadas que no contestas",
-    "body": "Tres números de tu semana. No se envía nada; la cuenta se hace aquí mismo, en la página.",
+    "title": "Lo que valen las llamadas que no contesta",
+    "body": "Tres números de su semana. No se envía nada; la cuenta se hace aquí mismo, en la página.",
     "callsLabel": "Llamadas de clientes por semana",
     "callsHelp": "Solo clientes de verdad. Sin contar las llamadas automáticas.",
-    "missedLabel": "Cuántas no contestas",
+    "missedLabel": "Cuántas no contesta",
     "missedHelp": "En un trabajo, fuera de horario, en la otra línea.",
-    "jobLabel": "Tu trabajo promedio",
-    "jobHelp": "Lo que deja un trabajo típico. Este número no lo adivinamos por ti.",
+    "jobLabel": "Su trabajo promedio",
+    "jobHelp": "Lo que deja un trabajo típico. Este número no lo adivinamos por usted.",
     "missedLine": "{n, plural, one {# llamada al mes se queda sin contestar} other {# llamadas al mes se quedan sin contestar}}",
     "jobsLine": "Unos {n} trabajos al mes se van con quien sí contestó",
     "lostLine": "{amount} al mes que se van con quien sí contestó",
     "recoverLine": "Sofía contesta cerca del {rate}% de las llamadas que perderías: unos {amount} al mes de vuelta.",
-    "setJob": "Agrega tu trabajo promedio para ver cuánto vale.",
-    "empty": "Indica cuántas llamadas no contestas para ver cuánto valen.",
-    "assumption": "Contamos solo 1 de cada {share} llamadas perdidas como un trabajo que habrías ganado. La mayoría de los dueños diría que son más.",
-    "cta": "Reserva una evaluación gratuita",
+    "setJob": "Agregue su trabajo promedio para ver cuánto vale.",
+    "empty": "Indique cuántas llamadas no contesta para ver cuánto valen.",
+    "assumption": "Contamos solo 1 de cada {share} llamadas perdidas como un trabajo que habría ganado. La mayoría de los dueños diría que son más.",
+    "cta": "Agende una evaluación gratuita",
     "more": "El cálculo completo, con horas de vuelta"
   }
 }
