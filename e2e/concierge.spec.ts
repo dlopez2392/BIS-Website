@@ -13,7 +13,7 @@ import { test, expect, type Page } from '@playwright/test';
  */
 const enabled = process.env.NEXT_PUBLIC_AI_ENABLED === 'true';
 const PLATFORM = (process.env.NEXT_PUBLIC_BIS_PLATFORM_ORIGIN ?? 'https://app.bis-rgv.com').replace(/\/+$/, '');
-const ASK = { en: 'Ask BIS', es: 'Pregúntale a BIS' } as const;
+const ASK = { en: 'Ask BIS', es: 'Pregúntele a BIS' } as const;
 
 function cspViolations(page: Page): string[] {
   const seen: string[] = [];
@@ -104,7 +104,7 @@ test.describe('phone', () => {
     const button = page.locator('.ask-launch');
     await expect(button).toHaveAttribute('data-compact', 'true');
     const l = (await button.boundingBox())!;
-    for (const name of ['Reserva una evaluación gratuita', 'Habla con Sofía']) {
+    for (const name of ['Agende una evaluación gratuita', 'Hable con Sofía']) {
       const b = (await page.locator('#hero').getByRole('link', { name }).boundingBox())!;
       const overlaps = b.x < l.x + l.width && b.x + b.width > l.x && b.y < l.y + l.height && b.y + b.height > l.y;
       expect(overlaps, name).toBe(false);
@@ -123,7 +123,7 @@ test.describe('phone', () => {
   test('the open panel is a full-screen sheet', async ({ page }) => {
     await page.goto('/es');
     await page.locator('.ask-launch').click();
-    const panel = page.getByRole('dialog', { name: 'Pregúntale a BIS' });
+    const panel = page.getByRole('dialog', { name: 'Pregúntele a BIS' });
     await expect(panel).toBeVisible();
     // Polled: the panel eases in, and a box read mid-animation is scaled.
     await expect.poll(() => panel.boundingBox()).toEqual({ x: 0, y: 0, width: 360, height: 640 });

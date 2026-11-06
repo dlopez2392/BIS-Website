@@ -7,10 +7,10 @@ export const resourceEmailStrings = {
     signoff: '— Dan Lopez, Bespoke Intelligent Solutions',
   },
   es: {
-    subject: 'Tu lista gratuita de BIS',
+    subject: 'Su lista gratuita de BIS',
     greeting: (name: string) => (name ? `Hola ${name}:` : 'Hola:'),
-    body: 'Gracias por descargar la Lista de Preparación para IA. Tu enlace de descarga está abajo — es tuyo para conservar y compartir. Cuando quieras actuar, una evaluación gratuita y sin presión de venta está a un clic.',
-    link: 'Descarga tu lista',
+    body: 'Gracias por descargar la Lista de Preparación para IA. Su enlace de descarga está abajo — es suyo para conservar y compartir. Cuando quiera actuar, una evaluación gratuita y sin presión de venta está a un clic.',
+    link: 'Descargue su lista',
     signoff: '— Dan Lopez, Bespoke Intelligent Solutions',
   },
 } as const;
@@ -46,7 +46,7 @@ export const scanReportStrings = {
     signoff: '— Dan Lopez, Bespoke Intelligent Solutions',
   },
   es: {
-    subject: (domain: string, grade: string) => `Tu revisión de seguridad de ${domain} — calificación ${grade}`,
+    subject: (domain: string, grade: string) => `Su revisión de seguridad de ${domain} — calificación ${grade}`,
     greeting: (name: string) => (name ? `Hola ${name}:` : 'Hola:'),
     intro: (domain: string) =>
       `Este es el resultado completo de ${domain}. Lee registros DNS públicos y los encabezados que el sitio ya envía a cada visitante: no se entró a ninguna cuenta, no se escanearon puertos y no se probó ninguna contraseña.`,
@@ -59,7 +59,7 @@ export const scanReportStrings = {
     statusUnknown: 'No aplica',
     outro:
       'Esto solo cubre lo que se ve desde afuera. Casi todo lo que pone en riesgo a un negocio no se ve: contraseñas compartidas, respaldos sin probar, una sola persona con todas las llaves. Una evaluación gratuita de 30 minutos cubre el resto.',
-    cta: 'Agenda una evaluación gratuita',
+    cta: 'Agende una evaluación gratuita',
     signoff: '— Dan Lopez, Bespoke Intelligent Solutions',
   },
 } as const;

@@ -14,7 +14,7 @@ test('work page renders localized copy (ES)', async ({ page }) => {
   await page.goto('/es/work');
   await expect(page.getByRole('heading', { level: 1, name: /Nuestro Trabajo/i })).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: /Sof[ií]a, nuestra recepcionista de IA/i })).toBeVisible();
-  await expect(page.getByText(/Pru[eé]balo t[uú] mismo/i)).toBeVisible();
+  await expect(page.getByText(/Pru[eé]belo usted mismo/i)).toBeVisible();
 });
 
 test('the try-it CTA dials the real published number in both locales', async ({ page }) => {

@@ -13,7 +13,7 @@ test('contact page frames the platform scheduler and links to it as a fallback',
 
 test('the Spanish contact page asks the scheduler for Spanish', async ({ page }) => {
   await page.goto('/es/contact');
-  await expect(page.getByTitle('Agenda una evaluación gratuita')).toHaveAttribute('src', /\/b\/[a-z0-9]+\?locale=es&/);
+  await expect(page.getByTitle('Agende una evaluación gratuita')).toHaveAttribute('src', /\/b\/[a-z0-9]+\?locale=es&/);
 });
 
 /**

@@ -7,7 +7,7 @@ test('serves English at /en', async ({ page }) => {
 
 test('serves Spanish at /es', async ({ page }) => {
   await page.goto('/es');
-  await expect(page.getByRole('heading', { name: /El sistema que mueve tu negocio/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /El sistema que mueve su negocio/i })).toBeVisible();
 });
 
 test('redirects bare / to default locale', async ({ page }) => {
