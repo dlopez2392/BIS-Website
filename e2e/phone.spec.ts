@@ -23,7 +23,7 @@ test('contact page offers calling alongside the form and the scheduler', async (
 
 test('contact page call block is localized', async ({ page }) => {
   await page.goto('/es/contact');
-  await expect(page.getByText('¿Quieres hablar ahora?')).toBeVisible();
+  await expect(page.getByText('¿Quiere hablar ahora?')).toBeVisible();
   await expect(page.locator('main').locator(`a[href="${TEL}"]`)).toBeVisible();
 });
 

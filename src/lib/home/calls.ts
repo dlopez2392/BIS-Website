@@ -20,7 +20,7 @@ export const SAMPLE_CALLS: Record<CallLang, readonly CallLine[]> = {
     ['caller', 'Prende, pero sale tibio.'],
     ['sofia', 'Tengo una cita el jueves de 10 a 12. ¿Se la aparto?'],
     ['caller', 'Sí, por favor.'],
-    ['sofia', 'Listo, Verónica. Le mando la confirmación por mensaje.'],
+    ['sofia', 'Listo, Verónica. Le mando la confirmación por texto.'],
   ],
   en: [
     ['sofia', 'Thanks for calling Resaca Air Conditioning, this is Sofía. How can I help?'],

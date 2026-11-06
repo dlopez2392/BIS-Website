@@ -46,6 +46,6 @@ test('the Spanish privacy policy carries the clause in both languages', async ({
   // faithful translation of it is not the string they match on.
   await page.goto('/es/privacy');
   const main = page.getByRole('main');
-  await expect(main).toContainText(/No compartiremos tu información móvil con terceros/i);
+  await expect(main).toContainText(/No compartiremos su información móvil con terceros/i);
   await expect(main).toContainText(/Mobile information will not be shared with third parties/i);
 });

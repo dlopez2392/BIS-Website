@@ -9,11 +9,11 @@ test('home renders its headline in EN and ES, each with the other language\'s tw
   await page.goto('/en');
   await expect(page.getByRole('heading', { level: 1, name: 'The system your business runs on.' })).toBeVisible();
   const twin = page.locator('#hero a[data-twin]');
-  await expect(twin).toHaveText('El sistema que mueve tu negocio.');
+  await expect(twin).toHaveText('El sistema que mueve su negocio.');
   await expect(twin).toHaveAttribute('lang', 'es');
   await twin.click();
   await expect(page).toHaveURL(/\/es$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'El sistema que mueve tu negocio.' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'El sistema que mueve su negocio.' })).toBeVisible();
   await expect(page.locator('#hero a[data-twin]')).toHaveText('The system your business runs on.');
 });
 
