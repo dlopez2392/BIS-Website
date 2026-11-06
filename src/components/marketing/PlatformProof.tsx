@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { hasShot, shotSrc, type ShotSlot } from '@/lib/platform-tour';
 
@@ -36,6 +37,7 @@ export function PlatformProof({
   body: string;
   linkLabel: string;
 }) {
+  const locale = useLocale();
   const illustrated = hasShot(shot);
 
   return (
@@ -73,7 +75,7 @@ export function PlatformProof({
         {illustrated ? (
           <figure className="m-0">
             <Image
-              src={shotSrc(shot)}
+              src={shotSrc(shot, locale)}
               alt={alt}
               width={shot.width}
               height={shot.height}

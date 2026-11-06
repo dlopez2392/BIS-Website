@@ -85,10 +85,10 @@ export const PRISM_MEDIA: WorkMedia = {
  * dark because operators default to dark, and the booking page and report
  * are the client's own brand whatever the reader's theme.
  */
-const platformShot = (id: string, slot: ShotSlot): ThemedShot => ({
+const platformShot = (id: string, slot: ShotSlot, locale: string): ThemedShot => ({
   id,
-  light: shotSrc(slot),
-  dark: shotSrc(slot),
+  light: shotSrc(slot, locale),
+  dark: shotSrc(slot, locale),
   width: slot.width,
   height: slot.height,
 });
@@ -100,10 +100,14 @@ const platformShot = (id: string, slot: ShotSlot): ThemedShot => ({
  * as a client would be the fabricated case study this page promises not to
  * publish.
  */
-export const RESACA_MEDIA: WorkMedia = {
-  desktop: platformShot('dashboard', heroShot),
-  phones: [platformShot('booking', tourShot('booking')), platformShot('report', tourShot('report'))],
-};
+export function resacaMedia(locale: string): WorkMedia {
+  return {
+    desktop: platformShot('dashboard', heroShot, locale),
+    phones: [platformShot('booking', tourShot('booking'), locale), platformShot('report', tourShot('report'), locale)],
+  };
+}
+
+export const RESACA_MEDIA: WorkMedia = resacaMedia('en');
 
 export type WorkCase =
   | { id: 'sofia'; cta: 'call'; media?: undefined }

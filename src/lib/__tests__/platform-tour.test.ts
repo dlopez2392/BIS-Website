@@ -207,4 +207,23 @@ describe('the /platform tour', () => {
       'a capture does not match the size lib/platform-tour.ts declares — next/image will reserve the wrong box',
     ).toEqual([]);
   });
+
+  /**
+   * The Spanish set (public/screenshots/es/, since 2026-11) is optional per
+   * file, since shotSrc falls back to English, but a file that IS there must be
+   * the declared size, or a Spanish page reserves the wrong box.
+   */
+  it('keeps every Spanish capture that exists at the declared size, and serves it to Spanish pages', () => {
+    for (const slot of allShots()) {
+      const file = path.join(process.cwd(), 'public', 'screenshots', 'es', slot.file);
+      if (!fs.existsSync(file)) {
+        expect(shotSrc(slot, 'es')).toBe(`/screenshots/${slot.file}`);
+        continue;
+      }
+      const header = fs.readFileSync(file).subarray(16, 24);
+      expect([header.readUInt32BE(0), header.readUInt32BE(4)], `es/${slot.file}`).toEqual([slot.width, slot.height]);
+      expect(shotSrc(slot, 'es')).toBe(`/screenshots/es/${slot.file}`);
+      expect(shotSrc(slot, 'en')).toBe(`/screenshots/${slot.file}`);
+    }
+  });
 });
