@@ -53,9 +53,9 @@
     "navLabel": "Site"
   },
   "home": {
-    "heroTitle": "AI, IT, apps, websites and security. One team.",
+    "heroTitle": "The technology your business runs on.",
     "heroCta2": "Book a free assessment",
-    "heroBody": "We design, build and run the technology a Valley business depends on, in English y en español, with one point of contact.",
+    "heroBody": "AI, IT, apps, websites and security, from one bilingual team in the Valley.",
     "quote": "Big-firm technology has never been out of reach for Valley businesses — it's just never been built for them. Bespoke means we start with your workflow, your customers, your two languages.",
     "quoteName": "Dan Lopez",
     "quoteRole": "Founder, BIS",
@@ -122,7 +122,6 @@
     "focus": {
       "title": "Five things, one team.",
       "intro": "Most businesses end up with one vendor for the website, another for the computers and nobody for the rest. We do all five, so the pieces fit and one person answers for them.",
-      "chipsLabel": "What we do",
       "tabsLabel": "See an example of each",
       "owner": "Owner",
       "us": "BIS",

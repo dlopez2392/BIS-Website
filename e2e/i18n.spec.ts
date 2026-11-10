@@ -2,12 +2,12 @@ import { test, expect } from '@playwright/test';
 
 test('serves English at /en', async ({ page }) => {
   await page.goto('/en');
-  await expect(page.getByRole('heading', { name: /AI, IT, apps, websites and security/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /The technology your business runs on/i })).toBeVisible();
 });
 
 test('serves Spanish at /es', async ({ page }) => {
   await page.goto('/es');
-  await expect(page.getByRole('heading', { name: /IA, TI, aplicaciones, sitios web y seguridad/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /La tecnología que mueve su negocio/i })).toBeVisible();
 });
 
 test('redirects bare / to default locale', async ({ page }) => {

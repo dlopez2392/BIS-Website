@@ -53,9 +53,9 @@
     "navLabel": "Sitio"
   },
   "home": {
-    "heroTitle": "IA, TI, aplicaciones, sitios web y seguridad. Un solo equipo.",
+    "heroTitle": "La tecnología que mueve su negocio.",
     "heroCta2": "Agende una evaluación gratuita",
-    "heroBody": "Diseñamos, construimos y operamos la tecnología de la que depende un negocio del Valle, en español and in English, con un solo contacto.",
+    "heroBody": "IA, TI, aplicaciones, sitios web y seguridad, con un solo equipo bilingüe del Valle.",
     "quote": "La tecnología de las grandes firmas nunca ha estado fuera del alcance de los negocios del Valle — simplemente nunca se construyó para ellos. Bespoke significa que empezamos con su flujo de trabajo, sus clientes, sus dos idiomas.",
     "quoteName": "Dan Lopez",
     "quoteRole": "Fundador, BIS",
@@ -122,7 +122,6 @@
     "focus": {
       "title": "Cinco cosas, un solo equipo.",
       "intro": "La mayoría de los negocios terminan con un proveedor para el sitio web, otro para las computadoras y nadie para lo demás. Nosotros hacemos las cinco, así las piezas encajan y una sola persona responde por ellas.",
-      "chipsLabel": "Lo que hacemos",
       "tabsLabel": "Vea un ejemplo de cada una",
       "owner": "Dueño",
       "us": "BIS",

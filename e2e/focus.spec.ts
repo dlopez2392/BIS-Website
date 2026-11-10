@@ -7,12 +7,14 @@ import { test, expect } from '@playwright/test';
  * as delivered work.
  */
 
-test('the hero names the five areas and each links to its own row', async ({ page }) => {
+test('the hero names the five areas in one line, and each has its own row below', async ({ page }) => {
   await page.goto('/en');
-  const chips = page.locator('#hero .hm-chips a');
-  await expect(chips).toHaveText(['AI Solutions', 'IT Consulting', 'Application Development', 'Websites', 'Cybersecurity']);
+  // One sentence, not a list of links: the tabs beside it are the five areas.
+  await expect(page.locator('#hero .hm-lede')).toHaveText(
+    'AI, IT, apps, websites and security, from one bilingual team in the Valley.');
+  await expect(page.locator('.hm-rows > article h3')).toHaveText(
+    ['AI Solutions', 'IT Consulting', 'Application Development', 'Websites', 'Cybersecurity']);
   for (const id of ['ai', 'it', 'apps', 'web', 'security']) {
-    await expect(page.locator(`#hero .hm-chips a[href="#focus-${id}"]`)).toHaveCount(1);
     await expect(page.locator(`article#focus-${id}`)).toHaveCount(1);
   }
 });
@@ -63,7 +65,7 @@ test('every example says whether it is live, a demo or a concept, and the filter
 
 test('the Spanish page carries the same five areas, in usted', async ({ page }) => {
   await page.goto('/es');
-  await expect(page.locator('#hero .hm-chips a')).toHaveText(
+  await expect(page.locator('.hm-rows > article h3')).toHaveText(
     ['Soluciones de IA', 'Consultoría de TI', 'Desarrollo de aplicaciones', 'Sitios web', 'Ciberseguridad']);
   await page.getByRole('tab', { name: 'TI', exact: true }).click();
   await expect(page.getByRole('tabpanel')).toContainText('Pasan a su nombre');

@@ -257,10 +257,6 @@ a.hm-twin:hover { color: var(--color-ink); }
 .hm-transcript--still { height: auto; min-height: 318px; }
 .hm-transcript--still .hm-msg { animation: none; }
 .hm-call-foot .hm-btn { text-decoration: none; }
-/* The five areas as links under the hero's lede. */
-.hm-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.hm-chips a { display: inline-flex; align-items: center; height: 34px; padding: 0 13px; border: 1px solid var(--hm-line-strong); border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--color-ink); text-decoration: none; transition: border-color .15s; }
-.hm-chips a:hover { border-color: var(--color-link); }
 .hm-done .hm-more { font-size: 15px; margin-top: 4px; }
 
 /* the work, as cards that open */

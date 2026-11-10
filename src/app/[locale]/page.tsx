@@ -114,11 +114,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <Twin text={tx('heroTitle')} locale={locale} size="display" />
             </div>
             <p className="hm-lede">{t('heroBody')}</p>
-            <ul className="hm-chips" aria-label={t('focus.chipsLabel')}>
-              {FOCUS_IDS.map((id) => (
-                <li key={id}><a href={`#focus-${id}`}>{t(`focus.${id}.title`)}</a></li>
-              ))}
-            </ul>
             <div className="hm-ctas">
               <Link href="/contact" className="hm-btn hm-btn-primary">{t('heroCta2')}</Link>
               <a href="#talk-to-sofia" className="hm-btn hm-btn-ghost">{t('heroTalk')}</a>
