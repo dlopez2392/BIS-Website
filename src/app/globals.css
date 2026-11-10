@@ -252,9 +252,11 @@ a.hm-twin:hover { color: var(--color-ink); }
 .hm-tabs button { flex: 1 0 auto; height: 40px; padding: 0 14px; border: 0; border-radius: 9px; background: transparent; cursor: pointer; font: inherit; font-size: 14.5px; font-weight: 600; color: var(--color-ink-muted); white-space: nowrap; transition: background .15s, color .15s; }
 .hm-tabs button:hover { color: var(--color-ink); }
 .hm-tabs button[aria-selected="true"] { background: var(--color-primary); color: var(--color-on-primary); }
-/* A still example has no call to scroll, so it takes the room its four
-   lines need and never less than the live call's, to keep the card steady. */
-.hm-transcript--still { height: auto; min-height: 318px; }
+/* A still example is one exchange, so its card is as tall as that needs and
+   no taller. On a wide screen the column keeps the live call's height, so
+   switching tabs changes the card and not where the headline beside it sits. */
+.hm-transcript--still { height: auto; padding-block: 18px 8px; }
+@media (min-width: 961px) { .hm-focus { min-height: 793px; align-content: start; } }
 .hm-transcript--still .hm-msg { animation: none; }
 .hm-call-foot .hm-btn { text-decoration: none; }
 .hm-done .hm-more { font-size: 15px; margin-top: 4px; }

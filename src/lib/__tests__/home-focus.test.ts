@@ -23,7 +23,7 @@ describe('the home page’s five areas', () => {
     }
   });
 
-  it('gives each still panel its three layers in both languages: four lines, a record, a strip', () => {
+  it('gives each still panel its three layers in both languages: one exchange, a record, a strip', () => {
     for (const [locale, m] of Object.entries(locales)) {
       for (const id of STILL_FOCUS_IDS) {
         const p = m.home.focus[id];

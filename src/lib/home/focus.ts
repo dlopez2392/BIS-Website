@@ -29,5 +29,8 @@ export const focusTextKeys = ['tab', 'title', 'body', 'proofK', 'proof', 'link']
 /** Extra keys the four still panels need. */
 export const focusPanelTextKeys = ['head', 'meta', 'status', 'recTitle', 'stripK', 'strip'] as const;
 
-/** A still panel shows this many lines, as the live call does. */
-export const FOCUS_PANEL_LINES = 4;
+/**
+ * A still panel shows one exchange: what the owner says, and our answer. It
+ * was four lines, as the live call shows, and read as clutter beside it.
+ */
+export const FOCUS_PANEL_LINES = 2;

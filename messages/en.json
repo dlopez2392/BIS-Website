@@ -146,9 +146,7 @@
         "status": "Example",
         "lines": [
           "Our IT guy stopped answering.",
-          "First we find out who holds every password.",
-          "And if it is him?",
-          "Then they move into your name this week."
+          "First we find out who holds every password."
         ],
         "recTitle": "What you get in week one",
         "record": [
@@ -184,9 +182,7 @@
         "status": "Example",
         "lines": [
           "We run the jobs out of three spreadsheets.",
-          "Show us a normal Tuesday and we build around it.",
-          "Will it work on the crew’s phones?",
-          "Phone first, in English y en español."
+          "Show us a normal Tuesday and we build around it."
         ],
         "recTitle": "What we have shipped",
         "record": [
@@ -222,9 +218,7 @@
         "status": "Example",
         "lines": [
           "The site looks fine. It just does not bring calls.",
-          "Then we build it to be found, and to be called from.",
-          "Half my customers write in Spanish.",
-          "Both languages from day one. Written, not machine-translated."
+          "Then we build it to be found, and to be called from."
         ],
         "recTitle": "Every site we build",
         "record": [
@@ -260,9 +254,7 @@
         "status": "Example",
         "lines": [
           "Would we even know if someone got in?",
-          "We start with what a stranger can already see.",
-          "Like what?",
-          "Whether anyone can send email pretending to be you."
+          "We start with what a stranger can already see."
         ],
         "recTitle": "What the free check reads",
         "record": [

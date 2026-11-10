@@ -6,7 +6,7 @@ import { FOCUS_IDS, type FocusId, type StillFocusId } from '@/lib/home/focus';
 
 export interface StillPanel {
   head: string; meta: string; status: string;
-  /** Owner, BIS, owner, BIS. */
+  /** One exchange: the owner, then BIS. */
   lines: string[];
   recTitle: string;
   record: { k: string; v: string }[];
