@@ -15,14 +15,15 @@ export interface ExampleCard {
 /**
  * The work, as cards a visitor can open, with a filter by area.
  *
- * Every card says what it is with a dot and a word (live, demo or concept):
- * a concept drawn with sample data sits beside a client's live site, and the
- * reader must never have to guess which is which.
+ * Every card says what it is with a dot and a word (live, client, demo or
+ * concept): a concept drawn with sample data sits beside a client's live
+ * site, and the reader must never have to guess which is which. The line
+ * under the cards says how a concept's picture was made.
  */
 export function WorkExamples({ items, areas, labels }: {
   items: ExampleCard[];
   areas: { id: FocusId; label: string }[];
-  labels: { filter: string; all: string; newTab: string };
+  labels: { filter: string; all: string; newTab: string; conceptNote: string };
 }) {
   const [area, setArea] = useState<FocusId | 'all'>('all');
   const shown = area === 'all' ? items : items.filter((x) => x.area === area);
@@ -63,6 +64,7 @@ export function WorkExamples({ items, areas, labels }: {
           );
         })}
       </ul>
+      {shown.some((x) => x.status === 'concept') ? <p className="hm-work-note" data-concept-note>{labels.conceptNote}</p> : null}
     </>
   );
 }

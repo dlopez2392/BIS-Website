@@ -200,7 +200,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="hm-lede">{t('examples.intro')}</p>
           </div>
           <WorkExamples
-            labels={{ filter: t('examples.filterLabel'), all: t('examples.all'), newTab: t('examples.newTab') }}
+            labels={{ filter: t('examples.filterLabel'), all: t('examples.all'), newTab: t('examples.newTab'), conceptNote: t('examples.conceptNote') }}
             areas={FOCUS_IDS.map((id) => ({ id, label: t(`focus.${id}.title`) }))}
             items={workExamples(locale).map((x) => ({
               ...x,

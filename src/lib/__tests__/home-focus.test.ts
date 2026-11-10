@@ -5,7 +5,7 @@ import sharp from 'sharp';
 import {
   FOCUS_IDS, STILL_FOCUS_IDS, FOCUS_LINKS, FOCUS_PANEL_LINES, focusTextKeys, focusPanelTextKeys,
 } from '../home/focus';
-import { workExamples, exampleTextKeys } from '../home/examples';
+import { workExamples, exampleTextKeys, EXAMPLE_STATUSES } from '../home/examples';
 
 const read = (f: string) => JSON.parse(fs.readFileSync(path.join(process.cwd(), 'messages', f), 'utf8'));
 const locales = { en: read('en.json'), es: read('es.json') } as const;
@@ -56,7 +56,7 @@ describe('the home page’s work examples', () => {
           expect(m.home.examples.items[x.id]?.[key], `${locale} examples.${x.id}.${key}`).toBeTruthy();
         }
       }
-      for (const status of ['live', 'demo', 'concept']) expect(m.home.examples.status[status], `${locale} ${status}`).toBeTruthy();
+      for (const status of EXAMPLE_STATUSES) expect(m.home.examples.status[status], `${locale} ${status}`).toBeTruthy();
     }
   });
 
@@ -77,6 +77,14 @@ describe('the home page’s work examples', () => {
       if (x.status === 'demo') {
         expect(en, x.id).toMatch(/fictional/);
         expect(es, x.id).toMatch(/ficticio/);
+      }
+      // "Client" is a claim about a real business: only the two the owner
+      // confirmed (2026-11-10), each said to be a client and linking to its site.
+      if (x.status === 'client') {
+        expect(['woodworks', 'rlc'], x.id).toContain(x.id);
+        expect(en, x.id).toMatch(/for a client/);
+        expect(es, x.id).toMatch(/para un cliente/);
+        expect(x.external, x.id).toBe(true);
       }
     }
   });

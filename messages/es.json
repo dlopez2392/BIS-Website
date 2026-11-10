@@ -211,7 +211,7 @@
         "title": "Sitios web",
         "body": "Sitios rápidos y modernos, en español y en inglés, que traen llamadas y citas. El dominio, el hospedaje y el código quedan a su nombre.",
         "proofK": "En línea hoy",
-        "proof": "956 Woodworks y RLC Lumber, los dos hechos aquí.",
+        "proof": "956 Woodworks y RLC Lumber, dos clientes a quienes les hicimos el sitio.",
         "link": "Ver el trabajo",
         "head": "Desarrollo de un sitio web",
         "meta": "Ejemplo · primera conversación",
@@ -281,11 +281,12 @@
     },
     "examples": {
       "title": "Trabajo que puede abrir.",
-      "intro": "Productos en línea, sitios que hicimos, demostraciones y algunos conceptos. Cada uno dice cuál es.",
+      "intro": "Productos propios, sitios de clientes, demostraciones y algunos conceptos. Cada uno dice cuál es.",
       "filterLabel": "Ver el trabajo por área",
       "all": "Todo",
       "status": {
         "live": "En línea",
+        "client": "Cliente",
         "demo": "Demostración",
         "concept": "Concepto"
       },
@@ -311,13 +312,13 @@
         },
         "woodworks": {
           "title": "956 Woodworks",
-          "body": "El sitio de un fabricante de muebles del Valle: la galería, el proceso y cómo encargar una pieza.",
+          "body": "Hecho para un cliente: la galería de un fabricante de muebles del Valle, su proceso y cómo encargar una pieza.",
           "link": "Visitar el sitio",
           "alt": "La página principal de 956 Woodworks: “Made by hand, built to outlast” sobre una pieza de nogal"
         },
         "rlc": {
           "title": "RLC Lumber",
-          "body": "El sitio de un aserradero portátil, con los precios a la vista y una calculadora de estimados.",
+          "body": "Hecho para un cliente: el sitio de un aserradero portátil, con los precios a la vista y una calculadora de estimados.",
           "link": "Visitar el sitio",
           "alt": "La página principal de RLC Lumber: “We bring the sawmill to your logs”, con precios de aserrado"
         },
@@ -343,21 +344,28 @@
           "title": "Reporte de salud de TI",
           "body": "Cómo se ve un reporte de la primera semana: cada cuenta, respaldo y equipo en una página. Datos de muestra.",
           "link": "Pregunte por consultoría de TI",
-          "alt": "Un concepto de reporte de TI de una página con cuentas, respaldos y equipos, y qué arreglar primero"
+          "alt": "Un concepto de reporte de TI de una página con qué arreglar primero, sobre una foto hecha con IA del gabinete de red de una oficina"
         },
         "conceptApp": {
           "title": "App para la cuadrilla",
           "body": "Una app de celular para los trabajos del día: fotos, firma y la factura. Un concepto, listo para construirse.",
           "link": "Pregunte por una app",
-          "alt": "Un concepto de app de celular con los trabajos del día de un técnico y una pantalla de factura"
+          "alt": "Un concepto de app de celular con los trabajos del día de un técnico, sobre una foto hecha con IA de un técnico junto a un equipo de aire acondicionado"
         },
         "conceptAi": {
           "title": "Captura de documentos con IA",
           "body": "Un formulario escaneado se vuelve un registro que su personal solo confirma. Un concepto, listo para construirse.",
           "link": "Pregunte por IA",
-          "alt": "Un concepto donde un formulario escaneado se convierte en campos estructurados, uno marcado para revisión"
+          "alt": "Un concepto donde un formulario en papel se convierte en campos, uno marcado para revisión, sobre una foto hecha con IA de una mano que llena un formulario"
+        },
+        "conceptSecurity": {
+          "title": "Simulacro de phishing para el personal",
+          "body": "Un correo de prueba, sin riesgo, muestra quién haría clic; después, una lección de diez minutos para quien lo hizo. Un concepto, listo para ponerse en marcha.",
+          "link": "Pregunte por seguridad",
+          "alt": "Un concepto de reporte de un simulacro de phishing: 12 correos de prueba, 9 reportados, 2 clics, sobre una foto hecha con IA de una encargada de oficina frente a una laptop"
         }
-      }
+      },
+      "conceptNote": "En los conceptos, la pantalla es diseño nuestro con datos de muestra, y la foto de fondo se hizo con IA."
     }
   },
   "services": {

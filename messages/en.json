@@ -211,7 +211,7 @@
         "title": "Websites",
         "body": "Fast, modern sites in English and Spanish that bring calls and bookings. The domain, the hosting and the code stay in your name.",
         "proofK": "Live now",
-        "proof": "956 Woodworks and RLC Lumber, both built here.",
+        "proof": "956 Woodworks and RLC Lumber, two clients whose sites we built.",
         "link": "See the work",
         "head": "Website build",
         "meta": "Example · first conversation",
@@ -281,11 +281,12 @@
     },
     "examples": {
       "title": "Work you can open.",
-      "intro": "Live products, sites we built, demos and a few concepts. Each one says which it is.",
+      "intro": "Our own products, client sites, demos and a few concepts. Each one says which it is.",
       "filterLabel": "Show work by area",
       "all": "All",
       "status": {
         "live": "Live",
+        "client": "Client",
         "demo": "Demo",
         "concept": "Concept"
       },
@@ -311,13 +312,13 @@
         },
         "woodworks": {
           "title": "956 Woodworks",
-          "body": "A site for a Valley furniture maker: the gallery, the process and how to commission a piece.",
+          "body": "Built for a client: a Valley furniture maker’s gallery, process and how to commission a piece.",
           "link": "Visit the site",
           "alt": "The 956 Woodworks home page: “Made by hand, built to outlast” over a walnut piece"
         },
         "rlc": {
           "title": "RLC Lumber",
-          "body": "A portable sawmill’s site with prices up front and an estimate calculator.",
+          "body": "Built for a client: a portable sawmill’s site with prices up front and an estimate calculator.",
           "link": "Visit the site",
           "alt": "The RLC Lumber home page: “We bring the sawmill to your logs”, with milling prices"
         },
@@ -343,21 +344,28 @@
           "title": "IT health report",
           "body": "What a first-week report looks like: every account, backup and device on one page. Sample data.",
           "link": "Ask about IT consulting",
-          "alt": "A concept one-page IT report listing accounts, backups and devices with what to fix first"
+          "alt": "A concept one-page IT report with what to fix first, over an AI-made photo of an office network cabinet"
         },
         "conceptApp": {
           "title": "Field crew app",
           "body": "A phone app for the day’s jobs: photos, a signature and the invoice. A concept, ready to build.",
           "link": "Ask about an app",
-          "alt": "A concept phone app showing a technician’s jobs for the day and an invoice screen"
+          "alt": "A concept phone app with a technician’s jobs for the day, over an AI-made photo of a technician at an air-conditioning unit"
         },
         "conceptAi": {
           "title": "AI document intake",
           "body": "A scanned form becomes a record your staff only confirms. A concept, ready to build.",
           "link": "Ask about AI",
-          "alt": "A concept screen where a scanned intake form becomes structured fields, one flagged for review"
+          "alt": "A concept screen where a paper intake form becomes fields, one flagged for review, over an AI-made photo of a hand filling in a form"
+        },
+        "conceptSecurity": {
+          "title": "Staff phishing drill",
+          "body": "A safe test email shows who would click, then a ten-minute lesson for those who did. A concept, ready to run.",
+          "link": "Ask about security",
+          "alt": "A concept report of a staff phishing drill: 12 test emails, 9 reported, 2 clicked, over an AI-made photo of an office manager at a laptop"
         }
-      }
+      },
+      "conceptNote": "In the concepts, the screen is our design with sample data, and the photo behind it was made with AI."
     }
   },
   "services": {

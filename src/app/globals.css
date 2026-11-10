@@ -213,7 +213,7 @@ a.hm-twin:hover { color: var(--color-ink); }
 .hm-live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-ok); flex: none; }
 .hm-live[data-ended="true"] { color: var(--color-ink-muted); }
 .hm-live[data-ended="true"] .hm-dot { background: var(--color-ink-muted); animation: none; }
-.hm-transcript { list-style: none; margin: 0; padding: 16px 18px 6px; display: flex; flex-direction: column; gap: 10px; height: 318px; overflow: hidden; justify-content: flex-end; }
+.hm-transcript { list-style: none; margin: 0; padding: 16px 18px 6px; display: flex; flex-direction: column; gap: 10px; height: 178px; overflow: hidden; justify-content: flex-end; }
 .hm-msg { display: grid; gap: 3px; max-width: 86%; animation: hm-rise .35s ease both; }
 .hm-spk { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-ink-muted); }
 .hm-txt { font-size: 15px; line-height: 1.45; padding: 9px 13px; border-radius: 12px; color: var(--color-ink); }
@@ -252,11 +252,12 @@ a.hm-twin:hover { color: var(--color-ink); }
 .hm-tabs button { flex: 1 0 auto; height: 40px; padding: 0 14px; border: 0; border-radius: 9px; background: transparent; cursor: pointer; font: inherit; font-size: 14.5px; font-weight: 600; color: var(--color-ink-muted); white-space: nowrap; transition: background .15s, color .15s; }
 .hm-tabs button:hover { color: var(--color-ink); }
 .hm-tabs button[aria-selected="true"] { background: var(--color-primary); color: var(--color-on-primary); }
-/* A still example is one exchange, so its card is as tall as that needs and
-   no taller. On a wide screen the column keeps the live call's height, so
-   switching tabs changes the card and not where the headline beside it sits. */
+/* Every tab is one exchange, the live call included, so each card is as tall
+   as that needs and no taller. On a wide screen the column keeps the tallest
+   card's height (the Spanish IT tab), so switching tabs changes the card and
+   not where the headline beside it sits. */
 .hm-transcript--still { height: auto; padding-block: 18px 8px; }
-@media (min-width: 961px) { .hm-focus { min-height: 793px; align-content: start; } }
+@media (min-width: 961px) { .hm-focus { min-height: 672px; align-content: start; } }
 .hm-transcript--still .hm-msg { animation: none; }
 .hm-call-foot .hm-btn { text-decoration: none; }
 .hm-done .hm-more { font-size: 15px; margin-top: 4px; }
@@ -280,8 +281,13 @@ a.hm-twin:hover { color: var(--color-ink); }
 .hm-ex .hm-more { font-size: 15px; margin-top: 4px; }
 .hm-stat { display: inline-flex; align-items: center; gap: 7px; flex: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-muted); }
 .hm-stat i { width: 7px; height: 7px; border-radius: 50%; background: var(--color-ok); }
+/* A client's site is live too: the same green, ringed, so the word is not the only difference. */
+.hm-ex[data-status="client"] .hm-stat i { box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 3px var(--color-ok); }
 .hm-ex[data-status="demo"] .hm-stat i { background: var(--color-accent); }
 .hm-ex[data-status="concept"] .hm-stat i { background: var(--color-link); }
+.hm-work-note { margin: 22px 0 0; font-size: 13.5px; color: var(--color-ink-muted); max-width: 62ch; }
+/* The concept pictures are composed to their centre, not to a screenshot's top left. */
+.hm-ex[data-status="concept"] .hm-ex-img img { object-position: center; }
 
 /* proof strip */
 .hm-proof { padding-block: 8px 24px; }

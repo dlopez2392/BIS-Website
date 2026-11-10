@@ -44,7 +44,7 @@ test.describe('the live call', () => {
     await expect(call).toContainText('Ended');
     await expect(call).toContainText('Booked · Thu 10–12');
     await expect(call).toContainText('4 more than the week before');
-    await expect(call.locator('.hm-msg')).toHaveCount(4);
+    await expect(call.locator('.hm-msg')).toHaveCount(2);
   });
 
   test('it plays when on screen, and EN replays the same call in English', async ({ page }) => {
@@ -54,7 +54,7 @@ test.describe('the live call', () => {
     await call.getByRole('button', { name: 'EN', exact: true }).click();
     await expect(call.getByRole('button', { name: 'EN', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await expect(call.locator('ol')).toHaveAttribute('lang', 'en');
-    await expect(call).toContainText('this is Sofía', { timeout: 10_000 });
+    await expect(call).toContainText('Shall I hold it for you?', { timeout: 10_000 });
     await expect(call).toContainText('Ended', { timeout: 20_000 });
   });
 });

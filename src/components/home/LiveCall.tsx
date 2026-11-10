@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import {
-  SAMPLE_CALLS, SAMPLE_CONTACT, MONDAY_BEFORE, MONDAY_AFTER, CALL_SECONDS, VISIBLE_LINES,
-  formatClock, finishedLines, type CallLang, type Speaker,
+  SAMPLE_CONTACT, MONDAY_BEFORE, MONDAY_AFTER, CALL_SECONDS, VISIBLE_LINES,
+  formatClock, finishedLines, heroExchange, playbackMs, type CallLang, type Speaker,
 } from '@/lib/home/calls';
 
 export interface LiveCallStrings {
@@ -46,8 +46,11 @@ class Stale extends Error {}
  * CRM record and Monday's count it leaves behind — the whole product in one
  * object, before a visitor has scrolled.
  *
+ * It plays one exchange of the sample call (the problem and the appointment
+ * offered), the same size as the four still tabs beside it in the hero.
+ *
  * It renders FINISHED on the server and for anyone who asked for reduced
- * motion: the last four lines, the record filled, the count moved. Playback is
+ * motion: that exchange, the record filled, the count moved. Playback is
  * an enhancement that starts only while the player is on screen, so a reader
  * further down the page is not paying for a typing animation they cannot see,
  * and stops the moment it scrolls away.
@@ -101,15 +104,19 @@ export function LiveCall({ strings, initialLang = 'es' }: { strings: LiveCallStr
       return last ? { ...s, lines: [...s.lines.slice(0, -1), { ...line, id: last.id }] } : s;
     });
 
+    const lines = heroExchange(lang);
+    // The clock runs at the pace that lands on the call's length as the last
+    // line finishes, so it never jumps when the call ends.
+    const step = Math.ceil(CALL_SECONDS / (playbackMs(lines) / 280));
     let secs = 0;
     const clock = setInterval(() => {
-      secs = Math.min(secs + 4, CALL_SECONDS);
+      secs = Math.min(secs + step, CALL_SECONDS);
       patch((s) => (s.ended ? s : { ...s, seconds: secs }));
     }, 280);
 
     (async () => {
       await wait(500);
-      for (const [who, text] of SAMPLE_CALLS[lang]) {
+      for (const [who, text] of lines) {
         if (who === 'sofia') {
           push({ who, text: '', typing: true });
           for (let i = 1; i <= text.length; i++) {

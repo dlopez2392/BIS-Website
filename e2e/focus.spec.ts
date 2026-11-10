@@ -41,25 +41,29 @@ test('the hero panel opens on the live call and switches to a still example per 
   await expect(panel).toContainText('Website build');
 });
 
-test('every example says whether it is live, a demo or a concept, and the filter narrows them', async ({ page }) => {
+test('every example says whether it is live, a client, a demo or a concept, and the filter narrows them', async ({ page }) => {
   await page.goto('/en');
   const cards = page.locator('[data-work-examples] > li');
-  await expect(cards).toHaveCount(11);
+  await expect(cards).toHaveCount(12);
   for (const card of await cards.all()) {
-    await expect(card.locator('.hm-stat')).toHaveText(/^(Live|Demo|Concept)$/);
+    await expect(card.locator('.hm-stat')).toHaveText(/^(Live|Client|Demo|Concept)$/);
     expect((await card.locator('img').getAttribute('alt'))?.length ?? 0).toBeGreaterThan(20);
   }
   // A concept is drawn, not delivered: its card says so and leads to a conversation.
   const concept = page.locator('[data-example="conceptIt"]');
   await expect(concept).toHaveAttribute('data-status', 'concept');
   await expect(concept.getByRole('link')).toHaveAttribute('href', '/en/contact');
-  // A site we built opens in a new tab.
+  // How a concept's picture was made is said under the cards.
+  await expect(page.locator('[data-concept-note]')).toContainText('made with AI');
+  // A client's site is named as one, and opens in a new tab.
+  await expect(page.locator('[data-example="woodworks"] .hm-stat')).toHaveText('Client');
+  await expect(page.locator('[data-example="rlc"]')).toHaveAttribute('data-status', 'client');
   const live = page.locator('[data-example="woodworks"]').getByRole('link');
   await expect(live).toHaveAttribute('href', 'https://956woodworks.com');
   await expect(live).toHaveAttribute('target', '_blank');
 
   await page.getByRole('group', { name: 'Show work by area' }).getByRole('button', { name: 'Cybersecurity' }).click();
-  await expect(cards).toHaveCount(1);
+  await expect(cards).toHaveCount(2);
   await expect(cards.first()).toContainText('Free security check');
 });
 
@@ -69,5 +73,5 @@ test('the Spanish page carries the same five areas, in usted', async ({ page }) 
     ['Soluciones de IA', 'Consultoría de TI', 'Desarrollo de aplicaciones', 'Sitios web', 'Ciberseguridad']);
   await page.getByRole('tab', { name: 'TI', exact: true }).click();
   await expect(page.getByRole('tabpanel')).toContainText('Pasan a su nombre');
-  await expect(page.locator('[data-work-examples] > li')).toHaveCount(11);
+  await expect(page.locator('[data-work-examples] > li')).toHaveCount(12);
 });
