@@ -53,9 +53,9 @@
     "navLabel": "Sitio"
   },
   "home": {
-    "heroTitle": "El sistema que mueve su negocio.",
+    "heroTitle": "IA, TI, aplicaciones, sitios web y seguridad. Un solo equipo.",
     "heroCta2": "Agende una evaluación gratuita",
-    "heroBody": "Un CRM que diseñamos para los negocios del Valle — llamadas, clientes potenciales, citas y los números del lunes en un solo lugar, en inglés y en español. Y el equipo de IT detrás.",
+    "heroBody": "Diseñamos, construimos y operamos la tecnología de la que depende un negocio del Valle, en español and in English, con un solo contacto.",
     "quote": "La tecnología de las grandes firmas nunca ha estado fuera del alcance de los negocios del Valle — simplemente nunca se construyó para ellos. Bespoke significa que empezamos con su flujo de trabajo, sus clientes, sus dos idiomas.",
     "quoteName": "Dan Lopez",
     "quoteRole": "Fundador, BIS",
@@ -118,7 +118,256 @@
     "checklistLine": "¿Todavía no quiere hablar?",
     "insightsMore": "Todos los artículos",
     "heroTalk": "Hable con Sofía",
-    "prismNewTab": "se abre en una pestaña nueva"
+    "prismNewTab": "se abre en una pestaña nueva",
+    "focus": {
+      "title": "Cinco cosas, un solo equipo.",
+      "intro": "La mayoría de los negocios terminan con un proveedor para el sitio web, otro para las computadoras y nadie para lo demás. Nosotros hacemos las cinco, así las piezas encajan y una sola persona responde por ellas.",
+      "chipsLabel": "Lo que hacemos",
+      "tabsLabel": "Vea un ejemplo de cada una",
+      "owner": "Dueño",
+      "us": "BIS",
+      "note": "Un ejemplo de cómo va la primera conversación, no las palabras de un cliente.",
+      "ai": {
+        "tab": "IA",
+        "title": "Soluciones de IA",
+        "body": "IA que contesta el teléfono, lee el papeleo y escribe el seguimiento, hecha alrededor de cómo ya trabaja su negocio. Una persona sigue a cargo de todo lo que importa.",
+        "proofK": "Funcionando hoy",
+        "proof": "Sofía, nuestra recepcionista de IA, contesta nuestra propia línea en español y en inglés y agenda en un calendario real.",
+        "link": "Hable con Sofía"
+      },
+      "it": {
+        "tab": "TI",
+        "title": "Consultoría de TI",
+        "body": "Una respuesta clara sobre lo que tiene, lo que le cuesta y qué arreglar primero. Cuentas a su nombre, respaldos que sí se restauran y una entrega por escrito que usted conserva.",
+        "proofK": "En cada proyecto",
+        "proof": "Un reporte de una página, en lenguaje claro, antes de proponer cualquier trabajo.",
+        "link": "Cómo trabajamos",
+        "head": "Revisión de TI",
+        "meta": "Ejemplo · primera conversación",
+        "status": "Ejemplo",
+        "lines": [
+          "El de sistemas ya no contesta.",
+          "Primero averiguamos quién tiene cada contraseña.",
+          "¿Y si las tiene él?",
+          "Entonces pasan a nombre de su negocio esta semana."
+        ],
+        "recTitle": "Lo que recibe la primera semana",
+        "record": [
+          {
+            "k": "Cuentas",
+            "v": "Pasan a su nombre"
+          },
+          {
+            "k": "Respaldos",
+            "v": "Restaurados una vez, para comprobarlo"
+          },
+          {
+            "k": "Equipos",
+            "v": "En lista y actualizados"
+          },
+          {
+            "k": "Reporte",
+            "v": "Una página, en lenguaje claro"
+          }
+        ],
+        "stripK": "En cada proyecto",
+        "strip": "Una entrega por escrito que usted conserva, contrate a quien contrate después."
+      },
+      "apps": {
+        "tab": "Apps",
+        "title": "Desarrollo de aplicaciones",
+        "body": "Para cuando tres hojas de cálculo ya no alcanzan: aplicaciones web y móviles hechas para la forma en que de verdad trabajan su cuadrilla, su oficina o sus clientes.",
+        "proofK": "En línea hoy",
+        "proof": "Prism, una app de finanzas personales que cualquiera puede abrir, y la BIS Platform que usan nuestros clientes.",
+        "link": "Ver la plataforma",
+        "head": "Desarrollo de una aplicación",
+        "meta": "Ejemplo · primera conversación",
+        "status": "Ejemplo",
+        "lines": [
+          "Llevamos los trabajos en tres hojas de cálculo.",
+          "Muéstrenos un martes normal y construimos alrededor de eso.",
+          "¿Va a funcionar en los celulares de la cuadrilla?",
+          "Primero el celular, en español and in English."
+        ],
+        "recTitle": "Lo que ya tenemos en línea",
+        "record": [
+          {
+            "k": "Prism",
+            "v": "App de finanzas personales, en línea"
+          },
+          {
+            "k": "BIS Platform",
+            "v": "El CRM que usan nuestros clientes"
+          },
+          {
+            "k": "Sofía",
+            "v": "Recepcionista de IA en nuestra línea"
+          },
+          {
+            "k": "Hospedaje",
+            "v": "En sus cuentas, no en las nuestras"
+          }
+        ],
+        "stripK": "En línea hoy",
+        "strip": "Abra la demo de Prism. Sin registrarse."
+      },
+      "web": {
+        "tab": "Web",
+        "title": "Sitios web",
+        "body": "Sitios rápidos y modernos, en español y en inglés, que traen llamadas y citas. El dominio, el hospedaje y el código quedan a su nombre.",
+        "proofK": "En línea hoy",
+        "proof": "956 Woodworks y RLC Lumber, los dos hechos aquí.",
+        "link": "Ver el trabajo",
+        "head": "Desarrollo de un sitio web",
+        "meta": "Ejemplo · primera conversación",
+        "status": "Ejemplo",
+        "lines": [
+          "El sitio se ve bien. Nada más no trae llamadas.",
+          "Entonces lo hacemos para que lo encuentren y le llamen desde ahí.",
+          "La mitad de mis clientes escribe en español.",
+          "Los dos idiomas desde el primer día. Escritos, no traducidos por máquina."
+        ],
+        "recTitle": "En cada sitio que hacemos",
+        "record": [
+          {
+            "k": "Idiomas",
+            "v": "Español e inglés"
+          },
+          {
+            "k": "Velocidad",
+            "v": "Hecho para cargar rápido en un celular"
+          },
+          {
+            "k": "Propiedad",
+            "v": "Dominio, hospedaje y código a su nombre"
+          },
+          {
+            "k": "Citas",
+            "v": "Calendario y formularios integrados"
+          }
+        ],
+        "stripK": "En línea hoy",
+        "strip": "956 Woodworks y RLC Lumber."
+      },
+      "security": {
+        "tab": "Seguridad",
+        "title": "Ciberseguridad",
+        "body": "Encontramos lo que un extraño ya puede ver, lo cerramos y nos quedamos vigilando: correo que no se puede falsificar, accesos de dos pasos y personal que sabe reconocer un enlace malo.",
+        "proofK": "Herramienta gratuita",
+        "proof": "Nuestra revisión de seguridad lee los registros públicos de su dominio y le dice qué arreglar primero.",
+        "link": "Revise su sitio",
+        "head": "Revisión de seguridad",
+        "meta": "Ejemplo · primera conversación",
+        "status": "Ejemplo",
+        "lines": [
+          "¿Nos daríamos cuenta si alguien entrara?",
+          "Empezamos por lo que un extraño ya puede ver.",
+          "¿Como qué?",
+          "Si alguien puede mandar correo haciéndose pasar por usted."
+        ],
+        "recTitle": "Lo que lee la revisión gratuita",
+        "record": [
+          {
+            "k": "Correo",
+            "v": "¿Se puede falsificar su dirección?"
+          },
+          {
+            "k": "Sitio web",
+            "v": "¿Está protegida la conexión?"
+          },
+          {
+            "k": "Acceso",
+            "v": "Solo registros públicos. No se entra a nada"
+          },
+          {
+            "k": "Resultado",
+            "v": "Qué arreglar primero, en palabras claras"
+          }
+        ],
+        "stripK": "Herramienta gratuita",
+        "strip": "Como un minuto. Sin registrarse."
+      }
+    },
+    "examples": {
+      "title": "Trabajo que puede abrir.",
+      "intro": "Productos en línea, sitios que hicimos, demostraciones y algunos conceptos. Cada uno dice cuál es.",
+      "filterLabel": "Ver el trabajo por área",
+      "all": "Todo",
+      "status": {
+        "live": "En línea",
+        "demo": "Demostración",
+        "concept": "Concepto"
+      },
+      "newTab": "se abre en una pestaña nueva",
+      "items": {
+        "sofia": {
+          "title": "Sofía, recepcionista de IA",
+          "body": "Contesta nuestra línea real en español y en inglés, agenda citas y deja cada llamada por escrito.",
+          "link": "Leer el caso",
+          "alt": "Una llamada atendida por Sofía en español, con su transcripción y resumen, en la BIS Platform"
+        },
+        "platform": {
+          "title": "BIS Platform",
+          "body": "El CRM que usan nuestros clientes: llamadas, clientes potenciales, citas y un reporte cada lunes.",
+          "link": "Ver el recorrido",
+          "alt": "El panel de la BIS Platform de la cuenta de demostración Resaca Air"
+        },
+        "prism": {
+          "title": "Prism",
+          "body": "Una app de finanzas personales que diseñamos, construimos y operamos. La demo se abre sin cuenta. Por ahora está solo en inglés.",
+          "link": "Abrir la demo",
+          "alt": "El resumen de Prism: patrimonio, lo que es seguro gastar y el gasto del mes"
+        },
+        "woodworks": {
+          "title": "956 Woodworks",
+          "body": "El sitio de un fabricante de muebles del Valle: la galería, el proceso y cómo encargar una pieza.",
+          "link": "Visitar el sitio",
+          "alt": "La página principal de 956 Woodworks: “Made by hand, built to outlast” sobre una pieza de nogal"
+        },
+        "rlc": {
+          "title": "RLC Lumber",
+          "body": "El sitio de un aserradero portátil, con los precios a la vista y una calculadora de estimados.",
+          "link": "Visitar el sitio",
+          "alt": "La página principal de RLC Lumber: “We bring the sawmill to your logs”, con precios de aserrado"
+        },
+        "vela": {
+          "title": "Vela & Ortiz",
+          "body": "Un sitio bilingüe de un despacho de abogados, hecho para mostrar lo que es posible. El despacho es ficticio, y el sitio lo dice.",
+          "link": "Abrir la demo",
+          "alt": "El sitio de demostración Vela & Ortiz: la página principal de un despacho de lesiones personales"
+        },
+        "sunroom": {
+          "title": "Sunroom Early Learning",
+          "body": "Un sitio bilingüe de una guardería, con su propio asistente de IA. El negocio es ficticio, y el sitio lo dice.",
+          "link": "Abrir la demo",
+          "alt": "El sitio de demostración Sunroom: la página principal de una guardería con un asistente “Ask Sunroom”"
+        },
+        "securityCheck": {
+          "title": "Revisión de seguridad gratuita",
+          "body": "Escriba una dirección web y vea si su correo se puede falsificar y qué arreglar primero.",
+          "link": "Hacer la revisión",
+          "alt": "La revisión gratuita de seguridad de sitio web y correo de este sitio"
+        },
+        "conceptIt": {
+          "title": "Reporte de salud de TI",
+          "body": "Cómo se ve un reporte de la primera semana: cada cuenta, respaldo y equipo en una página. Datos de muestra.",
+          "link": "Pregunte por consultoría de TI",
+          "alt": "Un concepto de reporte de TI de una página con cuentas, respaldos y equipos, y qué arreglar primero"
+        },
+        "conceptApp": {
+          "title": "App para la cuadrilla",
+          "body": "Una app de celular para los trabajos del día: fotos, firma y la factura. Un concepto, listo para construirse.",
+          "link": "Pregunte por una app",
+          "alt": "Un concepto de app de celular con los trabajos del día de un técnico y una pantalla de factura"
+        },
+        "conceptAi": {
+          "title": "Captura de documentos con IA",
+          "body": "Un formulario escaneado se vuelve un registro que su personal solo confirma. Un concepto, listo para construirse.",
+          "link": "Pregunte por IA",
+          "alt": "Un concepto donde un formulario escaneado se convierte en campos estructurados, uno marcado para revisión"
+        }
+      }
+    }
   },
   "services": {
     "title": "Qué hacemos.",
@@ -708,7 +957,7 @@
     "description": "BIS crea su propio CRM para negocios del Valle del Río Grande y el IT detrás — adopción de IA, seguridad, web moderna. Bilingüe, un solo punto de contacto.",
     "notFound": "Página no encontrada",
     "notFoundCta": "Volver al inicio",
-    "homeDescription": "Un CRM hecho para los negocios del Valle del Río Grande — llamadas, clientes potenciales, citas y reportes en un solo lugar, EN/ES — y el equipo de IT detrás.",
+    "homeDescription": "Soluciones de IA, consultoría de TI, aplicaciones a la medida, sitios web y ciberseguridad para negocios del Valle, con un equipo bilingüe en Harlingen.",
     "servicesTitle": "Servicios — IA, Seguridad IT y Diseño Web",
     "servicesDescription": "IA y automatización, IT y seguridad, y sitios web bilingües para negocios del Valle del Río Grande — un solo contacto, con la Plataforma BIS.",
     "industriesTitle": "Industrias — Hecho para el Valle",

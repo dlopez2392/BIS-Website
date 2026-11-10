@@ -7,14 +7,14 @@ import { test, expect } from '@playwright/test';
  */
 test('home renders its headline in EN and ES, each with the other language\'s twin linking across', async ({ page }) => {
   await page.goto('/en');
-  await expect(page.getByRole('heading', { level: 1, name: 'The system your business runs on.' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'AI, IT, apps, websites and security. One team.' })).toBeVisible();
   const twin = page.locator('#hero a[data-twin]');
-  await expect(twin).toHaveText('El sistema que mueve su negocio.');
+  await expect(twin).toHaveText('IA, TI, aplicaciones, sitios web y seguridad. Un solo equipo.');
   await expect(twin).toHaveAttribute('lang', 'es');
   await twin.click();
   await expect(page).toHaveURL(/\/es$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'El sistema que mueve su negocio.' })).toBeVisible();
-  await expect(page.locator('#hero a[data-twin]')).toHaveText('The system your business runs on.');
+  await expect(page.getByRole('heading', { level: 1, name: 'IA, TI, aplicaciones, sitios web y seguridad. Un solo equipo.' })).toBeVisible();
+  await expect(page.locator('#hero a[data-twin]')).toHaveText('AI, IT, apps, websites and security. One team.');
 });
 
 test('the hero offers one booking button and a way to Sofía, and says who answers the phone', async ({ page }) => {

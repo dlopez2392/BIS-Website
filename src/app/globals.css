@@ -243,6 +243,48 @@ a.hm-twin:hover { color: var(--color-ink); }
 .hm-seg button { border: 0; background: transparent; padding: 4px 9px; border-radius: 7px; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600; color: var(--color-ink-muted); transition: background .15s, color .15s; }
 .hm-seg button[aria-pressed="true"] { background: var(--hm-raise-2); color: var(--color-ink); }
 
+/* The hero's object, once per thing we do: a row of tabs over the same
+   three-layer card (FocusPanel). The tabs are the page's five claims, so
+   they read as a control, not as decoration. */
+.hm-focus { display: grid; gap: 12px; min-width: 0; }
+.hm-tabs { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--hm-line-strong); border-radius: 13px; background: color-mix(in oklab, var(--color-surface-alt) 72%, transparent); overflow-x: auto; scrollbar-width: none; }
+.hm-tabs::-webkit-scrollbar { display: none; }
+.hm-tabs button { flex: 1 0 auto; height: 40px; padding: 0 14px; border: 0; border-radius: 9px; background: transparent; cursor: pointer; font: inherit; font-size: 14.5px; font-weight: 600; color: var(--color-ink-muted); white-space: nowrap; transition: background .15s, color .15s; }
+.hm-tabs button:hover { color: var(--color-ink); }
+.hm-tabs button[aria-selected="true"] { background: var(--color-primary); color: var(--color-on-primary); }
+/* A still example has no call to scroll, so it takes the room its four
+   lines need and never less than the live call's, to keep the card steady. */
+.hm-transcript--still { height: auto; min-height: 318px; }
+.hm-transcript--still .hm-msg { animation: none; }
+.hm-call-foot .hm-btn { text-decoration: none; }
+/* The five areas as links under the hero's lede. */
+.hm-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hm-chips a { display: inline-flex; align-items: center; height: 34px; padding: 0 13px; border: 1px solid var(--hm-line-strong); border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--color-ink); text-decoration: none; transition: border-color .15s; }
+.hm-chips a:hover { border-color: var(--color-link); }
+.hm-done .hm-more { font-size: 15px; margin-top: 4px; }
+
+/* the work, as cards that open */
+.hm-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.hm-filter button { height: 36px; padding: 0 14px; border: 1px solid var(--hm-line-strong); border-radius: 999px; background: transparent; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; color: var(--color-ink-muted); transition: background .15s, color .15s, border-color .15s; }
+.hm-filter button:hover { color: var(--color-ink); }
+.hm-filter button[aria-pressed="true"] { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-on-primary); }
+.hm-work { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 960px) { .hm-work { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .hm-work { grid-template-columns: 1fr; } }
+.hm-ex { display: grid; grid-template-rows: auto 1fr; min-width: 0; overflow: hidden; border: 1px solid var(--color-hairline); border-radius: var(--hm-r-obj); background: color-mix(in oklab, var(--color-surface-alt) 88%, transparent); }
+.hm-ex-img { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--color-hairline); background: var(--color-surface-alt); }
+.hm-ex-img img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.hm-ex-body { display: grid; gap: 9px; align-content: start; padding: 18px 20px 20px; }
+.hm-ex-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.hm-ex-meta .hm-k { font-size: 11px; }
+.hm-ex h3 { margin: 0; font-size: 1.2rem; font-weight: 700; letter-spacing: -.015em; color: var(--color-ink); }
+.hm-ex p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-ink-muted); }
+.hm-ex .hm-more { font-size: 15px; margin-top: 4px; }
+.hm-stat { display: inline-flex; align-items: center; gap: 7px; flex: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-muted); }
+.hm-stat i { width: 7px; height: 7px; border-radius: 50%; background: var(--color-ok); }
+.hm-ex[data-status="demo"] .hm-stat i { background: var(--color-accent); }
+.hm-ex[data-status="concept"] .hm-stat i { background: var(--color-link); }
+
 /* proof strip */
 .hm-proof { padding-block: 8px 24px; }
 .hm-proof ul { list-style: none; margin: 0; padding: 18px 0; display: flex; flex-wrap: wrap; gap: 14px 40px; border-block: 1px solid var(--color-hairline); }

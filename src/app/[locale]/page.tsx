@@ -5,7 +5,8 @@ import { AdFilm } from '@/components/work/AdFilm';
 import { FounderPortrait } from '@/components/marketing/FounderPortrait';
 import { InlineBooking } from '@/components/platform/InlineBooking';
 import { SignalRibbon } from '@/components/home/SignalRibbon';
-import { LiveCall } from '@/components/home/LiveCall';
+import { FocusPanel, type StillPanel } from '@/components/home/FocusPanel';
+import { WorkExamples } from '@/components/home/WorkExamples';
 import { HotspotShot } from '@/components/home/HotspotShot';
 import { SofiaSection } from '@/components/home/SofiaSection';
 import { Twin } from '@/components/home/Twin';
@@ -17,7 +18,8 @@ import { business } from '@/lib/seo/business';
 import { formatUsPhone, telHref } from '@/lib/phone';
 import { pageMetadata } from '@/lib/seo/metadata';
 import { listPosts, formatDate } from '@/lib/insights';
-import { SERVICE_GROUP_IDS } from '@/lib/service-groups';
+import { FOCUS_IDS, FOCUS_LINKS, STILL_FOCUS_IDS, type FocusId, type StillFocusId } from '@/lib/home/focus';
+import { workExamples } from '@/lib/home/examples';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -77,8 +79,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const cc = await getTranslations('contact');
   const mc = await getTranslations('missedCalls');
   const mcx = await getTranslations({ locale: other, namespace: 'missedCalls' });
-  const s = await getTranslations('services');
-  const sx = await getTranslations({ locale: other, namespace: 'services' });
   const p = await getTranslations({ locale, namespace: 'platform' });
   const r = await getTranslations({ locale, namespace: 'resources' });
   const w = await getTranslations({ locale, namespace: 'work' });
@@ -87,6 +87,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const phone = formatUsPhone(business.phone);
   const tel = telHref(business.phone);
   const withPhoto = hasPhoto('founder');
+
+  // An area's link is either a section of this page or another page.
+  const here = (href: string) => (href.startsWith('/#') ? href.slice(1) : null);
+  const focusTabs = Object.fromEntries(
+    FOCUS_IDS.map((id) => [id, { tab: t(`focus.${id}.tab`), title: t(`focus.${id}.title`) }]),
+  ) as Record<FocusId, { tab: string; title: string }>;
+  const focusPanels = Object.fromEntries(STILL_FOCUS_IDS.map((id) => [id, {
+    head: t(`focus.${id}.head`), meta: t(`focus.${id}.meta`), status: t(`focus.${id}.status`),
+    lines: t.raw(`focus.${id}.lines`) as string[],
+    recTitle: t(`focus.${id}.recTitle`),
+    record: t.raw(`focus.${id}.record`) as { k: string; v: string }[],
+    stripK: t(`focus.${id}.stripK`), strip: t(`focus.${id}.strip`),
+    cta: t(`focus.${id}.link`), href: FOCUS_LINKS[id],
+  }])) as Record<StillFocusId, StillPanel>;
 
   return (
     <main className="hm">
@@ -100,6 +114,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <Twin text={tx('heroTitle')} locale={locale} size="display" />
             </div>
             <p className="hm-lede">{t('heroBody')}</p>
+            <ul className="hm-chips" aria-label={t('focus.chipsLabel')}>
+              {FOCUS_IDS.map((id) => (
+                <li key={id}><a href={`#focus-${id}`}>{t(`focus.${id}.title`)}</a></li>
+              ))}
+            </ul>
             <div className="hm-ctas">
               <Link href="/contact" className="hm-btn hm-btn-primary">{t('heroCta2')}</Link>
               <a href="#talk-to-sofia" className="hm-btn hm-btn-ghost">{t('heroTalk')}</a>
@@ -109,14 +128,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <span>{t('statusLine', { phone })}</span>
             </p>
           </div>
-          <LiveCall
+          <FocusPanel
             strings={{
+              tabsLabel: t('focus.tabsLabel'), owner: t('focus.owner'), us: t('focus.us'), note: t('focus.note'),
+              tabs: focusTabs,
+              panels: focusPanels,
+              call: {
               label: t('call.label'), business: t('call.business'), live: t('call.live'), ended: t('call.ended'),
               meta: t('call.meta'), crmTitle: t('call.crmTitle'), crmContact: t('call.crmContact'),
               crmNeed: t('call.crmNeed'), crmLang: t('call.crmLang'), crmOutcome: t('call.crmOutcome'),
               crmBooked: t('call.crmBooked'), need: t('call.need'), langEs: t('call.langEs'), langEn: t('call.langEn'),
               mondayK: t('call.mondayK'), mondayCalls: t('call.mondayCalls'), mondayDelta: t('call.mondayDelta'),
               note: t('call.note'), replay: t('call.replay'), langLabel: t('call.langLabel'), caller: t('call.caller'),
+            },
             }}
           />
         </div>
@@ -129,6 +153,70 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <li><strong>EN / ES</strong><span>{t('proof2')}</span></li>
             <li><strong>Harlingen, TX</strong><span>{t('proof3')}</span></li>
           </ul>
+        </div>
+      </section>
+
+      <section id="services" data-ask-section="services" className="hm-sec">
+        <div className="hm-wrap">
+          <div className="hm-head">
+            <div>
+              <h2 className="hm-h2">{t('focus.title')}</h2>
+              <Twin text={tx('focus.title')} locale={locale} size="h2" hash="services" />
+            </div>
+            <p className="hm-lede">{t('focus.intro')}</p>
+          </div>
+          <div className="hm-rows">
+            {FOCUS_IDS.map((id) => {
+              const anchor = here(FOCUS_LINKS[id]);
+              const label = <>{t(`focus.${id}.link`)} <span aria-hidden="true">→</span></>;
+              return (
+                <article key={id} id={`focus-${id}`} className="hm-row">
+                  <div>
+                    <h3>{t(`focus.${id}.title`)}</h3>
+                    <Twin text={tx(`focus.${id}.title`)} locale={locale} size="h3" as="text" />
+                  </div>
+                  <p>{t(`focus.${id}.body`)}</p>
+                  <div className="hm-done">
+                    <span className="hm-k">{t(`focus.${id}.proofK`)}</span>
+                    <p>{t(`focus.${id}.proof`)}</p>
+                    {anchor
+                      ? <a href={anchor} className="hm-more">{label}</a>
+                      : <Link href={FOCUS_LINKS[id]} className="hm-more">{label}</Link>}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <p className="mt-7">
+            <Link href="/services" className="hm-more">{t('svcMore')} <span aria-hidden="true">→</span></Link>
+          </p>
+        </div>
+      </section>
+
+      {/* The work, straight after the claim: every area above points at
+          something here that can be opened. */}
+      <section id="work" data-ask-section="services" className="hm-sec">
+        <div className="hm-wrap">
+          <div className="hm-head">
+            <div>
+              <h2 className="hm-h2">{t('examples.title')}</h2>
+              <Twin text={tx('examples.title')} locale={locale} size="h2" hash="work" />
+            </div>
+            <p className="hm-lede">{t('examples.intro')}</p>
+          </div>
+          <WorkExamples
+            labels={{ filter: t('examples.filterLabel'), all: t('examples.all'), newTab: t('examples.newTab') }}
+            areas={FOCUS_IDS.map((id) => ({ id, label: t(`focus.${id}.title`) }))}
+            items={workExamples(locale).map((x) => ({
+              ...x,
+              areaLabel: t(`focus.${x.area}.title`),
+              statusLabel: t(`examples.status.${x.status}`),
+              title: t(`examples.items.${x.id}.title`),
+              body: t(`examples.items.${x.id}.body`),
+              link: t(`examples.items.${x.id}.link`),
+              alt: t(`examples.items.${x.id}.alt`),
+            }))}
+          />
         </div>
       </section>
 
@@ -159,36 +247,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               }))}
             />
           ) : null}
-        </div>
-      </section>
-
-      <section id="services" data-ask-section="services" className="hm-sec">
-        <div className="hm-wrap">
-          <div className="hm-head">
-            <div>
-              <h2 className="hm-h2">{s('title')}</h2>
-              <Twin text={sx('title')} locale={locale} size="h2" hash="services" />
-            </div>
-            <p className="hm-lede">{s('intro')}</p>
-          </div>
-          <div className="hm-rows">
-            {SERVICE_GROUP_IDS.map((id) => (
-              <article key={id} className="hm-row">
-                <div>
-                  <h3>{s(`${id}Title`)}</h3>
-                  <Twin text={sx(`${id}Title`)} locale={locale} size="h3" as="text" />
-                </div>
-                <p>{s(`${id}Body`)}</p>
-                <div className="hm-done">
-                  <span className="hm-k">{id === 'g3' ? t('kEveryBuild') : t('kDelivered')}</span>
-                  <p>{s(`${id}Proof`)}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="mt-7">
-            <Link href="/services" className="hm-more">{t('svcMore')} <span aria-hidden="true">→</span></Link>
-          </p>
         </div>
       </section>
 
