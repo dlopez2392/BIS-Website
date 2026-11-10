@@ -7,14 +7,14 @@ import { test, expect } from '@playwright/test';
  */
 test('home renders its headline in EN and ES, each with the other language\'s twin linking across', async ({ page }) => {
   await page.goto('/en');
-  await expect(page.getByRole('heading', { level: 1, name: 'The system your business runs on.' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'The technology your business runs on.' })).toBeVisible();
   const twin = page.locator('#hero a[data-twin]');
-  await expect(twin).toHaveText('El sistema que mueve su negocio.');
+  await expect(twin).toHaveText('La tecnología que mueve su negocio.');
   await expect(twin).toHaveAttribute('lang', 'es');
   await twin.click();
   await expect(page).toHaveURL(/\/es$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'El sistema que mueve su negocio.' })).toBeVisible();
-  await expect(page.locator('#hero a[data-twin]')).toHaveText('The system your business runs on.');
+  await expect(page.getByRole('heading', { level: 1, name: 'La tecnología que mueve su negocio.' })).toBeVisible();
+  await expect(page.locator('#hero a[data-twin]')).toHaveText('The technology your business runs on.');
 });
 
 test('the hero offers one booking button and a way to Sofía, and says who answers the phone', async ({ page }) => {
@@ -44,7 +44,7 @@ test.describe('the live call', () => {
     await expect(call).toContainText('Ended');
     await expect(call).toContainText('Booked · Thu 10–12');
     await expect(call).toContainText('4 more than the week before');
-    await expect(call.locator('.hm-msg')).toHaveCount(4);
+    await expect(call.locator('.hm-msg')).toHaveCount(2);
   });
 
   test('it plays when on screen, and EN replays the same call in English', async ({ page }) => {
@@ -54,7 +54,7 @@ test.describe('the live call', () => {
     await call.getByRole('button', { name: 'EN', exact: true }).click();
     await expect(call.getByRole('button', { name: 'EN', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await expect(call.locator('ol')).toHaveAttribute('lang', 'en');
-    await expect(call).toContainText('this is Sofía', { timeout: 10_000 });
+    await expect(call).toContainText('Shall I hold it for you?', { timeout: 10_000 });
     await expect(call).toContainText('Ended', { timeout: 20_000 });
   });
 });

@@ -40,14 +40,28 @@ export const MONDAY_BEFORE = 18;
 export const MONDAY_AFTER = 19;
 /** What the call's timer reads when it ends. */
 export const CALL_SECONDS = 112;
-/** The transcript keeps the last few lines in view, as a phone screen would. */
-export const VISIBLE_LINES = 5;
+/**
+ * The hero card plays ONE exchange of that call, like the four tabs beside
+ * it: the caller's problem and the appointment Sofía offers. They are the
+ * call's own words, picked by position, never a rewrite.
+ */
+const HERO_EXCHANGE = [1, 4] as const;
+export function heroExchange(lang: CallLang): readonly CallLine[] {
+  return HERO_EXCHANGE.map((i) => SAMPLE_CALLS[lang][i]);
+}
+/** The transcript shows that exchange and nothing else. */
+export const VISIBLE_LINES = HERO_EXCHANGE.length;
 
 export function formatClock(seconds: number): string {
   return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
 }
 
-/** The lines the finished call shows: its last four, as the reduced-motion and server render. */
+/** The lines the finished call shows, as the reduced-motion and server render. */
 export function finishedLines(lang: CallLang): readonly CallLine[] {
-  return SAMPLE_CALLS[lang].slice(-4);
+  return heroExchange(lang);
+}
+
+/** Roughly how long the exchange takes to play, so the call's clock can keep pace with it. */
+export function playbackMs(lines: readonly CallLine[]): number {
+  return lines.reduce((ms, [who, text]) => ms + (who === 'sofia' ? text.length * 20 + 520 : 420 + 380), 500);
 }

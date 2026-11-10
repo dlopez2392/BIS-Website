@@ -53,9 +53,9 @@
     "navLabel": "Site"
   },
   "home": {
-    "heroTitle": "The system your business runs on.",
+    "heroTitle": "The technology your business runs on.",
     "heroCta2": "Book a free assessment",
-    "heroBody": "A CRM we designed for Valley businesses — calls, leads, bookings and Monday’s numbers in one place, in English y en español. Plus the IT team behind it.",
+    "heroBody": "AI, IT, apps, websites and security, from one bilingual team in the Valley.",
     "quote": "Big-firm technology has never been out of reach for Valley businesses — it's just never been built for them. Bespoke means we start with your workflow, your customers, your two languages.",
     "quoteName": "Dan Lopez",
     "quoteRole": "Founder, BIS",
@@ -118,7 +118,255 @@
     "checklistLine": "Not ready to talk yet?",
     "insightsMore": "All insights",
     "heroTalk": "Talk to Sofía",
-    "prismNewTab": "opens in a new tab"
+    "prismNewTab": "opens in a new tab",
+    "focus": {
+      "title": "Five things, one team.",
+      "intro": "Most businesses end up with one vendor for the website, another for the computers and nobody for the rest. We do all five, so the pieces fit and one person answers for them.",
+      "tabsLabel": "See an example of each",
+      "owner": "Owner",
+      "us": "BIS",
+      "note": "An example of how the first conversation goes, not a client’s words.",
+      "ai": {
+        "tab": "AI",
+        "title": "AI Solutions",
+        "body": "AI that answers the phone, reads the paperwork and writes the follow-up, built around how your business already works. A person stays in charge of anything that matters.",
+        "proofK": "Running now",
+        "proof": "Sofía, our AI receptionist, answers our own line in English and Spanish and books onto a real calendar.",
+        "link": "Talk to Sofía"
+      },
+      "it": {
+        "tab": "IT",
+        "title": "IT Consulting",
+        "body": "A straight answer on what you have, what it costs you and what to fix first. Accounts in your name, backups that restore, and a written handoff you keep.",
+        "proofK": "Every engagement",
+        "proof": "A one-page report in plain language before any work is proposed.",
+        "link": "How we work",
+        "head": "IT review",
+        "meta": "Example · first conversation",
+        "status": "Example",
+        "lines": [
+          "Our IT guy stopped answering.",
+          "First we find out who holds every password."
+        ],
+        "recTitle": "What you get in week one",
+        "record": [
+          {
+            "k": "Accounts",
+            "v": "Moved into your name"
+          },
+          {
+            "k": "Backups",
+            "v": "Restored once, to prove it"
+          },
+          {
+            "k": "Devices",
+            "v": "Listed and updated"
+          },
+          {
+            "k": "Report",
+            "v": "One page, plain language"
+          }
+        ],
+        "stripK": "Every engagement",
+        "strip": "A written handoff you keep, whoever you hire next."
+      },
+      "apps": {
+        "tab": "Apps",
+        "title": "Application Development",
+        "body": "For when three spreadsheets stop being enough: web and mobile apps built for the way your crew, your office or your customers actually work.",
+        "proofK": "Live now",
+        "proof": "Prism, a personal finance app anyone can open, and the BIS Platform our clients run on.",
+        "link": "See the platform",
+        "head": "Application build",
+        "meta": "Example · first conversation",
+        "status": "Example",
+        "lines": [
+          "We run the jobs out of three spreadsheets.",
+          "Show us a normal Tuesday and we build around it."
+        ],
+        "recTitle": "What we have shipped",
+        "record": [
+          {
+            "k": "Prism",
+            "v": "Personal finance app, live"
+          },
+          {
+            "k": "BIS Platform",
+            "v": "The CRM our clients run on"
+          },
+          {
+            "k": "Sofía",
+            "v": "AI receptionist on our own line"
+          },
+          {
+            "k": "Hosting",
+            "v": "In your accounts, not ours"
+          }
+        ],
+        "stripK": "Live now",
+        "strip": "Open Prism’s demo. No sign-up."
+      },
+      "web": {
+        "tab": "Web",
+        "title": "Websites",
+        "body": "Fast, modern sites in English and Spanish that bring calls and bookings. The domain, the hosting and the code stay in your name.",
+        "proofK": "Live now",
+        "proof": "956 Woodworks and RLC Lumber, two clients whose sites we built.",
+        "link": "See the work",
+        "head": "Website build",
+        "meta": "Example · first conversation",
+        "status": "Example",
+        "lines": [
+          "The site looks fine. It just does not bring calls.",
+          "Then we build it to be found, and to be called from."
+        ],
+        "recTitle": "Every site we build",
+        "record": [
+          {
+            "k": "Languages",
+            "v": "English and Spanish"
+          },
+          {
+            "k": "Speed",
+            "v": "Built to load fast on a phone"
+          },
+          {
+            "k": "Ownership",
+            "v": "Domain, hosting and code in your name"
+          },
+          {
+            "k": "Booking",
+            "v": "Calendar and forms built in"
+          }
+        ],
+        "stripK": "Live now",
+        "strip": "956 Woodworks and RLC Lumber."
+      },
+      "security": {
+        "tab": "Security",
+        "title": "Cybersecurity",
+        "body": "We find what an outsider can already see, close it, and keep watch: email that cannot be faked, sign-ins that need two steps, and staff who know what a bad link looks like.",
+        "proofK": "Free tool",
+        "proof": "Our security check reads your domain’s public records and tells you what to fix first.",
+        "link": "Check your site",
+        "head": "Security review",
+        "meta": "Example · first conversation",
+        "status": "Example",
+        "lines": [
+          "Would we even know if someone got in?",
+          "We start with what a stranger can already see."
+        ],
+        "recTitle": "What the free check reads",
+        "record": [
+          {
+            "k": "Email",
+            "v": "Can your address be faked?"
+          },
+          {
+            "k": "Website",
+            "v": "Is the connection protected?"
+          },
+          {
+            "k": "Access",
+            "v": "Public records only. Nothing is logged into"
+          },
+          {
+            "k": "Result",
+            "v": "What to fix first, in plain words"
+          }
+        ],
+        "stripK": "Free tool",
+        "strip": "About a minute. No sign-up."
+      }
+    },
+    "examples": {
+      "title": "Work you can open.",
+      "intro": "Our own products, client sites, demos and a few concepts. Each one says which it is.",
+      "filterLabel": "Show work by area",
+      "all": "All",
+      "status": {
+        "live": "Live",
+        "client": "Client",
+        "demo": "Demo",
+        "concept": "Concept"
+      },
+      "newTab": "opens in a new tab",
+      "items": {
+        "sofia": {
+          "title": "Sofía, AI receptionist",
+          "body": "Answers our real phone line in English and Spanish, books appointments and writes up every call.",
+          "link": "Read the case",
+          "alt": "A call answered by Sofía in Spanish, with its transcript and summary, in the BIS Platform"
+        },
+        "platform": {
+          "title": "BIS Platform",
+          "body": "The CRM our clients run on: calls, leads, bookings and a report every Monday.",
+          "link": "Take the tour",
+          "alt": "The BIS Platform dashboard for the Resaca Air demo account"
+        },
+        "prism": {
+          "title": "Prism",
+          "body": "A personal finance app we designed, built and run. The demo opens without an account.",
+          "link": "Open the demo",
+          "alt": "Prism’s overview: net worth, what is safe to spend and this month’s spending"
+        },
+        "woodworks": {
+          "title": "956 Woodworks",
+          "body": "Built for a client: a Valley furniture maker’s gallery, process and how to commission a piece.",
+          "link": "Visit the site",
+          "alt": "The 956 Woodworks home page: “Made by hand, built to outlast” over a walnut piece"
+        },
+        "rlc": {
+          "title": "RLC Lumber",
+          "body": "Built for a client: a portable sawmill’s site with prices up front and an estimate calculator.",
+          "link": "Visit the site",
+          "alt": "The RLC Lumber home page: “We bring the sawmill to your logs”, with milling prices"
+        },
+        "vela": {
+          "title": "Vela & Ortiz",
+          "body": "A bilingual law-firm site built to show what is possible. The firm is fictional, and the site says so.",
+          "link": "Open the demo",
+          "alt": "The Vela & Ortiz demo site: a personal injury firm’s home page"
+        },
+        "sunroom": {
+          "title": "Sunroom Early Learning",
+          "body": "A bilingual childcare site with its own AI assistant. The business is fictional, and the site says so.",
+          "link": "Open the demo",
+          "alt": "The Sunroom demo site: a childcare studio’s home page with an “Ask Sunroom” assistant"
+        },
+        "securityCheck": {
+          "title": "Free security check",
+          "body": "Type a web address and see whether your email can be faked and what to fix first.",
+          "link": "Run the check",
+          "alt": "The free website and email security check on this site"
+        },
+        "conceptIt": {
+          "title": "IT health report",
+          "body": "What a first-week report looks like: every account, backup and device on one page. Sample data.",
+          "link": "Ask about IT consulting",
+          "alt": "A concept one-page IT report with what to fix first, over an AI-made photo of an office network cabinet"
+        },
+        "conceptApp": {
+          "title": "Field crew app",
+          "body": "A phone app for the day’s jobs: photos, a signature and the invoice. A concept, ready to build.",
+          "link": "Ask about an app",
+          "alt": "A concept phone app with a technician’s jobs for the day, over an AI-made photo of a technician at an air-conditioning unit"
+        },
+        "conceptAi": {
+          "title": "AI document intake",
+          "body": "A scanned form becomes a record your staff only confirms. A concept, ready to build.",
+          "link": "Ask about AI",
+          "alt": "A concept screen where a paper intake form becomes fields, one flagged for review, over an AI-made photo of a hand filling in a form"
+        },
+        "conceptSecurity": {
+          "title": "Staff phishing drill",
+          "body": "A safe test email shows who would click, then a ten-minute lesson for those who did. A concept, ready to run.",
+          "link": "Ask about security",
+          "alt": "A concept report of a staff phishing drill: 12 test emails, 9 reported, 2 clicked, over an AI-made photo of an office manager at a laptop"
+        }
+      },
+      "conceptNote": "In the concepts, the screen is our design with sample data, and the photo behind it was made with AI."
+    }
   },
   "services": {
     "title": "What we do.",
@@ -708,7 +956,7 @@
     "description": "BIS builds its own CRM for Rio Grande Valley businesses and the IT behind it — AI adoption, security, modern web. Bilingual, one point of contact.",
     "notFound": "Page not found",
     "notFoundCta": "Back home",
-    "homeDescription": "A CRM built for Rio Grande Valley businesses — calls, leads, bookings and Monday’s numbers in one place, EN/ES — and the IT team behind it.",
+    "homeDescription": "AI solutions, IT consulting, custom applications, websites and cybersecurity for Rio Grande Valley businesses, from one bilingual team in Harlingen.",
     "servicesTitle": "Services — AI, IT Security & Web Design",
     "servicesDescription": "AI and automation, IT and security, and bilingual websites for Rio Grande Valley businesses — one point of contact, backed by the BIS Platform.",
     "industriesTitle": "Industries — Built for the Valley",

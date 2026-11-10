@@ -14,5 +14,5 @@ test('how-we-work page renders localized heading (ES)', async ({ page }) => {
 
 test('footer links to how-we-work', async ({ page }) => {
   await page.goto('/en');
-  await expect(page.getByRole('link', { name: /How We Work/i })).toBeVisible();
+  await expect(page.locator('footer').getByRole('link', { name: /How We Work/i })).toBeVisible();
 });

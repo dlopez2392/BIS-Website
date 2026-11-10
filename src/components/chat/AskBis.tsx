@@ -138,9 +138,13 @@ function AskBisPanel() {
   useEffect(() => {
     const hero = document.getElementById('hero');
     if (!hero || typeof IntersectionObserver === 'undefined') return;
+    // "Over the hero" is measured where the launcher sits: the lower half of
+    // the screen. A share of the hero's own height (it was 35%) stopped
+    // working the day the hero grew taller than two phone screens, because
+    // that share could no longer be on screen at once.
     const io = new IntersectionObserver(([en]) => {
       setCompact(en.isIntersecting && window.innerWidth < 760);
-    }, { threshold: 0.35 });
+    }, { threshold: 0, rootMargin: '-50% 0px 0px 0px' });
     io.observe(hero);
     return () => { io.disconnect(); setCompact(false); };
   }, [pathname]);
