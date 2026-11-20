@@ -44,7 +44,7 @@ test('the hero panel opens on the live call and switches to a still example per 
 test('every example says whether it is live, a client, a demo or a concept, and the filter narrows them', async ({ page }) => {
   await page.goto('/en');
   const cards = page.locator('[data-work-examples] > li');
-  await expect(cards).toHaveCount(13);
+  await expect(cards).toHaveCount(12);
   for (const card of await cards.all()) {
     await expect(card.locator('.hm-stat')).toHaveText(/^(Live|Client|Demo|Concept)$/);
     expect((await card.locator('img').getAttribute('alt'))?.length ?? 0).toBeGreaterThan(20);
@@ -68,8 +68,8 @@ test('every example says whether it is live, a client, a demo or a concept, and 
   await expect(live).toHaveAttribute('target', '_blank');
 
   await page.getByRole('group', { name: 'Show work by area' }).getByRole('button', { name: 'Cybersecurity' }).click();
-  await expect(cards).toHaveCount(2);
-  await expect(cards.first()).toContainText('Free security check');
+  await expect(cards).toHaveCount(1);
+  await expect(cards.first()).toContainText('Staff phishing drill');
 });
 
 test('the Spanish page carries the same five areas, in usted', async ({ page }) => {
@@ -78,5 +78,5 @@ test('the Spanish page carries the same five areas, in usted', async ({ page }) 
     ['Soluciones de IA', 'Consultoría de TI', 'Desarrollo de aplicaciones', 'Sitios web', 'Ciberseguridad']);
   await page.getByRole('tab', { name: 'TI', exact: true }).click();
   await expect(page.getByRole('tabpanel')).toContainText('Pasan a su nombre');
-  await expect(page.locator('[data-work-examples] > li')).toHaveCount(13);
+  await expect(page.locator('[data-work-examples] > li')).toHaveCount(12);
 });

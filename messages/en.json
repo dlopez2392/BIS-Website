@@ -340,12 +340,6 @@
           "link": "Open the demo",
           "alt": "The Sunroom demo site: a childcare studio’s home page with an “Ask Sunroom” assistant"
         },
-        "securityCheck": {
-          "title": "Free security check",
-          "body": "Type a web address and see whether your email can be faked and what to fix first.",
-          "link": "Run the check",
-          "alt": "The free website and email security check on this site"
-        },
         "conceptIt": {
           "title": "IT health report",
           "body": "What a first-week report looks like: every account, backup and device on one page. Sample data.",

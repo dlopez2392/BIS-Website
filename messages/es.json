@@ -340,12 +340,6 @@
           "link": "Abrir la demo",
           "alt": "El sitio de demostración Sunroom: la página principal de una guardería con un asistente “Ask Sunroom”"
         },
-        "securityCheck": {
-          "title": "Revisión de seguridad gratuita",
-          "body": "Escriba una dirección web y vea si su correo se puede falsificar y qué arreglar primero.",
-          "link": "Hacer la revisión",
-          "alt": "La revisión gratuita de seguridad de sitio web y correo de este sitio"
-        },
         "conceptIt": {
           "title": "Reporte de salud de TI",
           "body": "Cómo se ve un reporte de la primera semana: cada cuenta, respaldo y equipo en una página. Datos de muestra.",
