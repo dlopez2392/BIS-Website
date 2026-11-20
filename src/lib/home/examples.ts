@@ -44,7 +44,7 @@ export function workExamples(locale: string): WorkExample[] {
     { id: 'prism', area: 'apps', status: 'live', src: '/work/prism/overview-desktop-dark.1.webp', width: 1600, height: 1000, href: PRISM_URL, external: true },
     { id: 'woodworks', area: 'web', status: 'client', src: ex('woodworks-956'), ...EX, href: 'https://956woodworks.com', external: true },
     { id: 'rlc', area: 'web', status: 'client', src: ex('rlc-lumber'), ...EX, href: 'https://rlclumber.com', external: true },
-    { id: 'securityCheck', area: 'security', status: 'live', src: ex('security-check'), ...EX, href: '/tools/security-check' },
+    { id: 'valdarno', area: 'web', status: 'demo', src: ex('valdarno-demo'), ...EX, href: 'https://valdarno-concept.vercel.app', external: true },
     { id: 'vela', area: 'web', status: 'demo', src: ex('vela-ortiz-demo'), ...EX, href: 'https://vela-ortiz-demo.vercel.app', external: true },
     { id: 'sunroom', area: 'ai', status: 'demo', src: ex('sunroom-demo'), ...EX, href: 'https://sunroom-childcare-demo.vercel.app', external: true },
     { id: 'conceptIt', area: 'it', status: 'concept', src: ex('concept-it-report', 2), ...EX, href: '/contact' },

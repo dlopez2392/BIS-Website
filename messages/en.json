@@ -322,6 +322,12 @@
           "link": "Visit the site",
           "alt": "The RLC Lumber home page: “We bring the sawmill to your logs”, with milling prices"
         },
+        "valdarno": {
+          "title": "Valdarno",
+          "body": "A watchmaker’s site with a 3D watch you can take apart and configure in the browser. The brand is fictional, and the site says so.",
+          "link": "Open the demo",
+          "alt": "The Valdarno demo site: a watch shown in exploded view, part by part, over a draughtsman’s drawing"
+        },
         "vela": {
           "title": "Vela & Ortiz",
           "body": "A bilingual law-firm site built to show what is possible. The firm is fictional, and the site says so.",
@@ -333,12 +339,6 @@
           "body": "A bilingual childcare site with its own AI assistant. The business is fictional, and the site says so.",
           "link": "Open the demo",
           "alt": "The Sunroom demo site: a childcare studio’s home page with an “Ask Sunroom” assistant"
-        },
-        "securityCheck": {
-          "title": "Free security check",
-          "body": "Type a web address and see whether your email can be faked and what to fix first.",
-          "link": "Run the check",
-          "alt": "The free website and email security check on this site"
         },
         "conceptIt": {
           "title": "IT health report",

@@ -322,6 +322,12 @@
           "link": "Visitar el sitio",
           "alt": "La página principal de RLC Lumber: “We bring the sawmill to your logs”, con precios de aserrado"
         },
+        "valdarno": {
+          "title": "Valdarno",
+          "body": "El sitio de una casa relojera, con un reloj en 3D que se puede desarmar y configurar en el navegador. La marca es ficticia, y el sitio lo dice. Está en inglés.",
+          "link": "Abrir la demo",
+          "alt": "El sitio de demostración Valdarno: un reloj en vista explosionada, pieza por pieza, sobre un dibujo técnico"
+        },
         "vela": {
           "title": "Vela & Ortiz",
           "body": "Un sitio bilingüe de un despacho de abogados, hecho para mostrar lo que es posible. El despacho es ficticio, y el sitio lo dice.",
@@ -333,12 +339,6 @@
           "body": "Un sitio bilingüe de una guardería, con su propio asistente de IA. El negocio es ficticio, y el sitio lo dice.",
           "link": "Abrir la demo",
           "alt": "El sitio de demostración Sunroom: la página principal de una guardería con un asistente “Ask Sunroom”"
-        },
-        "securityCheck": {
-          "title": "Revisión de seguridad gratuita",
-          "body": "Escriba una dirección web y vea si su correo se puede falsificar y qué arreglar primero.",
-          "link": "Hacer la revisión",
-          "alt": "La revisión gratuita de seguridad de sitio web y correo de este sitio"
         },
         "conceptIt": {
           "title": "Reporte de salud de TI",

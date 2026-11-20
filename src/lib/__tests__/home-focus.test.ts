@@ -76,7 +76,7 @@ describe('the home page’s work examples', () => {
       }
       if (x.status === 'demo') {
         expect(en, x.id).toMatch(/fictional/);
-        expect(es, x.id).toMatch(/ficticio/);
+        expect(es, x.id).toMatch(/fictici[oa]/);
       }
       // "Client" is a claim about a real business: only the two the owner
       // confirmed (2026-11-10), each said to be a client and linking to its site.

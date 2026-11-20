@@ -55,6 +55,11 @@ test('every example says whether it is live, a client, a demo or a concept, and 
   await expect(concept.getByRole('link')).toHaveAttribute('href', '/en/contact');
   // How a concept's picture was made is said under the cards.
   await expect(page.locator('[data-concept-note]')).toContainText('made with AI');
+  // A demo is a full site for a business that does not exist, and its card says so.
+  const demo = page.locator('[data-example="valdarno"]');
+  await expect(demo).toHaveAttribute('data-status', 'demo');
+  await expect(demo).toContainText('fictional');
+  await expect(demo.getByRole('link')).toHaveAttribute('href', 'https://valdarno-concept.vercel.app');
   // A client's site is named as one, and opens in a new tab.
   await expect(page.locator('[data-example="woodworks"] .hm-stat')).toHaveText('Client');
   await expect(page.locator('[data-example="rlc"]')).toHaveAttribute('data-status', 'client');
@@ -63,8 +68,8 @@ test('every example says whether it is live, a client, a demo or a concept, and 
   await expect(live).toHaveAttribute('target', '_blank');
 
   await page.getByRole('group', { name: 'Show work by area' }).getByRole('button', { name: 'Cybersecurity' }).click();
-  await expect(cards).toHaveCount(2);
-  await expect(cards.first()).toContainText('Free security check');
+  await expect(cards).toHaveCount(1);
+  await expect(cards.first()).toContainText('Staff phishing drill');
 });
 
 test('the Spanish page carries the same five areas, in usted', async ({ page }) => {
