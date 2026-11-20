@@ -44,7 +44,7 @@ test('the hero panel opens on the live call and switches to a still example per 
 test('every example says whether it is live, a client, a demo or a concept, and the filter narrows them', async ({ page }) => {
   await page.goto('/en');
   const cards = page.locator('[data-work-examples] > li');
-  await expect(cards).toHaveCount(12);
+  await expect(cards).toHaveCount(13);
   for (const card of await cards.all()) {
     await expect(card.locator('.hm-stat')).toHaveText(/^(Live|Client|Demo|Concept)$/);
     expect((await card.locator('img').getAttribute('alt'))?.length ?? 0).toBeGreaterThan(20);
@@ -55,6 +55,11 @@ test('every example says whether it is live, a client, a demo or a concept, and 
   await expect(concept.getByRole('link')).toHaveAttribute('href', '/en/contact');
   // How a concept's picture was made is said under the cards.
   await expect(page.locator('[data-concept-note]')).toContainText('made with AI');
+  // A demo is a full site for a business that does not exist, and its card says so.
+  const demo = page.locator('[data-example="valdarno"]');
+  await expect(demo).toHaveAttribute('data-status', 'demo');
+  await expect(demo).toContainText('fictional');
+  await expect(demo.getByRole('link')).toHaveAttribute('href', 'https://valdarno-concept.vercel.app');
   // A client's site is named as one, and opens in a new tab.
   await expect(page.locator('[data-example="woodworks"] .hm-stat')).toHaveText('Client');
   await expect(page.locator('[data-example="rlc"]')).toHaveAttribute('data-status', 'client');
@@ -73,5 +78,5 @@ test('the Spanish page carries the same five areas, in usted', async ({ page }) 
     ['Soluciones de IA', 'Consultoría de TI', 'Desarrollo de aplicaciones', 'Sitios web', 'Ciberseguridad']);
   await page.getByRole('tab', { name: 'TI', exact: true }).click();
   await expect(page.getByRole('tabpanel')).toContainText('Pasan a su nombre');
-  await expect(page.locator('[data-work-examples] > li')).toHaveCount(12);
+  await expect(page.locator('[data-work-examples] > li')).toHaveCount(13);
 });

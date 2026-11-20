@@ -322,6 +322,12 @@
           "link": "Visitar el sitio",
           "alt": "La página principal de RLC Lumber: “We bring the sawmill to your logs”, con precios de aserrado"
         },
+        "valdarno": {
+          "title": "Valdarno",
+          "body": "El sitio de una casa relojera, con un reloj en 3D que se puede desarmar y configurar en el navegador. La marca es ficticia, y el sitio lo dice. Está en inglés.",
+          "link": "Abrir la demo",
+          "alt": "El sitio de demostración Valdarno: un reloj en vista explosionada, pieza por pieza, sobre un dibujo técnico"
+        },
         "vela": {
           "title": "Vela & Ortiz",
           "body": "Un sitio bilingüe de un despacho de abogados, hecho para mostrar lo que es posible. El despacho es ficticio, y el sitio lo dice.",
